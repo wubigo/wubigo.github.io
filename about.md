@@ -6,13 +6,12 @@ title: RESUME
 
 
 ---
-title: 'Wu Bigo'
-website: http://wubigo.com
-street: Guan'Zhuang Chao'yang Distrct
-city: Beijing
-phone: +86 15652559334
-email: wubigo@gmail.com
-date: 22 November 2016
+<p><center>title: 'Wu Bigo'</center><p>
+<p><center>website: http://wubigo.com</center>
+<p><center>street: Guan'Zhuang Chao'yang Distrct</center>
+<p><center>city: Beijing</center>
+<p><center>email: wubigo@gmail.com</center>
+<p><center>date: 22 November 2016</center>
 ...
 
 ### Personal summary
@@ -49,7 +48,6 @@ date: 22 November 2016
 > In this role I...Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-\newpage
 
 ### Publications
 
