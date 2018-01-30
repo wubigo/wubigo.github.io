@@ -1,8 +1,15 @@
+---
+layout: post
+title: doing_on_ubuntu
+date: 2014-05-03
+tag: Iaas
+---
+
 # TZ
 ```sh
 $ export TZ=:/etc/localtime
 
-locale 
+locale
  /etc/environment:
 LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
@@ -10,8 +17,8 @@ LANG=en_US.UTF-8
 
 1: set TZ=:/etc/localtime
                 https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
-                
-# mysql utf8 
+
+# mysql utf8
 
 For the recent version of MySQL,
 
@@ -41,9 +48,9 @@ conf/Catalina/localhost/ROOT.xml
   docBase="/opt/etender"
   path=""
 />
- 
- 
- 
+
+
+
 
 $TOMCAT_HOME/conf/server.xml
        <!--   
@@ -73,11 +80,11 @@ tail -f /var/lib/mysql/mysql.log
 
 # Optimize Your Tomcat Installation on Ubuntu 14.04
 
-hange JVM Heap Setting (-Xms -Xmx) of Tomcat – Configure setenv.sh file 
+hange JVM Heap Setting (-Xms -Xmx) of Tomcat – Configure setenv.sh file
 
 default no setenv.sh file under /bin directory. Have to create one with below parameters.
 
-Xms=Xmx=1/2RAM( avoid having the costly memory allocation process running because the size of 
+Xms=Xmx=1/2RAM( avoid having the costly memory allocation process running because the size of
                 the allocated memory will be constant all the time)
 MaxPermSize=1/2mx
 
@@ -137,7 +144,7 @@ description "Tomcat Server"
   post-stop script
     rm -rf $CATALINA_HOME/temp/*
   end script
-  
+
   sudo initctl reload-configuration
 Tomcat is ready to be run. Start it with this command:
 sudo initctl start tomcat
@@ -179,13 +186,13 @@ http {
 }
 
 solution 2 : config tomcat
-maxSwallowSize	     The maximum number of request body bytes (excluding transfer encoding overhead) that will be 
+maxSwallowSize	     The maximum number of request body bytes (excluding transfer encoding overhead) that will be
                      swallowed by Tomcat for an aborted upload. An aborted upload is when Tomcat knows that
 		     the request body is going to be ignored but the client still sends it.
-		     If Tomcat does not swallow the body the client is unlikely to see the response. 
-		     If not specified the default of 2097152 (2 megabytes) will be used. 
+		     If Tomcat does not swallow the body the client is unlikely to see the response.
+		     If not specified the default of 2097152 (2 megabytes) will be used.
 		     A value of less than zero indicates that no limit should be enforced.
-		     
+
 # MySql - changing innodb_file_per_table for a live db
 solution 1:
 mysql>set global innodb_file_per_table = 1 (set value to on doesn't effect for mysql 5.5 )
@@ -207,7 +214,7 @@ mysql>set global innodb_file_per_table = 1 (set value to on doesn't effect for m
 
     /etc/nginx/nginx.conf
     server_tokens off;
-    
+
  # 跨域的常见解决方法
    目前来讲没有不依靠服务器端来跨域请求资源的技术
 　　1.jsonp 需要目标服务器配合一个callback函数。
@@ -216,7 +223,7 @@ mysql>set global innodb_file_per_table = 1 (set value to on doesn't effect for m
 　　4.html5的 postMessage+ifrme 这个也是需要目标服务器或者说是目标页面写一个postMessage，主要侧重于前端通讯。
 　　5.CORS 需要服务器设置header ：Access-Control-Allow-Origin。
 　　6.nginx反向代理 这个方法一般很少有人提及，但是他可以不用目标服务器配合，不过需要你搭建一个中转nginx服务器，用于转发请求。   
-    
+
     location / {
             #alias D:\\develop\\project1dir\\appDist\\;  #此文件夹可以是项目打包后的上线代码文件，也可以是第二个项目源代码文件
             # Frontend Server
@@ -228,12 +235,9 @@ mysql>set global innodb_file_per_table = 1 (set value to on doesn't effect for m
             # API Server
             proxy_pass http://serverB.com;  #将真正的请求代理到serverB,即真实的服务器地址，ajax的url为/api/user/1的请求将会访问http://www.serverB.com/user/1
         }
-	
-#  update time
-```	
-	sudo ntpdate ntp.ubuntu.com
-```	
-        https://help.ubuntu.com/lts/serverguide/NTP.html	
-	
 
- 
+#  update time
+```
+	sudo ntpdate ntp.ubuntu.com
+```
+        https://help.ubuntu.com/lts/serverguide/NTP.html

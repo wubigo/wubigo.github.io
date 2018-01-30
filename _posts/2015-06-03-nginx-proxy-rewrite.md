@@ -1,3 +1,10 @@
+---
+layout: post
+title: nginx-proxy-rewrite
+date: 2015-07-03
+tag: Iaas
+---
+
 # NGINX 1.12 ON UBUNTU 16
 [https://launchpad.net/~nginx/+archive/ubuntu/stable](https://launchpad.net/~nginx/+archive/ubuntu/stable)
 
@@ -69,7 +76,7 @@ server {
     location / {
         proxy_pass http://127.0.0.1:8080;
     }
-    
+
     location /blog {
         proxy_pass http://127.0.0.1:8181;
     }
@@ -105,7 +112,7 @@ server {
     location / {
         proxy_pass http://127.0.0.1:8080;
     }
-    
+
     location /blog {
         rewrite ^/blog(.*) /$1 break;
         proxy_pass http://127.0.0.1:8181;
