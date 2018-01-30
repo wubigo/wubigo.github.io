@@ -1,6 +1,6 @@
 ---
 layout: post
-title: API design
+title: API_design
 date: 2013-01-03
 tag: design
 ---
