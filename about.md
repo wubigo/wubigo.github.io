@@ -6,7 +6,11 @@ title: RESUME
 
 
 ---
-<p align="center">title: 'Wu Bigo'</p>
+<p align="center">Title: 'Wu Bigo'</p>
+<p align="center">Website: http://wubigo.com</p>
+<p align="center">Guan'Zhuang Chao'yang District</p>
+<p align="center">City: Beijing</p>
+<p align="center"Eemail: wubigo@gmail.com</p>
 
 ...
 
