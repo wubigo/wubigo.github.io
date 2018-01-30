@@ -6,12 +6,8 @@ title: RESUME
 
 
 ---
-<p><center>title: 'Wu Bigo'</center><p>
-<p><center>website: http://wubigo.com</center>
-<p><center>street: Guan'Zhuang Chao'yang Distrct</center>
-<p><center>city: Beijing</center>
-<p><center>email: wubigo@gmail.com</center>
-<p><center>date: 22 November 2016</center>
+<p align="center">title: 'Wu Bigo'</p>
+
 ...
 
 ### Personal summary
