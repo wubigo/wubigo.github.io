@@ -16,12 +16,12 @@ title: RESUME
 ### Personal summary
 
 >
-1)More than 10 years experience of developing application in Java , Scala and python
-2)6 years public cloud development  and migration On-Premises business to hybrid cloud
-3)Rich experience with ALIYUN and AWS, application transform to cloud in healthcare and telecommunication industry
-4)Skilled at large scaled container based cluster platform like kubernetes
-5)Leading a big data system design for 20PB storage since late last year
-6) Many years engineering manage experience of large scale software project
+1. More than 10 years experience of developing application in Java , Scala and python
+2. 6 years public cloud development  and migration On-Premises business to hybrid cloud
+3. Rich experience with ALIYUN and AWS, application transform to cloud in healthcare and telecommunication industry
+4. Skilled at large scaled container based cluster platform like kubernetes
+5. Leading a big data system design for 20PB storage since late last year
+6. Many years engineering manage experience of large scale software project
 .
 
 
