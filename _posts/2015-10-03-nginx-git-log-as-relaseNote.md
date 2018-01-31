@@ -57,32 +57,19 @@ text/markdown                         md;
 # use template with StrapDown.js torender Markdown as html
 
 ```
-
-
-
-<!DOCTYPE html>
-<html>
-<title>etender release</title>
-
-<xmp theme="united" style="display:none;">
-
-# Etender release note from Git Changelog
-
-[etender](http://etender.io)
-
-Git Changelog.
-
-{{#commits}}
-## {{authorName}} - {{commitTime}}
-[{{hashFull}}](https://etender.io/{{hash}})
-
-{{{message}}}
-
-{{/commits}}
-
-
-</xmp>
-
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-</html>
+			<!DOCTYPE html>
+			<html>
+			<title>etender release</title>
+			<xmp theme="united" style="display:none;">
+			# Etender release note from Git Changelog
+			[etender](http://etender.io)
+			Git Changelog.
+			{{#commits}}
+			## {{authorName}} - {{commitTime}}
+			[{{hashFull}}](https://etender.io/{{hash}})
+			{{{message}}}
+			{{/commits}}
+			</xmp>
+			<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+			</html>
 ```
