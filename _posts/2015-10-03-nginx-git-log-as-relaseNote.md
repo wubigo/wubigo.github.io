@@ -1,3 +1,10 @@
+---
+layout: post
+title: Git log as release note
+date: 2015-10-03
+tag: CI
+---
+
 # git-changelog-maven-plugin
 ```
 <plugin>
@@ -15,8 +22,8 @@
 		              <!-- A file on filesystem //-->
 		              <file>CHANGELOG.md</file>
 		              <toRef>HEAD</toRef>
-		
-		              
+
+
 		            </configuration>
 		          </execution>
 		        </executions>
@@ -36,7 +43,7 @@ mvn compile
 
 # upload the CHANGELOG.md to nginx as a release not
 
-# config nginx support browser MD 
+# config nginx support browser MD
 ```
 mime.types
 
@@ -49,7 +56,7 @@ text/markdown                         md;
 
 # use template with StrapDown.js torender Markdown as html
 
-``` 
+```
 
 
 
@@ -59,7 +66,7 @@ text/markdown                         md;
 
 <xmp theme="united" style="display:none;">
 
-# Etender release note from Git Changelog 
+# Etender release note from Git Changelog
 
 [etender](http://etender.io)
 
