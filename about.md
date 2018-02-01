@@ -54,23 +54,3 @@ Hpcloud.com Is a transparent, enterprise-grade public cloud based on OpenStack t
 
 > Role: Software engineer.
 > Achievement: ERP sofreare development
-
-
-
-### Publications
-
-- YYYY: Name et al. Article title. Journal name. Link/DOI
-
-
-### Memberships and committees
-
-- YYYY: Name of committee/society etc.
-
-### Awards and supporting information
-
-- YYYY: Description of award, certificate, supporting info etc.
-
-
-### References
-
-Available on request.
