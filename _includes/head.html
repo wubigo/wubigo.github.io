@@ -31,18 +31,6 @@
   async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
   </script>
 
-<!-- 百度统计 -->
-  {% if site.baidu.id %}
-  <script>
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?{{site.baidu.id}}";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-  </script>
-  {% endif %}
 
 <!-- google 统计 -->
   {% if site.ga.id %}
@@ -56,12 +44,29 @@
   </script>
   {% endif %}
 
-  
+
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-9005224472374751",
     enable_page_level_ads: true
   });
 </script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wa.etender.io/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '6']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+
 
 </head>
