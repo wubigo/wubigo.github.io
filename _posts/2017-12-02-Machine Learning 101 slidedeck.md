@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Machine Learning 101 slidedeck
-date: 2012-12-02
+date: 2017-12-02
 tag: DL
 ---
 
