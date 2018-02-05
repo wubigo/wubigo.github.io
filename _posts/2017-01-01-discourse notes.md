@@ -12,5 +12,14 @@ tag: tools
 $cp samples/standalone.yml containers/app.yml
 ```
 
+Discourse app.yml AWS setup example
 
- [https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859](https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859)
+[Discourse app.yml AWS setup](https://gist.github.com/stroupaloop/7fa3cab406423da02d02)
+
+ [how-to-specify-a-different-port-not-80-during-install](https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859)
+
+  fix these settings after bootstrapping, edit the /containers/app.yml
+  then rebuild to take effect
+```
+./launcher rebuild app
+```
