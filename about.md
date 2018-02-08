@@ -34,14 +34,7 @@ title: RESUME
 
 ### Employment
 
-- 2016: Beijing Genomics Institute
-
-> Role: Engineering director
-> Report: 90.
-> Achievement:
-
-
-- 2005: Hewlett Packard Enterprise
+- Feb 2005 - Today : Hewlett Packard Enterprise
 
 > Role: ManagerII
 > Report: 50
