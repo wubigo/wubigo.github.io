@@ -39,16 +39,16 @@ title: RESUME
 > Role: Engineering director
 > Report: 90.
 > Achievement:
-1. mova a big data on premise genomic application into hybrid cloud deployment
 
-2. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch , Content Deliveryand Artificial Intelligenc
 
-- 2007: Hewlett Packard Enterprise
+- 2005: Hewlett Packard Enterprise
 
 > Role: ManagerII
 > Report: 50
 > Achievement:
-Hpcloud.com Is a transparent, enterprise-grade public cloud based on OpenStack technology.
+1. Public cloud(HP Helion) development: Helion Is a transparent, enterprise-grade public cloud based on OpenStack technology.
+2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
+3. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch , Content Deliveryand Artificial Intelligenc
 
 - 2003: CA CHINA software, Company
 

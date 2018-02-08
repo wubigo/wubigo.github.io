@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Hacknews favorites 2017
-date: 2018-01-01
-tag: DL
+date: 2017-01-01
+tag: NEWS
 ---
 
 # Let's Encrypt now holds 35% of the market
