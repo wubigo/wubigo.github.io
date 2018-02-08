@@ -5,22 +5,36 @@ date: 2011-06-03
 tag: Iaas
 ---
 
-# pkstat
+# dstat
+```
+$dstat -d -nt
 
+$dstat -nt
+$dstat -N eth2,eth3
+```
+
+# pkstat
+```
 sudo apt-get install pktstat
 sudo pktstat -i eth0 -nt
+```
 
-# dstat
-dstat -nt
-dstat -N eth2,eth3
 
 # nethogs
+```
 sudo apt-get install nethogs
 sudo nethogs
+```
+
+# EPEL
+
 [http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/](http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/)
+
+```
 $ cd /tmp
 $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 # rpm -ivh epel-release-6-8.noarch.rpm
+```
 How do I use EPEL repo?
 
 Simply use the yum commands to search or install packages from EPEL repo:
