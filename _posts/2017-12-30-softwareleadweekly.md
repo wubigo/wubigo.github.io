@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Books I read this year
+title: software lead weekly
 date: 2017-12-30
-tag: DL
+tag: management
 ---
 
-# Gone with the Wind
-[https://www.amazon.com/Gone-Wind-Margaret-Mitchell](https://www.amazon.com/Gone-Wind-Margaret-Mitchell)
+# Share your Manager README
+[https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/](https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/)
 
 # Deep Learning with Python
 [https://www.manning.com/books/deep-learning-with-python](https://www.manning.com/books/deep-learning-with-python)
