@@ -5,6 +5,13 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# Uber and Waymo Reach Settlement
+[https://www.uber.com/newsroom/uber-waymo-settlement/](https://www.uber.com/newsroom/uber-waymo-settlement/)
+
+# Postmortem of Service Outage at 3.4M Concurrent Users
+[https://www.epicgames.com/fortnite/en-US/news/postmortem-of-service-outage-at-3-4m-ccu](https://www.epicgames.com/fortnite/en-US/news/postmortem-of-service-outage-at-3-4m-ccu)
+
+
 # Perspective: Streaming pivot visualization via WebAssembly
 [https://github.com/jpmorganchase/perspective](https://github.com/jpmorganchase/perspective)
 
