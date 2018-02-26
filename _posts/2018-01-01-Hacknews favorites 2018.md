@@ -20,3 +20,6 @@ tag: NEWS
 
 # A reimplementation of Winamp 2.9 in HTML5 and Javascript
 [https://github.com/captbaritone/winamp2-js](https://github.com/captbaritone/winamp2-js)
+
+# What I Learned Burning $14k on YouTube Ads for Candy Japan
+[https://www.candyjapan.com/behind-the-scenes/what-i-learned-advertising-on-youtube](https://www.candyjapan.com/behind-the-scenes/what-i-learned-advertising-on-youtube)
