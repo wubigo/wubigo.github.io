@@ -5,6 +5,12 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# The Makefile I use with JavaScript projects
+[http://www.olioapps.com/blog/the-lost-art-of-the-makefile/](http://www.olioapps.com/blog/the-lost-art-of-the-makefile/)
+
+# How GDPR Will Change The Way You Develop
+[https://www.smashingmagazine.com/2018/02/gdpr-for-web-developers/](https://www.smashingmagazine.com/2018/02/gdpr-for-web-developers/)
+
 # Uber and Waymo Reach Settlement
 [https://www.uber.com/newsroom/uber-waymo-settlement/](https://www.uber.com/newsroom/uber-waymo-settlement/)
 
