@@ -47,4 +47,4 @@ for commerical or open soucre projects
 - 2003: CA CHINA software, Company
 
 > Role: Software engineer.
-> Achievement: ERP sofreare development
+> Achievement: ERP software ES1
