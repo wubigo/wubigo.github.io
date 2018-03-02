@@ -42,7 +42,7 @@ for commerical or open soucre projects
 > Achievement:
 1. Public cloud(HP Helion) development: Helion Is a transparent, enterprise-grade public cloud based on OpenStack technology.
 2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
-3. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch , Content Deliveryand Artificial Intelligenc
+3. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch and Content Delivery
 
 - 2003: CA CHINA software, Company
 
