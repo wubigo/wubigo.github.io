@@ -34,8 +34,16 @@ for commerical or open soucre projects
 - Basic: CSS, Stata, Linux, C etc
 
 ### Employment
+- Feb 2016 - Today : Beijing Genomics Institute
 
-- Feb 2005 - Today : Hewlett Packard Enterprise
+> Role: IT DEPT DIRECTOR
+> Report: 120
+> Achievement:
+1. IT infrastructure planning including multi-span data center
+2. Create the next generation of infrastructure for build, test, release and monitoring, focusing on developer productivity and product quality
+3. Define team strategy, roadmap and execution
+
+- Feb 2007 - Jan 2016 : Hewlett Packard Enterprise
 
 > Role: ManagerII
 > Report: 50
