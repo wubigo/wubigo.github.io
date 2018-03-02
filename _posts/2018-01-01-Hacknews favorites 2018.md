@@ -5,6 +5,9 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# Machine Learning Crash Course
+[https://developers.google.com/machine-learning/crash-course/](https://developers.google.com/machine-learning/crash-course/)
+
 # The Makefile I use with JavaScript projects
 [http://www.olioapps.com/blog/the-lost-art-of-the-makefile/](http://www.olioapps.com/blog/the-lost-art-of-the-makefile/)
 
