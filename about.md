@@ -46,7 +46,7 @@ for commerical or open soucre projects
 - Feb 2007 - Jan 2016 : Hewlett Packard Enterprise
 
 > Role: ManagerII
-> Report: 50
+> Report: 80
 > Achievement:
 1. Public cloud(HP Helion) development: Helion Is a transparent, enterprise-grade public cloud based on OpenStack technology.
 2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
