@@ -36,23 +36,23 @@ for commerical or open soucre projects
 ### Employment
 - Feb 2016 - Today : Beijing Genomics Institute
 
-> Role: IT DEPT DIRECTOR
-> Report: 120
-> Achievement:
+- > Role: IT DEPT DIRECTOR
+- > Report: 120
+- > Achievement:
 1. IT infrastructure planning including multi-span data center
 2. Create the next generation of infrastructure for build, test, release and monitoring, focusing on developer productivity and product quality
 3. Define team strategy, roadmap and execution
 
 - Feb 2007 - Jan 2016 : Hewlett Packard Enterprise
 
-> Role: ManagerII
-> Report: 80
-> Achievement:
+- > Role: ManagerII
+- > Report: 80
+- > Achievement:
 1. Public cloud(HP Helion) development: Helion Is a transparent, enterprise-grade public cloud based on OpenStack technology.
 2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
 3. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch and Content Delivery
 
 - 2003: CA CHINA software, Company
 
-> Role: Software engineer.
-> Achievement: ERP software ES1
+- > Role: Software engineer.
+- > Achievement: ERP software ES1
