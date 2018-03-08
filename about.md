@@ -16,14 +16,14 @@ title: RESUME
 ### Personal summary
 
 >
-1. More than 10 years experience of developing  distributed system in Java , Scala and python
-for commerical or open soucre projects
-2. 6 years public cloud development  and helped multiple clients migration On-Premises business to hybrid cloud
+1. More than 10 years’ experience of developing  distributed system in Java , Scala and python
+for commercial or open source projects
+2. 6 years public cloud development experience and helped multiple clients migrating On-Premises business to hybrid cloud
 3. Rich experience with ALIYUN and AWS, application transform to cloud in healthcare and telecommunication industry
-4. Skilled at large scaled container based cluster platform like kubernetes
-5. Leading a big data system design for 20PB storage since late last year
+4. Skilled at large scaled container based cluster platform like kubernetes and spring cloud
+5. Leading a big data system design for 40PB storage since late last year
 6. Many years engineering manage experience of large scale software projects
-.
+
 
 
 ### Technical
@@ -52,7 +52,7 @@ for commerical or open soucre projects
 2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
 3. develop public cloud service such as Monitoring , Containing, Batch, Database, Migration, Elasticsearch and Content Delivery
 
-- 2003: CA CHINA software, Company
+- Apr 2003 - Jan 2007: CA CHINA software, Company
 
 - > Role: Software engineer.
 - > Achievement: ERP software ES1
