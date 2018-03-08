@@ -5,6 +5,9 @@ date: 2017-12-30
 tag: management
 ---
 
+# Progressing from tech to leadership
+[https://lcamtuf.blogspot.hk/2018/02/on-leadership.html](https://lcamtuf.blogspot.hk/2018/02/on-leadership.html)
+
 # Share your Manager README
 [https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/](https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/)
 
