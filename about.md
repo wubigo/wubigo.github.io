@@ -6,12 +6,12 @@ title: RESUME
 
 
 ---
-<p align="center">Title: 'Wu Bigo'</p>
+<p align="center">Title: Wu Bigo</p>
 <p align="center">Addr: Guan'Zhuang Chao'yang District</p>
 <p align="center">City: Beijing</p>
 <p align="center">Email: wubigo@gmail.com</p>
 
-...
+
 
 ### Personal summary
 
