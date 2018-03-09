@@ -1,3 +1,11 @@
+---
+layout: post
+title: ghost notes
+date: 2016-12-30
+tag: tools
+---
+
+
 # Adding swap memory
 If your system has less than 1GB memory, you may run into errors. To overcome this, configure a larger amount of swap memory:
 
