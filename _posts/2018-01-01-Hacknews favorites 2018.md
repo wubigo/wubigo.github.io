@@ -4,6 +4,8 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+# Keybase is now supported by the Stellar Development Foundation
+[https://keybase.io/blog/keybase-stellar](https://keybase.io/blog/keybase-stellar)
 
 # Machine Learning Crash Course
 [https://developers.google.com/machine-learning/crash-course/](https://developers.google.com/machine-learning/crash-course/)

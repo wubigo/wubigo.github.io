@@ -5,6 +5,20 @@ date: 2017-01-03
 tag: DeepLearning
 ---
 
+# Early neural networks
+Although the core ideas of neural networks were investigated in toy
+forms as early as the 1950s, the approach took decades to really get started. For a long
+time, the missing piece was a lack of an efficient way to train large neural networks. This
+changed in the mid-1980s, as multiple people independently rediscovered the
+"backpropagation" algorithm, a way to train chains of parametric operations using
+gradient descent optimization (later in the book, we will go on to precisely define these
+concepts), and started applying it to neural networks.
+The first successful practical application of neural nets came in 1989 from Bell Labs,
+when Yann LeCun combined together the earlier ideas of convolutional neural networks
+and backpropagation, and applied them to the problem of handwritten digits
+classification. The resulting network, dubbed "LeNet", was used by the US Post Office in
+the 1990s to automate the reading of ZIP codes on mail envelopes
+
 # 逻辑回归(Logistic regression)
 Logistic regression is a statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome. The outcome is measured with a dichotomous variable (in which there are only two possible outcomes).
 
