@@ -4,6 +4,10 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+
+# PIXAR’S 22 RULES OF STORYTELLING
+[https://www.aerogrammestudio.com/2013/03/07/pixars-22-rules-of-storytelling/](https://www.aerogrammestudio.com/2013/03/07/pixars-22-rules-of-storytelling/)
+
 # Keybase is now supported by the Stellar Development Foundation
 [https://keybase.io/blog/keybase-stellar](https://keybase.io/blog/keybase-stellar)
 
