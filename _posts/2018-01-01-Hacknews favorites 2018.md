@@ -5,6 +5,9 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# ACME v2 and Wildcard Certificate Support is Live
+[https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live](https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live)
+
 # PIXAR’S 22 RULES OF STORYTELLING
 [https://www.aerogrammestudio.com/2013/03/07/pixars-22-rules-of-storytelling/](https://www.aerogrammestudio.com/2013/03/07/pixars-22-rules-of-storytelling/)
 

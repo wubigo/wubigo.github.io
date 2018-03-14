@@ -5,6 +5,11 @@ date: 2017-12-30
 tag: management
 ---
 
+
+# why your programmers just want to code
+[https://hackernoon.com/why-your-programmers-just-want-to-code-36da9973388e](https://hackernoon.com/why-your-programmers-just-want-to-code-36da9973388e)
+
+
 # Three Powerful Conversations Managers Must Have To Develop Their People
 
 1. Starting with kindergarten, tell me about your life
@@ -13,6 +18,9 @@ tag: management
 
 3. Create a career action plan
 
+# leading snowflakes
+[http://leadingsnowflakes.com/](http://leadingsnowflakes.com/)
+[Show How, Don't Tell What - A Management Style](https://tomayko.com/blog/2012/management-style)
 
 # Progressing from tech to leadership
 [https://lcamtuf.blogspot.hk/2018/02/on-leadership.html](https://lcamtuf.blogspot.hk/2018/02/on-leadership.html)
@@ -20,8 +28,6 @@ tag: management
 # Share your Manager README
 [https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/](https://matthewnewkirk.com/2017/09/20/share-your-manager-readme/)
 
-# Deep Learning with Python
-[https://www.manning.com/books/deep-learning-with-python](https://www.manning.com/books/deep-learning-with-python)
 
 # How to Win Friends and Influence People
 [https://www.amazon.com/How-Friends-Influence-People-Chinese](https://www.amazon.com/How-Friends-Influence-People-Chinese)

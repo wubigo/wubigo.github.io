@@ -20,3 +20,10 @@ OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
 
 # Connecting to SSL services
 [https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html](https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html)
+
+# Connecting to SSL Server from eclipse
+Append the following to use keystore in eclipse tomcat server
+```
+-Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_121\jre\lib\
+security"
+```
