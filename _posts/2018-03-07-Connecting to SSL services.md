@@ -27,3 +27,11 @@ Append the following to use keystore in eclipse tomcat server
 -Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_121\jre\lib\
 security"
 ```
+
+# check certificate name by alias then remove from keystore files
+
+```
+$keytool -list -v -keystore cacerts | grep 'Alias name:'
+
+$sudo keytool -delete -alias wubigo  -keystore cacerts
+```
