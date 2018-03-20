@@ -5,6 +5,9 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# Announcing gRPC Support in NGINX
+[https://www.nginx.com/blog/nginx-1-13-10-grpc/](https://www.nginx.com/blog/nginx-1-13-10-grpc/)
+
 # ACME v2 and Wildcard Certificate Support is Live
 [https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live](https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live)
 

@@ -5,6 +5,9 @@ date: 2017-12-30
 tag: management
 ---
 
+# The 2 Mental Shifts Highly Successful People Make
+[https://medium.com/personal-growth/the-2-mental-shifts-highly-successful-people-make-7089450c2d7c](https://medium.com/personal-growth/the-2-mental-shifts-highly-successful-people-make-7089450c2d7c)
+
 
 # why your programmers just want to code
 [https://hackernoon.com/why-your-programmers-just-want-to-code-36da9973388e](https://hackernoon.com/why-your-programmers-just-want-to-code-36da9973388e)
