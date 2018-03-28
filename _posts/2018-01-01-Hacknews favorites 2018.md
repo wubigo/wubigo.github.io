@@ -4,6 +4,8 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+# Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology
+[https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html](https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html)
 
 # Announcing gRPC Support in NGINX
 [https://www.nginx.com/blog/nginx-1-13-10-grpc/](https://www.nginx.com/blog/nginx-1-13-10-grpc/)
