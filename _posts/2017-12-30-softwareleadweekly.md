@@ -5,6 +5,9 @@ date: 2017-12-30
 tag: management
 ---
 
+# Dealing with ambiguity and developing resilience
+[http://www.melanieallen.co.uk/articles/dealing-with-ambiguity/](http://www.melanieallen.co.uk/articles/dealing-with-ambiguity/)
+
 # The 2 Mental Shifts Highly Successful People Make
 [https://medium.com/personal-growth/the-2-mental-shifts-highly-successful-people-make-7089450c2d7c](https://medium.com/personal-growth/the-2-mental-shifts-highly-successful-people-make-7089450c2d7c)
 
