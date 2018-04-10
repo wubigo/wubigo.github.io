@@ -4,6 +4,10 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+
+# Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service
+[https://blog.cloudflare.com/announcing-1111/](https://blog.cloudflare.com/announcing-1111/)
+
 # Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology
 [https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html](https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html)
 
