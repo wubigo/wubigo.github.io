@@ -1,46 +1,34 @@
 ---
 layout: post
-title: Connecting to SSL services
-date: 2018-03-07
-tag: Java
+title: Dgraph gatesnote
+date: 2018-04-07
+tag: NSQL GRAPH
 ---
 
-# JDK Version
+# Start Dgraph cluster
+'''
+dgraph zero
+'''
+
+#  start Dgraph server
+```
+ dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
+
+ Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]
 
 ```
-java -version
-openjdk version "1.8.0_151"
-OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12)
-OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
-```
 
-# Verify that the target server is configured to serve SSL
-[https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/)
+# How do I configure Go to use a proxy
+[https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy]{https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy}
 
+# Web based graph visualization with D3 and KeyLines
+[https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/]{https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/}
 
-# Connecting to SSL services
-[https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html](https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html)
-
-If you are getting an exception due to "Illegal key size" and you are using Sun’s JDK, you need to install the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files.
-See the following links for more information:
-
-- [Java 6 JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html)
-
-- [Java 7 JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html)
-
-- [Java 8 JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
-
-# Connecting to SSL Server from eclipse
-Append the following to use keystore in eclipse tomcat server
-```
--Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_121\jre\lib\
-security"
-```
-
-# check certificate name by alias then remove from keystore files
+# SETUP CLIENT
 
 ```
-$keytool -list -v -keystore cacerts | grep 'Alias name:'
-
-$sudo keytool -delete -alias wubigo  -keystore cacerts
+set http_proxy=192.168.0.119:3128
+git config --global http.proxy http://192.168.0.119:3128
+go get -u github.com/derekparker/delve/cmd/dlv
+go get -u -v github.com/dgraph-io/dgo
 ```
