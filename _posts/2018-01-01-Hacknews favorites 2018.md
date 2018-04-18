@@ -5,6 +5,9 @@ date: 2018-01-01
 tag: NEWS
 ---
 
+# The long, tortuous and fascinating process of creating a Chinese font (qz.com)
+[https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/](https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/)
+
 # Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service
 [https://blog.cloudflare.com/announcing-1111/](https://blog.cloudflare.com/announcing-1111/)
 
