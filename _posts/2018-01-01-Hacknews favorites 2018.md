@@ -4,6 +4,8 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+# Socioeconomic group classification based on user features
+[http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf](http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf)
 
 # The long, tortuous and fascinating process of creating a Chinese font (qz.com)
 [https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/](https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/)

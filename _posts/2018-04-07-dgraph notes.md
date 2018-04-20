@@ -6,11 +6,11 @@ tags: [NSQL, GRAPH]
 ---
 
 # Start Dgraph cluster
-'''
+```
 dgraph zero
-'''
+```
 
-#  start Dgraph server
+# start Dgraph server
 ```
  dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
 
@@ -19,10 +19,10 @@ dgraph zero
 ```
 
 # How do I configure Go to use a proxy
-[https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy]{https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy}
+[https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy](https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy)
 
 # Web based graph visualization with D3 and KeyLines
-[https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/]{https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/}
+[https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/](https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/)
 
 # SETUP CLIENT
 
