@@ -1,10 +1,15 @@
 ---
 layout: post
-title: securing microservice with UAA
+title: microservice notes
 date: 2016-02-01
-tag: architecture
+tags: [microservice, architecture]
 ---
 
+# Microservices at Netflix Scale
+[https://gotocon.com/dl/goto-amsterdam-2016/slides/RuslanMeshenberg_MicroservicesAtNetflixScaleFirstPrinciplesTradeoffsLessonsLearned.pdf](https://gotocon.com/dl/goto-amsterdam-2016/slides/RuslanMeshenberg_MicroservicesAtNetflixScaleFirstPrinciplesTradeoffsLessonsLearned.pdf)
+
+
+**securing microservice with UAA**
 # user accounting and authorizing service(UAA)
 Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
 
