@@ -4,6 +4,10 @@ title: Hacknews favorites 2018
 date: 2018-01-01
 tag: NEWS
 ---
+
+# Hijack of Amazon’s domain service used to reroute web traffic for two hours
+[https://doublepulsar.com/hijack-of-amazons-internet-domain-service-used-to-reroute-web-traffic-for-two-hours-unnoticed-3a6f0dda6a6f](https://doublepulsar.com/hijack-of-amazons-internet-domain-service-used-to-reroute-web-traffic-for-two-hours-unnoticed-3a6f0dda6a6f)
+
 # Socioeconomic group classification based on user features
 [http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf](http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf)
 
