@@ -5,6 +5,26 @@ date: 2018-11-23
 tags: [jupyter, notebook, ipython]
 ---
 
+# generate configuration file
+```
+$jupyter notebook --generate-config
+Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py
+$ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak 
+c.NotebookApp.allow_remote_access = True
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.open_browser = False
+```
+
+# set or reset password
+
+```
+$jupyter notebook password
+Enter password: 
+Verify password: 
+[NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json
+```
+then restart notebook server
+
 
 
 # Sharing notebooks
