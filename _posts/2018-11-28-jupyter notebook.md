@@ -30,7 +30,7 @@ then restart notebook server
 # Sharing notebooks
 
 When people talk of sharing their notebooks, there are generally two paradigms they may be considering. 
-Most often, individuals share the end-result of their work, much like this article itself, which means 
+Most often, individuals share the end-result of their work which means 
 sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate 
 on notebooks with the aid version control systems such as Git
 
