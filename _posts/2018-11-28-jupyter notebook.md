@@ -34,8 +34,7 @@ Most often, individuals share the end-result of their work which means
 sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate 
 on notebooks with the aid version control systems such as Git
 
-
-
+# References
 [https://www.dataquest.io/blog/jupyter-notebook-tutorial/](https://www.dataquest.io/blog/jupyter-notebook-tutorial/)
 
 
