@@ -38,7 +38,6 @@ for commercial or open source projects
 - Feb 2016 - Today : Beijing Genomics Institute
 
 - > Role: IT DEPT DIRECTOR
-- > Report: 120
 - > Achievement:
 1. IT infrastructure planning including multi-span data center
 2. Create the next generation of infrastructure for build, test, release and monitoring, focusing on developer productivity and product quality
@@ -46,8 +45,7 @@ for commercial or open source projects
 
 - Feb 2007 - Jan 2016 : Hewlett Packard Enterprise
 
-- > Role: ManagerII
-- > Report: 80
+- > Role: Engineer
 - > Achievement:
 1. Public cloud(HP Helion) development: Helion Is a transparent, enterprise-grade public cloud based on OpenStack technology.
 2. Help customer to mova a big data on premise genomic application into hybrid cloud deployment
