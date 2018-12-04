@@ -19,4 +19,4 @@ On the other hand, convolution is most typically done with 3x3 windows and no st
 
 # CNN feature map
 
-![](/images/posts/PTypical_block diagram_CNN.png)
+![feature map](/images/posts/PTypical_block diagram_CNN.png)
