@@ -16,3 +16,7 @@ On the other hand, convolution is most typically done with 3x3 windows and no st
 2. Reduce the capacity of the network.
 3. Add weight regularization.
 4. Add dropout
+
+# CNN feature map
+
+![](/images/posts/PTypical_block diagram_CNN.png)
