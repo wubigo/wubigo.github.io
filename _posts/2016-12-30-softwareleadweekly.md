@@ -1,7 +1,7 @@
 ---
 layout: post
 title: software lead weekly
-date: 2017-12-30
+date: 2016-12-30
 tag: management
 ---
 
