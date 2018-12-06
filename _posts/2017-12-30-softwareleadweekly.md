@@ -5,6 +5,15 @@ date: 2017-12-30
 tag: management
 ---
 
+	
+# good practise
+
+There are several common things and These all take practice.
+1. Organization skills/project management skills: ability to pull together internal/external resources, ability to create clear plans, ability to build relationships with other teams to make cross-team collaboration easier
+2. Communication skills: ability to deescalate and mediate conflicts fairly, ability to give both positive and negative feedback regularly, ability to create psychological safety, ability to deliver bad news while maintaining psychological safety, ability to run efficient meetings, ability to make unpopular decisions while still commanding the team's respect, ability to engage with different personality types and communication styles
+3. Delegation skills: ability to translate ambiguous directives from above into actionable tasks for the team, ability to arrange tasks so that individuals have the creative freedom to figure out how to do it, predictability in decision-making, ability to shield team from external pressure, ability to give negative feedback immediately, ability to fire low performers before they fester into team morale and culture problems
+4. Coaching skills: ability to give targeted advice, ability to match employee's own aspirations and growth objectives to projects, enough technical expertise to point people in the right direction, ability to evaluate skills and hire for them
+
 # Dealing with ambiguity and developing resilience
 [http://www.melanieallen.co.uk/articles/dealing-with-ambiguity/](http://www.melanieallen.co.uk/articles/dealing-with-ambiguity/)
 
