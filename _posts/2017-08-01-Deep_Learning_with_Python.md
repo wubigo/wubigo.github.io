@@ -17,6 +17,9 @@ On the other hand, convolution is most typically done with 3x3 windows and no st
 3. Add weight regularization.
 4. Add dropout
 
+# activation  function
+A  function  that  takes  the  input  signal  and  generates  an  output  signal,  but  takes  into  account some  kind  of  threshold  is  called  an  activation  function
+
 # CNN feature map
 
 ![feature map](/images/posts/Typical_block diagram_CNN.png)
