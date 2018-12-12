@@ -18,7 +18,7 @@ new_weight = existing_weight — learning_rate * gradient
 Typically learning rates are configured naively at random by the user. At best, the user would leverage on past experiences (or other types of learning material) to gain the intuition on what is the best value to use in setting learning rates.
 
 As such, it’s often hard to get it right. The below diagram demonstrates the different scenarios one can fall into when configuring the learning rate
-
+![learning rate](/images/posts/learning_rate.png)
 
 
 # most common ways to prevent overfitting in neural networks
