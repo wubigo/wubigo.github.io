@@ -37,3 +37,7 @@ A  function  that  takes  the  input  signal  and  generates  an  outp
 
 # state of art AI
 https://www.stateoftheart.ai/
+
+
+# References
+
