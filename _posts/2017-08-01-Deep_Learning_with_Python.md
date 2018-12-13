@@ -8,6 +8,9 @@ tag: DL
 
 On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 
+# How TensorBoard gets data from TensorFlow
+The first step in using TensorBoard is acquiring data from your TensorFlow run. For this, you need summary ops. Summary ops are ops, like tf.matmul or tf.nn.relu, which means they take in tensors, produce tensors, and are evaluated from within a TensorFlow graph. However, summary ops have a twist: the Tensors they produce contain serialized protobufs, which are written to disk and sent to TensorBoard. To visualize the summary data in TensorBoard, you should evaluate the summary op, retrieve the result, and then write that result to disk using a summary.FileWriter.
+
 # learning rate
 Learning rate is a hyper-parameter that controls how much we are adjusting the weights of our network with respect the loss gradient. The lower the value, the slower we travel along the downward slope. While this might be a good idea (using a low learning rate) in terms of making sure that we do not miss any local minima, it could also mean that we’ll be taking a long time to converge — especially if we get stuck on a plateau region
 The following formula shows the relationship.
