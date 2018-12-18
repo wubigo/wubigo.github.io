@@ -8,6 +8,16 @@ tag: DL
 
 On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 
+# MATPLOTLIB
+Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
+
+ * Line plot is better when x axis is time.
+ * Scatter is better when there is correlation between two variables
+ * Histogram is better when we need to see distribution of numerical data.
+ * Customization: Colors,labels,thickness of line, title, opacity, grid, figsize, ticks of axis and linestyle
+
+
+
 # How TensorBoard gets data from TensorFlow
 The first step in using TensorBoard is acquiring data from your TensorFlow run. For this, you need summary ops. Summary ops are ops, like tf.matmul or tf.nn.relu, which means they take in tensors, produce tensors, and are evaluated from within a TensorFlow graph. However, summary ops have a twist: the Tensors they produce contain serialized protobufs, which are written to disk and sent to TensorBoard. To visualize the summary data in TensorBoard, you should evaluate the summary op, retrieve the result, and then write that result to disk using a summary.FileWriter.
 
