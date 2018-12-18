@@ -47,7 +47,7 @@ A  function  that  takes  the  input  signal  and  generates  an  outp
 
 # CNN feature map
 
-![feature map](/images/posts/Typical_block diagram_CNN.png)
+![feature map](/images/posts/Typical_block_diagram_CNN.png)
 
 # state of art AI
 https://www.stateoftheart.ai/
