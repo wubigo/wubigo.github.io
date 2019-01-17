@@ -17,4 +17,8 @@ The tunneling protocol works by using the data portion of a packet (the payload)
 Typically, the delivery protocol operates at an equal or higher level in the layered model than the payload protocol.
 As an example of network layer over network layer, Generic Routing Encapsulation (GRE), a protocol running over IP (IP protocol number 47), often serves to carry IP packets, with RFC 1918 private addresses, over the Internet using delivery packets with public IP addresses
 
+# DHCP
+In addition to host IP address assignment, DHCP also allows a host to learn additional information, such as its subnet mask, the address of its first-hop router (often called the default gateway), and the address of its local DNS server.
+
+
 
