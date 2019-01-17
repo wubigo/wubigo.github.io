@@ -20,5 +20,8 @@ As an example of network layer over network layer, Generic Routing Encapsulation
 # DHCP
 In addition to host IP address assignment, DHCP also allows a host to learn additional information, such as its subnet mask, the address of its first-hop router (often called the default gateway), and the address of its local DNS server.
 
+# link layer implement
+Is a host’s link layer implemented in hardware or software? Is it implemented on a separate card or chip, and how does it interface with the rest of a host’s hardware and operating system components?
+For the most part, the link layer is implemented  in  a  network  adapter,  also  sometimes  known  as  a  network  interface card (NIC). At the heart of the network adapter is the link-layer controller, usually a single, special-purpose chip that implements many of the link-layer services (framing, link access, error detection, and so on). Thus, much of a link-layer controller’s functionality is implemented in hardware
 
 
