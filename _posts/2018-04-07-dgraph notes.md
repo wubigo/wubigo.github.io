@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dgraph gatesnote
+title: Dgraph note
 date: 2018-04-07
 tags: [NSQL, GRAPH]
 ---
