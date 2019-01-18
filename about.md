@@ -22,7 +22,7 @@ for commercial or open source projects
 3. Rich experience with ALIYUN and AWS, application transform to cloud in healthcare and telecommunication industry
 4. Skilled at large scaled container based cluster platform like kubernetes and spring cloud
 5. Leading a big data system design for 40PB storage since late last year
-6. Have developing experience on deep learning(cnn,rnn,reinforcement learning) and the framework like tensorflow, keras, xgboost
+6. Have developing experience on deep learning(cnn,reinforcement learning) and the framework like tensorflow, keras, xgboost
 7. Many years engineering manage experience of large scale software projects
 
 
