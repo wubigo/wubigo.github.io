@@ -26,4 +26,12 @@ For the most part, the link layer is implemented  in  a  network  adapter,  also
 
 link-layer switches do not have link-layer addresses associated with their interfaces that connect to hosts and routers. This is because the job of the link-layer switch is to carry datagrams between hosts and routers; a switch does  this  job  transparently,  that  is,  without  the  host  or  router  having  to  explicitly address  the frame to the intervening switch
 
+# MPLS
+
+MPLS performs switching based on labels, without needing to consider the IP address of a packet. The true advantages of MPLS and the reason for current interest in MPLS, however, lie not in the potential increases in switching speeds, but rather in the new traffic management capabilities that MPLS enables.
+
+MPLS provides the ability to forward packets along routes that would not be possible using standard IP routing protocols. This is one simple form of  traffic engineering  using MPLS
+
+It can be used to perform fast restoration of MPLS forwarding paths, e.g., to reroute traffic over a precomputed failover path in response to link failure 
+MPLS  can,  and  has,  been  used  to  implement  so-called virtual private networks  (VPNs). In implementing a VPN for a customer, an ISP uses its MPLS-enabled network to connect together the customer’s various networks. MPLS can be used to isolate both the resources and addressing used by the customer’s VPN from that of other users crossing the ISP’s network
 
