@@ -24,4 +24,6 @@ In addition to host IP address assignment, DHCP also allows a host to learn addi
 Is a host’s link layer implemented in hardware or software? Is it implemented on a separate card or chip, and how does it interface with the rest of a host’s hardware and operating system components?
 For the most part, the link layer is implemented  in  a  network  adapter,  also  sometimes  known  as  a  network  interface card (NIC). At the heart of the network adapter is the link-layer controller, usually a single, special-purpose chip that implements many of the link-layer services (framing, link access, error detection, and so on). Thus, much of a link-layer controller’s functionality is implemented in hardware
 
+link-layer switches do not have link-layer addresses associated with their interfaces that connect to hosts and routers. This is because the job of the link-layer switch is to carry datagrams between hosts and routers; a switch does  this  job  transparently,  that  is,  without  the  host  or  router  having  to  explicitly address  the frame to the intervening switch
+
 
