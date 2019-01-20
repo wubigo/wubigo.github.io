@@ -17,6 +17,10 @@ acquire a lock without being willing to wait for it forever. Intrinsic locks als
 in which they are acquired; this simplifies coding and interacts nicely with exception handling, but makes non‐blockstructured
 locking disciplines impossible
 
+# ReadWriteLock
+The  locking  strategy  implemented  by  read‐write  locks  allows  multiple  simultaneous  readers  but  only  a  single  writer.
+In  practice, read‐write  locks  can  improve  performance  for  frequently  accessed  read‐mostly  data  structures  on  multiprocessor systems;  under  other  conditions  they  perform  slightly  worse  than  exclusive  locks  due  to  their  greater  complexity. Whether  they  are  an  improvement  in  any  given  situation  is  best  determined  via  profiling;  because  ReadWriteLock  uses Lock  for  the  read  and  write  portions  of  the  lock,  it  is  relatively  easy  to  swap  out  a  read‐write  lock  for  an  exclusive  one  if profiling  determines  that  a  read‐write  lock  is  not  a  win. 
+
 # hashtable
 
 * Hashtable is synchronized, whereas HashMap is not. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.
