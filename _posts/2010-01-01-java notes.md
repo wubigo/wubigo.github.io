@@ -31,3 +31,6 @@ In  practice, read‐write  locks  can  improve  performance  for  frequ
 * One of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order (which is insertion order by default), you could easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable.
 
 HashTable is obsolete in Java 1.7 and it is recommended to use ConcurrentMap implementation
+
+# Java  Memory Model
+The  Java  Memory  Model  is  specified  in  terms  of  actions,  which  include  reads  and  writes  to  variables,  locks  and  unlocks of  monitors,  and  starting  and  joining  with  threads.  The  JMM  defines  a  partial  ordering  [2]  called  happens‐before  on  all actions  within  the  program
