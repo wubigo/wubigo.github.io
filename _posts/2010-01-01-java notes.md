@@ -2,7 +2,7 @@
 layout: post
 title: java notes
 date: 2010-01-01
-tag: java
+tag: Java
 ---
 
 # Lock and ReentrantLock
