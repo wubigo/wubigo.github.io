@@ -34,3 +34,8 @@ HashTable is obsolete in Java 1.7 and it is recommended to use ConcurrentMap imp
 
 # Java  Memory Model
 The  Java  Memory  Model  is  specified  in  terms  of  actions,  which  include  reads  and  writes  to  variables,  locks  and  unlocks of  monitors,  and  starting  and  joining  with  threads.  The  JMM  defines  a  partial  ordering  [2]  called  happens‐before  on  all actions  within  the  program
+
+# soft reference
+four different degrees of reference strength: strong, soft, weak, and phantom, in order from strongest to weakest
+
+SoftReferences aren't required to behave any differently than WeakReferences, but in practice softly reachable objects are generally retained as long as memory is in plentiful supply. This makes them an excellent foundation for a cache, such as the image cache described above
