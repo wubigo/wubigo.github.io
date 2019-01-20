@@ -39,3 +39,6 @@ The  Java  Memory  Model  is  specified  in  terms  of  actions,  whic
 four different degrees of reference strength: strong, soft, weak, and phantom, in order from strongest to weakest
 
 SoftReferences aren't required to behave any differently than WeakReferences, but in practice softly reachable objects are generally retained as long as memory is in plentiful supply. This makes them an excellent foundation for a cache, such as the image cache described above
+
+# checked exception
+The cardinal rule in deciding whether to use a checked or an unchecked exception is this: use checked exceptions for conditions from which the caller can reasonably be expected to recover. By throwing a checked exception, you force the caller to handle the exception in a catch clause or to propagate it outward. Each checked exception that a method is declared to throw is therefore a potent indication to the API user that the associated condition is a possible outcome of invoking the method.
