@@ -6,3 +6,6 @@ tags: [communication]
 ---
 
 The most important conversation you ever have is the one with yourself
+
+
+![7 lvevel communication](/images/posts/7level-communication.jpg)
