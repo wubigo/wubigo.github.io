@@ -1,6 +1,6 @@
 ---
 layout: post
-title: k8s build
+title: k8s local development setup
 date: 2016-02-03
 tag: [Paas, k8s]
 ---
