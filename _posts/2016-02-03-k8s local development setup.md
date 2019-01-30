@@ -6,6 +6,16 @@ tag: [Paas, k8s]
 ---
 
 [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
+* docker v17.03
+
+```
+sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
+```
+* cri-tools v1.11.0
+```
+git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git
+make install
+```
 
 * build v1.11.7
 
