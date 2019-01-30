@@ -86,6 +86,36 @@ debug level with -v
 sudo kubeadm init --pod-network-cidr 10.2.0.0/16 -v 4
 ```
 
+* configure kubectl
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+* calico setup
+```
+curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml> calico.yaml
+```
+
+* kubectl completion code for bash
+```
+  # Installing bash completion on Linux
+  ## Load the kubectl completion code for bash into the current shell
+  source <(kubectl completion bash)
+  ## Write bash completion code to a file and source if from .bash_profile
+  kubectl completion bash > ~/.kube/completion.bash.inc
+  printf "
+  # Kubectl shell completion
+  source '$HOME/.kube/completion.bash.inc'
+  " >> $HOME/.bash_profile
+  source $HOME/.bash_profile
+```
+
+
+
+
+
 * tear down cluster
 ```
 kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
@@ -104,4 +134,6 @@ If you want to reset the IPVS tables, you must run the following command:
 ```
 ipvsadm -C
 ```
+
+
 
