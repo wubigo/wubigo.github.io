@@ -56,14 +56,20 @@ docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.4-1 k8s.gcr.io/kube-cross:v1.11.4-1
 ./build/run.sh make quick-release
 ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
+```
+
+* kubelet hosted by systemd 
+```
 sudo cp ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubectl /usr/bin/
 sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubeadm /usr/bin/
 sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubelet /usr/bin/
+sudo cp ./build/debs/kubelet.service /etc/systemd/system/kubelet.service
 sudo mkdir -p /etc/kubernetes/manifests
 sudo mkdir -p /etc/systemd/system/kubelet.service.d/
-
+sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 ```
 * disable swap
+
 * build cni v0.6.0
 ```
 git clone -b v0.6.0 https://github.com/containernetworking/cni.git
@@ -108,8 +114,8 @@ curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation
   printf "
   # Kubectl shell completion
   source '$HOME/.kube/completion.bash.inc'
-  " >> $HOME/.bash_profile
-  source $HOME/.bash_profile
+  " >> $HOME/.bashrc
+  source $HOME/.bashrc
 ```
 
 
