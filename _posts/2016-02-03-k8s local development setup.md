@@ -86,26 +86,22 @@ debug level with -v
 sudo kubeadm init -v 4
 ```
 
-
-I0130 18:35:25.335969    2918 init.go:505] [init] ensuring proxy addon
-[addons] Applied essential addon: kube-proxy
-
-Your Kubernetes master has initialized successfully!
-
-To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-You can now join any number of machines by running the following on each node
-as root:
-
-kubeadm join 192.168.1.5:6443 --token p19imz.y3t80viz2z1vh4v0 --discovery-token-ca-cert-hash sha256:3827007586be95cbe7c0e8df6202a6f839924a5455a441e1990b8d376d7c1212
-
-
+* tear down cluster
+```
+kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
+kubectl delete node <node name>
+```
+Then, on the node being removed, reset all kubeadm installed state:
+```
+kubeadm reset
+```
+The reset process does not reset or clean up iptables rules or IPVS tables. 
+If you wish to reset iptables, you must do so manually:
+```
+iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+```
+If you want to reset the IPVS tables, you must run the following command:
+```
+ipvsadm -C
+```
 
