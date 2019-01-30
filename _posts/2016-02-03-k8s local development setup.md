@@ -9,6 +9,9 @@ tag: [Paas, k8s]
 
 ***KUBEADM IS CURRENTLY IN BETA***
 
+# kubeadm maturity
+![kubeadm maturity](/images/posts/kubeadm_maturity.png)
+
 
 * docker v17.03
 
