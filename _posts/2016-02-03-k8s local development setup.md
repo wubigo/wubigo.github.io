@@ -102,6 +102,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 * calico setup
 ```
 curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml> calico.yaml
+# update CALICO_IPV4POOL_CIDR to  the above pod-network-cidr
+kubectl apply -f calico.yaml
 ```
 
 * kubectl completion code for bash
