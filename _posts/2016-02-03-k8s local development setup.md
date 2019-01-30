@@ -77,4 +77,10 @@ Create the following configuration file at /etc/NetworkManager/conf.d/calico.con
 unmanaged-devices=interface-name:cali*;interface-name:tunl*
 ```
 
+* bootstrap a secure Kubernetes cluster
+debug level with -v
+```
+sudo kubeadm init -v 4
+```
+
 
