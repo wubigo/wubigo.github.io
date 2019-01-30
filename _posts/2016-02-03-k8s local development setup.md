@@ -26,26 +26,7 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.
 
 
 Coverage is disabled.
-# k8s.io/kubernetes/cmd/genman
-fatal error: runtime: out of memory
-
-runtime stack:
-runtime.throw(0x64e236, 0x16)
-	/usr/local/go/src/runtime/panic.go:608 +0x72
-runtime.sysMap(0xc08c000000, 0x8000000, 0x7fdfd8)
-	/usr/local/go/src/runtime/mem_linux.go:156 +0xc7
-runtime.(*mheap).sysAlloc(0x7e5560, 0x8000000, 0x7f79f8b1dc30, 0xc0004f1e58)
-	/usr/local/go/src/runtime/malloc.go:619 +0x1c7
-runtime.(*mheap).grow(0x7e5560, 0x335d, 0x0)
-	/usr/local/go/src/runtime/mheap.go:920 +0x42
-runtime.(*mheap).allocSpanLocked(0x7e5560, 0x335d, 0x7fdfe8, 0x20301600000000)
-	/usr/local/go/src/runtime/mheap.go:848 +0x337
-runtime.(*mheap).alloc_m(0x7e5560, 0x335d, 0x410101, 0x7f79f8d04700)
-	/usr/local/go/src/runtime/mheap.go:692 +0x119
-runtime.(*mheap).alloc.func1()
-	/usr/local/go/src/runtime/mheap.go:759 +0x4c
-runtime.(*mheap).alloc(0x7e5560, 0x335d, 0xc000010101, 0x415785)
-	/usr/local/go/src/runtime/mheap.go:758 +0x8a
+# k8s.io/
 runtime.largeAlloc(0x66b802a, 0x450101, 0x7f79fe6c3d80)
 	/usr/local/go/src/runtime/malloc.go:1019 +0x97
 runtime.mallocgc.func1()
