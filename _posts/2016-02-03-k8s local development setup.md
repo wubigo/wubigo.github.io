@@ -103,18 +103,4 @@ Exiting with status 1
 !!! Error in /go/src/k8s.io/kubernetes/hack/lib/golang.sh:678
   Error in /go/src/k8s.io/kubernetes/hack/lib/golang.sh:678. '((i<3-1))' exited with status 1
 Call stack:
-  1: /go/src/k8s.io/kubernetes/hack/lib/golang.sh:678 kube::golang::build_binaries(...)
-  2: hack/make-rules/build.sh:27 main(...)
-Exiting with status 1
-Makefile:92: recipe for target 'all' failed
-make: *** [all] Error 1
-!!! [0123 13:01:23] Call tree:
-!!! [0123 13:01:23]  1: ./build/../build/common.sh:518 kube::build::run_build_command_ex(...)
-!!! [0123 13:01:23]  2: ./build/run.sh:39 kube::build::run_build_command(...)
-!!! Error in ./build/../build/common.sh:593
-  Error in ./build/../build/common.sh:593. '((i<4-1))' exited with status 2
-Call stack:
-  1: ./build/../build/common.sh:593 kube::build::run_build_command_ex(...)
-  2: ./build/../build/common.sh:518 kube::build::run_build_command(...)
-  3: ./build/run.sh:39 main(...)
-Exiting with status 1
+  1: /go/src/k8s.io/kubernetes/hack/lib/golang.sh:678 kube::golang::build_binaries(.
