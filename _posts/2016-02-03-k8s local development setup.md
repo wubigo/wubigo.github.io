@@ -47,7 +47,7 @@ cd cni
 ```
 
 * Configure NetworkManager for calio
-Configure NetworkManager before attempting to use Calico networking.
+
 NetworkManager manipulates the routing table for interfaces in the default network namespace where Calico veth pairs are anchored for connections to containers. This can interfere with the Calico agent’s ability to route correctly.
 Create the following configuration file at /etc/NetworkManager/conf.d/calico.conf to prevent NetworkManager from interfering with the interfaces:
 ```
