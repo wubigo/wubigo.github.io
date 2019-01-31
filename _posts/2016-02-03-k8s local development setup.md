@@ -148,4 +148,10 @@ ipvsadm -C
 ```
 
 
+# kubectl cheat sheet
+```
+kubectl get configmaps --all-namespaces
+kubectl describe configmaps kubeadm-config -n kube-system
 
+
+```
