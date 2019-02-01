@@ -121,6 +121,17 @@ kubectl apply -f calico.yaml
 ```
 
 
+
+* Control plane node isolation
+
+By default, the cluster will not schedule pods on the master for security reasons. 
+If you want to be able to schedule pods on the master, e.g. for a single-machine 
+Kubernetes cluster for development, run:
+```
+kubectl taint nodes --all node-role.kubernetes.io/master-
+```
+
+
 ```
 kubectl -n kube-system get deployment coredns -o yaml | \
   sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
