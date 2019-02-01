@@ -5,6 +5,19 @@ date: 2012-10-04
 tag: Bigdata
 ---
 
+# mapr downside with intermediate state
+“MapReduce’s approach of fully materializing intermediate state has downsides compared to Unix pipes:
+* A MapReduce job can only start when all tasks in the preceding jobs (that generate”“its inputs) have completed, whereas processes connected by a Unix pipe are started at the same time, with output being consumed as soon as it is produced. Skew or varying load on different machines means that a job often has a few straggler tasks that take much longer to complete than the others. Having to wait until all of the preceding job’s tasks have completed slows down the execution of the workflow as a whole.
+* Mappers are often redundant: they just read back the same file that was just written by a reducer, and prepare it for the next stage of partitioning and sorting. In many cases, the mapper code could be part of the previous reducer: if the reducer output was partitioned and sorted in the same way as mapper output, then reducers could be chained together directly, without interleaving with mapper stages.
+* “Storing intermediate state in a distributed filesystem means those files are replicated across several nodes, which is often overkill for such temporary data”
+
+摘录来自
+Designing Data-Intensive Applications
+Martin Kleppmann
+此材料受版权保护。
+
+
+
 # Develop Apache Spark Apps with IntelliJ IDEA on Windows OS
 
 [https://www.linkedin.com/pulse/develop-apache-spark-apps-intellij-idea-windows-os-samuel-yee](https://www.linkedin.com/pulse/develop-apache-spark-apps-intellij-idea-windows-os-samuel-yee)
