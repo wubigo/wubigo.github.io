@@ -137,6 +137,17 @@ By default, tokens expire after 24 hours. Joining a node to the cluster after th
 kubeadm token create
 ```
 
+* depoly nginx and verify
+
+creates a Deployment object and an associated ReplicaSet object with 2 pods
+```
+kubectl run nginx1-14 --replicas=2 --labels="run=nginx1.14" --image=nginx:1.14-alpine  --port=80
+kubectl get pods -o wide | grep nginx1-14
+kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
+```
+
+
+
 * tear down cluster
 ```
 kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
