@@ -131,7 +131,11 @@ Kubernetes cluster for development, run:
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
-
+* token recreate
+By default, tokens expire after 24 hours. Joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:
+```
+kubeadm token create
+```
 
 * tear down cluster
 ```
