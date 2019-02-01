@@ -132,12 +132,6 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
 
-```
-kubectl -n kube-system get deployment coredns -o yaml | \
-  sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
-  kubectl apply -f -
-```
-
 
 * tear down cluster
 ```
@@ -164,5 +158,7 @@ ipvsadm -C
 kubectl get configmaps --all-namespaces
 kubectl describe configmaps kubeadm-config -n kube-system
 
-
+kubectl -n kube-system get deployment coredns -o yaml | \
+  sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
+  kubectl apply -f -
 ```
