@@ -11,12 +11,6 @@ tag: Bigdata
 * Mappers are often redundant: they just read back the same file that was just written by a reducer, and prepare it for the next stage of partitioning and sorting. In many cases, the mapper code could be part of the previous reducer: if the reducer output was partitioned and sorted in the same way as mapper output, then reducers could be chained together directly, without interleaving with mapper stages.
 * “Storing intermediate state in a distributed filesystem means those files are replicated across several nodes, which is often overkill for such temporary data”
 
-摘录来自
-Designing Data-Intensive Applications
-Martin Kleppmann
-此材料受版权保护。
-
-
 
 # Develop Apache Spark Apps with IntelliJ IDEA on Windows OS
 
