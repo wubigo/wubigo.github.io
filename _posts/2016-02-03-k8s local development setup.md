@@ -147,7 +147,10 @@ curl $POD_IP
 kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
 ```
 
-
+* deploy mysql
+```
+kubectl run mysql-5-5 --replicas=1 --labels="run=mysql-5-5" --image=mysql:5.5 --env="MYSQL_ROOT_PASSWORD=mysql" --port=3306
+```
 
 * tear down cluster
 ```
@@ -177,4 +180,8 @@ kubectl describe configmaps kubeadm-config -n kube-system
 kubectl -n kube-system get deployment coredns -o yaml | \
   sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
   kubectl apply -f -
+  
+kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
+  
+  
 ```
