@@ -42,6 +42,8 @@ git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git
 make install
 ```
 
+* [install-go-1.10](https://github.com/wubigo/wubigo.github.io/blob/master/_posts/2018-02-11-go%20notes.md#install-go-110)
+
 * build v1.11.7
 
 ```
