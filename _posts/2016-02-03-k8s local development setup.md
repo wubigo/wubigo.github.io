@@ -149,7 +149,10 @@ kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs 
 
 * deploy mysql
 ```
-kubectl run mysql-5-5 --replicas=1 --labels="run=mysql-5-5" --image=mysql:5.5 --env="MYSQL_ROOT_PASSWORD=mysql" --port=3306
+$kubectl run mysql-5-5 --replicas=1 --labels="run=mysql-5-5" --image=mysql:5.5 --env="MYSQL_ROOT_PASSWORD=mysql" --port=3306
+$kubectl exec -it mysql-5-5 -c mysql-5-5 -- bash
+# mysql -u root -pmysql
+mysql> 
 ```
 
 * tear down cluster
