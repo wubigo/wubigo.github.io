@@ -207,3 +207,13 @@ CMD ["/usr/bin/tail", "-f", "/dev/null"]
 kubectl run  curl --image=curl-alpine:1.0
 kubectl exec -it curl -c curl -- sh
 ```
+
+***let kubectl never restart container
+```
+FROM alpine:3.8
+RUN apk add --no-cache curl
+docker build .
+docker tag curl-alpine:1.0
+kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
+```
+
