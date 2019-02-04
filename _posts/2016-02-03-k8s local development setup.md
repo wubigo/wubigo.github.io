@@ -193,13 +193,17 @@ kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
 
 
 
-# Docker container stop automatically after running
-***the container dies after running everything correctly but crashes because all the commands ended. 
+# Kubernetes requires a none-stop app/CMD
+Docker container stop automatically after running
+***the container dies after running everything correctly but crashes because all the commands ended in k8s. 
 Either you make your services run on the foreground, or you create a keep alive script. By doing so, 
 Kubernetes will show that your application is running. We have to note that in the Docker environment,
 this problem is not encountered. It is only Kubernetes that wants a running app***
 ```
 FROM alpine:3.8
 RUN apk add --no-cache curl
-ENTRYPOINT ["tail -f /dev/null"]
+STOPSIGNAL SIGTERM
+CMD ["/usr/bin/tail", "-f", "/dev/null"]
+kubectl run  curl --image=alpine-curl:1.0  --command tail -f /dev/nul
+kubectl exec -it curl -c curl -- sh
 ```
