@@ -204,6 +204,6 @@ FROM alpine:3.8
 RUN apk add --no-cache curl
 STOPSIGNAL SIGTERM
 CMD ["/usr/bin/tail", "-f", "/dev/null"]
-kubectl run  curl --image=alpine-curl:1.0  --command tail -f /dev/nul
+kubectl run  curl --image=curl-alpine:1.0
 kubectl exec -it curl -c curl -- sh
 ```
