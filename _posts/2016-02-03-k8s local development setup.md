@@ -143,6 +143,31 @@ Kubernetes cluster for development, run:
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
+# join a node
+* get token
+```
+kubeadm token list
+```
+* get token-ca-cert-hash
+```
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+   openssl dgst -sha256 -hex | sed 's/^.* //'
+```
+```
+kubeadm join --token df9xye.42n5hyk7b1gjcsb0 192.168.1.9:6443 --discovery-token-ca-cert-hash sha256:9411f4fde59774fbb994e2113d937fdc0d2b438a632cf504b9053e5b2d2f1247
+
+CGROUPS_MEMORY: enabled
+	[WARNING Service-Kubelet]: kubelet service does not exist
+[preflight] Some fatal errors occurred:
+	[ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
+	[ERROR FileContent--proc-sys-net-ipv4-ip_forward]: /proc/sys/net/ipv4/ip_forward contents are not set to 1
+	[ERROR Swap]: running with swap on is not supported. Please disable swap
+	[ERROR FileExisting-crictl]: crictl not found in system path
+	[ERROR SystemVerification]: failed to get docker info: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+
+```
+
 * token recreate
 By default, tokens expire after 24 hours. Joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:
 ```
