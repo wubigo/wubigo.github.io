@@ -94,7 +94,7 @@ unmanaged-devices=interface-name:cali*;interface-name:tunl*
 * bootstrap a secure Kubernetes cluster
 debug level with -v
 ```
-sudo kubeadm init --pod-network-cidr 10.2.0.0/16 -v 4
+sudo kubeadm init --kubernetes-version=v1.11.7 --pod-network-cidr 10.2.0.0/16 -v 4
 ```
 
 * configure kubectl
