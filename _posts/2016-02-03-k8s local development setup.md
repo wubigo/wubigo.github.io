@@ -18,6 +18,7 @@ tag: [Paas, k8s]
 
 ```
 sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
+docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
