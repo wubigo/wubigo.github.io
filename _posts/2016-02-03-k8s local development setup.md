@@ -13,6 +13,7 @@ tag: [Paas, k8s]
 ![kubeadm maturity](/images/posts/kubeadm_maturiy.png)
 
 
+# build k8s
 * docker v17.03
 
 ```
@@ -60,6 +61,8 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.
 ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
 ```
 
+# deploy k8s with kubeadm
+
 * kubelet hosted by systemd 
 ```
 sudo cp ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubectl /usr/bin/
@@ -77,6 +80,8 @@ sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-ku
 git clone -b v0.6.0 https://github.com/containernetworking/cni.git
 cd cni
 ./build.sh
+mkdir -p /opt/cni/bin
+cp bin/* /opt/cni/bin/
 ```
 
 * Configure NetworkManager for calio
