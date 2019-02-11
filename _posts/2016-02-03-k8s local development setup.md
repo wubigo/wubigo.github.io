@@ -20,15 +20,12 @@ tag: [Paas, k8s]
 sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
 docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
-docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
 docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7
 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7
 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7
-docker pull mirrorgooglecontainers/pause:3.1
-docker pull mirrorgooglecontainers/pause:3.1
 docker pull mirrorgooglecontainers/pause:3.1
 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18
