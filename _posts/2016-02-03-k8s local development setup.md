@@ -38,7 +38,9 @@ docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
 * cri-tools v1.11.0
 ```
 git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git
-make install
+make
+$GOPATH/bin/crictl -version
+cp $GOPATH/bin/cri* /usr/local/bin/
 ```
 
 * [install-go-1.10](https://github.com/wubigo/wubigo.github.io/blob/master/_posts/2018-02-11-go%20notes.md#install-go-110)
