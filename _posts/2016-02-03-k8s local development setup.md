@@ -192,7 +192,7 @@ kubectl -n kube-system get deployment coredns -o yaml | \
   kubectl apply -f -
   
 kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
-  
+kubectl logs calico-node-4mb5z -n kube-system  
   
 ```
 
