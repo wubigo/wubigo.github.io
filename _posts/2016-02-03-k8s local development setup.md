@@ -72,7 +72,11 @@ sudo cp ./build/debs/kubelet.service /etc/systemd/system/kubelet.service
 sudo mkdir -p /etc/kubernetes/manifests
 sudo mkdir -p /etc/systemd/system/kubelet.service.d/
 sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet --now
+sudo systemctl start kubelet
 ```
+
 * disable swap
 
 * build cni v0.6.0
