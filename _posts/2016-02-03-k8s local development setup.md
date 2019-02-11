@@ -144,7 +144,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
 # join a node
-* install docker v17.03
+* [install docker v17.03]http://wubigo.com/2012/06/linux/#instll-docker-v1703)
 * get token
 ```
 kubeadm token list
