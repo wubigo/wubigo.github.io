@@ -151,6 +151,13 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 ```
 kubectl describe configmaps kubeadm-config -n kube-system
+journalctl -xe | grep -i etcd
+```
+
+or
+```
+cd /etc/kubernetes/manifests
+etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
 ```
 
 
