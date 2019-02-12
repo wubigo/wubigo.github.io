@@ -63,11 +63,15 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.
 
 # deploy k8s with kubeadm
 
-* kubelet hosted by systemd 
+* install kubectl 
 ```
 sudo cp ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubectl /usr/bin/
 sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubeadm /usr/bin/
 sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubelet /usr/bin/
+```
+
+* install kubelet service
+```
 sudo cp ./build/debs/kubelet.service /etc/systemd/system/kubelet.service
 sudo mkdir -p /etc/kubernetes/manifests
 sudo mkdir -p /etc/systemd/system/kubelet.service.d/
@@ -143,10 +147,22 @@ Kubernetes cluster for development, run:
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
+# view cluster config
+
+```
+kubectl describe configmaps kubeadm-config -n kube-system
+```
+
+
 # join a node
-* [install docker v17.03](http://wubigo.com/2012/06/linux/#instll-docker-v1703)
-* [load IPVS mod](http://wubigo.com/2012/06/linux/#ipvs)
-* get token
+*  [install docker v17.03](http://wubigo.com/2012/06/linux/#instll-docker-v1703)
+*  IPVS proxier
+[load IPVS mod](http://wubigo.com/2012/06/linux/#ipvs)
+```
+apt install ebtables socat
+```
+* install kubelet service
+*  get token
 ```
 kubeadm token list
 ```
@@ -156,7 +172,16 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
 ```
-kubeadm join --token df9xye.42n5hyk7b1gjcsb0 192.168.1.9:6443 --discovery-token-ca-cert-hash sha256:9411f4fde59774fbb994e2113d937fdc0d2b438a632cf504b9053e5b2d2f1247
+
+
+
+
+
+
+
+
+
+
 
 CGROUPS_MEMORY: enabled
 	[WARNING Service-Kubelet]: kubelet service does not exist
