@@ -297,3 +297,15 @@ kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
 sudo kubeadm init phase etcd local --config=configfile.yaml -v4
 
 --kubernetes-version=v1.11.7
+
+kubeadm init --config 
+```
+etcd:
+  local:
+     serverCertSANs:
+     - "0.0.0.0"
+     peerCertSANs:
+     - "0.0.0.0"     
+  extraArgs:
+    listen-client-urls: --listen-client-urls=https://0.0.0.0:2379
+ ```
