@@ -292,3 +292,8 @@ docker tag curl-alpine:1.0
 kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
 ```
 
+
+
+sudo kubeadm init phase etcd local --config=configfile.yaml -v4
+
+--kubernetes-version=v1.11.7
