@@ -159,6 +159,12 @@ or
 cd /etc/kubernetes/manifests
 etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
 ```
+# update config
+```
+kubectl exec -it etcd-bigo-vm1 -n kube-system -- sh
+ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-cl
+ient.key member list
+```
 
 
 # join a node
