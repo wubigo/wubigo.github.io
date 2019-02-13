@@ -6,7 +6,7 @@ tag: [Paas, k8s]
 ---
 
 [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
-[https://storage.googleapis.com/kubernetes-release/release/stable-1.11.txt](/images/posts/kubernetes-release.png)
+![https://storage.googleapis.com/kubernetes-release/release/stable-1.11.txt](/images/posts/kubernetes-release.png)
 
 ***KUBEADM IS CURRENTLY IN BETA***
 
