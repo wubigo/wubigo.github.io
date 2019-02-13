@@ -67,8 +67,8 @@ git remote set-url --push upstream no_push
 git fetch upstream
 git tag|grep v1.11.7
 git checkout tags/v1.11.7 -b <branch_name>
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.4-1
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.4-1 k8s.gcr.io/kube-cross:v1.11.4-1
+docker pull mirrorgooglecontainers/kube-cross:v1.11.4-1
+docker tag mirrorgooglecontainers/kube-cross:v1.11.4-1 k8s.gcr.io/kube-cross:v1.11.4-1
 ./build/run.sh make quick-release
 ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
 ```
