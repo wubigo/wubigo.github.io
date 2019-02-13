@@ -46,10 +46,21 @@ cp $GOPATH/bin/cri* /usr/local/bin/
 
 * [install-go-1.10](https://github.com/wubigo/wubigo.github.io/blob/master/_posts/2018-02-11-go%20notes.md#install-go-110)
 
+* checkout v1.11.7
+```
+git clone https://github.com/kubernetes/kubernetes.git
+git fetch --all
+git checkout tags/v1.11.7 -b v1.11.7
+```
+or
+```
+git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
+```
+
 * build v1.11.7
 
 ```
-git clone -b v1.11.7 https://github.com/wubigo/kubernetes.git (https://github.com/kubernetes/kubernetes.git)
+
 cd kubernetes
 git remote add upstream https://github.com/kubernetes/kubernetes.git
 git remote set-url --push upstream no_push
