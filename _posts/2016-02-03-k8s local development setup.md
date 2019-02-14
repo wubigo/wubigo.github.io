@@ -57,6 +57,17 @@ or
 git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
 ```
 
+* LOCAL ETCD INTEGRATION 
+```
+bash -vvv ./build/run.sh make
++++ source /home/bigo/go/src/k8s.io/kubernetes/hack/lib/etcd.sh
+++++ ETCD_VERSION=3.2.24
+++++ ETCD_HOST=127.0.0.1
+++++ ETCD_PORT=2379
+++++ export KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
+++++ KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
+```
+
 * build v1.11.7
 
 ```
