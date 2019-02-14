@@ -38,7 +38,7 @@ docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
 ```
 * cri-tools v1.11.0
 ```
-git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git
+git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git $GOPATH/src/github.com/kubernetes-sigs/
 make
 $GOPATH/bin/crictl -version
 cp $GOPATH/bin/cri* /usr/local/bin/
@@ -48,7 +48,7 @@ cp $GOPATH/bin/cri* /usr/local/bin/
 
 * checkout v1.11.7
 ```
-git clone https://github.com/kubernetes/kubernetes.git
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
 git fetch --all
 git checkout tags/v1.11.7 -b v1.11.7
 ```
