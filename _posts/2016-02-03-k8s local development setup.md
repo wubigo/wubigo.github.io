@@ -321,3 +321,6 @@ etcd:
   extraArgs:
     listen-client-urls: --listen-client-urls=https://0.0.0.0:2379
  ```
+
+
+kubeadm now automatically creates a new stacked etcd member when joining a new control plane node (does not applies to external etcd) (#69486, @fabriziopandini)
