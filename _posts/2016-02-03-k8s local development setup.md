@@ -71,7 +71,6 @@ bash -vvv ./build/run.sh make
 * build v1.11.7
 
 ```
-
 cd kubernetes
 git remote add upstream https://github.com/kubernetes/kubernetes.git
 git remote set-url --push upstream no_push
@@ -80,8 +79,15 @@ git tag|grep v1.11.7
 git checkout tags/v1.11.7 -b <branch_name>
 docker pull mirrorgooglecontainers/kube-cross:v1.10.7-1
 docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.10.7-1
-./build/run.sh make quick-release
+```
+
+```
+bash -x ./build/run.sh make > run.log 2>&1
 ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
+```
+or
+```
+make  quick-release
 ```
 
 # deploy k8s with kubeadm
