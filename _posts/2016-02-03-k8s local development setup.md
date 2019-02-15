@@ -45,7 +45,7 @@ $GOPATH/bin/crictl -version
 cp $GOPATH/bin/cri* /usr/local/bin/
 ```
 
-* [install-go-1.10](https://github.com/wubigo/wubigo.github.io/blob/master/_posts/2018-02-11-go%20notes.md#install-go-110)
+* [install-go-1.10](https://wubigo.com/2018/02/go-notes/#install-go-110)
 
 * checkout v1.11.7
 ```
