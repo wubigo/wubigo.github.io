@@ -84,6 +84,7 @@ docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.
 
 ```
 bash -x ./build/run.sh make > run.log 2>&1
+./_output/dockerized/bin/linux/amd64/kubeadm version| grep v1.11.7
 ```
 or
 ```
