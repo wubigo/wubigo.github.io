@@ -84,11 +84,11 @@ docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.
 
 ```
 bash -x ./build/run.sh make > run.log 2>&1
-./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
 ```
 or
 ```
 make  quick-release
+./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
 ```
 
 # deploy k8s with kubeadm
