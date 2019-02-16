@@ -6,7 +6,7 @@ tags: [k8s, kubeadm]
 ---
 
 
-*** version notes ***
+**version notes**
 
 some only works on 1.13
 
