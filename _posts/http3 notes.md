@@ -1,0 +1,18 @@
+---
+layout: post
+title: HTTP/3
+date: 2019-02-01
+tags: [HTTP]
+---
+
+# main goal 
+
+* HTTP/2's multiplexed connections, allowing multiple streams of data to reach all the endpoints independently. In contrast, 
+ HTTP hosted on Transmission Control Protocol (TCP) can be blocked if any of the multiplexed data streams has an error.
+ 
+ 
+* reduced connection and transport latency, and bandwidth estimation in each direction to avoid congestion.
+ It also moves control of the congestion avoidance algorithms into the application space at both endpoints, 
+ rather than the kernel space, which it is claimed will allow these algorithms to improve more rapidly. 
+ Additionally, the protocol can be extended with forward error correction (FEC) to further improve performance
+ when errors are expected
