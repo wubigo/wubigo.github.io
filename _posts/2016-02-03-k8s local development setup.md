@@ -350,4 +350,27 @@ etcd:
  ```
 
 
+
+[reset] Reading configuration from the cluster...
+[reset] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+W0216 20:31:44.905795    7122 reset.go:213] [reset] Unable to fetch the kubeadm-config ConfigMap, using etcd pod spec as fallback: failed to get config map: Get https://192.168.1.9:6443/api/v1/namespaces/kube-system/configmaps/kubeadm-config: dial tcp 192.168.1.9:6443: connect: connection refused
+[reset] no etcd config found. Assuming external etcd
+[reset] please manually reset etcd to prevent further issues
+[reset] stopping the kubelet service
+[reset] unmounting mounted directories in "/var/lib/kubelet"
+
+[reset] deleting contents of stateful directories: [/var/lib/kubelet /etc/cni/net.d /var/lib/dockershim /var/run/kubernetes]
+[reset] deleting contents of config directories: [/etc/kubernetes/manifests /etc/kubernetes/pki]
+[reset] deleting files: [/etc/kubernetes/admin.conf /etc/kubernetes/kubelet.conf /etc/kubernetes/bootstrap-kubelet.conf /etc/kubernetes/controller-manager.conf /etc/kubernetes/scheduler.conf]
+
+The reset process does not reset or clean up iptables rules or IPVS tables.
+If you wish to reset iptables, you must do so manually.
+For example: 
+iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+
+If your cluster was setup to utilize IPVS, run ipvsadm --clear (or similar)
+to reset your system's IPVS tables.
+
+
+
 kubeadm now automatically creates a new stacked etcd member when joining a new control plane node (does not applies to external etcd) (#69486, @fabriziopandini)
