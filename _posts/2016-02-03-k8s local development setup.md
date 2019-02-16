@@ -101,6 +101,14 @@ sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubeadm
 sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubelet /usr/bin/
 ```
 
+* kubeadm kubectl bash completion
+```
+kubeadm completion bash > ~/.kube/kubeadm_completion.bash.inc
+echo "source '$HOME/.kube/kubeadm_completion.bash.inc'\n" >> $HOME/.bashrc
+```
+
+
+
 * install kubelet service
 ```
 sudo cp ./build/debs/kubelet.service /etc/systemd/system/kubelet.service
