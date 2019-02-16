@@ -6,7 +6,7 @@ tags: [k8s, kubeadm]
 ---
 
 
-*** version
+*** version***
 ```
 kubeadm version: &version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.3",
 GitCommit:"721bfa751924da8d1680787490c54b9179b1fed0", GitTreeState:"clean", BuildDate:"2019-02-16T15:29:34Z", 
