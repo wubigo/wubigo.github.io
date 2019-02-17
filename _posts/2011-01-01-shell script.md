@@ -30,8 +30,25 @@ docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 ```
 cd build
 run.sh make
-
-#!/usr/bin/env bash
 scp ~/go/src/k8s.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
+```
 
+
+kubeadm-deploy.sh
+```
+#!/usr/bin/env bash
+scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service vm1:~/
+scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf vm1:~/
+cat <<EOF > kubelet-service.sh
+#!/usr/bin/env bash
+sudo cp ~/kubelet.service /etc/systemd/system/kubelet.service
+sudo mkdir -p /etc/kubernetes/manifests
+sudo mkdir -p /etc/systemd/system/kubelet.service.d/
+sudo cp ~/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet --now
+sudo systemctl start kubelet
+EOF
+ssh vm1 'bash -s' < kubelet-service.sh
+rm kubelet-service.sh
 ```
