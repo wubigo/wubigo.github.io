@@ -49,11 +49,13 @@ kubeadm config images pull -v 4
 ```
 
 # init phase
+```
 kubeadm config print init-defaults >adm.defaults.yaml
 git diff adm.defaults.yaml
 -imageRepository: k8s.gcr.io
 +imageRepository: mirrorgooglecontainers
 sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
+```
 
 
 # Self-hosting the Kubernetes control plane
