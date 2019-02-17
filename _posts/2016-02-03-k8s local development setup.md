@@ -164,10 +164,7 @@ cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0    --> {.calico-etcd-secrets.e
 * kubectl completion code for bash
 ```
   # Installing bash completion on Linux
-  ## Load the kubectl completion code for bash into the current shell
-  source <(kubectl completion bash)
-  ## Write bash completion code to a file and source if from .bash_profile
-  kubectl completion bash > ~/.kube/completion.bash.inc
+  kubectl completion bash > ~/.kube/kubectl.bash.inc
   printf "
   # Kubectl shell completion
   source '$HOME/.kube/completion.bash.inc'
@@ -198,7 +195,13 @@ or
 cd /etc/kubernetes/manifests
 etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
 ```
-# update config
+# ETCD liveness probe 
+```
+kubectl describe pods etcd-bigo-vm3 -n kube-system
+Liveness:       exec [/bin/sh -ec ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key get foo]
+sudo curl -v -l https://127.0.0.1:2379/v3/keys --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/healthcheck-client.crt --key /etc/kubernetes/pki/etcd/healthcheck-client.key 
+```
+
 ```
 kubectl exec -it etcd-bigo-vm1 -n kube-system -- sh
 ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-cl
