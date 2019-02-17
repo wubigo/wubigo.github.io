@@ -5,6 +5,19 @@ date: 2011-01-01
 tag: shell
 ---
 
+# kube build
+```
+#!/usr/bin/env bash
+export K8S_VERSION = v1.13.3
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
+git fetch --all
+git checkout tags/$K8S_VERSION -b v$K8S_VERSION
+export ETCD_HOST=192.168.1.9
+export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
+cd $GOPATH/src/k8s.io/kubernetes/build/
+bash -x ./run.sh make > run.log 2>&1
+```
+
 # kube image pull then tag
 ```
 #!/usr/bin/env bash
