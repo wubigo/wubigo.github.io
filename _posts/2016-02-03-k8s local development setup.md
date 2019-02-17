@@ -63,7 +63,7 @@ git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
 +++ source /home/bigo/go/src/k8s.io/kubernetes/hack/lib/etcd.sh
 ++++ ETCD_VERSION=3.2.24
 ++++ ETCD_HOST=127.0.0.1
-++++ export KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
+++++  
 ++++ KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
 ```
 
@@ -82,6 +82,7 @@ docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.
 
 ```
 export ETCD_HOST=192.168.1.9
+export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
 bash -x ./build/run.sh make > run.log 2>&1
 ./_output/dockerized/bin/linux/amd64/kubeadm version| grep v1.11.7
 ```
@@ -373,3 +374,6 @@ to reset your system's IPVS tables.
 
 
 kubeadm now automatically creates a new stacked etcd member when joining a new control plane node (does not applies to external etcd) (#69486, @fabriziopandini)
+
+
+[kubeadm can not apply user specified listen-client-urls for local etcd](https://github.com/kubernetes/kubernetes/issues/68333)
