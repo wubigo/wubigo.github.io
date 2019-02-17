@@ -62,3 +62,6 @@ To create a self-hosted cluster, pass the flag --feature-gates=SelfHosting=true 
 ```
 
 ```
+
+https://kubernetes.io/docs/setup/independent/setup-ha-etcd-with-kubeadm/
+https://discuss.kubernetes.io/t/question-about-etcd-cluster-with-kubeadm-in-1-11/1228
