@@ -25,7 +25,7 @@ docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 
 ```
 
-# scp kubeadm from build to k8s master or worker
+# prepare kubelet for kubeadm deploy
 
 ```
 cd build
@@ -39,7 +39,7 @@ kubeadm-deploy.sh
 #!/usr/bin/env bash
 scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service vm1:~/
 scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf vm1:~/
-cat <<EOF > kubelet-service.sh
+cat << EOF > kubelet-service.sh
 #!/usr/bin/env bash
 sudo cp ~/kubelet.service /etc/systemd/system/kubelet.service
 sudo mkdir -p /etc/kubernetes/manifests
@@ -49,6 +49,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable kubelet --now
 sudo systemctl start kubelet
 EOF
+# execute the local script on the remote server
 ssh vm1 'bash -s' < kubelet-service.sh
 rm kubelet-service.sh
 ```
