@@ -16,6 +16,8 @@ GitCommit:"721bfa751924da8d1680787490c54b9179b1fed0", GitTreeState:"clean", Buil
 GoVersion:"go1.11.5", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
+Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -**${ARCH}** suffix
+
 
 -  images list
 ```
@@ -44,4 +46,12 @@ k8s.gcr.io/coredns:1.2.6
 
 ```
 kubeadm config images pull -v 4
+```
+
+
+# Self-hosting the Kubernetes control plane
+As of 1.8, you can experimentally create a self-hosted Kubernetes control plane. This means that key components such as the API server, controller manager, and scheduler run as DaemonSet pods configured via the Kubernetes API instead of static pods configured in the kubelet via static files.
+To create a self-hosted cluster, pass the flag --feature-gates=SelfHosting=true to kubeadm init.
+```
+
 ```
