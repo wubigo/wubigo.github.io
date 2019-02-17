@@ -48,6 +48,13 @@ k8s.gcr.io/coredns:1.2.6
 kubeadm config images pull -v 4
 ```
 
+# init phase
+kubeadm config print init-defaults >adm.defaults.yaml
+git diff adm.defaults.yaml
+-imageRepository: k8s.gcr.io
++imageRepository: mirrorgooglecontainers
+sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
+
 
 # Self-hosting the Kubernetes control plane
 As of 1.8, you can experimentally create a self-hosted Kubernetes control plane. This means that key components such as the API server, controller manager, and scheduler run as DaemonSet pods configured via the Kubernetes API instead of static pods configured in the kubelet via static files.
