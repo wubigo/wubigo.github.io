@@ -34,6 +34,23 @@ cd $GOPATH/src/k8s.io/kubernetes/build/
 bash -x ./run.sh make > run.log 2>&1
 ```
 
+# kubeadm init
+
+```
+#!/usr/bin/env bash
+
+cat << EOF > init.sh
+#!/usr/bin/env bash
+sudo kubeadm reset -f
+sudo kubeadm init --kubernetes-version=v1.13.3 --pod-network-cidr 10.2.0.0/16 -v 4 > kubeadm.init.log 2>&1
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+EOF
+ssh $VM 'bash -s' < init.sh
+rm init.sh
+```
+
 # kube image pull then tag
 ```
 #!/usr/bin/env bash
