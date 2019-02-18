@@ -1,3 +1,16 @@
+
+**NOTICE**
+    - Don't put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
+    - Keep key files in safe. Don't forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
+    - Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients' authentication.
+    - generate keys and certificates for wildcard * address as well. They will work on any machine. It will simplify certificates routine but increase security risks.
+
+check server.pem isssued X509v3 Subject Alternative Name
+```
+openssl x509 -in server.pem -text |grep DNS
+```
+
+
 # Generate self-signed certificates
 
 * Download cfssl
@@ -167,10 +180,4 @@ get following files:
 client-key.pem
 client.csr
 client.pem
-```
-
-
-# check server.pem isssued X509v3 Subject Alternative Name
-```
-openssl x509 -in server.pem -text |grep DNS
 ```
