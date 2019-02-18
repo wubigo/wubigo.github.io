@@ -1,3 +1,12 @@
+---
+layout: post
+title: ETCD notes
+date: 2011-02-01
+tag: K8S
+---
+
+
+
 # Verify etcd CA data
 ```shell
 sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text
