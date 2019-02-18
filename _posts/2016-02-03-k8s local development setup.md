@@ -118,6 +118,7 @@ sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-ku
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet --now
 sudo systemctl start kubelet
+journalctl -xeu kubelet
 ```
 
 * disable swap
