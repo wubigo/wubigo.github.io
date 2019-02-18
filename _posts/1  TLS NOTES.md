@@ -1,5 +1,6 @@
 
 **NOTICE**
+
     - Don't put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
     - Keep key files in safe. Don't forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
     - Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients' authentication.
