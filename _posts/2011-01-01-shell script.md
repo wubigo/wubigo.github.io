@@ -5,6 +5,18 @@ date: 2011-01-01
 tag: shell
 ---
 
+# claim docker disk space
+docker-clean.sh
+```
+#!/usr/bin/env bash
+
+# ignoring pipe fail of non-zero exit code
+set -o pipefail
+docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v
+[ ! -z "$VM" ] && ssh $VM 'bash -s' < docker-clean.sh.sh
+
+```
 # kube build
 
 ```
