@@ -11,7 +11,7 @@ sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text
                 DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1
 ...
 ```
-
+> server.crt is signed for DNS names [bigo-vm3 localhost] and IPs [192.168.1.11 127.0.0.1 ::1]
 
 
 # etcd config
