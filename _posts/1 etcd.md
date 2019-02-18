@@ -1,8 +1,6 @@
 # Verify etcd CA data
-```
+```shell
 sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text
-```
----
 ...
         X509v3 extensions:
             X509v3 Key Usage: critical
@@ -12,7 +10,7 @@ sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text
             X509v3 Subject Alternative Name: 
                 DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1
 ...
----
+```
 
 
 
