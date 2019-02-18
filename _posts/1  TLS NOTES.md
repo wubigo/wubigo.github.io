@@ -9,7 +9,7 @@
     
 - generate keys and certificates for wildcard * address as well. They will work on any machine. It will simplify certificates routine but increase security risks.
 
-check server.pem isssued X509v3 Subject Alternative Name
+check  X509v3 Subject Alternative Name(HOST) issued in server.pem
 ```
 openssl x509 -in server.pem -text |grep DNS
 ```
