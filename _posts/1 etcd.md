@@ -54,7 +54,7 @@ $cat /etc/kubernetes/manifests/etcd.yaml
 
 ```
 
-# check  kube apiserver access of etcd
+# check  kube apiserver access of etcd with curl
 ```
 sudo curl -L -v https://192.168.1.11:2379/v3/keys --cacert /etc/kubernetes/pki/etcd/ca.crt  --cert /etc/kubernetes/pki/apiserver-etcd-client.crt  --key /etc/kubernetes/pki/apiserver-etcd-client.key
 *   Trying 192.168.1.11...
