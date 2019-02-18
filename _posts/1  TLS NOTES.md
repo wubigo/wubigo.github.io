@@ -22,7 +22,152 @@ cfssl print-defaults csr > ca-csr.json
     - server certificate is used by server and verified by client for server identity.
     - peer certificate is used by cluster as members communicate with each other in both ways.
 
+* Configure CA options
+ca-csr.json(Certificate Signing Request (CSR))
+```
+{
+    "CN": "wubigo CA",
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "CN",
+            "L": "BJ",
+            "ST": "Bei Jing"
+        }
+    ]
+}
+```
 
+ca-config.json( set expiry to 8760h (1 year))
+```
+{
+    "signing": {
+        "default": {
+            "expiry": "168h"
+        },
+        "profiles": {
+            "server": {
+                "expiry": "8760h",
+                "usages": [
+                    "signing",
+                    "key encipherment",
+                    "server auth"
+                ]
+            },
+            "client": {
+                "expiry": "8760h",
+                "usages": [
+                    "signing",
+                    "key encipherment",
+                    "client auth"
+                ]
+            },
+            "peer": {
+                "expiry": "8760h",
+                "usages": [
+                    "signing",
+                    "key encipherment",
+                    "server auth",
+                    "client auth"
+                ]
+            }
+        }
+    }
+}
+```
+
+* generate CA with defined options:
+```
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
+ls 
+ca-key.pem
+ca.csr
+ca.pem
+```
+**Please keep ca-key.pem file in safe. This key allows to create any kind of certificates within the CA**
+
+* Generate server certificate
+```
+cfssl print-defaults csr > server.json
+```
+Most important values for server certificate are Common Name (CN) and hosts. substitute them accordingly:
+
+```
+...
+    "CN": "server",
+    "hosts": [
+        "192.168.1.6",
+        "wubigo.com",
+        "localhost",
+        "127.0.0.1"
+    ],
+...
+```
+ - generate server certificate and private key:
+```
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=server server.json | cfssljson -bare server
+```
+result following files:
+```
+server-key.pem
+server.csr
+server.pem
+```
+
+* Generate peer certificate
+
+cfssl print-defaults csr > member1.json
+
+Substitute CN and hosts values, for example:
+```
+...
+    "CN": "member1",
+    "hosts": [
+        "192.168.1.7",
+        "member1.wubigo.com",
+        "member1.local",
+        "member1"
+    ],
+...
+```
+
+  - generate member1 certificate and private key:
+```
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=peer member1.json | cfssljson -bare member1
+```
+```
+member1-key.pem
+member1.csr
+member1.pem
+```
+
+* Generate client certificate
+```
+cfssl print-defaults csr > client.json
+```
+For client certificate ignore hosts values and set only Common Name (CN) to client value:
+```
+...
+    "CN": "client",
+    "hosts": [
+              ""
+    ]",
+...
+```
+- Generate client certificate:
+```
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=client client.json | cfssljson -bare client
+```
+
+get following files:
+```
+client-key.pem
+client.csr
+client.pem
+```
 
 
 # check server.pem isssued X509v3 Subject Alternative Name
