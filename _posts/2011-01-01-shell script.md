@@ -80,7 +80,7 @@ run.sh make
 scp ~/go/src/k8s.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
 ```
 
-> deploy k8s master
+# deploy k8s master
 
 ```
 #!/usr/bin/env bash
@@ -154,3 +154,50 @@ EOF
 ssh $VM 'bash -s' < d.sh
 rm d.sh
 
+# deploy k8s working node
+
+```
+#!/usr/bin/env bash
+
+if [ ! -z "$VM" ]; then
+    VM = t1
+    echo "VAR VM is not set"
+    exit    
+fi
+scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
+scp ~/go/bin/cri*  $VM:~/
+cat << EOF > d.sh
+#!/usr/bin/env bash
+sudo cp ~/kube??? /usr/bin/
+sudo cp ~/kubelet.service /etc/systemd/system/kubelet.service
+sudo mkdir -p /etc/kubernetes/manifests
+sudo mkdir -p /etc/systemd/system/kubelet.service.d/
+sudo cp ~/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet --now
+sudo systemctl start kubelet
+
+mkdir -p /opt/cni/bin
+sudo cp ~/cnitool  ~/noop  /opt/cni/bin
+
+sudo cp ~/cri* /usr/local/bin/
+#clean up
+
+rm -f kube??? crictl critest cnitool noop kubelet.service 10-kubeadm.conf
+EOF
+
+
+TOKEN = $(kubeadm token list)
+CA_HASH = $(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+   openssl dgst -sha256 -hex | sed 's/^.* //')
+cat << EOF > d.sh
+#!/usr/bin/env bash
+kubeadm join 192.168.1.11:6443 --token $TOKEN --discovery-token-ca-cert-hash $CA_HASH
+EOF
+# execute the local script on the remote server
+ssh $VM 'bash -s' < d.sh
+rm d.sh
+```

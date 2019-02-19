@@ -67,3 +67,17 @@ To create a self-hosted cluster, pass the flag --feature-gates=SelfHosting=true 
 
 https://kubernetes.io/docs/setup/independent/setup-ha-etcd-with-kubeadm/
 https://discuss.kubernetes.io/t/question-about-etcd-cluster-with-kubeadm-in-1-11/1228
+
+
+
+```
+kubectl get configmaps --all-namespaces
+kubectl describe configmaps kubeadm-config -n kube-system
+
+kubectl -n kube-system get deployment coredns -o yaml | \
+  sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
+  kubectl apply -f -
+  
+kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
+kubectl logs calico-node-4mb5z -n kube-system
+```  
