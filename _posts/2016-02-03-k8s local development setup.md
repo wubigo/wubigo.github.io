@@ -244,27 +244,6 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
 
 
 
-
-
-
-
-
-
-
-
-
-CGROUPS_MEMORY: enabled
-	[WARNING Service-Kubelet]: kubelet service does not exist
-[preflight] Some fatal errors occurred:
-	[ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
-	[ERROR FileContent--proc-sys-net-ipv4-ip_forward]: /proc/sys/net/ipv4/ip_forward contents are not set to 1
-	[ERROR Swap]: running with swap on is not supported. Please disable swap
-	[ERROR FileExisting-crictl]: crictl not found in system path
-	[ERROR SystemVerification]: failed to get docker info: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-
-
-```
-
 * token recreate
 By default, tokens expire after 24 hours. Joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:
 ```
@@ -282,18 +261,19 @@ kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs 
 ```
 
 
-
 # Kubernetes requires a none-stop app/CMD
 Docker container stop automatically after running
 ***the container dies after running everything correctly but crashes because all the commands ended in k8s. 
 Either you make your services run on the foreground, or you create a keep alive script. By doing so, 
 Kubernetes will show that your application is running. We have to note that in the Docker environment,
 this problem is not encountered. It is only Kubernetes that wants a running app***
+
+test/curl/Dockerfile
 ```
 FROM alpine:3.8
 RUN apk add --no-cache curl
 STOPSIGNAL SIGTERM
-CMD ["/usr/bin/tail", "-f", "/dev/null"]
+CMD ["sh"]
 kubectl run  curl --image=curl-alpine:1.0
 kubectl exec -it curl -c curl -- sh
 ```
