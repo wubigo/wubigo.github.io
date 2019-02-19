@@ -290,6 +290,7 @@ mysql>
 ```
 
 * tear down cluster
+
 ```
 kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
 kubectl delete node <node name>
@@ -306,13 +307,6 @@ iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 If you want to reset the IPVS tables, you must run the following command:
 ```
 ipvsadm -C
-```
-
-
-# kubectl cheat sheet
-```
-
-  
 ```
 
 
