@@ -196,7 +196,7 @@ CA_HASH=$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pub
    openssl dgst -sha256 -hex | sed 's/^.* //')
 cat << EOF > d.sh
 #!/usr/bin/env bash
-kubeadm join 192.168.1.11:6443 --token $TOKEN --discovery-token-ca-cert-hash $CA_HASH
+kubeadm join 192.168.1.11:6443 --token $TOKEN --discovery-token-ca-cert-hash sha256:$CA_HASH
 EOF
 # execute the local script on the remote server
 ssh $VM 'bash -s' < d.sh
