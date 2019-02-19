@@ -153,6 +153,7 @@ EOF
 # execute the local script on the remote server
 ssh $VM 'bash -s' < d.sh
 rm d.sh
+```
 
 # deploy k8s working node
 
