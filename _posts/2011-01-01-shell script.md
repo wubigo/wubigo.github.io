@@ -191,8 +191,8 @@ rm -f kube??? crictl critest cnitool noop kubelet.service 10-kubeadm.conf
 EOF
 
 
-TOKEN = $(kubeadm token list)
-CA_HASH = $(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+TOKEN=$(kubeadm token list)
+CA_HASH=$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //')
 cat << EOF > d.sh
 #!/usr/bin/env bash
