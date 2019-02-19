@@ -9,8 +9,10 @@ tag: [Paas, k8s]
 - go
 - docker
 - cri
-- cni 
+- cni
+
 [external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
+
 ![release/stable-1.11.txt](/images/posts/kubernetes-release.png)
 
 ***KUBEADM IS CURRENTLY IN BETA***
