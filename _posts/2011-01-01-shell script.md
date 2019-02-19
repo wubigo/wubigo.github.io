@@ -44,7 +44,7 @@ cat << EOF > init.sh
 sudo kubeadm reset -f
 sudo kubeadm init --kubernetes-version=v1.13.3 --pod-network-cidr 10.2.0.0/16 -v 4 > kubeadm.init.log 2>&1
 mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 EOF
 ssh $VM 'bash -s' < init.sh
@@ -73,29 +73,84 @@ docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 
 # prepare kubelet for kubeadm deploy
 
+> build
 ```
 cd build
 run.sh make
 scp ~/go/src/k8s.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
 ```
 
+> deploy k8s master
 
-kubeadm-deploy.sh
 ```
 #!/usr/bin/env bash
-scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service vm1:~/
-scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf vm1:~/
-cat << EOF > kubelet-service.sh
+
+if [ ! -z "$VM" ]; then
+    VM = t1
+    echo "VAR VM is not set"
+    exit    
+fi
+
+if [ ! -z "$KV" ]; then
+    KV = v1.13.3
+    echo "VAR VM is not set ,set to $KV"    
+    exit
+fi 
+if [ ! -z "$PN" ]; then
+    PN = 10.2.0.0/16
+    echo "VAR PN is not set, set to $PN"
+    exit
+fi
+
+scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
+scp ~/go/bin/cri*  $VM:~/
+cat << EOF > d.sh
 #!/usr/bin/env bash
+sudo cp ~/kube??? /usr/bin/
 sudo cp ~/kubelet.service /etc/systemd/system/kubelet.service
 sudo mkdir -p /etc/kubernetes/manifests
 sudo mkdir -p /etc/systemd/system/kubelet.service.d/
 sudo cp ~/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet --now
 sudo systemctl start kubelet
+
+mkdir -p /opt/cni/bin
+sudo cp ~/cnitool  ~/noop  /opt/cni/bin
+
+sudo cp ~/cri* /usr/local/bin/
+#clean up
+rm -f kube??? crictl critest cnitool noop kubelet.service 10-kubeadm.conf
+
+# sudo kubeadm init --kubernetes-version=$KV --pod-network-cidr 10.2.0.0/16 -v 4
+if [ -d "$HOME/.kube" ]; then
+  mkdir -p $HOME/.kube
+fi  
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml> calico.yaml
+# set etcd_endpoints
+sed -i -e "s/\(^etcd_endpoints: \"http.*$\)/etcd_endpoints: \"https:\/\/$VM:2379\"/g" calico.yaml 
+# etcd_ca: "/calico-secrets/etcd-ca"
+sed -i -e 's/etcd_ca: \"\"   \# \"\/calico-secrets/etcd-ca\"/etcd_ca: \"\/calico-secrets\/etcd-ca\"/g' calico.yaml
+sed -i -e 's/etcd_cert: \"\" # \"\/calico-secrets\/etcd-cert\"/etcd_cert: \"\/calico-secrets\/etcd-cert\"/g' calico.yaml
+sed -i -e 's/etcd_key: \"\"  # \"\/calico-secrets\/etcd-key\"/etcd_key: \"\/calico-secrets\/etcd-key\"/g' calico.yaml
+CA=$(cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0)
+CERT=$(cat /etc/kubernetes/pki/etcd/server.crt | base64 -w 0)
+KEY=$(sudo cat /etc/kubernetes/pki/etcd/server.key | base64 -w 0)
+sed -i -e "s/# etcd-ca: null/etcd-ca: $CA/g" calico.yaml
+sed -i -e "s/# etcd-cert: null/etcd-cert: $CERT/g" calico.yaml
+sed -i -e "s/# etcd-key: null/etcd-key: $KEY/g" calico.yaml
+
+kubectl apply -f calico.yaml
+
 EOF
 # execute the local script on the remote server
-ssh vm1 'bash -s' < kubelet-service.sh
-rm kubelet-service.sh
-```
+ssh $VM 'bash -s' < d.sh
+rm d.sh
+
