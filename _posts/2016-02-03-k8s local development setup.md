@@ -127,6 +127,9 @@ journalctl -xeu kubelet
 ```
 
 * disable swap
+```
+sudo swapoff -a
+```
 
 * build cni v0.6.0
 ```
@@ -232,7 +235,11 @@ kubeadm token list
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
-```
+
+>all in one shell
+
+[deploy-work-node.sh](http://wubigo.com/2011/01/shell-script/#deploy-k8s-working-node)
+
 
 
 
@@ -302,15 +309,7 @@ ipvsadm -C
 
 # kubectl cheat sheet
 ```
-kubectl get configmaps --all-namespaces
-kubectl describe configmaps kubeadm-config -n kube-system
 
-kubectl -n kube-system get deployment coredns -o yaml | \
-  sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
-  kubectl apply -f -
-  
-kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
-kubectl logs calico-node-4mb5z -n kube-system  
   
 ```
 
@@ -386,3 +385,7 @@ kubeadm now automatically creates a new stacked etcd member when joining a new c
 
 
 [kubeadm can not apply user specified listen-client-urls for local etcd](https://github.com/kubernetes/kubernetes/issues/68333)
+
+
+
+engww4.nedmm8gshvxdkv9q
