@@ -281,34 +281,6 @@ curl $POD_IP
 kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
 ```
 
-* deploy mysql
-```
-$kubectl run mysql-5-5 --replicas=1 --labels="run=mysql-5-5" --image=mysql:5.5 --env="MYSQL_ROOT_PASSWORD=mysql" --port=3306
-$kubectl exec -it mysql-5-5 -c mysql-5-5 -- bash
-# mysql -u root -pmysql
-mysql> 
-```
-
-* tear down cluster
-
-```
-kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
-kubectl delete node <node name>
-```
-Then, on the node being removed, reset all kubeadm installed state:
-```
-kubeadm reset
-```
-The reset process does not reset or clean up iptables rules or IPVS tables. 
-If you wish to reset iptables, you must do so manually:
-```
-iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
-```
-If you want to reset the IPVS tables, you must run the following command:
-```
-ipvsadm -C
-```
-
 
 
 # Kubernetes requires a none-stop app/CMD
@@ -334,6 +306,28 @@ docker build .
 docker tag curl-alpine:1.0
 kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
 ```
+
+
+* tear down cluster
+
+```
+kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
+kubectl delete node <node name>
+```
+Then, on the node being removed, reset all kubeadm installed state:
+```
+kubeadm reset
+```
+The reset process does not reset or clean up iptables rules or IPVS tables. 
+If you wish to reset iptables, you must do so manually:
+```
+iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+```
+If you want to reset the IPVS tables, you must run the following command:
+```
+ipvsadm -C
+```
+
 
 
 
