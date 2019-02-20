@@ -5,6 +5,10 @@ date: 2019-02-11
 tags: [k8s, kubeadm]
 ---
 
+> get all Pending pods 
+```
+kubectl get pods --field-selector=status.phase=Pending
+```
 
 **version notes**
 

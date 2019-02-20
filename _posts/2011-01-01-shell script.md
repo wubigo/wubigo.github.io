@@ -134,7 +134,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml> calico.yaml
-# set etcd_endpoints
+# calico etcd setup
 sed -i -e "s/\(^etcd_endpoints: \"http.*$\)/etcd_endpoints: \"https:\/\/$VM:2379\"/g" calico.yaml 
 # etcd_ca: "/calico-secrets/etcd-ca"
 sed -i -e 's/etcd_ca: \"\"   \# \"\/calico-secrets/etcd-ca\"/etcd_ca: \"\/calico-secrets\/etcd-ca\"/g' calico.yaml
