@@ -5,6 +5,51 @@ date: 2011-01-01
 tag: shell
 ---
 
+# push docker images to ali
+
+- registry-mirrors
+
+
+
+> https://cr.console.aliyun.com
+
+```
+#!/usr/bin/env bash
+
+docker login --username=wubigo registry.cn-beijing.aliyuncs.com
+docker images  | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/k8s.gcr.io\///' | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
+docker images |grep "registry.cn-beijing.aliyuncs.com"| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
+```
+
+#  docker push through cache 
+
+```
+#!/usr/bin/env bash
+
+if [ -z "$VM" ]; then
+    VM = t1
+    echo "VAR VM is not set"
+    exit
+fi
+
+tee daemon.json << EOF
+{
+  "registry-mirrors": ["https://registry.docker-cn.com", "https://11h2ev58.mirror.aliyuncs.com"]
+}
+EOF
+
+scp daemon.json $VM:~/
+
+tee d.sh << EOF
+sudo mkdir -p /etc/docker
+sudo mv daemon.json /etc/docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+EOF
+```
+
+ssh $VM 'bash -s' < d.sh
+rm daemon.json
 # claim docker disk space
 docker-clean.sh
 ```
