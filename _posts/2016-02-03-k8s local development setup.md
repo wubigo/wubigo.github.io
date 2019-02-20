@@ -9,8 +9,10 @@ tag: [Paas, k8s]
 - go
 - docker
 - cri
-- cni 
+- cni
+
 [external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
+
 ![release/stable-1.11.txt](/images/posts/kubernetes-release.png)
 
 ***KUBEADM IS CURRENTLY IN BETA***
@@ -240,27 +242,6 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
 
 
 
-
-
-
-
-
-
-
-
-
-CGROUPS_MEMORY: enabled
-	[WARNING Service-Kubelet]: kubelet service does not exist
-[preflight] Some fatal errors occurred:
-	[ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
-	[ERROR FileContent--proc-sys-net-ipv4-ip_forward]: /proc/sys/net/ipv4/ip_forward contents are not set to 1
-	[ERROR Swap]: running with swap on is not supported. Please disable swap
-	[ERROR FileExisting-crictl]: crictl not found in system path
-	[ERROR SystemVerification]: failed to get docker info: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-
-
-```
-
 * token recreate
 By default, tokens expire after 24 hours. Joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:
 ```
@@ -277,15 +258,36 @@ curl $POD_IP
 kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
 ```
 
-* deploy mysql
+
+# Kubernetes requires a none-stop app/CMD
+Docker container stop automatically after running
+***the container dies after running everything correctly but crashes because all the commands ended in k8s. 
+Either you make your services run on the foreground, or you create a keep alive script. By doing so, 
+Kubernetes will show that your application is running. We have to note that in the Docker environment,
+this problem is not encountered. It is only Kubernetes that wants a running app***
+
+test/curl/Dockerfile
 ```
-$kubectl run mysql-5-5 --replicas=1 --labels="run=mysql-5-5" --image=mysql:5.5 --env="MYSQL_ROOT_PASSWORD=mysql" --port=3306
-$kubectl exec -it mysql-5-5 -c mysql-5-5 -- bash
-# mysql -u root -pmysql
-mysql> 
+FROM alpine:3.8
+RUN apk add --no-cache curl
+STOPSIGNAL SIGTERM
+CMD ["sh"]
+kubectl run  curl --image=curl-alpine:1.0
+kubectl exec -it curl -c curl -- sh
 ```
 
+***let kubectl never restart container
+```
+FROM alpine:3.8
+RUN apk add --no-cache curl
+docker build .
+docker tag curl-alpine:1.0
+kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
+```
+
+
 * tear down cluster
+
 ```
 kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
 kubectl delete node <node name>
@@ -304,38 +306,6 @@ If you want to reset the IPVS tables, you must run the following command:
 ipvsadm -C
 ```
 
-
-# kubectl cheat sheet
-```
-
-  
-```
-
-
-
-# Kubernetes requires a none-stop app/CMD
-Docker container stop automatically after running
-***the container dies after running everything correctly but crashes because all the commands ended in k8s. 
-Either you make your services run on the foreground, or you create a keep alive script. By doing so, 
-Kubernetes will show that your application is running. We have to note that in the Docker environment,
-this problem is not encountered. It is only Kubernetes that wants a running app***
-```
-FROM alpine:3.8
-RUN apk add --no-cache curl
-STOPSIGNAL SIGTERM
-CMD ["/usr/bin/tail", "-f", "/dev/null"]
-kubectl run  curl --image=curl-alpine:1.0
-kubectl exec -it curl -c curl -- sh
-```
-
-***let kubectl never restart container
-```
-FROM alpine:3.8
-RUN apk add --no-cache curl
-docker build .
-docker tag curl-alpine:1.0
-kubectl run busybox -it --image=curl-alpine:1.0 --restart=Never --rm
-```
 
 
 
