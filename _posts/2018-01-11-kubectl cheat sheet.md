@@ -26,6 +26,27 @@ CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPAC
 ...
 ```
 
+# binding role to user
+```
+cat rolebinding-bigo-access.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: access-manager-binding
+  namespace: bigo-NS
+subjects:
+- kind: User
+  name: bigo
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: access-role
+  apiGroup: ""
+kubectl create -f rolebinding-bigo-access.yaml
+
+```
+
+
 # USER, GROUP, ROLE , ROLEBIND, RBAC
 - list all users
 ```
