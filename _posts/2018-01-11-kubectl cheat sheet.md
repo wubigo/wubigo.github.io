@@ -59,3 +59,33 @@ users:
     client-key-data: REDACTED
 ...
 ```
+
+
+# Enable Helm in cluster
+
+- Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
+
+- Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
+
+- Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
+```
+kubectl create serviceaccount tiller --namespace kube-system
+cat tiller-clusterrolebinding.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: tiller-clusterrolebinding
+subjects:
+- kind: ServiceAccount
+  name: tiller
+  namespace: kube-system
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: ""
+
+kubectl create -f tiller-clusterrolebinding.yaml
+# Update the existing tiller-deploy deployment with the Service Account
+helm init --service-account tiller --upgrade
+
+```
