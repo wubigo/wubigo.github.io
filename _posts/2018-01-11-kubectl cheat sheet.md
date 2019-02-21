@@ -70,6 +70,11 @@ users:
 - Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
 ```
 kubectl create serviceaccount tiller --namespace kube-system
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+```
+or
+```
 cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -87,5 +92,68 @@ roleRef:
 kubectl create -f tiller-clusterrolebinding.yaml
 # Update the existing tiller-deploy deployment with the Service Account
 helm init --service-account tiller --upgrade
+```
+
+
 
 ```
+helm install --name prometheus stable/prometheus
+
+helm install --name prometheus880  stable/prometheus --set server.name=p-server,alertmanager.enabled=false,server.persistentVolume.storageClass=local-hdd
+```
+
+    alertmanager:
+	  enabled: false
+      name: p-alertmanager
+    
+	server:
+      name: prometheus880
+
+
+# PVC  using local PV
+- create PVC
+```
+cat storage-class-hdd.yaml 
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+ name: local-hdd
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+>kubectl apply -f  storage-class-hdd.yaml
+
+- create local PV
+```
+cat local_volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-hdd
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-hdd
+  local:
+    path: /mnt/pv/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - bigo-vm4
+```
+>kubectl apply -f local_volume.yaml
+
+PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
+
+PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+
+When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
+
