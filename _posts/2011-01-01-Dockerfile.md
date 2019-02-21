@@ -9,15 +9,12 @@ tag: Docker
 
 ```
 FROM alpine:3.8
-
 RUN apk update && apk add ca-certificates socat && rm -rf /var/cache/apk/*
-
 ENV HOME /tmp
-
 COPY tiller /tiller
-
 EXPOSE 44134
 USER 65534
 ENTRYPOINT ["/tiller"]
-
 ```
+> docker push registry.cn-beijing.aliyuncs.com/co1/tiller:v2.12.3
+
