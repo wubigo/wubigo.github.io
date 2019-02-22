@@ -32,7 +32,7 @@ Typically learning rates are configured naively at random by the user. At best, 
 
 As such, it’s often hard to get it right. The below diagram demonstrates the different scenarios one can fall into when configuring the learning rate
 
-![learning rate](/images/posts/learning_rate.png)
+![learning rate](/img/post/learning_rate.png)
 
 
 # most common ways to prevent overfitting in neural networks
@@ -47,7 +47,7 @@ A  function  that  takes  the  input  signal  and  generates  an  outp
 
 # CNN feature map
 
-![feature map](/images/posts/Typical_block_diagram_CNN.png)
+![feature map](/img/post/Typical_block_diagram_CNN.png)
 
 # state of art AI
 https://www.stateoftheart.ai/

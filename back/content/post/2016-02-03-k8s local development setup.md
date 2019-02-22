@@ -13,12 +13,12 @@ tag: [Paas, k8s]
 
 [external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
 
-![release/stable-1.11.txt](/images/posts/kubernetes-release.png)
+![release/stable-1.11.txt](/img/posts/kubernetes-release.png)
 
 ***KUBEADM IS CURRENTLY IN BETA***
 
 # kubeadm maturity
-![kubeadm maturity](/images/posts/kubeadm_maturiy.png)
+![kubeadm maturity](/img/posts/kubeadm_maturiy.png)
 
 
 # build k8s

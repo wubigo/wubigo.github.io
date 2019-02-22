@@ -1,11 +1,13 @@
 +++
 title = "Blog on hugo way"
+subtitle = "Learn how to blog with hugo"
+summary = "Learn how to blog with hugo"
 date = 2019-02-22T11:38:27+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
+tags = ["hugo"]
 categories = []
 
 # Featured image
@@ -58,4 +60,6 @@ publish the public to web server
 1. ./config.toml
 2. ./config.yaml
 3. ./config.json
+
+![](/img/post/hugo-logo-wide.svg)
  
