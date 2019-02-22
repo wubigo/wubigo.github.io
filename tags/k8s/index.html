@@ -331,7 +331,7 @@
   
   
   <div>
-    <h2><a href="/post/2019-02-11-kubeamd-cheat-sheet/">kubeamd cheat sheet</a></h2>
+    <h2><a href="/post/2019-02-11-kubeamdcheatsheet/">kubeamd cheat sheet</a></h2>
     <div class="article-style">
       
       get all Pending pods
@@ -344,7 +344,7 @@ kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, Gi
   </div>
   
   <div>
-    <h2><a href="/post/2018-01-11-kubectl-cheat-sheet/">kubectl cheat sheet</a></h2>
+    <h2><a href="/post/2018-01-11-kubectlcheatsheet/">kubectl cheat sheet</a></h2>
     <div class="article-style">
       
       enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out bigo.crt -days 500 kubectl config set-credentials bigo --client-certificate=./bigo.crt --client-key=./bigo.key kubectl config set-context bigo-context --cluster=kubernetes --namespace=bigo-NS --user=bigo kubectl config get-contexts ... CURRENT NAME CLUSTER AUTHINFO NAMESPACE bigo-context kubernetes bigo bigo * kubernetes-admin@kubernetes kubernetes kubernetes-admin .
@@ -353,7 +353,7 @@ kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, Gi
   </div>
   
   <div>
-    <h2><a href="/post/2017-07-13-k8s-notes/">k8s notes</a></h2>
+    <h2><a href="/post/2017-07-13-k8snotes/">k8s notes</a></h2>
     <div class="article-style">
       
       multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything. The link below is a bit old but can help outline some of the basics on how they build on k8s. Ultimately the primitives are the same but they abstract namespaces a bit and build it around RBAC.

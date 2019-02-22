@@ -247,3 +247,9 @@ EOF
 ssh $VM 'bash -s' < d.sh
 rm d.sh
 ```
+
+# replace spaces in file names using a bash script
+```
+find -name "* *" -type d | rename 's/ /_/g'    # do the directories first
+find -name "* *" -type f | rename 's/ //g'
+```

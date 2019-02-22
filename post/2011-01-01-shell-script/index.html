@@ -674,6 +674,12 @@ ssh $VM 'bash -s' &lt; d.sh
 rm d.sh
 </code></pre>
 
+<h1 id="replace-spaces-in-file-names-using-a-bash-script">replace spaces in file names using a bash script</h1>
+
+<pre><code>find -name &quot;* *&quot; -type d | rename 's/ /_/g'    # do the directories first
+find -name &quot;* *&quot; -type f | rename 's/ //g'
+</code></pre>
+
     </div>
 
     
