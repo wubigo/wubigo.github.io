@@ -99,7 +99,7 @@ helm init --service-account tiller --upgrade
 ```
 helm install --name prometheus stable/prometheus
 
-helm install --name prometheus880  stable/prometheus --set server.name=p-server,alertmanager.enabled=false,server.persistentVolume.storageClass=local-hdd
+helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,
 ```
 
     alertmanager:
@@ -157,3 +157,16 @@ PersistentVolume volumeMode can now be set to “Block” (instead of the defaul
 
 When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
 
+
+# Port Forwarding a local port to a port on k8s
+```
+kubectl port-forward <podname> 9090:9090
+or
+kubectl port-forward pods/<podname> 9090:9090
+or
+kubectl port-forward deployment/prometheus  9090:9090
+or
+kubectl port-forward svc/prometheus  9090:9090
+or
+kubectl port-forward rs/prometheus  9090:9090
+```
