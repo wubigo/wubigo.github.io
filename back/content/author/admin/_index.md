@@ -9,14 +9,14 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "Professor of IaaS/Pass"
+role = ""
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
 # organizations = [ { name = "Stanford University", url = "" } ]
 
 # Short bio (displayed in user profile at end of posts)
-bio = "My research interests include distributed robotics, mobile computing and programmable matter."
+bio = "My research interests include Iaas, PaaS, CNI, distributed robotics, mobile computing and programmable matter."
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email = ""
@@ -33,16 +33,6 @@ interests = [
 user_groups = ["Researchers", "Visitors"]
 
 # List qualifications (such as academic degrees)
-[[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
-
-[[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
-
 [[education.courses]]
   course = "BSc in Artificial Intelligence"
   institution = "Massachusetts Institute of Technology"
@@ -77,6 +67,7 @@ user_groups = ["Researchers", "Visitors"]
 
 +++
 
-Wu bigo is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+- More than 10 years experience of developing distributed system in Java ，python and go for commerical and open soucre projects
+- 6 years public cloud development and helped multiple clients migration On-Premises business to hybrid cloud
+- Skilled at large scaled container based cluster platform like kubernetes
+Leading a big data system design for 20PB storage for many year.
