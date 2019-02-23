@@ -43,7 +43,7 @@ echo &amp;quot;/public&amp;quot; &amp;gt;&amp;gt; .gitignore
 &lt;h1 id=&#34;post&#34;&gt;post&lt;/h1&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;hugo new post/&lt;post_name&gt;.md&lt;/p&gt;
+&lt;p&gt;hugo new post/&lt;post_name&gt;/index.md&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h1 id=&#34;deploy&#34;&gt;deploy&lt;/h1&gt;
@@ -55,11 +55,72 @@ publish the public to web server&lt;/p&gt;
 
 &lt;h1 id=&#34;configuration-lookup-order&#34;&gt;Configuration Lookup Order&lt;/h1&gt;
 
+&lt;p&gt;&lt;code&gt;confit/_default/&lt;/code&gt;&lt;/p&gt;
+
 &lt;ol&gt;
 &lt;li&gt;./config.toml&lt;/li&gt;
 &lt;li&gt;./config.yaml&lt;/li&gt;
 &lt;li&gt;./config.json&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;confit/_default/config.toml&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;hugo build destination&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;publishDir
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Number of items per page in paginated lists&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;paginate = 20  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;taxonomies&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;by tag&lt;/li&gt;
+&lt;li&gt;by author&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;tag = &amp;quot;tags&amp;quot;
+author = &amp;quot;authors&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;confit/_default/menus.toml&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Navigation Links widget enable/disabl under &lt;code&gt;content/home/&lt;/code&gt; folder&lt;/li&gt;
+&lt;li&gt;Navigation Links widget display order&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;weight = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;blog-set&#34;&gt;Blog set&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;content/post/_index.md&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;post view as Card&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;view = 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;content/home/posts.md&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Number of recent posts to list.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;count = 20
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/hugo-logo-wide.svg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
@@ -67,18 +128,11 @@ publish the public to web server&lt;/p&gt;
     
     <item>
       <title>kubeamd cheat sheet</title>
-      <link>https://wubigo.com/post/2019-02-11-kubeamdcheatsheet/</link>
+      <link>https://wubigo.com/post/kubeamd-cheat-sheet/</link>
       <pubDate>Mon, 11 Feb 2019 11:38:27 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/2019-02-11-kubeamdcheatsheet/</guid>
+      <guid>https://wubigo.com/post/kubeamd-cheat-sheet/</guid>
       <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;get all Pending pods&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get pods --field-selector=status.phase=Pending
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;version notes&lt;/strong&gt;&lt;/p&gt;
 
@@ -90,6 +144,13 @@ GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platfor
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -&lt;strong&gt;${ARCH}&lt;/strong&gt; suffix&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;get all Pending pods&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl get pods --field-selector=status.phase=Pending
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;images list&lt;/li&gt;

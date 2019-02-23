@@ -331,14 +331,13 @@
   
   
   <div>
-    <h2><a href="/post/2019-02-11-kubeamdcheatsheet/">kubeamd cheat sheet</a></h2>
+    <h2><a href="/post/kubeamd-cheat-sheet/">kubeamd cheat sheet</a></h2>
     <div class="article-style">
       
-      get all Pending pods
-kubectl get pods --field-selector=status.phase=Pending   version notes
+      version notes
 some only works on 1.13
 kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
- images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.
+ get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.
       
     </div>
   </div>

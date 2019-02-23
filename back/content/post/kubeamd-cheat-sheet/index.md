@@ -6,7 +6,7 @@ draft = false
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
 tags = ["k8s", "kubeadm"]
-categories = []
+categories = ["IT"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
@@ -19,10 +19,6 @@ categories = []
   focal_point = ""
 +++
 
-> get all Pending pods 
-```
-kubectl get pods --field-selector=status.phase=Pending
-```
 
 **version notes**
 
@@ -36,6 +32,12 @@ GoVersion:"go1.11.5", Compiler:"gc", Platform:"linux/amd64"}
 
 Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -**${ARCH}** suffix
 
+
+- get all Pending pods 
+
+```
+kubectl get pods --field-selector=status.phase=Pending
+```
 
 - images list
 

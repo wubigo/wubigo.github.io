@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Learn how to blog with hugo">
+  <meta name="description" content="Decide to gave hugo a shot after many years of jekyll">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/blog_on_hugo/">
@@ -122,7 +122,7 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/blog_on_hugo/">
   <meta property="og:title" content="Blog on hugo way | 为人民服务">
-  <meta property="og:description" content="Learn how to blog with hugo"><meta property="og:image" content="https://wubigo.com/post/blog_on_hugo/featured.jpg">
+  <meta property="og:description" content="Decide to gave hugo a shot after many years of jekyll"><meta property="og:image" content="https://wubigo.com/post/blog_on_hugo/featured.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-02-22T11:38:27&#43;08:00">
@@ -361,6 +361,17 @@
   
 
   
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
 
   
 
@@ -480,6 +491,17 @@
   
 
   
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
 
   
     
@@ -580,7 +602,7 @@ echo &quot;/public&quot; &gt;&gt; .gitignore
 <h1 id="post">post</h1>
 
 <blockquote>
-<p>hugo new post/<post_name>.md</p>
+<p>hugo new post/<post_name>/index.md</p>
 </blockquote>
 
 <h1 id="deploy">deploy</h1>
@@ -592,11 +614,72 @@ publish the public to web server</p>
 
 <h1 id="configuration-lookup-order">Configuration Lookup Order</h1>
 
+<p><code>confit/_default/</code></p>
+
 <ol>
 <li>./config.toml</li>
 <li>./config.yaml</li>
 <li>./config.json</li>
 </ol>
+
+<p><code>confit/_default/config.toml</code></p>
+
+<ul>
+<li>hugo build destination</li>
+</ul>
+
+<pre><code>publishDir
+</code></pre>
+
+<ul>
+<li>Number of items per page in paginated lists</li>
+</ul>
+
+<pre><code>paginate = 20  
+</code></pre>
+
+<ul>
+<li><p>taxonomies</p>
+
+<ul>
+<li>by tag</li>
+<li>by author</li>
+</ul></li>
+</ul>
+
+<pre><code>tag = &quot;tags&quot;
+author = &quot;authors&quot;
+</code></pre>
+
+<p><code>confit/_default/menus.toml</code></p>
+
+<ul>
+<li>Navigation Links widget enable/disabl under <code>content/home/</code> folder</li>
+<li>Navigation Links widget display order</li>
+</ul>
+
+<pre><code>weight = 1
+</code></pre>
+
+<h1 id="blog-set">Blog set</h1>
+
+<p><code>content/post/_index.md</code></p>
+
+<ul>
+<li>post view as Card</li>
+</ul>
+
+<pre><code>view = 3
+</code></pre>
+
+<p><code>content/home/posts.md</code></p>
+
+<ul>
+<li>Number of recent posts to list.</li>
+</ul>
+
+<pre><code>count = 20
+</code></pre>
 
 <p><img src="/img/post/hugo-logo-wide.svg" alt="" /></p>
 
@@ -608,6 +691,8 @@ publish the public to web server</p>
 <div class="article-tags">
   
   <a class="badge badge-light" href="/tags/hugo/">hugo</a>
+  
+  <a class="badge badge-light" href="/tags/blog/">blog</a>
   
 </div>
 
