@@ -16,21 +16,39 @@ weight = 7
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
 [[feature]]
-  icon = "r-project"
+  icon = "java"
   icon_pack = "fab"
   name = "Java"
-  description = "90%"
+  description = "40%"
   
 [[feature]]
-  icon = "chart-line"
-  icon_pack = "fas"
+  icon = "python"
+  icon_pack = "fab"
   name = "Python"
-  description = "60%"  
+  description = "30%"  
   
 [[feature]]
-  icon = "camera-retro"
+  icon = "gopuram"
   icon_pack = "fas"
   name = "Go"
-  description = "40%"
+  description = "30%"
+
+[[feature]]
+  icon = "cloud-meatball"
+  icon_pack = "fas"
+  name = "Cloud"
+  description = "30%"
+
+[[feature]]
+  icon = "database"
+  icon_pack = "fas"
+  name = "RMDB"
+  description = "30%"
+
+[[feature]]
+  icon = "assistive-listening-systems"
+  icon_pack = "fas"
+  name = "BIGDATA"
+  description = "30%"
 
 +++

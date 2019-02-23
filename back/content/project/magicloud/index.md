@@ -20,4 +20,4 @@ categories = []
 +++
 
 
-[magicloud](https://www.magicloud.com)
+[magicloud](https://wubigo.com)
