@@ -1,7 +1,7 @@
 +++
 title = "Blog on hugo way"
 subtitle = "Learn how to blog with hugo"
-summary = "Decide to gave hugo a shot after many years of jekyll"
+summary = "Decide to gave hugo a shot after many years of being jekyll"
 date = 2019-02-22T11:38:27+08:00
 draft = false
 

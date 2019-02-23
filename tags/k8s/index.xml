@@ -41,5 +41,16 @@ kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;q
       <description>multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything. The link below is a bit old but can help outline some of the basics on how they build on k8s. Ultimately the primitives are the same but they abstract namespaces a bit and build it around RBAC.</description>
     </item>
     
+    <item>
+      <title>k8s local development setup</title>
+      <link>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</link>
+      <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</guid>
+      <description>Main external dependencies  go docker cri cni  external-dependencies
+KUBEADM IS CURRENTLY IN BETA
+kubeadm maturity build k8s  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18 docker pull coredns/coredns:1.</description>
+    </item>
+    
   </channel>
 </rss>

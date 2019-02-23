@@ -1,9 +1,25 @@
----
-layout: post
-title: k8s local development setup
-date: 2016-02-03
-tag: [Paas, k8s]
----
++++
+title = "k8s local development setup"
+subtitle = "k8s local development setup"
+summary = "Setup a local development environment with kubeadm"
+date = 2016-02-03T11:38:27+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["Paas", "k8s"]
+categories = ["IT"]
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
 
 # Main external dependencies
 - go
@@ -13,12 +29,12 @@ tag: [Paas, k8s]
 
 [external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
 
-![release/stable-1.11.txt](/img/posts/kubernetes-release.png)
+![release/stable-1.11.txt](/img/post/kubernetes-release.png)
 
 ***KUBEADM IS CURRENTLY IN BETA***
 
 # kubeadm maturity
-![kubeadm maturity](/img/posts/kubeadm_maturiy.png)
+![kubeadm maturity](/img/post/kubeadm_maturiy.png)
 
 
 # build k8s

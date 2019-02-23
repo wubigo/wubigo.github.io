@@ -234,6 +234,25 @@
         
 
         <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
           <a class="nav-link" href="/#projects">
             
             <span>Projects</span>
@@ -354,29 +373,19 @@
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -416,16 +425,30 @@
 
 </div>
 
-      
-    </div>
+  
 
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
     
+
+<h1 id="b-树-vs-lsm树">B+树 vs. LSM树</h1>
+
+<p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
+NoSQL使用LSM树</p>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -438,7 +461,6 @@
 
 
 
-
   
 
 
@@ -448,25 +470,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      showing current configuration mysql&gt;SHOW VARIABLES; mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -506,16 +513,29 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    showing current configuration mysql&gt;SHOW VARIABLES; mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
+mysql&gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -528,7 +548,6 @@
 
 
 
-
   
 
 
@@ -538,25 +557,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2012-06-03-linux/" itemprop="url">linux note</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2.20.1-0ppa1~ubuntu16.04.1 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -596,16 +600,25 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-06-03-linux/" itemprop="url">linux note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2.20.1-0ppa1~ubuntu16.04.1  static ip sudo systemctl stop network-manager echo &quot;manual&quot; | sudo tee /etc/init/network-manager.override  ubuntu18.04
+sudo systemctl stop NetworkManager-wait-online.service sudo systemctl disable NetworkManager-wait-online.service sudo systemctl stop NetworkManager-dispatcher.service sudo systemctl disable NetworkManager-dispatcher.service sudo systemctl stop network-manager.service sudo systemctl disable network-manager.service ystemctl unmask networking systemctl enable networking systemctl restart networking  cat /etc/network/interfaces auto enp0s3 iface enp0s3 inet static address 192.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -618,7 +631,6 @@
 
 
 
-
   
 
 
@@ -628,25 +640,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -686,16 +683,24 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -708,7 +713,6 @@
 
 
 
-
   
 
 
@@ -718,26 +722,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      NOTICE
- Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -777,16 +765,27 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    NOTICE
+ Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
+ Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
+ Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -799,7 +798,6 @@
 
 
 
-
   
 
 
@@ -809,25 +807,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-06-03-io-performance/" itemprop="url">Linux File System Read Write Performance Test</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -867,16 +850,27 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-06-03-io-performance/" itemprop="url">Linux File System Read Write Performance Test</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
+$ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
+Simply use the yum commands to search or install packages from EPEL repo:
+yum search nethogs # yum update # yum &ndash;disablerepo=&rdquo;*&rdquo; &ndash;enablerepo=&ldquo;epel&rdquo; install nethogs System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -889,7 +883,6 @@
 
 
 
-
   
 
 
@@ -899,25 +892,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-04-03-high-performance-ssh/" itemprop="url">High Performance SSH/SCP</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      http://mirror.internode.on.net/pub/OpenBSD/OpenSSH/portable/ …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -957,16 +935,45 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-04-03-high-performance-ssh/" itemprop="url">High Performance SSH/SCP</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    http://mirror.internode.on.net/pub/OpenBSD/OpenSSH/portable/ http://www.psc.edu/index.php/hpn-ssh-patches/hpn-14-kitchen-sink-patches/viewcategory/24 Extract OpenSSH:
+1
+tar -xzvf openssh-6.6p1.tar.gz
+Change directory in extracted folder and apply patch:
+1
+2
+cd openssh-6.6p1
+zcat /usr/src/openssh-6.6p1-hpnssh14v5.diff.gz | patch
+Configure OpenSSH:
+1
+./configure –prefix=/usr –sysconfdir=/etc/ssh –with-pam
+Remove old config files to prevent any conflicts:
+1
+2
+rm /etc/ssh/ssh_config
+rm /etc/ssh/sshd_config
+Compile and install:
+1
+2
+make
+make install
+Now we have the newest version of OpenSSH installed and patched with the improvements from HPN-SSH; however we still need to make some changes to the /etc/ssh/sshd_config to take advantage of them.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -979,7 +986,6 @@
 
 
 
-
   
 
 
@@ -989,25 +995,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1047,16 +1038,24 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1069,7 +1068,6 @@
 
 
 
-
   
 
 
@@ -1079,25 +1077,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-02-01-etcd-notes/" itemprop="url">ETCD notes</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      Verify etcd CA data sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text ... X509v3 extensions: X509v3 Key Usage: critical …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1137,16 +1120,25 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-02-01-etcd-notes/" itemprop="url">ETCD notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Verify etcd CA data sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text ... X509v3 extensions: X509v3 Key Usage: critical Digital Signature, Key Encipherment X509v3 Extended Key Usage: TLS Web Server Authentication, TLS Web Client Authentication X509v3 Subject Alternative Name: DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1 ...   server.crt is signed for DNS names [bigo-vm3 localhost] and IPs [192.168.1.11 127.0.0.1 ::1]
+ etcd config $kubeadm init phase etcd local -v 4 [etcd] wrote Static Pod manifest for a local etcd member to &quot;/etc/kubernetes/manifests/etcd.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1159,29 +1151,19 @@
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-01-03-the-difference-between-a-tmpfs-and-ramfs-ram-disk/" itemprop="url">the-difference-between-a-tmpfs-and-ramfs-ram-disk</a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1221,16 +1203,29 @@
 
 </div>
 
-      
-    </div>
+  
 
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-01-03-the-difference-between-a-tmpfs-and-ramfs-ram-disk/" itemprop="url">the-difference-between-a-tmpfs-and-ramfs-ram-disk</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
     
+
+<h1 id="tempfs-vs-ramfs">TEMPFS vs RAMFS</h1>
+
+<p><a href="https://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs-ram-disk" target="_blank">https://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs-ram-disk</a></p>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1243,29 +1238,19 @@
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-01-01-dockerfile/" itemprop="url">Dockerfile</a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1305,16 +1290,40 @@
 
 </div>
 
-      
-    </div>
+  
 
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-01-01-dockerfile/" itemprop="url">Dockerfile</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
     
+
+<h1 id="tiller-tag-tiller-version">tiller (tag=$(tiller version))</h1>
+
+<pre><code>FROM alpine:3.8
+RUN apk update &amp;&amp; apk add ca-certificates socat &amp;&amp; rm -rf /var/cache/apk/*
+ENV HOME /tmp
+COPY tiller /tiller
+EXPOSE 44134
+USER 65534
+ENTRYPOINT [&quot;/tiller&quot;]
+</code></pre>
+
+<blockquote>
+<p>docker push registry.cn-beijing.aliyuncs.com/co1/tiller:v2.12.3</p>
+</blockquote>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1327,7 +1336,6 @@
 
 
 
-
   
 
 
@@ -1337,26 +1345,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2011-01-01-shell-script/" itemprop="url">shell script</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
- #!/usr/bin/env bash docker login --username=wubigo …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1396,16 +1388,25 @@
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-01-01-shell-script/" itemprop="url">shell script</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/k8s.gcr.io\///' | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1418,7 +1419,6 @@
 
 
 
-
   
 
 
@@ -1428,26 +1428,10 @@
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2010-01-22-computer-networking/" itemprop="url">computer networking</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      transport-layer protocols are implemented in the end systems but not in network routers.
-The Stream Control Transmission Protocol …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1487,16 +1471,25 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2010-01-22-computer-networking/" itemprop="url">computer networking</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    transport-layer protocols are implemented in the end systems but not in network routers.
+The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1509,29 +1502,19 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2010-01-05-%E5%90%8D%E8%A8%80/" itemprop="url">名言</a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1571,16 +1554,35 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2010-01-05-%E5%90%8D%E8%A8%80/" itemprop="url">名言</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>杨绛</p>
+
+<pre><code>我们曾如此渴望命运的波澜，到最后才发现：人生最曼妙的风景，竟是内心的淡定与从容
+我们曾如此期盼外界的认可，到最后才知道：世界是自己的，与他人毫无关系
+</code></pre>
+
+<p>星云大师</p>
+
+<pre><code>一个人倘若一心除恶，表示他看到的都是恶。
+真正有益于世界的做法不是除恶，而是行善；不是打击负能量，而是弘扬正能量
+</code></pre>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1593,29 +1595,19 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1655,16 +1647,39 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
     
+
+<h1 id="turn-on-ie-proxy">turn on IE proxy</h1>
+
+<pre><code>@ECHO OFF
+ECHO Turn on proxy! please wait...
+REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
+</code></pre>
+
+<h1 id="turn-off-ie-proxy">turn off IE proxy</h1>
+
+<pre><code>@ECHO OFF
+ECHO Turn off IE Proxy! please wait...
+REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
+</code></pre>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1677,7 +1692,6 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
@@ -1687,25 +1701,10 @@ The Stream Control Transmission Protocol …
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/2010-01-01-java-notes/" itemprop="url">java notes</a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      visibility and Atomicity in the absence of synchronization, there are a number of reasons a thread might not immediately ‐ or ever ‐ …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1745,16 +1744,24 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2010-01-01-java-notes/" itemprop="url">java notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    visibility and Atomicity in the absence of synchronization, there are a number of reasons a thread might not immediately ‐ or ever ‐ see the results of an operation in another thread. Compilers may generate instructions in a different order than the &ldquo;obvious&rdquo; one suggested by the source code, or store variables in registers instead of in memory; processors may execute instructions in parallel or out of order; caches may vary the order in which writes to variables are committed to main memory; and values stored in processor‐local caches may not be visible to other processors.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1767,29 +1774,19 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/leader/" itemprop="url"></a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1829,16 +1826,20 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/leader/" itemprop="url"></a>
+  </h3>
+
+  
+
+  
+
 </div>
 
     
@@ -1851,7 +1852,6 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
@@ -1861,25 +1861,10 @@ The Stream Control Transmission Protocol …
   
 
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/letsencrypt/" itemprop="url"></a>
-    </h3>
-
+  
     
-    <div class="article-style" itemprop="articleBody">
-      certbot  Congratulations! Your certificate and chain have been saved at: /etc/letsencrypt/live/et.com/fullchain.pem Your key file has …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -1919,16 +1904,24 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/letsencrypt/" itemprop="url"></a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    certbot  Congratulations! Your certificate and chain have been saved at: /etc/letsencrypt/live/et.com/fullchain.pem Your key file has been saved at: /etc/letsencrypt/live/et.com/privkey.pem Your cert will expire on 2018-02-19. To obtain a new or tweaked version of this certificate in the future, simply run certbot again with the &ldquo;certonly&rdquo; option. To non-interactively renew all of your certificates, run &ldquo;certbot renew&rdquo;  If you like Certbot, please consider supporting our work by:   Donating to ISRG / Let&rsquo;s Encrypt: https://letsencrypt.
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -1941,29 +1934,19 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/readme/" itemprop="url"></a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -2003,16 +1986,27 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/readme/" itemprop="url"></a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
     
+
+<h1 id="fei-guang-github-io">Fei-Guang.github.io</h1>
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  
+
+  
+
 </div>
 
     
@@ -2025,29 +2019,19 @@ The Stream Control Transmission Protocol …
 
 
 
-
   
 
 
 
 
 
+  
 
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
 
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/deeplearning/" itemprop="url"></a>
-    </h3>
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
+  
     
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 
@@ -2087,16 +2071,20 @@ The Stream Control Transmission Protocol …
 
 </div>
 
-      
-    </div>
+  
 
-    
+  
+  
+  
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/deeplearning/" itemprop="url"></a>
+  </h3>
+
+  
+
+  
+
 </div>
 
     
