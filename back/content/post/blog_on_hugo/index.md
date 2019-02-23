@@ -5,7 +5,6 @@ summary = "Decide to gave hugo a shot after many years of jekyll"
 date = 2019-02-22T11:38:27+08:00
 draft = false
 
-
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
 tags = ["hugo", "blog"]
@@ -21,6 +20,7 @@ categories = ["IT"]
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
 
 # setup for gitlab
 ```
@@ -93,6 +93,15 @@ author = "authors"
 
 ```
 weight = 1
+```
+
+`config/_default/languages.toml`
+
+多语言显示
+
+```
+languageCode = "en-us"
+languageCode = "zh-Hans"
 ```
 
 
