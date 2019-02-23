@@ -593,71 +593,82 @@ apiGroup: &ldquo;&rdquo;</p></li>
     
     server:
       name: prometheus880
-
-
-# PVC  using local PV
-- create PVC
 </code></pre>
 
-<p>cat storage-class-hdd.yaml
+<h1 id="pvc-using-local-pv">PVC  using local PV</h1>
+
+<ul>
+<li><p>create PVC</p>
+
+<pre><code>cat storage-class-hdd.yaml 
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
- name: local-hdd
+name: local-hdd
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer</p>
-
-<pre><code>&gt;kubectl apply -f  storage-class-hdd.yaml
-
-- create local PV
+volumeBindingMode: WaitForFirstConsumer
 </code></pre>
 
-<p>cat local_volume.yaml
+<blockquote>
+<p>kubectl apply -f  storage-class-hdd.yaml</p>
+</blockquote></li>
+
+<li><p>create local PV
+```
+cat local_volume.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-hdd
+name: local-hdd
 spec:
-  capacity:
-    storage: 8Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-hdd
-  local:
-    path: /mnt/pv/
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - bigo-vm4</p>
+capacity:
+storage: 8Gi
+volumeMode: Filesystem
+accessModes:</p>
 
-<pre><code>&gt;kubectl apply -f local_volume.yaml
+<ul>
+<li>ReadWriteOnce
+persistentVolumeReclaimPolicy: Delete
+storageClassName: local-hdd
+local:
+path: /mnt/pv/
+nodeAffinity:
+required:
+nodeSelectorTerms:
 
-PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
+<ul>
+<li>matchExpressions:</li>
+<li>key: kubernetes.io/hostname
+operator: In
+values:
 
-PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+<ul>
+<li>bigo-vm4
+```
+&gt;kubectl apply -f local_volume.yaml</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 
-When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
+<p>PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.</p>
 
+<p>PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.</p>
 
-# Port Forwarding a local port to a port on k8s
-</code></pre>
+<p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
 
-<p>kubectl port-forward <podname> 9090:9090
+<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on k8s</h1>
+
+<pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
 or
-kubectl port-forward pods/<podname> 9090:9090
+kubectl port-forward pods/&lt;podname&gt; 9090:9090
 or
 kubectl port-forward deployment/prometheus  9090:9090
 or
 kubectl port-forward svc/prometheus  9090:9090
 or
 kubectl port-forward rs/prometheus  9090:9090
-```</p>
+</code></pre>
 
     </div>
 
@@ -768,6 +779,8 @@ kubectl port-forward rs/prometheus  9090:9090
         <ul>
           
           <li><a href="/post/2017-07-13-k8snotes/">k8s notes</a></li>
+          
+          <li><a href="/post/k8s-monitor/">K8s Monitor</a></li>
           
           <li><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></li>
           

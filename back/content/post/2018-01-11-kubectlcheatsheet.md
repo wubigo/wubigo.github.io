@@ -108,7 +108,7 @@ helm install --name prometheus1  stable/prometheus --set server.persistentVolume
     
 	server:
       name: prometheus880
-
+```
 
 # PVC  using local PV
 - create PVC
