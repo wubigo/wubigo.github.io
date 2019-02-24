@@ -2,5 +2,4 @@
 
 cd ..
 rm -r !(back)
-cd back
-hugo
+hugo -s back
