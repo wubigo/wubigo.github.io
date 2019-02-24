@@ -36,4 +36,8 @@ It can be used to perform fast restoration of MPLS forwarding paths, e.g., to re
 MPLS  can,  and  has,  been  used  to  implement  so-called virtual private networks  (VPNs). In implementing a VPN for a customer, an ISP uses its MPLS-enabled network to connect together the customer’s various networks. MPLS can be used to isolate both the resources and addressing used by the customer’s VPN from that of other users crossing the ISP’s network
 
 # Why we use the Linux kernel's TCP stack
+
 Since the Linux kernel cannot sustain the 10G packet rate, then some bypass technologies for a fast path are used. The main bypass technologies are either based on a limited set of features such as Open vSwitch (OVS) with its DPDK user space implementation or based on a full feature and offload of Linux processing such as 6WIND Virtual Accelerator.
+
+
+https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf
