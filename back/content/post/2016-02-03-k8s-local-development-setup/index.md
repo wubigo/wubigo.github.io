@@ -1,7 +1,7 @@
 +++
-title = "K8S local development setup"
+title = "K8S local development setup from source code"
 subtitle = "K8S local development setup"
-summary = "Setup a local development environment with kubeadm"
+summary = "Setup a local development environment from source code with kubeadm"
 date = 2016-02-03T11:38:27+08:00
 draft = false
 

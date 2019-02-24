@@ -1,9 +1,23 @@
----
-layout: post
-title: java notes
-date: 2010-01-01
-tag: Java
----
++++
+title = "java notes"
+date = 2010-01-01T19:39:03+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["JAVA"]
+categories = ["IT"]
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
 
 # visibility and Atomicity
 in  the  absence  of  synchronization,  there  are  a  number  of  reasons  a  thread might  not  immediately  ‐  or  ever  ‐  see  the  results  of  an  operation  in  another  thread.  Compilers  may  generate  instructions in  a  different  order  than  the  "obvious"  one  suggested  by  the  source  code,  or  store  variables  in  registers  instead  of  in memory;  processors  may  execute  instructions  in  parallel  or  out  of  order;  caches  may  vary  the  order  in  which  writes  to variables  are  committed  to  main  memory;  and  values  stored  in  processor‐local  caches  may  not  be  visible  to  other processors.  These  factors  can  prevent  a  thread  from  seeing  the  most  up‐to‐date  value  for  a  variable  and  can  cause memory actions  in  other  threads  to  appear  to  happen  out  of  order  ‐  if  you  don't  use  adequate  synchronization. 

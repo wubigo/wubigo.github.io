@@ -1,14 +1,32 @@
----
-layout: post
-title: Linux File System Read Write Performance Test
-date: 2011-06-03
-tag: [IAAS]
----
++++
+title = "Linux File System Read Write Performance Test"
+date = 2011-06-03T19:39:03+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["IAAS", "LINUX"]
+categories = ["IT"]
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+
+
+
 
 # dstat
+
 ```
 $dstat -d -nt
-
 $dstat -nt
 $dstat -N eth2,eth3
 ```
@@ -38,7 +56,11 @@ $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noa
 How do I use EPEL repo?
 
 Simply use the yum commands to search or install packages from EPEL repo:
-# yum search nethogs # yum update # yum --disablerepo="*" --enablerepo="epel" install nethogs
+
+```
+# yum search nethogs 
+# yum update # yum --disablerepo="*" --enablerepo="epel" install nethogs
+```
 
 System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system's performance. But the main reason that this confusion happens is because, it does not matter whatever tool you use to test the file system's performance, what matter's is the exact requirement.File system's performance depends upon certain factors as follows.
 
@@ -77,6 +99,7 @@ The simplest read write performance test in Linux can be done with the help of d
 With this dd command we will only be testing sequential read and sequential write.I will test the speed of my partition /dev/sda1 which is mounted on "/" (the only partition i have on my system)so can write the data to any where in my filesystem to test.
 
 
+```
 [root@slashroot2 ~]# dd if=/dev/zero of=speetest bs=1M count=100
 
 100+0 records in
@@ -84,12 +107,12 @@ With this dd command we will only be testing sequential read and sequential writ
 100+0 records out
 
 104857600 bytes (105 MB) copied, 0.0897865 seconds, 1.2 GB/s
+```
 
-[root@slashroot2 ~]
 
 In the above command you will be amazed to see that you have got 1.1GB/s. But dont be happy thats falsecheeky. Becasue the speed that dd reported to us is the speed with which data was cached to RAM memory, not to the disk. So we need to ask dd command to report the speed only after the data is synced with the disk.For that we need to run the below command.
 
-
+```
 [root@slashroot2 ~]# dd if=/dev/zero of=speetest bs=1M count=100 conv=fdatasync
 
 100+0 records in
@@ -97,10 +120,11 @@ In the above command you will be amazed to see that you have got 1.1GB/s. But do
 100+0 records out
 
 104857600 bytes (105 MB) copied, 2.05887 seconds, 50.9 MB/s
+```
 
 As you can clearly see that with the attribute fdatasync the dd command will show the status rate only after the data is completely written to the disk. So now we have the actual sequencial write speed. Lets go to an amount of data size thats larger than the RAM. Lets take 200MB of data in 64kb block size.
 
-
+```
 [root@slashroot2 ~]# dd if=/dev/zero of=speedtest bs=64k count=3200 conv=fdatasync
 
 3200+0 records in
@@ -108,7 +132,7 @@ As you can clearly see that with the attribute fdatasync the dd command will sho
 3200+0 records out
 
 209715200 bytes (210 MB) copied, 3.51895 seconds, 59.6 MB/s
-
+```
 
 
 
@@ -116,18 +140,15 @@ As you can clearly see that with the attribute fdatasync the dd command will sho
 as you can clearly see that the speed came to 59 MB/s. You need to note that ext3 bydefault if you do not specify the block size, gets formatted with a block size thats determined by the programes like mke2fs . You can verify yours with the following commands.
 
 
-
+```
 tune2fs -l /dev/sda1
-
-
-
 dumpe2fs /dev/sda1
-
+```
 
 
 For testing the sequential read speed with dd command, you need to run the below command as below.
 
-
+```
 [root@myvm1 sarath]# dd if=speedtest of=/dev/null bs=64k count=24000
 
 5200+0 records in
@@ -135,6 +156,7 @@ For testing the sequential read speed with dd command, you need to run the below
 5200+0 records out
 
 340787200 bytes (341 MB) copied, 3.42937 seconds, 99.4 MB/s
+```
 
 Performance Test using HDPARM
 
@@ -142,17 +164,13 @@ Performance Test using HDPARM
 
 Now lets use some other tool other than dd command for our tests. We will start with hdparm command to test the speed. Hdparm tool is also available out of the box in most of the linux distribution.
 
-
+```
 [root@myvm1 ~]# hdparm -tT /dev/sda1
-
-
-
 /dev/sda1:
-
  Timing cached reads:   5808 MB in  2.00 seconds = 2908.32 MB/sec
 
  Timing buffered disk reads:   10 MB in  3.12 seconds =   3.21 MB/sec
-
+```
 
 
 
@@ -167,7 +185,7 @@ The -T option will show you the speed of reading without precached buffer(which 
 
 the hdparm output shows you both the cached reads and disk reads separately. As mentioned before hard disk seek time also matters a lot for your speed you can check your hard disk seek time with the following linux command. seek time is the time required by the hard disk to reach the sector where the data is stored.Now lets use this seeker tool to find out the seek time by the simple seek command.
 
-
+```
 [root@slashroot2 ~]# seeker /dev/sda1
 
 Seeker v3.0, 2009-06-17, http://www.linuxinsight.com/how_fast_is_your_disk.html
@@ -181,8 +199,7 @@ Benchmarking /dev/sda1 [81915372 blocks, 41940670464 bytes, 39 GB, 39997 MB, 41 
 Wait 30 seconds..............................
 
 Results: 87 seeks/second, 11.424 ms random access time (26606211 < offsets < 41937280284)
-
-[root@slashroot2 ~]#
+```
 
 its clearly mentioned that my disk did a 86 seeks for sectors containing data per second. Thats ok for a desktop Linux machine but for servers its not at all ok.
 
@@ -199,7 +216,7 @@ Now there is one tool out there in linux that will do all these test in one shot
 The default command line option -a is used for full automatic mode, in which iozone will test block sizes ranging from 4k to 16M and file sizes ranging from 64k to 512M. Lets do a test using this -a option and see what happens.
 
 
-
+```
 [root@myvm1 ~]# iozone -a /dev/sda1
 
              Auto Mode
@@ -244,7 +261,7 @@ The default command line option -a is used for full automatic mode, in which ioz
 
              128     128  301873  595485  2788953  2555042 2131042  963078  762218   494164  1937294   564075  1016490 2067590  2559306
 
-
+```
 
 
 
@@ -275,13 +292,10 @@ Fifth column-Read:This reports the speed of reading an already existing file.
 
 
 
-
+```
 seq 1 100 | xargs -I {} java  -jar bin/ossimport2.jar  -c conf/sys.properties submit jobs/job.{}.cfg
-
-
-
 seq 1 100 | xargs -I {} java  -jar bin/ossimport2.jar  -c conf/sys.properties clean jobs/job.{}.cfg
-
+```
 
 
 [http://www.slashroot.in/linux-file-system-read-write-performance-test](http://www.slashroot.in/linux-file-system-read-write-performance-test)

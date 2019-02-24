@@ -34,3 +34,8 @@ Multiple plugins may be run at one time with a container joining networks driven
 The container runtime needs to first allocate a network namespace to the container and assign it a container ID, then pass along a number of parameters (CNI config) to the network driver. The network driver then attaches the container to a network and reports the assigned IP address back to the container runtime via JSON.
 
 Currently, CNI primitives handle concerns with IPAM, L2 and L3, and expect the container runtime to handle port-mapping (L4)
+
+
+- Service
+
+A service functions as a proxy to replicated pods and service requests can be load balanced across pods.
