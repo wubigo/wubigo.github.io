@@ -34,7 +34,7 @@ K8S是自动化部署和监控容器的容器编排和管理工具。各大云�
 
 如果你想搭建一个测试环境，请参考
 
-- [从K8S源代码构建容器集群](https://wubigo.com/post/2016-02-03-k8s-local-development-setup/)
+- [从K8S源代码构建容器集群(支持最新稳定版V1.13.3)](https://wubigo.com/post/2016-02-03-k8s-local-development-setup/)
 - [一个脚步部署K8S](https://wubigo.com/post/2011-01-01-shell-script#deploy-k8s-master)
 
 Kubernetes主要构件:
