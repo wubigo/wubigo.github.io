@@ -2,7 +2,7 @@
 layout: post
 title: Dockerfile
 date: 2011-01-01
-tag: Docker
+tag: ["DOCKER"]
 ---
 
 # tiller (tag=$(tiller version))
