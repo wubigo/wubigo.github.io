@@ -19,7 +19,7 @@ height = "100px"
 # Duplicate an `[[item]]` block to add more slides.
 [[item]]
   title = "毅力"
-  content = ""
+  content = "From Home screen, swipe up from the bottom and pause slightly in the middle of the screen"
   align = "center"  # Choose `center`, `left`, or `right`.
 
   # Overlay a color or image (optional).
