@@ -846,8 +846,8 @@ A typical mysqldump command to move data from an external database to an Amazon 
 
 
 
-<meta content="2012-06-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-06-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -879,6 +879,17 @@ A typical mysqldump command to move data from an external database to an Amazon 
   <a href="/post/2012-06-03-linux/#disqus_thread"></a>
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
   
 
   
@@ -1105,8 +1116,8 @@ sudo systemctl stop NetworkManager-wait-online.service sudo systemctl disable Ne
 
 
 
-<meta content="2011-06-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-06-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -1139,6 +1150,17 @@ sudo systemctl stop NetworkManager-wait-online.service sudo systemctl disable Ne
   
 
   
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
 
   
 
@@ -1159,7 +1181,7 @@ sudo systemctl stop NetworkManager-wait-online.service sudo systemctl disable Ne
     dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
 $ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
 Simply use the yum commands to search or install packages from EPEL repo:
-yum search nethogs # yum update # yum &ndash;disablerepo=&rdquo;*&rdquo; &ndash;enablerepo=&ldquo;epel&rdquo; install nethogs System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
+# yum search nethogs # yum update # yum --disablerepo=&quot;*&quot; --enablerepo=&quot;epel&quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
   </div>
   
 
@@ -1560,6 +1582,103 @@ Now we have the newest version of OpenSSH installed and patched with the improve
 
 
 
+<meta content="2011-01-01 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2011-01-01 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2011-01-01-shell-script/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-01-01-shell-script/" itemprop="url">shell script</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/K8S.gcr.io\///' | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1628,92 +1747,6 @@ ENTRYPOINT [&quot;/tiller&quot;]
 <p>docker push registry.cn-beijing.aliyuncs.com/co1/tiller:v2.12.3</p>
 </blockquote>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-01-01-shell-script/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-01-01-shell-script/" itemprop="url">shell script</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
- #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/K8S.gcr.io\///' | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.
   </div>
   
 
@@ -2029,8 +2062,8 @@ REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&q
 
 
 
-<meta content="2010-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2010-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2010-01-01 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2010-01-01 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -2062,6 +2095,17 @@ REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&q
   <a href="/post/2010-01-01-java-notes/#disqus_thread"></a>
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
   
 
   
