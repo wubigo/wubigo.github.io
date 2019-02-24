@@ -2,7 +2,7 @@
 layout: post
 title: kubectl cheat sheet
 date: 2018-01-11
-tags: [k8s, kubectl]
+tags: ["K8S"]
 ---
 
 # enable RBAC
@@ -30,7 +30,7 @@ CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPAC
 ```
 cat rolebinding-bigo-access.yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
   name: access-manager-binding
   namespace: bigo-NS
@@ -77,7 +77,7 @@ or
 ```
 cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
   name: tiller-clusterrolebinding
 subjects:
@@ -114,7 +114,7 @@ helm install --name prometheus1  stable/prometheus --set server.persistentVolume
 - create PVC
 ```
 cat storage-class-hdd.yaml 
-apiVersion: storage.k8s.io/v1
+apiVersion: storage.K8S.io/v1
 kind: StorageClass
 metadata:
  name: local-hdd
@@ -158,7 +158,7 @@ PersistentVolume volumeMode can now be set to “Block” (instead of the defaul
 When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
 
 
-# Port Forwarding a local port to a port on k8s
+# Port Forwarding a local port to a port on K8S
 ```
 kubectl port-forward <podname> 9090:9090
 or

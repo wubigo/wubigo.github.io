@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["k8s", "kubeadm"]
+tags = ["K8S"]
 categories = ["IT"]
 
 # Featured image
@@ -30,7 +30,7 @@ GitCommit:"721bfa751924da8d1680787490c54b9179b1fed0", GitTreeState:"clean", Buil
 GoVersion:"go1.11.5", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
-Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -**${ARCH}** suffix
+Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -**${ARCH}** suffix
 
 
 - get all Pending pods 
@@ -51,17 +51,17 @@ I0217 07:28:13.310328   14495 interface.go:211] Checking addr  192.168.1.9/24.
 I0217 07:28:13.311219   14495 interface.go:218] IP found 192.168.1.9
 I0217 07:28:13.311961   14495 interface.go:250] Found valid IPv4 address 192.168.1.9 for interface "enp0s3".
 I0217 07:28:13.312688   14495 interface.go:395] Found active IP 192.168.1.9 
-I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.k8s.io/release/stable-1.txt
-I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL "https://dl.k8s.io/release/stable-1.txt": Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.K8S.io/release/stable-1.txt
+I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL "https://dl.K8S.io/release/stable-1.txt": Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
 I0217 07:28:23.321520   14495 version.go:95] falling back to the local client version: v1.13.3
 I0217 07:28:23.330622   14495 feature_gate.go:206] feature gates: &{map[]}
-k8s.gcr.io/kube-apiserver:v1.13.3
-k8s.gcr.io/kube-controller-manager:v1.13.3
-k8s.gcr.io/kube-scheduler:v1.13.3
-k8s.gcr.io/kube-proxy:v1.13.3
-k8s.gcr.io/pause:3.1
-k8s.gcr.io/etcd:3.2.24
-k8s.gcr.io/coredns:1.2.6
+K8S.gcr.io/kube-apiserver:v1.13.3
+K8S.gcr.io/kube-controller-manager:v1.13.3
+K8S.gcr.io/kube-scheduler:v1.13.3
+K8S.gcr.io/kube-proxy:v1.13.3
+K8S.gcr.io/pause:3.1
+K8S.gcr.io/etcd:3.2.24
+K8S.gcr.io/coredns:1.2.6
 ```
 - pull images beforehand
 
@@ -73,7 +73,7 @@ kubeadm config images pull -v 4
 ```
 kubeadm config print init-defaults >adm.defaults.yaml
 git diff adm.defaults.yaml
--imageRepository: k8s.gcr.io
+-imageRepository: K8S.gcr.io
 +imageRepository: mirrorgooglecontainers
 sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
 ```

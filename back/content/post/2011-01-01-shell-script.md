@@ -2,7 +2,7 @@
 layout: post
 title: shell script
 date: 2011-01-01
-tag: shell
+tag: ["SHELL"]
 ---
 
 # push docker images to ali
@@ -17,7 +17,7 @@ tag: shell
 #!/usr/bin/env bash
 
 docker login --username=wubigo registry.cn-beijing.aliyuncs.com
-docker images  | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/k8s.gcr.io\///' | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
+docker images  | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/K8S.gcr.io\///' | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
 docker images |grep "registry.cn-beijing.aliyuncs.com"| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
 ```
 
@@ -66,7 +66,7 @@ docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v
 
 ```
 export K8S_VERSION = v1.13.3
-git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/K8S.io/
 git fetch --all
 git checkout tags/$K8S_VERSION -b v$K8S_VERSION
 ```
@@ -75,7 +75,7 @@ git checkout tags/$K8S_VERSION -b v$K8S_VERSION
 #!/usr/bin/env bash
 export ETCD_HOST=192.168.1.9
 export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
-cd $GOPATH/src/k8s.io/kubernetes/build/
+cd $GOPATH/src/K8S.io/kubernetes/build/
 bash -x ./run.sh make > run.log 2>&1
 ```
 
@@ -106,13 +106,13 @@ docker pull  mirrorgooglecontainers/kube-proxy:v1.13.3
 docker pull  mirrorgooglecontainers/pause:3.1
 docker pull  mirrorgooglecontainers/etcd:3.2.24
 docker pull  coredns/coredns:1.2.6
-docker tag  mirrorgooglecontainers/kube-apiserver:v1.13.3 k8s.gcr.io/kube-apiserver:v1.13.3
-docker tag  mirrorgooglecontainers/kube-controller-manager:v1.13.3          k8s.gcr.io/kube-controller-manager:v1.13.3
-docker tag  mirrorgooglecontainers/kube-scheduler:v1.13.3 k8s.gcr.io/kube-scheduler:v1.13.3
-docker tag  mirrorgooglecontainers/kube-proxy:v1.13.3 k8s.gcr.io/kube-proxy:v1.13.3
-docker tag  mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
-docker tag  mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
-docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
+docker tag  mirrorgooglecontainers/kube-apiserver:v1.13.3 K8S.gcr.io/kube-apiserver:v1.13.3
+docker tag  mirrorgooglecontainers/kube-controller-manager:v1.13.3          K8S.gcr.io/kube-controller-manager:v1.13.3
+docker tag  mirrorgooglecontainers/kube-scheduler:v1.13.3 K8S.gcr.io/kube-scheduler:v1.13.3
+docker tag  mirrorgooglecontainers/kube-proxy:v1.13.3 K8S.gcr.io/kube-proxy:v1.13.3
+docker tag  mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1
+docker tag  mirrorgooglecontainers/etcd:3.2.24 K8S.gcr.io/etcd:3.2.24
+docker tag  coredns/coredns:1.2.6 K8S.gcr.io/coredns:1.2.6
 
 ```
 
@@ -122,10 +122,10 @@ docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 ```
 cd build
 run.sh make
-scp ~/go/src/k8s.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
+scp ~/go/src/K8S.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
 ```
 
-# deploy k8s master
+# deploy K8S master
 
 ```
 #!/usr/bin/env bash
@@ -147,8 +147,8 @@ if [ ! -z "$PN" ]; then
     exit
 fi
 
-scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
-scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
 scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
 scp ~/go/bin/cri*  $VM:~/
 cat << EOF > d.sh
@@ -200,7 +200,7 @@ ssh $VM 'bash -s' < d.sh
 rm d.sh
 ```
 
-# deploy k8s working node
+# deploy K8S working node
 
 ```
 #!/usr/bin/env bash
@@ -210,8 +210,8 @@ if [ ! -z "$VM" ]; then
     echo "VAR VM is not set"
     exit    
 fi
-scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
-scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
 scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
 scp ~/go/bin/cri*  $VM:~/
 cat << EOF > d.sh

@@ -2,7 +2,7 @@
 layout: post
 title: build tensorflow 1.12
 date: 2018-11-08
-tags: [tensorflow]
+tags: ["DEEPLEARNING","TENSORFLOW"]
 ---
 
 

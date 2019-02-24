@@ -2,7 +2,7 @@
 layout: post
 title: Deep Learning with Python
 date: 2017-08-01
-tag: DL
+tag: ["DEEPLEARNING"]
 categories: ["IT"]
 ---
 

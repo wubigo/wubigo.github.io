@@ -2,7 +2,7 @@
 layout: post
 title: Dgraph note
 date: 2018-04-07
-tags: [NSQL, GRAPH]
+tags: ["NOSQL", "GRAPH"]
 ---
 
 # Start Dgraph cluster

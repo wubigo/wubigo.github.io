@@ -2,7 +2,7 @@
 layout: post
 title: RDBMS vs NoSQL
 date: 2012-07-04
-tags: [RDBMS, NoSQL]
+tags: ["RDBMS", "NOSQL"]
 ---
 
 # B+树 vs. LSM树

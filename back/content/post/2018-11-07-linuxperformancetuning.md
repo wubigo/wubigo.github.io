@@ -2,7 +2,7 @@
 layout: post
 title: Linux performance
 date: 2018-11-07
-tags: [linux, ubuntu]
+tags: ["LINUX"]
 ---
 
 

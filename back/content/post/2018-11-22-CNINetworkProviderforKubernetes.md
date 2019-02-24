@@ -2,7 +2,7 @@
 layout: post
 title: Choosing a CNI Network Provider for Kubernetes
 date: 2018-11-22
-tags: [Kubernetes, CNI, DOCKER]
+tags: ["K8S", "CNI", "DOCKER"]
 ---
 
 
@@ -34,7 +34,7 @@ romana
 Weave Net
 Any of these CNI providers can be used without kops. All of the CNI providers use a daemonset installation model, 
 where their product deploys a Kubernetes Daemonset. Just use kubectl to install the provider on the master once the 
-K8s API server has started. Please refer to each projects specific documentation
+K8S API server has started. Please refer to each projects specific documentation
 
 
 # Support Matrix

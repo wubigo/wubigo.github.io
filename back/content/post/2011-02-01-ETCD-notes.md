@@ -2,7 +2,7 @@
 layout: post
 title: ETCD notes
 date: 2011-02-01
-tag: K8S
+tag: ["K8S"]
 ---
 
 
@@ -48,7 +48,7 @@ $cat /etc/kubernetes/manifests/etcd.yaml
     - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
     - --snapshot-count=10000
     - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
-    image: k8s.gcr.io/etcd:3.2.24
+    image: K8S.gcr.io/etcd:3.2.24
     imagePullPolicy: IfNotPresent
     livenessProbe:
       exec:

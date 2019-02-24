@@ -1,11 +1,11 @@
 +++
-title = "K8s Monitor"
+title = "K8S Monitor"
 date = 2017-02-23T20:28:40+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["k8s", "monitor"]
+tags = ["K8S", "MONITOR"]
 categories = ["IT"]
 
 # Featured image

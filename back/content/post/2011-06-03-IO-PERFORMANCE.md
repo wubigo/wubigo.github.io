@@ -2,7 +2,7 @@
 layout: post
 title: Linux File System Read Write Performance Test
 date: 2011-06-03
-tag: Iaas
+tag: [IAAS]
 ---
 
 # dstat

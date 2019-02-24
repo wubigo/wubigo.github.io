@@ -2,7 +2,7 @@
 layout: post
 title: entry into jupyter notebook
 date: 2018-11-23
-tags: [jupyter, notebook, ipython]
+tags: ["PYTHON"]
 ---
 
 # generate configuration file

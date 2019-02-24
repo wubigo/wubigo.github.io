@@ -2,7 +2,7 @@
 layout: post
 title: microservice notes
 date: 2016-02-01
-tags: [microservice, architecture]
+tags: ["MICROSERVICE"]
 ---
 
 # Microservices at Netflix Scale

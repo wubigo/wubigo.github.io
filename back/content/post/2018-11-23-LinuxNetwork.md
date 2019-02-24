@@ -2,7 +2,7 @@
 layout: post
 title: Linux network
 date: 2018-11-23
-tags: [Linux, Network]
+tags: ["LINUX", "NETWORK"]
 ---
 
 

@@ -1,13 +1,13 @@
 +++
-title = "k8s local development setup"
-subtitle = "k8s local development setup"
+title = "K8S local development setup"
+subtitle = "K8S local development setup"
 summary = "Setup a local development environment with kubeadm"
 date = 2016-02-03T11:38:27+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["Paas", "k8s"]
+tags = ["PAAS", "K8S"]
 categories = ["IT"]
 
 # Featured image
@@ -37,25 +37,25 @@ categories = ["IT"]
 ![kubeadm maturity](/img/post/kubeadm_maturiy.png)
 
 
-# build k8s
+# build K8S
 * docker v17.03
 
 ```
 sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
 docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 K8S.gcr.io/kube-apiserver-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
-docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
+docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 K8S.gcr.io/kube-controller-manager-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 K8S.gcr.io/kube-scheduler-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 K8S.gcr.io/kube-proxy-amd64:v1.11.7
 docker pull mirrorgooglecontainers/pause:3.1
-docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
+docker tag mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1
 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18
-docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18
+docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 K8S.gcr.io/etcd-amd64:3.2.18
 docker pull coredns/coredns:1.1.3
-docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
+docker tag coredns/coredns:1.1.3 K8S.gcr.io/coredns:1.1.3
 
 
 ```
@@ -72,7 +72,7 @@ cp $GOPATH/bin/cri* /usr/local/bin/
 
 * checkout v1.11.7
 ```
-git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/K8S.io/
 git fetch --all
 git checkout tags/v1.11.7 -b v1.11.7
 ```
@@ -83,7 +83,7 @@ git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
 
 * LOCAL ETCD INTEGRATION 
 ```
-+++ source /home/bigo/go/src/k8s.io/kubernetes/hack/lib/etcd.sh
++++ source /home/bigo/go/src/K8S.io/kubernetes/hack/lib/etcd.sh
 ++++ ETCD_VERSION=3.2.24
 ++++ ETCD_HOST=127.0.0.1
 ++++  
@@ -100,7 +100,7 @@ git fetch upstream
 git tag|grep v1.11.7
 git checkout tags/v1.11.7 -b <branch_name>
 docker pull mirrorgooglecontainers/kube-cross:v1.10.7-1
-docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.10.7-1
+docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 K8S.gcr.io/kube-cross:v1.10.7-1
 ```
 
 ```
@@ -115,7 +115,7 @@ make  quick-release
 ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
 ```
 
-# deploy k8s with kubeadm
+# deploy K8S with kubeadm
 
 * install kubectl 
 ```
@@ -254,7 +254,7 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
 
 >all in one shell
 
-[deploy-work-node.sh](http://wubigo.com/2011/01/shell-script/#deploy-k8s-working-node)
+[deploy-work-node.sh](http://wubigo.com/2011/01/shell-script/#deploy-K8S-working-node)
 
 
 
