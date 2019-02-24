@@ -51,7 +51,7 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       
       <guid>https://wubigo.com/post/k8s-csi/</guid>
       <description>PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing.</description>
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet</description>
     </item>
     
     <item>
@@ -73,6 +73,17 @@ In local clusters, the default StorageClass uses the hostPath provisioner. hostP
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
 apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
+    </item>
+    
+    <item>
+      <title>K8S CNI</title>
+      <link>https://wubigo.com/post/k8s-cni/</link>
+      <pubDate>Fri, 24 Feb 2017 16:18:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-cni/</guid>
+      <description>CNI as the Kubernetes plugin model, There will be some unfortunate side-effects
+Most of them are relatively minor (for example, docker inspect will not show an IP address), but some are significant. In particular, containers started by docker run might not be able to communicate with containers started by Kubernetes, and network integrators will have to provide CNI drivers if they want to fully integrate with Kubernetes
+CNI was created as a minimal specification, built alongside a number of network vendor engineers to be a simple contract between the container runtime and network plugins.</description>
     </item>
     
     <item>

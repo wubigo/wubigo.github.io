@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing.">
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-csi/">
@@ -139,7 +139,7 @@ In local clusters, the default StorageClass uses the hostPath provisioner. hostP
   <meta property="og:url" content="https://wubigo.com/post/k8s-csi/">
   <meta property="og:title" content="K8S CSI | 为人民服务">
   <meta property="og:description" content="PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-24T06:55:53&#43;08:00">
@@ -400,7 +400,7 @@ In local clusters, the default StorageClass uses the hostPath provisioner. hostP
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -490,9 +490,29 @@ In local clusters, the default StorageClass uses the hostPath provisioner. hostP
 
 <p>A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead</p>
 
+<p>Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet</p>
+
 <p>In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing. With hostPath volumes, the data lives in /tmp on the node the Pod is scheduled onto and does not move between nodes</p>
 
 <p><img src="./pv-adm.png" alt="" /></p>
+
+<h1 id="provisioning">Provisioning</h1>
+
+<p>There are two ways PVs may be provisioned: statically or dynamically.</p>
+
+<ul>
+<li>Static</li>
+</ul>
+
+<p>A cluster administrator creates a number of PVs. They carry the details of the real storage which is available for use by cluster users. They exist in the Kubernetes API and are available for consumption.</p>
+
+<ul>
+<li>Dynamic</li>
+</ul>
+
+<p>When none of the static PVs the administrator created matches a user’s PersistentVolumeClaim, the cluster may try to dynamically provision a volume specially for the PVC. This provisioning is based on StorageClasses: the PVC must request a storage class and the administrator must have created and configured that class in order for dynamic provisioning to occur. Claims that request the class &ldquo;&rdquo; effectively disable dynamic provisioning for themselves.</p>
+
+<p>To enable dynamic storage provisioning based on storage class, the cluster administrator needs to enable the DefaultStorageClass admission controller on the API server. This can be done, for example, by ensuring that DefaultStorageClass is among the comma-delimited, ordered list of values for the &ndash;enable-admission-plugins flag of the API server component. For more information on API server command line flags, please check kube-apiserver documentation.</p>
 
     </div>
 
@@ -607,6 +627,8 @@ In local clusters, the default StorageClass uses the hostPath provisioner. hostP
           <li><a href="/post/2018-01-11-kubectlcheatsheet/">kubectl cheat sheet</a></li>
           
           <li><a href="/post/2017-07-13-k8snotes/">K8S notes</a></li>
+          
+          <li><a href="/post/k8s-cni/">K8S CNI</a></li>
           
           <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
           
