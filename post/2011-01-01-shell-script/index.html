@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
- #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/k8s.gcr.io\///&#39; | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.">
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/K8S.gcr.io\///&#39; | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2011-01-01-shell-script/">
@@ -139,7 +139,7 @@
   <meta property="og:url" content="https://wubigo.com/post/2011-01-01-shell-script/">
   <meta property="og:title" content="shell script | 为人民服务">
   <meta property="og:description" content="push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
- #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/k8s.gcr.io\///&#39; | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/K8S.gcr.io\///&#39; | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2011-01-01T00:00:00&#43;00:00">
@@ -497,7 +497,7 @@
 <pre><code>#!/usr/bin/env bash
 
 docker login --username=wubigo registry.cn-beijing.aliyuncs.com
-docker images  | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/k8s.gcr.io\///' | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
+docker images  | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/K8S.gcr.io\///' | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3
 </code></pre>
 
@@ -547,7 +547,7 @@ docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v
 <h1 id="kube-build">kube build</h1>
 
 <pre><code>export K8S_VERSION = v1.13.3
-git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/K8S.io/
 git fetch --all
 git checkout tags/$K8S_VERSION -b v$K8S_VERSION
 </code></pre>
@@ -555,7 +555,7 @@ git checkout tags/$K8S_VERSION -b v$K8S_VERSION
 <pre><code>#!/usr/bin/env bash
 export ETCD_HOST=192.168.1.9
 export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
-cd $GOPATH/src/k8s.io/kubernetes/build/
+cd $GOPATH/src/K8S.io/kubernetes/build/
 bash -x ./run.sh make &gt; run.log 2&gt;&amp;1
 </code></pre>
 
@@ -585,13 +585,13 @@ docker pull  mirrorgooglecontainers/kube-proxy:v1.13.3
 docker pull  mirrorgooglecontainers/pause:3.1
 docker pull  mirrorgooglecontainers/etcd:3.2.24
 docker pull  coredns/coredns:1.2.6
-docker tag  mirrorgooglecontainers/kube-apiserver:v1.13.3 k8s.gcr.io/kube-apiserver:v1.13.3
-docker tag  mirrorgooglecontainers/kube-controller-manager:v1.13.3          k8s.gcr.io/kube-controller-manager:v1.13.3
-docker tag  mirrorgooglecontainers/kube-scheduler:v1.13.3 k8s.gcr.io/kube-scheduler:v1.13.3
-docker tag  mirrorgooglecontainers/kube-proxy:v1.13.3 k8s.gcr.io/kube-proxy:v1.13.3
-docker tag  mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
-docker tag  mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
-docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
+docker tag  mirrorgooglecontainers/kube-apiserver:v1.13.3 K8S.gcr.io/kube-apiserver:v1.13.3
+docker tag  mirrorgooglecontainers/kube-controller-manager:v1.13.3          K8S.gcr.io/kube-controller-manager:v1.13.3
+docker tag  mirrorgooglecontainers/kube-scheduler:v1.13.3 K8S.gcr.io/kube-scheduler:v1.13.3
+docker tag  mirrorgooglecontainers/kube-proxy:v1.13.3 K8S.gcr.io/kube-proxy:v1.13.3
+docker tag  mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1
+docker tag  mirrorgooglecontainers/etcd:3.2.24 K8S.gcr.io/etcd:3.2.24
+docker tag  coredns/coredns:1.2.6 K8S.gcr.io/coredns:1.2.6
 
 </code></pre>
 
@@ -602,11 +602,11 @@ docker tag  coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 
 <pre><code>cd build
 run.sh make
-scp ~/go/src/k8s.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
+scp ~/go/src/K8S.io/kubernetes/_output/dockerized/bin/linux/amd64/kube???  vm1:~/
 </code></pre>
 </blockquote>
 
-<h1 id="deploy-k8s-master">deploy k8s master</h1>
+<h1 id="deploy-k8s-master">deploy K8S master</h1>
 
 <pre><code>#!/usr/bin/env bash
 
@@ -627,8 +627,8 @@ if [ ! -z &quot;$PN&quot; ]; then
     exit
 fi
 
-scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
-scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
 scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
 scp ~/go/bin/cri*  $VM:~/
 cat &lt;&lt; EOF &gt; d.sh
@@ -680,7 +680,7 @@ ssh $VM 'bash -s' &lt; d.sh
 rm d.sh
 </code></pre>
 
-<h1 id="deploy-k8s-working-node">deploy k8s working node</h1>
+<h1 id="deploy-k8s-working-node">deploy K8S working node</h1>
 
 <pre><code>#!/usr/bin/env bash
 
@@ -689,8 +689,8 @@ if [ ! -z &quot;$VM&quot; ]; then
     echo &quot;VAR VM is not set&quot;
     exit    
 fi
-scp ~/go/src/k8s.io/kubernetes/build/debs/kubelet.service $VM:~/
-scp ~/go/src/k8s.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/kubelet.service $VM:~/
+scp ~/go/src/K8S.io/kubernetes/build/debs/10-kubeadm.conf $VM:~/
 scp ~/go/src/github.com/containernetworking/cni/bin/*  $VM:~/
 scp ~/go/bin/cri*  $VM:~/
 cat &lt;&lt; EOF &gt; d.sh

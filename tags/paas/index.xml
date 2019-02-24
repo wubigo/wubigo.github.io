@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Paas on 为人民服务</title>
+    <title>PAAS on 为人民服务</title>
     <link>https://wubigo.com/tags/paas/</link>
-    <description>Recent content in Paas on 为人民服务</description>
+    <description>Recent content in PAAS on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Feb 2016 11:38:27 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/paas/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>k8s local development setup</title>
+      <title>K8S notes</title>
+      <link>https://wubigo.com/post/2017-07-13-k8snotes/</link>
+      <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2017-07-13-k8snotes/</guid>
+      <description>Creating sample user  Create Service Account  dashboard-adminuser.yaml
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
+adminuser-bind-clusteramdin.yaml
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
+    </item>
+    
+    <item>
+      <title>K8S local development setup</title>
       <link>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</link>
       <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</guid>
       <description>Main external dependencies  go docker cri cni  external-dependencies
 KUBEADM IS CURRENTLY IN BETA
-kubeadm maturity build k8s  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18 docker pull coredns/coredns:1.</description>
+kubeadm maturity build K8S  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 K8S.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 K8S.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 K8S.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 K8S.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 K8S.gcr.io/etcd-amd64:3.2.18 docker pull coredns/coredns:1.</description>
     </item>
     
   </channel>

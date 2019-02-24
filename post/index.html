@@ -573,7 +573,7 @@
   <div class="article-style" itemprop="articleBody">
     version notes
 some only works on 1.13
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.
   </div>
   
@@ -914,17 +914,17 @@ kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, Gi
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-24-microk8s/" itemprop="url">Microk8s</a>
+    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <p>Normally, ${SNAP_DATA} points to /var/snap/microk8s/current.
-snap.microk8s.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
+    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
+snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
 
-<pre><code>$snap start microk8s
-$microk8s.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microk8s.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
+<pre><code>$snap start microK8S
+$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
+$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
 
 
 </code></pre>
@@ -932,7 +932,7 @@ $microk8s.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3
 <p>for resource under namespace kube-system
 all-namespaces don&rsquo;t include kube-system</p>
 
-<pre><code>$microk8s.kubectl describe po calico-node-4sq5r --namespace=kube-system
+<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
 
 </code></pre>
 
@@ -1904,6 +1904,92 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
 
 
 
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-csi/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2221,96 +2307,6 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
   
   <div class="article-style" itemprop="articleBody">
     Puppeteer vs Selenium/WebDriver  Selenium/WebDriver focuses on cross-browser automation; its value proposition is a single standard API that works across all major browsers. Puppeteer focuses on Chromium; its value proposition is richer functionality and higher reliability.  That said, you can use Puppeteer to run tests against Chromium, e.g. using the community-driven jest-puppeteer. While this probably shouldn’t be your only testing solution, it does have a few good points compared to WebDriver: * Puppeteer requires zero setup and comes bundled with the Chromium version it works best with, making it very easy to start with.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-01-02-deathofmicroservicemadness/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-01-02-deathofmicroservicemadness/" itemprop="url">Death of Microservice Madness</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="death-of-microservice-madness">Death of Microservice Madness</h1>
-
-<p><a href="http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/" target="_blank">http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/</a></p>
-
   </div>
   
 

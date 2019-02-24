@@ -171,7 +171,7 @@ GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeS
 GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -&lt;strong&gt;${ARCH}&lt;/strong&gt; suffix&lt;/p&gt;
+&lt;p&gt;Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -&lt;strong&gt;${ARCH}&lt;/strong&gt; suffix&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;get all Pending pods&lt;/li&gt;
@@ -193,17 +193,17 @@ I0217 07:28:13.310328   14495 interface.go:211] Checking addr  192.168.1.9/24.
 I0217 07:28:13.311219   14495 interface.go:218] IP found 192.168.1.9
 I0217 07:28:13.311961   14495 interface.go:250] Found valid IPv4 address 192.168.1.9 for interface &amp;quot;enp0s3&amp;quot;.
 I0217 07:28:13.312688   14495 interface.go:395] Found active IP 192.168.1.9 
-I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.k8s.io/release/stable-1.txt
-I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.k8s.io/release/stable-1.txt&amp;quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.K8S.io/release/stable-1.txt
+I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.K8S.io/release/stable-1.txt&amp;quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
 I0217 07:28:23.321520   14495 version.go:95] falling back to the local client version: v1.13.3
 I0217 07:28:23.330622   14495 feature_gate.go:206] feature gates: &amp;amp;{map[]}
-k8s.gcr.io/kube-apiserver:v1.13.3
-k8s.gcr.io/kube-controller-manager:v1.13.3
-k8s.gcr.io/kube-scheduler:v1.13.3
-k8s.gcr.io/kube-proxy:v1.13.3
-k8s.gcr.io/pause:3.1
-k8s.gcr.io/etcd:3.2.24
-k8s.gcr.io/coredns:1.2.6
+K8S.gcr.io/kube-apiserver:v1.13.3
+K8S.gcr.io/kube-controller-manager:v1.13.3
+K8S.gcr.io/kube-scheduler:v1.13.3
+K8S.gcr.io/kube-proxy:v1.13.3
+K8S.gcr.io/pause:3.1
+K8S.gcr.io/etcd:3.2.24
+K8S.gcr.io/coredns:1.2.6
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
@@ -217,7 +217,7 @@ k8s.gcr.io/coredns:1.2.6
 
 &lt;pre&gt;&lt;code&gt;kubeadm config print init-defaults &amp;gt;adm.defaults.yaml
 git diff adm.defaults.yaml
--imageRepository: k8s.gcr.io
+-imageRepository: K8S.gcr.io
 +imageRepository: mirrorgooglecontainers
 sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
 &lt;/code&gt;&lt;/pre&gt;
@@ -296,17 +296,17 @@ when errors are expected&lt;/p&gt;&lt;/li&gt;
     </item>
     
     <item>
-      <title>Microk8s</title>
+      <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2018-11-24-microk8s/</guid>
-      <description>&lt;p&gt;Normally, ${SNAP_DATA} points to /var/snap/microk8s/current.
-snap.microk8s.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd&lt;/p&gt;
+      <description>&lt;p&gt;Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
+snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$snap start microk8s
-$microk8s.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microk8s.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1
+&lt;pre&gt;&lt;code&gt;$snap start microK8S
+$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
+$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
 
 
 &lt;/code&gt;&lt;/pre&gt;
@@ -314,7 +314,7 @@ $microk8s.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3
 &lt;p&gt;for resource under namespace kube-system
 all-namespaces don&amp;rsquo;t include kube-system&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$microk8s.kubectl describe po calico-node-4sq5r --namespace=kube-system
+&lt;pre&gt;&lt;code&gt;$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
 
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -399,7 +399,7 @@ romana
 Weave Net
 Any of these CNI providers can be used without kops. All of the CNI providers use a daemonset installation model,
 where their product deploys a Kubernetes Daemonset. Just use kubectl to install the provider on the master once the
-K8s API server has started. Please refer to each projects specific documentation&lt;/p&gt;
+K8S API server has started. Please refer to each projects specific documentation&lt;/p&gt;
 
 &lt;h1 id=&#34;support-matrix&#34;&gt;Support Matrix&lt;/h1&gt;
 

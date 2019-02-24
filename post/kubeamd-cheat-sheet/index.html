@@ -30,7 +30,7 @@
   
   <meta name="description" content="version notes
 some only works on 1.13
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.">
 
   
@@ -141,7 +141,7 @@ kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, Gi
   <meta property="og:title" content="kubeamd cheat sheet | 为人民服务">
   <meta property="og:description" content="version notes
 some only works on 1.13
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface."><meta property="og:image" content="https://wubigo.com/post/kubeamd-cheat-sheet/featured.jpg">
   <meta property="og:locale" content="en-us">
   
@@ -643,7 +643,7 @@ GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&qu
 GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
 </code></pre>
 
-<p>Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -<strong>${ARCH}</strong> suffix</p>
+<p>Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -<strong>${ARCH}</strong> suffix</p>
 
 <ul>
 <li>get all Pending pods</li>
@@ -665,17 +665,17 @@ I0217 07:28:13.310328   14495 interface.go:211] Checking addr  192.168.1.9/24.
 I0217 07:28:13.311219   14495 interface.go:218] IP found 192.168.1.9
 I0217 07:28:13.311961   14495 interface.go:250] Found valid IPv4 address 192.168.1.9 for interface &quot;enp0s3&quot;.
 I0217 07:28:13.312688   14495 interface.go:395] Found active IP 192.168.1.9 
-I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.k8s.io/release/stable-1.txt
-I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &quot;https://dl.k8s.io/release/stable-1.txt&quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.K8S.io/release/stable-1.txt
+I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &quot;https://dl.K8S.io/release/stable-1.txt&quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
 I0217 07:28:23.321520   14495 version.go:95] falling back to the local client version: v1.13.3
 I0217 07:28:23.330622   14495 feature_gate.go:206] feature gates: &amp;{map[]}
-k8s.gcr.io/kube-apiserver:v1.13.3
-k8s.gcr.io/kube-controller-manager:v1.13.3
-k8s.gcr.io/kube-scheduler:v1.13.3
-k8s.gcr.io/kube-proxy:v1.13.3
-k8s.gcr.io/pause:3.1
-k8s.gcr.io/etcd:3.2.24
-k8s.gcr.io/coredns:1.2.6
+K8S.gcr.io/kube-apiserver:v1.13.3
+K8S.gcr.io/kube-controller-manager:v1.13.3
+K8S.gcr.io/kube-scheduler:v1.13.3
+K8S.gcr.io/kube-proxy:v1.13.3
+K8S.gcr.io/pause:3.1
+K8S.gcr.io/etcd:3.2.24
+K8S.gcr.io/coredns:1.2.6
 </code></pre>
 
 <ul>
@@ -689,7 +689,7 @@ k8s.gcr.io/coredns:1.2.6
 
 <pre><code>kubeadm config print init-defaults &gt;adm.defaults.yaml
 git diff adm.defaults.yaml
--imageRepository: k8s.gcr.io
+-imageRepository: K8S.gcr.io
 +imageRepository: mirrorgooglecontainers
 sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
 </code></pre>
@@ -723,9 +723,7 @@ kubectl logs calico-node-4mb5z -n kube-system
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/k8s/">k8s</a>
-  
-  <a class="badge badge-light" href="/tags/kubeadm/">kubeadm</a>
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
   
 </div>
 
@@ -824,13 +822,15 @@ kubectl logs calico-node-4mb5z -n kube-system
         <h3>Related</h3>
         <ul>
           
+          <li><a href="/post/2018-11-24-microk8s/">MicroK8S</a></li>
+          
+          <li><a href="/post/2018-11-22-cninetworkproviderforkubernetes/">Choosing a CNI Network Provider for Kubernetes</a></li>
+          
+          <li><a href="/post/k8s-csi/">K8S CSI</a></li>
+          
           <li><a href="/post/2018-01-11-kubectlcheatsheet/">kubectl cheat sheet</a></li>
           
-          <li><a href="/post/2017-07-13-k8snotes/">k8s notes</a></li>
-          
-          <li><a href="/post/k8s-monitor/">K8s Monitor</a></li>
-          
-          <li><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></li>
+          <li><a href="/post/2017-07-13-k8snotes/">K8S notes</a></li>
           
         </ul>
       </div>

@@ -32,7 +32,7 @@
       <guid>https://wubigo.com/post/kubeamd-cheat-sheet/</guid>
       <description>version notes
 some only works on 1.13
-kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
+kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.</description>
     </item>
     
@@ -65,14 +65,14 @@ kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;q
     </item>
     
     <item>
-      <title>Microk8s</title>
+      <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2018-11-24-microk8s/</guid>
-      <description>Normally, ${SNAP_DATA} points to /var/snap/microk8s/current. snap.microk8s.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
-$snap start microk8s $microk8s.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microk8s.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&amp;rsquo;t include kube-system
-$microk8s.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</description>
+      <description>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current. snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
+$snap start microK8S $microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&amp;rsquo;t include kube-system
+$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</description>
     </item>
     
     <item>
@@ -250,6 +250,16 @@ If you are getting an exception due to &amp;ldquo;Illegal key size&amp;rdquo; an
     </item>
     
     <item>
+      <title>K8S CSI</title>
+      <link>https://wubigo.com/post/k8s-csi/</link>
+      <pubDate>Sat, 24 Feb 2018 06:55:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-csi/</guid>
+      <description>PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing.</description>
+    </item>
+    
+    <item>
       <title>go notes</title>
       <link>https://wubigo.com/post/2018-02-11-gonotes/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
@@ -343,7 +353,7 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
     </item>
     
     <item>
-      <title>k8s notes</title>
+      <title>K8S notes</title>
       <link>https://wubigo.com/post/2017-07-13-k8snotes/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -351,7 +361,7 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
       <description>Creating sample user  Create Service Account  dashboard-adminuser.yaml
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
     </item>
     
     <item>
@@ -392,7 +402,7 @@ config $ cat _config.yml port: 6000  build for production $rm site.tar (remove b
     </item>
     
     <item>
-      <title>K8s Monitor</title>
+      <title>K8S Monitor</title>
       <link>https://wubigo.com/post/k8s-monitor/</link>
       <pubDate>Thu, 23 Feb 2017 20:28:40 +0800</pubDate>
       
@@ -516,14 +526,14 @@ Why I left Apache Spark GraphX and returned to HBase for my graph database https
     </item>
     
     <item>
-      <title>k8s local development setup</title>
+      <title>K8S local development setup</title>
       <link>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</link>
       <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/2016-02-03-k8s-local-development-setup/</guid>
       <description>Main external dependencies  go docker cri cni  external-dependencies
 KUBEADM IS CURRENTLY IN BETA
-kubeadm maturity build k8s  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18 docker pull coredns/coredns:1.</description>
+kubeadm maturity build K8S  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 K8S.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 K8S.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 K8S.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 K8S.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 K8S.gcr.io/etcd-amd64:3.2.18 docker pull coredns/coredns:1.</description>
     </item>
     
     <item>
@@ -894,7 +904,7 @@ Now we have the newest version of OpenSSH installed and patched with the improve
       
       <guid>https://wubigo.com/post/2011-01-01-shell-script/</guid>
       <description>push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
- #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/k8s.gcr.io\///&#39; | xargs -i -t docker tag k8s.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &amp;quot;registry.cn-beijing.aliyuncs.com&amp;quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &amp;quot;$VM&amp;quot; ]; then VM = t1 echo &amp;quot;VAR VM is not set&amp;quot; exit fi tee daemon.</description>
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/K8S.gcr.io\///&#39; | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &amp;quot;registry.cn-beijing.aliyuncs.com&amp;quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &amp;quot;$VM&amp;quot; ]; then VM = t1 echo &amp;quot;VAR VM is not set&amp;quot; exit fi tee daemon.</description>
     </item>
     
     <item>

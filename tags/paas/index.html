@@ -138,18 +138,18 @@
   
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/tags/paas/">
-  <meta property="og:title" content="Paas | 为人民服务">
+  <meta property="og:title" content="PAAS | 为人民服务">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2016-02-03T11:38:27&#43;08:00">
+  <meta property="og:updated_time" content="2017-07-13T00:00:00&#43;00:00">
   
 
   
 
   
 
-  <title>Paas | 为人民服务</title>
+  <title>PAAS | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -366,7 +366,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Paas</h1>
+  <h1 itemprop="name">PAAS</h1>
 
   
 
@@ -381,7 +381,19 @@
   
   
   <div>
-    <h2><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></h2>
+    <h2><a href="/post/2017-07-13-k8snotes/">K8S notes</a></h2>
+    <div class="article-style">
+      
+      Creating sample user  Create Service Account  dashboard-adminuser.yaml
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
+adminuser-bind-clusteramdin.yaml
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/2016-02-03-k8s-local-development-setup/">K8S local development setup</a></h2>
     <div class="article-style">
       
       Setup a local development environment with kubeadm

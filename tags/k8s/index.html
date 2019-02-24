@@ -138,7 +138,7 @@
   
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/tags/k8s/">
-  <meta property="og:title" content="k8s | 为人民服务">
+  <meta property="og:title" content="K8S | 为人民服务">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -149,7 +149,7 @@
 
   
 
-  <title>k8s | 为人民服务</title>
+  <title>K8S | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -366,7 +366,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">k8s</h1>
+  <h1 itemprop="name">K8S</h1>
 
   
 
@@ -386,8 +386,39 @@
       
       version notes
 some only works on 1.13
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the k8s.gcr.io/kube-${ARCH}, k8s.gcr.io/etcd and k8s.gcr.io/pause images don’t require an -${ARCH} suffix
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/2018-11-24-microk8s/">MicroK8S</a></h2>
+    <div class="article-style">
+      
+      Normally, ${SNAP_DATA} points to /var/snap/microK8S/current. snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
+$snap start microK8S $microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&rsquo;t include kube-system
+$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/2018-11-22-cninetworkproviderforkubernetes/">Choosing a CNI Network Provider for Kubernetes</a></h2>
+    <div class="article-style">
+      
+      The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
+Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s-csi/">K8S CSI</a></h2>
+    <div class="article-style">
+      
+      PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+In local clusters, the default StorageClass uses the hostPath provisioner. hostPath volumes are only suitable for development and testing.
       
     </div>
   </div>
@@ -402,19 +433,19 @@ kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, Gi
   </div>
   
   <div>
-    <h2><a href="/post/2017-07-13-k8snotes/">k8s notes</a></h2>
+    <h2><a href="/post/2017-07-13-k8snotes/">K8S notes</a></h2>
     <div class="article-style">
       
       Creating sample user  Create Service Account  dashboard-adminuser.yaml
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')  multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/post/k8s-monitor/">K8s Monitor</a></h2>
+    <h2><a href="/post/k8s-monitor/">K8S Monitor</a></h2>
     <div class="article-style">
       
        setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
@@ -424,7 +455,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
   </div>
   
   <div>
-    <h2><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></h2>
+    <h2><a href="/post/2016-02-03-k8s-local-development-setup/">K8S local development setup</a></h2>
     <div class="article-style">
       
       Setup a local development environment with kubeadm

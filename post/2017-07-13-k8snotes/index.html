@@ -31,7 +31,7 @@
   <meta name="description" content="Creating sample user  Create Service Account  dashboard-adminuser.yaml
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.">
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2017-07-13-k8snotes/">
@@ -139,11 +139,11 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
   
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/2017-07-13-k8snotes/">
-  <meta property="og:title" content="k8s notes | 为人民服务">
+  <meta property="og:title" content="K8S notes | 为人民服务">
   <meta property="og:description" content="Creating sample user  Create Service Account  dashboard-adminuser.yaml
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant k8s clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-07-13T00:00:00&#43;00:00">
@@ -155,7 +155,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
 
   
 
-  <title>k8s notes | 为人民服务</title>
+  <title>K8S notes | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -372,7 +372,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">k8s notes</h1>
+  <h1 itemprop="name">K8S notes</h1>
 
   
 
@@ -422,7 +422,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=k8s%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f"
+         href="https://twitter.com/intent/tweet?text=K8S%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -436,21 +436,21 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f&amp;title=k8s%20notes"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f&amp;title=K8S%20notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f&amp;title=k8s%20notes"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f&amp;title=K8S%20notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=k8s%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f">
+         href="mailto:?subject=K8S%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2017-07-13-k8snotes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -511,12 +511,12 @@ metadata:
 
 <p><code>adminuser-bind-clusteramdin.yaml</code></p>
 
-<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+<pre><code>apiVersion: rbac.authorization.K8S.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-user
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.K8S.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
@@ -535,7 +535,7 @@ subjects:
 <pre><code>kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 </code></pre>
 
-<h1 id="multi-tenant-k8s-clusters-at-network-level">multi-tenant k8s clusters at network-level:</h1>
+<h1 id="multi-tenant-k8s-clusters-at-network-level">multi-tenant K8S clusters at network-level:</h1>
 
 <ul>
 <li>Namespaces</li>
@@ -546,9 +546,9 @@ subjects:
 
 <h1 id="architect-a-multi-tenant-system-with-kubernetes">Architect a multi-tenant system with kubernetes</h1>
 
-<p>I don&rsquo;t think there is one document out there really summaries everything. The link below is a bit old but can help outline some of the basics on how they build on k8s. Ultimately the primitives are the same but they abstract namespaces a bit and build it around RBAC. Coupled with a default vxlan (isolated) SDN plugin and their ingress routing, its a compelling multi-tenant solution that provides isolation and quotes at multiple levels.</p>
+<p>I don&rsquo;t think there is one document out there really summaries everything. The link below is a bit old but can help outline some of the basics on how they build on K8S. Ultimately the primitives are the same but they abstract namespaces a bit and build it around RBAC. Coupled with a default vxlan (isolated) SDN plugin and their ingress routing, its a compelling multi-tenant solution that provides isolation and quotes at multiple levels.</p>
 
-<p>Openshift really just adds some glue (a lot of it being devleoper workflow) on top of Kubernetes. What is nice is that RedHat continues to try and upstream features of origin into k8s where it makes sense.</p>
+<p>Openshift really just adds some glue (a lot of it being devleoper workflow) on top of Kubernetes. What is nice is that RedHat continues to try and upstream features of origin into K8S where it makes sense.</p>
 
 <p><a href="https://blog.openshift.com/building-kubernetes-bringing-google-scale-container-orchestration-to-the-enterprise/" target="_blank">https://blog.openshift.com/building-kubernetes-bringing-google-scale-container-orchestration-to-the-enterprise/</a>
 <a href="https://www.reddit.com/r/kubernetes/comments/6qp24h/ask_kubernetes_how_would_you_architect_a/" target="_blank">https://www.reddit.com/r/kubernetes/comments/6qp24h/ask_kubernetes_how_would_you_architect_a/</a></p>
@@ -560,11 +560,11 @@ subjects:
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/k8s/">k8s</a>
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
   
-  <a class="badge badge-light" href="/tags/paas/">PaaS</a>
+  <a class="badge badge-light" href="/tags/paas/">PAAS</a>
   
-  <a class="badge badge-light" href="/tags/docker/">docker</a>
+  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
   
 </div>
 
@@ -663,9 +663,9 @@ subjects:
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/k8s-monitor/">K8s Monitor</a></li>
+          <li><a href="/post/2016-02-03-k8s-local-development-setup/">K8S local development setup</a></li>
           
-          <li><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></li>
+          <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
           
         </ul>
       </div>

@@ -631,7 +631,7 @@ CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPAC
 
 <pre><code>cat rolebinding-bigo-access.yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
   name: access-manager-binding
   namespace: bigo-NS
@@ -681,7 +681,7 @@ kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;
 ```
 cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
 name: tiller-clusterrolebinding
 subjects:</p></li>
@@ -725,7 +725,7 @@ apiGroup: &ldquo;&rdquo;</p></li>
 <li><p>create PVC</p>
 
 <pre><code>cat storage-class-hdd.yaml 
-apiVersion: storage.k8s.io/v1
+apiVersion: storage.K8S.io/v1
 kind: StorageClass
 metadata:
 name: local-hdd
@@ -781,7 +781,7 @@ values:
 
 <p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
 
-<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on k8s</h1>
+<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on K8S</h1>
 
 <pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
 or
@@ -801,9 +801,7 @@ kubectl port-forward rs/prometheus  9090:9090
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/k8s/">k8s</a>
-  
-  <a class="badge badge-light" href="/tags/kubectl/">kubectl</a>
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
   
 </div>
 
@@ -902,11 +900,11 @@ kubectl port-forward rs/prometheus  9090:9090
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/2017-07-13-k8snotes/">k8s notes</a></li>
+          <li><a href="/post/2017-07-13-k8snotes/">K8S notes</a></li>
           
-          <li><a href="/post/k8s-monitor/">K8s Monitor</a></li>
+          <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
           
-          <li><a href="/post/2016-02-03-k8s-local-development-setup/">k8s local development setup</a></li>
+          <li><a href="/post/2016-02-03-k8s-local-development-setup/">K8S local development setup</a></li>
           
         </ul>
       </div>
