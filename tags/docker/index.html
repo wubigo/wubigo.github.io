@@ -394,6 +394,10 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
     <h2><a href="/post/connect-container-to-a-local-network/">容器多种方式链接本地网络</a></h2>
     <div class="article-style">
       
+       docker host network assign a second ip to host interface
+$IP_2=192.168.1.117 ip addr add $IP_2/24 dev enp0s3  bind container to IP_2 host network
+docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    
+      
     </div>
   </div>
   
@@ -405,6 +409,25 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
 apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/docker-check-config/">Docker Check Config</a></h2>
+    <div class="article-style">
+      
+      #!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( '/proc/config.gz' &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; '/usr/src/linux/.config' ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = 'bold' ]; then codes=( &quot;${codes[@]}&quot; '1' ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/docker-notes/">Docker Notes</a></h2>
+    <div class="article-style">
+      
+       ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &gt; check-config.sh
+ 
       
     </div>
   </div>

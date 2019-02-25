@@ -311,18 +311,6 @@ when errors are expected&lt;/p&gt;&lt;/li&gt;
     </item>
     
     <item>
-      <title>7 level communication</title>
-      <link>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
-      <description>&lt;p&gt;The most important conversation you ever have is the one with yourself&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/7level-communication.jpg&#34; alt=&#34;7 lvevel communication&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
@@ -587,12 +575,48 @@ TX:		on
     </item>
     
     <item>
+      <title>7 level communication</title>
+      <link>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
+      <description>&lt;p&gt;The most important conversation you ever have is the one with yourself&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/7level-communication.jpg&#34; alt=&#34;7 lvevel communication&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>容器多种方式链接本地网络</title>
       <link>https://wubigo.com/post/connect-container-to-a-local-network/</link>
       <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/connect-container-to-a-local-network/</guid>
-      <description></description>
+      <description>
+
+&lt;h1 id=&#34;docker-host-network&#34;&gt;docker host network&lt;/h1&gt;
+
+&lt;p&gt;assign a second ip to host interface&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$IP_2=192.168.1.117
+ip addr add $IP_2/24 dev enp0s3
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;bind container to IP_2 host network&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine
+sudo iptables -L DOCKER -v -n
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in        out      source           destination         
+    7   528 ACCEPT     tcp  --  !docker0  docker0  0.0.0.0/0       172.17.0.2           tcp dpt:80
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
     </item>
     
     <item>

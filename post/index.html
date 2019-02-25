@@ -695,94 +695,6 @@ curl -IL http://wubigo.com/post
 
 
 
-<meta content="2019-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2019-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2019-01-01-sevenlevelcommunication/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2019-01-01-sevenlevelcommunication/" itemprop="url">7 level communication</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>The most important conversation you ever have is the one with yourself</p>
-
-<p><img src="/img/post/7level-communication.jpg" alt="7 lvevel communication" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1247,6 +1159,94 @@ ip -s link show eth0  stop irqbalance for home user
 
 
 
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2019-01-01-sevenlevelcommunication/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2019-01-01-sevenlevelcommunication/" itemprop="url">7 level communication</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>The most important conversation you ever have is the one with yourself</p>
+
+<p><img src="/img/post/7level-communication.jpg" alt="7 lvevel communication" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
 
@@ -1270,7 +1270,7 @@ ip -s link show eth0  stop irqbalance for home user
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -1296,6 +1296,34 @@ ip -s link show eth0  stop irqbalance for home user
     <a href="/post/connect-container-to-a-local-network/" itemprop="url">容器多种方式链接本地网络</a>
   </h3>
 
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker-host-network">docker host network</h1>
+
+<p>assign a second ip to host interface</p>
+
+<pre><code>$IP_2=192.168.1.117
+ip addr add $IP_2/24 dev enp0s3
+
+</code></pre>
+
+<p>bind container to IP_2 host network</p>
+
+<pre><code>docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine
+sudo iptables -L DOCKER -v -n
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in        out      source           destination         
+    7   528 ACCEPT     tcp  --  !docker0  docker0  0.0.0.0/0       172.17.0.2           tcp dpt:80
+
+</code></pre>
+
+<blockquote>
+</blockquote>
+
+  </div>
   
 
   

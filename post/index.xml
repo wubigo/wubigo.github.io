@@ -48,15 +48,6 @@ curl -IL http://wubigo.com/post
     </item>
     
     <item>
-      <title>7 level communication</title>
-      <link>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
-      <description>The most important conversation you ever have is the one with yourself</description>
-    </item>
-    
-    <item>
       <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
@@ -115,12 +106,23 @@ ip -s link show eth0  stop irqbalance for home user</description>
     </item>
     
     <item>
+      <title>7 level communication</title>
+      <link>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
+      <description>The most important conversation you ever have is the one with yourself</description>
+    </item>
+    
+    <item>
       <title>容器多种方式链接本地网络</title>
       <link>https://wubigo.com/post/connect-container-to-a-local-network/</link>
       <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/connect-container-to-a-local-network/</guid>
-      <description></description>
+      <description> docker host network assign a second ip to host interface
+$IP_2=192.168.1.117 ip addr add $IP_2/24 dev enp0s3  bind container to IP_2 host network
+docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    </description>
     </item>
     
     <item>
@@ -541,6 +543,15 @@ Why I left Apache Spark GraphX and returned to HBase for my graph database https
     </item>
     
     <item>
+      <title>Docker Check Config</title>
+      <link>https://wubigo.com/post/docker-check-config/</link>
+      <pubDate>Thu, 25 Feb 2016 17:58:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-check-config/</guid>
+      <description>#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &amp;quot;/boot/config-$(uname -r)&amp;quot; &amp;quot;/usr/src/linux-$(uname -r)/.config&amp;quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&amp;quot;$1&amp;quot; else : ${CONFIG:=&amp;quot;${possibleConfigs[0]}&amp;quot;} fi if ! command -v zgrep &amp;amp;&amp;gt; /dev/null; then zgrep() { zcat &amp;quot;$2&amp;quot; | grep &amp;quot;$1&amp;quot; } fi kernelVersion=&amp;quot;$(uname -r)&amp;quot; kernelMajor=&amp;quot;${kernelVersion%%.*}&amp;quot; kernelMinor=&amp;quot;${kernelVersion#$kernelMajor.}&amp;quot; kernelMinor=&amp;quot;${kernelMinor%%.*}&amp;quot; is_set() { zgrep &amp;quot;CONFIG_$1=[y|m]&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_in_kernel() { zgrep &amp;quot;CONFIG_$1=y&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_as_module() { zgrep &amp;quot;CONFIG_$1=m&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } color() { local codes=() if [ &amp;quot;$1&amp;quot; = &#39;bold&#39; ]; then codes=( &amp;quot;${codes[@]}&amp;quot; &#39;1&#39; ) shift fi if [ &amp;quot;$#&amp;quot; -gt 0 ]; then local code= case &amp;quot;$1&amp;quot; in # see https://en.</description>
+    </item>
+    
+    <item>
       <title>K8S网络基础</title>
       <link>https://wubigo.com/post/k8s-network-basic/</link>
       <pubDate>Wed, 24 Feb 2016 19:39:03 +0800</pubDate>
@@ -584,6 +595,16 @@ kubeadm maturity build K8S  docker v17.03  sudo apt-get install docker-ce=17.03.
 securing microservice with UAA
 user accounting and authorizing service(UAA) Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
 JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.</description>
+    </item>
+    
+    <item>
+      <title>Docker Notes</title>
+      <link>https://wubigo.com/post/docker-notes/</link>
+      <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-notes/</guid>
+      <description> ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
+ </description>
     </item>
     
     <item>

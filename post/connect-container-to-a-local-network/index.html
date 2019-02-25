@@ -28,7 +28,9 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content=" docker host network assign a second ip to host interface
+$IP_2=192.168.1.117 ip addr add $IP_2/24 dev enp0s3  bind container to IP_2 host network
+docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/connect-container-to-a-local-network/">
@@ -137,7 +139,9 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/connect-container-to-a-local-network/">
   <meta property="og:title" content="容器多种方式链接本地网络 | 为人民服务">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content=" docker host network assign a second ip to host interface
+$IP_2=192.168.1.117 ip addr add $IP_2/24 dev enp0s3  bind container to IP_2 host network
+docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-04-25T07:10:55&#43;08:00">
@@ -398,7 +402,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -483,6 +487,30 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="docker-host-network">docker host network</h1>
+
+<p>assign a second ip to host interface</p>
+
+<pre><code>$IP_2=192.168.1.117
+ip addr add $IP_2/24 dev enp0s3
+
+</code></pre>
+
+<p>bind container to IP_2 host network</p>
+
+<pre><code>docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine
+sudo iptables -L DOCKER -v -n
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in        out      source           destination         
+    7   528 ACCEPT     tcp  --  !docker0  docker0  0.0.0.0/0       172.17.0.2           tcp dpt:80
+
+</code></pre>
+
+<blockquote>
+</blockquote>
+
     </div>
 
     
@@ -595,9 +623,11 @@
           
           <li><a href="/post/k8s-cni/">K8S CNI</a></li>
           
+          <li><a href="/post/docker-check-config/">Docker Check Config</a></li>
+          
           <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
           
-          <li><a href="/post/2014-04-03-cdn/">cdn note</a></li>
+          <li><a href="/post/docker-notes/">Docker Notes</a></li>
           
         </ul>
       </div>

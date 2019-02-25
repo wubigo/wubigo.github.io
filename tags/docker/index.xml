@@ -27,7 +27,9 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/connect-container-to-a-local-network/</guid>
-      <description></description>
+      <description> docker host network assign a second ip to host interface
+$IP_2=192.168.1.117 ip addr add $IP_2/24 dev enp0s3  bind container to IP_2 host network
+docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    </description>
     </item>
     
     <item>
@@ -40,6 +42,25 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
 apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
+    </item>
+    
+    <item>
+      <title>Docker Check Config</title>
+      <link>https://wubigo.com/post/docker-check-config/</link>
+      <pubDate>Thu, 25 Feb 2016 17:58:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-check-config/</guid>
+      <description>#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &amp;quot;/boot/config-$(uname -r)&amp;quot; &amp;quot;/usr/src/linux-$(uname -r)/.config&amp;quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&amp;quot;$1&amp;quot; else : ${CONFIG:=&amp;quot;${possibleConfigs[0]}&amp;quot;} fi if ! command -v zgrep &amp;amp;&amp;gt; /dev/null; then zgrep() { zcat &amp;quot;$2&amp;quot; | grep &amp;quot;$1&amp;quot; } fi kernelVersion=&amp;quot;$(uname -r)&amp;quot; kernelMajor=&amp;quot;${kernelVersion%%.*}&amp;quot; kernelMinor=&amp;quot;${kernelVersion#$kernelMajor.}&amp;quot; kernelMinor=&amp;quot;${kernelMinor%%.*}&amp;quot; is_set() { zgrep &amp;quot;CONFIG_$1=[y|m]&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_in_kernel() { zgrep &amp;quot;CONFIG_$1=y&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_as_module() { zgrep &amp;quot;CONFIG_$1=m&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } color() { local codes=() if [ &amp;quot;$1&amp;quot; = &#39;bold&#39; ]; then codes=( &amp;quot;${codes[@]}&amp;quot; &#39;1&#39; ) shift fi if [ &amp;quot;$#&amp;quot; -gt 0 ]; then local code= case &amp;quot;$1&amp;quot; in # see https://en.</description>
+    </item>
+    
+    <item>
+      <title>Docker Notes</title>
+      <link>https://wubigo.com/post/docker-notes/</link>
+      <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-notes/</guid>
+      <description> ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
+ </description>
     </item>
     
   </channel>
