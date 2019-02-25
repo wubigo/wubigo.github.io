@@ -290,6 +290,7 @@ Docker container stop automatically after running
 test/curl/Dockerfile
 
 ***let kubectl never restart container
+
 ```
 FROM alpine:3.8
 RUN apk add --no-cache curl

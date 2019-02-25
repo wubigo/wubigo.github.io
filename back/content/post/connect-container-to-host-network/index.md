@@ -1,5 +1,5 @@
 +++
-title = "容器多种方式链接本地网络"
+title = "容器多种方式链接宿主网络"
 date = 2018-04-25T07:10:55+08:00
 draft = false
 
@@ -25,15 +25,15 @@ categories = []
 assign a second ip to host interface
 
 ```
-$IP_2=192.168.1.117
-ip addr add $IP_2/24 dev enp0s3
+export SIP=192.168.1.117
+sudo ip addr add $SIP/24 dev enp0s3
 
 ```
 
-bind container to IP_2 host network
+bind container to SIP host network
 
 ```
-docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine
+docker run -it --name web -p ${SIP}:80:80 nginx:1.14-alpine
 sudo iptables -L DOCKER -v -n
 
 Chain DOCKER (1 references)
@@ -42,3 +42,11 @@ Chain DOCKER (1 references)
 
 ```
 >
+
+```
+sudo iptables -t nat -I POSTROUTING -s 172.17.0.2 \
+    -j SNAT --to-source 192.168.1.119
+
+
+sudo iptables -t nat -L -n -v
+```
