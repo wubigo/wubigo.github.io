@@ -1300,14 +1300,21 @@ $ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  P
 
 
 
+  
+
 
 <div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/connect-container-to-a-local-network/" itemprop="url">容器多种方式链接本地网络</a>
+      <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
     </h3>
 
+    
+    <div class="article-style" itemprop="articleBody">
+      docker host network assign a second ip to host interface
+export SIP=192.168.1.117 sudo ip addr add $SIP/24 dev enp0s3  bind container …
+    </div>
     
 
     <div class="stream-meta article-metadata">
@@ -1349,7 +1356,7 @@ $ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  P
   
   
   <span class="middot-divider"></span>
-  <a href="/post/connect-container-to-a-local-network/#disqus_thread"></a>
+  <a href="/post/connect-container-to-host-network/#disqus_thread"></a>
   
 
   
@@ -3067,6 +3074,8 @@ Leading a big data system design for 20PB storage for many year.</li>
     <div class="alert alert-note">
   <div>
     <p><em>virtual-kubelet</em></p>
+
+<p>either use Red Hat&rsquo;s fork of docker with the &lsquo;&ndash;add-registry&rsquo; flag or you can build docker from source with registry/config.go modified to use hard-coded default registry namespace/index</p>
 
   </div>
 </div>

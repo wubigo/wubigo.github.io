@@ -1277,7 +1277,7 @@ ip -s link show eth0  stop irqbalance for home user
   
   
   <span class="middot-divider"></span>
-  <a href="/post/connect-container-to-a-local-network/#disqus_thread"></a>
+  <a href="/post/connect-container-to-host-network/#disqus_thread"></a>
   
 
   
@@ -1293,36 +1293,14 @@ ip -s link show eth0  stop irqbalance for home user
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/connect-container-to-a-local-network/" itemprop="url">容器多种方式链接本地网络</a>
+    <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker-host-network">docker host network</h1>
-
-<p>assign a second ip to host interface</p>
-
-<pre><code>$IP_2=192.168.1.117
-ip addr add $IP_2/24 dev enp0s3
-
-</code></pre>
-
-<p>bind container to IP_2 host network</p>
-
-<pre><code>docker run -it --name web -p ${IP_2}80:80 nginx:1.14-alpine
-sudo iptables -L DOCKER -v -n
-
-Chain DOCKER (1 references)
- pkts bytes target     prot opt in        out      source           destination         
-    7   528 ACCEPT     tcp  --  !docker0  docker0  0.0.0.0/0       172.17.0.2           tcp dpt:80
-
-</code></pre>
-
-<blockquote>
-</blockquote>
-
+    docker host network assign a second ip to host interface
+export SIP=192.168.1.117 sudo ip addr add $SIP/24 dev enp0s3  bind container to SIP host network
+docker run -it --name web -p ${SIP}:80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    sudo iptables -t nat -I POSTROUTING -s 172.
   </div>
   
 
