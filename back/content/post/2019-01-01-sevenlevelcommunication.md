@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 7 level communication
-date: 2019-01-01
+date: 2018-05-01
 tags: [communication]
 ---
 
