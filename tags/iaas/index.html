@@ -396,8 +396,8 @@ If you use your cookies correctly (ie.
     <h2><a href="/post/2012-06-03-linux/">linux note</a></h2>
     <div class="article-style">
       
-      update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2.20.1-0ppa1~ubuntu16.04.1  static ip sudo systemctl stop network-manager echo &quot;manual&quot; | sudo tee /etc/init/network-manager.override  ubuntu18.04
-sudo systemctl stop NetworkManager-wait-online.service sudo systemctl disable NetworkManager-wait-online.service sudo systemctl stop NetworkManager-dispatcher.service sudo systemctl disable NetworkManager-dispatcher.service sudo systemctl stop network-manager.service sudo systemctl disable network-manager.service ystemctl unmask networking systemctl enable networking systemctl restart networking  cat /etc/network/interfaces auto enp0s3 iface enp0s3 inet static address 192.
+      network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
+ /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/NetworkManager/dnsmasq.pid --listen-address=127.0.1.1 --cache-size=0 --conf-file=/dev/null --proxy-dnssec --enable-dbus=org.freedesktop.NetworkManager.dnsmasq --conf-dir=/etc/NetworkManager/dnsmasq.d  update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2.
       
     </div>
   </div>

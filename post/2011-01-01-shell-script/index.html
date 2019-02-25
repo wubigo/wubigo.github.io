@@ -744,6 +744,24 @@ rm d.sh
 find -name &quot;* *&quot; -type f | rename 's/ //g'
 </code></pre>
 
+<h1 id="docker-pid">docker PID</h1>
+
+<p><code>$PATH/docker-pid</code></p>
+
+<pre><code>#!/usr/bin/env bash
+exec docker inspect --format '{{ .State.Pid }}' &quot;$@&quot;
+
+</code></pre>
+
+<p>#!/usr/bin/env bash</p>
+
+<p><code>$PATH/docker-ip</code></p>
+
+<pre><code>#!/usr/bin/env bash
+
+exec docker inspect --format '{{ .NetworkSettings.IPAddress }}' &quot;$@&quot;
+</code></pre>
+
     </div>
 
     
