@@ -2,6 +2,8 @@
 
 set -x
 
+# don't use positional parameter
+: '
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
@@ -16,7 +18,9 @@ case $key in
 esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
+'
 
+MESSAGE="$@"
 if [ -z "$MESSAGE" ]; then
     
     echo "commit MESSAGE can't be empty"
@@ -26,7 +30,7 @@ git status
 git add .
 git commit -a -m "$MESSAGE"
 git push
-# gen static resource
+# build static resource
 hugo -s back
 git status
 git commit -a -m "deploy:$MESSAGE"
