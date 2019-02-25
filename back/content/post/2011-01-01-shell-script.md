@@ -264,7 +264,28 @@ rm d.sh
 ```
 
 # replace spaces in file names using a bash script
+
 ```
 find -name "* *" -type d | rename 's/ /_/g'    # do the directories first
 find -name "* *" -type f | rename 's/ //g'
+```
+
+# docker PID
+
+`$PATH/docker-pid`
+
+```
+#!/usr/bin/env bash
+exec docker inspect --format '{{ .State.Pid }}' "$@"
+
+```
+
+#!/usr/bin/env bash
+
+`$PATH/docker-ip`
+
+```
+#!/usr/bin/env bash
+
+exec docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 ```
