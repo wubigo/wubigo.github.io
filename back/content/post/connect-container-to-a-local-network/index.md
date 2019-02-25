@@ -1,11 +1,11 @@
 +++
-title = "Connect Container to a Local Network"
-date = 2019-02-25T07:10:55+08:00
+title = "容器多种方式链接本地网络"
+date = 2018-04-25T07:10:55+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
+tags = ["DOCKER", "NETWORK"]
 categories = []
 
 # Featured image
