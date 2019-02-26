@@ -1,5 +1,5 @@
 +++
-title = "K8S CNI"
+title = "K8S CNI操作指引"
 date = 2019-02-24T16:18:43+08:00
 draft = false
 
@@ -21,21 +21,21 @@ categories = []
 
 # 简介
 
-CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中，
-K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
-许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+  CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中，
+  K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
+  许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
 
-在容器网络环境，经常看到docker看不到K8S POD的IP网络配置，
-DOCKER容器有时候和POD无法通信。
+  在容器网络环境，经常看到docker看不到K8S POD的IP网络配置，
+  DOCKER容器有时候和POD无法通信。
 
-CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式，
-网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+  CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式，
+  网络插件支持创建和删除指令。POD启动的时候发送创建指令。
 
-POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID，
-然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
-并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+  POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID，
+  然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
+  并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
 
-当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+  当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
 
 # CNI实现方式
 

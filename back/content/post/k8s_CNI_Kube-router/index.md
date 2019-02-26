@@ -18,3 +18,9 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+# 准备
+
+- 搭建测试环境
+
+  可以参考[从源代码构件K8S开发环境](https://wubigo.com/post/2016-02-03-k8s-local-development-setup/)

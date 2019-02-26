@@ -1,6 +1,6 @@
 +++
 title = "K8s CNI之Calico实现"
-date = 2018-02-26T11:10:47+08:00
+date = 2018-06-26T11:10:47+08:00
 draft = false
 
 # Tags and categories
@@ -18,3 +18,10 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+
+# 准备
+
+- 搭建测试环境
+
+  可以参考[从源代码构件K8S开发环境](https://wubigo.com/post/2016-02-03-k8s-local-development-setup/)
