@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2016-11-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,282 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2017-01-01-discoursenotes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="discourse-setup">discourse-setup</h1>
+
+<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
+
+<pre><code>$cp samples/standalone.yml containers/app.yml
+</code></pre>
+
+<p>Discourse app.yml AWS setup example</p>
+
+<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
+
+<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
+
+<p>fix these settings after bootstrapping, edit the /containers/app.yml
+  then rebuild to take effect</p>
+
+<pre><code>./launcher rebuild app
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2016-12-30-ghostnotes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2016-12-30-ghostnotes/" itemprop="url">ghost notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Adding swap memory If your system has less than 1GB memory, you may run into errors. To overcome this, configure a larger amount of swap memory:
+dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap echo '/var/swap swap swap default 0 0' &gt;&gt; /etc/fstab  default-setting /var/www/ghost/versions/1.18.2/core/server/data/schema/default-settings.json  blog mail configuration using Amazon SES Ghost is a blogging platform written in nodejs. Edit the config.js file at the ghost root directory
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2016-12-30-softwareleadweekly/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2016-12-30-softwareleadweekly/" itemprop="url">software lead weekly</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    good practise There are several common things and These all take practice. 1. Organization skills/project management skills: ability to pull together internal/external resources, ability to create clear plans, ability to build relationships with other teams to make cross-team collaboration easier 2. Communication skills: ability to deescalate and mediate conflicts fairly, ability to give both positive and negative feedback regularly, ability to create psychological safety, ability to deliver bad news while maintaining psychological safety, ability to run efficient meetings, ability to make unpopular decisions while still commanding the team&rsquo;s respect, ability to engage with different personality types and communication styles 3.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1977,317 +2253,6 @@ mysql utf8 For the recent version of MySQL,
 default-character-set = utf8 causes a problem. It&rsquo;s deprecated I think.
 As Justin Ball says in &ldquo;Upgrade to MySQL 5.5.12 and now MySQL won’t start, you should:
 Remove that directive and you should be good. Then your configuration file (&lsquo;/etc/my.cnf&rsquo; for example) should look like that: [mysqld] collation-server = utf8_unicode_ci init-connect=&lsquo;SET NAMES utf8&rsquo; character-set-server = utf8 Restart MySQL.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2014-04-03-cdn/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
-The advantages of serving content from such a sub-domain, however, are that
-The sub-domain can be a cookie-less domain
-If you use your cookies correctly (ie.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2014-03-03-boot/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-03-03-boot/" itemprop="url">SPRING-boot note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>1: all required dep on jsp tomcat</p>
-
-<pre><code>&lt;!-- Compile --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-        &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;!-- Provided --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
-        &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;!-- Test --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2014-03-03-web-api-reference/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-03-03-web-api-reference/" itemprop="url">web API reference</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="documenting-the-web-together">Documenting the Web together</h1>
-
-<p><a href="https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/" target="_blank">https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/</a></p>
-
-<h1 id="mdn">MDN</h1>
-
-<p><a href="https://developer.mozilla.org" target="_blank">https://developer.mozilla.org</a></p>
-
-<h1 id="dev-docs">DEV DOCS</h1>
-
-<p><a href="https://devdocs.io" target="_blank">https://devdocs.io</a></p>
-
   </div>
   
 

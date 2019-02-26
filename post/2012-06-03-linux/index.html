@@ -512,6 +512,7 @@ sudo apt-get install git=2.20.1-0ppa1~ubuntu16.04.1
 <h1 id="static-ip">static ip</h1>
 
 <pre><code>sudo systemctl stop network-manager
+sudo systemctl disable network-manager.service
 echo &quot;manual&quot; | sudo tee /etc/init/network-manager.override
 </code></pre>
 

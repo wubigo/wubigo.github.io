@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-25T07:10:55&#43;08:00">
+  <meta property="og:updated_time" content="2019-02-26T11:11:08&#43;08:00">
   
 
   
@@ -381,12 +381,22 @@
   
   
   <div>
-    <h2><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></h2>
+    <h2><a href="/post/k8s_cni_kube-router/">K8s_CNI_Kube Router</a></h2>
     <div class="article-style">
       
-      docker host network assign a second ip to host interface
-export SIP=192.168.1.117 sudo ip addr add $SIP/24 dev enp0s3  bind container to SIP host network
-docker run -it --name web -p ${SIP}:80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    sudo iptables -t nat -I POSTROUTING -s 172.
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s_cni_calico/">K8s_CNI_Calico</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/cni_l2_network_on_bare_metal/">CNI之L2 网络实现</a></h2>
+    <div class="article-style">
       
     </div>
   </div>
@@ -395,9 +405,33 @@ docker run -it --name web -p ${SIP}:80:80 nginx:1.14-alpine sudo iptables -L DOC
     <h2><a href="/post/k8s-cni/">K8S CNI</a></h2>
     <div class="article-style">
       
-      CNI as the Kubernetes plugin model, There will be some unfortunate side-effects
-Most of them are relatively minor (for example, docker inspect will not show an IP address), but some are significant. In particular, containers started by docker run might not be able to communicate with containers started by Kubernetes, and network integrators will have to provide CNI drivers if they want to fully integrate with Kubernetes
-CNI was created as a minimal specification, built alongside a number of network vendor engineers to be a simple contract between the container runtime and network plugins.
+       简介 CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中， K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。 许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+在容器网络环境，经常看到docker看不到K8S POD的IP网络配置， DOCKER容器有时候和POD无法通信。
+CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式， 网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID， 然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络， 并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+CNI实现方式 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
+ Flannel
+ Kube-router
+Kube-router
+ OpenVSwitch
+ Calico
+Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
+CNI-Calico
+ Weave Net
+ 网桥
+CNI 网桥
+  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></h2>
+    <div class="article-style">
+      
+      准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.
       
     </div>
   </div>

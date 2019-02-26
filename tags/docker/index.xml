@@ -27,9 +27,8 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
-      <description>docker host network assign a second ip to host interface
-export SIP=192.168.1.117 sudo ip addr add $SIP/24 dev enp0s3  bind container to SIP host network
-docker run -it --name web -p ${SIP}:80:80 nginx:1.14-alpine sudo iptables -L DOCKER -v -n Chain DOCKER (1 references) pkts bytes target prot opt in out source destination 7 528 ACCEPT tcp -- !docker0 docker0 0.0.0.0/0 172.17.0.2 tcp dpt:80    sudo iptables -t nat -I POSTROUTING -s 172.</description>
+      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
     </item>
     
     <item>
