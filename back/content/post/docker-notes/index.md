@@ -33,3 +33,23 @@ journalctl -xu docker.service
 
 
 
+APACHE=$(docker run -d httpd:2.4.38-alpine)
+MYSQL=$(docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)
+
+pipework br1 $APACHE 192.168.1.117/24
+
+
+# 文件
+
+```
+CONTAINDER_ID = $(docker run -d image)
+NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks)
+LOCAL_PAIR_VETH=veth<NO>pl<NS_PID>
+GUEST_PAIR_VETH=veth<NO>pg<NS_PID>
+ip link set veth1pl1452 master br1
+ip link set veth1pl1452 up
+ip link set veth1pg1452 netns 1452
+ip netns exec 1452 ip link set veth1pg1452 name eth1
+ip netns exec 1452 ip -4 addr add 192.168.1.118/24 dev eth1
+ip netns exec 1452 ip -4 link set eth1 up
+```
