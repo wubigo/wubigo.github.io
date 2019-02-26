@@ -454,7 +454,7 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-cni/" itemprop="url">K8S CNI</a>
+    <a href="/post/k8s-cni/" itemprop="url">K8S CNI操作指引</a>
   </h3>
 
   
@@ -464,18 +464,18 @@
 <h1 id="简介">简介</h1>
 
 <p>CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中，
-K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
-许多网络厂商的产品都提供同时都支持CNM和CNI的产品。</p>
+  K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
+  许多网络厂商的产品都提供同时都支持CNM和CNI的产品。</p>
 
 <p>在容器网络环境，经常看到docker看不到K8S POD的IP网络配置，
-DOCKER容器有时候和POD无法通信。</p>
+  DOCKER容器有时候和POD无法通信。</p>
 
 <p>CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式，
-网络插件支持创建和删除指令。POD启动的时候发送创建指令。</p>
+  网络插件支持创建和删除指令。POD启动的时候发送创建指令。</p>
 
 <p>POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID，
-然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
-并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。</p>
+  然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
+  并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。</p>
 
 <p>当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)</p>
 
@@ -853,7 +853,7 @@ curl -IL http://wubigo.com/post
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -879,6 +879,19 @@ curl -IL http://wubigo.com/post
     <a href="/post/cni_l2_network_on_bare_metal/" itemprop="url">K8SCNI之L2 网络实现</a>
   </h3>
 
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="准备">准备</h1>
+
+<ul>
+<li>搭建测试环境</li>
+</ul>
+
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
+
+  </div>
   
 
   
@@ -1342,6 +1355,100 @@ $ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	o
 use Jumbo frames
 ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
 ip -s link show eth0  stop irqbalance for home user
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-06-26 11:10:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-26 11:10:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s_cni_calico/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s_cni_calico/" itemprop="url">K8s CNI之Calico实现</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="准备">准备</h1>
+
+<ul>
+<li>搭建测试环境</li>
+</ul>
+
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
+
   </div>
   
 
@@ -2058,7 +2165,7 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -2085,86 +2192,18 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
   </h3>
 
   
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
+  <div class="article-style" itemprop="articleBody">
     
 
+<h1 id="准备">准备</h1>
 
+<ul>
+<li>搭建测试环境</li>
+</ul>
 
-<meta content="2018-02-26 11:10:47 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-26 11:10:47 &#43;0800 CST" itemprop="dateModified">
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
 
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s_cni_calico/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s_cni_calico/" itemprop="url">K8s CNI之Calico实现</a>
-  </h3>
-
+  </div>
   
 
   
