@@ -28,8 +28,10 @@
   
     
   
-  <meta name="description" content=" ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &gt; check-config.sh
- ">
+  <meta name="description" content="ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &gt; check-config.sh
+ APACHE=$(docker run -d httpd:2.4.38-alpine) MYSQL=$(docker run &ndash;name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)
+pipework br1 $APACHE 192.168.1.117&frasl;24
+文件 CONTAINDER_ID = $(docker run -d image) NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks) LOCAL_PAIR_VETH=veth&lt;NO&gt;pl&lt;NS_PID&gt; GUEST_PAIR_VETH=veth&lt;NO&gt;pg&lt;NS_PID&gt; ip link set veth1pl1452 master br1 ip link set veth1pl1452 up ip link set veth1pg1452 netns 1452 ip netns exec 1452 ip link set veth1pg1452 name eth1 ip netns exec 1452 ip -4 addr add 192.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-notes/">
@@ -138,8 +140,10 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/docker-notes/">
   <meta property="og:title" content="Docker Notes | 为人民服务">
-  <meta property="og:description" content=" ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &gt; check-config.sh
- "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &gt; check-config.sh
+ APACHE=$(docker run -d httpd:2.4.38-alpine) MYSQL=$(docker run &ndash;name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)
+pipework br1 $APACHE 192.168.1.117&frasl;24
+文件 CONTAINDER_ID = $(docker run -d image) NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks) LOCAL_PAIR_VETH=veth&lt;NO&gt;pl&lt;NS_PID&gt; GUEST_PAIR_VETH=veth&lt;NO&gt;pg&lt;NS_PID&gt; ip link set veth1pl1452 master br1 ip link set veth1pl1452 up ip link set veth1pg1452 netns 1452 ip netns exec 1452 ip link set veth1pg1452 name eth1 ip netns exec 1452 ip -4 addr add 192."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2016-01-25T17:11:05&#43;08:00">
@@ -503,6 +507,25 @@ journalctl -xu docker.service
 <blockquote>
 <p>curl <a href="https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh" target="_blank">https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh</a> &gt; check-config.sh</p>
 </blockquote>
+
+<p>APACHE=$(docker run -d httpd:2.4.38-alpine)
+MYSQL=$(docker run &ndash;name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)</p>
+
+<p>pipework br1 $APACHE 192.168.1.<sup>117</sup>&frasl;<sub>24</sub></p>
+
+<h1 id="文件">文件</h1>
+
+<pre><code>CONTAINDER_ID = $(docker run -d image)
+NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks)
+LOCAL_PAIR_VETH=veth&lt;NO&gt;pl&lt;NS_PID&gt;
+GUEST_PAIR_VETH=veth&lt;NO&gt;pg&lt;NS_PID&gt;
+ip link set veth1pl1452 master br1
+ip link set veth1pl1452 up
+ip link set veth1pg1452 netns 1452
+ip netns exec 1452 ip link set veth1pg1452 name eth1
+ip netns exec 1452 ip -4 addr add 192.168.1.118/24 dev eth1
+ip netns exec 1452 ip -4 link set eth1 up
+</code></pre>
 
     </div>
 

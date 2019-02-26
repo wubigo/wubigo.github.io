@@ -61,8 +61,10 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
       <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
       
       <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description> ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
- </description>
+      <description>ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
+ APACHE=$(docker run -d httpd:2.4.38-alpine) MYSQL=$(docker run &amp;ndash;name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)
+pipework br1 $APACHE 192.168.1.117&amp;frasl;24
+文件 CONTAINDER_ID = $(docker run -d image) NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks) LOCAL_PAIR_VETH=veth&amp;lt;NO&amp;gt;pl&amp;lt;NS_PID&amp;gt; GUEST_PAIR_VETH=veth&amp;lt;NO&amp;gt;pg&amp;lt;NS_PID&amp;gt; ip link set veth1pl1452 master br1 ip link set veth1pl1452 up ip link set veth1pg1452 netns 1452 ip netns exec 1452 ip link set veth1pg1452 name eth1 ip netns exec 1452 ip -4 addr add 192.</description>
     </item>
     
   </channel>
