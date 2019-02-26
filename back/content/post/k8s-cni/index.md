@@ -1,6 +1,6 @@
 +++
 title = "K8S CNI"
-date = 2017-02-24T16:18:43+08:00
+date = 2019-02-24T16:18:43+08:00
 draft = false
 
 # Tags and categories
@@ -19,23 +19,48 @@ categories = []
   focal_point = ""
 +++
 
- CNI as the Kubernetes plugin model, There will be some unfortunate side-effects
- 
- Most of them are relatively minor (for example, docker inspect will not show an IP address), but some are significant. In particular, containers started by docker run might not be able to communicate with containers started by Kubernetes, and network integrators will have to provide CNI drivers if they want to fully integrate with Kubernetes
+# 简介
+
+CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中，
+K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
+许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+
+在容器网络环境，经常看到docker看不到K8S POD的IP网络配置，
+DOCKER容器有时候和POD无法通信。
+
+CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式，
+网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+
+POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID，
+然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
+并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+
+当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+
+# CNI实现方式
+
+CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
+
+- Flannel
+
+- Kube-router
+
+    [Kube-router](https://wubigo.com/post/k8s_cni_kube-router/)
+
+- OpenVSwitch
+
+- Calico
+
+    Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
+
+    [CNI-Calico](https://wubigo.com/post/k8s_cni_calico)
 
 
- CNI was created as a minimal specification, built alongside a number of network vendor engineers to be a simple contract between the container runtime and network plugins. A JSON schema defines the expected input and output from CNI network plugins.
 
-Multiple plugins may be run at one time with a container joining networks driven by different plugins. Networks are described in configuration files, in JSON format, and instantiated as new namespaces when CNI plugins are invoked. CNI plugins support two commands to add and remove container network interfaces to and from networks. Add gets invoked by the container runtime when it creates a container. Delete gets invoked by the container runtime when it tears down a container instance
+- Weave Net
 
+- 网桥
 
-- CNI Flow
-
-The container runtime needs to first allocate a network namespace to the container and assign it a container ID, then pass along a number of parameters (CNI config) to the network driver. The network driver then attaches the container to a network and reports the assigned IP address back to the container runtime via JSON.
-
-Currently, CNI primitives handle concerns with IPAM, L2 and L3, and expect the container runtime to handle port-mapping (L4)
+    [CNI 网桥](https://wubigo.com/post/cni_l2_network_on_bare_metal/)
 
 
-- Service
-
-A service functions as a proxy to replicated pods and service requests can be load balanced across pods.

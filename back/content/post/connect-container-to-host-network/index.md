@@ -20,7 +20,49 @@ categories = []
 +++
 
 
-# docker host network
+# 准备
+
+- 安装util-linux
+
+```
+sudo apt install util-linux
+```
+
+`/etc/network/interface`
+
+```
+cat interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto enp0s3
+iface enp0s3 inet static
+address 192.168.1.10
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 192.168.1.1
+
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.1.16
+netmask 255.255.255.0
+dns-nameservers 192.168.1.1
+```
+
+```shell
+ip route
+default via 192.168.1.1 dev enp0s3  onlink 
+169.254.0.0/16 dev enp0s3  scope link  metric 1000 
+172.17.0.0/16 dev docker0  proto kernel  scope link  src 172.17.0.1 linkdown 
+192.168.1.0/24 dev enp0s3  proto kernel  scope link  src 192.168.1.10 
+192.168.1.0/24 dev enp0s8  proto kernel  scope link  src 192.168.1.16 
+```
+
+
+# 使用NAT
+
+- docker host network
 
 assign a second ip to host interface
 
@@ -49,4 +91,116 @@ sudo iptables -t nat -I POSTROUTING -s 172.17.0.2 \
 
 
 sudo iptables -t nat -L -n -v
+```
+
+# 使用LINUX网桥
+
+- 查看网卡的ip
+
+```
+ifconfig enp0s8
+enp0s3    Link encap:Ethernet  HWaddr 08:00:27:4e:18:68  
+          inet addr:192.168.1.16
+```
+
+- 创建网桥br-enp0s8并把enp0s8的IP分配给网桥，把enp0s8连接到网桥 
+
+```
+brctl addbr br-enp0s8
+ip link set br-enp0s8 up
+ip addr add 192.168.1.16/24 dev br-enp0s8; \
+    ip addr del 192.168.1.16/24 dev enp0s8; \
+    brctl addif br-enp0s8 enp0s8; \
+    ip route del default; \
+    ip route add default via 192.168.1.1 dev br-enp0s8
+
+ifconfig br-enp0s8
+br-enp0s8 Link encap:Ethernet  HWaddr 08:00:27:4e:18:68  
+          inet addr:192.168.1.16
+
+ifconfig enp0s8
+enp0s8    Link encap:Ethernet  HWaddr 08:00:27:4e:18:68
+
+```
+br-enp0s8和enp0s8拥有相同的HWaddr(Mac地址)
+
+```
+ip route
+default via 192.168.1.1 dev br-enp0s8 
+169.254.0.0/16 dev enp0s3  scope link  metric 1000 
+172.17.0.0/16 dev docker0  proto kernel  scope link  src 172.17.0.1 linkdown 
+192.168.1.0/24 dev enp0s3  proto kernel  scope link  src 192.168.1.10 
+192.168.1.0/24 dev br-enp0s8  proto kernel  scope link  src 192.168.1.16 
+```
+
+- 启动容器
+
+```
+docker run -it --name web -p 80 nginx:1.14-alpine
+```
+- 创建veth接口对web-int/web-ext:
+
+```
+sudo ip link add web-int type veth peer name web-ext
+```
+- 连接veth一端web-ext到网桥
+
+```
+sudo brctl addif br-enp0s8 web-ext
+```
+
+- 连接veth的另一端web-int连接到容器的网络名字空间
+
+```
+sudo ip link set netns $(docker-pid web) dev web-int
+sudo nsenter -t $(docker-pid web) -n ip link set web-int up
+sudo nsenter -t $(docker-pid web) -n ip addr add 192.168.1.117/24 dev web-int
+```
+
+- 检查容器已经连接到web-int并且ip地址正确分配
+
+```
+docker exec -it web ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:02  
+          inet addr:172.17.0.2  Bcast:0.0.0.0  Mask:255.255.0.0
+          inet6 addr: fe80::42:acff:fe11:2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:84 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:21 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:9396 (9.1 KiB)  TX bytes:2348 (2.2 KiB)
+
+web-int   Link encap:Ethernet  HWaddr 5A:1D:90:CF:6B:2C  
+          inet addr:192.168.1.117  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+```
+
+```
+docker exec -it web ip route
+default via 172.17.0.1 dev eth0 
+172.17.0.0/16 dev eth0 scope link  src 172.17.0.2 
+192.168.1.0/24 dev web-int scope link  src 192.168.1.117 
+```
+
+- 设置web-int为容器路由默认接口
+
+```
+sudo nsenter -t $(docker-pid web) -n ip route del default
+sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev web-int
+```
+
+
+
+
+- 测试清理
+
+```
+docker rm web
+sudo ip link set br-enp0s8 down
+sudo brctl delbr br-enp0s8
 ```
