@@ -22,16 +22,6 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
     </item>
     
     <item>
-      <title>容器多种方式链接宿主网络</title>
-      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
-      <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
-      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
-    </item>
-    
-    <item>
       <title>K8S notes</title>
       <link>https://wubigo.com/post/2017-07-13-k8snotes/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
@@ -41,6 +31,16 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
 adminuser-bind-clusteramdin.yaml
 apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&amp;rsquo;t think there is one document out there really summaries everything.</description>
+    </item>
+    
+    <item>
+      <title>容器多种方式链接宿主网络</title>
+      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
+      <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
+      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
     </item>
     
     <item>

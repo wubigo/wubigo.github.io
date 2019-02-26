@@ -6,37 +6,10 @@
     <description>Recent content in Posts on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Feb 2019 11:11:08 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Feb 2019 16:18:43 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>K8s_CNI_Kube Router</title>
-      <link>https://wubigo.com/post/k8s_cni_kube-router/</link>
-      <pubDate>Tue, 26 Feb 2019 11:11:08 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s_cni_kube-router/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>K8s_CNI_Calico</title>
-      <link>https://wubigo.com/post/k8s_cni_calico/</link>
-      <pubDate>Tue, 26 Feb 2019 11:10:47 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CNI之L2 网络实现</title>
-      <link>https://wubigo.com/post/cni_l2_network_on_bare_metal/</link>
-      <pubDate>Tue, 26 Feb 2019 10:09:00 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/cni_l2_network_on_bare_metal/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>K8S CNI</title>
@@ -97,6 +70,15 @@ kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;q
       <description>track http redirection  http://wubigo.com/post -&amp;gt; http://wubigo.com/post/ -&amp;gt; https://wubigo.com/post/
 curl -IL http://wubigo.com/post
  HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&amp;rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.</description>
+    </item>
+    
+    <item>
+      <title>K8SCNI之L2 网络实现</title>
+      <link>https://wubigo.com/post/cni_l2_network_on_bare_metal/</link>
+      <pubDate>Sat, 26 Jan 2019 10:09:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cni_l2_network_on_bare_metal/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -164,16 +146,6 @@ ip -s link show eth0  stop irqbalance for home user</description>
       
       <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
       <description>The most important conversation you ever have is the one with yourself</description>
-    </item>
-    
-    <item>
-      <title>容器多种方式链接宿主网络</title>
-      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
-      <pubDate>Wed, 25 Apr 2018 07:10:55 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
-      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
     </item>
     
     <item>
@@ -304,6 +276,24 @@ If you are getting an exception due to &amp;ldquo;Illegal key size&amp;rdquo; an
     </item>
     
     <item>
+      <title>K8s CNI之Kube Router实现</title>
+      <link>https://wubigo.com/post/k8s_cni_kube-router/</link>
+      <pubDate>Mon, 26 Feb 2018 11:11:08 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_kube-router/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Calico实现</title>
+      <link>https://wubigo.com/post/k8s_cni_calico/</link>
+      <pubDate>Mon, 26 Feb 2018 11:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>K8S CSI</title>
       <link>https://wubigo.com/post/k8s-csi/</link>
       <pubDate>Sat, 24 Feb 2018 06:55:53 +0800</pubDate>
@@ -425,6 +415,16 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
       
       <guid>https://wubigo.com/post/2017-05-03-atomnote/</guid>
       <description>proxy config for Windows  ~/.atom/.apmrc https-proxy = http://192.168.0.119:3128/ http-proxy = http://192.168.0.119:3128/  Set Up &amp;amp; Use Atom as a Markdown Editor https://www.portent.com/blog/content-strategy/atom-markdown.htm</description>
+    </item>
+    
+    <item>
+      <title>容器多种方式链接宿主网络</title>
+      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
+      <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
+      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
     </item>
     
     <item>

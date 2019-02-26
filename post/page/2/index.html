@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-02-11T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-02-02T00:00:00&#43;00:00">
   
 
   
@@ -378,91 +378,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-02-11-gonotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-02-11-gonotes/" itemprop="url">go notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency. In CSP, a program is a parallel composition of processes that have no shared state; the processes communicate and synchronize using channels.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1377,6 +1292,92 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
 
 <p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 25, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/connect-container-to-host-network/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.
   </div>
   
 

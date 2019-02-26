@@ -136,20 +136,20 @@
   
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/k8s_cni_kube-router/">
-  <meta property="og:title" content="K8s_CNI_Kube Router | 为人民服务">
+  <meta property="og:title" content="K8s CNI之Kube Router实现 | 为人民服务">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-02-26T11:11:08&#43;08:00">
+  <meta property="article:published_time" content="2018-02-26T11:11:08&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-02-26T11:11:08&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-02-26T11:11:08&#43;08:00">
   
 
   
 
-  <title>K8s_CNI_Kube Router | 为人民服务</title>
+  
+
+  <title>K8s CNI之Kube Router实现 | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -366,7 +366,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">K8s_CNI_Kube Router</h1>
+  <h1 itemprop="name">K8s CNI之Kube Router实现</h1>
 
   
 
@@ -375,8 +375,8 @@
 
 
 
-<meta content="2019-02-26 11:11:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-02-26 11:11:08 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-02-26 11:11:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-26 11:11:08 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -389,7 +389,7 @@
     
       
     
-    <time>Feb 26, 2019</time>
+    <time>Feb 26, 2018</time>
   </span>
   
 
@@ -416,7 +416,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8s_CNI_Kube%20Router&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f"
+         href="https://twitter.com/intent/tweet?text=K8s%20CNI%e4%b9%8bKube%20Router%e5%ae%9e%e7%8e%b0&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -430,21 +430,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f&amp;title=K8s_CNI_Kube%20Router"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f&amp;title=K8s%20CNI%e4%b9%8bKube%20Router%e5%ae%9e%e7%8e%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f&amp;title=K8s_CNI_Kube%20Router"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f&amp;title=K8s%20CNI%e4%b9%8bKube%20Router%e5%ae%9e%e7%8e%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8s_CNI_Kube%20Router&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f">
+         href="mailto:?subject=K8s%20CNI%e4%b9%8bKube%20Router%e5%ae%9e%e7%8e%b0&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s_cni_kube-router%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -593,15 +593,15 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/k8s_cni_calico/">K8s_CNI_Calico</a></li>
-          
-          <li><a href="/post/cni_l2_network_on_bare_metal/">CNI之L2 网络实现</a></li>
-          
-          <li><a href="/post/k8s-cni/">K8S CNI</a></li>
-          
-          <li><a href="/post/2018-11-22-cninetworkproviderforkubernetes/">Choosing a CNI Network Provider for Kubernetes</a></li>
+          <li><a href="/post/k8s_cni_calico/">K8s CNI之Calico实现</a></li>
           
           <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
+          
+          <li><a href="/post/k8s-csi/">K8S CSI</a></li>
+          
+          <li><a href="/post/2018-01-11-kubectlcheatsheet/">kubectl cheat sheet</a></li>
+          
+          <li><a href="/post/2017-07-13-k8snotes/">K8S notes</a></li>
           
         </ul>
       </div>
