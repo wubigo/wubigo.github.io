@@ -19,6 +19,18 @@ categories = []
   focal_point = ""
 +++
 
+**提示**：
+以下操作是在VirtualBox虚机环境，并做如下配置
+
+- 网络
+
+下拉高级设置，在"Adapter Type"选择PCnet-FAST III", 而不是默认的e1000 (Intel PRO/1000). 
+另外"Promiscuous Mode"必须设置为"Allow All". 否则通过网桥连接的容器无法工作, 因为虚拟网卡
+会过滤掉掉所有带有不同MAC的数据包。
+
+- 多网卡
+
+每块网卡都要做上述调整
 
 # 准备
 
@@ -114,6 +126,7 @@ ip addr add 192.168.1.16/24 dev br-enp0s8; \
     ip route del default; \
     ip route add default via 192.168.1.1 dev br-enp0s8
 
+
 ifconfig br-enp0s8
 br-enp0s8 Link encap:Ethernet  HWaddr 08:00:27:4e:18:68  
           inet addr:192.168.1.16
@@ -124,6 +137,9 @@ enp0s8    Link encap:Ethernet  HWaddr 08:00:27:4e:18:68
 ```
 br-enp0s8和enp0s8拥有相同的HWaddr(Mac地址)
 
+- 确认网络是否对外连接正常
+
+
 ```
 ip route
 default via 192.168.1.1 dev br-enp0s8 
@@ -132,6 +148,13 @@ default via 192.168.1.1 dev br-enp0s8
 192.168.1.0/24 dev enp0s3  proto kernel  scope link  src 192.168.1.10 
 192.168.1.0/24 dev br-enp0s8  proto kernel  scope link  src 192.168.1.16 
 ```
+
+```
+curl -IL https://wubigo.com
+HTTP/1.1 200 OK
+```
+
+
 
 - 启动容器
 

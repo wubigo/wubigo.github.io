@@ -37,6 +37,10 @@ categories = []
 
   当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
 
+# K8S网络基础
+
+[K8S网络基础](/post/k8s-network-basic/)
+
 # CNI实现方式
 
 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
@@ -45,7 +49,7 @@ CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细�
 
 - Kube-router
 
-    [Kube-router](https://wubigo.com/post/k8s_cni_kube-router/)
+    [Kube-router](/post/k8s_cni_kube-router/)
 
 - OpenVSwitch
 
@@ -53,7 +57,7 @@ CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细�
 
     Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
 
-    [CNI-Calico](https://wubigo.com/post/k8s_cni_calico)
+    [CNI-Calico](/post/k8s_cni_calico)
 
 
 
@@ -61,6 +65,6 @@ CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细�
 
 - 网桥
 
-    [CNI 网桥](https://wubigo.com/post/cni_l2_network_on_bare_metal/)
+    [CNI 网桥](/post/cni_l2_network_on_bare_metal/)
 
 
