@@ -21,6 +21,9 @@ categories = ["IT"]
   focal_point = ""
 +++
 
+
+更新到最新正式发布版**V1.13.3**
+
 # Main external dependencies
 - go
 - docker
