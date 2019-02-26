@@ -1,6 +1,6 @@
 +++
-title = "K8s_CNI_Calico"
-date = 2019-02-26T11:10:47+08:00
+title = "K8s CNI之Calico实现"
+date = 2018-02-26T11:10:47+08:00
 draft = false
 
 # Tags and categories

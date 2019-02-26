@@ -1,6 +1,6 @@
 +++
-title = "K8s_CNI_Kube Router"
-date = 2019-02-26T11:11:08+08:00
+title = "K8s CNI之Kube Router实现"
+date = 2018-02-26T11:11:08+08:00
 draft = false
 
 # Tags and categories
