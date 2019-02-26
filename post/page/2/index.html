@@ -1286,8 +1286,11 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
 
   
   <div class="article-style" itemprop="articleBody">
-    准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.
+    提示： 以下操作是在VirtualBox虚机环境，并做如下配置
+ 网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
+ 多网卡  每块网卡都要做上述调整
+准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
   </div>
   
 
@@ -1980,10 +1983,10 @@ LANGUAGE=&quot;zh_CN:en_US:en&quot;
 <h1 id="准备">准备</h1>
 
 <ul>
-<li>搭建测试环境</li>
-</ul>
+<li><p>搭建测试环境</p>
 
-<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p></li>
+</ul>
 
   </div>
   

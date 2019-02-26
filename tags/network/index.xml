@@ -22,6 +22,7 @@
 CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式， 网络插件支持创建和删除指令。POD启动的时候发送创建指令。
 POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID， 然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络， 并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
 当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+K8S网络基础 K8S网络基础
 CNI实现方式 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
  Flannel
  Kube-router
@@ -60,8 +61,11 @@ CNI 网桥
       <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
-      <description>准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.255.255.0 dns-nameservers 192.168.1.1  ip route default via 192.168.1.1 dev enp0s3 onlink 169.254.0.0/16 dev enp0s3 scope link metric 1000 172.17.0.0/16 dev docker0 proto kernel scope link src 172.</description>
+      <description>提示： 以下操作是在VirtualBox虚机环境，并做如下配置
+ 网络  下拉高级设置，在&amp;rdquo;Adapter Type&amp;rdquo;选择PCnet-FAST III&amp;rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&amp;rdquo;Promiscuous Mode&amp;rdquo;必须设置为&amp;rdquo;Allow All&amp;rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
+ 多网卡  每块网卡都要做上述调整
+准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.</description>
     </item>
     
     <item>
@@ -70,7 +74,9 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
       <pubDate>Thu, 26 Jan 2017 10:09:00 +0800</pubDate>
       
       <guid>https://wubigo.com/post/cni_l2_network_on_bare_metal/</guid>
-      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+      <description> 准备  搭建测试环境
+可以参考从源代码构件K8S开发环境
+  </description>
     </item>
     
     <item>
@@ -79,12 +85,15 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
       <pubDate>Wed, 24 Feb 2016 19:39:03 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-network-basic/</guid>
-      <description>K8S网络基础
+      <description> K8S网络基础
 K8S简介 K8S是自动化部署和监控容器的容器编排和管理工具。各大云厂商和应用开发平台都提供基于K8S的容器服务。 如果觉得K8S托管服务不容易上手或者和本公司的业务场景不很匹配，现在也有很多工具帮助在自己的数据 中心或私有云平台搭建K8S运行环境。
  Minikube kops kubeadm  如果你想搭建一个测试环境，请参考
  从K8S源代码构建容器集群(支持最新稳定版V1.13.3) 一个脚步部署K8S  Kubernetes主要构件:
  主节点： 主要的功能包括管理工作节点集群，服务部署，服务发现，工作调度，负载均衡等。 工作节点： 应用负载执行单元。 服务规范： 无状态服务，有状态服务，守护进程服务，定时任务等。   K8S网络基础 K8S网络模型
- 每一个POD拥有独立的IP地址 任何两个POD之间都可以互相通信且不通过NAT 集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信  K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。</description>
+ 每一个POD拥有独立的IP地址 任何两个POD之间都可以互相通信且不通过NAT 集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信  K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。
+K8S解决的网络问题：
+ 容器间通信问题： 由POD和localhost通信解决
+ POD间通信问题： 由CNI解决 POD和服务的通信问题： 由SERVICE解决 外部系统和SERVICE的通信问题： 由SERVICE解决  </description>
     </item>
     
     <item>

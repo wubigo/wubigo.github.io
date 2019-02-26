@@ -1153,6 +1153,15 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 
 <p>K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。</p>
 
+<p>K8S解决的网络问题：</p>
+
+<ul>
+<li>容器间通信问题： 由POD和localhost通信解决<br /></li>
+<li>POD间通信问题： 由CNI解决</li>
+<li>POD和服务的通信问题： 由SERVICE解决</li>
+<li>外部系统和SERVICE的通信问题： 由SERVICE解决</li>
+</ul>
+
   </div>
   
 
