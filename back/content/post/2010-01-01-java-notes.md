@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["JAVA"]
+tags = ["JAVA", "LANG"]
 categories = ["IT"]
 
 # Featured image
@@ -18,6 +18,38 @@ categories = ["IT"]
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+# 访问可见性
+
+|修饰符|类|包|子类|所有人|
+|:---:|:----:|:---:|:---:|:---:|
+|public|是|是|是|是|
+|protected|是|是|是|否|
+| 没有修饰符|是|是|否|否|
+|private|是|否|否|否|
+
+# 方法签名
+
+方法签名包括
+
+- 方法名
+- 参数类型
+- 参数顺序
+
+不包括
+
+- 返回类型
+- 可见性
+- 抛出例外
+
+# 过载和覆盖
+
+- 过载: 方法名称相同但签名不同
+- 覆盖:
+  + 签名相同，而且返回类型也必须相同
+  + 可见性不能减少，可以增加可见性
+  + 例外必须相同或者是父类例外的子类
+
 
 # visibility and Atomicity
 in  the  absence  of  synchronization,  there  are  a  number  of  reasons  a  thread might  not  immediately  ‐  or  ever  ‐  see  the  results  of  an  operation  in  another  thread.  Compilers  may  generate  instructions in  a  different  order  than  the  "obvious"  one  suggested  by  the  source  code,  or  store  variables  in  registers  instead  of  in memory;  processors  may  execute  instructions  in  parallel  or  out  of  order;  caches  may  vary  the  order  in  which  writes  to variables  are  committed  to  main  memory;  and  values  stored  in  processor‐local  caches  may  not  be  visible  to  other processors.  These  factors  can  prevent  a  thread  from  seeing  the  most  up‐to‐date  value  for  a  variable  and  can  cause memory actions  in  other  threads  to  appear  to  happen  out  of  order  ‐  if  you  don't  use  adequate  synchronization. 
