@@ -1,6 +1,6 @@
 +++
 title = "Effective Coding"
-date = 2019-02-28T15:18:09+08:00
+date = 2018-02-28T15:18:09+08:00
 draft = false
 
 # Tags and categories

@@ -1,6 +1,6 @@
 +++
 title = "Effective Coding Python"
-date = 2019-02-28T15:22:10+08:00
+date = 2017-02-28T15:22:10+08:00
 draft = false
 
 # Tags and categories

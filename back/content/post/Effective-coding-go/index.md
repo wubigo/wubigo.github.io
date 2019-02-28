@@ -1,6 +1,6 @@
 +++
 title = "Effective Coding Go"
-date = 2019-02-28T15:22:27+08:00
+date = 2018-02-28T15:22:27+08:00
 draft = false
 
 # Tags and categories

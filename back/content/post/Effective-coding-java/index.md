@@ -1,6 +1,6 @@
 +++
 title = "Effective Coding Java"
-date = 2019-02-28T15:19:55+08:00
+date = 2014-02-28T15:19:55+08:00
 draft = false
 
 # Tags and categories
