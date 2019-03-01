@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2015-04-03T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2015-06-03T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2015-06-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2015-06-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 3, 2015</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2015-06-03-git-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2015-06-03-git-notes/" itemprop="url">git note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update a fork on GitHub with upstream git fetch upstream git rebase upstream/master (sync upstream update to local master branch) git push (update the fork by push)  Moving a git repository $ git remote show origin $ git remote rm origin $ git remote add origin https://github.com/wubigo/wubigo.github.io.git $ git remote show origin $ git pull origin master  Branch from a previous commit using Git The magic can be done by git reset.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1037,6 +1122,8 @@ If you use your cookies correctly (ie.
     
 
 <h1 id="java-基础">JAVA 基础</h1>
+
+<p><a href="post/2010-01-01-java-notes/" target="_blank">JAVA 基础</a></p>
 
   </div>
   
@@ -2131,112 +2218,6 @@ A typical mysqldump command to move data from an external database to an Amazon 
 $ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
 Simply use the yum commands to search or install packages from EPEL repo:
 # yum search nethogs # yum update # yum --disablerepo=&quot;*&quot; --enablerepo=&quot;epel&quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-04-03-high-performance-ssh/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-04-03-high-performance-ssh/" itemprop="url">High Performance SSH/SCP</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    http://mirror.internode.on.net/pub/OpenBSD/OpenSSH/portable/ http://www.psc.edu/index.php/hpn-ssh-patches/hpn-14-kitchen-sink-patches/viewcategory/24 Extract OpenSSH:
-1
-tar -xzvf openssh-6.6p1.tar.gz
-Change directory in extracted folder and apply patch:
-1
-2
-cd openssh-6.6p1
-zcat /usr/src/openssh-6.6p1-hpnssh14v5.diff.gz | patch
-Configure OpenSSH:
-1
-./configure –prefix=/usr –sysconfdir=/etc/ssh –with-pam
-Remove old config files to prevent any conflicts:
-1
-2
-rm /etc/ssh/ssh_config
-rm /etc/ssh/sshd_config
-Compile and install:
-1
-2
-make
-make install
-Now we have the newest version of OpenSSH installed and patched with the improvements from HPN-SSH; however we still need to make some changes to the /etc/ssh/sshd_config to take advantage of them.
   </div>
   
 
