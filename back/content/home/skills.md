@@ -18,31 +18,31 @@ weight = 7
 [[feature]]
   icon = "java"
   icon_pack = "fab"
-  name = "Java"
+  name = "JAVA"
   description = "40%"
   
 [[feature]]
   icon = "python"
   icon_pack = "fab"
-  name = "Python"
+  name = "PYTHON"
   description = "30%"  
   
 [[feature]]
   icon = "gopuram"
   icon_pack = "fas"
-  name = "Go"
+  name = "GO"
   description = "30%"
 
 [[feature]]
   icon = "cloud-meatball"
   icon_pack = "fas"
-  name = "Cloud"
+  name = "IAAS/PAAS"
   description = "30%"
 
 [[feature]]
   icon = "database"
   icon_pack = "fas"
-  name = "RMDB"
+  name = "DATABASE"
   description = "30%"
 
 [[feature]]
