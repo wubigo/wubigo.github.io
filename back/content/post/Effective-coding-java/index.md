@@ -21,3 +21,5 @@ categories = []
 
 # JAVA 基础
 
+[JAVA 基础](post/2010-01-01-java-notes/)
+

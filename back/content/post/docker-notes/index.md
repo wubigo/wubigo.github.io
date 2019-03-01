@@ -33,11 +33,22 @@ journalctl -xu docker.service
 
 
 
-APACHE=$(docker run -d httpd:2.4.38-alpine)
-MYSQL=$(docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5)
+```
+docker run -d --name web httpd:2.4.38-alpine
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5
+docker run -it --name curl bigo/curl:v1
+sudo pipework br1 web 192.168.1.117/24
+sudo pipework br1 mysql 192.168.1.118/24
+sudo pipework br1 curl 192.168.1.119/24
+docker exec -it curl curl 192.168.117
+docker logs web
+192.168.1.119 - - [28/Feb/2019:10:09:15 +0000] "GET / HTTP/1.1" 200 45
+192.168.1.119 - - [28/Feb/2019:10:15:43 +0000] "GET / HTTP/1.1" 200 45
 
-pipework br1 $APACHE 192.168.1.117/24
+```
 
+
+pipework eth2 web
 
 # 文件
 
