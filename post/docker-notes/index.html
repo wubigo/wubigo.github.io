@@ -549,6 +549,22 @@ inter-container communication</li>
 <pre><code>docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.168.200.0/24 -o &quot;com.docker.network.bridge.enable_icc&quot;=&quot;false&quot; no-icc-network
 </code></pre>
 
+<ul>
+<li>enable_ip_masquerade</li>
+</ul>
+
+<p>是否允许NAT使用宿主的IP掩蔽来自容器访问宿主外的网络包的SOURCE IP</p>
+
+<pre><code>com.docker.network.bridge.enable_ip_masquerade
+</code></pre>
+
+<h1 id="定位容器的veth接口">定位容器的VETH接口</h1>
+
+<pre><code>docker exec CID sudo ethtool -S eth0
+NIC statistics:
+     peer_ifindex: 16
+</code></pre>
+
     </div>
 
     
