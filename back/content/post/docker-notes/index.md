@@ -94,5 +94,6 @@ com.docker.network.bridge.enable_ip_masquerade
 ```
 docker exec CID sudo ethtool -S eth0
 NIC statistics:
-     peer_ifindex: 16
+     peer_ifindex: 7
+sudo ip link | grep 7 
 ```
