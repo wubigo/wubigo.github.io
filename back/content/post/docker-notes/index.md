@@ -64,3 +64,11 @@ ip netns exec 1452 ip link set veth1pg1452 name eth1
 ip netns exec 1452 ip -4 addr add 192.168.1.118/24 dev eth1
 ip netns exec 1452 ip -4 link set eth1 up
 ```
+
+
+为容器配置路由
+
+```
+sudo nsenter -t $(docker-pid web) -n ip route del default
+sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev eth0
+```
