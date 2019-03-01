@@ -47,6 +47,15 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     </item>
     
     <item>
+      <title>Docker_macvlan</title>
+      <link>https://wubigo.com/post/docker_macvlan/</link>
+      <pubDate>Wed, 01 Mar 2017 10:49:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_macvlan/</guid>
+      <description>准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.168.1.10/24 ip route default via 192.168.1.1 dev enp0s3 onlink  docker network create -d macvlan \ --subnet=192.168.1.0/24 \ --ip-range=192.168.1.128/25 \ --gateway=192.168.1.1 \ -o parent=enp0s3 macLan  docker run --rm -itd --network macLan --name web nginx:1.</description>
+    </item>
+    
+    <item>
       <title>Docker Check Config</title>
       <link>https://wubigo.com/post/docker-check-config/</link>
       <pubDate>Thu, 25 Feb 2016 17:58:37 +0800</pubDate>
