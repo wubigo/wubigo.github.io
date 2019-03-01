@@ -118,10 +118,10 @@ enp0s3    Link encap:Ethernet  HWaddr 08:00:27:4e:18:68
 - 创建网桥br-enp0s8并把enp0s8的IP分配给网桥，把enp0s8连接到网桥 
 
 ```
-brctl addbr br-enp0s8
-ip link set br-enp0s8 up
-ip addr add 192.168.1.16/24 dev br-enp0s8; \
-    ip addr del 192.168.1.16/24 dev enp0s8; \
+sudo brctl addbr br-enp0s8
+sudo ip link set br-enp0s8 up
+sudo ip addr add 192.168.1.111/24 dev br-enp0s8; \
+    ip addr del 192.168.1.111/24 dev enp0s8; \
     brctl addif br-enp0s8 enp0s8; \
     ip route del default; \
     ip route add default via 192.168.1.1 dev br-enp0s8
@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
 - 启动容器
 
 ```
-docker run -it --name web -p 80 nginx:1.14-alpine
+docker run -it --rm --name web -p 80 nginx:1.14-alpine
 ```
 - 创建veth接口对web-int/web-ext:
 

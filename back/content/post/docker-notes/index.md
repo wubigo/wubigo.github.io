@@ -97,3 +97,5 @@ NIC statistics:
      peer_ifindex: 7
 sudo ip link | grep 7 
 ```
+
+[1] https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html
