@@ -72,3 +72,12 @@ ip netns exec 1452 ip -4 link set eth1 up
 sudo nsenter -t $(docker-pid web) -n ip route del default
 sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev eth0
 ```
+
+# 容器间通信
+
+- icc 
+inter-container communication
+
+```
+docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.168.200.0/24 -o "com.docker.network.bridge.enable_icc"="false" no-icc-network
+```
