@@ -98,8 +98,9 @@ NIC statistics:
 sudo ip link | grep 7
 ```
 
-# capture all incoming IP traffic destined to the node 
-# except local traffic
+
+>capture all incoming IP traffic destined to the node 
+except local traffic
 
 ```
 sudo tcpdump -i enp0s25 tcp -n
