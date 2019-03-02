@@ -41,6 +41,10 @@ categories = []
 
 [K8S网络基础](/post/k8s-network-basic/)
 
+# CNI插件
+
+
+
 # CNI实现方式
 
 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
