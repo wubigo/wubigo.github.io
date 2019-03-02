@@ -563,9 +563,16 @@ inter-container communication</li>
 <pre><code>docker exec CID sudo ethtool -S eth0
 NIC statistics:
      peer_ifindex: 7
-sudo ip link | grep 7 
+sudo ip link | grep 7
+</code></pre>
 
-sudo tcpdump -i enp0s25 tcp -n
+<blockquote>
+<p>capture all incoming IP traffic destined to the node
+except local traffic</p>
+</blockquote>
+
+<pre><code>sudo tcpdump -i enp0s25 tcp -n
+sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
 </code></pre>
 
 <p>[1] <a href="https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html" target="_blank">https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html</a></p>

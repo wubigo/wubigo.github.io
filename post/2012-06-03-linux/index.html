@@ -28,8 +28,10 @@
   
     
   
-  <meta name="description" content="network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
- /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/NetworkManager/dnsmasq.pid --listen-address=127.0.1.1 --cache-size=0 --conf-file=/dev/null --proxy-dnssec --enable-dbus=org.freedesktop.NetworkManager.dnsmasq --conf-dir=/etc/NetworkManager/dnsmasq.d  update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2.">
+  <meta name="description" content="capture all incoming IP traffic destined to the node except local traffic
+ sudo tcpdump -i enp0s25 tcp -n sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24  终端窗口复制快捷键Ctrl-C  在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C 设置终端驱动快捷键  stty -a stty intr \^k stty -a   Ctrl-K to interrupt current command
+ ctrl-c.sh
+#!/usr/bin/env bash stty intr \^k  network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="https://wubigo.com/post/2012-06-03-linux/">
@@ -138,8 +140,10 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/2012-06-03-linux/">
   <meta property="og:title" content="linux note | 为人民服务">
-  <meta property="og:description" content="network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
- /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/NetworkManager/dnsmasq.pid --listen-address=127.0.1.1 --cache-size=0 --conf-file=/dev/null --proxy-dnssec --enable-dbus=org.freedesktop.NetworkManager.dnsmasq --conf-dir=/etc/NetworkManager/dnsmasq.d  update git to 2.20 sudo add-apt-repository ppa:git-core/ppa sudo apt-get update sudo apt-get install git=2."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="capture all incoming IP traffic destined to the node except local traffic
+ sudo tcpdump -i enp0s25 tcp -n sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24  终端窗口复制快捷键Ctrl-C  在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C 设置终端驱动快捷键  stty -a stty intr \^k stty -a   Ctrl-K to interrupt current command
+ ctrl-c.sh
+#!/usr/bin/env bash stty intr \^k  network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-06-03T19:39:03&#43;08:00">
@@ -494,6 +498,38 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<blockquote>
+<p>capture all incoming IP traffic destined to the node
+except local traffic</p>
+</blockquote>
+
+<pre><code>sudo tcpdump -i enp0s25 tcp -n
+sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
+</code></pre>
+
+<h1 id="终端窗口复制快捷键ctrl-c">终端窗口复制快捷键Ctrl-C</h1>
+
+<ul>
+<li>在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C</li>
+<li>设置终端驱动快捷键</li>
+</ul>
+
+<pre><code>stty -a
+stty intr \^k
+stty -a
+</code></pre>
+
+<blockquote>
+<p>Ctrl-K to interrupt current command</p>
+</blockquote>
+
+<p><code>ctrl-c.sh</code></p>
+
+<pre><code>#!/usr/bin/env bash
+
+stty intr \^k
+</code></pre>
 
 <h1 id="network-manager">network manager</h1>
 
