@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="Creating sample user  Create Service Account  dashboard-adminuser.yaml
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
-adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything.">
+  <meta name="description" content="无选择器服务 使用场景：
+ 通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
+ 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  Creating sample user  Create Service Account  dashboard-adminuser.yaml
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="https://wubigo.com/post/2017-07-13-k8snotes/">
@@ -140,10 +140,10 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/2017-07-13-k8snotes/">
   <meta property="og:title" content="K8S notes | 为人民服务">
-  <meta property="og:description" content="Creating sample user  Create Service Account  dashboard-adminuser.yaml
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
-adminuser-bind-clusteramdin.yaml
-apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.K8S.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kube-system  kubectl apply -f dashboard-adminuser.yaml   login with Bearer Token  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)  multi-tenant K8S clusters at network-level:  Namespaces Ingress rules allow/deny and ingress/egress Network Policies Network-aware Zones  Architect a multi-tenant system with kubernetes I don&rsquo;t think there is one document out there really summaries everything."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="无选择器服务 使用场景：
+ 通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
+ 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  Creating sample user  Create Service Account  dashboard-adminuser.yaml
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2017-07-13T00:00:00&#43;00:00">
@@ -404,7 +404,7 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -488,6 +488,48 @@ apiVersion: rbac.authorization.K8S.io/v1 kind: ClusterRoleBinding metadata: name
     <div class="article-style" itemprop="articleBody">
       
 
+<h1 id="无选择器服务">无选择器服务</h1>
+
+<p>使用场景：</p>
+
+<ul>
+<li>通过SERVICE连接到外部服务</li>
+<li>连接到另一个名字空间或集群</li>
+<li>迁移过程中访问遗留系统</li>
+</ul>
+
+<p>步骤</p>
+
+<ul>
+<li>创建服务</li>
+</ul>
+
+<pre><code>kind: Service
+apiVersion: v1
+metadata:
+  name: ext-db
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3316
+</code></pre>
+
+<ul>
+<li>手动创建一个端点</li>
+</ul>
+
+<pre><code>kind: Endpoints
+apiVersion: v1
+metadata:
+  name: my-service
+subsets:
+  - addresses:
+      - ip: 10.8.0.2
+    ports:
+      - port: 3316
+</code></pre>
+
 <h1 id="creating-sample-user">Creating sample user</h1>
 
 <ul>
@@ -563,8 +605,6 @@ subjects:
   <a class="badge badge-light" href="/tags/k8s/">K8S</a>
   
   <a class="badge badge-light" href="/tags/paas/">PAAS</a>
-  
-  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
   
 </div>
 
@@ -665,13 +705,11 @@ subjects:
           
           <li><a href="/post/2016-02-03-k8s-local-development-setup/">K8S local development setup from source code</a></li>
           
-          <li><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></li>
-          
-          <li><a href="/post/docker_macvlan/">Docker_macvlan</a></li>
-          
           <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
           
           <li><a href="/post/k8s_cni_l2_network_on_bare_metal/">K8SCNI之L2 网络实现</a></li>
+          
+          <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
           
         </ul>
       </div>
