@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2015-07-03T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2015-10-03T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,282 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2015-10-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2015-10-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 3, 2015</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2015-10-03-nginx-git-log-as-relasenote/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2015-10-03-nginx-git-log-as-relasenote/" itemprop="url">Git log as release note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    git-changelog-maven-plugin &lt;plugin&gt; &lt;groupId&gt;se.bjurr.gitchangelog&lt;/groupId&gt; &lt;artifactId&gt;git-changelog-maven-plugin&lt;/artifactId&gt; &lt;version&gt;1.50&lt;/version&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;GenerateGitChangelog&lt;/id&gt; &lt;phase&gt;generate-sources&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;git-changelog&lt;/goal&gt; &lt;/goals&gt; &lt;configuration&gt; &lt;!-- A file on filesystem //--&gt; &lt;file&gt;CHANGELOG.md&lt;/file&gt; &lt;toRef&gt;HEAD&lt;/toRef&gt; &lt;/configuration&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt;  get a copy of mustache template and save as changelog.mustache under the project home directory https://github.com/tomasbjerre/git-changelog-lib/tree/master/src/test/resources/templates  mvn compile to create the CHANGELOG.md mvn compile  upload the CHANGELOG.md to nginx as a release not config nginx support browser MD mime.types text/markdown md;  reload nginx and check the release note as text use template with StrapDown.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 3, 2015</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2015-08-03-github-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2015-08-03-github-notes/" itemprop="url">github notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="configuring-a-records-with-dns-provider">Configuring A records with DNS provider</h1>
+
+<pre><code>@    185.199.108.153
+@    185.199.109.153
+@    185.199.110.153
+@    185.199.111.153
+</code></pre>
+
+<h1 id="dig-the-custom-domain-to-confirm-dns-setup">dig the custom domain to confirm DNS setup</h1>
+
+<pre><code>$dig +noall +answer wubigo.com
+wubigo.com.		285	IN	A	185.199.110.153
+wubigo.com.		285	IN	A	185.199.108.153
+wubigo.com.		285	IN	A	185.199.111.153
+wubigo.com.		285	IN	A	185.199.109.153
+
+</code></pre>
+
+<p><a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 3, 2015</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2015-08-03-http/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2015-08-03-http/" itemprop="url">http  TIL</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    GET vs. POST HTTP POST requests supply additional data from the client (browser) to the server in the message body. In contrast, GET requests include all required data in the URL. Forms in HTML can use either method by specifying method=&ldquo;POST&rdquo; or method=&ldquo;GET&rdquo; (default) in the  element. The method specified determines how form data is submitted to the server. When the method is GET, all form data is encoded into the URL, appended to the action URL as query string parameters.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1935,278 +2211,6 @@ update the database if directly upgrade from 5.0 to 5.5
 mysql_upgrade -u root -p
 service mysql restart
 A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 3, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-06-03-linux/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-06-03-linux/" itemprop="url">linux note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    capture all incoming IP traffic destined to the node except local traffic
- sudo tcpdump -i enp0s25 tcp -n sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24  终端窗口复制快捷键Ctrl-C  在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C 设置终端驱动快捷键  stty -a stty intr \^k stty -a   Ctrl-K to interrupt current command
- ctrl-c.sh
-#!/usr/bin/env bash stty intr \^k  network manager Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-05-03-redis-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 1, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-02-01-tls-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NOTICE
- Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
- Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
- Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
   </div>
   
 

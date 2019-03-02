@@ -35,11 +35,28 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     </item>
     
     <item>
-      <title>Docker_macvlan</title>
-      <link>https://wubigo.com/post/docker_macvlan/</link>
+      <title>Docker网络</title>
+      <link>https://wubigo.com/post/docker_network/</link>
+      <pubDate>Thu, 02 Mar 2017 11:10:51 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_network/</guid>
+      <description> docker默认的网络 桥接网络
+Docker网络macvlan 网络macvlan
+Docker宿主网络 宿主网络
+Docker覆盖网络 宿主端口绑定 绑定方式： -p
+绑定形式
+ ip:hostPort:containerPort| ip::containerPort | hostPort:containerPort | containerPort
+ containerPort必须指定
+docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine  docker 会为端口绑定的容器自动启动docker-proxy进程
+docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80  </description>
+    </item>
+    
+    <item>
+      <title>Docker网络macvlan</title>
+      <link>https://wubigo.com/post/docker_network_macvlan/</link>
       <pubDate>Wed, 01 Mar 2017 10:49:32 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/docker_macvlan/</guid>
+      <guid>https://wubigo.com/post/docker_network_macvlan/</guid>
       <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足

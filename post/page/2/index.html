@@ -1675,6 +1675,289 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
+<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-network-host/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker_network_bridge/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker_network/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker默认的网络">docker默认的网络</h1>
+
+<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
+
+<h1 id="docker网络macvlan">Docker网络macvlan</h1>
+
+<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
+
+<h1 id="docker宿主网络">Docker宿主网络</h1>
+
+<p><a href="/post/docker-network-host/">宿主网络</a></p>
+
+<h1 id="docker覆盖网络">Docker覆盖网络</h1>
+
+<h1 id="宿主端口绑定">宿主端口绑定</h1>
+
+<p>绑定方式： -p</p>
+
+<p>绑定形式</p>
+
+<blockquote>
+<p>ip:hostPort:containerPort| ip::containerPort <br />
+  | hostPort:containerPort | containerPort</p>
+</blockquote>
+
+<p>containerPort必须指定</p>
+
+<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
+</code></pre>
+
+<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
+
+<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-03-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-03-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1790,7 +2073,7 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/docker_macvlan/#disqus_thread"></a>
+  <a href="/post/docker_network_macvlan/#disqus_thread"></a>
   
 
   
@@ -1806,7 +2089,7 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_macvlan/" itemprop="url">Docker_macvlan</a>
+    <a href="/post/docker_network_macvlan/" itemprop="url">Docker网络macvlan</a>
   </h3>
 
   
@@ -1924,292 +2207,6 @@ $tar zcvf site.tar _site/*
 gem sources -a http://ruby.taobao.org/
 gem sources -l
 http://ruby.taobao.org/
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/effective-coding-python/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/effective-coding-python/" itemprop="url">Effective Coding Python</a>
-  </h3>
-
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 25, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/dns-config-for-github-pages/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dns-config-for-github-pages/" itemprop="url">DNS配置Github Pages</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Namecheap不支持根域(apex doamin/naked domain/bare domain)的ALIAS记录
-在代码仓库的根目录创建CNAME文件 CNME文件包括根域域名
-tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条指向根域的A记录，一条指向子域的CNAME记录 AN A Record for @(apex doamin) and a cname record(Alias) for github 不要在github页使用通配符 dns 记录! 否则没有指定的子域将有被别人使用的风险
-确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Ubuntu &lt;&lt;&gt;&gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com.	IN	A www.wubigo.com.	1	IN	CNAME	wubigo.github.io. wubigo.github.io.	3462	IN	A	185.199.111.153 wubigo.github.io.	3462	IN	A	185.199.110.153 wubigo.github.io.	3462	IN	A	185.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-monitor/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-monitor/">
-      <img src="/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-monitor/" itemprop="url">K8S Monitor</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="setup-prometheus">setup prometheus</h1>
-
-<ul>
-<li>prepare pv for prometheus</li>
-</ul>
-
-<p><a href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc--using-local-pv" target="_blank">https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv</a></p>
-
-<ul>
-<li>install</li>
-</ul>
-
-<pre><code>helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false
 </code></pre>
 
   </div>
