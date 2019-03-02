@@ -9,12 +9,17 @@ if [ -z "$NAME" ]; then
 fi
 
 # replace multiple spaces with dash
-# NAME=$(echo $NAME | sed -n 's/ \+/-/gp')   //doesn't work when name has dash
-NAME=${NAME// /_}
+# doesn't work when name has dash
+N=$(echo $NAME | sed -n 's/ \+/-/gp') 
 
-if [ -z "$NAME" ]; then
+if [ -z "$N" ]; then
+ NAME=${NAME// /-}
+ if [ -z "$NAME" ]; then
     echo "sed NAME is empty"
     exit
+ fi
+else
+ NAME=$N
 fi
 
 STATUS=$(hugo new post/$NAME/index.md)

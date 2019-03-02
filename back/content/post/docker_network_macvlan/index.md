@@ -1,11 +1,11 @@
 +++
-title = "Docker_macvlan"
+title = "Docker网络macvlan"
 date = 2017-03-01T10:49:32+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["CRI", "DOCKER"]
+tags = ["CRI", "DOCKER", "NETWORK"]
 categories = []
 
 # Featured image
