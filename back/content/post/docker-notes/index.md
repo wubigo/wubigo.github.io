@@ -95,9 +95,16 @@ com.docker.network.bridge.enable_ip_masquerade
 docker exec CID sudo ethtool -S eth0
 NIC statistics:
      peer_ifindex: 7
-sudo ip link | grep 7 
-
-sudo tcpdump -i enp0s25 tcp -n
+sudo ip link | grep 7
 ```
+
+# capture all incoming IP traffic destined to the node 
+# except local traffic
+
+```
+sudo tcpdump -i enp0s25 tcp -n
+sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
+```
+
 
 [1] https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html
