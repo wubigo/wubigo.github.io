@@ -12,13 +12,12 @@
     
     
     <item>
-      <title>Serverless Computing why &amp; how</title>
+      <title>无服务器计算环境OPENFAAS搭建</title>
       <link>https://wubigo.com/post/serverless-computing-why-how/</link>
       <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>kubectl -n openfaas get svc -o wide |grep external gateway-external NodePort 10.105.222.28 &amp;lt;none&amp;gt; 8080:31112/TCP 91m app=gateway export OPENFAAS_URL=http://&amp;lt;pod-node-ip&amp;gt;:31112 curl OPENFAAS_URL USERNAME=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-user) PASSWD=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-password) PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)  install client
-curl -sSL https://cli.openfaas.com | sh echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin  Removing the OpenFaaS All control plane components can be cleaned up with helm:</description>
+      <description>准备  创建角色和授权  kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories  开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
     </item>
     
   </channel>

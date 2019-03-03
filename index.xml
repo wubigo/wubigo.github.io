@@ -10,7 +10,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Dev on Tencent Cloud SDK in Go</title>
+      <title>通过SDK驾驭腾讯公有云</title>
       <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
       <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
       
@@ -24,38 +24,88 @@
 &lt;pre&gt;&lt;code&gt;go get -u github.com/tencentcloud/tencentcloud-sdk-go
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;示例代码&#34;&gt;示例代码&lt;/h1&gt;
+&lt;h1 id=&#34;为集群准备cvm&#34;&gt;为集群准备CVM&lt;/h1&gt;
 
-&lt;p&gt;从K8S读取安全凭证secretId和secretKey配置信息，
+&lt;p&gt;从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
 然后把安全凭证传送给SDK客户端&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;import (
-	&amp;quot;fmt&amp;quot;
-	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&amp;quot;
-	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&amp;quot;
-	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&amp;quot;
-	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&amp;quot;
-	cvm &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&amp;quot;
-)
-
-func main() {
-  secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;)
-  credential := common.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;)
-  client, _ := cvm.NewClient(credential, regions.Beijing)
-  request := cvm.NewDescribeZonesRequest()
-  response, err := client.DescribeZones(request)
-}
+&lt;pre&gt;&lt;code&gt;secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;)
+credential := CloudCommon.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;)
+client, _ := cvm.NewClient(credential, regions.Beijing)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;request := cvm.NewAllocateHostsRequest()
+request.FromJsonString(K8SClient.Configs(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;K8S-TENCENT-PROD&amp;quot;))
+response, err := client.AllocateHosts(request)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;通过ansible在cvm搭建k8s集群&#34;&gt;通过ANSIBLE在CVM搭建K8S集群&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;Ansible.Hosts().Get(response.ToJsonString())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用ANSIBLE开始在CVM部署K8S集群&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Serverless Computing why &amp; how</title>
+      <title>无服务器计算环境OPENFAAS搭建</title>
       <link>https://wubigo.com/post/serverless-computing-why-how/</link>
       <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;kubectl -n openfaas get svc -o wide |grep external
+      <description>
+
+&lt;h1 id=&#34;准备&#34;&gt;准备&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;创建角色和授权&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \
+  --clusterrole=cluster-admin \
+  --user=&amp;quot;cluster-admin-faas&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;分别为FAAS核心服务和函数创建名字空间&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;创建凭证&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;# generate a random password
+PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1)
+
+kubectl -n openfaas create secret generic basic-auth \
+--from-literal=basic-auth-user=admin \
+--from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在本地helm仓库增加openfaas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;helm repo add openfaas https://openfaas.github.io/faas-netes/
+&amp;quot;openfaas&amp;quot; has been added to your repositories
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;开始安装&#34;&gt;开始安装&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;helm repo update \
+ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \
+    --namespace openfaas  \
+    --set basic_auth=true \
+    --set functionNamespace=openfaas-fn
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;默认通过NodePorts方式访问openfaas控制台&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl -n openfaas get svc -o wide |grep external
 gateway-external   NodePort    10.105.222.28    &amp;lt;none&amp;gt;        8080:31112/TCP   91m   app=gateway
 
 export OPENFAAS_URL=http://&amp;lt;pod-node-ip&amp;gt;:31112
@@ -66,14 +116,28 @@ PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;install client&lt;/p&gt;
+&lt;h1 id=&#34;验证安装结果&#34;&gt;验证安装结果&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过浏览器访问openfaas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;curl http://&amp;lt;pod-node-ip&amp;gt;:31112
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输入上面的用户名和密码进入openfaas控制台&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安装openfaas客户端&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -sSL https://cli.openfaas.com | sh
 echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Removing the OpenFaaS
-All control plane components can be cleaned up with helm:&lt;/p&gt;
+&lt;h1 id=&#34;removing-the-openfaas&#34;&gt;Removing the OpenFaaS&lt;/h1&gt;
+
+&lt;p&gt;All control plane components can be cleaned up with helm:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;helm delete --purge openfaas
 kubectl delete namespace/openfaas

@@ -12,14 +12,14 @@
     
     
     <item>
-      <title>Dev on Tencent Cloud SDK in Go</title>
+      <title>通过SDK驾驭腾讯公有云</title>
       <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
       <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
-      <description> 基于腾讯云Go SDK开发
-下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  示例代码 从K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
-import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&amp;quot; cvm &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&amp;quot; ) func main() { secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;) credential := common.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;) client, _ := cvm.NewClient(credential, regions.Beijing) request := cvm.NewDescribeZonesRequest() response, err := client.DescribeZones(request) }  </description>
+      <description>基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  为集群准备CVM 从本地开发集群K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;) credential := CloudCommon.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;) client, _ := cvm.NewClient(credential, regions.Beijing)  request := cvm.NewAllocateHostsRequest() request.FromJsonString(K8SClient.Configs(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;K8S-TENCENT-PROD&amp;quot;)) response, err := client.AllocateHosts(request)  通过ANSIBLE在CVM搭建K8S集群 Ansible.Hosts().Get(response.ToJsonString())  调用ANSIBLE开始在CVM部署K8S集群</description>
     </item>
     
   </channel>

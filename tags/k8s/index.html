@@ -381,12 +381,12 @@
   
   
   <div>
-    <h2><a href="/post/dev-on-tencent-cloud-sdk-in-go/">Dev on Tencent Cloud SDK in Go</a></h2>
+    <h2><a href="/post/dev-on-tencent-cloud-sdk-in-go/">通过SDK驾驭腾讯公有云</a></h2>
     <div class="article-style">
       
-       基于腾讯云Go SDK开发
-下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  示例代码 从K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
-import ( &quot;fmt&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&quot; cvm &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&quot; ) func main() { secretId, secretKey:= K8SClient.Secrets(&quot;namespace&quot;).Get(&quot;cloud-pass&quot;) credential := common.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;) client, _ := cvm.NewClient(credential, regions.Beijing) request := cvm.NewDescribeZonesRequest() response, err := client.DescribeZones(request) }  
+      基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  为集群准备CVM 从本地开发集群K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;) credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;) client, _ := cvm.NewClient(credential, regions.Beijing)  request := cvm.NewAllocateHostsRequest() request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;)) response, err := client.AllocateHosts(request)  通过ANSIBLE在CVM搭建K8S集群 Ansible.Hosts().Get(response.ToJsonString())  调用ANSIBLE开始在CVM部署K8S集群
       
     </div>
   </div>
