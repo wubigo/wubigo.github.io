@@ -6,8 +6,81 @@
     <description>Recent content in 为人民服务 on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 01 Mar 2019 04:19:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2019 20:24:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dev on Tencent Cloud SDK in Go</title>
+      <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
+      <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
+      <description>
+
+&lt;p&gt;基于腾讯云Go SDK开发&lt;/p&gt;
+
+&lt;h1 id=&#34;下载开发工具集&#34;&gt;下载开发工具集&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;go get -u github.com/tencentcloud/tencentcloud-sdk-go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;示例代码&#34;&gt;示例代码&lt;/h1&gt;
+
+&lt;p&gt;从K8S读取安全凭证secretId和secretKey配置信息，
+然后把安全凭证传送给SDK客户端&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&amp;quot;
+	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&amp;quot;
+	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&amp;quot;
+	&amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&amp;quot;
+	cvm &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&amp;quot;
+)
+
+func main() {
+  secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;)
+  credential := common.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;)
+  client, _ := cvm.NewClient(credential, regions.Beijing)
+  request := cvm.NewDescribeZonesRequest()
+  response, err := client.DescribeZones(request)
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serverless Computing why &amp; how</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;kubectl -n openfaas get svc -o wide |grep external
+gateway-external   NodePort    10.105.222.28    &amp;lt;none&amp;gt;        8080:31112/TCP   91m   app=gateway
+
+export OPENFAAS_URL=http://&amp;lt;pod-node-ip&amp;gt;:31112
+curl OPENFAAS_URL
+USERNAME=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-user)
+PASSWD=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-password)
+PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;install client&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -sSL https://cli.openfaas.com | sh
+echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Removing the OpenFaaS
+All control plane components can be cleaned up with helm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;helm delete --purge openfaas
+kubectl delete namespace/openfaas
+kubectl delete namespace/openfaas-fn
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>mozilla crowdsources the largest dataset of human voices</title>
@@ -663,57 +736,6 @@ TX:		on
 &lt;/ul&gt;
 
 &lt;p&gt;可以参考&lt;a href=&#34;https://wubigo.com/post/2016-02-03-k8s-local-development-setup/&#34; target=&#34;_blank&#34;&gt;从源代码构件K8S开发环境&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>7 level communication</title>
-      <link>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
-      <description>&lt;p&gt;The most important conversation you ever have is the one with yourself&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/7level-communication.jpg&#34; alt=&#34;7 lvevel communication&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Dgraph note</title>
-      <link>https://wubigo.com/post/2018-04-07-dgraphnotes/</link>
-      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-04-07-dgraphnotes/</guid>
-      <description>
-
-&lt;h1 id=&#34;start-dgraph-cluster&#34;&gt;Start Dgraph cluster&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;dgraph zero
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;start-dgraph-server&#34;&gt;start Dgraph server&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt; dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
-
- Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;how-do-i-configure-go-to-use-a-proxy&#34;&gt;How do I configure Go to use a proxy&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;web-based-graph-visualization-with-d3-and-keylines&#34;&gt;Web based graph visualization with D3 and KeyLines&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/&#34; target=&#34;_blank&#34;&gt;https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;setup-client&#34;&gt;SETUP CLIENT&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;set http_proxy=192.168.0.119:3128
-git config --global http.proxy http://192.168.0.119:3128
-go get -u github.com/derekparker/delve/cmd/dlv
-go get -u -v github.com/dgraph-io/dgo
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

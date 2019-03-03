@@ -6,10 +6,21 @@
     <description>Recent content in K8S on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 24 Feb 2019 16:18:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2019 20:24:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dev on Tencent Cloud SDK in Go</title>
+      <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
+      <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
+      <description> 基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  示例代码 从K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&amp;quot; cvm &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&amp;quot; ) func main() { secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;) credential := common.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;) client, _ := cvm.NewClient(credential, regions.Beijing) request := cvm.NewDescribeZonesRequest() response, err := client.DescribeZones(request) }  </description>
+    </item>
     
     <item>
       <title>K8S CNI操作指引</title>
@@ -77,6 +88,15 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       
       <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
       <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>K8S SDK Setup</title>
+      <link>https://wubigo.com/post/k8s-sdk-setup/</link>
+      <pubDate>Sat, 03 Mar 2018 20:45:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-sdk-setup/</guid>
+      <description> 安装Golang Dep go get -v github.com/tools/godep  安装client-go go get k8s.io/client-go/kubernetes cd $GOPATH/src/k8s.io/client-go git checkout v10.0.0 godep restore ./...  集群外开发 集群内开发 </description>
     </item>
     
     <item>

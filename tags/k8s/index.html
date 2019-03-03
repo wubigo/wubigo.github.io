@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-02-24T16:18:43&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-03T20:24:49&#43;08:00">
   
 
   
@@ -381,6 +381,17 @@
   
   
   <div>
+    <h2><a href="/post/dev-on-tencent-cloud-sdk-in-go/">Dev on Tencent Cloud SDK in Go</a></h2>
+    <div class="article-style">
+      
+       基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  示例代码 从K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+import ( &quot;fmt&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&quot; &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&quot; cvm &quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&quot; ) func main() { secretId, secretKey:= K8SClient.Secrets(&quot;namespace&quot;).Get(&quot;cloud-pass&quot;) credential := common.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;) client, _ := cvm.NewClient(credential, regions.Beijing) request := cvm.NewDescribeZonesRequest() response, err := client.DescribeZones(request) }  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-cni/">K8S CNI操作指引</a></h2>
     <div class="article-style">
       
@@ -444,6 +455,15 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
     <div class="article-style">
       
       准备  搭建测试环境  可以参考从源代码构件K8S开发环境
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></h2>
+    <div class="article-style">
+      
+       安装Golang Dep go get -v github.com/tools/godep  安装client-go go get k8s.io/client-go/kubernetes cd $GOPATH/src/k8s.io/client-go git checkout v10.0.0 godep restore ./...  集群外开发 集群内开发 
       
     </div>
   </div>

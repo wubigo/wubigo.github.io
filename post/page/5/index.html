@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2012-06-03T19:39:03&#43;08:00">
+  <meta property="og:updated_time" content="2012-08-04T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,274 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-08-04-ansible/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-07-04-rdbms-nosql/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="b-树-vs-lsm树">B+树 vs. LSM树</h1>
+
+<p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
+NoSQL使用LSM树</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-06-04-mysql/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    showing current configuration mysql&gt;SHOW VARIABLES; mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
+mysql&gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1957,102 +2225,6 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/smtp_ec2/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2060,6 +2232,8 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
     
     <li class="page-item"><a class="page-link" href="/post/page/4/">&laquo;</a></li>
     
+    
+    <li class="page-item"><a class="page-link" href="/post/page/6/">&raquo;</a></li>
     
   </ul>
 </nav>

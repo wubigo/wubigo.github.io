@@ -6,10 +6,31 @@
     <description>Recent content in Posts on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 01 Mar 2019 04:19:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2019 20:24:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dev on Tencent Cloud SDK in Go</title>
+      <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
+      <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
+      <description> 基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  示例代码 从K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile&amp;quot; &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/regions&amp;quot; cvm &amp;quot;github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm/v20170312&amp;quot; ) func main() { secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;) credential := common.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;) client, _ := cvm.NewClient(credential, regions.Beijing) request := cvm.NewDescribeZonesRequest() response, err := client.DescribeZones(request) }  </description>
+    </item>
+    
+    <item>
+      <title>Serverless Computing why &amp; how</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>kubectl -n openfaas get svc -o wide |grep external gateway-external NodePort 10.105.222.28 &amp;lt;none&amp;gt; 8080:31112/TCP 91m app=gateway export OPENFAAS_URL=http://&amp;lt;pod-node-ip&amp;gt;:31112 curl OPENFAAS_URL USERNAME=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-user) PASSWD=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-password) PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)  install client
+curl -sSL https://cli.openfaas.com | sh echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin  Removing the OpenFaaS All control plane components can be cleaned up with helm:</description>
+    </item>
     
     <item>
       <title>mozilla crowdsources the largest dataset of human voices</title>
@@ -279,6 +300,15 @@ If you are getting an exception due to &amp;ldquo;Illegal key size&amp;rdquo; an
     </item>
     
     <item>
+      <title>K8S SDK Setup</title>
+      <link>https://wubigo.com/post/k8s-sdk-setup/</link>
+      <pubDate>Sat, 03 Mar 2018 20:45:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-sdk-setup/</guid>
+      <description> 安装Golang Dep go get -v github.com/tools/godep  安装client-go go get k8s.io/client-go/kubernetes cd $GOPATH/src/k8s.io/client-go git checkout v10.0.0 godep restore ./...  集群外开发 集群内开发 </description>
+    </item>
+    
+    <item>
       <title>File Gateway for Hybrid Architectures; Overview and Best Practices</title>
       <link>https://wubigo.com/post/2018-03-02-filegatewayforhybridarchitectures/</link>
       <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
@@ -293,7 +323,8 @@ If you are getting an exception due to &amp;ldquo;Illegal key size&amp;rdquo; an
       <pubDate>Wed, 28 Feb 2018 15:22:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/effective-coding-go/</guid>
-      <description></description>
+      <description>Understanding Real-World Concurrency Bugs in Go
+https://songlh.github.io/paper/go-study.pdf</description>
     </item>
     
     <item>
