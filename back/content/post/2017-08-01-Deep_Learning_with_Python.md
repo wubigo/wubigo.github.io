@@ -54,6 +54,8 @@ A  function  that  takes  the  input  signal  and  generates  an  outp
 https://www.stateoftheart.ai/
 
 
+http://colah.github.io/posts/2014-07-Understanding-Convolutions/
+
 # References
  * [1] https://towardsdatascience.com/understanding-learning-rates-and-how-it-improves-performance-in-deep-learning-d0d4059c1c10
  * [2] http://wubigo.com/2017/01/numpy-notes/
