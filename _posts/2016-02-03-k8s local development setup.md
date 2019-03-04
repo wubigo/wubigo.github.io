@@ -1,0 +1,111 @@
+---
+layout: post
+title: k8s local development setup
+date: 2016-02-03
+tag: [Paas, k8s]
+---
+
+[https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies)
+
+***KUBEADM IS CURRENTLY IN BETA***
+
+# kubeadm maturity
+![kubeadm maturity](/images/posts/kubeadm_maturity.png)
+
+
+* docker v17.03
+
+```
+sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
+docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
+docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7
+docker pull mirrorgooglecontainers/pause:3.1
+docker pull mirrorgooglecontainers/pause:3.1
+docker pull mirrorgooglecontainers/pause:3.1
+docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
+docker pull mirrorgooglecontainers/etcd-amd64:3.2.18
+docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18
+docker pull coredns/coredns:1.1.3
+docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
+
+
+```
+* cri-tools v1.11.0
+```
+git clone -b v1.11.0 https://github.com/kubernetes-sigs/cri-tools.git
+make install
+```
+
+* build v1.11.7
+
+```
+git clone -b v1.11.7 https://github.com/wubigo/kubernetes.git (https://github.com/kubernetes/kubernetes.git)
+cd kubernetes
+git remote add upstream https://github.com/kubernetes/kubernetes.git
+git remote set-url --push upstream no_push
+git fetch upstream
+git tag|grep v1.11.7
+git checkout tags/v1.11.7 -b <branch_name>
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.4-1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-cross:v1.11.4-1 k8s.gcr.io/kube-cross:v1.11.4-1
+./build/run.sh make quick-release
+./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
+sudo cp ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubectl /usr/bin/
+sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubeadm /usr/bin/
+sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubelet /usr/bin/
+sudo mkdir -p /etc/kubernetes/manifests
+sudo mkdir -p /etc/systemd/system/kubelet.service.d/
+
+```
+* disable swap
+* build cni v0.6.0
+```
+git clone -b v0.6.0 https://github.com/containernetworking/cni.git
+cd cni
+./build.sh
+```
+
+* Configure NetworkManager for calio
+
+NetworkManager manipulates the routing table for interfaces in the default network namespace where Calico veth pairs are anchored for connections to containers. This can interfere with the Calico agent’s ability to route correctly.
+Create the following configuration file at /etc/NetworkManager/conf.d/calico.conf to prevent NetworkManager from interfering with the interfaces:
+```
+[keyfile]
+unmanaged-devices=interface-name:cali*;interface-name:tunl*
+```
+
+* bootstrap a secure Kubernetes cluster
+debug level with -v
+```
+sudo kubeadm init -v 4
+```
+
+
+I0130 18:35:25.335969    2918 init.go:505] [init] ensuring proxy addon
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+kubeadm join 192.168.1.5:6443 --token p19imz.y3t80viz2z1vh4v0 --discovery-token-ca-cert-hash sha256:3827007586be95cbe7c0e8df6202a6f839924a5455a441e1990b8d376d7c1212
+
+
+
