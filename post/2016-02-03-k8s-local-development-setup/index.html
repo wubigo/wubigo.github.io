@@ -403,7 +403,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 分钟阅读时间
+    5 分钟阅读时间
   </span>
   
 
@@ -536,7 +536,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 分钟阅读时间
+    5 分钟阅读时间
   </span>
   
 
@@ -890,8 +890,40 @@ By default, tokens expire after 24 hours. Joining a node to the cluster after th
 <li><p>Deploying the Dashboard</p></li>
 </ul>
 
+<p><code>sa-admin-user.yaml</code></p>
+
+<pre><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kube-system
+</code></pre>
+
+<p><code>rb-admin-user.yaml</code></p>
+
+<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kube-system
+</code></pre>
+
 <pre><code>kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
 
+</code></pre>
+
+<p>Bearer Token</p>
+
+<pre><code>kubectl proxy
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 </code></pre>
 
 <ul>

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2018-03-02T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-03-03T20:45:50&#43;08:00">
   
 
   
@@ -378,6 +378,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-sdk-setup/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-sdk-setup/" itemprop="url">K8S SDK Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="安装golang-dep">安装Golang Dep</h1>
+
+<pre><code>go get -v github.com/tools/godep
+</code></pre>
+
+<h1 id="安装client-go">安装client-go</h1>
+
+<pre><code>go get k8s.io/client-go/kubernetes
+cd $GOPATH/src/k8s.io/client-go
+git checkout v10.0.0
+godep restore ./...
+</code></pre>
+
+<h1 id="集群外开发">集群外开发</h1>
+
+<h1 id="集群内开发">集群内开发</h1>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2034,8 +2137,8 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
-<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -2064,7 +2167,7 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/git-forkpull-model/#disqus_thread"></a>
+  <a href="/post/istio-notes/#disqus_thread"></a>
   
 
   
@@ -2080,99 +2183,13 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/git-forkpull-model/" itemprop="url">分叉拉取模式(fork and pull model)</a>
+    <a href="/post/istio-notes/" itemprop="url">Istio Notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    GITHUB两种主要的pull request的开发模式
-分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
-在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
- https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
- GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.
+    准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.
   </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker-network-host/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
-  </h3>
-
   
 
   

@@ -17,7 +17,7 @@
       <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-core-development/</guid>
-      <description>git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  </description>
+      <description>git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  </description>
     </item>
     
     <item>
@@ -100,6 +100,18 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
     </item>
     
     <item>
+      <title>避开Tiller使用Helm部署K8S应用</title>
+      <link>https://wubigo.com/post/helm-without-tiller/</link>
+      <pubDate>Mon, 04 Jun 2018 21:02:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/helm-without-tiller/</guid>
+      <description>避开Tiller使用Helm部署K8S应用
+Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
+ 部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
+    </item>
+    
+    <item>
       <title>K8S SDK Setup</title>
       <link>https://wubigo.com/post/k8s-sdk-setup/</link>
       <pubDate>Sat, 03 Mar 2018 20:45:50 +0800</pubDate>
@@ -146,6 +158,15 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
  通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
  创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  Creating sample user  Create Service Account  dashboard-adminuser.yaml
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)</description>
+    </item>
+    
+    <item>
+      <title>Istio Notes</title>
+      <link>https://wubigo.com/post/istio-notes/</link>
+      <pubDate>Sat, 04 Mar 2017 16:38:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/istio-notes/</guid>
+      <description>准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.</description>
     </item>
     
     <item>

@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  ">
+  <meta name="description" content="git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  ">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="https://wubigo.com/post/k8s-core-development/">
@@ -137,7 +137,7 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/k8s-core-development/">
   <meta property="og:title" content="K8S CORE DEVELOPMENT | 为人民服务">
-  <meta property="og:description" content="git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2019-03-04T11:13:20&#43;08:00">
@@ -484,6 +484,7 @@
     <div class="article-style" itemprop="articleBody">
       <pre><code>git clone git@github.com:wubigo/kubernetes.git
 git remote add upstream https://github.com/kubernetes/kubernetes.git
+git fetch --all
 git checkout tags/v1.13.3 -b v1.13.3 
 git branch -av|grep 1.13
 * fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
