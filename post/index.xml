@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 03 Mar 2019 20:24:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2019 11:13:20 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>K8S CORE DEVELOPMENT</title>
+      <link>https://wubigo.com/post/k8s-core-development/</link>
+      <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-core-development/</guid>
+      <description>git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  </description>
+    </item>
     
     <item>
       <title>通过SDK驾驭腾讯公有云</title>
@@ -498,8 +507,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
       
       <guid>https://wubigo.com/post/git-forkpull-model/</guid>
       <description>GITHUB两种主要的pull request的开发模式
- 分叉拉取模式  任何开发人员可以在项目源仓库(upstream)分叉，然后复制该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
-在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。</description>
+分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
+在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
+ https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
+ GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
+ 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.</description>
     </item>
     
     <item>

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2016-02-12T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2016-02-24T19:39:03&#43;08:00">
   
 
   
@@ -378,6 +378,159 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-02-24 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-24 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-network-basic/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/k8s-network-basic/">
+      <img src="/post/k8s-network-basic/featured_hudb332a0773453802bb7c20c78d76beb6_142922_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-network-basic/" itemprop="url">K8S网络基础</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p><strong>K8S网络基础</strong></p>
+
+<h1 id="k8s简介">K8S简介</h1>
+
+<p>K8S是自动化部署和监控容器的容器编排和管理工具。各大云厂商和应用开发平台都提供基于K8S的容器服务。
+如果觉得K8S托管服务不容易上手或者和本公司的业务场景不很匹配，现在也有很多工具帮助在自己的数据
+中心或私有云平台搭建K8S运行环境。</p>
+
+<ul>
+<li>Minikube</li>
+<li>kops</li>
+<li>kubeadm</li>
+</ul>
+
+<p>如果你想搭建一个测试环境，请参考</p>
+
+<ul>
+<li><a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从K8S源代码构建容器集群(支持最新稳定版V1.13.3)</a></li>
+<li><a href="https://wubigo.com/post/2011-01-01-shell-script#deploy-k8s-master" target="_blank">一个脚步部署K8S</a></li>
+</ul>
+
+<p>Kubernetes主要构件:</p>
+
+<ul>
+<li>主节点： 主要的功能包括管理工作节点集群，服务部署，服务发现，工作调度，负载均衡等。</li>
+<li>工作节点： 应用负载执行单元。</li>
+<li>服务规范： 无状态服务，有状态服务，守护进程服务，定时任务等。
+<br /></li>
+</ul>
+
+<h1 id="k8s网络基础">K8S网络基础</h1>
+
+<p>K8S网络模型</p>
+
+<ul>
+<li>每一个POD拥有独立的IP地址</li>
+<li>任何两个POD之间都可以互相通信且不通过NAT</li>
+<li>集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信</li>
+</ul>
+
+<p>K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。</p>
+
+<p>K8S解决的网络问题：</p>
+
+<ul>
+<li>容器间通信问题： 由POD和localhost通信解决<br /></li>
+<li>POD间通信问题： 由CNI解决</li>
+<li>POD和服务的通信问题： 由SERVICE解决</li>
+<li>外部系统和SERVICE的通信问题： 由SERVICE解决</li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2133,96 +2286,6 @@ db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database
 <h1 id="自动化发布">自动化发布</h1>
 
 <p>很多网站选择周四作为发布日</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2013-01-03-api_design/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2013-01-03-api_design/" itemprop="url">API_design Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="api-design-choosing-between-names-and-identifiers-in-urls">API design: Choosing between names and identifiers in URLs</h1>
-
-<p><a href="https://cloudplatform.googleblog.com/2017/10/API-design-choosing-between-names-and-identifiers-in-URLs.html" target="_blank">API design: Choosing between names and identifiers in URLs</a></p>
 
   </div>
   
