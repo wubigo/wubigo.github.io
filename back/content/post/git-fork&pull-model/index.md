@@ -57,6 +57,7 @@ upstream	git@github.com:wubigo/wubigo.github.io.git (push)
 git fetch upstream
 git checkout master
 git rebase upstream/master
+git push
 ```
 
 + 查看各个分支的最新提交ID

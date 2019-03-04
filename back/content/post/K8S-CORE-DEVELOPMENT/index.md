@@ -23,6 +23,7 @@ categories = []
 ```
 git clone git@github.com:wubigo/kubernetes.git
 git remote add upstream https://github.com/kubernetes/kubernetes.git
+git fetch --all
 git checkout tags/v1.13.3 -b v1.13.3 
 git branch -av|grep 1.13
 * fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
