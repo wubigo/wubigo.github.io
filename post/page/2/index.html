@@ -1949,6 +1949,103 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/git-forkpull-model/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/git-forkpull-model/" itemprop="url">分叉拉取模式(fork and pull model)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>GITHUB两种主要的pull request的开发模式</p>
+
+<ul>
+<li>分叉拉取模式</li>
+</ul>
+
+<p>任何开发人员可以在项目源仓库(upstream)分叉，然后复制该分叉(origin)到本地文件系统进行开发
+测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审
+更改，并最终决定是否合并该更改到源仓库</p>
+
+<p>在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。
+这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
 
@@ -2079,127 +2176,6 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker_network/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker默认的网络">docker默认的网络</h1>
-
-<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
-
-<h1 id="docker网络macvlan">Docker网络macvlan</h1>
-
-<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
-
-<h1 id="docker宿主网络">Docker宿主网络</h1>
-
-<p><a href="/post/docker-network-host/">宿主网络</a></p>
-
-<h1 id="docker覆盖网络">Docker覆盖网络</h1>
-
-<h1 id="宿主端口绑定">宿主端口绑定</h1>
-
-<p>绑定方式： -p</p>
-
-<p>绑定形式</p>
-
-<blockquote>
-<p>ip:hostPort:containerPort| ip::containerPort <br />
-  | hostPort:containerPort | containerPort</p>
-</blockquote>
-
-<p>containerPort必须指定</p>
-
-<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
-</code></pre>
-
-<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
-
-<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
-</code></pre>
-
-  </div>
   
 
   
