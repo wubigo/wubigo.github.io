@@ -33,6 +33,7 @@ git push
 # build static resource
 hugo -s back
 git status
+git addd .
 git commit -a -m "deploy:$MESSAGE"
 git push
 git status

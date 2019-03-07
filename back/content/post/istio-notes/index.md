@@ -53,7 +53,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 # 精简安装
 
 ```
-helm install install/kubernetes/helm/istio --name istio-minimal --namespace istio-system \
+helm install -v install/kubernetes/helm/istio --name istio --namespace istio-system \
   --set security.enabled=false \
   --set ingress.enabled=false \
   --set gateways.istio-ingressgateway.enabled=false \
@@ -63,7 +63,9 @@ helm install install/kubernetes/helm/istio --name istio-minimal --namespace isti
   --set mixer.enabled=false \
   --set prometheus.enabled=false \
   --set global.proxy.envoyStatsd.enabled=false \
-  --set pilot.sidecar=false
+  --set pilot.sidecar=false \
+  --set gateways.istio-ingressgateway.type=NodePort \
+  --set gateways.istio-egressgateway.type=NodePort
 ```
 
 Ensure the istio-pilot-* Kubernetes pod is deployed and its container is up and running:
@@ -79,3 +81,5 @@ helm delete --purge istio
 kubectl -n istio-system delete job --all
 kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
 ```
+
+https://istio.io/docs/concepts/traffic-management/
