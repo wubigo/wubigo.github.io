@@ -5,7 +5,7 @@
     <link>https://wubigo.com/tags/k8s/</link>
     <description>Recent content in K8S on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 04 Mar 2019 11:13:20 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
@@ -67,6 +67,18 @@ CNI 网桥
 some only works on 1.13
 kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
  get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.</description>
+    </item>
+    
+    <item>
+      <title>微服务安全：认证，授权和审计(AAA)</title>
+      <link>https://wubigo.com/post/microservice-security-aaa/</link>
+      <pubDate>Sat, 01 Dec 2018 08:01:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservice-security-aaa/</guid>
+      <description>微服务安全要点  通信链路加密 灵活的服务访问控制，包括细粒度访问策略 访问日志审计 服务提供方可替代性(batteries included)和可集成性  基本概念  安全标识  在K8S，安全标识(service account)代表一个用户，一个服务或一组服务。
+ 安全命名  安全命名定义可运行服务的安全标识
+微服务认证  传输层认证 终端用户认证  每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。
+https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</description>
     </item>
     
     <item>

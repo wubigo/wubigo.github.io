@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en-us">
 <head>
 
   <meta charset="utf-8">
@@ -31,7 +31,7 @@
   <meta name="description" content="准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.">
 
   
-  <link rel="alternate" hreflang="zh-Hans" href="https://wubigo.com/post/istio-notes/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/istio-notes/">
 
   
 
@@ -138,7 +138,7 @@
   <meta property="og:url" content="https://wubigo.com/post/istio-notes/">
   <meta property="og:title" content="Istio Notes | 为人民服务">
   <meta property="og:description" content="准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
-  <meta property="og:locale" content="zh-Hans">
+  <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-04T16:38:38&#43;08:00">
   
@@ -159,7 +159,7 @@
 
       <div class="row no-gutters justify-content-between mb-3">
         <div class="col-6">
-          <h1>搜索</h1>
+          <h1>Search</h1>
         </div>
         <div class="col-6 col-search-close">
           <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
@@ -168,7 +168,7 @@
 
       <div id="search-box">
         
-        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
         autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
         
       </div>
@@ -192,7 +192,7 @@
       <a class="navbar-brand" href="/">为人民服务</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
-              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span><i class="fas fa-bars"></i></span>
       </button>
       
@@ -398,7 +398,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    1 min read
   </span>
   
 
@@ -519,7 +519,7 @@ Istio by default uses LoadBalancer service object types. Some platforms do not s
 
 </code></pre>
 
-<p>helm install install/kubernetes/helm/istio &ndash;name istio-minimal &ndash;namespace istio-system <br />
+<p>helm install -v install/kubernetes/helm/istio &ndash;name istio &ndash;namespace istio-system <br />
   &ndash;set security.enabled=false <br />
   &ndash;set ingress.enabled=false <br />
   &ndash;set gateways.istio-ingressgateway.enabled=false <br />
@@ -529,7 +529,9 @@ Istio by default uses LoadBalancer service object types. Some platforms do not s
   &ndash;set mixer.enabled=false <br />
   &ndash;set prometheus.enabled=false <br />
   &ndash;set global.proxy.envoyStatsd.enabled=false <br />
-  &ndash;set pilot.sidecar=false</p>
+  &ndash;set pilot.sidecar=false <br />
+  &ndash;set gateways.istio-ingressgateway.type=NodePort <br />
+  &ndash;set gateways.istio-egressgateway.type=NodePort</p>
 
 <pre><code>
 Ensure the istio-pilot-* Kubernetes pod is deployed and its container is up and running:
@@ -547,6 +549,8 @@ Ensure the istio-pilot-* Kubernetes pod is deployed and its container is up and 
 kubectl -n istio-system delete job &ndash;all
 kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
 ```</p>
+
+<p><a href="https://istio.io/docs/concepts/traffic-management/" target="_blank">https://istio.io/docs/concepts/traffic-management/</a></p>
 
     </div>
 
@@ -651,7 +655,7 @@ kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-sys
       
       <div class="article-widget">
         <div class="hr-light"></div>
-        <h3>相关</h3>
+        <h3>Related</h3>
         <ul>
           
           <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
@@ -731,7 +735,7 @@ kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-sys
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">引用</h5>
+        <h5 class="modal-title">Cite</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -741,10 +745,10 @@ kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-sys
       </div>
       <div class="modal-footer">
         <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> 复制
+          <i class="fas fa-copy"></i> Copy
         </a>
         <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> 下载
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -795,15 +799,15 @@ kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-sys
     <script>
       const search_index_filename = "/index.json";
       const i18n = {
-        'placeholder': "搜索...",
-        'results': "搜索结果",
-        'no_results': "没有找到结果"
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
       };
       const content_type = {
-        'post': "文章",
-        'project': "项目",
-        'publication' : "出版物",
-        'talk' : "演讲"
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
         };
     </script>
     
