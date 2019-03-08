@@ -386,8 +386,7 @@
       
       无选择器服务 使用场景：
  通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
- 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  Creating sample user  Create Service Account  dashboard-adminuser.yaml
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kube-system   Create ClusterRoleBinding  asumming that cluster-admin exists(provisioned by kubeadmin or kops)
+ 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  kube-proxy mode kubectl get cm kube-proxy -n kube-system -o yaml &gt; kube-proxy.yaml sed -i s/mode:&quot;&quot;/mode:&quot;ipvs/ kube-proxy.yaml sec -i s/creationTimestamp:*// kube-proxy.yaml sed -i s/resourceVersion: &quot;*&quot;// kube-proxy.
       
     </div>
   </div>

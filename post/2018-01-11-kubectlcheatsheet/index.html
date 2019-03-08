@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out bigo.crt -days 500 kubectl config set-credentials bigo --client-certificate=./bigo.crt --client-key=./bigo.key kubectl config set-context bigo-context --cluster=kubernetes --namespace=bigo-NS --user=bigo kubectl config get-contexts ... CURRENT NAME CLUSTER AUTHINFO NAMESPACE bigo-context kubernetes bigo bigo * kubernetes-admin@kubernetes kubernetes kubernetes-admin .">
+  <meta name="description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/">
@@ -136,7 +136,7 @@
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/">
   <meta property="og:title" content="kubectl cheat sheet | 为人民服务">
-  <meta property="og:description" content="enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out bigo.crt -days 500 kubectl config set-credentials bigo --client-certificate=./bigo.crt --client-key=./bigo.key kubectl config set-context bigo-context --cluster=kubernetes --namespace=bigo-NS --user=bigo kubectl config get-contexts ... CURRENT NAME CLUSTER AUTHINFO NAMESPACE bigo-context kubernetes bigo bigo * kubernetes-admin@kubernetes kubernetes kubernetes-admin ."><meta property="og:image" content="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/featured.jpg">
+  <meta property="og:description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo."><meta property="og:image" content="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/featured.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-01-11T00:00:00&#43;00:00">
@@ -605,6 +605,28 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="set-namespace-preference">Set namespace preference</h1>
+
+<pre><code>kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;
+</code></pre>
+
+<h1 id="watch-pod">watch pod</h1>
+
+<pre><code>kubectl get pods pod1 --watch
+</code></pre>
+
+<h1 id="check-performance">Check Performance</h1>
+
+<pre><code>kubectl top node
+kubectl top pod
+</code></pre>
+
+<h1 id="copy-file-between-pod-and-local">copy file between pod and local</h1>
+
+<pre><code>kubectl cp  ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/
+kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/
+</code></pre>
 
 <h1 id="enable-rbac">enable RBAC</h1>
 
