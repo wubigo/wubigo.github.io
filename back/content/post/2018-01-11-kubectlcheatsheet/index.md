@@ -5,6 +5,32 @@ date: 2018-01-11
 tags: ["K8S"]
 ---
 
+# Set namespace preference
+
+```
+kubectl config set-context $(kubectl config current-context) --namespace=<bigo>
+```
+
+# watch pod
+
+```
+kubectl get pods pod1 --watch
+```
+
+# Check Performance
+
+```
+kubectl top node
+kubectl top pod
+```
+
+# copy file between pod and local
+
+```
+kubectl cp  ~/f1 <namespace>/<pod-name>:/tmp/
+kubectl cp <namespace>/<pod-name>:/tmp/ ~/
+```
+
 # enable RBAC
 ```
  kube-apiserver
