@@ -1,5 +1,5 @@
 +++
-title = "Data Wareshouse"
+title = "数据仓库"
 date = 2015-03-11T10:18:35+08:00
 draft = false
 
@@ -47,6 +47,13 @@ When to use|When dimension tables store a relatively small number of rows, space
 Foreign Key Joins|Fewer Joins	|Higher number of joins
 Data warehouse system|	Work best in any data warehouse/data mart	|Better for small data warehouse/ data mart
 
+
+# ETL工具
+
+Vendor|ETL Product|Strengths|Weaknesses
+:---|:---|:---|:---
+Informatica |Data Integration Platform| Highly rated by analystsExtensive product portfolio|Reputation for high prices Overlapping products
+![](./etl-tools.png)
 
 # 基本概念
 
