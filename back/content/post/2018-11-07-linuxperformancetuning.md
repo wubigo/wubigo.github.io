@@ -6,7 +6,11 @@ tags: ["LINUX"]
 ---
 
 
+# putting /tmp on tmpfs
 
+https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
+
+# Interrupt Coalescence
 ubuntu 16 default
 
 Interrupt Coalescence (IC)
