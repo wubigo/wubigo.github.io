@@ -221,7 +221,7 @@ sed -i -e "s/# etcd-key: null/etcd-key: $KEY/g" calico.yaml
 
 
 https://blog.scottlowe.org/2018/08/21/bootstrapping-etcd-cluster-with-tls-using-kubeadm/
- 
+https://github.com/kelseyhightower/standalone-kubelet-tutorial 
 
 
 

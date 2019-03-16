@@ -35,6 +35,7 @@ weight = 60
 {{% alert note %}}
 
 *virtual-kubelet*
+*standalone-kubelet*
 
 either use Red Hat's fork of docker with the '--add-registry' flag or you can build docker from source with registry/config.go modified to use hard-coded default registry namespace/index
 
