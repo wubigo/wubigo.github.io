@@ -40,25 +40,25 @@ categories = ["IT"]
 ![kubeadm maturity](/img/post/kubeadm_maturiy.png)
 
 
-# build K8S
+# build k8s
 * docker v17.03
 
 ```
 sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
 docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 K8S.gcr.io/kube-apiserver-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
-docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 K8S.gcr.io/kube-controller-manager-amd64:v1.11.7
+docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 K8S.gcr.io/kube-scheduler-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7
 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7
-docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 K8S.gcr.io/kube-proxy-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7
 docker pull mirrorgooglecontainers/pause:3.1
-docker tag mirrorgooglecontainers/pause:3.1 K8S.gcr.io/pause:3.1
+docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18
-docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 K8S.gcr.io/etcd-amd64:3.2.18
+docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18
 docker pull coredns/coredns:1.1.3
-docker tag coredns/coredns:1.1.3 K8S.gcr.io/coredns:1.1.3
+docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
 
 
 ```
@@ -75,7 +75,7 @@ cp $GOPATH/bin/cri* /usr/local/bin/
 
 * checkout v1.11.7
 ```
-git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/K8S.io/
+git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
 git fetch --all
 git checkout tags/v1.11.7 -b v1.11.7
 ```
@@ -86,7 +86,7 @@ git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
 
 * LOCAL ETCD INTEGRATION 
 ```
-+++ source /home/bigo/go/src/K8S.io/kubernetes/hack/lib/etcd.sh
++++ source /home/bigo/go/src/k8s.io/kubernetes/hack/lib/etcd.sh
 ++++ ETCD_VERSION=3.2.24
 ++++ ETCD_HOST=127.0.0.1
 ++++  
@@ -103,7 +103,7 @@ git fetch upstream
 git tag|grep v1.11.7
 git checkout tags/v1.11.7 -b <branch_name>
 docker pull mirrorgooglecontainers/kube-cross:v1.10.7-1
-docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 K8S.gcr.io/kube-cross:v1.10.7-1
+docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.10.7-1
 ```
 
 ```
