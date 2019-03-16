@@ -1,11 +1,11 @@
 +++
 title = "K8s HA Setup With Kubeadm"
-date = 2019-03-16T13:23:32+08:00
+date = 2017-03-16T13:23:32+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
+tags = ["K8S"]
 categories = []
 
 # Featured image
@@ -144,3 +144,84 @@ journalctl -xeu kubelet
 docker pull mirrorgooglecontainers/etcd:3.2.24
 docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 ```
+- Check the cluster health
+
+```
+docker run --rm -it \
+--net host \
+-v /etc/kubernetes:/etc/kubernetes k8s.gcr.io/etcd:3.2.24 etcdctl \
+--cert-file /etc/kubernetes/pki/etcd/peer.crt \
+--key-file /etc/kubernetes/pki/etcd/peer.key \
+--ca-file /etc/kubernetes/pki/etcd/ca.crt \
+--endpoints https://${HOST0}:2379 cluster-health
+```
+
+
+# Set up the first control plane node
+
+- Copy the following files from any node from the etcd cluster
+
+```
+export CONTROL_PLANE="192.168.1.9"
+scp /etc/kubernetes/pki/etcd/ca.crt "${CONTROL_PLANE}":
+scp /etc/kubernetes/pki/apiserver-etcd-client.crt "${CONTROL_PLANE}":
+scp /etc/kubernetes/pki/apiserver-etcd-client.key "${CONTROL_PLANE}":
+```
+
+
+`kubeadm-config.yaml`
+
+```
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: stable
+apiServer:
+  certSANs:
+  - "192.168.1.9"
+controlPlaneEndpoint: "192.168.1.9:6443"
+etcd:
+    external:
+        endpoints:
+        - https://192.168.1.10:2379        
+        caFile: /etc/kubernetes/pki/etcd/ca.crt
+        certFile: /etc/kubernetes/pki/apiserver-etcd-client.crt
+        keyFile: /etc/kubernetes/pki/apiserver-etcd-client.key
+networking:
+  podSubnet: "10.2.0.0/16"
+```
+
+```
+kubeadm init --pod-network-cidr 10.2.0.0/16 --config kubeadm-config.yaml -v 4
+kubeadm init --config kubeadm-config.yaml -v 4
+```
+
+
+# setup CNI
+
+
+```
+ssh $ETCD
+
+curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml> calico.yaml
+# calico etcd setup
+sed -i -e "s/\(^etcd_endpoints: \"http.*$\)/etcd_endpoints: \"https:\/\/$VM:2379\"/g" calico.yaml 
+# etcd_ca: "/calico-secrets/etcd-ca"
+sed -i -e 's/etcd_ca: \"\"   \# \"\/calico-secrets/etcd-ca\"/etcd_ca: \"\/calico-secrets\/etcd-ca\"/g' calico.yaml
+sed -i -e 's/etcd_cert: \"\" # \"\/calico-secrets\/etcd-cert\"/etcd_cert: \"\/calico-secrets\/etcd-cert\"/g' calico.yaml
+sed -i -e 's/etcd_key: \"\"  # \"\/calico-secrets\/etcd-key\"/etcd_key: \"\/calico-secrets\/etcd-key\"/g' calico.yaml
+CA=$(cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0)
+CERT=$(cat /etc/kubernetes/pki/etcd/server.crt | base64 -w 0)
+KEY=$(sudo cat /etc/kubernetes/pki/etcd/server.key | base64 -w 0)
+sed -i -e "s/# etcd-ca: null/etcd-ca: $CA/g" calico.yaml
+sed -i -e "s/# etcd-cert: null/etcd-cert: $CERT/g" calico.yaml
+sed -i -e "s/# etcd-key: null/etcd-key: $KEY/g" calico.yaml
+```
+
+# join a node
+
+
+https://blog.scottlowe.org/2018/08/21/bootstrapping-etcd-cluster-with-tls-using-kubeadm/
+ 
+
+
+

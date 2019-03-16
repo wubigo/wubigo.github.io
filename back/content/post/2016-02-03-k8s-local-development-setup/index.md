@@ -241,15 +241,21 @@ ient.key member list
 *  [install docker v17.03](http://wubigo.com/2012/06/linux/#instll-docker-v1703)
 *  IPVS proxier
 [load IPVS mod](http://wubigo.com/2012/06/linux/#ipvs)
+* install  ebtables socat
+
 ```
 apt install ebtables socat
 ```
+
 * install kubelet service
 *  get token
+
 ```
 kubeadm token list
 ```
+
 * get token-ca-cert-hash
+
 ```
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //'
