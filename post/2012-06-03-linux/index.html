@@ -28,10 +28,8 @@
   
     
   
-  <meta name="description" content="enter password to unlock your keyring  seahorse  seahorse  选择login，右键删除
-TCP DUMP  capture all incoming IP traffic destined to the node except local traffic
- sudo tcpdump -i enp0s25 tcp -n sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24  终端窗口复制快捷键Ctrl-C  在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C 设置终端驱动快捷键  stty -a stty intr \^k stty -a   Ctrl-K to interrupt current command
- ctrl-c.">
+  <meta name="description" content="download manager sudo apt-get install uget uget-gtk  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2012-06-03-linux/">
@@ -140,10 +138,8 @@ TCP DUMP  capture all incoming IP traffic destined to the node except local traf
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/2012-06-03-linux/">
   <meta property="og:title" content="linux note | 为人民服务">
-  <meta property="og:description" content="enter password to unlock your keyring  seahorse  seahorse  选择login，右键删除
-TCP DUMP  capture all incoming IP traffic destined to the node except local traffic
- sudo tcpdump -i enp0s25 tcp -n sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24  终端窗口复制快捷键Ctrl-C  在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C 设置终端驱动快捷键  stty -a stty intr \^k stty -a   Ctrl-K to interrupt current command
- ctrl-c."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="download manager sudo apt-get install uget uget-gtk  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2012-06-03T19:39:03&#43;08:00">
@@ -499,7 +495,64 @@ TCP DUMP  capture all incoming IP traffic destined to the node except local traf
     <div class="article-style" itemprop="articleBody">
       
 
+<h1 id="download-manager">download manager</h1>
+
+<pre><code>sudo apt-get install uget
+uget-gtk
+</code></pre>
+
+<h1 id="enables-forwarding-of-the-authentication-agent-connection">Enables forwarding of the authentication agent connection</h1>
+
+<ul>
+<li>client config <code>.ssh/config</code></li>
+</ul>
+
+<pre><code>ForwardAgent  yes
+</code></pre>
+
+<ul>
+<li>Enable ssh-agent on main device</li>
+</ul>
+
+<p><code>.bashrc</code></p>
+
+<pre><code>SSH_ENV=&quot;$HOME/.ssh/environment&quot;
+
+function start_agent {
+    echo &quot;Initialising new SSH agent...&quot;
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot;
+    echo succeeded
+    chmod 600 &quot;${SSH_ENV}&quot;
+    . &quot;${SSH_ENV}&quot; &gt; /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f &quot;${SSH_ENV}&quot; ]; then
+    . &quot;${SSH_ENV}&quot; &gt; /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ &gt; /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
+</code></pre>
+
 <h1 id="enter-password-to-unlock-your-keyring">enter password to unlock your keyring</h1>
+
+<p>方法1
+- set password-store to basic</p>
+
+<pre><code>dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications
+</code></pre>
+
+<p>修改<code>.local/share/applications/google-chrome.desktop</code></p>
+
+<pre><code>Exec=/usr/bin/google-chrome-stable --password-store=basic %U
+</code></pre>
 
 <ul>
 <li>seahorse</li>

@@ -493,6 +493,363 @@
 
 
 
+<meta content="2017-03-17 06:44:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-17 06:44:46 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 17, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-private-registry/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-private-registry/" itemprop="url">K8s Private Registry</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
+ Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
+ {&ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 16, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/linux-ssh/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-ssh/" itemprop="url">Linux SSH</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    ssh client config ~/.ssh/config
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 16, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-ha-setup-with-kubeadm/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-ha-setup-with-kubeadm/" itemprop="url">K8s HA Setup With Kubeadm</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/reinstall-a-running-linux-system-via-ssh/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/reinstall-a-running-linux-system-via-ssh/" itemprop="url">通过SSH远程修复linux</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>tl;dr</p>
+
+<pre><code>uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso
+sudo mount -t tmpfs  tmpfs /takeover/
+sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd
+cp -rf /mnt/cd/* /takeover/
+curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &gt; busybox
+chmod u+x /takeover/busybox
+git clone https://github.com/marcan/takeover.sh.git
+gcc takeover.sh/fakeinit.c -o ./fakeinit
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="dateModified">
 
@@ -1633,6 +1990,93 @@ LANGUAGE=&quot;zh_CN:en_US:en&quot;
 
 
 
+<meta content="2017-02-17 08:24:25 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-17 08:24:25 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 17, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-logging/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-logging/" itemprop="url">Docker Logging</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
+ logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.json file
+The default logging driver is json-file.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-01-26 10:09:00 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-01-26 10:09:00 &#43;0800 CST" itemprop="dateModified">
 
@@ -1781,486 +2225,6 @@ LANGUAGE=&quot;zh_CN:en_US:en&quot;
     COOKIE &amp; HTTP SESSION H5 addition that adds a key/value store to browsers and cookies
 stateful session Some examples of scaling stateful sessions:
 Once you run multiple backend processes on a server: A Redis daemon (on that server) for session storage. Once you run on multiple servers: A dedicated server running Redis just for session storage. Once you run on multiple servers, in multiple clusters: Sticky sessions.  JWT session  Stateless JWT: A JWT token that contains the session data, encoded directly into the token.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-01-03-machinelearningbasic/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-03-machinelearningbasic/" itemprop="url">machine learning basic</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Early neural networks Although the core ideas of neural networks were investigated in toy forms as early as the 1950s, the approach took decades to really get started. For a long time, the missing piece was a lack of an efficient way to train large neural networks. This changed in the mid-1980s, as multiple people independently rediscovered the &ldquo;backpropagation&rdquo; algorithm, a way to train chains of parametric operations using gradient descent optimization (later in the book, we will go on to precisely define these concepts), and started applying it to neural networks.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-02-03-numpynotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-02-03-numpynotes/" itemprop="url">numpy notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="along-an-axis">along an axis</h1>
-
-<p>Axes are defined for arrays with more than one dimension. A 2-dimensional
-array has two corresponding axes: the first running vertically downwards
-across rows (axis 0), and the second running horizontally across columns (axis 1)</p>
-
-<pre><code>&gt;&gt;&gt;print np.arange(12)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-01-01-hacknewsfavorites2017/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
-
-<p>[]()</p>
-
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
-
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
-
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
-
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
-
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
-
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-01-01-discoursenotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="discourse-setup">discourse-setup</h1>
-
-<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
-
-<pre><code>$cp samples/standalone.yml containers/app.yml
-</code></pre>
-
-<p>Discourse app.yml AWS setup example</p>
-
-<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
-
-<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
-
-<p>fix these settings after bootstrapping, edit the /containers/app.yml
-  then rebuild to take effect</p>
-
-<pre><code>./launcher rebuild app
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2016-12-30-ghostnotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-12-30-ghostnotes/" itemprop="url">ghost notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Adding swap memory If your system has less than 1GB memory, you may run into errors. To overcome this, configure a larger amount of swap memory:
-dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap echo '/var/swap swap swap default 0 0' &gt;&gt; /etc/fstab  default-setting /var/www/ghost/versions/1.18.2/core/server/data/schema/default-settings.json  blog mail configuration using Amazon SES Ghost is a blogging platform written in nodejs. Edit the config.js file at the ghost root directory
   </div>
   
 
