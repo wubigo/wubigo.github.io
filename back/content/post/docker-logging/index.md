@@ -1,5 +1,5 @@
 +++
-title = "Docker Logging"
+title = "Docker日志"
 date = 2017-02-17T08:24:25+08:00
 draft = false
 
@@ -20,6 +20,8 @@ categories = []
 +++
 
 >Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
+
+**The `docker logs` command is not available for drivers other than json-file and journald.**
 
 
 # logging driver
@@ -45,3 +47,17 @@ The default logging driver is json-file. Thus, the default output for commands s
 ```
 docker info --format '{{.LoggingDriver}}'
 ```
+
+
+# Supported logging drivers
+
+Driver |	Description
+:---|:---
+none |	No logs are available for the container and docker logs does not return any output.
+json-file| 	The logs are formatted as JSON. The default logging driver for Docker.
+local| 	Writes logs messages to local filesystem in binary files using Protobuf.
+syslog| 	Writes logging messages to the syslog facility. The syslog daemon must be running on the host machine.
+journald| 	Writes log messages to journald. The journald daemon must be running on the host machine.
+gelf |	Writes log messages to a Graylog Extended Log Format (GELF) endpoint such as Graylog or Logstash.
+fluentd| 	Writes log messages to fluentd (forward input). The fluentd daemon must be running on the host machine.
+awslogs |	Writes log messages to Amazon CloudWatch Logs.
