@@ -48,6 +48,17 @@ The default logging driver is json-file. Thus, the default output for commands s
 docker info --format '{{.LoggingDriver}}'
 ```
 
+# json-file
+
+the default location
+
+`/var/lib/docker/containers/<INSTANCE_ID>/<INSTANCE_ID>-json.log`
+
+or  check log location via
+
+```
+docker inspect --format='{{.LogPath}}' $INSTANCE_ID
+```
 
 # Supported logging drivers
 
@@ -61,3 +72,4 @@ journald| 	Writes log messages to journald. The journald daemon must be running 
 gelf |	Writes log messages to a Graylog Extended Log Format (GELF) endpoint such as Graylog or Logstash.
 fluentd| 	Writes log messages to fluentd (forward input). The fluentd daemon must be running on the host machine.
 awslogs |	Writes log messages to Amazon CloudWatch Logs.
+

@@ -317,7 +317,7 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 
 creates a Deployment object and an associated ReplicaSet object with 2 pods
 ```
-kubectl run nginx1-14 --replicas=2 --labels="run=nginx1.14" --image=nginx:1.14-alpine  --port=80
+kubectl run nginx1-14 --generator=run-pod/v1 --labels="run=nginx1.14" --image=nginx:1.14-alpine  --port=80
 POD_IP=$(kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 1)
 curl $POD_IP
 kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
