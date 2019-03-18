@@ -322,9 +322,11 @@ spec:
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
+      restartPolicy: Never
       containers:
       - name: fluentd
         image: fluent/fluentd-kubernetes-daemonset:v0.12-debian-elasticsearch
+        command: ["/fluentd/entrypoint.sh"]
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "elasticsearch.kube-logging.svc.cluster.local"
@@ -357,6 +359,17 @@ spec:
 
 ```
 
+>tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+>
 
+```
+kubectl run fluent -it --image=fluent/fluentd-kubernetes-daemonset:v0.12-debian-elasticsearch --restart=Never
+
+Error attaching, falling back to logs: 
+standard_init_linux.go:207: exec user process caused "no such file or directory"
+pod default/fluent terminated (Error)
+```
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes

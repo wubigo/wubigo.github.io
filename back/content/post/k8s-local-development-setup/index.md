@@ -338,7 +338,7 @@ RUN apk add --no-cache curl
 CMD ["sh"]
 docker build .
 docker tag curl-alpine:1.0
-kubectl run curl -it --image=curl-alpine:1.0 --restart=Neve sh
+kubectl run curl -it --image=curl-alpine:1.0 --restart=Never sh
 ```
 
 
