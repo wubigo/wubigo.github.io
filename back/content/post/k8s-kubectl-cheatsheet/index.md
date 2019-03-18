@@ -136,8 +136,9 @@ helm install --name prometheus1  stable/prometheus --set server.persistentVolume
       name: prometheus880
 ```
 
-# PVC  using local PV
+# PVC using local PV
 - create PVC
+
 ```
 cat storage-class-hdd.yaml 
 apiVersion: storage.K8S.io/v1
@@ -150,6 +151,7 @@ volumeBindingMode: WaitForFirstConsumer
 >kubectl apply -f  storage-class-hdd.yaml
 
 - create local PV
+
 ```
 cat local_volume.yaml
 apiVersion: v1
@@ -175,6 +177,7 @@ spec:
           values:
           - bigo-vm4
 ```
+
 >kubectl apply -f local_volume.yaml
 
 PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
