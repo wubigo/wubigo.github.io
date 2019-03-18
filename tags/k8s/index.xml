@@ -195,6 +195,18 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     </item>
     
     <item>
+      <title>K8s Helm Setup</title>
+      <link>https://wubigo.com/post/k8s-helm-setup/</link>
+      <pubDate>Sat, 18 Mar 2017 17:12:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-helm-setup/</guid>
+      <description>Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
+ Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
+ Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or ``` cat tiller-clusterrolebinding.</description>
+    </item>
+    
+    <item>
       <title>K8s Private Registry</title>
       <link>https://wubigo.com/post/k8s-private-registry/</link>
       <pubDate>Fri, 17 Mar 2017 06:44:46 +0800</pubDate>
