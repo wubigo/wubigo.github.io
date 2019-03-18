@@ -325,8 +325,7 @@ spec:
       restartPolicy: Never
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v0.12-debian-elasticsearch
-        command: ["/fluentd/entrypoint.sh"]
+        image: fluent/fluentd-kubernetes-daemonset:v1.3.3-debian-elasticsearch-1.3        
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "elasticsearch.kube-logging.svc.cluster.local"

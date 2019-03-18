@@ -16,7 +16,7 @@ EXPOSE 44134
 USER 65534
 ENTRYPOINT ["/tiller"]
 ```
-> docker push registry.cn-beijing.aliyuncs.com/co1/tiller:v2.12.3
+> docker push registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3
 
 # util
 

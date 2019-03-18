@@ -115,6 +115,8 @@ roleRef:
   name: cluster-admin
   apiGroup: ""
 
+docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3
+
 kubectl create -f tiller-clusterrolebinding.yaml
 # Update the existing tiller-deploy deployment with the Service Account
 helm init --service-account tiller --upgrade
