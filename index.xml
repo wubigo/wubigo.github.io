@@ -6,8 +6,153 @@
     <description>Recent content in 为人民服务 on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Mar 2019 11:13:20 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2019 14:49:10 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>K8s Pod Command Override</title>
+      <link>https://wubigo.com/post/k8s-pod-command-override/</link>
+      <pubDate>Mon, 18 Mar 2019 14:49:10 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-pod-command-override/</guid>
+      <description>
+
+&lt;p&gt;K8S POD Command Override OCR&lt;/p&gt;
+
+&lt;h1 id=&#34;docker-entrypoint-vs-k8s-command&#34;&gt;docker Entrypoint vs k8s command&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;docker&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;k8s&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;entry&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ENTRYPOINT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;command&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;arguments&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;CMD&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;args&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;k8s command and args override the default OCR Entrypoint and Cmd&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM alpine:3.8
+RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/*
+CMD [&amp;quot;--version&amp;quot;]
+ENTRYPOINT [&amp;quot;curl&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;cmd-override-pod.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: v1
+kind: Pod
+metadata:
+  name: command-override
+  labels:
+    purpose: override-command
+spec:
+  containers:
+  - name: command-override-container
+    image: bigo/curl:v1
+    command: [&amp;quot;curl&amp;quot;]
+    args: [&amp;quot;--help&amp;quot;]
+  restartPolicy: Never
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -it bigo/curl:v1
+curl 7.61.1 (x86_64-alpine-linux-musl) libcurl/7.61.1 LibreSSL/2.0.0 zlib/1.2.11 libssh2/1.8.0 nghttp2/1.32.0
+Release-Date: 2018-09-05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl apply -f cmd-override-pod.yaml
+kubectl logs command-override
+
+Usage: curl [options...] &amp;lt;url&amp;gt;
+     --abstract-unix-socket &amp;lt;path&amp;gt; Connect via abstract Unix domain socket
+     --anyauth       Pick any authentication method
+ -a, --append        Append to target file when uploading
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>K8s Logging</title>
+      <link>https://wubigo.com/post/k8s-logging/</link>
+      <pubDate>Sun, 17 Mar 2019 10:25:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging/</guid>
+      <description>
+
+&lt;h1 id=&#34;node-level-logging&#34;&gt;Node-level Logging&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;System component logs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;RUN IN CONTAINER(Y/N)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Systemd(W/WO)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;LOGGER LOCATION&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;kubelet and container runtime&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;W/O&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;/var/log&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;kubelet and container runtime&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;W&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;journald&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;scheduler&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;/var/log&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;kube-proxy&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;/var/log&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;cluster-level-logging&#34;&gt;Cluster-level logging&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use a node-level logging agent that runs on every node.&lt;/li&gt;
+&lt;li&gt;Include a dedicated sidecar container for logging in an application pod.&lt;/li&gt;
+&lt;li&gt;Push logs directly to a backend from within an application&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>K8S CORE DEVELOPMENT</title>
@@ -741,105 +886,6 @@ network provider. At this point in time, networking is not boring in Kubernetes.
 day! Monitor test and monitor more.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://chrislovecnm.com/kubernetes/cni/choosing-a-cni-provider/&#34; target=&#34;_blank&#34;&gt;https://chrislovecnm.com/kubernetes/cni/choosing-a-cni-provider/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>build tensorflow 1.12</title>
-      <link>https://wubigo.com/post/2018-11-08-buildtensorflow-1-12/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-11-08-buildtensorflow-1-12/</guid>
-      <description>
-
-&lt;p&gt;Note:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs
-  Have to build 1.6 or higher from source to run on older CPU&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Bazel 0.19.0 doesn&amp;rsquo;t read tools/bazel.rc anymore
-WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files:
-tensorflow-1.12.0/tools/bazel.rc&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot; --sandbox_debug &amp;gt; build.log 2&amp;gt;&amp;amp;1
-
-$bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-
-$pip install /tmp/tensorflow_pkg/tensorflow-&amp;lt;blah&amp;gt;.whl
-
-$python -c &#39;import tensorflow as tf; print(tf.__version__)&#39;
-
-$pip list | grep tensorflow
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;network-performance-monitoring&#34;&gt;network-performance-monitoring&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/tensorflow/tensorflow/issues/23402&#34; target=&#34;_blank&#34;&gt;https://github.com/tensorflow/tensorflow/issues/23402&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Linux performance</title>
-      <link>https://wubigo.com/post/2018-11-07-linuxperformancetuning/</link>
-      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-11-07-linuxperformancetuning/</guid>
-      <description>
-
-&lt;h1 id=&#34;putting-tmp-on-tmpfs&#34;&gt;putting /tmp on tmpfs&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs&#34; target=&#34;_blank&#34;&gt;https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;interrupt-coalescence&#34;&gt;Interrupt Coalescence&lt;/h1&gt;
-
-&lt;p&gt;ubuntu 16 default&lt;/p&gt;
-
-&lt;p&gt;Interrupt Coalescence (IC)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ethtool -c enp0s25
-Coalesce parameters for enp0s25:
-Adaptive RX: off  TX: off
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pause frames&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ethtool -a enp0s25
-Pause parameters for enp0s25:
-Autonegotiate:	on
-RX:		on
-TX:		on
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;network&#34;&gt;network&lt;/h1&gt;
-
-&lt;p&gt;Tuning the network adapter (NIC)&lt;/p&gt;
-
-&lt;p&gt;use Jumbo frames&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ifconfig eth0 mtu 9000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ip result for a healthy system with no packet drops&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ip -s link show eth0
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;stop irqbalance for home user&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo systemctl disable/stop irqbalance
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;network-performance-monitoring&#34;&gt;network-performance-monitoring&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://opensourceforu.com/2016/10/network-performance-monitoring/&#34; target=&#34;_blank&#34;&gt;https://opensourceforu.com/2016/10/network-performance-monitoring/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;linux-network-tcp-performance-tuning-with-sysctl&#34;&gt;Linux Network (TCP) Performance Tuning with Sysctl&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl&#34; target=&#34;_blank&#34;&gt;https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

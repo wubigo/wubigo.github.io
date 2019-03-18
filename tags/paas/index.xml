@@ -13,13 +13,14 @@
     
     <item>
       <title>K8S notes</title>
-      <link>https://wubigo.com/post/2017-07-13-k8snotes/</link>
+      <link>https://wubigo.com/post/k8s-notes/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wubigo.com/post/2017-07-13-k8snotes/</guid>
-      <description>无选择器服务 使用场景：
- 通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
- 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  kube-proxy mode kubectl get cm kube-proxy -n kube-system -o yaml &amp;gt; kube-proxy.yaml sed -i s/mode:&amp;quot;&amp;quot;/mode:&amp;quot;ipvs/ kube-proxy.yaml sec -i s/creationTimestamp:*// kube-proxy.yaml sed -i s/resourceVersion: &amp;quot;*&amp;quot;// kube-proxy.</description>
+      <guid>https://wubigo.com/post/k8s-notes/</guid>
+      <description>docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
     </item>
     
     <item>

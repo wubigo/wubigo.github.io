@@ -28,11 +28,10 @@
   
     
   
-  <meta name="description" content=" setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
- install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  ">
+  <meta name="description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-monitor/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
 
   
 
@@ -121,7 +120,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/k8s-monitor/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
 
   
   
@@ -135,22 +134,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="为人民服务">
-  <meta property="og:url" content="https://wubigo.com/post/k8s-monitor/">
-  <meta property="og:title" content="K8S Monitor | 为人民服务">
-  <meta property="og:description" content=" setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
- install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  "><meta property="og:image" content="https://wubigo.com/post/k8s-monitor/featured.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
+  <meta property="og:title" content="kubectl cheat sheet | 为人民服务">
+  <meta property="og:description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo."><meta property="og:image" content="https://wubigo.com/post/k8s-kubectl-cheatsheet/featured.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-02-23T20:28:40&#43;08:00">
+  <meta property="article:published_time" content="2018-01-11T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2017-02-23T20:28:40&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-01-11T00:00:00&#43;00:00">
   
 
   
 
-  <title>K8S Monitor | 为人民服务</title>
+  
+
+  <title>kubectl cheat sheet | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -363,7 +361,7 @@
 
 
 <div class="article-header d-xl-none">
-  <div class="featured-image" style="background-image: url('/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_800x0_resize_lanczos_2.png');"></div>
+  <div class="featured-image" style="background-image: url('/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_800x0_resize_q90_lanczos.jpg');"></div>
   
 </div>
 
@@ -372,7 +370,7 @@
   <div class="row">
     <div class="col-6">
       <div class="split-header-content">
-        <h1 itemprop="name">K8S Monitor</h1>
+        <h1 itemprop="name">kubectl cheat sheet</h1>
 
         
 
@@ -380,8 +378,8 @@
 
 
 
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -394,7 +392,7 @@
     
       
     
-    <time>Feb 23, 2017</time>
+    <time>Jan 11, 2018</time>
   </span>
   
 
@@ -403,27 +401,16 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-monitor/#disqus_thread"></a>
+  <a href="/post/k8s-kubectl-cheatsheet/#disqus_thread"></a>
   
 
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
   
 
   
@@ -455,35 +442,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8S%20Monitor&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://twitter.com/intent/tweet?text=kubectl%20cheat%20sheet&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8S%20Monitor&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f">
+         href="mailto:?subject=kubectl%20cheat%20sheet&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -495,7 +482,7 @@
     </div>
     <div class="col-6">
       <div class="split-header-image">
-        <img src="/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        <img src="/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
         
       </div>
     </div>
@@ -503,7 +490,7 @@
 </div>
 
 <div class="article-container d-xl-none">
-  <h1 itemprop="name">K8S Monitor</h1>
+  <h1 itemprop="name">kubectl cheat sheet</h1>
 
   
 
@@ -511,8 +498,8 @@
 
 
 
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -525,7 +512,7 @@
     
       
     
-    <time>Feb 23, 2017</time>
+    <time>Jan 11, 2018</time>
   </span>
   
 
@@ -534,27 +521,16 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-monitor/#disqus_thread"></a>
+  <a href="/post/k8s-kubectl-cheatsheet/#disqus_thread"></a>
   
 
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
   
 
   
@@ -563,35 +539,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8S%20Monitor&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://twitter.com/intent/tweet?text=kubectl%20cheat%20sheet&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8S%20Monitor&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f">
+         href="mailto:?subject=kubectl%20cheat%20sheet&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -630,19 +606,210 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="setup-prometheus">setup prometheus</h1>
+<h1 id="set-namespace-preference">Set namespace preference</h1>
+
+<pre><code>kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;
+</code></pre>
+
+<h1 id="watch-pod">watch pod</h1>
+
+<pre><code>kubectl get pods pod1 --watch
+</code></pre>
+
+<h1 id="check-performance">Check Performance</h1>
+
+<pre><code>kubectl top node
+kubectl top pod
+</code></pre>
+
+<h1 id="copy-file-between-pod-and-local">copy file between pod and local</h1>
+
+<pre><code>kubectl cp  ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/
+kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/
+</code></pre>
+
+<h1 id="enable-rbac">enable RBAC</h1>
+
+<pre><code> kube-apiserver
+    - --authorization-mode=RBAC
+</code></pre>
+
+<h1 id="user-crud">User CRUD</h1>
+
+<pre><code>openssl genrsa -out bigo.key 2048
+openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot;
+sudo openssl x509 -req -in bigo.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out bigo.crt -days 500
+kubectl config set-credentials bigo --client-certificate=./bigo.crt --client-key=./bigo.key
+kubectl config set-context bigo-context --cluster=kubernetes --namespace=bigo-NS --user=bigo
+kubectl config get-contexts 
+...
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+          bigo-context                  kubernetes   bigo               bigo
+*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin
+...
+</code></pre>
+
+<h1 id="binding-role-to-user">binding role to user</h1>
+
+<pre><code>cat rolebinding-bigo-access.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.K8S.io/v1beta1
+metadata:
+  name: access-manager-binding
+  namespace: bigo-NS
+subjects:
+- kind: User
+  name: bigo
+  apiGroup: &quot;&quot;
+roleRef:
+  kind: Role
+  name: access-role
+  apiGroup: &quot;&quot;
+kubectl create -f rolebinding-bigo-access.yaml
+
+</code></pre>
+
+<h1 id="user-group-role-rolebind-rbac">USER, GROUP, ROLE , ROLEBIND, RBAC</h1>
 
 <ul>
-<li>prepare pv for prometheus</li>
+<li>list all users
+```
+kubectl config view
+&hellip;
+users:</li>
+<li>name: kubernetes-admin
+user:
+client-certificate-data: REDACTED
+client-key-data: REDACTED
+&hellip;
+```</li>
 </ul>
 
-<p><a href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc--using-local-pv" target="_blank">https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv</a></p>
+<h1 id="enable-helm-in-cluster">Enable Helm in cluster</h1>
 
 <ul>
-<li>install</li>
+<li><p>Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.</p></li>
+
+<li><p>Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.</p></li>
+
+<li><p>Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.</p>
+
+<pre><code>kubectl create serviceaccount tiller --namespace kube-system
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
+</code></pre>
+
+<p>or
+```
+cat tiller-clusterrolebinding.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.K8S.io/v1beta1
+metadata:
+name: tiller-clusterrolebinding
+subjects:</p></li>
+
+<li><p>kind: ServiceAccount
+name: tiller
+namespace: kube-system
+roleRef:
+kind: ClusterRole
+name: cluster-admin
+apiGroup: &ldquo;&rdquo;</p></li>
 </ul>
 
-<pre><code>helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false
+<p>kubectl create -f tiller-clusterrolebinding.yaml</p>
+
+<h1 id="update-the-existing-tiller-deploy-deployment-with-the-service-account">Update the existing tiller-deploy deployment with the Service Account</h1>
+
+<p>helm init &ndash;service-account tiller &ndash;upgrade</p>
+
+<pre><code>
+
+
+</code></pre>
+
+<p>helm install &ndash;name prometheus stable/prometheus</p>
+
+<p>helm install &ndash;name prometheus1  stable/prometheus &ndash;set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,</p>
+
+<pre><code>
+    alertmanager:
+      enabled: false
+      name: p-alertmanager
+    
+    server:
+      name: prometheus880
+</code></pre>
+
+<h1 id="pvc-using-local-pv">PVC using local PV</h1>
+
+<ul>
+<li>create PVC</li>
+</ul>
+
+<pre><code>cat storage-class-hdd.yaml 
+apiVersion: storage.K8S.io/v1
+kind: StorageClass
+metadata:
+ name: local-hdd
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+</code></pre>
+
+<blockquote>
+<p>kubectl apply -f  storage-class-hdd.yaml</p>
+</blockquote>
+
+<ul>
+<li>create local PV</li>
+</ul>
+
+<pre><code>cat local_volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-hdd
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-hdd
+  local:
+    path: /mnt/pv/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - bigo-vm4
+</code></pre>
+
+<blockquote>
+<p>kubectl apply -f local_volume.yaml</p>
+</blockquote>
+
+<p>PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.</p>
+
+<p>PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.</p>
+
+<p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
+
+<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on K8S</h1>
+
+<pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
+or
+kubectl port-forward pods/&lt;podname&gt; 9090:9090
+or
+kubectl port-forward deployment/prometheus  9090:9090
+or
+kubectl port-forward svc/prometheus  9090:9090
+or
+kubectl port-forward rs/prometheus  9090:9090
 </code></pre>
 
     </div>
@@ -653,8 +820,6 @@
 <div class="article-tags">
   
   <a class="badge badge-light" href="/tags/k8s/">K8S</a>
-  
-  <a class="badge badge-light" href="/tags/monitor/">MONITOR</a>
   
 </div>
 
@@ -753,13 +918,15 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/k8s_cni_l2_network_on_bare_metal/">K8SCNI之L2 网络实现</a></li>
+          <li><a href="/post/k8s-notes/">K8S notes</a></li>
           
-          <li><a href="/post/k8s-logging-efk/">K8s日志EFK</a></li>
+          <li><a href="/post/k8s-private-registry/">K8s Private Registry</a></li>
           
-          <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
+          <li><a href="/post/k8s-ha-setup-with-kubeadm/">K8s HA Setup With Kubeadm</a></li>
           
-          <li><a href="/post/k8s-local-development-setup/">K8S local development setup from source code</a></li>
+          <li><a href="/post/istio-notes/">Istio Notes</a></li>
+          
+          <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
           
         </ul>
       </div>

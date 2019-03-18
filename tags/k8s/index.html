@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-04T11:13:20&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-18T14:49:10&#43;08:00">
   
 
   
@@ -381,6 +381,28 @@
   
   
   <div>
+    <h2><a href="/post/k8s-pod-command-override/">K8s Pod Command Override</a></h2>
+    <div class="article-style">
+      
+      K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s-logging/">K8s Logging</a></h2>
+    <div class="article-style">
+      
+      Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    Cluster-level logging  Use a node-level logging agent that runs on every node. Include a dedicated sidecar container for logging in an application pod.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-core-development/">K8S CORE DEVELOPMENT</a></h2>
     <div class="article-style">
       
@@ -521,7 +543,7 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
   </div>
   
   <div>
-    <h2><a href="/post/2018-01-11-kubectlcheatsheet/">kubectl cheat sheet</a></h2>
+    <h2><a href="/post/k8s-kubectl-cheatsheet/">kubectl cheat sheet</a></h2>
     <div class="article-style">
       
       Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
@@ -530,12 +552,13 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
   </div>
   
   <div>
-    <h2><a href="/post/2017-07-13-k8snotes/">K8S notes</a></h2>
+    <h2><a href="/post/k8s-notes/">K8S notes</a></h2>
     <div class="article-style">
       
-      无选择器服务 使用场景：
- 通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
- 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  kube-proxy mode kubectl get cm kube-proxy -n kube-system -o yaml &gt; kube-proxy.yaml sed -i s/mode:&quot;&quot;/mode:&quot;ipvs/ kube-proxy.yaml sec -i s/creationTimestamp:*// kube-proxy.yaml sed -i s/resourceVersion: &quot;*&quot;// kube-proxy.
+      docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
       
     </div>
   </div>
@@ -577,34 +600,6 @@ sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo
       
        setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
  install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s_cni_l2_network_on_bare_metal/">K8SCNI之L2 网络实现</a></h2>
-    <div class="article-style">
-      
-       准备  搭建测试环境
-可以参考从源代码构件K8S开发环境
-  
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-network-basic/">K8S网络基础</a></h2>
-    <div class="article-style">
-      
-       K8S网络基础
-K8S简介 K8S是自动化部署和监控容器的容器编排和管理工具。各大云厂商和应用开发平台都提供基于K8S的容器服务。 如果觉得K8S托管服务不容易上手或者和本公司的业务场景不很匹配，现在也有很多工具帮助在自己的数据 中心或私有云平台搭建K8S运行环境。
- Minikube kops kubeadm  如果你想搭建一个测试环境，请参考
- 从K8S源代码构建容器集群(支持最新稳定版V1.13.3) 一个脚步部署K8S  Kubernetes主要构件:
- 主节点： 主要的功能包括管理工作节点集群，服务部署，服务发现，工作调度，负载均衡等。 工作节点： 应用负载执行单元。 服务规范： 无状态服务，有状态服务，守护进程服务，定时任务等。   K8S网络基础 K8S网络模型
- 每一个POD拥有独立的IP地址 任何两个POD之间都可以互相通信且不通过NAT 集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信  K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。
-K8S解决的网络问题：
- 容器间通信问题： 由POD和localhost通信解决
- POD间通信问题： 由CNI解决 POD和服务的通信问题： 由SERVICE解决 外部系统和SERVICE的通信问题： 由SERVICE解决  
       
     </div>
   </div>

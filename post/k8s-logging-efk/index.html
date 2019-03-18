@@ -28,11 +28,14 @@
   
     
   
-  <meta name="description" content=" setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
- install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  ">
+  <meta name="description" content="namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-monitor/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-logging-efk/">
 
   
 
@@ -121,36 +124,40 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/k8s-monitor/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-logging-efk/">
 
   
   
   
   
     
+    
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="为人民服务">
-  <meta property="og:url" content="https://wubigo.com/post/k8s-monitor/">
-  <meta property="og:title" content="K8S Monitor | 为人民服务">
-  <meta property="og:description" content=" setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
- install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  "><meta property="og:image" content="https://wubigo.com/post/k8s-monitor/featured.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-logging-efk/">
+  <meta property="og:title" content="K8s日志EFK | 为人民服务">
+  <meta property="og:description" content="namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-02-23T20:28:40&#43;08:00">
+  <meta property="article:published_time" content="2016-04-17T14:12:02&#43;08:00">
   
-  <meta property="article:modified_time" content="2017-02-23T20:28:40&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2016-04-17T14:12:02&#43;08:00">
   
 
   
 
-  <title>K8S Monitor | 为人民服务</title>
+  
+
+  <title>K8s日志EFK | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -361,27 +368,23 @@
 
 
 
-
-<div class="article-header d-xl-none">
-  <div class="featured-image" style="background-image: url('/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_800x0_resize_lanczos_2.png');"></div>
   
-</div>
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">K8s日志EFK</h1>
+
+  
+
+  
+    
 
 
-<div class="container-fluid split-header d-none d-xl-block">
-  <div class="row">
-    <div class="col-6">
-      <div class="split-header-content">
-        <h1 itemprop="name">K8S Monitor</h1>
 
-        
-
-        
-
-
-
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
+<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -394,7 +397,7 @@
     
       
     
-    <time>Feb 23, 2017</time>
+    <time>Apr 17, 2016</time>
   </span>
   
 
@@ -403,158 +406,16 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-monitor/#disqus_thread"></a>
+  <a href="/post/k8s-logging-efk/#disqus_thread"></a>
   
 
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-
-        
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-        
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8S%20Monitor&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
-         target="_blank" rel="noopener">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
-         target="_blank" rel="noopener">
-        <i class="fab fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=K8S%20Monitor&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="split-header-image">
-        <img src="/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="article-container d-xl-none">
-  <h1 itemprop="name">K8S Monitor</h1>
-
-  
-
-  
-
-
-
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-monitor/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
   
 
   
@@ -563,35 +424,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8S%20Monitor&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://twitter.com/intent/tweet?text=K8s%e6%97%a5%e5%bf%97EFK&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-logging-efk%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-logging-efk%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-logging-efk%2f&amp;title=K8s%e6%97%a5%e5%bf%97EFK"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f&amp;title=K8S%20Monitor"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-logging-efk%2f&amp;title=K8s%e6%97%a5%e5%bf%97EFK"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8S%20Monitor&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-monitor%2f">
+         href="mailto:?subject=K8s%e6%97%a5%e5%bf%97EFK&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-logging-efk%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -603,7 +464,7 @@
 
 </div>
 
-  
+    
 
 
 
@@ -621,6 +482,7 @@
 
 
 
+  
 </div>
 
 
@@ -630,20 +492,361 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="setup-prometheus">setup prometheus</h1>
-
 <ul>
-<li>prepare pv for prometheus</li>
+<li>namespace</li>
 </ul>
 
-<p><a href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc--using-local-pv" target="_blank">https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv</a></p>
+<p><code>kube-logging.yaml</code></p>
 
-<ul>
-<li>install</li>
-</ul>
-
-<pre><code>helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false
+<pre><code>kind: Namespace
+apiVersion: v1
+metadata:
+  name: kube-logging
 </code></pre>
+
+<ul>
+<li>headless service</li>
+</ul>
+
+<pre><code>kubectl create -f kube-logging.yaml
+</code></pre>
+
+<p><code>elasticsearch_svc.yaml</code></p>
+
+<pre><code>kind: Service
+apiVersion: v1
+metadata:
+  name: elasticsearch
+  namespace: kube-logging
+  labels:
+    app: elasticsearch
+spec:
+  selector:
+    app: elasticsearch
+  clusterIP: None
+  ports:
+    - port: 9200
+      name: rest
+    - port: 9300
+      name: inter-node
+</code></pre>
+
+<ul>
+<li>PROVISION local PV for EFK</li>
+</ul>
+
+<p><a href="/post/k8s-kubectl-cheatsheet#PVC-using-local-PV">local PV</a></p>
+
+<ul>
+<li>Creating the StatefulSet</li>
+</ul>
+
+<p><code>elasticsearch_statefulset.yaml</code></p>
+
+<pre><code>apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-cluster
+  namespace: kube-logging
+spec:
+  serviceName: elasticsearch
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.4.3
+        resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 100m
+        ports:
+        - containerPort: 9200
+          name: rest
+          protocol: TCP
+        - containerPort: 9300
+          name: inter-node
+          protocol: TCP
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+        env:
+          - name: cluster.name
+            value: k8s-logs
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: discovery.zen.ping.unicast.hosts
+            value: &quot;es-cluster-0.elasticsearch&quot;
+          - name: discovery.zen.minimum_master_nodes
+            value: &quot;1&quot;
+          - name: ES_JAVA_OPTS
+            value: &quot;-Xms512m -Xmx512m&quot;
+      initContainers:
+      - name: fix-permissions
+        image: busybox
+        command: [&quot;sh&quot;, &quot;-c&quot;, &quot;chown -R 1000:1000 /usr/share/elasticsearch/data&quot;]
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+      - name: increase-vm-max-map
+        image: busybox
+        command: [&quot;sysctl&quot;, &quot;-w&quot;, &quot;vm.max_map_count=262144&quot;]
+        securityContext:
+          privileged: true
+      - name: increase-fd-ulimit
+        image: busybox
+        command: [&quot;sh&quot;, &quot;-c&quot;, &quot;ulimit -n 65536&quot;]
+        securityContext:
+          privileged: true
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      labels:
+        app: elasticsearch
+    spec:
+      accessModes: [ &quot;ReadWriteOnce&quot; ]
+      storageClassName: local-hdd
+      resources:
+        requests:
+          storage: 10Gi    
+
+</code></pre>
+
+<p><strong>elasticsearch-<oss></strong>-oss suffix ensures the open-source version of Elasticsearch
+the default version(without suffix) containing X-Pack</p>
+
+<h1 id="check-elasticsearch-is-ready">check Elasticsearch is ready</h1>
+
+<pre><code>kubectl port-forward es-cluster-0 9200:9200 --namespace=kube-logging
+curl http://localhost:9200/_cluster/state?pretty | grep master_node
+...
+{
+  &quot;cluster_name&quot; : &quot;k8s-logs&quot;,
+  &quot;compressed_size_in_bytes&quot; : 230,
+  &quot;cluster_uuid&quot; : &quot;9dm998tzS-Ko45dGEOtnDQ&quot;,
+  &quot;version&quot; : 2,
+  &quot;state_uuid&quot; : &quot;oLlQU_qiT8iit4SYx9S1-g&quot;,
+  &quot;master_node&quot; : &quot;icsCEGzzRCmITCGzGbsSSg&quot;,
+  &quot;blocks&quot; : { },
+  &quot;nodes&quot; : {
+    &quot;icsCEGzzRCmITCGzGbsSSg&quot; : {
+      &quot;name&quot; : &quot;es-cluster-0&quot;,
+      &quot;ephemeral_id&quot; : &quot;PoResMCsTyG99qfK-U44_w&quot;,
+      &quot;transport_address&quot; : &quot;10.2.12.86:9300&quot;,
+      &quot;attributes&quot; : { }
+    }
+  },
+  &quot;metadata&quot; : {
+    &quot;cluster_uuid&quot; : &quot;9dm998tzS-Ko45dGEOtnDQ&quot;,
+    &quot;templates&quot; : { },
+    &quot;indices&quot; : { },
+    &quot;index-graveyard&quot; : {
+      &quot;tombstones&quot; : [ ]
+    }
+  },
+  &quot;routing_table&quot; : {
+    &quot;indices&quot; : { }
+  },
+  &quot;routing_nodes&quot; : {
+    &quot;unassigned&quot; : [ ],
+    &quot;nodes&quot; : {
+      &quot;icsCEGzzRCmITCGzGbsSSg&quot; : [ ]
+    }
+  },
+  &quot;restore&quot; : {
+    &quot;snapshots&quot; : [ ]
+  },
+  &quot;snapshots&quot; : {
+    &quot;snapshots&quot; : [ ]
+  },
+  &quot;snapshot_deletions&quot; : {
+    &quot;snapshot_deletions&quot; : [ ]
+  }
+}
+...
+</code></pre>
+
+<h1 id="deploy-kibana">Deploy Kibana</h1>
+
+<p><code>kibana.yaml</code></p>
+
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: kube-logging
+  labels:
+    app: kibana
+spec:
+  ports:
+  - port: 5601
+  selector:
+    app: kibana
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: kube-logging
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana-oss:6.4.3
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
+        env:
+          - name: ELASTICSEARCH_URL
+            value: http://elasticsearch:9200
+        ports:
+        - containerPort: 5601
+
+</code></pre>
+
+<h1 id="deploy-fluentd-daemonset">Deploy Fluentd DaemonSet</h1>
+
+<p><strong>DaemonSet is a Kubernetes workload type that runs a copy of a given Pod on each Node in the Kubernetes cluster</strong></p>
+
+<ul>
+<li>ServiceAccount</li>
+</ul>
+
+<p><code>fluentd.yaml</code></p>
+
+<pre><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluentd
+  namespace: kube-logging
+  labels:
+    app: fluentd
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+rules:
+- apiGroups:
+  - &quot;&quot;
+  resources:
+  - pods
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: fluentd
+roleRef:
+  kind: ClusterRole
+  name: fluentd
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: fluentd
+  namespace: kube-logging
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd
+  namespace: kube-logging
+  labels:
+    app: fluentd
+spec:
+  selector:
+    matchLabels:
+      app: fluentd
+  template:
+    metadata:
+      labels:
+        app: fluentd
+    spec:
+      serviceAccount: fluentd
+      serviceAccountName: fluentd
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      restartPolicy: Never
+      containers:
+      - name: fluentd
+        image: fluent/fluentd-kubernetes-daemonset:v0.12-debian-elasticsearch
+        command: [&quot;/fluentd/entrypoint.sh&quot;]
+        env:
+          - name:  FLUENT_ELASTICSEARCH_HOST
+            value: &quot;elasticsearch.kube-logging.svc.cluster.local&quot;
+          - name:  FLUENT_ELASTICSEARCH_PORT
+            value: &quot;9200&quot;
+          - name: FLUENT_ELASTICSEARCH_SCHEME
+            value: &quot;http&quot;
+          - name: FLUENT_UID
+            value: &quot;0&quot;
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+
+</code></pre>
+
+<blockquote>
+<p>tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule</p>
+</blockquote>
+
+<pre><code>kubectl run fluent -it --image=fluent/fluentd-kubernetes-daemonset:v0.12-debian-elasticsearch --restart=Never
+
+Error attaching, falling back to logs: 
+standard_init_linux.go:207: exec user process caused &quot;no such file or directory&quot;
+pod default/fluent terminated (Error)
+</code></pre>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes</a></p>
 
     </div>
 
@@ -654,7 +857,7 @@
   
   <a class="badge badge-light" href="/tags/k8s/">K8S</a>
   
-  <a class="badge badge-light" href="/tags/monitor/">MONITOR</a>
+  <a class="badge badge-light" href="/tags/efk/">EFK</a>
   
 </div>
 
@@ -752,10 +955,6 @@
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
-          <li><a href="/post/k8s_cni_l2_network_on_bare_metal/">K8SCNI之L2 网络实现</a></li>
-          
-          <li><a href="/post/k8s-logging-efk/">K8s日志EFK</a></li>
           
           <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
           

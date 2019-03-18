@@ -6,10 +6,32 @@
     <description>Recent content in Posts on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Mar 2019 11:13:20 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2019 14:49:10 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>K8s Pod Command Override</title>
+      <link>https://wubigo.com/post/k8s-pod-command-override/</link>
+      <pubDate>Mon, 18 Mar 2019 14:49:10 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-pod-command-override/</guid>
+      <description>K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
+    </item>
+    
+    <item>
+      <title>K8s Logging</title>
+      <link>https://wubigo.com/post/k8s-logging/</link>
+      <pubDate>Sun, 17 Mar 2019 10:25:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging/</guid>
+      <description>Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    Cluster-level logging  Use a node-level logging agent that runs on every node. Include a dedicated sidecar container for logging in an application pod.</description>
+    </item>
     
     <item>
       <title>K8S CORE DEVELOPMENT</title>
@@ -409,10 +431,10 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     
     <item>
       <title>kubectl cheat sheet</title>
-      <link>https://wubigo.com/post/2018-01-11-kubectlcheatsheet/</link>
+      <link>https://wubigo.com/post/k8s-kubectl-cheatsheet/</link>
       <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://wubigo.com/post/2018-01-11-kubectlcheatsheet/</guid>
+      <guid>https://wubigo.com/post/k8s-kubectl-cheatsheet/</guid>
       <description>Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&amp;lt;bigo&amp;gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &amp;lt;namespace&amp;gt;/&amp;lt;pod-name&amp;gt;:/tmp/ kubectl cp &amp;lt;namespace&amp;gt;/&amp;lt;pod-name&amp;gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &amp;quot;/CN=wubigo/O=bigo LLC&amp;quot; sudo openssl x509 -req -in bigo.</description>
     </item>
     
@@ -500,13 +522,14 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
     
     <item>
       <title>K8S notes</title>
-      <link>https://wubigo.com/post/2017-07-13-k8snotes/</link>
+      <link>https://wubigo.com/post/k8s-notes/</link>
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wubigo.com/post/2017-07-13-k8snotes/</guid>
-      <description>无选择器服务 使用场景：
- 通过SERVICE连接到外部服务 连接到另一个名字空间或集群 迁移过程中访问遗留系统  步骤
- 创建服务  kind: Service apiVersion: v1 metadata: name: ext-db spec: ports: - protocol: TCP port: 80 targetPort: 3316   手动创建一个端点  kind: Endpoints apiVersion: v1 metadata: name: my-service subsets: - addresses: - ip: 10.8.0.2 ports: - port: 3316  kube-proxy mode kubectl get cm kube-proxy -n kube-system -o yaml &amp;gt; kube-proxy.yaml sed -i s/mode:&amp;quot;&amp;quot;/mode:&amp;quot;ipvs/ kube-proxy.yaml sec -i s/creationTimestamp:*// kube-proxy.yaml sed -i s/resourceVersion: &amp;quot;*&amp;quot;// kube-proxy.</description>
+      <guid>https://wubigo.com/post/k8s-notes/</guid>
+      <description>docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
     </item>
     
     <item>
@@ -821,6 +844,19 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 A comparison of state-of-the-art graph processing systems https://code.facebook.com/posts/319004238457019/a-comparison-of-state-of-the-art-graph-processing-systems/
 Linkedin graph database https://engineering.linkedin.com/teams/data/projects/search-and-discovery https://engineering.linkedin.com/teams/data
 Why I left Apache Spark GraphX and returned to HBase for my graph database https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/</description>
+    </item>
+    
+    <item>
+      <title>K8s日志EFK</title>
+      <link>https://wubigo.com/post/k8s-logging-efk/</link>
+      <pubDate>Sun, 17 Apr 2016 14:12:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
+      <description>namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
     </item>
     
     <item>
