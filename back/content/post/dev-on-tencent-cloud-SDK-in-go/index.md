@@ -1,5 +1,5 @@
 +++
-title = "通过SDK驾驭腾讯公有云"
+title = "通过SDK操纵公有云"
 date = 2019-03-03T20:24:49+08:00
 draft = false
 
