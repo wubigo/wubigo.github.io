@@ -138,7 +138,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   
   <meta property="og:site_name" content="为人民服务">
   <meta property="og:url" content="https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/">
-  <meta property="og:title" content="通过SDK驾驭腾讯公有云 | 为人民服务">
+  <meta property="og:title" content="通过SDK操纵公有云 | 为人民服务">
   <meta property="og:description" content="基于腾讯云Go SDK开发
 下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  为集群准备CVM 从本地开发集群K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
 secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;) credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;) client, _ := cvm.NewClient(credential, regions.Beijing)  request := cvm.NewAllocateHostsRequest() request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;)) response, err := client.AllocateHosts(request)  通过ANSIBLE在CVM搭建K8S集群 Ansible.Hosts().Get(response.ToJsonString())  调用ANSIBLE开始在CVM部署K8S集群"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
 
   
 
-  <title>通过SDK驾驭腾讯公有云 | 为人民服务</title>
+  <title>通过SDK操纵公有云 | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -370,7 +370,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">通过SDK驾驭腾讯公有云</h1>
+  <h1 itemprop="name">通过SDK操纵公有云</h1>
 
   
 
@@ -420,7 +420,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e9%80%9a%e8%bf%87SDK%e9%a9%be%e9%a9%ad%e8%85%be%e8%ae%af%e5%85%ac%e6%9c%89%e4%ba%91&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f"
+         href="https://twitter.com/intent/tweet?text=%e9%80%9a%e8%bf%87SDK%e6%93%8d%e7%ba%b5%e5%85%ac%e6%9c%89%e4%ba%91&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -434,21 +434,21 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f&amp;title=%e9%80%9a%e8%bf%87SDK%e9%a9%be%e9%a9%ad%e8%85%be%e8%ae%af%e5%85%ac%e6%9c%89%e4%ba%91"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f&amp;title=%e9%80%9a%e8%bf%87SDK%e6%93%8d%e7%ba%b5%e5%85%ac%e6%9c%89%e4%ba%91"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f&amp;title=%e9%80%9a%e8%bf%87SDK%e9%a9%be%e9%a9%ad%e8%85%be%e8%ae%af%e5%85%ac%e6%9c%89%e4%ba%91"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f&amp;title=%e9%80%9a%e8%bf%87SDK%e6%93%8d%e7%ba%b5%e5%85%ac%e6%9c%89%e4%ba%91"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e9%80%9a%e8%bf%87SDK%e9%a9%be%e9%a9%ad%e8%85%be%e8%ae%af%e5%85%ac%e6%9c%89%e4%ba%91&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f">
+         href="mailto:?subject=%e9%80%9a%e8%bf%87SDK%e6%93%8d%e7%ba%b5%e5%85%ac%e6%9c%89%e4%ba%91&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdev-on-tencent-cloud-sdk-in-go%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
