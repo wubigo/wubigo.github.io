@@ -253,6 +253,12 @@ spec:
 
 ```
 
+- 检查kibana
+
+```
+kubectl port-forward svc/kibana 5601:5601 -n kube-logging
+curl http://localhost:5601
+```
 
 # Deploy Fluentd DaemonSet
 
