@@ -548,6 +548,92 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 
 
 
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-openshift/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-openshift/" itemprop="url">K8s Openshift</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2256,94 +2342,6 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 13, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
-Dockerfile
-FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
-apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
   </div>
   
 

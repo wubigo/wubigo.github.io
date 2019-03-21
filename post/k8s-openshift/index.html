@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/paas/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-openshift/">
 
   
 
@@ -114,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/paas/index.xml" type="application/rss+xml" title="为人民服务">
-  <link rel="feed" href="https://wubigo.com/tags/paas/index.xml" type="application/rss+xml" title="为人民服务">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="为人民服务">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="为人民服务">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/paas/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-openshift/">
 
   
   
@@ -137,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="为人民服务">
-  <meta property="og:url" content="https://wubigo.com/tags/paas/">
-  <meta property="og:title" content="PAAS | 为人民服务">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-openshift/">
+  <meta property="og:title" content="K8s Openshift | 为人民服务">
+  <meta property="og:description" content="openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-03-20T18:47:37&#43;08:00">
+  <meta property="article:published_time" content="2018-03-20T18:47:37&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-03-20T18:47:37&#43;08:00">
   
 
   
 
   
 
-  <title>PAAS | 为人民服务</title>
+  <title>K8s Openshift | 为人民服务</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -345,7 +347,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -362,59 +366,320 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">K8s Openshift</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">PAAS</h1>
+
+
+
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-openshift/#disqus_thread"></a>
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=K8s%20Openshift&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-openshift%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-openshift%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-openshift%2f&amp;title=K8s%20Openshift"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-openshift%2f&amp;title=K8s%20Openshift"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=K8s%20Openshift&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-openshift%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/k8s-openshift/">K8s Openshift</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
-identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-notes/">K8S notes</a></h2>
-    <div class="article-style">
-      
-      docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
-Dockerfile
-FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
-apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-local-development-setup/">K8S local development setup from source code</a></h2>
-    <div class="article-style">
-      
-      Setup a local development environment from source code with kubeadm
-      
-    </div>
-  </div>
-  
 
-  
+<h1 id="openshift-all-in-one">openshift all-in-one</h1>
 
+<pre><code>curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
+tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
+cd openshift
+export PATH=&quot;$(pwd)&quot;:$PATH
+sudo ./openshift start
+</code></pre>
+
+<h1 id="oc-setup">oc setup</h1>
+
+<pre><code>export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig
+export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt
+sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig
+openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh
+
+</code></pre>
+
+<h1 id="master-and-node-configuration-after-installation">master and node configuration after installation</h1>
+
+<p><code>/etc/origin/master/master-config.yaml</code></p>
+
+<pre><code>identityProviders:
+  - name: my_allow_provider 
+    challenge: true 
+    login: true 
+    provider:
+      apiVersion: v1
+      kind: AllowAllPasswordIdentityProvider
+corsAllowedOrigins
+</code></pre>
+
+<h1 id="identity-providers">Identity Providers</h1>
+
+<p>The OpenShift master includes a built-in OAuth server
+the Deny All identity provider is used by default, which denies access for all user names and passwords. To allow access, you must choose a different identity provider and configure the master configuration file appropriately (located at /etc/openshift/master/master-config.yaml by default).</p>
+
+<pre><code>oc login -u system:admin
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
+  
+  <a class="badge badge-light" href="/tags/paas/">PAAS</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">My research interests include Iaas, PaaS, CNI, distributed robotics, mobile computing and programmable matter.</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/k8s-notes/">K8S notes</a></li>
+          
+          <li><a href="/post/k8s-local-development-setup/">K8S local development setup from source code</a></li>
+          
+          <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
+          
+          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
+          
+          <li><a href="/post/k8s-csi/">K8S CSI</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-wubigo-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -568,6 +833,4 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
 
   </body>
 </html>
-
-
 

@@ -727,6 +727,14 @@ spec:
 
 </code></pre>
 
+<ul>
+<li>检查kibana</li>
+</ul>
+
+<pre><code>kubectl port-forward svc/kibana 5601:5601 -n kube-logging
+curl http://localhost:5601
+</code></pre>
+
 <h1 id="deploy-fluentd-daemonset">Deploy Fluentd DaemonSet</h1>
 
 <p><strong>DaemonSet is a Kubernetes workload type that runs a copy of a given Pod on each Node in the Kubernetes cluster</strong></p>
