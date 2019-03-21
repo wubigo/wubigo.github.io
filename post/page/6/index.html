@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2012-07-04T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2012-08-04T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-08-04-ansible/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2171,93 +2258,6 @@ REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&q
 location ^~ /piwik/ { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Host $host; proxy_pass http://192.168.79.4/piwik/; }  config.ini.php config on piwi nginx site
 [General] proxy_client_headers[] = &quot;HTTP_X_FORWARDED_FOR&quot; proxy_client_headers[] = &quot;X-Real-IP&quot; proxy_host_headers[] = &quot;HTTP_X_FORWARDED_HOST&quot; proxy_ips[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;&lt;public-domain-server&gt;&quot;  Configure GeoIP (PECL) With Piwik check php version
 curl http://localhost/info.php PHP Version 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/psql/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/psql/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
-In a terminal, type:
-sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
   </div>
   
 

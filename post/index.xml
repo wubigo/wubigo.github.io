@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 为人民服务</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Mar 2019 14:49:10 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2019 21:31:34 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>部分工作总结</title>
+      <link>https://wubigo.com/post/_-zuo-ye/</link>
+      <pubDate>Thu, 21 Mar 2019 21:31:34 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/_-zuo-ye/</guid>
+      <description> 惠普混合云 惠普tripleO整体方案 惠普混合云主要模块 网络控制节点 授权认证部分源代码 医疗数据分析  医疗数据某业务流程  医疗数据处理图  医疗项目部分工作内容
+  部分任务 部分任务 部分源代码 </description>
+    </item>
     
     <item>
       <title>K8s Pod Command Override</title>
@@ -204,6 +214,16 @@ $ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	o
 use Jumbo frames
 ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
 ip -s link show eth0  stop irqbalance for home user</description>
+    </item>
+    
+    <item>
+      <title>面向应用的无服务器架构</title>
+      <link>https://wubigo.com/post/pass-over-iaas/</link>
+      <pubDate>Sun, 21 Oct 2018 23:34:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/pass-over-iaas/</guid>
+      <description>云服务模型
+ 从自建数据中心向IaaS平台迁移 从IaaS平台向PaaS迁移 在公有云厂家间迁移 从IaaS平台向FaaS迁移  </description>
     </item>
     
     <item>
@@ -879,16 +899,6 @@ kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
-    </item>
-    
-    <item>
-      <title>部分工作总结</title>
-      <link>https://wubigo.com/post/_-zuo-ye/</link>
-      <pubDate>Mon, 21 Mar 2016 21:31:34 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/_-zuo-ye/</guid>
-      <description> 惠普混合云 惠普tripleO整体方案 惠普混合云主要模块 网络控制节点 授权认证部分源代码 医疗数据分析  医疗数据某业务流程  医疗数据处理图  医疗项目部分工作内容
-  部分任务 部分任务 部分源代码 </description>
     </item>
     
     <item>
