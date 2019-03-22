@@ -19,6 +19,8 @@ categories = []
   focal_point = ""
 +++
 
+**v3.11.0->k8s 1.11**
+
 # openshift all-in-one
 
 ```
@@ -26,7 +28,7 @@ curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-ori
 tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
 cd openshift
 export PATH="$(pwd)":$PATH
-sudo ./openshift start
+sudo ./openshift start master
 ```
 
 # oc setup
