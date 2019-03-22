@@ -16,7 +16,7 @@ role = ""
 # organizations = [ { name = "Stanford University", url = "" } ]
 
 # Short bio (displayed in user profile at end of posts)
-bio = "My research interests include Iaas, PaaS, CNI, distributed robotics, mobile computing and programmable matter."
+bio = "10多年的公有云，混合云，PAAS建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台"
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email = ""
