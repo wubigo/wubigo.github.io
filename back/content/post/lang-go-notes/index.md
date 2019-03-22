@@ -20,7 +20,9 @@ categories = []
 +++
 
 
+# identifier export
 
+In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter
 
 # CSP
 
