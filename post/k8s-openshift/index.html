@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+  <meta name="description" content="v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
 identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.">
 
   
@@ -138,7 +139,8 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
   <meta property="og:site_name" content="SMART IT HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-openshift/">
   <meta property="og:title" content="K8s Openshift | SMART IT HARDCORE">
-  <meta property="og:description" content="openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+  <meta property="og:description" content="v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod &#43;r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
 identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -486,13 +488,15 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
     <div class="article-style" itemprop="articleBody">
       
 
+<p><strong>v3.11.0-&gt;k8s 1.11</strong></p>
+
 <h1 id="openshift-all-in-one">openshift all-in-one</h1>
 
 <pre><code>curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
 tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
 cd openshift
 export PATH=&quot;$(pwd)&quot;:$PATH
-sudo ./openshift start
+sudo ./openshift start master
 </code></pre>
 
 <h1 id="oc-setup">oc setup</h1>
@@ -567,7 +571,7 @@ the Deny All identity provider is used by default, which denies access for all u
   <div class="media-body">
     <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
     
-    <p class="card-text" itemprop="description">10多年的公有云，混合云，PAAS建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
     <ul class="network-icon" aria-hidden="true">
       
       

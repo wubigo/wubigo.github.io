@@ -668,6 +668,119 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 
 
 
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-go-firewall/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-go-firewall/" itemprop="url">Go穿越Firewall</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="go-doc">go doc</h1>
+
+<p><a href="https://golang.google.cn" target="_blank">https://golang.google.cn</a></p>
+
+<h1 id="proxy">proxy</h1>
+
+<ul>
+<li>从 Github 的代码库 clone</li>
+</ul>
+
+<pre><code>go get -u github.com/golang/text
+mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
+
+go get -u github.com/golang/crypto
+mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
+</code></pre>
+
+<ul>
+<li>设置 GOPROXY 环境变量配置代理</li>
+</ul>
+
+<p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
+
+<p><a href="https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md" target="_blank">https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md</a></p>
+
+<p><a href="https://gocn.vip/article/1678" target="_blank">https://gocn.vip/article/1678</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
 
@@ -719,7 +832,8 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 
   
   <div class="article-style" itemprop="articleBody">
-    openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+    v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
 identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
   </div>
   
@@ -1524,8 +1638,8 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
 
 
 
-<meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-02-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -1554,7 +1668,7 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
   
   
   <span class="middot-divider"></span>
-  <a href="/post/2018-02-11-gonotes/#disqus_thread"></a>
+  <a href="/post/lang-go-notes/#disqus_thread"></a>
   
 
   
@@ -1570,7 +1684,7 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-02-11-gonotes/" itemprop="url">go notes</a>
+    <a href="/post/lang-go-notes/" itemprop="url">GO NOTES</a>
   </h3>
 
   
@@ -2214,155 +2328,6 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 <h1 id="machine-learning-101-slidedeck">Machine Learning 101 slidedeck</h1>
 
 <p><a href="https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90" target="_blank">https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 9, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/bim-vs-cad/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/bim-vs-cad/" itemprop="url">BIM和CAD的对比</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>最近在做智慧工地的项目，“智慧工地”的建设很大一部分信息主要是来自于工程BIM模型。
-大部分情况下，BIM模型的精确度决定了“智慧工地”的开展程度。
-“智慧工地”建设中，BIM模型的应用主要集中在以下几个方面：</p>
-
-<ul>
-<li><p>工程量的统计：分析各施工流水段各材料的工程量，如混凝土的工程量。</p></li>
-
-<li><p>施工模拟：施工进度计划与BIM模型相关联，对施工过程进行模拟。将实际工程进度与模拟进度进行对比，可以直观的看出工程是否滞后。</p></li>
-
-<li><p>可视化交底：通过BIM的可视化特点，对施工方案进行模拟，对施工人员进行3D动画交底，提高了交底的可行性。</p></li>
-
-<li><p>节点分析： 对复杂节点进行BIM建模，通过模型对复杂节点进行分析。</p></li>
-
-<li><p>综合管线碰撞检测： 检测预留孔洞、机电、设备管线安装碰撞。</p></li>
-</ul>
-
-<p>从具体实现的角度对BIM和CAD做个比较</p>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">CAD</th>
-<th align="left">BIM</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left">工具集</td>
-<td align="left">2D(3D通过划线)</td>
-<td align="left">3D</td>
-</tr>
-
-<tr>
-<td align="left">连接过程</td>
-<td align="left">直接(2D对象直接连接)</td>
-<td align="left">间接(3D对象通过参数装配)</td>
-</tr>
-
-<tr>
-<td align="left">视图</td>
-<td align="left">高度具体的可视化视图</td>
-<td align="left">动态流线型视图，可随意放大，缩小</td>
-</tr>
-
-<tr>
-<td align="left">知识复用</td>
-<td align="left"></td>
-<td align="left">MODEL(部件从MODEL抽取，而且部件的修改同时同步到MODEL)</td>
-</tr>
-</tbody>
-</table>
-
-<h1 id="基于web的3d建模工具">基于WEB的3D建模工具</h1>
-
-<ul>
-<li><a href="https://www.onshape.com/" target="_blank">https://www.onshape.com/</a></li>
-<li>Lagoa(基于云端的3D建模APP，被Autodesk6千万美元收购)</li>
-<li><a href="https://www.vectary.com/" target="_blank">https://www.vectary.com/</a></li>
-<li><a href="https://clara.io/" target="_blank">https://clara.io/</a></li>
-</ul>
 
   </div>
   
