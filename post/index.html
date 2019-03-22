@@ -112,8 +112,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="为人民服务">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="为人民服务">
+  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
+  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,9 +134,9 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="为人民服务">
+  <meta property="og:site_name" content="SMART IT HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | 为人民服务">
+  <meta property="og:title" content="Posts | SMART IT HARDCORE">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -147,7 +147,7 @@
 
   
 
-  <title>Posts | 为人民服务</title>
+  <title>Posts | SMART IT HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -187,7 +187,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">为人民服务</a>
+      <a class="navbar-brand" href="/">SMART IT HARDCORE</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -2034,6 +2034,9 @@ ip -s link show eth0  stop irqbalance for home user
 建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享，
 希望能为中小企业上云提供一些有价值的建议。</p>
 
+<p><strong>本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心，
+需要根据目前的计算能力选择相应的云服务厂商</strong></p>
+
 <p>云服务模型</p>
 
 <p><img src="./cloud-model.jpeg" alt="RNA" /></p>
@@ -2046,13 +2049,47 @@ ip -s link show eth0  stop irqbalance for home user
 <li>从IaaS平台向PaaS迁移</li>
 <li>在公有云厂家间迁移</li>
 <li>从IaaS平台向FaaS迁移</li>
+<li>混合云</li>
 </ul>
 
 <p>上云的初级阶段:
-购买虚拟主机， 中小企业的问题是资源利用率低，其中虚拟主机的内存，CPU，硬盘
-大部分时候使用率20%都不到，</p>
+购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同，
+如何选择最高性价比的云主机，参考</p>
+
+<p><a href="/post/iaas-how-to-buy-ec2/">云主机主要性价比指标</a></p>
+
+<p>硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：</p>
+
+<ul>
+<li>云主机内网/外网平均带宽(最核心指标)</li>
+<li>存储(网络硬盘)IO吞吐量</li>
+<li>初始化完成后首次资源利用率</li>
+</ul>
+
+<p>其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构
+起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成
+这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016
+年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。</p>
+
+<p><strong>网络带宽是很多企业战略转型决定上云遇到的第一个大坑</strong></p>
+
+<blockquote>
+<p>内网平均带宽也是衡量私有云厂商服务能力的核心指标</p>
+</blockquote>
+
+<p>所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益</p>
+
+<p><a href="/post/iaas-benchmark-2016/">国内外云厂商主要产品基准测试对比图</a></p>
+
+<p><a href="/post/iaas-gears">上云注意事项</a></p>
+
+<p>上云的中级阶段：PaaS</p>
+
+<p><a href="/post/paas-how-to-buy">如何选择PAAS供应商</a></p>
 
 <p>上云的终级阶段: 不需要服务器。</p>
+
+<p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
 
   </div>
   
