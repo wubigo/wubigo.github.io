@@ -38,5 +38,8 @@ kube-proxy | Y|    | /var/log
 - Include a dedicated sidecar container for logging in an application pod.
 - Push logs directly to a backend from within an application
 
+具体实现
+
+- [EFK](/post/k8s-logging-efk/)
 
 
