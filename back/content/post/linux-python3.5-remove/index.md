@@ -41,3 +41,10 @@ apt install ubuntu-desktop
 ```
 
 重新安装chrome和virtualbox
+
+```
+cd /etc/apt/sources.list.d
+sudo mv google-chrome.list.save google-chrome.list
+apt update
+apt install google-chrome-stable
+```

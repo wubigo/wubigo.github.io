@@ -21,6 +21,8 @@ categories = []
 
 # 准备
 
+- 初始化
+
 ```shell
 draft init
 
@@ -36,4 +38,23 @@ Installed pack repository github.com/Azure/draft
 Installation of default pack repositories complete
 $DRAFT_HOME has been configured at /home/bigo/.draft.
 ...
+```
+
+- 设置docker镜像寄存器
+
+```
+draft config set registry 
+```
+
+
+# 应用设置
+
+```
+cd code/go/
+ls
+app.go
+draft create
+ls
+app.go charts  Dockerfile  draft.toml 
+
 ```
