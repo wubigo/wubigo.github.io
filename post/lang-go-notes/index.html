@@ -402,7 +402,7 @@ CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -640,6 +640,90 @@ export GOROOT=&quot;/usr/lib/go-1.10&quot;
 export GOPATH=$HOME/go
 export PATH=&quot;$PATH:$GOPATH/bin:$GOROOT/bin/&quot;
 go version
+</code></pre>
+
+<h1 id="gopath-directory">GOPATH directory</h1>
+
+<pre><code>cd $GOPATH
+ls
+src     bin    pkg
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">DIR</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">pkg</td>
+<td align="left">存放编译过的包</td>
+</tr>
+
+<tr>
+<td align="left">bin</td>
+<td align="left">存放可执行程序(package main)</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="import-path两个功能">import path两个功能</h1>
+
+<pre><code>go help importpath
+</code></pre>
+
+<ul>
+<li>在本地文件系统$GOPATH/pkg/$GOOS_$GOARCH/<import_path>查找</li>
+</ul>
+
+<pre><code>import &quot;github.com/google/go-github/github&quot;
+
+...
+go/src/wubigo.com/cloud/github_client/main.go:7:2: cannot find package &quot;github.com/google/go-github/github&quot; in any of:
+	/usr/lib/go-1.11/src/github.com/google/go-github/github (from $GOROOT)
+	/home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
+Process exiting with code: 1
+...
+</code></pre>
+
+<ul>
+<li>如果没找到，需要go get通过<import_path>安装</li>
+</ul>
+
+<pre><code>go get github.com/google/go-github/github
+</code></pre>
+
+<ul>
+<li>import path custom domain name
+<br /></li>
+</ul>
+
+<pre><code>curl golang.org/x/tools/cmd/rename
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+&lt;meta name=&quot;go-import&quot; content=&quot;golang.org/x/tools git https://go.googlesource.com/tools&quot;&gt;
+&lt;meta name=&quot;go-source&quot; content=&quot;golang.org/x/tools https://github.com/golang/tools/ https://github.com/golang/tools/tree/master{/dir} https://github.com/golang/tools/blob/master{/dir}/{file}#L{line}&quot;&gt;
+&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=https://godoc.org/golang.org/x/tools/cmd/rename&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/rename&quot;&gt;move along&lt;/a&gt;.
+&lt;/body&gt;
+</code></pre>
+
+<blockquote>
+<p>Canonical import paths</p>
+</blockquote>
+
+<p>The syntax is simple: put an identifying comment on the package line</p>
+
+<p><a href="https://github.com/golang/tools/blob/master/cmd/gorename/main.go" target="_blank">https://github.com/golang/tools/blob/master/cmd/gorename/main.go</a></p>
+
+<pre><code>package main // import &quot;golang.org/x/tools/cmd/gorename&quot;
 </code></pre>
 
     </div>
