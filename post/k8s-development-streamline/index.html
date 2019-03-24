@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry  应用设置 cd code/go/ ls app.go draft create ls app.">
+  <meta name="description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
+ skip the push process entirely using the &ndash;skip-image-push flag">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-development-streamline/">
@@ -137,7 +138,8 @@
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-development-streamline/">
   <meta property="og:title" content="K8s Development Streamline with draft | OS/APP HARDCORE">
-  <meta property="og:description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry  应用设置 cd code/go/ ls app.go draft create ls app."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
+ skip the push process entirely using the &ndash;skip-image-push flag"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-24T07:30:53&#43;08:00">
@@ -510,8 +512,14 @@ $DRAFT_HOME has been configured at /home/bigo/.draft.
 <li>设置docker镜像寄存器</li>
 </ul>
 
-<pre><code>draft config set registry 
+<pre><code>draft config set registry registry.cn-beijing.aliyuncs.com/k4s
 </code></pre>
+
+<p>or</p>
+
+<blockquote>
+<p>skip the push process entirely using the &ndash;skip-image-push flag</p>
+</blockquote>
 
 <h1 id="应用设置">应用设置</h1>
 
@@ -522,6 +530,84 @@ draft create
 ls
 app.go charts  Dockerfile  draft.toml 
 
+</code></pre>
+
+<h1 id="发布应用">发布应用</h1>
+
+<pre><code>draft up
+
+Draft Up Started: 'go-web': 01D6QETAPPM7ZYAM7G733ZVMY7
+go-web: Building Docker Image: SUCCESS ⚓  (0.9999s)
+go-web: Pushing Docker Image: SUCCESS ⚓  (139.6931s)
+go-web: Releasing Application: SUCCESS ⚓  (4.3545s)
+Inspect the logs with `draft logs 01D6QETAPPM7ZYAM7G733ZVMY7`
+</code></pre>
+
+<h1 id="检查">检查</h1>
+
+<ul>
+<li><p>检查日志</p>
+
+<pre><code>draft logs 01D6QETAPPM7ZYAM7G733ZVMY7
+</code></pre></li>
+
+<li><p>检查软件列表</p></li>
+</ul>
+
+<pre><code>helm ls | grep go-web
+
+...
+NAME         REVISION	UPDATED          	STATUS  	CHART                	APP VERSION	NAMESPACE
+go-web       Sun Mar 24 17:01:54 2018	  DEPLOYED	go-web-v0.1.0	           	        default 
+...
+</code></pre>
+
+<ul>
+<li>检查PODS</li>
+</ul>
+
+<pre><code>kubectl get pods | grep go-web
+
+NAME                     READY   STATUS    RESTARTS   AGE
+go-web-f94bd78d5-qcmq9   1/1     Running   0          5m38s
+</code></pre>
+
+<h1 id="访问应用">访问应用</h1>
+
+<pre><code>draft connect
+
+...
+Connect to go-web:8080 on **localhost:34261**
+[go-web]:  * Environment: production
+[go-web]:  * Debug mode: off
+[go-web]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+...
+</code></pre>
+
+<pre><code>curl localhost:34261
+
+</code></pre>
+
+<h1 id="应用迭代">应用迭代</h1>
+
+<ul>
+<li><p>修改go-web/web.go</p></li>
+
+<li><p>发布</p></li>
+
+<li><pre><code>draft up
+</code></pre></li>
+
+<li><p>测试</p></li>
+</ul>
+
+<pre><code>draft connect
+</code></pre>
+
+<h1 id="删除应用">删除应用</h1>
+
+<pre><code>draft delete
+helm ls |grep go-web
 </code></pre>
 
     </div>
