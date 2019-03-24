@@ -114,8 +114,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/k8s/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
-  <link rel="feed" href="https://wubigo.com/tags/k8s/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
+  <link rel="alternate" href="https://wubigo.com/tags/k8s/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
+  <link rel="feed" href="https://wubigo.com/tags/k8s/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -136,20 +136,20 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SMART IT HARDCORE">
+  <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/tags/k8s/">
-  <meta property="og:title" content="K8S | SMART IT HARDCORE">
+  <meta property="og:title" content="K8S | OS/APP HARDCORE">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-04T16:38:38&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-18T17:12:39&#43;08:00">
   
 
   
 
   
 
-  <title>K8S | SMART IT HARDCORE</title>
+  <title>K8S | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +189,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SMART IT HARDCORE</a>
+      <a class="navbar-brand" href="/">OS/APP HARDCORE</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -379,6 +379,40 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/k8s-helm-setup/">K8s Helm Setup</a></h2>
+    <div class="article-style">
+      
+      Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
+ Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
+ Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s-private-registry/">K8s Private Registry</a></h2>
+    <div class="article-style">
+      
+      Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
+ Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
+ {&ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/k8s-ha-setup-with-kubeadm/">K8s HA Setup With Kubeadm</a></h2>
+    <div class="article-style">
+      
+      setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/istio-notes/">Istio Notes</a></h2>

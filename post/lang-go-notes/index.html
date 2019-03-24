@@ -28,7 +28,9 @@
   
     
   
-  <meta name="description" content="CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency. In CSP, a program is a parallel composition of processes that have no shared state; the processes communicate and synchronize using channels.">
+  <meta name="description" content="identifier export In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter
+Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file
+CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-notes/">
@@ -112,8 +114,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,10 +136,12 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SMART IT HARDCORE">
+  <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
-  <meta property="og:title" content="GO NOTES | SMART IT HARDCORE">
-  <meta property="og:description" content="CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency. In CSP, a program is a parallel composition of processes that have no shared state; the processes communicate and synchronize using channels."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:title" content="GO NOTES | OS/APP HARDCORE">
+  <meta property="og:description" content="identifier export In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter
+Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file
+CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-11T20:24:49&#43;08:00">
@@ -149,7 +153,7 @@
 
   
 
-  <title>GO NOTES | SMART IT HARDCORE</title>
+  <title>GO NOTES | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +193,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SMART IT HARDCORE</a>
+      <a class="navbar-brand" href="/">OS/APP HARDCORE</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -483,6 +487,12 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="identifier-export">identifier export</h1>
+
+<p>In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter</p>
+
+<p>Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file</p>
 
 <h1 id="csp">CSP</h1>
 

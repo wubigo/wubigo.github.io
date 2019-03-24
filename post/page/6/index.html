@@ -112,8 +112,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="SMART IT HARDCORE">
+  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
+  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="OS/APP HARDCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,20 +134,20 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SMART IT HARDCORE">
+  <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | SMART IT HARDCORE">
+  <meta property="og:title" content="Posts | OS/APP HARDCORE">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2013-01-03T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2014-02-03T00:00:00&#43;00:00">
   
 
   
 
   
 
-  <title>Posts | SMART IT HARDCORE</title>
+  <title>Posts | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -187,7 +187,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SMART IT HARDCORE</a>
+      <a class="navbar-brand" href="/">OS/APP HARDCORE</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -378,6 +378,287 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2014-02-03-aws-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-02-03-aws-notes/" itemprop="url">aws FAQ</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="steps-to-make-ec2-access-from-outside">steps to make ec2 access from outside</h1>
+
+<ol>
+<li>create vpc</li>
+<li>create  internet gateway</li>
+<li>add route to the gateway into the routetable</li>
+</ol>
+
+<h1 id="requesttimetooskewed-error-with-s3-upload">RequestTimeTooSkewed error with S3 upload</h1>
+
+<p><a href="https://github.com/aws/aws-sdk-js/issues/399" target="_blank">https://github.com/aws/aws-sdk-js/issues/399</a>
+<a href="https://aws.amazon.com/blogs/developer/clock-skew-correction/" target="_blank">https://aws.amazon.com/blogs/developer/clock-skew-correction/</a></p>
+
+<h1 id="cloudfront-set-origin-custom-headers">cloudfront set Origin Custom Headers</h1>
+
+<p><a href="https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/" target="_blank">https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2014-01-03-arangodb/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-03-arangodb/" itemprop="url">arrangodb note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    1: ArangoDB automatically indexes the _key attribute in each collection. There is no need to index this attribute separately. Please note that a document&rsquo;s _id attribute is derived from the _key attribute, and is thus implicitly indexed, too.
+2: Creating a database
+We don’t want to mess with any existing data, so let’s start by creating a new database called “mydb”:
+db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database created&rsquo;), err =&gt; console.error(&lsquo;Failed to create database:&lsquo;, err) );
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2014-01-01-%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-01-%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/" itemprop="url">大型网站技术架构</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="自动化发布">自动化发布</h1>
+
+<p>很多网站选择周四作为发布日</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1966,300 +2247,6 @@ scipy == 1.1.0
   <div class="article-style" itemprop="articleBody">
     iproute2 SCTP transport-layer protocols are implemented in the end systems but not in network routers.
 The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 5, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2010-01-05-%E5%90%8D%E8%A8%80/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-05-%E5%90%8D%E8%A8%80/" itemprop="url">名言</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>杨绛</p>
-
-<pre><code>我们曾如此渴望命运的波澜，到最后才发现：人生最曼妙的风景，竟是内心的淡定与从容
-我们曾如此期盼外界的认可，到最后才知道：世界是自己的，与他人毫无关系
-</code></pre>
-
-<p>星云大师</p>
-
-<pre><code>一个人倘若一心除恶，表示他看到的都是恶。
-真正有益于世界的做法不是除恶，而是行善；不是打击负能量，而是弘扬正能量
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2010-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2010-01-03-windows-note/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="turn-on-ie-proxy">turn on IE proxy</h1>
-
-<pre><code>@ECHO OFF
-ECHO Turn on proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
-</code></pre>
-
-<h1 id="turn-off-ie-proxy">turn off IE proxy</h1>
-
-<pre><code>@ECHO OFF
-ECHO Turn off IE Proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-01 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-01 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2010-01-01-java-notes/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-01-java-notes/" itemprop="url">java notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括
- 方法名 参数类型 参数顺序  不包括
- 返回类型 可见性 抛出例外  过载和覆盖  过载: 方法名称相同但签名不同 覆盖:  签名相同，而且返回类型也必须相同 可见性不能减少，可以增加可见性 例外必须相同或者是父类例外的子类   visibility and Atomicity in the absence of synchronization, there are a number of reasons a thread might not immediately ‐ or ever ‐ see the results of an operation in another thread.
   </div>
   
 
