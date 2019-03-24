@@ -31,7 +31,8 @@
   <meta name="description" content="前一段时间安装了python3.5，现在用code的时候， 发现python的解释器设置有问题， 总是设置为系统的解释器， 而虚拟环境的解释器不起作用。
 apt remove --purge python3.5 reboot  结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了， 造成了很大的麻烦。
 Ctrl&#43;Alt&#43;F1进入虚拟控制台登录
-apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbox">
+apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbox
+cd /etc/apt/sources.list.d sudo mv google-chrome.list.save google-chrome.list apt update apt install google-chrome-stable  ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-python3.5-remove/">
@@ -143,7 +144,8 @@ apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbo
   <meta property="og:description" content="前一段时间安装了python3.5，现在用code的时候， 发现python的解释器设置有问题， 总是设置为系统的解释器， 而虚拟环境的解释器不起作用。
 apt remove --purge python3.5 reboot  结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了， 造成了很大的麻烦。
 Ctrl&#43;Alt&#43;F1进入虚拟控制台登录
-apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbox"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbox
+cd /etc/apt/sources.list.d sudo mv google-chrome.list.save google-chrome.list apt update apt install google-chrome-stable  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-03-24T14:04:09&#43;08:00">
@@ -507,6 +509,12 @@ apt install ubuntu-desktop
 </code></pre>
 
 <p>重新安装chrome和virtualbox</p>
+
+<pre><code>cd /etc/apt/sources.list.d
+sudo mv google-chrome.list.save google-chrome.list
+apt update
+apt install google-chrome-stable
+</code></pre>
 
     </div>
 

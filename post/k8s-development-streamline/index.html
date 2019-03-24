@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content=" 准备 draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  ">
+  <meta name="description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry  应用设置 cd code/go/ ls app.go draft create ls app.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-development-streamline/">
@@ -137,7 +137,7 @@
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-development-streamline/">
   <meta property="og:title" content="K8s Development Streamline with draft | OS/APP HARDCORE">
-  <meta property="og:description" content=" 准备 draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry  应用设置 cd code/go/ ls app.go draft create ls app."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-24T07:30:53&#43;08:00">
@@ -486,6 +486,10 @@
 
 <h1 id="准备">准备</h1>
 
+<ul>
+<li>初始化</li>
+</ul>
+
 <pre><code class="language-shell">draft init
 
 ...
@@ -500,6 +504,24 @@ Installed pack repository github.com/Azure/draft
 Installation of default pack repositories complete
 $DRAFT_HOME has been configured at /home/bigo/.draft.
 ...
+</code></pre>
+
+<ul>
+<li>设置docker镜像寄存器</li>
+</ul>
+
+<pre><code>draft config set registry 
+</code></pre>
+
+<h1 id="应用设置">应用设置</h1>
+
+<pre><code>cd code/go/
+ls
+app.go
+draft create
+ls
+app.go charts  Dockerfile  draft.toml 
+
 </code></pre>
 
     </div>
