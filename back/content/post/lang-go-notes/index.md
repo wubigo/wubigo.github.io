@@ -24,6 +24,8 @@ categories = []
 
 In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter
 
+Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file
+
 # CSP
 
 “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages,
