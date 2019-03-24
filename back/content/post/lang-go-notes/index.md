@@ -174,3 +174,67 @@ export PATH="$PATH:$GOPATH/bin:$GOROOT/bin/"
 go version
 ```
 
+# GOPATH directory
+
+```
+cd $GOPATH
+ls
+src     bin    pkg
+```
+DIR | |
+:---|:---
+pkg | 存放编译过的包
+bin | 存放可执行程序(package main)
+
+# import path两个功能
+
+```
+go help importpath
+```
+
+- 在本地文件系统$GOPATH/pkg/$GOOS_$GOARCH/<import_path>查找
+
+```
+import "github.com/google/go-github/github"
+
+...
+go/src/wubigo.com/cloud/github_client/main.go:7:2: cannot find package "github.com/google/go-github/github" in any of:
+	/usr/lib/go-1.11/src/github.com/google/go-github/github (from $GOROOT)
+	/home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
+Process exiting with code: 1
+...
+```
+- 如果没找到，需要go get通过<import_path>安装
+
+```
+go get github.com/google/go-github/github
+```
+
+- import path custom domain name
+  
+
+```
+curl golang.org/x/tools/cmd/rename
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="go-import" content="golang.org/x/tools git https://go.googlesource.com/tools">
+<meta name="go-source" content="golang.org/x/tools https://github.com/golang/tools/ https://github.com/golang/tools/tree/master{/dir} https://github.com/golang/tools/blob/master{/dir}/{file}#L{line}">
+<meta http-equiv="refresh" content="0; url=https://godoc.org/golang.org/x/tools/cmd/rename">
+</head>
+<body>
+Nothing to see here; <a href="https://godoc.org/golang.org/x/tools/cmd/rename">move along</a>.
+</body>
+```
+
+
+>Canonical import paths
+
+The syntax is simple: put an identifying comment on the package line
+
+https://github.com/golang/tools/blob/master/cmd/gorename/main.go
+
+```
+package main // import "golang.org/x/tools/cmd/gorename"
+```
