@@ -238,3 +238,21 @@ https://github.com/golang/tools/blob/master/cmd/gorename/main.go
 ```
 package main // import "golang.org/x/tools/cmd/gorename"
 ```
+
+
+# struct tags
+
+- List of well-known struct tags
+
+Tag |	Documentation
+:---|:---
+xml |	https://godoc.org/encoding/xml
+json |	https://godoc.org/encoding/json
+asn1 |	https://godoc.org/encoding/asn1
+reform| 	https://godoc.org/gopkg.in/reform.v1
+bigquery| 	https://godoc.org/cloud.google.com/go/bigquery
+datastore| 	https://godoc.org/cloud.google.com/go/datastore
+spanner |	https://godoc.org/cloud.google.com/go/spanner
+bson |	https://godoc.org/labix.org/v2/mgo/bson
+gorm |	https://godoc.org/github.com/jinzhu/gorm
+yaml |	https://godoc.org/gopkg.in/yaml.v2
