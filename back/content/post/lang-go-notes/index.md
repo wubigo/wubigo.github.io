@@ -19,6 +19,16 @@ categories = []
   focal_point = ""
 +++
 
+# vendor package
+
+```
+go help gopath
+
+```
+
+Vendor directories do not affect the placement of new repositories
+being checked out for the first time by 'go get': those are always
+placed in the main GOPATH, never in a vendor subtree
 
 # identifier export
 
