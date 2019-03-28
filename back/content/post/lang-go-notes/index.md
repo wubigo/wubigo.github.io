@@ -19,6 +19,13 @@ categories = []
   focal_point = ""
 +++
 
+# project-layout Internal app/pkg Directory Clarification
+
+Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in '/pkg' and the private shared code goes in /internal/pkg
+
+https://github.com/golang-standards/project-layout/issues/9
+
+
 # vendor package
 
 ```
