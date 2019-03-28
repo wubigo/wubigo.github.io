@@ -24,11 +24,40 @@ categories = []
 ```
 go help gopath
 
+find . -name grpc | xargs rm -rf
+
+/go/pkg/mod/google.golang.org$ ls
+
+genproto@v0.0.0-20180817151627-c66870c02cf8  genproto@v0.0.0-20190127191240-7cdc0b958d75  grpc@v1.19.0  grpc@v1.19.1
+
+
+
 ```
 
 Vendor directories do not affect the placement of new repositories
 being checked out for the first time by 'go get': those are always
 placed in the main GOPATH, never in a vendor subtree
+
+
+# remove installed package
+
+```
+go clean -i -n google.golang.org/grpc...
+
+cd /home/bigo/go/src/google.golang.org/grpc
+rm -f grpc.test grpc.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer
+rm -f balancer.test balancer.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc/balancer.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer/base
+rm -f base.test base.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc/balancer/base.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer/grpclb
+rm -f grpclb.test grpclb.test.exe
+
+```
+
 
 # identifier export
 
