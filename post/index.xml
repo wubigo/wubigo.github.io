@@ -255,6 +255,15 @@ ip -s link show eth0  stop irqbalance for home user</description>
     </item>
     
     <item>
+      <title>Lang Go Dep Manage</title>
+      <link>https://wubigo.com/post/lang-go-dep-manage/</link>
+      <pubDate>Wed, 29 Aug 2018 06:26:51 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-dep-manage/</guid>
+      <description>glide To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</description>
+    </item>
+    
+    <item>
       <title>K8s CNI之Calico实现</title>
       <link>https://wubigo.com/post/k8s_cni_calico/</link>
       <pubDate>Tue, 26 Jun 2018 11:10:47 +0800</pubDate>
@@ -508,9 +517,9 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
       <pubDate>Sun, 11 Feb 2018 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>identifier export In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter
-Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file
-CSP “Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages, is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency.</description>
+      <description>project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
+https://github.com/golang-standards/project-layout/issues/9
+vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &amp;lsquo;go get&amp;rsquo;: those are always placed in the main GOPATH, never in a vendor subtree</description>
     </item>
     
     <item>
@@ -723,11 +732,11 @@ uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescu
     </item>
     
     <item>
-      <title>Istio Notes</title>
-      <link>https://wubigo.com/post/istio-notes/</link>
+      <title>K8S微服务治理</title>
+      <link>https://wubigo.com/post/k8s-mesh-istio/</link>
       <pubDate>Sat, 04 Mar 2017 16:38:38 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/istio-notes/</guid>
+      <guid>https://wubigo.com/post/k8s-mesh-istio/</guid>
       <description>准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.</description>
     </item>
     
@@ -1058,8 +1067,9 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
       <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
       
       <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description>ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
- docker run -d --name web httpd:2.4.38-alpine docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5 docker run -it --name curl bigo/curl:v1 sudo pipework br1 web 192.168.1.117/24 sudo pipework br1 mysql 192.168.1.118/24 sudo pipework br1 curl 192.168.1.119/24 docker exec -it curl curl 192.168.117 docker logs web 192.</description>
+      <description>docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
+[Service] Environment=&amp;quot;HTTP_PROXY=http://127.0.0.1:33351/&amp;quot; Environment=&amp;quot;HTTPS_PROXY=http://127.0.0.1:33351/&amp;quot;  sudo systemctl daemon-reload sudo systemctl restart docker systemctl show --property=Environment docker  ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
+ docker run -d --name web httpd:2.4.38-alpine docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5 docker run -it --name curl bigo/curl:v1 sudo pipework br1 web 192.</description>
     </item>
     
     <item>

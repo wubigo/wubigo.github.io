@@ -415,7 +415,7 @@ sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo
   </div>
   
   <div>
-    <h2><a href="/post/istio-notes/">Istio Notes</a></h2>
+    <h2><a href="/post/k8s-mesh-istio/">K8S微服务治理</a></h2>
     <div class="article-style">
       
       准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 ```` # 安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.

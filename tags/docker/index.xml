@@ -89,8 +89,9 @@ logging driver To configure the Docker daemon to default to a specific logging d
       <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
       
       <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description>ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
- docker run -d --name web httpd:2.4.38-alpine docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5 docker run -it --name curl bigo/curl:v1 sudo pipework br1 web 192.168.1.117/24 sudo pipework br1 mysql 192.168.1.118/24 sudo pipework br1 curl 192.168.1.119/24 docker exec -it curl curl 192.168.117 docker logs web 192.</description>
+      <description>docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
+[Service] Environment=&amp;quot;HTTP_PROXY=http://127.0.0.1:33351/&amp;quot; Environment=&amp;quot;HTTPS_PROXY=http://127.0.0.1:33351/&amp;quot;  sudo systemctl daemon-reload sudo systemctl restart docker systemctl show --property=Environment docker  ubuntu docker Post-installation steps  check to docker log for warning  journalctl -xu docker journalctl -xu docker.service   check-config   curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh &amp;gt; check-config.sh
+ docker run -d --name web httpd:2.4.38-alpine docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5 docker run -it --name curl bigo/curl:v1 sudo pipework br1 web 192.</description>
     </item>
     
   </channel>
