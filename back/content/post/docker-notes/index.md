@@ -19,6 +19,23 @@ categories = []
   focal_point = ""
 +++
 
+# docker proxy
+
+`/etc/systemd/system/docker.service.d/https-proxy.conf`
+
+```
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:33351/"
+Environment="HTTPS_PROXY=http://127.0.0.1:33351/"
+```
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+systemctl show --property=Environment docker
+```
+
+
 # ubuntu docker Post-installation steps
 
 - check to docker log for warning
