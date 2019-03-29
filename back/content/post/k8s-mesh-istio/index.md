@@ -40,7 +40,7 @@ docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:re
 git clone https://github.com/istio/istio.git
 cd istio
 git checkout 1.0.6 -b 1.0.6
-````
+```
 
 # 安装
 
@@ -127,4 +127,65 @@ helm del --purge istio
 kubectl -n istio-system delete job --all
 kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
 kubectl get customresourcedefinitions.apiextensions.k8s.io |grep istio | xargs kubectl delete customresourcedefinitions.apiextensions.k8s.io
+```
+
+# 运行配置
+
+```
+kubectl get cm -n istio-system istio -o yaml  > istio.config
+
+awk '{gsub(/\\n/,"\n")}1'  istio.config
+```
+
+or 
+
+```
+kubectl exec -it istio-pilot -c discovery -n istio-system -- bash
+#cat /etc/istio/config/mesh  | grep discoveryAddress
+
+
+kubectl get svc/istio-pilot -n istio-system -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2018-03-29T11:04:04Z"
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    heritage: Tiller
+    release: istio
+  name: istio-pilot
+  namespace: istio-system
+  resourceVersion: "467151"
+  selfLink: /api/v1/namespaces/istio-system/services/istio-pilot
+  uid: 5de2a2d8-5212-11e9-b518-08002775f493
+spec:
+  clusterIP: 10.108.66.176
+  ports:
+  - name: grpc-xds
+    port: 15010
+    protocol: TCP
+    targetPort: 15010
+  - name: https-xds
+    port: 15011
+    protocol: TCP
+    targetPort: 15011
+  - name: http-legacy-discovery
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: http-monitoring
+    port: 9093
+    protocol: TCP
+    targetPort: 9093
+  selector:
+    istio: pilot
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+kubectl port-forward svc/istio-pilot -n istio-system  15010:15010
+
+
 ```
