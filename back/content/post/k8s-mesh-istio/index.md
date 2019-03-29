@@ -79,7 +79,8 @@ kubectl get pods -n istio-system
 ```
 helm delete --purge istio
 kubectl -n istio-system delete job --all
-kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
+kubectl delete -f $ISTIO_HOME/install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
+kubectl get customresourcedefinitions.apiextensions.k8s.io |grep istio | xargs kubectl delete customresourcedefinitions.apiextensions.k8s.io
 ```
 
 https://istio.io/docs/concepts/traffic-management/
