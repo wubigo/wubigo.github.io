@@ -53,7 +53,12 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 # 精简安装
 
 ```
-helm install install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set sidecarInjectorWebhook.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set gateways.istio-ingressgateway.type=NodePort --set gateways.istio-egressgateway.type=NodePort
+helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=true --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=true --set sidecarInjectorWebhook.enabled=true --set gateways.istio-ingressgateway.type=NodePort --set gateways.istio-egressgateway.type=NodePort
+```
+
+```
+kubectl label namespace default istio-injection=enabled
+kubectl describe ns default -n istio-system
 ```
 
 
@@ -107,13 +112,19 @@ Ensure the istio-pilot-* Kubernetes pod is deployed and its container is up and 
 kubectl get pods -n istio-system
 ```
 
+```
+MountVolume.SetUp failed for volume "certs" : secret "istio.istio-sidecar-injector-service-account" not found
+```
+
+the missing secret is created by the citadel pod which isn't running due to the the --set security.enabled=false flag, setting that to true starts citadel and the secret is created and then pilot will start.
+
+
+
 # 删除
 
 ```
 helm del --purge istio
 kubectl -n istio-system delete job --all
-kubectl delete -f $ISTIO_HOME/install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
+kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
 kubectl get customresourcedefinitions.apiextensions.k8s.io |grep istio | xargs kubectl delete customresourcedefinitions.apiextensions.k8s.io
 ```
-
-https://istio.io/docs/concepts/traffic-management/
