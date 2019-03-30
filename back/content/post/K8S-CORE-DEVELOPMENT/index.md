@@ -30,3 +30,10 @@ git branch -av|grep 1.13
   remotes/origin/release-1.13         4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
 
 ```
+
+
+# 管理POD
+
+```
+func (kl *Kubelet) syncPod(o syncPodOptions) error {
+```
