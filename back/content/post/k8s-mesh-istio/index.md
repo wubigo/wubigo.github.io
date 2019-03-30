@@ -53,7 +53,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 # 精简安装
 
 ```
-helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=true --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=true --set sidecarInjectorWebhook.enabled=true --set gateways.istio-ingressgateway.type=NodePort --set gateways.istio-egressgateway.type=NodePort
+helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=true --set sidecarInjectorWebhook.enabled=false
 ```
 
 ```
