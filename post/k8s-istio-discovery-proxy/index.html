@@ -543,7 +543,7 @@ lrwxrwxrwx 1 root root 11 Mar 30 06:52 mesh -&gt; ..data/mesh
 <li>检查日志</li>
 </ul>
 
-<pre><code>PodUID=kubectl get pod istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+<pre><code>PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}}'
 scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
 </code></pre>
 
@@ -601,6 +601,41 @@ scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
  &lt;scope&gt;:&lt;level&gt;,&lt;scope&gt;:&lt;level&gt;,... where scope can be one of [default, model, rbac] 
  
  and level can be one of [debug, info, warn, error, fatal, none] (default `default:info`)
+</code></pre>
+
+<ul>
+<li>调试istio-discovery</li>
+</ul>
+
+<pre><code>kubectl get deployments  -n istio-system -o json &gt; istio.k8s.deployment.json
+</code></pre>
+
+<p>修改增加&ndash;log_output_level</p>
+
+<pre><code>                       &quot;args&quot;: [
+                            &quot;discovery&quot;, &quot;--log_output_level&quot;, &quot;default:debug&quot;
+                        ],
+                        &quot;image&quot;: &quot;gcr.io/istio-release/pilot:release-1.0-latest-daily&quot;,
+                        &quot;imagePullPolicy&quot;: &quot;IfNotPresent&quot;,
+                        &quot;name&quot;: &quot;discovery&quot;,
+</code></pre>
+
+<pre><code>kubectl apply -f istio.k8s.deployment.json
+</code></pre>
+
+<pre><code>kubectl exec -it -n istio-system istio-pilot-84678c759f-qjbf4 -c discovery -- bash
+root@istio-pilot-84678c759f-qjbf4:/# ps -fax
+  PID TTY      STAT   TIME COMMAND
+   28 pts/0    Ss     0:00 bash
+   39 pts/0    R+     0:00  \_ ps -fax
+    1 ?        Ssl    0:28 /usr/local/bin/pilot-discovery discovery --log_output_level default:debug
+</code></pre>
+
+<ul>
+<li>下载配置</li>
+</ul>
+
+<pre><code>kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:etc/istio/proxy/envoy.yaml ./ -c istio-proxy
 </code></pre>
 
     </div>
