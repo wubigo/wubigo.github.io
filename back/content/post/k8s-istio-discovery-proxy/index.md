@@ -70,6 +70,47 @@ lrwxrwxrwx 1 root root 11 Mar 30 06:52 mesh -> ..data/mesh
 ```
 
 
+- 检查日志
+
+```  
+PodUID=kubectl get pod istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
+```
+
+- 检查proxy by adminPort
+
+进入容器查看
+```
+kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
+#curl http://localhost:15000/
+```
+
+或本地代理
+
+```
+kubectl port-forward -n istio-system istio-pilot-786dc4c88d-vnsr9 15000:15000
+```
 
 
+pilot地址
 
+```
+kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
+#cat /etc/istio/config/mesh | grep discoveryAddress
+```
+
+
+- pilot-agent
+
+|| default |  debug
+  :---|:---|:---
+  --log_output_level    |default:info|  default:debug
+  --log_stacktrace_level   |default:none|  default:debug
+
+```
+Comma-separated minimum per-scope logging level of messages to output, in the form of
+
+ <scope>:<level>,<scope>:<level>,... where scope can be one of [default, model, rbac] 
+ 
+ and level can be one of [debug, info, warn, error, fatal, none] (default `default:info`)
+```
