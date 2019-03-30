@@ -73,7 +73,7 @@ lrwxrwxrwx 1 root root 11 Mar 30 06:52 mesh -> ..data/mesh
 - 检查日志
 
 ```  
-PodUID=kubectl get pod istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}}'
 scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
 ```
 
@@ -114,3 +114,41 @@ Comma-separated minimum per-scope logging level of messages to output, in the fo
  
  and level can be one of [debug, info, warn, error, fatal, none] (default `default:info`)
 ```
+
+-  调试istio-discovery
+
+```
+kubectl get deployments  -n istio-system -o json > istio.k8s.deployment.json
+```
+
+修改增加--log_output_level
+
+```
+                       "args": [
+                            "discovery", "--log_output_level", "default:debug"
+                        ],
+                        "image": "gcr.io/istio-release/pilot:release-1.0-latest-daily",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "discovery",
+```
+
+```
+kubectl apply -f istio.k8s.deployment.json
+```
+
+
+```
+kubectl exec -it -n istio-system istio-pilot-84678c759f-qjbf4 -c discovery -- bash
+root@istio-pilot-84678c759f-qjbf4:/# ps -fax
+  PID TTY      STAT   TIME COMMAND
+   28 pts/0    Ss     0:00 bash
+   39 pts/0    R+     0:00  \_ ps -fax
+    1 ?        Ssl    0:28 /usr/local/bin/pilot-discovery discovery --log_output_level default:debug
+```
+
+- 下载配置
+
+```
+kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:etc/istio/proxy/envoy.yaml ./ -c istio-proxy
+```
+
