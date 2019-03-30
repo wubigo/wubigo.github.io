@@ -833,7 +833,9 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
 
   
   <div class="article-style" itemprop="articleBody">
-    <pre><code>git clone git@github.com:wubigo/kubernetes.git
+    
+
+<pre><code>git clone git@github.com:wubigo/kubernetes.git
 git remote add upstream https://github.com/kubernetes/kubernetes.git
 git fetch --all
 git checkout tags/v1.13.3 -b v1.13.3 
@@ -841,6 +843,11 @@ git branch -av|grep 1.13
 * fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
   remotes/origin/release-1.13         4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
 
+</code></pre>
+
+<h1 id="管理pod">管理POD</h1>
+
+<pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
 </code></pre>
 
   </div>

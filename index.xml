@@ -219,7 +219,9 @@ Usage: curl [options...] &amp;lt;url&amp;gt;
       <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-core-development/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;git clone git@github.com:wubigo/kubernetes.git
+      <description>
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:wubigo/kubernetes.git
 git remote add upstream https://github.com/kubernetes/kubernetes.git
 git fetch --all
 git checkout tags/v1.13.3 -b v1.13.3 
@@ -227,6 +229,11 @@ git branch -av|grep 1.13
 * fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
   remotes/origin/release-1.13         4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;管理pod&#34;&gt;管理POD&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;func (kl *Kubelet) syncPod(o syncPodOptions) error {
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

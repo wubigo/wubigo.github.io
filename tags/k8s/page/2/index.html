@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-18T17:12:39&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-30T07:41:36&#43;08:00">
   
 
   
@@ -379,6 +379,17 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/k8s-kubelet/">K8s Kubelet</a></h2>
+    <div class="article-style">
+      
+      PodUID kubectl get pod &lt;PID_NAME&gt; -o=jsonpath='{.metadata.uid}'  POD on disk /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/k8s-helm-setup/">K8s Helm Setup</a></h2>

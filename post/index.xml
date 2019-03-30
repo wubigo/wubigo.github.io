@@ -62,7 +62,7 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
       <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-core-development/</guid>
-      <description>git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  </description>
+      <description> git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  管理POD func (kl *Kubelet) syncPod(o syncPodOptions) error {  </description>
     </item>
     
     <item>
@@ -302,6 +302,15 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
       <description> Start Dgraph cluster dgraph zero  start Dgraph server  dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000 Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]  How do I configure Go to use a proxy https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy
 Web based graph visualization with D3 and KeyLines https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/
 SETUP CLIENT set http_proxy=192.168.0.119:3128 git config --global http.proxy http://192.168.0.119:3128 go get -u github.com/derekparker/delve/cmd/dlv go get -u -v github.com/dgraph-io/dgo  </description>
+    </item>
+    
+    <item>
+      <title>Helm Chart Istio</title>
+      <link>https://wubigo.com/post/helm-chart-istio/</link>
+      <pubDate>Fri, 30 Mar 2018 06:33:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/helm-chart-istio/</guid>
+      <description>helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: &#39;44471&#39; [debug] SERVER: &amp;quot;127.0.0.1:44471&amp;quot; [debug] Original chart version: &amp;quot;&amp;quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.</description>
     </item>
     
     <item>
@@ -663,6 +672,17 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
       
       <guid>https://wubigo.com/post/2017-04-02-microserviceplatformspring-cloudvskubernetes/</guid>
       <description>Microservice platform Spring-cloud VS Kubernetes https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/</description>
+    </item>
+    
+    <item>
+      <title>K8s Kubelet</title>
+      <link>https://wubigo.com/post/k8s-kubelet/</link>
+      <pubDate>Thu, 30 Mar 2017 07:41:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-kubelet/</guid>
+      <description>PodUID kubectl get pod &amp;lt;PID_NAME&amp;gt; -o=jsonpath=&#39;{.metadata.uid}&#39;  POD on disk /var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/
+/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;
+ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.</description>
     </item>
     
     <item>

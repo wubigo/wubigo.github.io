@@ -49,7 +49,7 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
       <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-core-development/</guid>
-      <description>git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  </description>
+      <description> git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  管理POD func (kl *Kubelet) syncPod(o syncPodOptions) error {  </description>
     </item>
     
     <item>
@@ -233,6 +233,17 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
+    </item>
+    
+    <item>
+      <title>K8s Kubelet</title>
+      <link>https://wubigo.com/post/k8s-kubelet/</link>
+      <pubDate>Thu, 30 Mar 2017 07:41:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-kubelet/</guid>
+      <description>PodUID kubectl get pod &amp;lt;PID_NAME&amp;gt; -o=jsonpath=&#39;{.metadata.uid}&#39;  POD on disk /var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/
+/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;
+ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.</description>
     </item>
     
     <item>
