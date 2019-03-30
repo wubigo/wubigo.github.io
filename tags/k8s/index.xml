@@ -40,7 +40,9 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
       <pubDate>Sun, 17 Mar 2019 10:25:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-logging/</guid>
-      <description>Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    Cluster-level logging  Use a node-level logging agent that runs on every node. Include a dedicated sidecar container for logging in an application pod.</description>
+      <description>Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/
+/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;
+ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.</description>
     </item>
     
     <item>

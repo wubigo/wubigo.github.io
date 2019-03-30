@@ -197,6 +197,14 @@ Usage: curl [options...] &amp;lt;url&amp;gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;&lt;code&gt;/var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/
+lrwxrwxrwx 1 root root 165 3月  30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h1 id=&#34;cluster-level-logging&#34;&gt;Cluster-level logging&lt;/h1&gt;
 
 &lt;ul&gt;

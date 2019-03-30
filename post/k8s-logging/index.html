@@ -28,7 +28,9 @@
   
     
   
-  <meta name="description" content="Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    Cluster-level logging  Use a node-level logging agent that runs on every node. Include a dedicated sidecar container for logging in an application pod.">
+  <meta name="description" content="Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-logging/">
@@ -137,7 +139,9 @@
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-logging/">
   <meta property="og:title" content="K8s Logging | OS/APP HARDCORE">
-  <meta property="og:description" content="Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    Cluster-level logging  Use a node-level logging agent that runs on every node. Include a dedicated sidecar container for logging in an application pod."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-03-17T10:25:07&#43;08:00">
@@ -530,6 +534,14 @@
 </tr>
 </tbody>
 </table>
+
+<p><code>/var/lib/kubelet/pods/&lt;PodUID&gt;/</code></p>
+
+<p><code>/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;</code></p>
+
+<pre><code>ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/
+lrwxrwxrwx 1 root root 165 3月  30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log
+</code></pre>
 
 <h1 id="cluster-level-logging">Cluster-level logging</h1>
 

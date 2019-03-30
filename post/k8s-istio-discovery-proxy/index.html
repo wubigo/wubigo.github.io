@@ -400,7 +400,7 @@ kubectl get pods -n istio-system NAME READY STATUS RESTARTS AGE istio-pilot-786d
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -537,6 +537,70 @@ lrwxrwxrwx 1 root root 11 Mar 30 06:52 mesh -&gt; ..data/mesh
    61 pts/0    Ss     0:00 bash
    71 pts/0    R+     0:00  \_ ps fax
     1 ?        Ssl    1:55 /usr/local/bin/pilot-discovery discovery
+</code></pre>
+
+<ul>
+<li>检查日志</li>
+</ul>
+
+<pre><code>PodUID=kubectl get pod istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
+</code></pre>
+
+<ul>
+<li>检查proxy by adminPort</li>
+</ul>
+
+<p>进入容器查看</p>
+
+<pre><code>kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
+#curl http://localhost:15000/
+</code></pre>
+
+<p>或本地代理</p>
+
+<pre><code>kubectl port-forward -n istio-system istio-pilot-786dc4c88d-vnsr9 15000:15000
+</code></pre>
+
+<p>pilot地址</p>
+
+<pre><code>kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
+#cat /etc/istio/config/mesh | grep discoveryAddress
+</code></pre>
+
+<ul>
+<li>pilot-agent</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">default</th>
+<th align="left">debug</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">&ndash;log_output_level</td>
+<td align="left">default:info</td>
+<td align="left">default:debug</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;log_stacktrace_level</td>
+<td align="left">default:none</td>
+<td align="left">default:debug</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code>Comma-separated minimum per-scope logging level of messages to output, in the form of
+
+ &lt;scope&gt;:&lt;level&gt;,&lt;scope&gt;:&lt;level&gt;,... where scope can be one of [default, model, rbac] 
+ 
+ and level can be one of [debug, info, warn, error, fatal, none] (default `default:info`)
 </code></pre>
 
     </div>
