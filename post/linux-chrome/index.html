@@ -28,17 +28,17 @@
   
     
   
-  <meta name="description" content="putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
-Interrupt Coalescence ubuntu 16 default
-Interrupt Coalescence (IC)
-$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
-use Jumbo frames
-ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
-ip -s link show eth0  stop irqbalance for home user">
+  <meta name="description" content="禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
+Type in address bar (Crtl&#43;L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring 方法1（可靠）
+ set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
+Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
+ seahorse  seahorse  选择login，右键删除">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-chrome/">
 
   
 
@@ -127,7 +127,7 @@ ip -s link show eth0  stop irqbalance for home user">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
+  <link rel="canonical" href="https://wubigo.com/post/linux-chrome/">
 
   
   
@@ -142,28 +142,28 @@ ip -s link show eth0  stop irqbalance for home user">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
-  <meta property="og:title" content="Linux performance | OS/APP HARDCORE">
-  <meta property="og:description" content="putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
-Interrupt Coalescence ubuntu 16 default
-Interrupt Coalescence (IC)
-$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
-use Jumbo frames
-ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
-ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/linux-chrome/">
+  <meta property="og:title" content="Linux Chrome | OS/APP HARDCORE">
+  <meta property="og:description" content="禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
+Type in address bar (Crtl&#43;L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring 方法1（可靠）
+ set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
+Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
+ seahorse  seahorse  选择login，右键删除"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-11-07T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-03-31T06:20:37&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-11-07T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-03-31T06:20:37&#43;08:00">
   
 
   
 
-  <title>Linux performance | OS/APP HARDCORE</title>
+  
+
+  <title>Linux Chrome | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -380,7 +380,7 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Linux performance</h1>
+  <h1 itemprop="name">Linux Chrome</h1>
 
   
 
@@ -389,8 +389,8 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
 
 
 
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -403,7 +403,7 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
     
       
     
-    <time>Nov 7, 2018</time>
+    <time>Mar 31, 2018</time>
   </span>
   
 
@@ -419,7 +419,7 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   
   
   <span class="middot-divider"></span>
-  <a href="/post/2018-11-07-linuxperformancetuning/#disqus_thread"></a>
+  <a href="/post/linux-chrome/#disqus_thread"></a>
   
 
   
@@ -430,35 +430,35 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Linux%20performance&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f"
+         href="https://twitter.com/intent/tweet?text=Linux%20Chrome&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f&amp;title=Linux%20performance"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f&amp;title=Linux%20Chrome"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f&amp;title=Linux%20performance"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f&amp;title=Linux%20Chrome"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Linux%20performance&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f">
+         href="mailto:?subject=Linux%20Chrome&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -478,6 +478,8 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
 
 
 
+  
+
 
 
 
@@ -496,58 +498,52 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="putting-tmp-on-tmpfs">putting /tmp on tmpfs</h1>
+<h1 id="禁止启动时候恢复页面提示">禁止启动时候恢复页面提示</h1>
 
-<p><a href="https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs" target="_blank">https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs</a></p>
+<p><code>.config/google-chrome/Default/Preferences</code></p>
 
-<h1 id="interrupt-coalescence">Interrupt Coalescence</h1>
-
-<p>ubuntu 16 default</p>
-
-<p>Interrupt Coalescence (IC)</p>
-
-<pre><code>$ethtool -c enp0s25
-Coalesce parameters for enp0s25:
-Adaptive RX: off  TX: off
+<pre><code>sed  -i '/exit_type:Crashed/exit_type:Normal/`
 </code></pre>
 
-<p>Pause frames</p>
+<p>下面的方法并不可靠</p>
 
-<pre><code>$ethtool -a enp0s25
-Pause parameters for enp0s25:
-Autonegotiate:	on
-RX:		on
-TX:		on
+<p>Type in address bar (Crtl+L).</p>
 
+<pre><code>chrome://flags/#infinite-session-restore 
 </code></pre>
 
-<h1 id="network">network</h1>
+<p>Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting</p>
 
-<p>Tuning the network adapter (NIC)</p>
+<h1 id="enter-password-to-unlock-your-keyring">enter password to unlock your keyring</h1>
 
-<p>use Jumbo frames</p>
+<p>方法1（可靠）</p>
 
-<pre><code>ifconfig eth0 mtu 9000
+<ul>
+<li>set password-store to basic</li>
+</ul>
+
+<pre><code>dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications
 </code></pre>
 
-<p>ip result for a healthy system with no packet drops</p>
+<p>修改<code>.local/share/applications/google-chrome.desktop</code></p>
 
-<pre><code>ip -s link show eth0
-
+<pre><code>Exec=/usr/bin/google-chrome-stable --password-store=basic %U
 </code></pre>
 
-<p>stop irqbalance for home user</p>
+<p>方法2（不可靠）</p>
 
-<pre><code>sudo systemctl disable/stop irqbalance
+<ul>
+<li>seahorse</li>
+</ul>
+
+<pre><code>seahorse
 </code></pre>
 
-<h1 id="network-performance-monitoring">network-performance-monitoring</h1>
+<p>选择login，右键删除</p>
 
-<p><a href="https://opensourceforu.com/2016/10/network-performance-monitoring/" target="_blank">https://opensourceforu.com/2016/10/network-performance-monitoring/</a></p>
+<h1 id="how-to-allow-unsafe-ports-in-chrome">How to allow unsafe ports in Chrome</h1>
 
-<h1 id="linux-network-tcp-performance-tuning-with-sysctl">Linux Network (TCP) Performance Tuning with Sysctl</h1>
-
-<p><a href="https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl" target="_blank">https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl</a></p>
+<p><a href="http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome" target="_blank">http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome</a></p>
 
     </div>
 
@@ -555,6 +551,8 @@ TX:		on
 
 
 <div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/web/">WEB</a>
   
   <a class="badge badge-light" href="/tags/linux/">LINUX</a>
   
@@ -655,8 +653,6 @@ TX:		on
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/linux-chrome/">Linux Chrome</a></li>
-          
           <li><a href="/post/linux-ssh/">Linux SSH</a></li>
           
           <li><a href="/post/reinstall-a-running-linux-system-via-ssh/">通过SSH远程修复linux</a></li>
@@ -664,6 +660,8 @@ TX:		on
           <li><a href="/post/ubungu-chinese/">Ubungu Chinese locale</a></li>
           
           <li><a href="/post/2012-06-03-linux/">linux note</a></li>
+          
+          <li><a href="/post/2011-06-03-io-performance/">Linux File System Read Write Performance Test</a></li>
           
         </ul>
       </div>

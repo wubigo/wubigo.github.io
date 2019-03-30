@@ -22,5 +22,21 @@ curl -IL http://wubigo.com/post
  HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&amp;rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.</description>
     </item>
     
+    <item>
+      <title>Linux Chrome</title>
+      <link>https://wubigo.com/post/linux-chrome/</link>
+      <pubDate>Sat, 31 Mar 2018 06:20:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-chrome/</guid>
+      <description>禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
+Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring 方法1（可靠）
+ set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
+Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
+ seahorse  seahorse  选择login，右键删除</description>
+    </item>
+    
   </channel>
 </rss>

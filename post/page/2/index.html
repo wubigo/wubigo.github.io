@@ -793,6 +793,98 @@ go get -u -v github.com/dgraph-io/dgo
 
 
 
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/linux-chrome/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-chrome/" itemprop="url">Linux Chrome</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
+sed -i '/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
+Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring 方法1（可靠）
+ set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
+Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
+ seahorse  seahorse  选择login，右键删除
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="dateModified">
 
@@ -2219,96 +2311,6 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-02-02-dynamicroutingbetweencapsules/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-02-02-dynamicroutingbetweencapsules/" itemprop="url">Understanding Dynamic Routing between Capsules</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="understanding-dynamic-routing-between-capsules">Understanding Dynamic Routing between Capsules</h1>
-
-<p><a href="https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/" target="_blank">https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/</a></p>
-
   </div>
   
 

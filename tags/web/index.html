@@ -391,6 +391,22 @@ curl -IL http://wubigo.com/post
     </div>
   </div>
   
+  <div>
+    <h2><a href="/post/linux-chrome/">Linux Chrome</a></h2>
+    <div class="article-style">
+      
+      禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
+sed -i '/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
+Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring 方法1（可靠）
+ set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
+Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
+ seahorse  seahorse  选择login，右键删除
+      
+    </div>
+  </div>
+  
 
   
 
