@@ -28,8 +28,8 @@
   
     
   
-  <meta name="description" content="download manager sudo apt-get install uget uget-gtk  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
-SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .">
+  <meta name="description" content="检查内存 ram speed and type
+ dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2012-06-03-linux/">
@@ -138,8 +138,8 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Ini
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/2012-06-03-linux/">
   <meta property="og:title" content="linux note | OS/APP HARDCORE">
-  <meta property="og:description" content="download manager sudo apt-get install uget uget-gtk  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
-SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="检查内存 ram speed and type
+ dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2012-06-03T19:39:03&#43;08:00">
@@ -494,6 +494,94 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Ini
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="检查内存">检查内存</h1>
+
+<p>ram speed and type</p>
+
+<ul>
+<li>dmidecode</li>
+</ul>
+
+<pre><code>sudo dmidecode --type memory
+
+# dmidecode 3.0
+Getting SMBIOS data from sysfs.
+SMBIOS 2.6 present.
+
+Handle 0x003E, DMI type 17, 28 bytes
+Memory Device
+	Array Handle: 0x003C
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: 1
+	Locator: XMM1
+	Bank Locator: Not Specified
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: Unknown
+	Manufacturer: JEDEC ID:
+	Serial Number:  
+	Asset Tag: Not Specified
+	Part Number:  
+	Rank: Unknown
+
+
+</code></pre>
+
+<ul>
+<li>lshw
+<br /></li>
+</ul>
+
+<pre><code>sudo lshw -class memory
+
+
+memory:0
+       description: System Memory
+       physical id: 3c
+       slot: System board or motherboard
+     *-bank:0
+          description: DIMM DDR3 Synchronous [empty]
+          vendor: JEDEC ID:
+          physical id: 0
+          slot: XMM1
+     *-bank:1
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: M378B5273DH0-CH9
+          vendor: JEDEC ID:80 CE
+          physical id: 1
+          serial: D3894765
+          slot: XMM2
+          size: 4GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+     *-bank:2
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: M378B5273DH0-CH9
+          vendor: JEDEC ID:80 CE
+          physical id: 2
+          serial: D4894765
+          slot: XMM3
+          size: 4GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+     *-bank:3
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: 8JTF12864AZ-1G4G1
+          vendor: JEDEC ID:80 2C
+          physical id: 3
+          serial: 07572436
+          slot: XMM4
+          size: 1GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+
+
+</code></pre>
 
 <h1 id="download-manager">download manager</h1>
 
