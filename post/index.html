@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-24T14:04:09&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-31T11:16:50&#43;08:00">
   
 
   
@@ -378,6 +378,111 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-istio-envoy/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-istio-envoy/" itemprop="url">K8s Istio Envoy</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/*
+# CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
+</code></pre>
+
+<pre><code>docker build -t envoy:v1 .
+</code></pre>
+
+<pre><code>docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
+
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2304,96 +2409,6 @@ ip -s link show eth0  stop irqbalance for home user
 <p>上云的终级阶段: 不需要服务器。</p>
 
 <p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-go-dep-manage/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-dep-manage/" itemprop="url">Lang Go Dep Manage</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="glide">glide</h1>
-
-<p>To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</p>
 
   </div>
   

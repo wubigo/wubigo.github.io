@@ -6,8 +6,37 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2019 14:04:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 Mar 2019 11:16:50 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>K8s Istio Envoy</title>
+      <link>https://wubigo.com/post/k8s-istio-envoy/</link>
+      <pubDate>Sun, 31 Mar 2019 11:16:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-istio-envoy/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;amp;&amp;amp; apt-get install -y curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/*
+# CMD  [&amp;quot;envoy&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;/etc/envoy/envoy.yaml&amp;quot;, &amp;quot;-l&amp;quot;, &amp;quot;debug&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build -t envoy:v1 .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
+
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Linux删除Python3.5</title>
@@ -789,33 +818,6 @@ when errors are expected&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&#34; target=&#34;_blank&#34;&gt;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>MicroK8S</title>
-      <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
-      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-11-24-microk8s/</guid>
-      <description>&lt;p&gt;Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
-snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$snap start microK8S
-$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
-
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;for resource under namespace kube-system
-all-namespaces don&amp;rsquo;t include kube-system&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf&#34; target=&#34;_blank&#34;&gt;https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

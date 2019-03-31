@@ -582,6 +582,21 @@ logging driver To configure the Docker daemon to default to a specific logging d
 </tbody>
 </table>
 
+<h1 id="覆盖entrypoint">覆盖ENTRYPOINT</h1>
+
+<ul>
+<li>方法1
+<br /></li>
+</ul>
+
+<pre><code>  docker run -it --rm --entrypoint /bin/sh curl:v1
+</code></pre>
+
+<ul>
+<li>方法2
+通过Dockerfile从镜像再建一个镜像，并重定义ENTRYPOINT</li>
+</ul>
+
     </div>
 
     

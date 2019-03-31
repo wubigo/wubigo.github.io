@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-06-26T11:10:47&#43;08:00">
+  <meta property="og:updated_time" content="2018-08-29T06:26:51&#43;08:00">
   
 
   
@@ -378,6 +378,96 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-go-dep-manage/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-go-dep-manage/" itemprop="url">Lang Go Dep Manage</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="glide">glide</h1>
+
+<p>To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -844,14 +934,16 @@ go get -u -v github.com/dgraph-io/dgo
 
   
   <div class="article-style" itemprop="articleBody">
-    禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
-sed -i '/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
-Type in address bar (Crtl+L).
+    禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
+ 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
+.config/google-chrome/Default/Preferences
+sed -i '/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
+Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
+ 方法2（不可靠）  Type in address bar (Crtl+L).
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring 方法1（可靠）
- set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
-Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
- seahorse  seahorse  选择login，右键删除
+enter password to unlock your keyring  方法1（可靠）
+ set password-store to basic
+  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
   </div>
   
 
@@ -2224,93 +2316,6 @@ godep restore ./...
   <div class="article-style" itemprop="articleBody">
     PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
 Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-go-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-notes/" itemprop="url">GO NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree
   </div>
   
 

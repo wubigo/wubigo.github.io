@@ -28,19 +28,11 @@
   
     
   
-  <meta name="description" content="禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
- 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
-.config/google-chrome/Default/Preferences
-sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
-Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
- 方法2（不可靠）  Type in address bar (Crtl&#43;L).
-chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring  方法1（可靠）
- set password-store to basic
-  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.">
+  <meta name="description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/* # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.yaml -l debug  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-chrome/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-istio-envoy/">
 
   
 
@@ -129,7 +121,7 @@ enter password to unlock your keyring  方法1（可靠）
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/linux-chrome/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-istio-envoy/">
 
   
   
@@ -144,30 +136,22 @@ enter password to unlock your keyring  方法1（可靠）
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/linux-chrome/">
-  <meta property="og:title" content="Linux Chrome | OS/APP HARDCORE">
-  <meta property="og:description" content="禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
- 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
-.config/google-chrome/Default/Preferences
-sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
-Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
- 方法2（不可靠）  Type in address bar (Crtl&#43;L).
-chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring  方法1（可靠）
- set password-store to basic
-  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-istio-envoy/">
+  <meta property="og:title" content="K8s Istio Envoy | OS/APP HARDCORE">
+  <meta property="og:description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/* # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.yaml -l debug  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-03-31T06:20:37&#43;08:00">
+  <meta property="article:published_time" content="2019-03-31T11:16:50&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-03-31T06:20:37&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2019-03-31T11:16:50&#43;08:00">
   
 
   
 
-  <title>Linux Chrome | OS/APP HARDCORE</title>
+  
+
+  <title>K8s Istio Envoy | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -384,7 +368,7 @@ enter password to unlock your keyring  方法1（可靠）
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Linux Chrome</h1>
+  <h1 itemprop="name">K8s Istio Envoy</h1>
 
   
 
@@ -393,8 +377,8 @@ enter password to unlock your keyring  方法1（可靠）
 
 
 
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -407,7 +391,7 @@ enter password to unlock your keyring  方法1（可靠）
     
       
     
-    <time>Mar 31, 2018</time>
+    <time>Mar 31, 2019</time>
   </span>
   
 
@@ -423,7 +407,7 @@ enter password to unlock your keyring  方法1（可靠）
   
   
   <span class="middot-divider"></span>
-  <a href="/post/linux-chrome/#disqus_thread"></a>
+  <a href="/post/k8s-istio-envoy/#disqus_thread"></a>
   
 
   
@@ -434,35 +418,35 @@ enter password to unlock your keyring  方法1（可靠）
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Linux%20Chrome&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f"
+         href="https://twitter.com/intent/tweet?text=K8s%20Istio%20Envoy&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-istio-envoy%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-istio-envoy%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f&amp;title=Linux%20Chrome"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-istio-envoy%2f&amp;title=K8s%20Istio%20Envoy"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f&amp;title=Linux%20Chrome"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-istio-envoy%2f&amp;title=K8s%20Istio%20Envoy"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Linux%20Chrome&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flinux-chrome%2f">
+         href="mailto:?subject=K8s%20Istio%20Envoy&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-istio-envoy%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -500,81 +484,31 @@ enter password to unlock your keyring  方法1（可靠）
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<h1 id="禁止启动时候恢复页面提示">禁止启动时候恢复页面提示</h1>
-
-<p><strong>Version 73.0.3683.86 (Official Build) (64-bit)</strong></p>
-
-<ul>
-<li>方法1（可靠）</li>
-</ul>
-
-<p>首先关闭chrome，然后修改下面的设置，修改完后重启</p>
-
-<p><code>.config/google-chrome/Default/Preferences</code></p>
-
-<pre><code>sed  -i '/exit_type:Crashed/exit_type:Normal/`
+      <pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 </code></pre>
 
-<p>windows用户请参考下面的视频</p>
+<p><code>Dockerfile</code></p>
 
-<p><a href="https://www.youtube.com/watch?v=d75rLCGldOc" target="_blank">Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7</a></p>
-
-<ul>
-<li>方法2（不可靠）</li>
-</ul>
-
-<p>Type in address bar (Crtl+L).</p>
-
-<pre><code>chrome://flags/#infinite-session-restore 
+<pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/*
+# CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
 </code></pre>
 
-<p>Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting</p>
-
-<h1 id="enter-password-to-unlock-your-keyring">enter password to unlock your keyring</h1>
-
-<ul>
-<li><p>方法1（可靠）</p></li>
-
-<li><p>set password-store to basic</p></li>
-</ul>
-
-<pre><code>dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications
+<pre><code>docker build -t envoy:v1 .
 </code></pre>
 
-<p>修改<code>.local/share/applications/google-chrome.desktop</code></p>
+<pre><code>docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
 
-<pre><code>Exec=/usr/bin/google-chrome-stable --password-store=basic %U
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
 </code></pre>
-
-<ul>
-<li><p>方法2（不可靠）</p></li>
-
-<li><p>seahorse</p></li>
-</ul>
-
-<pre><code>seahorse
-</code></pre>
-
-<p>选择login，右键删除</p>
-
-<h1 id="how-to-allow-unsafe-ports-in-chrome">How to allow unsafe ports in Chrome</h1>
-
-<p><a href="http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome" target="_blank">http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome</a></p>
 
     </div>
 
     
 
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/web/">WEB</a>
-  
-  <a class="badge badge-light" href="/tags/linux/">LINUX</a>
-  
-</div>
 
 
 
@@ -665,24 +599,6 @@ enter password to unlock your keyring  方法1（可靠）
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/linux-ssh/">Linux SSH</a></li>
-          
-          <li><a href="/post/reinstall-a-running-linux-system-via-ssh/">通过SSH远程修复linux</a></li>
-          
-          <li><a href="/post/ubungu-chinese/">Ubungu Chinese locale</a></li>
-          
-          <li><a href="/post/2012-06-03-linux/">linux note</a></li>
-          
-          <li><a href="/post/2011-06-03-io-performance/">Linux File System Read Write Performance Test</a></li>
-          
-        </ul>
-      </div>
       
     
 

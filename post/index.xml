@@ -6,10 +6,20 @@
     <description>Recent content in Posts on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2019 14:04:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 Mar 2019 11:16:50 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>K8s Istio Envoy</title>
+      <link>https://wubigo.com/post/k8s-istio-envoy/</link>
+      <pubDate>Sun, 31 Mar 2019 11:16:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-istio-envoy/</guid>
+      <description>docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;amp;&amp;amp; apt-get install -y curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* # CMD [&amp;quot;envoy&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;/etc/envoy/envoy.yaml&amp;quot;, &amp;quot;-l&amp;quot;, &amp;quot;debug&amp;quot;]  docker build -t envoy:v1 .  docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.yaml -l debug  </description>
+    </item>
     
     <item>
       <title>Linux删除Python3.5</title>
@@ -312,14 +322,16 @@ SETUP CLIENT set http_proxy=192.168.0.119:3128 git config --global http.proxy ht
       <pubDate>Sat, 31 Mar 2018 06:20:37 +0800</pubDate>
       
       <guid>https://wubigo.com/post/linux-chrome/</guid>
-      <description>禁止启动时候恢复页面提示 .config/google-chrome/Default/Preferences
-sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  下面的方法并不可靠
-Type in address bar (Crtl+L).
+      <description>禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
+ 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
+.config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
+Chrome Didn&amp;rsquo;t Shut Down Correctly Error Solved Windows 7
+ 方法2（不可靠）  Type in address bar (Crtl+L).
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring 方法1（可靠）
- set password-store to basic  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications  修改.local/share/applications/google-chrome.desktop
-Exec=/usr/bin/google-chrome-stable --password-store=basic %U  方法2（不可靠）
- seahorse  seahorse  选择login，右键删除</description>
+enter password to unlock your keyring  方法1（可靠）
+ set password-store to basic
+  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
     </item>
     
     <item>
