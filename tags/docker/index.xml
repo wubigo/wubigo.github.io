@@ -35,6 +35,16 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     </item>
     
     <item>
+      <title>Docker Alpine</title>
+      <link>https://wubigo.com/post/docker-alpine/</link>
+      <pubDate>Fri, 31 Mar 2017 15:07:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-alpine/</guid>
+      <description> set date FROM alpine:3.8 RUN apk add --no-cache tzdata &amp;amp;&amp;amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;amp;&amp;amp; echo $TZ &amp;gt; /etc/timezone  docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash  创建/etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  </description>
+    </item>
+    
+    <item>
       <title>Docker网络</title>
       <link>https://wubigo.com/post/docker_network/</link>
       <pubDate>Thu, 02 Mar 2017 11:10:51 +0800</pubDate>

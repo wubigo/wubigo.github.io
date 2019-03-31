@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
-FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/* # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.yaml -l debug  ">
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-istio-envoy/">
@@ -139,12 +139,12 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
   <meta property="og:url" content="https://wubigo.com/post/k8s-istio-envoy/">
   <meta property="og:title" content="K8s Istio Envoy | OS/APP HARDCORE">
   <meta property="og:description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
-FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/* # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.yaml -l debug  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-03-31T11:16:50&#43;08:00">
+  <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-03-31T11:16:50&#43;08:00">
+  <meta property="article:modified_time" content="2018-03-31T11:16:50&#43;08:00">
   
 
   
@@ -377,8 +377,8 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
 
 
 
-<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -391,7 +391,7 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
     
       
     
-    <time>Mar 31, 2019</time>
+    <time>Mar 31, 2018</time>
   </span>
   
 
@@ -491,14 +491,15 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
 
 <pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 COPY envoy.yaml /etc/envoy/envoy.yaml
-RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool &amp;&amp; rm -rf /var/cache/apk/*
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/*
+ENV TZ Asia/Shanghai
 # CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
 </code></pre>
 
 <pre><code>docker build -t envoy:v1 .
 </code></pre>
 
-<pre><code>docker run -d --rm -v /etc/timezone:/etc/timezone:ro --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
+<pre><code>docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
 
 docker exec -it envoy bash
 #ps fax
@@ -509,6 +510,12 @@ docker exec -it envoy bash
 
     
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
+  
+</div>
 
 
 
@@ -599,6 +606,24 @@ docker exec -it envoy bash
 
 
       
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></li>
+          
+          <li><a href="/post/k8s-openshift/">K8s Openshift</a></li>
+          
+          <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
+          
+          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
+          
+          <li><a href="/post/k8s-development-streamline/">K8s Development Streamline with draft</a></li>
+          
+        </ul>
+      </div>
       
     
 

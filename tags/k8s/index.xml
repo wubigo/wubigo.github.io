@@ -158,6 +158,16 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
     </item>
     
     <item>
+      <title>K8s Istio Envoy</title>
+      <link>https://wubigo.com/post/k8s-istio-envoy/</link>
+      <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-istio-envoy/</guid>
+      <description>docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;amp;&amp;amp; apt-get install -y curl ethtool tzdata &amp;amp;&amp;amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&amp;quot;envoy&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;/etc/envoy/envoy.yaml&amp;quot;, &amp;quot;-l&amp;quot;, &amp;quot;debug&amp;quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.</description>
+    </item>
+    
+    <item>
       <title>K8s IDE Tool: code extension</title>
       <link>https://wubigo.com/post/k8s-ide-tool/</link>
       <pubDate>Sat, 24 Mar 2018 07:02:36 +0800</pubDate>

@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-04-30T15:04:55&#43;08:00">
+  <meta property="og:updated_time" content="2017-07-13T00:00:00&#43;00:00">
   
 
   
@@ -379,6 +379,18 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/k8s-notes/">K8S notes</a></h2>
+    <div class="article-style">
+      
+      docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/k8s-istio-discovery-proxy/">K8s Istio Discovery Proxy</a></h2>

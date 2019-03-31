@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-16T13:23:32&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-16T17:21:24&#43;08:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 16, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/linux-ssh/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-ssh/" itemprop="url">Linux SSH</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    ssh client config ~/.ssh/config
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2143,112 +2230,6 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
 &gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
 &gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-01-01-hacknewsfavorites2017/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
-
-<p>[]()</p>
-
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
-
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
-
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
-
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
-
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
-
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
 
   </div>
   

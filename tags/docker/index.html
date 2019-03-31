@@ -404,6 +404,16 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   </div>
   
   <div>
+    <h2><a href="/post/docker-alpine/">Docker Alpine</a></h2>
+    <div class="article-style">
+      
+       set date FROM alpine:3.8 RUN apk add --no-cache tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone  docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash  创建/etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/docker_network/">Docker网络</a></h2>
     <div class="article-style">
       

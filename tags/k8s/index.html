@@ -527,6 +527,16 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
   </div>
   
   <div>
+    <h2><a href="/post/k8s-istio-envoy/">K8s Istio Envoy</a></h2>
+    <div class="article-style">
+      
+      docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
+FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></h2>
     <div class="article-style">
       
@@ -590,18 +600,6 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     <div class="article-style">
       
       Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-notes/">K8S notes</a></h2>
-    <div class="article-style">
-      
-      docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
-Dockerfile
-FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
-apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
       
     </div>
   </div>
