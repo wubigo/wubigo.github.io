@@ -21,6 +21,12 @@ categories = []
 
 
 # 禁止启动时候恢复页面提示
+
+**Version 73.0.3683.86 (Official Build) (64-bit)**
+
+- 方法1（可靠）
+
+  首先关闭chrome，然后修改下面的设置，修改完后重启
   
   `.config/google-chrome/Default/Preferences`
 
@@ -28,8 +34,12 @@ categories = []
 sed  -i '/exit_type:Crashed/exit_type:Normal/`
 ```  
 
+windows用户请参考下面的视频
 
-下面的方法并不可靠
+[Chrome Didn't Shut Down Correctly Error Solved Windows 7](https://www.youtube.com/watch?v=d75rLCGldOc)
+
+
+- 方法2（不可靠）
 
 Type in address bar (Crtl+L).
 
@@ -42,7 +52,7 @@ Click on the right drop-down menu and change the 'Default' value to 'Disable'. T
 
 # enter password to unlock your keyring
 
-方法1（可靠）
+- 方法1（可靠）
 
 - set password-store to basic
 
@@ -56,7 +66,7 @@ dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applica
 Exec=/usr/bin/google-chrome-stable --password-store=basic %U
 ```
 
-方法2（不可靠）
+- 方法2（不可靠）
 
 - seahorse
 

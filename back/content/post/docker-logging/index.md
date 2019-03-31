@@ -73,3 +73,14 @@ gelf |	Writes log messages to a Graylog Extended Log Format (GELF) endpoint such
 fluentd| 	Writes log messages to fluentd (forward input). The fluentd daemon must be running on the host machine.
 awslogs |	Writes log messages to Amazon CloudWatch Logs.
 
+
+# 覆盖ENTRYPOINT
+
+- 方法1
+  
+  ```
+  docker run -it --rm --entrypoint /bin/sh curl:v1
+  ```
+
+- 方法2
+  通过Dockerfile从镜像再建一个镜像，并重定义ENTRYPOINT
