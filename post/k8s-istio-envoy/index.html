@@ -28,8 +28,9 @@
   
     
   
-  <meta name="description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
-FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.">
+  <meta name="description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-istio-envoy/">
@@ -138,8 +139,9 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-istio-envoy/">
   <meta property="og:title" content="K8s Istio Envoy | OS/APP HARDCORE">
-  <meta property="og:description" content="docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
-FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
@@ -400,7 +402,7 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -485,6 +487,48 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
 
     <div class="article-style" itemprop="articleBody">
       
+
+<p>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</p>
+
+<h1 id="参数化定制envoy镜像">参数化定制Envoy镜像</h1>
+
+<pre><code>clusters:
+  - name: myapp_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
+</code></pre>
+
+<p><code>docker-entrypoint.shin</code> 做环境变量替换</p>
+
+<pre><code>#!/bin/sh
+set -e
+
+echo &quot;Generating envoy.yaml config file...&quot;
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml
+
+echo &quot;Starting Envoy...&quot;
+/usr/local/bin/envoy -c /etc/envoy.yaml
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy:latest
+
+COPY envoy.yaml /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update &amp;&amp; \
+    apt-get install gettext -y
+
+ENTRYPOINT [&quot;/docker-entrypoint.sh&quot;]
+</code></pre>
+
+<h1 id="设置时间">设置时间</h1>
 
 <pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 </code></pre>

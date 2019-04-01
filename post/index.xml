@@ -324,8 +324,9 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
       <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-istio-envoy/</guid>
-      <description>docker history --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5  Dockerfile
-FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.yaml /etc/envoy/envoy.yaml RUN apt-get update &amp;amp;&amp;amp; apt-get install -y curl ethtool tzdata &amp;amp;&amp;amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai # CMD [&amp;quot;envoy&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;/etc/envoy/envoy.yaml&amp;quot;, &amp;quot;-l&amp;quot;, &amp;quot;debug&amp;quot;]  docker build -t envoy:v1 .  docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug docker exec -it envoy bash #ps fax 1 ? Ssl 0:00 envoy -c /etc/envoy/envoy.</description>
+      <description>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &amp;quot;Generating envoy.yaml config file...&amp;quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &amp;gt; /etc/envoy.yaml echo &amp;quot;Starting Envoy.</description>
     </item>
     
     <item>
