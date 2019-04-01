@@ -68,8 +68,60 @@ cluster   | 后台服务集群
 Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service
 
 
+# 监听器
+
+- 监听过滤器（内置）  
+  + envoy.client_ssl_auth
+  + envoy.echo
+  + envoy.http_connection_manager(代理HTTP请求)
+       + http_connection_manager.v2.HttpFilter
+            + envoy.buffer
+            + envoy.cors
+            + envoy.fault
+            + envoy.gzip
+            + envoy.http_dynamo_filter
+            + envoy.grpc_http1_bridge
+            + envoy.grpc_json_transcoder
+            + envoy.grpc_web
+            + envoy.health_check
+            + envoy.header_to_metadata
+            + envoy.ip_tagging
+            + envoy.lua
+            + envoy.rate_limit
+            + envoy.router
+            + envoy.squash
+  + envoy.mongo_proxy
+  + envoy.ratelimit
+  + envoy.redis_proxy
+  + envoy.tcp_proxy
 
 
+
+```
+route_config:
+   virtual_hosts:
+       domains: -> matched against the http requests Host header
+```
+
+config envoy by following its api
+**api document is automatically generated from protocol buffers**
+
+https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api
+
+
+以上都是静态资源配置，但是在K8S环境，容器是动态分配的，手动配置无法
+保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:
+
+- routes (“what cluster should requests with this HTTP header go to”)[RDS]
+- clusters (“what backends does this service have?”)[CRS]
+- listener (the filters for a port)[LDS]
+- endpoints[EDS]
+
+```
+XDS = [ RDS, CDS, LDS, and EDS] 
+```
+
+istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务
 
 
 
@@ -154,3 +206,6 @@ index cc529bcf2..57176eff3 100644
 python3 /code/service.py &
 envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
 ```
+
+
+https://jvns.ca/blog/2018/10/27/envoy-basics/

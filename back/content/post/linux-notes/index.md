@@ -27,6 +27,10 @@ categories = ["IT"]
 
 ![](./table-chain.png)
 
+- 调用链顺序
+  
+![](./chain-order.jpg)  
+
 # 检查内存
 
 ram speed and type
