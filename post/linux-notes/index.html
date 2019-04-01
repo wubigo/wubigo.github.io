@@ -28,17 +28,11 @@
   
     
   
-  <meta name="description" content="putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
-Interrupt Coalescence ubuntu 16 default
-Interrupt Coalescence (IC)
-$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
-use Jumbo frames
-ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
-ip -s link show eth0  stop irqbalance for home user">
+  <meta name="description" content="iptables规则配置  表与链  检查内存 ram speed and type
+ dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-notes/">
 
   
 
@@ -127,7 +121,7 @@ ip -s link show eth0  stop irqbalance for home user">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
+  <link rel="canonical" href="https://wubigo.com/post/linux-notes/">
 
   
   
@@ -142,28 +136,22 @@ ip -s link show eth0  stop irqbalance for home user">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/2018-11-07-linuxperformancetuning/">
-  <meta property="og:title" content="Linux performance | OS/APP HARDCORE">
-  <meta property="og:description" content="putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
-Interrupt Coalescence ubuntu 16 default
-Interrupt Coalescence (IC)
-$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
-use Jumbo frames
-ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
-ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/linux-notes/">
+  <meta property="og:title" content="linux note | OS/APP HARDCORE">
+  <meta property="og:description" content="iptables规则配置  表与链  检查内存 ram speed and type
+ dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-11-07T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2012-06-03T19:39:03&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-11-07T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2012-06-03T19:39:03&#43;08:00">
   
 
   
 
-  <title>Linux performance | OS/APP HARDCORE</title>
+  
+
+  <title>linux note | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -380,7 +368,7 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Linux performance</h1>
+  <h1 itemprop="name">linux note</h1>
 
   
 
@@ -389,8 +377,8 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
 
 
 
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -403,7 +391,7 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
     
       
     
-    <time>Nov 7, 2018</time>
+    <time>Jun 3, 2012</time>
   </span>
   
 
@@ -412,16 +400,27 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/2018-11-07-linuxperformancetuning/#disqus_thread"></a>
+  <a href="/post/linux-notes/#disqus_thread"></a>
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
   
 
   
@@ -430,35 +429,35 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Linux%20performance&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f"
+         href="https://twitter.com/intent/tweet?text=linux%20note&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flinux-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f&amp;title=Linux%20performance"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-notes%2f&amp;title=linux%20note"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f&amp;title=Linux%20performance"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flinux-notes%2f&amp;title=linux%20note"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Linux%20performance&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2018-11-07-linuxperformancetuning%2f">
+         href="mailto:?subject=linux%20note&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flinux-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -478,6 +477,8 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
 
 
 
+  
+
 
 
 
@@ -496,58 +497,376 @@ ip -s link show eth0  stop irqbalance for home user"><meta property="og:image" c
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="putting-tmp-on-tmpfs">putting /tmp on tmpfs</h1>
+<h1 id="iptables规则配置">iptables规则配置</h1>
 
-<p><a href="https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs" target="_blank">https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs</a></p>
+<p><img src="./iptable-chain.jpg" alt="" /></p>
 
-<h1 id="interrupt-coalescence">Interrupt Coalescence</h1>
+<ul>
+<li>表与链</li>
+</ul>
 
-<p>ubuntu 16 default</p>
+<p><img src="./table-chain.png" alt="" /></p>
 
-<p>Interrupt Coalescence (IC)</p>
+<h1 id="检查内存">检查内存</h1>
 
-<pre><code>$ethtool -c enp0s25
-Coalesce parameters for enp0s25:
-Adaptive RX: off  TX: off
+<p>ram speed and type</p>
+
+<ul>
+<li>dmidecode</li>
+</ul>
+
+<pre><code>sudo dmidecode --type memory
+
+# dmidecode 3.0
+Getting SMBIOS data from sysfs.
+SMBIOS 2.6 present.
+
+Handle 0x003E, DMI type 17, 28 bytes
+Memory Device
+	Array Handle: 0x003C
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: 1
+	Locator: XMM1
+	Bank Locator: Not Specified
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: Unknown
+	Manufacturer: JEDEC ID:
+	Serial Number:  
+	Asset Tag: Not Specified
+	Part Number:  
+	Rank: Unknown
+
+
 </code></pre>
 
-<p>Pause frames</p>
+<ul>
+<li>lshw
+<br /></li>
+</ul>
 
-<pre><code>$ethtool -a enp0s25
-Pause parameters for enp0s25:
-Autonegotiate:	on
-RX:		on
-TX:		on
+<pre><code>sudo lshw -class memory
+
+
+memory:0
+       description: System Memory
+       physical id: 3c
+       slot: System board or motherboard
+     *-bank:0
+          description: DIMM DDR3 Synchronous [empty]
+          vendor: JEDEC ID:
+          physical id: 0
+          slot: XMM1
+     *-bank:1
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: M378B5273DH0-CH9
+          vendor: JEDEC ID:80 CE
+          physical id: 1
+          serial: D3894765
+          slot: XMM2
+          size: 4GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+     *-bank:2
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: M378B5273DH0-CH9
+          vendor: JEDEC ID:80 CE
+          physical id: 2
+          serial: D4894765
+          slot: XMM3
+          size: 4GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+     *-bank:3
+          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+          product: 8JTF12864AZ-1G4G1
+          vendor: JEDEC ID:80 2C
+          physical id: 3
+          serial: 07572436
+          slot: XMM4
+          size: 1GiB
+          width: 64 bits
+          clock: 1333MHz (0.8ns)
+
 
 </code></pre>
 
-<h1 id="network">network</h1>
+<p>2R*8 代表双面，每面（RANK）8个芯片颗粒</p>
 
-<p>Tuning the network adapter (NIC)</p>
+<h1 id="download-manager">download manager</h1>
 
-<p>use Jumbo frames</p>
-
-<pre><code>ifconfig eth0 mtu 9000
+<pre><code>sudo apt-get install uget
+uget-gtk
 </code></pre>
 
-<p>ip result for a healthy system with no packet drops</p>
+<h1 id="enables-forwarding-of-the-authentication-agent-connection">Enables forwarding of the authentication agent connection</h1>
 
-<pre><code>ip -s link show eth0
+<ul>
+<li>client config <code>.ssh/config</code></li>
+</ul>
+
+<pre><code>ForwardAgent  yes
+</code></pre>
+
+<ul>
+<li>Enable ssh-agent on main device</li>
+</ul>
+
+<p><code>.bashrc</code></p>
+
+<pre><code>SSH_ENV=&quot;$HOME/.ssh/environment&quot;
+
+function start_agent {
+    echo &quot;Initialising new SSH agent...&quot;
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot;
+    echo succeeded
+    chmod 600 &quot;${SSH_ENV}&quot;
+    . &quot;${SSH_ENV}&quot; &gt; /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f &quot;${SSH_ENV}&quot; ]; then
+    . &quot;${SSH_ENV}&quot; &gt; /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ &gt; /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 
 </code></pre>
 
-<p>stop irqbalance for home user</p>
+<h1 id="enter-password-to-unlock-your-keyring">enter password to unlock your keyring</h1>
 
-<pre><code>sudo systemctl disable/stop irqbalance
+<p>方法1
+- set password-store to basic</p>
+
+<pre><code>dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.local/share/applications
 </code></pre>
 
-<h1 id="network-performance-monitoring">network-performance-monitoring</h1>
+<p>修改<code>.local/share/applications/google-chrome.desktop</code></p>
 
-<p><a href="https://opensourceforu.com/2016/10/network-performance-monitoring/" target="_blank">https://opensourceforu.com/2016/10/network-performance-monitoring/</a></p>
+<pre><code>Exec=/usr/bin/google-chrome-stable --password-store=basic %U
+</code></pre>
 
-<h1 id="linux-network-tcp-performance-tuning-with-sysctl">Linux Network (TCP) Performance Tuning with Sysctl</h1>
+<ul>
+<li>seahorse</li>
+</ul>
 
-<p><a href="https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl" target="_blank">https://www.slashroot.in/linux-network-tcp-performance-tuning-sysctl</a></p>
+<pre><code>seahorse
+</code></pre>
+
+<p>选择login，右键删除</p>
+
+<h1 id="tcp-dump">TCP DUMP</h1>
+
+<blockquote>
+<p>capture all incoming IP traffic destined to the node
+except local traffic</p>
+</blockquote>
+
+<pre><code>sudo tcpdump -i enp0s25 tcp -n
+sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
+</code></pre>
+
+<h1 id="终端窗口复制快捷键ctrl-c">终端窗口复制快捷键Ctrl-C</h1>
+
+<ul>
+<li>在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C</li>
+<li>设置终端驱动快捷键</li>
+</ul>
+
+<pre><code>stty -a
+stty intr \^k
+stty -a
+</code></pre>
+
+<blockquote>
+<p>Ctrl-K to interrupt current command</p>
+</blockquote>
+
+<p><code>ctrl-c.sh</code></p>
+
+<pre><code>#!/usr/bin/env bash
+
+stty intr \^k
+</code></pre>
+
+<h1 id="network-manager">network manager</h1>
+
+<p>Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services</p>
+
+<pre><code> /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/NetworkManager/dnsmasq.pid --listen-address=127.0.1.1 --cache-size=0 --conf-file=/dev/null --proxy-dnssec --enable-dbus=org.freedesktop.NetworkManager.dnsmasq --conf-dir=/etc/NetworkManager/dnsmasq.d
+</code></pre>
+
+<h1 id="update-git-to-2-20">update git to 2.20</h1>
+
+<pre><code>sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git=2.20.1-0ppa1~ubuntu16.04.1
+</code></pre>
+
+<h1 id="static-ip">static ip</h1>
+
+<pre><code>sudo systemctl stop network-manager
+sudo systemctl disable network-manager.service
+echo &quot;manual&quot; | sudo tee /etc/init/network-manager.override
+</code></pre>
+
+<p>ubuntu18.04</p>
+
+<pre><code>sudo systemctl stop NetworkManager-wait-online.service
+sudo systemctl disable NetworkManager-wait-online.service
+sudo systemctl stop NetworkManager-dispatcher.service
+sudo systemctl disable NetworkManager-dispatcher.service
+sudo systemctl stop network-manager.service
+sudo systemctl disable network-manager.service
+ystemctl unmask networking
+systemctl enable networking
+systemctl restart networking
+</code></pre>
+
+<pre><code>cat /etc/network/interfaces
+auto enp0s25
+iface enp0s25 inet static
+address 192.168.1.5
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 192.168.1.1
+</code></pre>
+
+<p>ubuntu18.04 only</p>
+
+<pre><code>echo &quot;DNS=192.168.1.1&gt;&gt;/etc/systemd/resolved.conf
+systemctl restart systemd-resolved
+</code></pre>
+
+<h1 id="ssh-client-config">ssh client config</h1>
+
+<p><code>~/.ssh/config</code></p>
+
+<pre><code>host *
+    StrictHostKeyChecking no
+</code></pre>
+
+<h1 id="instll-docker-v17-03">instll docker v17.03</h1>
+
+<pre><code>sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
+sudo apt-get update   
+apt-cache madison docker-ce|grep 17.03
+sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
+sudo usermod -aG docker $USER
+</code></pre>
+
+<h1 id="disable-chrome-session-restore-popup">Disable Chrome session restore popup</h1>
+
+<p>Type chrome://flags/#infinite-session-restore in address bar (Crtl+L).
+Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting</p>
+
+<h1 id="docker-to-reclaim-disk-space">docker to reclaim disk space</h1>
+
+<ul>
+<li>remove untagged images</li>
+</ul>
+
+<pre><code>docker images --no-trunc | grep '&lt;none&gt;' | awk '{ print $3 }' | xargs -r docker rmi
+</code></pre>
+
+<ul>
+<li>Clean up dead and exited containers(use the -v flag to remove the volumes along the container)</li>
+</ul>
+
+<pre><code>docker ps --filter status=dead --filter status=exited -aq \
+  | xargs docker rm -v
+</code></pre>
+
+<ul>
+<li>docker volume cleanup</li>
+</ul>
+
+<pre><code>docker volume ls -qf dangling=true | xargs -r docker volume rm
+</code></pre>
+
+<h1 id="ipvs">IPVS</h1>
+
+<pre><code>for i in ip_vs_sh ip_vs ip_vs_rr ip_vs_wrr; do sudo modprobe $i; done
+</code></pre>
+
+<h1 id="change-the-runlevel-on-systemd-for-vm">change the runlevel on systemd for VM</h1>
+
+<pre><code>sudo systemctl enable multi-user.target
+sudo systemctl set-default multi-user.target
+</code></pre>
+
+<h1 id="list-files-in-package">List files in package</h1>
+
+<pre><code>$dpkg -L docker-ce
+/usr/bin/docker-containerd
+/usr/bin/docker-proxy
+/usr/bin/docker
+/usr/bin/docker-runc
+/usr/bin/dockerd
+/usr/bin/docker-containerd-ctr
+/usr/bin/docker-containerd-shim
+/usr/bin/docker-init
+/etc/init.d/docker
+/etc/default/docker
+/etc/init/docker.conf
+/lib/systemd/system/docker.service
+/lib/systemd/system/docker.socket
+</code></pre>
+
+<h1 id="find-the-latest-file-by-modified-date">Find the latest file by modified date</h1>
+
+<pre><code>find /path -printf '%T+ %p\n' | sort -r | head
+</code></pre>
+
+<h1 id="ghost-systemd-service">ghost systemd service</h1>
+
+<p><code>/etc/systemd/system/ghost.service</code></p>
+
+<pre><code>Running sudo command: ln -sf /var/www/ghost/system/files/ghost_localhost.service /lib/systemd/system/ghost_localhost.service
+Running sudo command: systemctl daemon-reload
+</code></pre>
+
+<pre><code>ls /lib/systemd/system/ghost*
+sudo systemctl stop ghost_localhost
+</code></pre>
+
+<p>Admin URL
+As per the SSL section above, admin.url can be used to specify a different protocol for your admin panel. It can also be used to specify a different hostname (domain name). It cannot be used to affect the path at which the admin panel is served (this is always /ghost/).</p>
+
+<pre><code>&quot;admin&quot;: {
+  &quot;url&quot;: &quot;http://example.com&quot;
+}
+</code></pre>
+
+<pre><code>ubuntu@ip-192-168-114-240:/lib/systemd/system$ sudo systemctl disable ghost_54-169-190-39.service
+Removed symlink /etc/systemd/system/multi-user.target.wants/ghost_54-169-190-39.service.
+Removed symlink /etc/systemd/system/ghost_54-169-190-39.service.
+</code></pre>
+
+<h1 id="rotate-tomcat-catalina-out">Rotate Tomcat catalina.out</h1>
+
+<p><a href="https://dzone.com/articles/how-rotate-tomcat-catalinaout" target="_blank">https://dzone.com/articles/how-rotate-tomcat-catalinaout</a></p>
 
     </div>
 
@@ -555,6 +874,8 @@ TX:		on
 
 
 <div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/iaas/">IAAS</a>
   
   <a class="badge badge-light" href="/tags/linux/">LINUX</a>
   
@@ -655,15 +976,11 @@ TX:		on
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/linux-chrome/">Linux Chrome</a></li>
+          <li><a href="/post/2011-06-03-io-performance/">Linux File System Read Write Performance Test</a></li>
           
-          <li><a href="/post/linux-ssh/">Linux SSH</a></li>
+          <li><a href="/post/hpcloud-notes/">Hpcloud Notes</a></li>
           
-          <li><a href="/post/reinstall-a-running-linux-system-via-ssh/">通过SSH远程修复linux</a></li>
-          
-          <li><a href="/post/ubungu-chinese/">Ubungu Chinese locale</a></li>
-          
-          <li><a href="/post/linux-notes/">linux note</a></li>
+          <li><a href="/post/2011-01-01-shell-script/">shell script</a></li>
           
         </ul>
       </div>
