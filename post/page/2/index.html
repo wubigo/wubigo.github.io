@@ -793,6 +793,94 @@ go get -u -v github.com/dgraph-io/dgo
 
 
 
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-service-headless/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-service-headless/" itemprop="url">K8s Service Headless</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
 
@@ -2226,92 +2314,6 @@ godep restore ./...
   <div class="article-style" itemprop="articleBody">
     准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-csi/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
   </div>
   
 

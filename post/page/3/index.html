@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-02-11T20:24:49&#43;08:00">
+  <meta property="og:updated_time" content="2018-02-24T06:55:53&#43;08:00">
   
 
   
@@ -378,6 +378,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-csi/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2162,93 +2248,6 @@ Modules record precise dependency requirements and create reproducible builds.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
 kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-17 06:44:46 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-17 06:44:46 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 17, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-private-registry/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-private-registry/" itemprop="url">K8s Private Registry</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
- Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
- {&ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.
   </div>
   
 

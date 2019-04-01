@@ -158,6 +158,18 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
     </item>
     
     <item>
+      <title>K8s Service Headless</title>
+      <link>https://wubigo.com/post/k8s-service-headless/</link>
+      <pubDate>Sun, 01 Apr 2018 17:20:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-service-headless/</guid>
+      <description>To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&amp;rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .</description>
+    </item>
+    
+    <item>
       <title>K8s Istio Envoy</title>
       <link>https://wubigo.com/post/k8s-istio-envoy/</link>
       <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>

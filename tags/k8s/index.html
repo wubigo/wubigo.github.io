@@ -527,6 +527,18 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
   </div>
   
   <div>
+    <h2><a href="/post/k8s-service-headless/">K8s Service Headless</a></h2>
+    <div class="article-style">
+      
+      To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-istio-envoy/">K8s Istio Envoy</a></h2>
     <div class="article-style">
       
@@ -591,15 +603,6 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
       
       PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
 Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-kubectl-cheatsheet/">kubectl cheat sheet</a></h2>
-    <div class="article-style">
-      
-      Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
       
     </div>
   </div>

@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-07-13T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-01-11T00:00:00&#43;00:00">
   
 
   
@@ -379,6 +379,15 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/k8s-kubectl-cheatsheet/">kubectl cheat sheet</a></h2>
+    <div class="article-style">
+      
+      Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/k8s-notes/">K8S notes</a></h2>
