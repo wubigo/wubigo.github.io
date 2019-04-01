@@ -1160,7 +1160,7 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
       <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
       
       <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description>docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
+      <description>busybox nslookup  docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
 [Service] Environment=&amp;quot;HTTP_PROXY=http://127.0.0.1:33351/&amp;quot; Environment=&amp;quot;HTTPS_PROXY=http://127.0.0.1:33351/&amp;quot;  sudo systemctl daemon-reload sudo systemctl restart docker systemctl show --property=Environment docker  docker clean up disk space  delete volumes   $ docker volume rm $(docker volume ls -qf dangling=true) $ docker volume ls -qf dangling=true | xargs -r docker volume rm   docker rmi $(docker images --filter &amp;quot;dangling=true&amp;quot; -q --no-trunc) docker rmi $(docker images | grep &amp;quot;none&amp;quot; | awk &#39;/ / { print $3 }&#39;) docker rm $(docker ps -qa --no-trunc --filter &amp;quot;status=exited&amp;quot;)  Caution</description>
     </item>
     
