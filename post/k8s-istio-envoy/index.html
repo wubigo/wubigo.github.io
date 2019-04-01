@@ -545,6 +545,69 @@ docker exec -it envoy bash
 
 <p>Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service</p>
 
+<h1 id="监听器">监听器</h1>
+
+<ul>
+<li>监听过滤器（内置）<br />
+
+<ul>
+<li>envoy.client_ssl_auth</li>
+<li>envoy.echo</li>
+<li>envoy.http_connection_manager(代理HTTP请求)
+
+<ul>
+<li>http_connection_manager.v2.HttpFilter
+
+<ul>
+<li>envoy.buffer</li>
+<li>envoy.cors</li>
+<li>envoy.fault</li>
+<li>envoy.gzip</li>
+<li>envoy.http_dynamo_filter</li>
+<li>envoy.grpc_http1_bridge</li>
+<li>envoy.grpc_json_transcoder</li>
+<li>envoy.grpc_web</li>
+<li>envoy.health_check</li>
+<li>envoy.header_to_metadata</li>
+<li>envoy.ip_tagging</li>
+<li>envoy.lua</li>
+<li>envoy.rate_limit</li>
+<li>envoy.router</li>
+<li>envoy.squash</li>
+</ul></li>
+</ul></li>
+<li>envoy.mongo_proxy</li>
+<li>envoy.ratelimit</li>
+<li>envoy.redis_proxy</li>
+<li>envoy.tcp_proxy</li>
+</ul></li>
+</ul>
+
+<pre><code>route_config:
+   virtual_hosts:
+       domains: -&gt; matched against the http requests Host header
+</code></pre>
+
+<p>config envoy by following its api
+<strong>api document is automatically generated from protocol buffers</strong></p>
+
+<p><a href="https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api" target="_blank">https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api</a></p>
+
+<p>以上都是静态资源配置，但是在K8S环境，容器是动态分配的，手动配置无法
+保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:</p>
+
+<ul>
+<li>routes (“what cluster should requests with this HTTP header go to”)[RDS]</li>
+<li>clusters (“what backends does this service have?”)[CRS]</li>
+<li>listener (the filters for a port)[LDS]</li>
+<li>endpoints[EDS]</li>
+</ul>
+
+<pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
+</code></pre>
+
+<p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
+
 <pre><code>/envoy/examples/front-proxy$ git diff --word-diff
 
 
@@ -623,6 +686,8 @@ index cc529bcf2..57176eff3 100644
 python3 /code/service.py &amp;
 envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
 </code></pre>
+
+<p><a href="https://jvns.ca/blog/2018/10/27/envoy-basics/" target="_blank">https://jvns.ca/blog/2018/10/27/envoy-basics/</a></p>
 
     </div>
 
