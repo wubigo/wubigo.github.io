@@ -19,6 +19,12 @@ categories = []
   focal_point = ""
 +++
 
+# busybox nslookup
+
+```
+```
+
+
 # docker proxy
 
 `/etc/systemd/system/docker.service.d/https-proxy.conf`

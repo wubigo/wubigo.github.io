@@ -78,3 +78,47 @@ Address 1: 10.96.0.1 kubernetes.default.svc.cluster.local
 Name:      nginx
 Address 1: 10.2.12.99 web-0.nginx.default.svc.cluster.local
 ```
+
+
+# coredns CM
+
+
+```
+kubectl -n kube-system get configmap coredns -o yaml
+
+kubectl -n kube-system edit configmap coredns
+
+
+
+data:
+  Corefile: |
+    .:53 {
+        log
+        errors
+        health
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           upstream
+           fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        proxy . /etc/resolv.conf
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-02-19T06:54:07Z"
+  name: coredns
+  namespace: kube-system
+  resourceVersion: "561721"
+  selfLink: /api/v1/namespaces/kube-system/configmaps/coredns
+  uid: 2732a277-3413-11e9-86cc-08002775f493
+
+
+
+
+
+```
