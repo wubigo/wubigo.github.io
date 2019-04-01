@@ -119,3 +119,17 @@ Then add log in the Corefile section
     }
 
 ```
+
+```
+kubectl exec busybox cat /etc/resolv.conf
+nameserver 10.96.0.10
+search default.svc.cluster.local svc.cluster.local cluster.local
+options ndots:5
+
+```
+
+```
+kubectl get svc -n kube-system -o wide|grep dns
+kube-dns     ClusterIP   10.96.0.10      <none>   53/UDP,53/TCP   41d   k8s-app=kube-dns
+
+```
