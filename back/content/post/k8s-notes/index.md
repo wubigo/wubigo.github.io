@@ -59,6 +59,35 @@ Usage: curl [options...] <url>
 
 ```
 
+
+# 工具POD
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command:
+      - sleep
+      - "13600"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+```
+
+
+```
+kubectl exec -ti busybox -- nslookup kubernetes.default
+kubectl run -it --image busybox  test --restart=Never --rm  nslookup kubernetes.default
+
+```
+
+
+
 # 无选择器服务
 
 使用场景：
