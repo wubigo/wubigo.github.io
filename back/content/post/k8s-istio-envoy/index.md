@@ -20,6 +20,52 @@ categories = []
 +++
 
 
+The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+
+
+# 参数化定制Envoy镜像
+
+```
+clusters:
+  - name: myapp_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
+```
+
+`docker-entrypoint.shin` 做环境变量替换
+
+```
+#!/bin/sh
+set -e
+
+echo "Generating envoy.yaml config file..."
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME > /etc/envoy.yaml
+
+echo "Starting Envoy..."
+/usr/local/bin/envoy -c /etc/envoy.yaml
+```
+
+`Dockerfile`
+
+```
+FROM envoyproxy/envoy:latest
+
+COPY envoy.yaml /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update && \
+    apt-get install gettext -y
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+```
+
+# 设置时间
+
 ```
 docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 ```
