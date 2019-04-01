@@ -19,6 +19,14 @@ categories = ["IT"]
   focal_point = ""
 +++
 
+# iptables规则配置
+
+![](./iptable-chain.jpg)
+
+- 表与链
+
+![](./table-chain.png)
+
 # 检查内存
 
 ram speed and type
