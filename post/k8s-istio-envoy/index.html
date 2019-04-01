@@ -400,7 +400,7 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -484,7 +484,9 @@ FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5 COPY envoy.ya
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+      
+
+<pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 </code></pre>
 
 <p><code>Dockerfile</code></p>
@@ -504,6 +506,122 @@ ENV TZ Asia/Shanghai
 docker exec -it envoy bash
 #ps fax
 1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
+</code></pre>
+
+<h1 id="envoy配置">ENVOY配置</h1>
+
+<p>Envoy supports multiple configurations:</p>
+
+<ul>
+<li>static configuration</li>
+<li>API-based configuration</li>
+<li>service-discovery-based configuration</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">资源类别</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">listeners</td>
+<td align="left">暴露给外部客户的端点</td>
+</tr>
+
+<tr>
+<td align="left">cluster</td>
+<td align="left">后台服务集群</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>集群</li>
+</ul>
+
+<p>Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service</p>
+
+<pre><code>/envoy/examples/front-proxy$ git diff --word-diff
+
+
+diff --git a/examples/front-proxy/Dockerfile-frontenvoy b/examples/front-proxy/Dockerfile-frontenvoy
+index 83b5ba806..2e203a204 100644
+--- a/examples/front-proxy/Dockerfile-frontenvoy
++++ b/examples/front-proxy/Dockerfile-frontenvoy
+@@ -1,5 +1,5 @@
+FROM envoyproxy/envoy-dev:latest
+
+RUN apt-get update &amp;&amp; apt-get -q install -y \
+    curl {+tzdata+}
+CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml {+-l debug+} --service-cluster front-proxy
+
+
+
+
+diff --git a/examples/front-proxy/Dockerfile-service b/examples/front-proxy/Dockerfile-service
+index c3f5bafef..987b21814 100644
+--- a/examples/front-proxy/Dockerfile-service
++++ b/examples/front-proxy/Dockerfile-service
+@@ -1,6 +1,6 @@
+FROM envoyproxy/envoy-alpine-dev:latest
+
+RUN apk update &amp;&amp; apk add python3 bash curl {+tzdata+}
+RUN pip3 install -q Flask==0.11.1 requests==2.18.4
+RUN mkdir /code
+ADD ./service.py /code
+
+
+
+
+diff --git a/examples/front-proxy/docker-compose.yml b/examples/front-proxy/docker-compose.yml
+index 2c121d598..05d7eb844 100644
+--- a/examples/front-proxy/docker-compose.yml
++++ b/examples/front-proxy/docker-compose.yml
+@@ -15,6 +15,8 @@ services:
+    ports:
+      - &quot;8000:80&quot;
+      - &quot;8001:8001&quot;
+    {+environment:+}
+{+      - TZ=Asia/Shanghai+}
+
+  service1:
+    build:
+@@ -28,8 +30,10 @@ services:
+          - service1
+    environment:
+      - SERVICE_NAME=1
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+      
+
+  service2:
+    build:
+@@ -43,6 +47,7 @@ services:
+          - service2
+    environment:
+      - SERVICE_NAME=2
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+
+
+
+
+
+
+diff --git a/examples/front-proxy/start_service.sh b/examples/front-proxy/start_service.sh
+index cc529bcf2..57176eff3 100644
+--- a/examples/front-proxy/start_service.sh
++++ b/examples/front-proxy/start_service.sh
+@@ -1,3 +1,3 @@
+#!/bin/sh
+python3 /code/service.py &amp;
+envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
 </code></pre>
 
     </div>
