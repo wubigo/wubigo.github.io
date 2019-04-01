@@ -412,6 +412,17 @@ kubectl get pods -n istio-system NAME READY STATUS RESTARTS AGE istio-pilot-786d
   </div>
   
   <div>
+    <h2><a href="/post/k8s-dns/">K8s DNS</a></h2>
+    <div class="article-style">
+      
+      Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
+Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
+ A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-kubelet/">K8s Kubelet</a></h2>
     <div class="article-style">
       

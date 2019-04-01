@@ -727,6 +727,17 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     </item>
     
     <item>
+      <title>K8s DNS</title>
+      <link>https://wubigo.com/post/k8s-dns/</link>
+      <pubDate>Sat, 01 Apr 2017 23:30:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-dns/</guid>
+      <description>Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
+Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
+ A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.</description>
+    </item>
+    
+    <item>
       <title>Docker Alpine</title>
       <link>https://wubigo.com/post/docker-alpine/</link>
       <pubDate>Fri, 31 Mar 2017 15:07:18 +0800</pubDate>
