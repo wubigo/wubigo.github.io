@@ -159,12 +159,28 @@ https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api
 保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:
 
 - routes (“what cluster should requests with this HTTP header go to”)[RDS]
-- clusters (“what backends does this service have?”)[CRS]
+- clusters (“what backends does this service have?”)[CDS]
 - listener (the filters for a port)[LDS]
 - endpoints[EDS]
 
 ```
 XDS = [ RDS, CDS, LDS, and EDS] 
+```
+
+- CDS type
+  
+      Cluster.DiscoveryType
+
+       - STATIC
+       - STRICT_DNS
+       - LOGICAL_DNS   
+       - EDS    ⁣
+       - ORIGINAL_DST
+
+```
+  clusters:
+  - name: service_backend
+    type: []
 ```
 
 istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务
