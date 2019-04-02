@@ -28,13 +28,12 @@
   
     
   
-  <meta name="description" content="To ensure stable network ID , need to define a headless service for stateful applications
-StatefulSets are valuable for applications that require one or more of the following.
- Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
-apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .">
+  <meta name="description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-service-headless/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-envoy/">
 
   
 
@@ -123,7 +122,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/k8s-service-headless/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-envoy/">
 
   
   
@@ -138,24 +137,23 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/k8s-service-headless/">
-  <meta property="og:title" content="K8s Service Headless | OS/APP HARDCORE">
-  <meta property="og:description" content="To ensure stable network ID , need to define a headless service for stateful applications
-StatefulSets are valuable for applications that require one or more of the following.
- Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
-apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-envoy/">
+  <meta property="og:title" content="K8s Istio Envoy | OS/APP HARDCORE">
+  <meta property="og:description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-04-01T17:20:32&#43;08:00">
+  <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-04-01T17:20:32&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-03-31T11:16:50&#43;08:00">
   
 
   
 
-  <title>K8s Service Headless | OS/APP HARDCORE</title>
+  
+
+  <title>K8s Istio Envoy | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -372,7 +370,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">K8s Service Headless</h1>
+  <h1 itemprop="name">K8s Istio Envoy</h1>
 
   
 
@@ -381,8 +379,8 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
 
 
 
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -395,7 +393,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
     
       
     
-    <time>Apr 1, 2018</time>
+    <time>Mar 31, 2018</time>
   </span>
   
 
@@ -404,14 +402,14 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-service-headless/#disqus_thread"></a>
+  <a href="/post/k8s-envoy/#disqus_thread"></a>
   
 
   
@@ -422,35 +420,35 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8s%20Service%20Headless&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f"
+         href="https://twitter.com/intent/tweet?text=K8s%20Istio%20Envoy&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f&amp;title=K8s%20Service%20Headless"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy%2f&amp;title=K8s%20Istio%20Envoy"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f&amp;title=K8s%20Service%20Headless"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy%2f&amp;title=K8s%20Istio%20Envoy"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8s%20Service%20Headless&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f">
+         href="mailto:?subject=K8s%20Istio%20Envoy&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -490,110 +488,269 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
     <div class="article-style" itemprop="articleBody">
       
 
-<p>To ensure stable network ID , need to define a headless service for stateful applications</p>
+<p>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</p>
 
-<p>StatefulSets are valuable for applications that require one or more of the following.</p>
+<h1 id="参数化定制envoy镜像">参数化定制Envoy镜像</h1>
+
+<pre><code>clusters:
+  - name: myapp_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
+</code></pre>
+
+<p><code>docker-entrypoint.shin</code> 做环境变量替换</p>
+
+<pre><code>#!/bin/sh
+set -e
+
+echo &quot;Generating envoy.yaml config file...&quot;
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml
+
+echo &quot;Starting Envoy...&quot;
+/usr/local/bin/envoy -c /etc/envoy.yaml
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy:latest
+
+COPY envoy.yaml /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update &amp;&amp; \
+    apt-get install gettext -y
+
+ENTRYPOINT [&quot;/docker-entrypoint.sh&quot;]
+</code></pre>
+
+<h1 id="设置时间">设置时间</h1>
+
+<pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/*
+ENV TZ Asia/Shanghai
+# CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
+</code></pre>
+
+<pre><code>docker build -t envoy:v1 .
+</code></pre>
+
+<pre><code>docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
+
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
+</code></pre>
+
+<h1 id="envoy配置">ENVOY配置</h1>
+
+<p>Envoy supports multiple configurations:</p>
 
 <ul>
-<li>Stable, unique network identifiers.</li>
-<li>Stable, persistent storage.</li>
-<li>Ordered, graceful deployment and scaling.</li>
-<li>Ordered, automated rolling updates</li>
+<li>static configuration</li>
+<li>API-based configuration</li>
+<li>service-discovery-based configuration</li>
 </ul>
 
-<p>`headless-nginx.yaml&rsquo;</p>
+<table>
+<thead>
+<tr>
+<th align="left">资源类别</th>
+<th align="left"></th>
+</tr>
+</thead>
 
-<pre><code>apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-spec:
-  ports:
-  - port: 80
-    name: web
-  clusterIP: None
-  selector:
-    app: nginx
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: web
-spec:
-  selector:
-    matchLabels:
-      app: nginx # has to match .spec.template.metadata.labels
-  serviceName: &quot;nginx&quot;
-  replicas: 1 
-  template:
-    metadata:
-      labels:
-        app: nginx # has to match .spec.selector.matchLabels
-    spec:
-      terminationGracePeriodSeconds: 10
-      containers:
-      - name: nginx
-        image: nginx:1.14-alpine
-        ports:
-        - containerPort: 80
-          name: web
+<tbody>
+<tr>
+<td align="left">listeners</td>
+<td align="left">暴露给外部客户的端点</td>
+</tr>
+
+<tr>
+<td align="left">cluster</td>
+<td align="left">后台服务集群</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>集群</li>
+</ul>
+
+<p>Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service</p>
+
+<h1 id="监听器">监听器</h1>
+
+<ul>
+<li>监听过滤器（内置）<br />
+
+<ul>
+<li>envoy.client_ssl_auth</li>
+<li>envoy.echo</li>
+<li>envoy.http_connection_manager(代理HTTP请求)
+
+<ul>
+<li>http_connection_manager.v2.HttpFilter
+
+<ul>
+<li>envoy.buffer</li>
+<li>envoy.cors</li>
+<li>envoy.fault</li>
+<li>envoy.gzip</li>
+<li>envoy.http_dynamo_filter</li>
+<li>envoy.grpc_http1_bridge</li>
+<li>envoy.grpc_json_transcoder</li>
+<li>envoy.grpc_web</li>
+<li>envoy.health_check</li>
+<li>envoy.header_to_metadata</li>
+<li>envoy.ip_tagging</li>
+<li>envoy.lua</li>
+<li>envoy.rate_limit</li>
+<li>envoy.router</li>
+<li>envoy.squash</li>
+</ul></li>
+</ul></li>
+<li>envoy.mongo_proxy</li>
+<li>envoy.ratelimit</li>
+<li>envoy.redis_proxy</li>
+<li>envoy.tcp_proxy</li>
+</ul></li>
+</ul>
+
+<pre><code>route_config:
+   virtual_hosts:
+       domains: -&gt; matched against the http requests Host header
 </code></pre>
 
-<p><strong>the .spec.selector field of a StatefulSet must
-match the labels of its .spec.template.metadata.labels</strong></p>
+<p>config envoy by following its api
+<strong>api document is automatically generated from protocol buffers</strong></p>
 
-<pre><code>kubectl apply -f headless-nginx.yaml
+<p><a href="https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api" target="_blank">https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api</a></p>
 
-kubectl exec -it web-0 -- nslookup nginx
+<p>以上都是静态资源配置，但是在K8S环境，容器是动态分配的，手动配置无法
+保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:</p>
 
-Name:      nginx
-Address 1: 10.2.12.86 web-0.nginx.default.svc.cluster.local
+<ul>
+<li>routes (“what cluster should requests with this HTTP header go to”)[RDS]</li>
+<li>clusters (“what backends does this service have?”)[CDS]</li>
+<li>listener (the filters for a port)[LDS]</li>
+<li>endpoints[EDS]</li>
+</ul>
+
+<pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
 </code></pre>
 
-<pre><code>kubectl run -it --image busybox  test --restart=Never --rm  nslookup web-0.nginx
+<ul>
+<li><p>CDS type</p>
+
+<p>Cluster.DiscoveryType</p>
+
+<ul>
+<li>STATIC</li>
+<li>STRICT_DNS</li>
+<li>LOGICAL_DNS<br /></li>
+<li>EDS    ⁣</li>
+<li>ORIGINAL_DST</li>
+</ul></li>
+</ul>
+
+<pre><code>  clusters:
+  - name: service_backend
+    type: []
 </code></pre>
 
-<h1 id="enable-kube-dns-log">enable KUBE-DNS LOG</h1>
+<p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
 
-<pre><code>kubectl -n kube-system edit configmap coredns
+<pre><code>/envoy/examples/front-proxy$ git diff --word-diff
 
+
+diff --git a/examples/front-proxy/Dockerfile-frontenvoy b/examples/front-proxy/Dockerfile-frontenvoy
+index 83b5ba806..2e203a204 100644
+--- a/examples/front-proxy/Dockerfile-frontenvoy
++++ b/examples/front-proxy/Dockerfile-frontenvoy
+@@ -1,5 +1,5 @@
+FROM envoyproxy/envoy-dev:latest
+
+RUN apt-get update &amp;&amp; apt-get -q install -y \
+    curl {+tzdata+}
+CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml {+-l debug+} --service-cluster front-proxy
+
+
+
+
+diff --git a/examples/front-proxy/Dockerfile-service b/examples/front-proxy/Dockerfile-service
+index c3f5bafef..987b21814 100644
+--- a/examples/front-proxy/Dockerfile-service
++++ b/examples/front-proxy/Dockerfile-service
+@@ -1,6 +1,6 @@
+FROM envoyproxy/envoy-alpine-dev:latest
+
+RUN apk update &amp;&amp; apk add python3 bash curl {+tzdata+}
+RUN pip3 install -q Flask==0.11.1 requests==2.18.4
+RUN mkdir /code
+ADD ./service.py /code
+
+
+
+
+diff --git a/examples/front-proxy/docker-compose.yml b/examples/front-proxy/docker-compose.yml
+index 2c121d598..05d7eb844 100644
+--- a/examples/front-proxy/docker-compose.yml
++++ b/examples/front-proxy/docker-compose.yml
+@@ -15,6 +15,8 @@ services:
+    ports:
+      - &quot;8000:80&quot;
+      - &quot;8001:8001&quot;
+    {+environment:+}
+{+      - TZ=Asia/Shanghai+}
+
+  service1:
+    build:
+@@ -28,8 +30,10 @@ services:
+          - service1
+    environment:
+      - SERVICE_NAME=1
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+      
+
+  service2:
+    build:
+@@ -43,6 +47,7 @@ services:
+          - service2
+    environment:
+      - SERVICE_NAME=2
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+
+
+
+
+
+
+diff --git a/examples/front-proxy/start_service.sh b/examples/front-proxy/start_service.sh
+index cc529bcf2..57176eff3 100644
+--- a/examples/front-proxy/start_service.sh
++++ b/examples/front-proxy/start_service.sh
+@@ -1,3 +1,3 @@
+#!/bin/sh
+python3 /code/service.py &amp;
+envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
 </code></pre>
 
-<p>Then add log in the Corefile section</p>
-
-<pre><code>   Corefile: |
-     .:53 {
-        log
-        errors
-        health
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-          pods insecure
-          upstream
-          fallthrough in-addr.arpa ip6.arpa
-        }
-        prometheus :9153
-        proxy . /etc/resolv.conf
-        cache 30
-        loop
-        reload
-        loadbalance
-    }
-
-</code></pre>
-
-<pre><code>kubectl exec busybox cat /etc/resolv.conf
-nameserver 10.96.0.10
-search default.svc.cluster.local svc.cluster.local cluster.local
-options ndots:5
-
-</code></pre>
-
-<pre><code>kubectl get svc -n kube-system -o wide|grep dns
-kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8s-app=kube-dns
-
-</code></pre>
+<p><a href="https://jvns.ca/blog/2018/10/27/envoy-basics/" target="_blank">https://jvns.ca/blog/2018/10/27/envoy-basics/</a></p>
 
     </div>
 
@@ -701,8 +858,6 @@ kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/k8s-envoy/">K8s Istio Envoy</a></li>
-          
           <li><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></li>
           
           <li><a href="/post/k8s-openshift/">K8s Openshift</a></li>
@@ -710,6 +865,8 @@ kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8
           <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
           
           <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
+          
+          <li><a href="/post/k8s-development-streamline/">K8s Development Streamline with draft</a></li>
           
         </ul>
       </div>

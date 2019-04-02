@@ -28,13 +28,11 @@
   
     
   
-  <meta name="description" content="To ensure stable network ID , need to define a headless service for stateful applications
-StatefulSets are valuable for applications that require one or more of the following.
- Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
-apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .">
+  <meta name="description" content="envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-service-headless/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-envoy-example/">
 
   
 
@@ -123,7 +121,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/k8s-service-headless/">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-envoy-example/">
 
   
   
@@ -138,24 +136,22 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/k8s-service-headless/">
-  <meta property="og:title" content="K8s Service Headless | OS/APP HARDCORE">
-  <meta property="og:description" content="To ensure stable network ID , need to define a headless service for stateful applications
-StatefulSets are valuable for applications that require one or more of the following.
- Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
-apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-envoy-example/">
+  <meta property="og:title" content="K8s Envoy Example | OS/APP HARDCORE">
+  <meta property="og:description" content="envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-04-01T17:20:32&#43;08:00">
+  <meta property="article:published_time" content="2018-04-02T11:16:05&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-04-01T17:20:32&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-04-02T11:16:05&#43;08:00">
   
 
   
 
-  <title>K8s Service Headless | OS/APP HARDCORE</title>
+  
+
+  <title>K8s Envoy Example | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -372,7 +368,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">K8s Service Headless</h1>
+  <h1 itemprop="name">K8s Envoy Example</h1>
 
   
 
@@ -381,8 +377,8 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
 
 
 
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -395,7 +391,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
     
       
     
-    <time>Apr 1, 2018</time>
+    <time>Apr 2, 2018</time>
   </span>
   
 
@@ -404,14 +400,14 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-service-headless/#disqus_thread"></a>
+  <a href="/post/k8s-envoy-example/#disqus_thread"></a>
   
 
   
@@ -422,35 +418,35 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=K8s%20Service%20Headless&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f"
+         href="https://twitter.com/intent/tweet?text=K8s%20Envoy%20Example&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy-example%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy-example%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f&amp;title=K8s%20Service%20Headless"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy-example%2f&amp;title=K8s%20Envoy%20Example"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f&amp;title=K8s%20Service%20Headless"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy-example%2f&amp;title=K8s%20Envoy%20Example"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=K8s%20Service%20Headless&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-service-headless%2f">
+         href="mailto:?subject=K8s%20Envoy%20Example&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-envoy-example%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -488,111 +484,87 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <p><code>envoy.yaml.tmpl</code></p>
 
-<p>To ensure stable network ID , need to define a headless service for stateful applications</p>
+<pre><code>admin:
+  access_log_path: /tmp/admin_access.log
+  address:
+    socket_address: { address: 0.0.0.0, port_value: 9901 }
 
-<p>StatefulSets are valuable for applications that require one or more of the following.</p>
-
-<ul>
-<li>Stable, unique network identifiers.</li>
-<li>Stable, persistent storage.</li>
-<li>Ordered, graceful deployment and scaling.</li>
-<li>Ordered, automated rolling updates</li>
-</ul>
-
-<p>`headless-nginx.yaml&rsquo;</p>
-
-<pre><code>apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-spec:
-  ports:
-  - port: 80
-    name: web
-  clusterIP: None
-  selector:
-    app: nginx
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: web
-spec:
-  selector:
-    matchLabels:
-      app: nginx # has to match .spec.template.metadata.labels
-  serviceName: &quot;nginx&quot;
-  replicas: 1 
-  template:
-    metadata:
-      labels:
-        app: nginx # has to match .spec.selector.matchLabels
-    spec:
-      terminationGracePeriodSeconds: 10
-      containers:
-      - name: nginx
-        image: nginx:1.14-alpine
-        ports:
-        - containerPort: 80
-          name: web
-</code></pre>
-
-<p><strong>the .spec.selector field of a StatefulSet must
-match the labels of its .spec.template.metadata.labels</strong></p>
-
-<pre><code>kubectl apply -f headless-nginx.yaml
-
-kubectl exec -it web-0 -- nslookup nginx
-
-Name:      nginx
-Address 1: 10.2.12.86 web-0.nginx.default.svc.cluster.local
-</code></pre>
-
-<pre><code>kubectl run -it --image busybox  test --restart=Never --rm  nslookup web-0.nginx
-</code></pre>
-
-<h1 id="enable-kube-dns-log">enable KUBE-DNS LOG</h1>
-
-<pre><code>kubectl -n kube-system edit configmap coredns
+static_resources:
+  listeners:
+  - name: listener_0
+    address:
+      socket_address: { address: 0.0.0.0, port_value: 80 }
+    filter_chains:
+    - filters:
+      - name: envoy.http_connection_manager
+        config:
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: local_service
+              domains: [&quot;*&quot;]
+              routes:
+              - match: { prefix: &quot;/&quot; }
+                route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s }
+          http_filters:
+          - name: envoy.router
+  clusters:
+  - name: nginx_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
 
 </code></pre>
 
-<p>Then add log in the Corefile section</p>
+<p><code>docker-entrypoint.sh</code></p>
 
-<pre><code>   Corefile: |
-     .:53 {
-        log
-        errors
-        health
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-          pods insecure
-          upstream
-          fallthrough in-addr.arpa ip6.arpa
-        }
-        prometheus :9153
-        proxy . /etc/resolv.conf
-        cache 30
-        loop
-        reload
-        loadbalance
-    }
+<pre><code>#!/bin/sh
+set -e
 
+echo &quot;Generating envoy.yaml config file...&quot;
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy/envoy.yaml
+
+echo &quot;Starting Envoy...&quot;
+/usr/local/bin/envoy -c /etc/envoy/envoy.yaml -l debug
 </code></pre>
 
-<pre><code>kubectl exec busybox cat /etc/resolv.conf
-nameserver 10.96.0.10
-search default.svc.cluster.local svc.cluster.local cluster.local
-options ndots:5
+<p><code>Dockerfile</code></p>
 
+<pre><code>FROM envoyproxy/envoy:latest
+
+COPY /tmpl/envoy.yaml.tmpl /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update &amp;&amp; \
+    apt-get install gettext -y
+
+ENTRYPOINT [&quot;/docker-entrypoint.sh&quot;]
 </code></pre>
 
-<pre><code>kubectl get svc -n kube-system -o wide|grep dns
-kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8s-app=kube-dns
+<pre><code>docker build -t bigo-envoy:v1 .
+docker tag bigo-envoy:v1 egistry.cn-beijing.aliyuncs.com/k4s/bigo-envoy:v1
+docker push registry.cn-beijing.aliyuncs.com/k4s/bigo-envoy:v1
 
+
+docker network create test
+docker run -dit --name nginx --network test nginx:alpine
+
+docker run -it --rm --name envoy --network test -e ENVOY_LB_ALG=LEAST_REQUEST -e SERVICE_NAME=nginx  bigo-envoy:v1
+
+ENVOY_IP=$(docker inspect envoy --format='{{.NetworkSettings.Networks.test.IPAddress}}')
+
+curl $ENVOY_IP
+
+docker logs nginx | grep $ENVOY_IP
+
+172.18.0.3 - [02/Apr/2019:05:59:12 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;curl/7.47.0&quot; &quot;-&quot;
 </code></pre>
 
     </div>
@@ -701,6 +673,8 @@ kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8
         <h3>Related</h3>
         <ul>
           
+          <li><a href="/post/k8s-service-headless/">K8s Service Headless</a></li>
+          
           <li><a href="/post/k8s-envoy/">K8s Istio Envoy</a></li>
           
           <li><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></li>
@@ -708,8 +682,6 @@ kube-dns     ClusterIP   10.96.0.10      &lt;none&gt;   53/UDP,53/TCP   41d   k8
           <li><a href="/post/k8s-openshift/">K8s Openshift</a></li>
           
           <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
-          
-          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
           
         </ul>
       </div>

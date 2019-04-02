@@ -527,6 +527,16 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
   </div>
   
   <div>
+    <h2><a href="/post/k8s-envoy-example/">K8s Envoy Example</a></h2>
+    <div class="article-style">
+      
+      envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s-service-headless/">K8s Service Headless</a></h2>
     <div class="article-style">
       
@@ -539,7 +549,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
   </div>
   
   <div>
-    <h2><a href="/post/k8s-istio-envoy/">K8s Istio Envoy</a></h2>
+    <h2><a href="/post/k8s-envoy/">K8s Istio Envoy</a></h2>
     <div class="article-style">
       
       The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
@@ -594,16 +604,6 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
       
       准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/k8s-csi/">K8S CSI</a></h2>
-    <div class="article-style">
-      
-      PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
       
     </div>
   </div>
