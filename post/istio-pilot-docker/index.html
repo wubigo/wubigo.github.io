@@ -30,7 +30,7 @@
   
   <meta name="description" content="使用一个没有被占用的网段设置DOCKER_GATEWAY
 export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
-kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d --remove-orphans  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  ">
+kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/istio-pilot-docker/">
@@ -141,7 +141,7 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
   <meta property="og:title" content="Istio Pilot Docker | OS/APP HARDCORE">
   <meta property="og:description" content="使用一个没有被占用的网段设置DOCKER_GATEWAY
 export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
-kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d --remove-orphans  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-04-02T15:31:41&#43;08:00">
@@ -402,7 +402,7 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
@@ -505,7 +505,7 @@ kubectl config set-cluster istio --server=http://localhost:8080
 kubectl config use-context istio
 </code></pre>
 
-<pre><code>docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d --remove-orphans
+<pre><code>docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d
 </code></pre>
 
 <pre><code>kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml
@@ -513,6 +513,226 @@ kubectl get destinationrules -o yaml
 </code></pre>
 
 <pre><code>kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml
+</code></pre>
+
+<pre><code>docker-compose -f bookinfo.yaml exec  details-v1 sh
+#cat /etc/resolv.conf 
+search service.consul
+nameserver 127.0.0.11
+options ndots:0
+
+</code></pre>
+
+<pre><code>docker run -it --rm --network consul_istiomesh  busybox:glibc
+#cat /etc/resolv.conf
+
+</code></pre>
+
+<p><code>destinationrules</code></p>
+
+<pre><code>apiVersion: v1
+items:
+- apiVersion: networking.istio.io/v1alpha3
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;DestinationRule&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;details&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;host&quot;:&quot;details.service.consul&quot;,&quot;subsets&quot;:[{&quot;labels&quot;:{&quot;version&quot;:&quot;v1&quot;},&quot;name&quot;:&quot;v1&quot;},{&quot;labels&quot;:{&quot;version&quot;:&quot;v2&quot;},&quot;name&quot;:&quot;v2&quot;}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:15:43Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: details
+    namespace: default
+    resourceVersion: &quot;106&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/destinationrules/details
+    uid: 4666f266-5530-11e9-bf95-0242ac1c000d
+  spec:
+    host: details.service.consul
+    subsets:
+    - labels:
+        version: v1
+      name: v1
+    - labels:
+        version: v2
+      name: v2
+- apiVersion: networking.istio.io/v1alpha3
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;DestinationRule&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;productpage&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;host&quot;:&quot;productpage.service.consul&quot;,&quot;subsets&quot;:[{&quot;labels&quot;:{&quot;version&quot;:&quot;v1&quot;},&quot;name&quot;:&quot;v1&quot;}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:15:43Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: productpage
+    namespace: default
+    resourceVersion: &quot;103&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/destinationrules/productpage
+    uid: 465ee98f-5530-11e9-bf95-0242ac1c000d
+  spec:
+    host: productpage.service.consul
+    subsets:
+    - labels:
+        version: v1
+      name: v1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;DestinationRule&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;ratings&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;host&quot;:&quot;ratings.service.consul&quot;,&quot;subsets&quot;:[{&quot;labels&quot;:{&quot;version&quot;:&quot;v1&quot;},&quot;name&quot;:&quot;v1&quot;}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:15:43Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: ratings
+    namespace: default
+    resourceVersion: &quot;105&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/destinationrules/ratings
+    uid: 4662363d-5530-11e9-bf95-0242ac1c000d
+  spec:
+    host: ratings.service.consul
+    subsets:
+    - labels:
+        version: v1
+      name: v1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;DestinationRule&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;reviews&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;host&quot;:&quot;reviews.service.consul&quot;,&quot;subsets&quot;:[{&quot;labels&quot;:{&quot;version&quot;:&quot;v1&quot;},&quot;name&quot;:&quot;v1&quot;},{&quot;labels&quot;:{&quot;version&quot;:&quot;v2&quot;},&quot;name&quot;:&quot;v2&quot;},{&quot;labels&quot;:{&quot;version&quot;:&quot;v3&quot;},&quot;name&quot;:&quot;v3&quot;}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:15:43Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: reviews
+    namespace: default
+    resourceVersion: &quot;104&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/destinationrules/reviews
+    uid: 46605c8c-5530-11e9-bf95-0242ac1c000d
+  spec:
+    host: reviews.service.consul
+    subsets:
+    - labels:
+        version: v1
+      name: v1
+    - labels:
+        version: v2
+      name: v2
+    - labels:
+        version: v3
+      name: v3
+kind: List
+metadata:
+  resourceVersion: &quot;&quot;
+  selfLink: &quot;&quot;
+
+
+</code></pre>
+
+<p><code>VirtualService</code></p>
+
+<pre><code>apiVersion: v1
+items:
+- apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;details&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;hosts&quot;:[&quot;details.service.consul&quot;],&quot;http&quot;:[{&quot;route&quot;:[{&quot;destination&quot;:{&quot;host&quot;:&quot;details.service.consul&quot;,&quot;subset&quot;:&quot;v1&quot;}}]}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:17:57Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: details
+    namespace: default
+    resourceVersion: &quot;110&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/details
+    uid: 95f21f5f-5530-11e9-bf95-0242ac1c000d
+  spec:
+    hosts:
+    - details.service.consul
+    http:
+    - route:
+      - destination:
+          host: details.service.consul
+          subset: v1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;productpage&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;hosts&quot;:[&quot;productpage.service.consul&quot;],&quot;http&quot;:[{&quot;route&quot;:[{&quot;destination&quot;:{&quot;host&quot;:&quot;productpage.service.consul&quot;,&quot;subset&quot;:&quot;v1&quot;}}]}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:17:57Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: productpage
+    namespace: default
+    resourceVersion: &quot;107&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/productpage
+    uid: 95ea84fc-5530-11e9-bf95-0242ac1c000d
+  spec:
+    hosts:
+    - productpage.service.consul
+    http:
+    - route:
+      - destination:
+          host: productpage.service.consul
+          subset: v1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;ratings&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;hosts&quot;:[&quot;ratings.service.consul&quot;],&quot;http&quot;:[{&quot;route&quot;:[{&quot;destination&quot;:{&quot;host&quot;:&quot;ratings.service.consul&quot;,&quot;subset&quot;:&quot;v1&quot;}}]}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:17:57Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: ratings
+    namespace: default
+    resourceVersion: &quot;109&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/ratings
+    uid: 95ee32e2-5530-11e9-bf95-0242ac1c000d
+  spec:
+    hosts:
+    - ratings.service.consul
+    http:
+    - route:
+      - destination:
+          host: ratings.service.consul
+          subset: v1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;reviews&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;hosts&quot;:[&quot;reviews.service.consul&quot;],&quot;http&quot;:[{&quot;route&quot;:[{&quot;destination&quot;:{&quot;host&quot;:&quot;reviews.service.consul&quot;,&quot;subset&quot;:&quot;v1&quot;}}]}]}}
+    clusterName: &quot;&quot;
+    creationTimestamp: &quot;2019-04-02T10:17:57Z&quot;
+    deletionGracePeriodSeconds: null
+    deletionTimestamp: null
+    name: reviews
+    namespace: default
+    resourceVersion: &quot;108&quot;
+    selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/reviews
+    uid: 95eb9df1-5530-11e9-bf95-0242ac1c000d
+  spec:
+    hosts:
+    - reviews.service.consul
+    http:
+    - route:
+      - destination:
+          host: reviews.service.consul
+          subset: v1
+kind: List
+metadata:
+  resourceVersion: &quot;&quot;
+  selfLink: &quot;&quot;
 </code></pre>
 
     </div>

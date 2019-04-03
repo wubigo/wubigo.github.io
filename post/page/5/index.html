@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-01-26T10:09:00&#43;08:00">
+  <meta property="og:updated_time" content="2017-02-17T08:24:25&#43;08:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-02-17 08:24:25 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-17 08:24:25 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 17, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-logging/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-logging/" itemprop="url">Docker日志</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
+ The docker logs command is not available for drivers other than json-file and journald.
+logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2085,7 +2172,8 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
 
   
   <div class="article-style" itemprop="articleBody">
-    busybox nslookup  docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
+    busybox nslookup busybox:latest has bug on nslookup
+docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618 docker run -dit --name nginx --network test nginx:alpine 7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b $ docker run -it --rm --network test busybox:1.28 nslookup nginx Server: 127.0.0.11 Address 1: 127.0.0.11 Name: nginx Address 1: 172.22.0.2 nginx.test docker stop nginx docker network rm test  docker proxy /etc/systemd/system/docker.service.d/https-proxy.conf
 [Service] Environment=&quot;HTTP_PROXY=http://127.0.0.1:33351/&quot; Environment=&quot;HTTPS_PROXY=http://127.0.0.1:33351/&quot;  sudo systemctl daemon-reload sudo systemctl restart docker systemctl show --property=Environment docker  docker clean up disk space  delete volumes   $ docker volume rm $(docker volume ls -qf dangling=true) $ docker volume ls -qf dangling=true | xargs -r docker volume rm   docker rmi $(docker images --filter &quot;dangling=true&quot; -q --no-trunc) docker rmi $(docker images | grep &quot;none&quot; | awk '/ / { print $3 }') docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)  Caution
   </div>
   
@@ -2172,112 +2260,6 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
   
   <div class="article-style" itemprop="articleBody">
     git-changelog-maven-plugin &lt;plugin&gt; &lt;groupId&gt;se.bjurr.gitchangelog&lt;/groupId&gt; &lt;artifactId&gt;git-changelog-maven-plugin&lt;/artifactId&gt; &lt;version&gt;1.50&lt;/version&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;GenerateGitChangelog&lt;/id&gt; &lt;phase&gt;generate-sources&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;git-changelog&lt;/goal&gt; &lt;/goals&gt; &lt;configuration&gt; &lt;!-- A file on filesystem //--&gt; &lt;file&gt;CHANGELOG.md&lt;/file&gt; &lt;toRef&gt;HEAD&lt;/toRef&gt; &lt;/configuration&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt;  get a copy of mustache template and save as changelog.mustache under the project home directory https://github.com/tomasbjerre/git-changelog-lib/tree/master/src/test/resources/templates  mvn compile to create the CHANGELOG.md mvn compile  upload the CHANGELOG.md to nginx as a release not config nginx support browser MD mime.types text/markdown md;  reload nginx and check the release note as text use template with StrapDown.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2015-08-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 3, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2015-08-03-github-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2015-08-03-github-notes/" itemprop="url">github notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="configuring-a-records-with-dns-provider">Configuring A records with DNS provider</h1>
-
-<pre><code>@    185.199.108.153
-@    185.199.109.153
-@    185.199.110.153
-@    185.199.111.153
-</code></pre>
-
-<h1 id="dig-the-custom-domain-to-confirm-dns-setup">dig the custom domain to confirm DNS setup</h1>
-
-<pre><code>$dig +noall +answer wubigo.com
-wubigo.com.		285	IN	A	185.199.110.153
-wubigo.com.		285	IN	A	185.199.108.153
-wubigo.com.		285	IN	A	185.199.111.153
-wubigo.com.		285	IN	A	185.199.109.153
-
-</code></pre>
-
-<p><a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</a></p>
-
   </div>
   
 

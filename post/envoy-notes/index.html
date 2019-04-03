@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.">
+  <meta name="description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/envoy-notes/">
 
   
 
@@ -120,35 +122,38 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
+  <link rel="canonical" href="https://wubigo.com/post/envoy-notes/">
 
   
   
   
   
     
+    
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/k8s-kubectl-cheatsheet/">
-  <meta property="og:title" content="kubectl cheat sheet | OS/APP HARDCORE">
-  <meta property="og:description" content="Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo."><meta property="og:image" content="https://wubigo.com/post/k8s-kubectl-cheatsheet/featured.jpg">
+  <meta property="og:url" content="https://wubigo.com/post/envoy-notes/">
+  <meta property="og:title" content="Envoy NOTES | OS/APP HARDCORE">
+  <meta property="og:description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
+#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-01-11T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-01-11T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-03-31T11:16:50&#43;08:00">
   
 
   
 
-  <title>kubectl cheat sheet | OS/APP HARDCORE</title>
+  
+
+  <title>Envoy NOTES | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -359,27 +364,23 @@
 
 
 
-
-<div class="article-header d-xl-none">
-  <div class="featured-image" style="background-image: url('/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_800x0_resize_q90_lanczos.jpg');"></div>
   
-</div>
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Envoy NOTES</h1>
+
+  
+
+  
+    
 
 
-<div class="container-fluid split-header d-none d-xl-block">
-  <div class="row">
-    <div class="col-6">
-      <div class="split-header-content">
-        <h1 itemprop="name">kubectl cheat sheet</h1>
 
-        
-
-        
-
-
-
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -392,7 +393,7 @@
     
       
     
-    <time>Jan 11, 2018</time>
+    <time>Mar 31, 2018</time>
   </span>
   
 
@@ -408,127 +409,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/k8s-kubectl-cheatsheet/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-
-        
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-        
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=kubectl%20cheat%20sheet&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
-         target="_blank" rel="noopener">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
-         target="_blank" rel="noopener">
-        <i class="fab fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=kubectl%20cheat%20sheet&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="split-header-image">
-        <img src="/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="article-container d-xl-none">
-  <h1 itemprop="name">kubectl cheat sheet</h1>
-
-  
-
-  
-
-
-
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-kubectl-cheatsheet/#disqus_thread"></a>
+  <a href="/post/envoy-notes/#disqus_thread"></a>
   
 
   
@@ -539,35 +420,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=kubectl%20cheat%20sheet&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
+         href="https://twitter.com/intent/tweet?text=Envoy%20NOTES&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f&amp;title=Envoy%20NOTES"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f&amp;title=kubectl%20cheat%20sheet"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f&amp;title=Envoy%20NOTES"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=kubectl%20cheat%20sheet&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-kubectl-cheatsheet%2f">
+         href="mailto:?subject=Envoy%20NOTES&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -579,7 +460,7 @@
 
 </div>
 
-  
+    
 
 
 
@@ -597,6 +478,7 @@
 
 
 
+  
 </div>
 
 
@@ -606,213 +488,284 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="set-namespace-preference">Set namespace preference</h1>
+<p>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</p>
 
-<pre><code>kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;
+<h1 id="参数化定制envoy镜像">参数化定制Envoy镜像</h1>
+
+<pre><code>clusters:
+  - name: myapp_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
 </code></pre>
 
-<h1 id="watch-pod">watch pod</h1>
+<p><code>docker-entrypoint.shin</code> 做环境变量替换</p>
 
-<pre><code>kubectl get pods pod1 --watch
+<pre><code>#!/bin/sh
+set -e
+
+echo &quot;Generating envoy.yaml config file...&quot;
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml
+
+echo &quot;Starting Envoy...&quot;
+/usr/local/bin/envoy -c /etc/envoy.yaml
 </code></pre>
 
-<h1 id="check-performance">Check Performance</h1>
+<p><code>Dockerfile</code></p>
 
-<pre><code>kubectl top node
-kubectl top pod
+<pre><code>FROM envoyproxy/envoy:latest
+
+COPY envoy.yaml /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update &amp;&amp; \
+    apt-get install gettext -y
+
+ENTRYPOINT [&quot;/docker-entrypoint.sh&quot;]
 </code></pre>
 
-<h1 id="copy-file-between-pod-and-local">copy file between pod and local</h1>
+<h1 id="设置时间">设置时间</h1>
 
-<pre><code>kubectl cp  ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/
-kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/
+<pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
 </code></pre>
 
-<h1 id="enable-rbac">enable RBAC</h1>
+<p><code>Dockerfile</code></p>
 
-<pre><code> kube-apiserver
-    - --authorization-mode=RBAC
+<pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/*
+ENV TZ Asia/Shanghai
+# CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
 </code></pre>
 
-<h1 id="user-crud">User CRUD</h1>
-
-<pre><code>openssl genrsa -out bigo.key 2048
-openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot;
-sudo openssl x509 -req -in bigo.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out bigo.crt -days 500
-kubectl config set-credentials bigo --client-certificate=./bigo.crt --client-key=./bigo.key
-kubectl config set-context bigo-context --cluster=kubernetes --namespace=bigo-NS --user=bigo
-kubectl config get-contexts 
-...
-CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
-          bigo-context                  kubernetes   bigo               bigo
-*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin
-...
+<pre><code>docker build -t envoy:v1 .
 </code></pre>
 
-<h1 id="binding-role-to-user">binding role to user</h1>
+<pre><code>docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
 
-<pre><code>cat rolebinding-bigo-access.yaml
-kind: RoleBinding
-apiVersion: rbac.authorization.K8S.io/v1beta1
-metadata:
-  name: access-manager-binding
-  namespace: bigo-NS
-subjects:
-- kind: User
-  name: bigo
-  apiGroup: &quot;&quot;
-roleRef:
-  kind: Role
-  name: access-role
-  apiGroup: &quot;&quot;
-kubectl create -f rolebinding-bigo-access.yaml
-
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
 </code></pre>
 
-<h1 id="user-group-role-rolebind-rbac">USER, GROUP, ROLE , ROLEBIND, RBAC</h1>
+<h1 id="envoy配置">ENVOY配置</h1>
+
+<p>Envoy supports multiple configurations:</p>
 
 <ul>
-<li>list all users
-```
-kubectl config view
-&hellip;
-users:</li>
-<li>name: kubernetes-admin
-user:
-client-certificate-data: REDACTED
-client-key-data: REDACTED
-&hellip;
-```</li>
+<li>static configuration</li>
+<li>API-based configuration</li>
+<li>service-discovery-based configuration</li>
 </ul>
 
-<h1 id="enable-helm-in-cluster">Enable Helm in cluster</h1>
+<table>
+<thead>
+<tr>
+<th align="left">资源类别</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">listeners</td>
+<td align="left">暴露给外部客户的端点</td>
+</tr>
+
+<tr>
+<td align="left">cluster</td>
+<td align="left">后台服务集群</td>
+</tr>
+</tbody>
+</table>
 
 <ul>
-<li><p>Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.</p></li>
-
-<li><p>Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.</p></li>
-
-<li><p>Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.</p>
-
-<pre><code>kubectl create serviceaccount tiller --namespace kube-system
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
-</code></pre>
-
-<p>or
-```
-cat tiller-clusterrolebinding.yaml
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.K8S.io/v1beta1
-metadata:
-name: tiller-clusterrolebinding
-subjects:</p></li>
-
-<li><p>kind: ServiceAccount
-name: tiller
-namespace: kube-system
-roleRef:
-kind: ClusterRole
-name: cluster-admin
-apiGroup: &ldquo;&rdquo;</p></li>
+<li>集群</li>
 </ul>
 
-<p>docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3</p>
+<p>Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service</p>
 
-<p>kubectl create -f tiller-clusterrolebinding.yaml</p>
-
-<h1 id="update-the-existing-tiller-deploy-deployment-with-the-service-account">Update the existing tiller-deploy deployment with the Service Account</h1>
-
-<p>helm init &ndash;service-account tiller &ndash;upgrade</p>
-
-<pre><code>
-
-
-</code></pre>
-
-<p>helm install &ndash;name prometheus stable/prometheus</p>
-
-<p>helm install &ndash;name prometheus1  stable/prometheus &ndash;set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,</p>
-
-<pre><code>
-    alertmanager:
-      enabled: false
-      name: p-alertmanager
-    
-    server:
-      name: prometheus880
-</code></pre>
-
-<h1 id="pvc-using-local-pv">PVC using local PV</h1>
+<h1 id="监听器">监听器</h1>
 
 <ul>
-<li>create PVC</li>
-</ul>
-
-<pre><code>cat storage-class-hdd.yaml 
-apiVersion: storage.K8S.io/v1
-kind: StorageClass
-metadata:
- name: local-hdd
-provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
-</code></pre>
-
-<blockquote>
-<p>kubectl apply -f  storage-class-hdd.yaml</p>
-</blockquote>
+<li>监听过滤器（内置）<br />
 
 <ul>
-<li>create local PV</li>
+<li>envoy.client_ssl_auth</li>
+<li>envoy.echo</li>
+<li>envoy.http_connection_manager(代理HTTP请求)
+
+<ul>
+<li>http_connection_manager.v2.HttpFilter
+
+<ul>
+<li>envoy.buffer</li>
+<li>envoy.cors</li>
+<li>envoy.fault</li>
+<li>envoy.gzip</li>
+<li>envoy.http_dynamo_filter</li>
+<li>envoy.grpc_http1_bridge</li>
+<li>envoy.grpc_json_transcoder</li>
+<li>envoy.grpc_web</li>
+<li>envoy.health_check</li>
+<li>envoy.header_to_metadata</li>
+<li>envoy.ip_tagging</li>
+<li>envoy.lua</li>
+<li>envoy.rate_limit</li>
+<li>envoy.router</li>
+<li>envoy.squash</li>
+</ul></li>
+</ul></li>
+<li>envoy.mongo_proxy</li>
+<li>envoy.ratelimit</li>
+<li>envoy.redis_proxy</li>
+<li>envoy.tcp_proxy</li>
+</ul></li>
 </ul>
 
-<pre><code>cat local_volume.yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-hdd
-spec:
-  capacity:
-    storage: 8Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-hdd
-  local:
-    path: /mnt/pv/
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - bigo-vm4
+<pre><code>route_config:
+   virtual_hosts:
+       domains: -&gt; matched against the http requests Host header
 </code></pre>
 
-<blockquote>
-<p>kubectl apply -f local_volume.yaml</p>
-</blockquote>
+<p>config envoy by following its api
+<strong>api document is automatically generated from protocol buffers</strong></p>
 
-<p>PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.</p>
+<p><a href="https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api" target="_blank">https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api</a></p>
 
-<p>PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.</p>
+<p>以上都是静态资源配置，但是在K8S环境，容器是动态分配的，手动配置无法
+保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:</p>
 
-<p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
+<ul>
+<li>routes (“what cluster should requests with this HTTP header go to”)[RDS]</li>
+<li>clusters (“what backends does this service have?”)[CDS]</li>
+<li>listener (the filters for a port)[LDS]</li>
 
-<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on K8S</h1>
+<li><p>endpoints[EDS]</p></li>
 
-<pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
-or
-kubectl port-forward pods/&lt;podname&gt; 9090:9090
-or
-kubectl port-forward deployment/prometheus  9090:9090
-or
-kubectl port-forward svc/prometheus  9090:9090
-or
-kubectl port-forward rs/prometheus  9090:9090
+<li><p>v1</p></li>
+</ul>
+
+<pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
 </code></pre>
+
+<ul>
+<li>v2</li>
+</ul>
+
+<p>Health Discovery Service (HDS)</p>
+
+<p>Aggregated Discovery Service (ADS)</p>
+
+<p>Secret Discovery Service (SDS)</p>
+
+<ul>
+<li><p>CDS type</p>
+
+<p>Cluster.DiscoveryType</p>
+
+<ul>
+<li>STATIC</li>
+<li>STRICT_DNS</li>
+<li>LOGICAL_DNS<br /></li>
+<li>EDS    ⁣</li>
+<li>ORIGINAL_DST</li>
+</ul></li>
+</ul>
+
+<pre><code>  clusters:
+  - name: service_backend
+    type: []
+</code></pre>
+
+<p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
+
+<pre><code>/envoy/examples/front-proxy$ git diff --word-diff
+
+
+diff --git a/examples/front-proxy/Dockerfile-frontenvoy b/examples/front-proxy/Dockerfile-frontenvoy
+index 83b5ba806..2e203a204 100644
+--- a/examples/front-proxy/Dockerfile-frontenvoy
++++ b/examples/front-proxy/Dockerfile-frontenvoy
+@@ -1,5 +1,5 @@
+FROM envoyproxy/envoy-dev:latest
+
+RUN apt-get update &amp;&amp; apt-get -q install -y \
+    curl {+tzdata+}
+CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml {+-l debug+} --service-cluster front-proxy
+
+
+
+
+diff --git a/examples/front-proxy/Dockerfile-service b/examples/front-proxy/Dockerfile-service
+index c3f5bafef..987b21814 100644
+--- a/examples/front-proxy/Dockerfile-service
++++ b/examples/front-proxy/Dockerfile-service
+@@ -1,6 +1,6 @@
+FROM envoyproxy/envoy-alpine-dev:latest
+
+RUN apk update &amp;&amp; apk add python3 bash curl {+tzdata+}
+RUN pip3 install -q Flask==0.11.1 requests==2.18.4
+RUN mkdir /code
+ADD ./service.py /code
+
+
+
+
+diff --git a/examples/front-proxy/docker-compose.yml b/examples/front-proxy/docker-compose.yml
+index 2c121d598..05d7eb844 100644
+--- a/examples/front-proxy/docker-compose.yml
++++ b/examples/front-proxy/docker-compose.yml
+@@ -15,6 +15,8 @@ services:
+    ports:
+      - &quot;8000:80&quot;
+      - &quot;8001:8001&quot;
+    {+environment:+}
+{+      - TZ=Asia/Shanghai+}
+
+  service1:
+    build:
+@@ -28,8 +30,10 @@ services:
+          - service1
+    environment:
+      - SERVICE_NAME=1
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+      
+
+  service2:
+    build:
+@@ -43,6 +47,7 @@ services:
+          - service2
+    environment:
+      - SERVICE_NAME=2
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+
+
+
+
+
+
+diff --git a/examples/front-proxy/start_service.sh b/examples/front-proxy/start_service.sh
+index cc529bcf2..57176eff3 100644
+--- a/examples/front-proxy/start_service.sh
++++ b/examples/front-proxy/start_service.sh
+@@ -1,3 +1,3 @@
+#!/bin/sh
+python3 /code/service.py &amp;
+envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
+</code></pre>
+
+<p><a href="https://jvns.ca/blog/2018/10/27/envoy-basics/" target="_blank">https://jvns.ca/blog/2018/10/27/envoy-basics/</a></p>
+
+<p><a href="https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a" target="_blank">https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a</a></p>
 
     </div>
 
@@ -920,15 +873,15 @@ kubectl port-forward rs/prometheus  9090:9090
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/k8s-notes/">K8S notes</a></li>
+          <li><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></li>
           
-          <li><a href="/post/k8s-istio-discovery-proxy/">K8s Istio Pilot as envoy control place</a></li>
+          <li><a href="/post/k8s-openshift/">K8s Openshift</a></li>
           
-          <li><a href="/post/k8s-dns/">K8s DNS</a></li>
+          <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
           
-          <li><a href="/post/k8s-kubelet/">K8s Kubelet</a></li>
+          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
           
-          <li><a href="/post/k8s-helm-setup/">K8s Helm Setup</a></li>
+          <li><a href="/post/k8s-development-streamline/">K8s Development Streamline with draft</a></li>
           
         </ul>
       </div>

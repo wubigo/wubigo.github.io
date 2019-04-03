@@ -412,11 +412,12 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
   </div>
   
   <div>
-    <h2><a href="/post/k8s-istio-discovery-proxy/">K8s Istio Discovery Proxy</a></h2>
+    <h2><a href="/post/k8s-istio-discovery-proxy/">K8s Istio Pilot as envoy control place</a></h2>
     <div class="article-style">
       
-      安装  启用代理envoy（pilot.sidecar=true）  helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set sidecarInjectorWebhook.enabled=false --set pilot.sidecar=true   检查POD  istio-pilot包含两个容器： discovery 和 istio-proxy
-kubectl get pods -n istio-system NAME READY STATUS RESTARTS AGE istio-pilot-786dc4c88d-vnsr9 2/2 Running 0 15m   检查代理  kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c istio-proxy -- bash # cd /etc/istio/proxy/ # ls envoy.
+      # side car proxy
+ 方法1  Namespace labels
+kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
       
     </div>
   </div>

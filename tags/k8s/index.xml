@@ -180,11 +180,11 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
     </item>
     
     <item>
-      <title>K8s Istio Envoy</title>
-      <link>https://wubigo.com/post/k8s-envoy/</link>
+      <title>Envoy NOTES</title>
+      <link>https://wubigo.com/post/envoy-notes/</link>
       <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/k8s-envoy/</guid>
+      <guid>https://wubigo.com/post/envoy-notes/</guid>
       <description>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
 参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
 #!/bin/sh set -e echo &amp;quot;Generating envoy.yaml config file...&amp;quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &amp;gt; /etc/envoy.yaml echo &amp;quot;Starting Envoy.</description>
@@ -271,13 +271,14 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     </item>
     
     <item>
-      <title>K8s Istio Discovery Proxy</title>
+      <title>K8s Istio Pilot as envoy control place</title>
       <link>https://wubigo.com/post/k8s-istio-discovery-proxy/</link>
       <pubDate>Sun, 30 Apr 2017 15:04:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-istio-discovery-proxy/</guid>
-      <description>安装  启用代理envoy（pilot.sidecar=true）  helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set sidecarInjectorWebhook.enabled=false --set pilot.sidecar=true   检查POD  istio-pilot包含两个容器： discovery 和 istio-proxy
-kubectl get pods -n istio-system NAME READY STATUS RESTARTS AGE istio-pilot-786dc4c88d-vnsr9 2/2 Running 0 15m   检查代理  kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c istio-proxy -- bash # cd /etc/istio/proxy/ # ls envoy.</description>
+      <description># side car proxy
+ 方法1  Namespace labels
+kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod</description>
     </item>
     
     <item>
