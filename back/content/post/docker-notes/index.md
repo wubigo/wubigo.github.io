@@ -21,7 +21,20 @@ categories = []
 
 # busybox nslookup
 
+**busybox:latest has bug on nslookup**
+
 ```
+docker network create test
+32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618
+docker run -dit --name nginx --network test nginx:alpine
+7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b
+$ docker run -it --rm --network test busybox:1.28 nslookup nginx
+Server:    127.0.0.11
+Address 1: 127.0.0.11
+Name:      nginx
+Address 1: 172.22.0.2 nginx.test
+docker stop nginx
+docker network rm test
 ```
 
 

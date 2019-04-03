@@ -1,5 +1,5 @@
 +++
-title = "K8s Istio Envoy"
+title = "Envoy NOTES"
 date = 2018-03-31T11:16:50+08:00
 draft = false
 
@@ -18,6 +18,7 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
 
 
 The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
@@ -163,9 +164,19 @@ https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api
 - listener (the filters for a port)[LDS]
 - endpoints[EDS]
 
+- v1
+  
 ```
 XDS = [ RDS, CDS, LDS, and EDS] 
 ```
+- v2
+
+Health Discovery Service (HDS)
+
+Aggregated Discovery Service (ADS)
+
+Secret Discovery Service (SDS)
+
 
 - CDS type
   
@@ -271,3 +282,5 @@ envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE
 
 
 https://jvns.ca/blog/2018/10/27/envoy-basics/
+
+https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a

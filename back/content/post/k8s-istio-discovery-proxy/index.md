@@ -1,5 +1,5 @@
 +++
-title = "K8s Istio Discovery Proxy"
+title = "K8s Istio Pilot as envoy control place"
 date = 2017-04-30T15:04:55+08:00
 draft = false
 
@@ -18,6 +18,48 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+ # side car proxy
+
+ - 方法1
+
+Namespace labels
+
+```
+kubectl label ns servicea istio-injection=enabled
+```
+
+Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
+
+- istioctl command line tool
+  
+
+
+
+
+
+PILOT = ENVOY CONTROL PLANE API SERVER
+
+![](./PilotAdapters.svg)
+
+Pilot maintains a canonical representation of services in the mesh that is independent of the underlying platform. Platform-specific adapters in Pilot are responsible for populating this canonical model appropriately. For example, the Kubernetes adapter in Pilot implements the necessary controllers to watch the Kubernetes API server for changes to the pod registration information, ingress resources, and third-party resources that store traffic management rules. This data is translated into the canonical representation. An Envoy-specific configuration is then generated based on the canonical representation
+
+Pilot enables service discovery, dynamic updates to load balancing pools and routing tables.
+
+You can specify high-level traffic management rules through Pilot’s Rule configuration. These rules are translated into low-level configurations and distributed to Envoy instances
+
+
+
+# K8S KUBE-PROXY
+
+Kubernetes services take care of maintaining the list of Pod endpoints it can route traffic to. And usually kube-proxy does the load balancing between these pod endpoints. ENVOY client side load balancing do not want kube-proxy to load balance, we want to get the list of Pod endpoints and load balance it ourselves. For this we can use a “headless service”, which will just return the list of endpoints. 
+
+
+- Client-side Load Balancing
+
+Many are familiar with what server-side load balancing is but the lesser known, client-side load balancing, has begun to climb in popularity due to SOA and microservices. Instead of relying on another service to distribute the load, the client itself, is responsible for deciding where to send the traffic also using an algorithm like round-robin. It can either discover the instances, via service discovery, or can be configured with a predefined list. Netflix Ribbon is an example of a client-side load balancer.
+
+
 
 
 # 安装
@@ -93,6 +135,72 @@ kubectl port-forward -n istio-system istio-pilot-786dc4c88d-vnsr9 15000:15000
 
 
 pilot地址
+
+istio-pilot:release-1.0-latest-daily没有把服务端口通过EXPOSE暴露，
+通过inspect查找
+
+```
+kubectl exec -n istio-system istio-pilot-786dc4c88d-ls2z6  -c discovery env | grep "ISTIO_PILOT"
+ISTIO_PILOT_PORT=tcp://10.111.94.9:15010
+ISTIO_PILOT_PORT_8080_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_SERVICE_PORT_HTTP_MONITORING=9093
+ISTIO_PILOT_PORT_15010_TCP_PROTO=tcp
+ISTIO_PILOT_PORT_15010_TCP_PORT=15010
+ISTIO_PILOT_SERVICE_PORT=15010
+ISTIO_PILOT_PORT_15011_TCP=tcp://10.111.94.9:15011
+ISTIO_PILOT_PORT_15011_TCP_PROTO=tcp
+ISTIO_PILOT_PORT_9093_TCP_PROTO=tcp
+ISTIO_PILOT_SERVICE_PORT_HTTP_LEGACY_DISCOVERY=8080
+ISTIO_PILOT_PORT_15011_TCP_PORT=15011
+ISTIO_PILOT_PORT_8080_TCP=tcp://10.111.94.9:8080
+ISTIO_PILOT_PORT_8080_TCP_PROTO=tcp
+ISTIO_PILOT_SERVICE_PORT_HTTPS_XDS=15011
+ISTIO_PILOT_PORT_9093_TCP=tcp://10.111.94.9:9093
+ISTIO_PILOT_SERVICE_PORT_GRPC_XDS=15010
+ISTIO_PILOT_PORT_8080_TCP_PORT=8080
+ISTIO_PILOT_PORT_9093_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_SERVICE_HOST=10.111.94.9
+ISTIO_PILOT_PORT_15010_TCP=tcp://10.111.94.9:15010
+ISTIO_PILOT_PORT_15010_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_PORT_15011_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_PORT_9093_TCP_PORT=9093
+
+```
+
+
+
+```
+docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' istio-pilot
+
+docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' ab92d1c866ce | grep "ISTIO_PILOT_*"
+
+
+ISTIO_PILOT_PORT=tcp://10.111.94.9:15010
+ISTIO_PILOT_PORT_8080_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_SERVICE_PORT_HTTP_MONITORING=9093
+ISTIO_PILOT_PORT_15010_TCP_PROTO=tcp
+ISTIO_PILOT_PORT_15010_TCP_PORT=15010
+ISTIO_PILOT_SERVICE_PORT=15010
+ISTIO_PILOT_PORT_15011_TCP=tcp://10.111.94.9:15011
+ISTIO_PILOT_PORT_15011_TCP_PROTO=tcp
+ISTIO_PILOT_PORT_9093_TCP_PROTO=tcp
+ISTIO_PILOT_SERVICE_PORT_HTTP_LEGACY_DISCOVERY=8080
+ISTIO_PILOT_PORT_15011_TCP_PORT=15011
+ISTIO_PILOT_PORT_8080_TCP=tcp://10.111.94.9:8080
+ISTIO_PILOT_PORT_8080_TCP_PROTO=tcp
+ISTIO_PILOT_SERVICE_PORT_HTTPS_XDS=15011
+ISTIO_PILOT_PORT_9093_TCP=tcp://10.111.94.9:9093
+ISTIO_PILOT_SERVICE_PORT_GRPC_XDS=15010
+ISTIO_PILOT_PORT_8080_TCP_PORT=8080
+ISTIO_PILOT_PORT_9093_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_SERVICE_HOST=10.111.94.9
+ISTIO_PILOT_PORT_15010_TCP=tcp://10.111.94.9:15010
+ISTIO_PILOT_PORT_15010_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_PORT_15011_TCP_ADDR=10.111.94.9
+ISTIO_PILOT_PORT_9093_TCP_PORT=9093
+```
+
+
 
 ```
 kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
