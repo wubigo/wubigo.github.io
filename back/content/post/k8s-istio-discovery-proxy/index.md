@@ -229,16 +229,34 @@ Comma-separated minimum per-scope logging level of messages to output, in the fo
 kubectl get deployments  -n istio-system -o json > istio.k8s.deployment.json
 ```
 
-修改增加--log_output_level
+discovery调试信息**--log_output_level**
 
 ```
                        "args": [
                             "discovery", "--log_output_level", "default:debug"
-                        ],
-                        "image": "gcr.io/istio-release/pilot:release-1.0-latest-daily",
-                        "imagePullPolicy": "IfNotPresent",
-                        "name": "discovery",
+                        ]
+                        
 ```
+
+
+proxy调试信息(/usr/local/bin/proxy -l debug)
+
+proxy被pilot-agent启动，所以调试日志还是和discovery一样
+
+```
+                        "args": [
+                             "proxy",
+                                    "--serviceCluster",
+                                    "istio-pilot",
+                                    "--templateFile",
+                                    "/etc/istio/proxy/envoy_pilot.yaml.tmpl",
+                                    "--controlPlaneAuthPolicy",
+                                    "NONE",
+                                    "--log_output_level", "default:debug"       
+                        ]
+```
+
+
 
 ```
 kubectl apply -f istio.k8s.deployment.json
@@ -260,3 +278,7 @@ root@istio-pilot-84678c759f-qjbf4:/# ps -fax
 kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:etc/istio/proxy/envoy.yaml ./ -c istio-proxy
 ```
 
+```
+PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:/etc/istio/proxy/envoy.yaml ./ -c istio-proxy
+```

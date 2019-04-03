@@ -16,7 +16,7 @@ role = ""
 # organizations = [ { name = "Stanford University", url = "" } ]
 
 # Short bio (displayed in user profile at end of posts)
-bio = "多年的公有云，混合云，PAAS建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台"
+bio = "多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台"
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email = ""
@@ -67,7 +67,8 @@ user_groups = ["Researchers", "Visitors"]
 
 +++
 
-- More than 10 years experience of developing distributed system in Java ，python and go for commerical and open soucre projects
-- 6 years public cloud development and helped multiple clients migration On-Premises business to hybrid cloud
-- Skilled at large scaled container based cluster platform like kubernetes
-Leading a big data system design for 20PB storage for many year.
+- 超过15年的Java ，python和go开发经验，参与过多个大型商业和开源项目
+- 6年的共有云，混合云建设经验，实施过多个行业例如电信，医疗，教育，建筑行业AT2C案例
+- 管理超过40Pb的数据中心，并提供基于hadoop生态的数据仓库管理和数据分析服务
+- 精通DOCKR，K8S和服务网格，软件开发，测试，部署自动化全流程管理优化
+- 开放，积极，进取
