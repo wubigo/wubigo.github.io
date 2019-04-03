@@ -832,14 +832,28 @@ ISTIO_PILOT_PORT_9093_TCP_PORT=9093
 <pre><code>kubectl get deployments  -n istio-system -o json &gt; istio.k8s.deployment.json
 </code></pre>
 
-<p>修改增加&ndash;log_output_level</p>
+<p>discovery调试信息<strong>&ndash;log_output_level</strong></p>
 
 <pre><code>                       &quot;args&quot;: [
                             &quot;discovery&quot;, &quot;--log_output_level&quot;, &quot;default:debug&quot;
-                        ],
-                        &quot;image&quot;: &quot;gcr.io/istio-release/pilot:release-1.0-latest-daily&quot;,
-                        &quot;imagePullPolicy&quot;: &quot;IfNotPresent&quot;,
-                        &quot;name&quot;: &quot;discovery&quot;,
+                        ]
+                        
+</code></pre>
+
+<p>proxy调试信息(/usr/local/bin/proxy -l debug)</p>
+
+<p>proxy被pilot-agent启动，所以调试日志还是和discovery一样</p>
+
+<pre><code>                        &quot;args&quot;: [
+                             &quot;proxy&quot;,
+                                    &quot;--serviceCluster&quot;,
+                                    &quot;istio-pilot&quot;,
+                                    &quot;--templateFile&quot;,
+                                    &quot;/etc/istio/proxy/envoy_pilot.yaml.tmpl&quot;,
+                                    &quot;--controlPlaneAuthPolicy&quot;,
+                                    &quot;NONE&quot;,
+                                    &quot;--log_output_level&quot;, &quot;default:debug&quot;       
+                        ]
 </code></pre>
 
 <pre><code>kubectl apply -f istio.k8s.deployment.json
@@ -858,6 +872,10 @@ root@istio-pilot-84678c759f-qjbf4:/# ps -fax
 </ul>
 
 <pre><code>kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:etc/istio/proxy/envoy.yaml ./ -c istio-proxy
+</code></pre>
+
+<pre><code>PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
+kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:/etc/istio/proxy/envoy.yaml ./ -c istio-proxy
 </code></pre>
 
     </div>
@@ -899,7 +917,7 @@ root@istio-pilot-84678c759f-qjbf4:/# ps -fax
   <div class="media-body">
     <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
     
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
     <ul class="network-icon" aria-hidden="true">
       
       
