@@ -405,7 +405,7 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -525,7 +525,7 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -876,6 +876,17 @@ root@istio-pilot-84678c759f-qjbf4:/# ps -fax
 
 <pre><code>PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}'
 kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:/etc/istio/proxy/envoy.yaml ./ -c istio-proxy
+</code></pre>
+
+<pre><code>Adding Kubernetes registry adapter
+
+2019-04-03T06:43:56.839512Z	info	Primary Cluster name: Kubernetes
+2019-04-03T06:43:56.839600Z	info	Service controller watching namespace &quot;&quot; for service, endpoint, nodes and pods, refresh 60000000000
+gc 4 @4.096s 4%: 0.043+22+4.4 ms clock, 0.087+1.2/6.0/13+8.9 ms cpu, 5-&gt;5-&gt;3 MB, 6 MB goal, 2 P
+2019-04-03T06:43:56.852472Z	debug	empty Webhook API endpoint.
+2019-04-03T06:43:56.875696Z	info	ads	Starting ADS server with throttle=25 burst=100
+2019-04-03T06:43:56.879233Z	info	Setting up event handlers
+2019-04-03T06:43:56.879495Z	info	Discovery service started at http=[::]:8080 grpc=[::]:15010
 </code></pre>
 
     </div>
