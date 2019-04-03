@@ -19,6 +19,21 @@ categories = []
   focal_point = ""
 +++
 
+# Multi-stage builds in Docker
+
+**only support for Doceker version > 17.05**
+
+https://blog.alexellis.io/mutli-stage-docker-builds/
+
+
+```
+FROM golang:1.10 as builder
+# build env and make target
+FROM alpine:latest
+WORKDIR /root/
+COPY --from=builder ./
+```
+
 # busybox nslookup
 
 **busybox:latest has bug on nslookup**
