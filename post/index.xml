@@ -6,19 +6,10 @@
     <description>Recent content in Posts on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Apr 2019 06:50:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2019 14:04:09 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Envoy Control Plane API Server Testing</title>
-      <link>https://wubigo.com/post/envoy-control-plane-api-server-testing/</link>
-      <pubDate>Thu, 04 Apr 2019 06:50:43 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
-      <description>graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器</description>
-    </item>
     
     <item>
       <title>Linux删除Python3.5</title>
@@ -313,6 +304,15 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
       <description> Start Dgraph cluster dgraph zero  start Dgraph server  dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000 Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]  How do I configure Go to use a proxy https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy
 Web based graph visualization with D3 and KeyLines https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/
 SETUP CLIENT set http_proxy=192.168.0.119:3128 git config --global http.proxy http://192.168.0.119:3128 go get -u github.com/derekparker/delve/cmd/dlv go get -u -v github.com/dgraph-io/dgo  </description>
+    </item>
+    
+    <item>
+      <title>Envoy Control Plane API Server Testing</title>
+      <link>https://wubigo.com/post/envoy-control-plane-api-server-testing/</link>
+      <pubDate>Wed, 04 Apr 2018 06:50:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
+      <description>graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器</description>
     </item>
     
     <item>

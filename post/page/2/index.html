@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-08-29T06:26:51&#43;08:00">
+  <meta property="og:updated_time" content="2018-06-26T11:10:47&#43;08:00">
   
 
   
@@ -378,96 +378,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-go-dep-manage/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-dep-manage/" itemprop="url">Lang Go Dep Manage</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="glide">glide</h1>
-
-<p>To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -850,6 +760,91 @@ go get -u github.com/derekparker/delve/cmd/dlv
 go get -u -v github.com/dgraph-io/dgo
 </code></pre>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/envoy-control-plane-api-server-testing/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/envoy-control-plane-api-server-testing/" itemprop="url">Envoy Control Plane API Server Testing</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器
   </div>
   
 

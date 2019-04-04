@@ -6,81 +6,8 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Apr 2019 06:50:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2019 14:04:09 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Envoy Control Plane API Server Testing</title>
-      <link>https://wubigo.com/post/envoy-control-plane-api-server-testing/</link>
-      <pubDate>Thu, 04 Apr 2019 06:50:43 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
-      <description>
-
-&lt;h1 id=&#34;graceful-shutdown-mechanism&#34;&gt;graceful shutdown mechanism&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;Get shutdown notice
-/healthcheck/fail
-Wait X time
-Shutdown
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;build&#34;&gt;BUILD&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;go get -d github.com/envoyproxy/go-control-plane
-cd $GOPATH/src/github.com/envoyproxy/go-control-plane
-docker build -t bigo/envoy-test:v1 .
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;test-xds-in-docker&#34;&gt;TEST XDS in docker&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1  -debug
-	docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug
-	docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;test-xds-with-tls-in-docker&#34;&gt;TEST XDS with tls in docker&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;test-it-in-code&#34;&gt;Test it in code&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
-docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在code里面启动ADS API服务器&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;pkg/test/main&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;launch.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    &amp;quot;version&amp;quot;: &amp;quot;0.2.0&amp;quot;,
-    &amp;quot;configurations&amp;quot;: [
-        {
-            &amp;quot;name&amp;quot;: &amp;quot;Launch&amp;quot;,
-            &amp;quot;type&amp;quot;: &amp;quot;go&amp;quot;,
-            &amp;quot;request&amp;quot;: &amp;quot;launch&amp;quot;,
-            &amp;quot;mode&amp;quot;: &amp;quot;auto&amp;quot;,
-            &amp;quot;program&amp;quot;: &amp;quot;${fileDirname}&amp;quot;,
-            &amp;quot;env&amp;quot;: {},
-            &amp;quot;args&amp;quot;: [&amp;quot;-debug&amp;quot;, &amp;quot;--xds=ads&amp;quot;]
-        }
-    ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;envoy -c sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
     
     <item>
       <title>Linux删除Python3.5</title>
@@ -862,6 +789,33 @@ when errors are expected&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&#34; target=&#34;_blank&#34;&gt;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MicroK8S</title>
+      <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-24-microk8s/</guid>
+      <description>&lt;p&gt;Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
+snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$snap start microK8S
+$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
+$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;for resource under namespace kube-system
+all-namespaces don&amp;rsquo;t include kube-system&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf&#34; target=&#34;_blank&#34;&gt;https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
