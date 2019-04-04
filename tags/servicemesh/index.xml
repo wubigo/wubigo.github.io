@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SERVICEMESH on OS/APP HARDCORE</title>
+    <link>https://wubigo.com/tags/servicemesh/</link>
+    <description>Recent content in SERVICEMESH on OS/APP HARDCORE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Apr 2019 06:50:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/servicemesh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Envoy Control Plane API Server Testing</title>
+      <link>https://wubigo.com/post/envoy-control-plane-api-server-testing/</link>
+      <pubDate>Thu, 04 Apr 2019 06:50:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
+      <description>graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器</description>
+    </item>
+    
+  </channel>
+</rss>
