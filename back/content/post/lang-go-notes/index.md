@@ -1,6 +1,6 @@
 +++
 title = "GO NOTES"
-date = 2018-02-11T20:24:49+08:00
+date = 2017-02-11T20:24:49+08:00
 draft = false
 
 # Tags and categories
@@ -18,6 +18,19 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+# Method's receiver
+
+- go don't user special name like( this or self ) for the receiver
+
+```
+func (p Point) MoveBy(factor float){
+	p.X += factor  //->  this.X += factor
+}
+```
+
+- Pointer receiver
+
 
 # project-layout Internal app/pkg Directory Clarification
 

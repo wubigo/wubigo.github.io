@@ -19,7 +19,13 @@ categories = []
   focal_point = ""
 +++
 
+# 术语
 
+- 端点 Envoy discovers the cluster members via EDS
+- Management server: A logical server implementing the v2 Envoy APIs
+- Upstream: An upstream host receives connections and requests from Envoy and returns responses
+- xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs.
+- Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys
 
 The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
 

@@ -41,24 +41,19 @@ docker build -t bigo/envoy-test:v1 .
 
 
 ```
-  docker run -it --rm -e "XDS=ads" bigo/envoy-test:v1  -debug
-	docker run -it --rm -e "XDS=xds" bigo/envoy-test:v1 -debug
-	docker run -it --rm -e "XDS=rest" bigo/envoy-test:v1 -debug	
+docker run -it --rm -e "XDS=ads" bigo/envoy-test:v1  -debug
+docker run -it --rm -e "XDS=xds" bigo/envoy-test:v1 -debug
+docker run -it --rm -e "XDS=rest" bigo/envoy-test:v1 -debug	
 ```
 
 # TEST XDS with tls in docker 
-``` 
-  docker run -it --rm -e "XDS=ads" bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e "XDS=xds" bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e "XDS=rest" bigo/envoy-test:v1 -debug -tls
+```
+docker run -it --rm -e "XDS=ads" bigo/envoy-test:v1 -debug -tls
+docker run -it --rm -e "XDS=xds" bigo/envoy-test:v1 -debug -tls
+docker run -it --rm -e "XDS=rest" bigo/envoy-test:v1 -debug -tls
 ```  
 
 # Test it in code
-
-```
-docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
-docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
-```
 
 在code里面启动ADS API服务器
 
@@ -88,6 +83,10 @@ docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
 
 
 
+
 ```
+docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
+docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
+
 envoy -c sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
 ```
