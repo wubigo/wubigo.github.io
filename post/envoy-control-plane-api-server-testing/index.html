@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器">
+  <meta name="description" content="graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code 在code里面启动ADS API服务器">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/envoy-control-plane-api-server-testing/">
@@ -137,7 +137,7 @@
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/envoy-control-plane-api-server-testing/">
   <meta property="og:title" content="Envoy Control Plane API Server Testing | OS/APP HARDCORE">
-  <meta property="og:description" content="graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code 在code里面启动ADS API服务器"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-04-04T06:50:43&#43;08:00">
@@ -501,23 +501,19 @@ docker build -t bigo/envoy-test:v1 .
 
 <h1 id="test-xds-in-docker">TEST XDS in docker</h1>
 
-<pre><code>  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1  -debug
-	docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug
-	docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	
+<pre><code>docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1  -debug
+docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug
+docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	
 </code></pre>
 
 <h1 id="test-xds-with-tls-in-docker">TEST XDS with tls in docker</h1>
 
-<pre><code>  docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls
-	docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls
+<pre><code>docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls
+docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls
+docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls
 </code></pre>
 
 <h1 id="test-it-in-code">Test it in code</h1>
-
-<pre><code>docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
-docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
-</code></pre>
 
 <p>在code里面启动ADS API服务器</p>
 
@@ -544,7 +540,10 @@ docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
 }
 </code></pre>
 
-<pre><code>envoy -c sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
+<pre><code>docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
+docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
+
+envoy -c sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
 </code></pre>
 
     </div>

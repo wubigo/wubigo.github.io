@@ -669,93 +669,6 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
 
 
 
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-go-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-notes/" itemprop="url">GO NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2237,6 +2150,93 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
 
 <p><a href="https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/" target="_blank">https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/</a></p>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-dns/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-dns/" itemprop="url">K8s DNS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
+Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
+ A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
   </div>
   
 

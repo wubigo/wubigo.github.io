@@ -28,9 +28,7 @@
   
     
   
-  <meta name="description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
-参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
-#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy.">
+  <meta name="description" content="术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/envoy-notes/">
@@ -139,9 +137,7 @@
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/envoy-notes/">
   <meta property="og:title" content="Envoy NOTES | OS/APP HARDCORE">
-  <meta property="og:description" content="The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
-参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
-#!/bin/sh set -e echo &quot;Generating envoy.yaml config file...&quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml echo &quot;Starting Envoy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
@@ -487,6 +483,16 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="术语">术语</h1>
+
+<ul>
+<li>端点 Envoy discovers the cluster members via EDS</li>
+<li>Management server: A logical server implementing the v2 Envoy APIs</li>
+<li>Upstream: An upstream host receives connections and requests from Envoy and returns responses</li>
+<li>xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs.</li>
+<li>Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys</li>
+</ul>
 
 <p>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</p>
 

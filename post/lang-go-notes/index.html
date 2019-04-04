@@ -28,9 +28,9 @@
   
     
   
-  <meta name="description" content="project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+  <meta name="description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree">
+vendor package go help gopath find .">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-notes/">
@@ -139,14 +139,14 @@ vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/googl
   <meta property="og:site_name" content="OS/APP HARDCORE">
   <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
   <meta property="og:title" content="GO NOTES | OS/APP HARDCORE">
-  <meta property="og:description" content="project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+  <meta property="og:description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+vendor package go help gopath find ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-02-11T20:24:49&#43;08:00">
+  <meta property="article:published_time" content="2017-02-11T20:24:49&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-02-11T20:24:49&#43;08:00">
+  <meta property="article:modified_time" content="2017-02-11T20:24:49&#43;08:00">
   
 
   
@@ -379,8 +379,8 @@ vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/googl
 
 
 
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -393,7 +393,7 @@ vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/googl
     
       
     
-    <time>Feb 11, 2018</time>
+    <time>Feb 11, 2017</time>
   </span>
   
 
@@ -487,6 +487,21 @@ vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/googl
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="method-s-receiver">Method&rsquo;s receiver</h1>
+
+<ul>
+<li>go don&rsquo;t user special name like( this or self ) for the receiver</li>
+</ul>
+
+<pre><code>func (p Point) MoveBy(factor float){
+	p.X += factor  //-&gt;  this.X += factor
+}
+</code></pre>
+
+<ul>
+<li>Pointer receiver</li>
+</ul>
 
 <h1 id="project-layout-internal-app-pkg-directory-clarification">project-layout Internal app/pkg Directory Clarification</h1>
 
@@ -942,8 +957,6 @@ Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/r
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
-          <li><a href="/post/lang-go-module/">Go Module</a></li>
           
           <li><a href="/post/effective-coding-java/">Effective Coding Java</a></li>
           

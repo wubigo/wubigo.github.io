@@ -412,23 +412,23 @@ https://gocn.vip/article/1678
   </div>
   
   <div>
-    <h2><a href="/post/lang-go-notes/">GO NOTES</a></h2>
-    <div class="article-style">
-      
-      project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &lsquo;go get&rsquo;: those are always placed in the main GOPATH, never in a vendor subtree
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="/post/lang-go-module/">Go Module</a></h2>
     <div class="article-style">
       
       Modules  A module is a collection of related Go packages that are versioned together as a single unit.
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lang-go-notes/">GO NOTES</a></h2>
+    <div class="article-style">
+      
+      Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+https://github.com/golang-standards/project-layout/issues/9
+vendor package go help gopath find .
       
     </div>
   </div>

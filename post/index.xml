@@ -312,7 +312,7 @@ SETUP CLIENT set http_proxy=192.168.0.119:3128 git config --global http.proxy ht
       <pubDate>Wed, 04 Apr 2018 06:50:43 +0800</pubDate>
       
       <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
-      <description>graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker  docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls  Test it in code docker run -it --name envoy --entrypoint sh bigo/envoy-test:v1 docker cp envoy:/usr/local/bin/envoy ~/go/bin/  在code里面启动ADS API服务器</description>
+      <description>graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker docker run -it --rm -e &amp;quot;XDS=ads&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=xds&amp;quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &amp;quot;XDS=rest&amp;quot; bigo/envoy-test:v1 -debug -tls  Test it in code 在code里面启动ADS API服务器</description>
     </item>
     
     <item>
@@ -343,9 +343,7 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
       <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>
       
       <guid>https://wubigo.com/post/envoy-notes/</guid>
-      <description>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
-参数化定制Envoy镜像 clusters: - name: myapp_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.shin 做环境变量替换
-#!/bin/sh set -e echo &amp;quot;Generating envoy.yaml config file...&amp;quot; cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &amp;gt; /etc/envoy.yaml echo &amp;quot;Starting Envoy.</description>
+      <description>术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</description>
     </item>
     
     <item>
@@ -580,17 +578,6 @@ https://songlh.github.io/paper/go-study.pdf</description>
       <guid>https://wubigo.com/post/k8s-csi/</guid>
       <description>PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
 Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet</description>
-    </item>
-    
-    <item>
-      <title>GO NOTES</title>
-      <link>https://wubigo.com/post/lang-go-notes/</link>
-      <pubDate>Sun, 11 Feb 2018 20:24:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find . -name grpc | xargs rm -rf /go/pkg/mod/google.golang.org$ ls genproto@v0.0.0-20180817151627-c66870c02cf8 genproto@v0.0.0-20190127191240-7cdc0b958d75 grpc@v1.19.0 grpc@v1.19.1  Vendor directories do not affect the placement of new repositories being checked out for the first time by &amp;lsquo;go get&amp;rsquo;: those are always placed in the main GOPATH, never in a vendor subtree</description>
     </item>
     
     <item>
@@ -1004,6 +991,17 @@ update-locale LANG=zh_CN.UTF-8 # File generated by update-locale LANG=&amp;quot;
       <description>Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
  The docker logs command is not available for drivers other than json-file and journald.
 logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.</description>
+    </item>
+    
+    <item>
+      <title>GO NOTES</title>
+      <link>https://wubigo.com/post/lang-go-notes/</link>
+      <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-notes/</guid>
+      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
+https://github.com/golang-standards/project-layout/issues/9
+vendor package go help gopath find .</description>
     </item>
     
     <item>
