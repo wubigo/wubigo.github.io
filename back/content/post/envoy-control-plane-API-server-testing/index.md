@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["SERVICEMESH"]
+tags = ["SERVICEMESH", "MICROSERVICE"]
 categories = []
 
 # Featured image
@@ -18,6 +18,31 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+# SNAPSHOT
+
+```
+// Snapshot is an internally consistent snapshot of xDS resources.
+// Consistentcy is important for the convergence as different resource types
+// from the snapshot may be delivered to the proxy in arbitrary order.
+type Snapshot struct {
+	// Endpoints are items in the EDS response payload.
+	Endpoints Resources
+
+	// Clusters are items in the CDS response payload.
+	Clusters Resources
+
+	// Routes are items in the RDS response payload.
+	Routes Resources
+
+	// Listeners are items in the LDS response payload.
+	Listeners Resources
+
+	// Secrets are items in the SDS response payload.
+	Secrets Resources
+}
+
+```
 
 
 # graceful shutdown mechanism
