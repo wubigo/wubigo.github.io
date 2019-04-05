@@ -816,7 +816,7 @@ go get -u -v github.com/dgraph-io/dgo
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -844,7 +844,7 @@ go get -u -v github.com/dgraph-io/dgo
 
   
   <div class="article-style" itemprop="articleBody">
-    graceful shutdown mechanism Get shutdown notice /healthcheck/fail Wait X time Shutdown  BUILD go get -d github.com/envoyproxy/go-control-plane cd $GOPATH/src/github.com/envoyproxy/go-control-plane docker build -t bigo/envoy-test:v1 .  TEST XDS in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	 TEST XDS with tls in docker docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug -tls docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls  Test it in code 在code里面启动ADS API服务器
+    SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
   </div>
   
 
