@@ -398,7 +398,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -564,11 +564,83 @@ docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug -tls
 }
 </code></pre>
 
+<p>在主机上运行</p>
+
 <pre><code>docker run -it --name envoy  --entrypoint sh bigo/envoy-test:v1
 docker cp envoy:/usr/local/bin/envoy  ~/go/bin/
 
-envoy -c sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
+envoy -c /sample/bootstrap-ads.yaml --drain-time-s 1 -l debug
+
+[source/server/server.cc:270] admin address: 127.0.0.1:19000
+
 </code></pre>
+
+<p>在容器内运行</p>
+
+<pre><code>docker run -it --rm --name envoy  --entrypoint sh bigo/envoy-test:v1
+</code></pre>
+
+<p>修改配置
+<code>/sample/bootstrap-ads.yaml</code></p>
+
+<p>允许远程访问代理服务器管理端口</p>
+
+<pre><code>admin:
+  address:
+    socket_address:
+      address: 0.0.0.0
+</code></pre>
+
+<pre><code>docker cp sample/bootstrap-ads.yaml envoy:/sample/bootstrap-ads.yaml
+#envoy -c /sample/bootstrap-ads.yaml --drain-time-s 1
+</code></pre>
+
+<pre><code>查询容器IP
+
+http://172.17.0.2:19000/clusters
+
+xds_cluster::192.168.1.5:28000::cx_connect_fail::6
+</code></pre>
+
+<p>如果管理服务器没有启动，会出现连接失败计数。</p>
+
+<p>通过manager server下发配置</p>
+
+<pre><code>docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1  -debug
+</code></pre>
+
+<p>再次检查ENVOY的配置</p>
+
+<p><code>http://localhost:19000/config_dump</code></p>
+
+<h1 id="bootstrap-configuration">Bootstrap configuration</h1>
+
+<p>To use the v2 API, it’s necessary to supply a bootstrap configuration file.
+This provides static server configuration and configures Envoy to access
+dynamic configuration if needed. This is supplied on the command-line
+via the -c flag</p>
+
+<pre><code>./envoy -c &lt;path to config&gt;.{json,yaml,pb,pb_text}
+</code></pre>
+
+<p>The Bootstrap message is the root of the configuration.
+Resources such as a Listener or Cluster may be supplied either
+statically in static_resources or have an xDS service such as
+LDS or CDS configured in dynamic_resources.</p>
+
+<h1 id="envoy-initialization">Envoy Initialization</h1>
+
+<ul>
+<li><p>During startup, the cluster manager goes through a multi-phase initialization where it first initializes static/DNS clusters, then predefined EDS clusters. Then it initializes CDS if applicable, waits for one response (or failure), and does the same primary/secondary initialization of CDS provided clusters.</p></li>
+
+<li><p>If clusters use active health checking, Envoy also does a single active health check round.</p></li>
+
+<li><p>Once cluster manager initialization is done, RDS and LDS initialize (if applicable). The server doesn’t start accepting connections until there has been at least one response (or failure) for LDS/RDS requests.</p></li>
+
+<li><p>If LDS itself returns a listener that needs an RDS response, Envoy further waits until an RDS response (or failure) is received. Note that this process takes place on every future listener addition via LDS and is known as listener warming.</p></li>
+
+<li><p>After all of the previous steps have taken place, the listeners start accepting new connections. This flow ensures that during hot restart the new process is fully capable of accepting and processing new connections before the draining of the old process begins.</p></li>
+</ul>
 
     </div>
 
