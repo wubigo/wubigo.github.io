@@ -673,6 +673,203 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
 
 
 
+<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 12, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-java-spring-cloud/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-java-spring-cloud/" itemprop="url">Lang Java Spring Cloud</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="spring-cloud-greenwich-release">spring-cloud-greenwich-release</h1>
+
+<p>To get started with Maven with a BOM (dependency management only):</p>
+
+<pre><code>&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;Greenwich.RELEASE&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
+    &lt;/dependency&gt;    
+&lt;/dependencies&gt;
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-11 08:48:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-11 08:48:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-java-spring-boot-v2/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-java-spring-boot-v2/" itemprop="url">Lang Java Spring Boot V2</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.aspectj:aspectjweaver:jar:1.9.2:compile [INFO] | +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.4.RELEASE:compile [INFO] | | +- com.zaxxer:HikariCP:jar:3.2.0:compile [INFO] | | \- org.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2124,186 +2321,6 @@ godep restore ./...
   
   <div class="article-style" itemprop="articleBody">
     Organizations are looking for ways to reduce their physical data center footprints, particularly for secondary workloads such as backups, files, or on-demand workloads. However, bridging data between private data centers and the public cloud comes with a unique set of challenges. Traditional data center services rely on low-latency network attached storage (NAS) and storage area network (SAN) protocols to access storage locally. Cloud-native applications are generally optimized for API access to data in scalable and durable cloud object storage, such as Amazon Simple Storage Service (Amazon S3).
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/effective-coding-go/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/effective-coding-go/" itemprop="url">Effective Coding Go</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Understanding Real-World Concurrency Bugs in Go</p>
-
-<p><a href="https://songlh.github.io/paper/go-study.pdf" target="_blank">https://songlh.github.io/paper/go-study.pdf</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-28 15:18:09 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-28 15:18:09 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/effective-coding/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/effective-coding/" itemprop="url">Effective Coding</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>高效编程</p>
-
-<ul>
-<li><a href="/post/effective-coding-java/">JAVA</a></li>
-<li><a href="post/effective-coding-python/" target="_blank">PYTHON</a></li>
-<li><a href="post/effective-coding-go/" target="_blank">GO</a></li>
-</ul>
-
   </div>
   
 

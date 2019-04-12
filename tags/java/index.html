@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2014-02-28T15:19:55&#43;08:00">
+  <meta property="og:updated_time" content="2018-04-12T06:21:24&#43;08:00">
   
 
   
@@ -379,6 +379,27 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/lang-java-spring-cloud/">Lang Java Spring Cloud</a></h2>
+    <div class="article-style">
+      
+       spring-cloud-greenwich-release To get started with Maven with a BOM (dependency management only):
+&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;Greenwich.RELEASE&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;/dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt; &lt;/dependency&gt; &lt;/dependencies&gt;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lang-java-spring-boot-v2/">Lang Java Spring Boot V2</a></h2>
+    <div class="article-style">
+      
+      Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.aspectj:aspectjweaver:jar:1.9.2:compile [INFO] | +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.4.RELEASE:compile [INFO] | | +- com.zaxxer:HikariCP:jar:3.2.0:compile [INFO] | | \- org.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/effective-coding-java/">Effective Coding Java</a></h2>
