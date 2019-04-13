@@ -28,18 +28,10 @@
   
     
   
-  <meta name="description" content=" docker默认的网络 桥接网络
-Docker网络macvlan 网络macvlan
-Docker宿主网络 宿主网络
-Docker覆盖网络 宿主端口绑定 绑定方式： -p
-绑定形式
- ip:hostPort:containerPort| ip::containerPort | hostPort:containerPort | containerPort
- containerPort必须指定
-docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine  docker 会为端口绑定的容器自动启动docker-proxy进程
-docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80  ">
+  <meta name="description" content="两种形式     exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry     exec   FROM alpine:3.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker_network/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-dockerfile-entrypoint/">
 
   
 
@@ -128,7 +120,7 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/docker_network/">
+  <link rel="canonical" href="https://wubigo.com/post/docker-dockerfile-entrypoint/">
 
   
   
@@ -143,29 +135,21 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="OS/APP HARDCORE">
-  <meta property="og:url" content="https://wubigo.com/post/docker_network/">
-  <meta property="og:title" content="Docker网络 | OS/APP HARDCORE">
-  <meta property="og:description" content=" docker默认的网络 桥接网络
-Docker网络macvlan 网络macvlan
-Docker宿主网络 宿主网络
-Docker覆盖网络 宿主端口绑定 绑定方式： -p
-绑定形式
- ip:hostPort:containerPort| ip::containerPort | hostPort:containerPort | containerPort
- containerPort必须指定
-docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine  docker 会为端口绑定的容器自动启动docker-proxy进程
-docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/docker-dockerfile-entrypoint/">
+  <meta property="og:title" content="Docker Dockerfile ENTRYPOINT | OS/APP HARDCORE">
+  <meta property="og:description" content="两种形式     exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry     exec   FROM alpine:3."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-03-02T11:10:51&#43;08:00">
+  <meta property="article:published_time" content="2016-04-13T09:23:00&#43;08:00">
   
-  <meta property="article:modified_time" content="2017-03-02T11:10:51&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2016-04-13T09:23:00&#43;08:00">
   
 
   
 
-  <title>Docker网络 | OS/APP HARDCORE</title>
+  
+
+  <title>Docker Dockerfile ENTRYPOINT | OS/APP HARDCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -382,7 +366,7 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Docker网络</h1>
+  <h1 itemprop="name">Docker Dockerfile ENTRYPOINT</h1>
 
   
 
@@ -391,8 +375,8 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
 
 
 
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -405,7 +389,7 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
     
       
     
-    <time>Mar 2, 2017</time>
+    <time>Apr 13, 2016</time>
   </span>
   
 
@@ -421,7 +405,7 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/docker_network/#disqus_thread"></a>
+  <a href="/post/docker-dockerfile-entrypoint/#disqus_thread"></a>
   
 
   
@@ -432,35 +416,35 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Docker%e7%bd%91%e7%bb%9c&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker_network%2f"
+         href="https://twitter.com/intent/tweet?text=Docker%20Dockerfile%20ENTRYPOINT&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker_network%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker_network%2f&amp;title=Docker%e7%bd%91%e7%bb%9c"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f&amp;title=Docker%20Dockerfile%20ENTRYPOINT"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker_network%2f&amp;title=Docker%e7%bd%91%e7%bb%9c"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f&amp;title=Docker%20Dockerfile%20ENTRYPOINT"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Docker%e7%bd%91%e7%bb%9c&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker_network%2f">
+         href="mailto:?subject=Docker%20Dockerfile%20ENTRYPOINT&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -500,40 +484,79 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="docker默认的网络">docker默认的网络</h1>
+<h1 id="两种形式">两种形式</h1>
 
-<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">exec(preferred)</th>
+<th align="left">shell</th>
+</tr>
+</thead>
 
-<h1 id="docker网络macvlan">Docker网络macvlan</h1>
+<tbody>
+<tr>
+<td align="left">ENTRYPOINT</td>
+<td align="left">[&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;]</td>
+<td align="left">command param1 param2</td>
+</tr>
 
-<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
+<tr>
+<td align="left">Command line arguments to docker run <image></td>
+<td align="left">appended</td>
+<td align="left">not being used</td>
+</tr>
 
-<h1 id="docker宿主网络">Docker宿主网络</h1>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">ENTRYPOINT will be started as a subcommand of /bin/sh -c</td>
+</tr>
 
-<p><a href="/post/docker-network-host/">宿主网络</a></p>
+<tr>
+<td align="left">default</td>
+<td align="left">N/A</td>
+<td align="left">/bin/sh -c (start it with exec to sned stop signal)</td>
+</tr>
 
-<h1 id="docker覆盖网络">Docker覆盖网络</h1>
+<tr>
+<td align="left">CMD [“exec_cmd”, “p1_cmd”]</td>
+<td align="left">exec_entry p1_entry exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+</tr>
+</tbody>
+</table>
 
-<h1 id="宿主端口绑定">宿主端口绑定</h1>
+<ul>
+<li>exec
+<br /></li>
+</ul>
 
-<p>绑定方式： -p</p>
-
-<p>绑定形式</p>
-
-<blockquote>
-<p>ip:hostPort:containerPort| ip::containerPort <br />
-  | hostPort:containerPort | containerPort</p>
-</blockquote>
-
-<p>containerPort必须指定</p>
-
-<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
+<pre><code>FROM alpine:3.8
+ENTRYPOINT [&quot;top&quot;, &quot;-b&quot;]
 </code></pre>
 
-<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
+<p>因为没有sh进程，所以命令行没有环境变量替换。</p>
 
-<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
+<p>可以增加sh</p>
+
+<pre><code>ENTRYPOINT [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;top&quot;, &quot;-b&quot;, &quot;-u&quot;, &quot;$UID&quot;]
 </code></pre>
+
+<ul>
+<li>shell</li>
+</ul>
+
+<p>CMD无效</p>
+
+<pre><code>FROM alpine:3.8
+ENTRYPOINT exec top -b
+</code></pre>
+
+<p>ENTRYPOINT作为sh的子命令执行即</p>
+
+<p>实际执行<code>/bin/sh -c exec top -b</code></p>
 
     </div>
 
@@ -640,12 +663,6 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
-          <li><a href="/post/docker_network_macvlan/">Docker网络macvlan</a></li>
-          
-          <li><a href="/post/docker-logging/">Docker日志</a></li>
-          
-          <li><a href="/post/docker-dockerfile-entrypoint/">Docker Dockerfile ENTRYPOINT</a></li>
           
           <li><a href="/post/docker-check-config/">Docker Check Config</a></li>
           

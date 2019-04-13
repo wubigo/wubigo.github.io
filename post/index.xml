@@ -1138,6 +1138,15 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
     </item>
     
     <item>
+      <title>Docker Dockerfile ENTRYPOINT</title>
+      <link>https://wubigo.com/post/docker-dockerfile-entrypoint/</link>
+      <pubDate>Wed, 13 Apr 2016 09:23:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-dockerfile-entrypoint/</guid>
+      <description>两种形式     exec(preferred) shell     ENTRYPOINT [&amp;ldquo;executable&amp;rdquo;, &amp;ldquo;param1&amp;rdquo;, &amp;ldquo;param2&amp;rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry     exec   FROM alpine:3.</description>
+    </item>
+    
+    <item>
       <title>streaming note</title>
       <link>https://wubigo.com/post/2016-03-21-streamdataprocessing/</link>
       <pubDate>Mon, 21 Mar 2016 00:00:00 +0000</pubDate>

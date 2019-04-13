@@ -454,6 +454,15 @@ logging driver To configure the Docker daemon to default to a specific logging d
   </div>
   
   <div>
+    <h2><a href="/post/docker-dockerfile-entrypoint/">Docker Dockerfile ENTRYPOINT</a></h2>
+    <div class="article-style">
+      
+      两种形式     exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry     exec   FROM alpine:3.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/docker-check-config/">Docker Check Config</a></h2>
     <div class="article-style">
       
