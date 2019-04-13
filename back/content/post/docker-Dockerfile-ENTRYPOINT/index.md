@@ -19,7 +19,11 @@ categories = []
   focal_point = ""
 +++
 
-# 两种形式
+
+Dockerfile ENTRYPOINT有两种形式
+
+- exec
+- shell
 
 
 ||exec(preferred)| shell
@@ -31,7 +35,7 @@ default | N/A |  /bin/sh -c (start it with exec to sned stop signal)
 CMD [“exec_cmd”, “p1_cmd”] | exec_entry p1_entry exec_cmd p1_cmd | /bin/sh -c exec_entry p1_entry
 
 
-- exec
+# ENTRYPOINT exec
   
 ```
 FROM alpine:3.8
@@ -42,12 +46,14 @@ ENTRYPOINT ["top", "-b"]
 可以增加sh
 
 ```
-ENTRYPOINT ["/bin/sh", "-c", "top", "-b", "-u", "$UID"]
+FROM alpine:3.8
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["exec top -b -u $UID"]
 ```
 
 
 
-- shell
+# ENTRYPOINT shell
 
 CMD无效
 
@@ -58,4 +64,33 @@ ENTRYPOINT exec top -b
 
 ENTRYPOINT作为sh的子命令执行即
 
-实际执行`/bin/sh -c exec top -b`
+实际执行`/bin/sh -c "exec top -b"`
+
+验证
+
+```
+docker build -t cmd .
+docker run -it --rm cmd cmd1 cmd2 cmd3
+
+
+Mem: 4750556K used, 4318692K free, 555320K shrd, 176952K buff, 1907592K cached
+CPU:   0% usr   0% sys   0% nic  99% idle   0% io   0% irq   0% sirq
+Load average: 0.40 0.28 0.22 4/973 5
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+    1     0 root     R     1524   0%   1   0% top -b
+```
+
+
+
+```
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar $APP_FILE"]
+```
+
+类似执行如下指令
+
+```
+/bin/sh -c "exec java -jar $APP_FILE"
+```
+
+
