@@ -6,10 +6,22 @@
     <description>Recent content in Posts on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2019 14:04:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2019 11:51:54 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Windows Application Information Service</title>
+      <link>https://wubigo.com/post/windows-application-information-service/</link>
+      <pubDate>Mon, 06 May 2019 11:51:54 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/windows-application-information-service/</guid>
+      <description>AppInfo 启动类型必须是自动或手动，
+否则，msinstaller， services.msc， regedit
+等都会报错：
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
+    </item>
     
     <item>
       <title>Linux删除Python3.5</title>
@@ -232,6 +244,17 @@ ip -s link show eth0  stop irqbalance for home user</description>
     </item>
     
     <item>
+      <title>Dockering Java 8</title>
+      <link>https://wubigo.com/post/dockering-java-8/</link>
+      <pubDate>Mon, 05 Nov 2018 09:33:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dockering-java-8/</guid>
+      <description>Improve docker container detection and resource configuration usage
+https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
+https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</description>
+    </item>
+    
+    <item>
       <title>面向应用的无服务器架构</title>
       <link>https://wubigo.com/post/pass-over-iaas/</link>
       <pubDate>Sun, 21 Oct 2018 23:34:49 +0800</pubDate>
@@ -293,6 +316,25 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
       
       <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
       <description>The most important conversation you ever have is the one with yourself</description>
+    </item>
+    
+    <item>
+      <title>Web Vue</title>
+      <link>https://wubigo.com/post/web-vue/</link>
+      <pubDate>Wed, 25 Apr 2018 12:02:41 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-vue/</guid>
+      <description>CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&amp;gt;npm config list ; cli configs metrics-registry = &amp;quot;https://registry.npmjs.org/&amp;quot; scope = &amp;quot;&amp;quot; user-agent = &amp;quot;npm/6.4.1 node/v10.15.3 win32 x64&amp;quot;  npm config set registry &amp;lt;registry url&amp;gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Windows</title>
+      <link>https://wubigo.com/post/tcpdump-windows/</link>
+      <pubDate>Tue, 24 Apr 2018 19:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/tcpdump-windows/</guid>
+      <description> install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  </description>
     </item>
     
     <item>
@@ -1440,7 +1482,7 @@ $virtualenv -p /home/whg/python2.</description>
       <pubDate>Mon, 04 Jun 2012 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2012-06-04-mysql/</guid>
-      <description>showing current configuration mysql&amp;gt;SHOW VARIABLES; mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
+      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
 mysql&amp;gt;source dump.sql
 update the database if directly upgrade from 5.0 to 5.5
 mysql_upgrade -u root -p
