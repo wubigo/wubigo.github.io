@@ -6,8 +6,32 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 May 2019 11:51:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2019 16:57:56 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wireless and Wired Connection Both at a Same Time in Windows</title>
+      <link>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</link>
+      <pubDate>Fri, 10 May 2019 16:57:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</guid>
+      <description>
+
+&lt;h1 id=&#34;give-the-wireless-network-higher-priority-than-the-wired&#34;&gt;give the wireless network higher priority than the wired&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;WIRELESS CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot;
+&amp;gt;  advanced TCP/IP setting &amp;gt; Automatic metric
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Uncheck it. That will enable a text box named &amp;ldquo;Interface metric&amp;rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot;
+&amp;gt;  advanced TCP/IP setting &amp;gt; Automatic metric
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again Uncheck &amp;ldquo;Automatic metric&amp;rdquo;, and fill in a number in the &amp;ldquo;Interface metric&amp;rdquo; box. It needs to be larger than 1 but smaller than the number  above (15).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Windows Application Information Service</title>
@@ -779,50 +803,6 @@ when errors are expected&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;[1]. &lt;a href=&#34;https://box.matto.nl/revivegopher.html&#34; target=&#34;_blank&#34;&gt;revive Gopherspace&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;[2]. &lt;a href=&#34;https://gopher.floodgap.com/&#34; target=&#34;_blank&#34;&gt;gopher client&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>微服务安全：认证，授权和审计(AAA)</title>
-      <link>https://wubigo.com/post/microservice-security-aaa/</link>
-      <pubDate>Sat, 01 Dec 2018 08:01:48 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/microservice-security-aaa/</guid>
-      <description>
-
-&lt;h1 id=&#34;微服务安全要点&#34;&gt;微服务安全要点&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通信链路加密&lt;/li&gt;
-&lt;li&gt;灵活的服务访问控制，包括细粒度访问策略&lt;/li&gt;
-&lt;li&gt;访问日志审计&lt;/li&gt;
-&lt;li&gt;服务提供方可替代性(batteries included)和可集成性&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;基本概念&#34;&gt;基本概念&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;安全标识&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在K8S，安全标识(service account)代表一个用户，一个服务或一组服务。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;安全命名&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;安全命名定义可运行服务的安全标识&lt;/p&gt;
-
-&lt;h1 id=&#34;微服务认证&#34;&gt;微服务认证&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;传输层认证&lt;/li&gt;
-&lt;li&gt;终端用户认证&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&#34; target=&#34;_blank&#34;&gt;https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
