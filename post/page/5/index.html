@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-02T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2017-03-02T17:17:42&#43;08:00">
   
 
   
@@ -378,6 +378,208 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker_network_bridge/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker_network/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker默认的网络">docker默认的网络</h1>
+
+<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
+
+<h1 id="docker网络macvlan">Docker网络macvlan</h1>
+
+<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
+
+<h1 id="docker宿主网络">Docker宿主网络</h1>
+
+<p><a href="/post/docker-network-host/">宿主网络</a></p>
+
+<h1 id="docker覆盖网络">Docker覆盖网络</h1>
+
+<h1 id="宿主端口绑定">宿主端口绑定</h1>
+
+<p>绑定方式： -p</p>
+
+<p>绑定形式</p>
+
+<blockquote>
+<p>ip:hostPort:containerPort| ip::containerPort <br />
+  | hostPort:containerPort | containerPort</p>
+</blockquote>
+
+<p>containerPort必须指定</p>
+
+<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
+</code></pre>
+
+<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
+
+<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2075,181 +2277,6 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 
 <p><a href="https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/" target="_blank">https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 17, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-logging-efk/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-logging-efk/" itemprop="url">K8s日志EFK</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
-kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
- Creating the StatefulSet  elasticsearch_statefulset.yaml
-apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 13, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker-dockerfile-entrypoint/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-dockerfile-entrypoint/" itemprop="url">Docker Dockerfile ENTRYPOINT</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Dockerfile ENTRYPOINT有两种形式
- exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.
   </div>
   
 

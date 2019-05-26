@@ -158,6 +158,16 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
     </item>
     
     <item>
+      <title>K8s External Services</title>
+      <link>https://wubigo.com/post/k8s-external-services/</link>
+      <pubDate>Thu, 10 May 2018 18:32:22 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-external-services/</guid>
+      <description>Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.</description>
+    </item>
+    
+    <item>
       <title>K8s Envoy Example</title>
       <link>https://wubigo.com/post/k8s-envoy-example/</link>
       <pubDate>Mon, 02 Apr 2018 11:16:05 +0800</pubDate>

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-05T09:33:48&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-07T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,98 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-11-07-linuxperformancetuning/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-07-linuxperformancetuning/" itemprop="url">Linux performance</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
+Interrupt Coalescence ubuntu 16 default
+Interrupt Coalescence (IC)
+$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
+$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
+use Jumbo frames
+ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
+ip -s link show eth0  stop irqbalance for home user
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -877,6 +969,92 @@
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
 独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-external-services/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
   </div>
   
 
@@ -2140,205 +2318,6 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 他们身上的精华可以吸取，糟点可以避开，那你的装备才会越来越多，在升职加薪的路上一路打怪冲关。
 这年头流行让别人给自己「赋能」，现代管理学之父彼得·德鲁克比我们早数十年就看到上司的这个「功能」。他说：
  Making the strength of the boss productive is a key to the subordinate’s own effectiveness.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-24 07:02:36 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-24 07:02:36 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-ide-tool/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-ide-tool/" itemprop="url">K8s IDE Tool: code extension</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    for developers building applications to run in Kubernetes clusters, and for DevOps staff troubleshooting Kubernetes applications. Features include:
- View your clusters in an explorer tree view, and drill into workloads, services, pods and nodes. Browse Helm repos and install charts into your Kubernetes cluster. Intellisense for Kubernetes resources and Helm charts and templates. Edit Kubernetes resource manifests and apply them to your cluster. Build and run containers in your cluster from Dockerfiles in your project.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 22, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-go-firewall/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-firewall/" itemprop="url">Go穿越Firewall</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="go-doc">go doc</h1>
-
-<p><a href="https://golang.google.cn" target="_blank">https://golang.google.cn</a></p>
-
-<h1 id="proxy">proxy</h1>
-
-<ul>
-<li>从 Github 的代码库 clone</li>
-</ul>
-
-<pre><code>go get -u github.com/golang/text
-mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
-
-go get -u github.com/golang/crypto
-mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
-</code></pre>
-
-<ul>
-<li>设置 GOPROXY 环境变量配置代理</li>
-</ul>
-
-<p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
-
-<p><a href="https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md" target="_blank">https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md</a></p>
-
-<p><a href="https://gocn.vip/article/1678" target="_blank">https://gocn.vip/article/1678</a></p>
-
   </div>
   
 

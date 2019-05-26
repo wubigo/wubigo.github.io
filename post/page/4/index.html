@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-05-03T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2017-08-01T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,192 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2017-08-01-deep_learning_with_python/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-08-01-deep_learning_with_python/" itemprop="url">Deep Learning with Python</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
+MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
+ Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 13, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1975,208 +2161,6 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
     <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 17:17:42 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker_network_bridge/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
-  </h3>
-
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker_network/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker默认的网络">docker默认的网络</h1>
-
-<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
-
-<h1 id="docker网络macvlan">Docker网络macvlan</h1>
-
-<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
-
-<h1 id="docker宿主网络">Docker宿主网络</h1>
-
-<p><a href="/post/docker-network-host/">宿主网络</a></p>
-
-<h1 id="docker覆盖网络">Docker覆盖网络</h1>
-
-<h1 id="宿主端口绑定">宿主端口绑定</h1>
-
-<p>绑定方式： -p</p>
-
-<p>绑定形式</p>
-
-<blockquote>
-<p>ip:hostPort:containerPort| ip::containerPort <br />
-  | hostPort:containerPort | containerPort</p>
-</blockquote>
-
-<p>containerPort必须指定</p>
-
-<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
-</code></pre>
-
-<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
-
-<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
-</code></pre>
-
-  </div>
   
 
   
