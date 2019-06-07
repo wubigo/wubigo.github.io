@@ -144,6 +144,7 @@ sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-ku
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet --now
 sudo systemctl start kubelet
+sudo useradd -G systemd-journal $USER
 journalctl -xeu kubelet
 ```
 
@@ -164,7 +165,7 @@ cp bin/* /opt/cni/bin/
 * Configure NetworkManager for calio
 
 NetworkManager manipulates the routing table for interfaces in the default network namespace where Calico veth pairs are anchored for connections to containers. This can interfere with the Calico agent’s ability to route correctly.
-Create the following configuration file at /etc/NetworkManager/conf.d/calico.conf to prevent NetworkManager from interfering with the interfaces:
+Create the following configuration file at `/etc/NetworkManager/conf.d/calico.conf` to prevent NetworkManager from interfering with the interfaces:
 ```
 [keyfile]
 unmanaged-devices=interface-name:cali*;interface-name:tunl*
