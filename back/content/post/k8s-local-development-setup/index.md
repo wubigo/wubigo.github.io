@@ -185,9 +185,11 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 * calico setup
-[calico etcd setup](http://wubigo.com/2011/01/shell-script/#calico-etcd-setup)
+
+[calico etcd setup](https://wubigo.com/post/2011-01-01-shell-script#calico-etcd-setup)
+
 ```
-kubectl apply -f calico.yaml (https://docs.projectcalico.org/v3.7/manifests/calico.yaml)
+kubectl apply -f calico.yaml (https://docs.projectcalico.org/v3.7/getting-started/kubernetes/installation/hosted/calico.yaml)
 ```
 
 * kubectl completion code for bash
@@ -196,7 +198,7 @@ kubectl apply -f calico.yaml (https://docs.projectcalico.org/v3.7/manifests/cali
   kubectl completion bash > ~/.kube/kubectl.bash.inc
   printf "
   # Kubectl shell completion
-  source '$HOME/.kube/completion.bash.inc'
+  source '$HOME/.kube/kubectl.bash.inc'
   " >> $HOME/.bashrc
   source $HOME/.bashrc
 ```
