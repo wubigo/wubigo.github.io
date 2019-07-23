@@ -19,6 +19,14 @@ categories = []
   focal_point = ""
 +++
 
+# JVM bind with IPv4
+
+
+Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+
+```
+-Djava.net.preferIPv4Stack=true
+```
 
 # Spring Boot Actuator
 
