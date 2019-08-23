@@ -5,8 +5,73 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2019 17:26:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 14:37:35 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>管理的基本规则</title>
+      <link>https://wubigo.com/post/how-to-be-a-goog-manager/</link>
+      <pubDate>Sun, 23 Jun 2019 14:37:35 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/how-to-be-a-goog-manager/</guid>
+      <description>
+
+&lt;p&gt;管理者决定了员工职业生涯的成败&lt;/p&gt;
+
+&lt;p&gt;进一步说，员工离职不是因为公司，而是因为管理者&lt;/p&gt;
+
+&lt;p&gt;当新加入一个公司的时候，最大的风险在于是不是选择了一个正确的管理者。&lt;/p&gt;
+
+&lt;p&gt;好的管理者应该如此&lt;/p&gt;
+
+&lt;h1 id=&#34;作&#34;&gt;作&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;招聘，培养和留着人才&lt;/li&gt;
+&lt;li&gt;及时沟通公司或团队面临的最大挑战&lt;/li&gt;
+&lt;li&gt;设定目标而不是任务&lt;/li&gt;
+&lt;li&gt;在团队不能达成共识下决策&lt;/li&gt;
+&lt;li&gt;创造一个安全的反馈环境&lt;/li&gt;
+&lt;li&gt;关注团队的健康积极的气氛&lt;/li&gt;
+&lt;li&gt;为员工的职业成长指导一个明晰的道路&lt;/li&gt;
+&lt;li&gt;为团队赋能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;不作&#34;&gt;不作&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不作微观管理，如果你管理的太细，你招聘了错误的人选&lt;/li&gt;
+&lt;li&gt;公开的斥责&lt;/li&gt;
+&lt;li&gt;拉帮结派&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;激励&#34;&gt;激励&lt;/h1&gt;
+
+&lt;h1 id=&#34;团队管理&#34;&gt;团队管理&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;百分之90的决定都是情绪的化的，所有理性的争论都潜伏着情绪化的成分，识别出   情绪化的部分可以让管理变的高效&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;高能区&#34;&gt;高能区&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一个人的能力包括技能， 动能，和天赋（如果三者和工作匹配，进入到高能区）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;决策&#34;&gt;决策&lt;/h1&gt;
+
+&lt;h1 id=&#34;冲突&#34;&gt;冲突&lt;/h1&gt;
+
+&lt;h1 id=&#34;设定边界&#34;&gt;设定边界&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.clearbit.com/managers-handbook-tldr/&#34; target=&#34;_blank&#34;&gt;https://blog.clearbit.com/managers-handbook-tldr/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Secucity Micro Segmentation</title>
@@ -680,129 +745,6 @@ kubectl delete namespace/openfaas-fn
       
       <guid>https://wubigo.com/project/hpcloud/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.hpe.com/us/en/solutions/cloud.html&#34; target=&#34;_blank&#34;&gt;hpcloud&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Blog on hugo way</title>
-      <link>https://wubigo.com/post/blog_on_hugo/</link>
-      <pubDate>Fri, 22 Feb 2019 11:38:27 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/blog_on_hugo/</guid>
-      <description>
-
-&lt;h1 id=&#34;setup-for-gitlab&#34;&gt;setup for gitlab&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;tee .gitlab-ci.yml &amp;lt;&amp;lt; EOF
-image: monachus/hugo
-
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
-pages:
-  script:
-  - hugo
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
-EOF
-
-git init
-echo &amp;quot;/public&amp;quot; &amp;gt;&amp;gt; .gitignore  
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;post&#34;&gt;post&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;hugo new post/&lt;post_name&gt;/index.md&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;deploy&#34;&gt;deploy&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;hugo
-publish the public to web server&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;configuration-lookup-order&#34;&gt;Configuration Lookup Order&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;confit/_default/&lt;/code&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;./config.toml&lt;/li&gt;
-&lt;li&gt;./config.yaml&lt;/li&gt;
-&lt;li&gt;./config.json&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;code&gt;confit/_default/config.toml&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;hugo build destination&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;publishDir
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Number of items per page in paginated lists&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;paginate = 20  
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;taxonomies&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;by tag&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;by author&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tag = &amp;quot;tags&amp;quot;
-author = &amp;quot;authors&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;confit/_default/menus.toml&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Navigation Links widget enable/disabl under &lt;code&gt;content/home/&lt;/code&gt; folder&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Navigation Links widget display order&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;weight = 1
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;config/_default/languages.toml&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;多语言显示&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;languageCode = &amp;quot;en-us&amp;quot;
-languageCode = &amp;quot;zh-Hans&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;blog-set&#34;&gt;Blog set&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;content/post/_index.md&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;post view as Card&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;view = 3
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;content/home/posts.md&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Number of recent posts to list.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;count = 20
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/hugo-logo-wide.svg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
