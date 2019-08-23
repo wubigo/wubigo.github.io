@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
   
 
   
@@ -381,6 +381,29 @@
   
   
   <div>
+    <h2><a href="/post/data-lake/">Data Lake</a></h2>
+    <div class="article-style">
+      
+      设计目标  存取（入库和分析）高效
+ 节省存储空间
+  评估单台设备基于采集评率的每年存储成本
+http://mysql.rjweb.org/doc.php/datawarehouse
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/spring-oauth2/">Spring Oauth2</a></h2>
+    <div class="article-style">
+      
+       http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource 
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></h2>
     <div class="article-style">
       
@@ -395,6 +418,16 @@ The table_open_cache and max_connections system variables affect the maximum num
     <div class="article-style">
       
       innodb-memcached-multiple-get-range-query  native partitioning in-place APIs
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/redis-install-ubuntu/">Redis Install Ubuntu</a></h2>
+    <div class="article-style">
+      
+      install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.
       
     </div>
   </div>

@@ -23,6 +23,18 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</desc
     </item>
     
     <item>
+      <title>Groovy Notes</title>
+      <link>https://wubigo.com/post/groovy-notes/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/groovy-notes/</guid>
+      <description>Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = &#39;&#39; (1..10).each{ log += it } assert log == &#39;12345678910&#39; log = &#39;&#39; (1..10).each{ counter -&amp;gt; log += counter } assert log == &#39;12345678910&#39;  A second way of declaring a closure is to directly assign it to a variable:</description>
+    </item>
+    
+    <item>
       <title>Lang Java Spring Cloud</title>
       <link>https://wubigo.com/post/lang-java-spring-cloud/</link>
       <pubDate>Thu, 12 Apr 2018 06:21:24 +0800</pubDate>
@@ -51,6 +63,26 @@ mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-
       
       <guid>https://wubigo.com/post/effective-coding-java/</guid>
       <description>JAVA 基础 JAVA 基础</description>
+    </item>
+    
+    <item>
+      <title>Java编码规范</title>
+      <link>https://wubigo.com/post/java-coding-guidelines/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-coding-guidelines/</guid>
+      <description>JAVA 开发规范 目标：
+ 容易维护 健壮 可复用     分类 指导     编码 UTF-8   注释 支持Swagger   git模式 PR(pull-request) / merge request   代码静态检查 遵守风格规范   代码提交 必须通过review   测试 所有代码都有单元测试   集成测试 所有代码必须通过集成测试才能提交到分支或主干    编码风格</description>
+    </item>
+    
+    <item>
+      <title>Maven Mirror</title>
+      <link>https://wubigo.com/post/maven-mirror/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/maven-mirror/</guid>
+      <description>settings.xml
+&amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;central&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;Maven Repository Switchboard&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo1.maven.org/maven2/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;repo2&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;Human Readable Name for this Mirror.&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo2.maven.org/maven2/&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;!-- 中央仓库在中国的镜像 --&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;oneof the central mirrors in china&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.net.cn/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt;  </description>
     </item>
     
     <item>

@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
   
 
   
@@ -379,6 +379,58 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/shadowsocks-ubuntu-client/">Shadowsocks Ubuntu Client</a></h2>
+    <div class="article-style">
+      
+      install client pip install shadowsocks  client.json
+{ &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
+listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/cassandra/">Cassandra</a></h2>
+    <div class="article-style">
+      
+      特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/spring-oauth2/">Spring Oauth2</a></h2>
+    <div class="article-style">
+      
+       http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource 
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/gitlab-notes/">Gitlab Notes</a></h2>
+    <div class="article-style">
+      
+      push to a mirror repository push to github at same time when a commit is pushed to gitlab
+Protected Branches By default, protected branches are designed to:
+ prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
+In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/kafka-vs-rabbit/">Kafka vs Rabbit</a></h2>
+    <div class="article-style">
+      
+          rabbit kafka     创建时间 2007 2011   开发语言 erlang scala   AMQP SUPPORT NO   AGENT SMART(broker-centric) keeps track of consumer state dumb(producer-centric)   存储空间 in-memory disk   INGRESS VOLUME 20K messages/sec 100k/sec messages/sec   CONSUMERS mostly online(balancing load to many consumer) online and batch consumer   ROUTING exchange, binding simple   history N/A replay(删除by size 或时间)   数据压缩 N Y   SPRING SUPPORT weak strong   安全 RBAC backed by a built-in data store, LDAP JAAS role based access   管理 Web 和 CLI JMX 和 CLI    
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></h2>

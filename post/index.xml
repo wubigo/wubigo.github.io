@@ -6,19 +6,10 @@
     <description>Recent content in Posts on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Aug 2019 11:54:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 May 2019 17:26:24 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Hugo New Vesion</title>
-      <link>https://wubigo.com/post/hugo-new-vesion/</link>
-      <pubDate>Fri, 23 Aug 2019 11:54:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/hugo-new-vesion/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Secucity Micro Segmentation</title>
@@ -49,6 +40,23 @@ WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Prope
 否则，msinstaller， services.msc， regedit
 等都会报错：
 The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
+    </item>
+    
+    <item>
+      <title>微服务认证和授权（MAA）指南</title>
+      <link>https://wubigo.com/post/microservices-authentication-and-authorization/</link>
+      <pubDate>Sun, 28 Apr 2019 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservices-authentication-and-authorization/</guid>
+      <description>微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
     </item>
     
     <item>
@@ -357,6 +365,91 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
       
       <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
       <description>The most important conversation you ever have is the one with yourself</description>
+    </item>
+    
+    <item>
+      <title>Data Lake</title>
+      <link>https://wubigo.com/post/data-lake/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake/</guid>
+      <description>设计目标  存取（入库和分析）高效
+ 节省存储空间
+  评估单台设备基于采集评率的每年存储成本
+http://mysql.rjweb.org/doc.php/datawarehouse</description>
+    </item>
+    
+    <item>
+      <title>Docker Windows7 Docker Toolbox</title>
+      <link>https://wubigo.com/post/docker-windows7-docker-toolbox/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-windows7-docker-toolbox/</guid>
+      <description> docker proxy run cmd as administrator cmd&amp;gt;cd $GIT_HOME cmd&amp;gt;echo &amp;gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  </description>
+    </item>
+    
+    <item>
+      <title>Flink Cluster</title>
+      <link>https://wubigo.com/post/flink-cluster/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/flink-cluster/</guid>
+      <description>execution environment Creates an execution environment that represents the context in which the program is currently executed. If the program is invoked standalone, this method returns a local execution environment. If the program is invoked from within the command line client to be submitted to a cluster, this method returns the execution environment of this cluster.  REST instead of akka in 1.5 changing the client to communicate via REST instead of akka.</description>
+    </item>
+    
+    <item>
+      <title>Groovy Notes</title>
+      <link>https://wubigo.com/post/groovy-notes/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/groovy-notes/</guid>
+      <description>Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = &#39;&#39; (1..10).each{ log += it } assert log == &#39;12345678910&#39; log = &#39;&#39; (1..10).each{ counter -&amp;gt; log += counter } assert log == &#39;12345678910&#39;  A second way of declaring a closure is to directly assign it to a variable:</description>
+    </item>
+    
+    <item>
+      <title>GRPC Load Balancing on Kubernetes Without Tears</title>
+      <link>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</guid>
+      <description>https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</description>
+    </item>
+    
+    <item>
+      <title>Shadowsocks Ubuntu Client</title>
+      <link>https://wubigo.com/post/shadowsocks-ubuntu-client/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/shadowsocks-ubuntu-client/</guid>
+      <description>install client pip install shadowsocks  client.json
+{ &amp;quot;server&amp;quot;:&amp;quot;server-ip&amp;quot;, &amp;quot;server_port&amp;quot;:8000, &amp;quot;local_port&amp;quot;:3050, &amp;quot;password&amp;quot;:&amp;quot;your-password&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; }  { &amp;quot;server&amp;quot;:&amp;quot;your_server_ip&amp;quot;, #ss服务器IP &amp;quot;server_port&amp;quot;:your_server_port, #端口 &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, #本地ip &amp;quot;local_port&amp;quot;:1080, #本地端口 &amp;quot;password&amp;quot;:&amp;quot;your_server_passwd&amp;quot;,#连接ss密码 &amp;quot;timeout&amp;quot;:300, #等待超时 &amp;quot;method&amp;quot;:&amp;quot;rc4-md5&amp;quot;, #加密方式 &amp;quot;fast_open&amp;quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &amp;gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &amp;quot;workers&amp;quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
+listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.</description>
+    </item>
+    
+    <item>
+      <title>Spring Actuator</title>
+      <link>https://wubigo.com/post/spring-actuator/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-actuator/</guid>
+      <description>setup  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  enable web client all endpoints are exposed to JMX and WEB clents
+By default, all endpoints except for shutdown are enabled.
+ enable all endpoings
+ enable all endpoints accessed by web
+management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
+    </item>
+    
+    <item>
+      <title>Thingboard</title>
+      <link>https://wubigo.com/post/thingboard/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/thingboard/</guid>
+      <description>docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb:2.3.1  default credentials: Systen Administrator: sysadmin@thingsboard.org / sysadmin Tenant Administrator: tenant@thingsboard.org / tenant Customer User: customer@thingsboard.org / customer  Manage device credentials login as tenant</description>
     </item>
     
     <item>
@@ -824,6 +917,36 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
     </item>
     
     <item>
+      <title>Cassandra</title>
+      <link>https://wubigo.com/post/cassandra/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cassandra/</guid>
+      <description>特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.</description>
+    </item>
+    
+    <item>
+      <title>Spring Gateway</title>
+      <link>https://wubigo.com/post/spring-gateway/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-gateway/</guid>
+      <description>&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-zuul&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.</description>
+    </item>
+    
+    <item>
+      <title>Spring Oauth2</title>
+      <link>https://wubigo.com/post/spring-oauth2/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-oauth2/</guid>
+      <description> http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource </description>
+    </item>
+    
+    <item>
       <title>容器多种方式链接宿主网络</title>
       <link>https://wubigo.com/post/connect-container-to-host-network/</link>
       <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
@@ -1226,6 +1349,28 @@ Why I left Apache Spark GraphX and returned to HBase for my graph database https
     </item>
     
     <item>
+      <title>Gitlab Notes</title>
+      <link>https://wubigo.com/post/gitlab-notes/</link>
+      <pubDate>Thu, 28 Apr 2016 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/gitlab-notes/</guid>
+      <description>push to a mirror repository push to github at same time when a commit is pushed to gitlab
+Protected Branches By default, protected branches are designed to:
+ prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
+In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.</description>
+    </item>
+    
+    <item>
+      <title>Redis With Spring Boot V2</title>
+      <link>https://wubigo.com/post/redis-with-spring-boot-v2/</link>
+      <pubDate>Thu, 28 Apr 2016 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-with-spring-boot-v2/</guid>
+      <description>LETTUCE VS JEDIS While Jedis is easy to use and supports a vast number of Redis features, it is not thread safe and needs connection pooling to work in a multi-threaded environment. Connection pooling comes at the cost of a physical connection per Jedis instance which increases the number of Redis connections.
+Lettuce, on the other hand, is built on netty (https://netty.io/) and connection instances can be shared across multiple threads.</description>
+    </item>
+    
+    <item>
       <title>K8s日志EFK</title>
       <link>https://wubigo.com/post/k8s-logging-efk/</link>
       <pubDate>Sun, 17 Apr 2016 14:12:02 +0800</pubDate>
@@ -1496,6 +1641,45 @@ db.createDatabase(&amp;lsquo;mydb&amp;rsquo;).then( () =&amp;gt; console.log(&am
     </item>
     
     <item>
+      <title>Java编码规范</title>
+      <link>https://wubigo.com/post/java-coding-guidelines/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-coding-guidelines/</guid>
+      <description>JAVA 开发规范 目标：
+ 容易维护 健壮 可复用     分类 指导     编码 UTF-8   注释 支持Swagger   git模式 PR(pull-request) / merge request   代码静态检查 遵守风格规范   代码提交 必须通过review   测试 所有代码都有单元测试   集成测试 所有代码必须通过集成测试才能提交到分支或主干    编码风格</description>
+    </item>
+    
+    <item>
+      <title>Kafka Config</title>
+      <link>https://wubigo.com/post/kafka-config/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kafka-config/</guid>
+      <description>kafka broker connected remotely by ip config/server.properties
+advertised.listeners=PLAINTEXT://172.16.16.5:9092 ############################# Log Retention Policy ############################# # The following configurations control the disposal of log segments. The policy can # be set to delete segments after a period of time, or after a given size has accumulated. # A segment will be deleted whenever *either* of these criteria are met. Deletion always happens # from the end of the log. # The minimum age of a log file to be eligible for deletion due to age log.</description>
+    </item>
+    
+    <item>
+      <title>Kafka vs Rabbit</title>
+      <link>https://wubigo.com/post/kafka-vs-rabbit/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kafka-vs-rabbit/</guid>
+      <description>    rabbit kafka     创建时间 2007 2011   开发语言 erlang scala   AMQP SUPPORT NO   AGENT SMART(broker-centric) keeps track of consumer state dumb(producer-centric)   存储空间 in-memory disk   INGRESS VOLUME 20K messages/sec 100k/sec messages/sec   CONSUMERS mostly online(balancing load to many consumer) online and batch consumer   ROUTING exchange, binding simple   history N/A replay(删除by size 或时间)   数据压缩 N Y   SPRING SUPPORT weak strong   安全 RBAC backed by a built-in data store, LDAP JAAS role based access   管理 Web 和 CLI JMX 和 CLI    </description>
+    </item>
+    
+    <item>
+      <title>Maven Mirror</title>
+      <link>https://wubigo.com/post/maven-mirror/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/maven-mirror/</guid>
+      <description>settings.xml
+&amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;central&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;Maven Repository Switchboard&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo1.maven.org/maven2/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;repo2&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;Human Readable Name for this Mirror.&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://repo2.maven.org/maven2/&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; &amp;lt;!-- 中央仓库在中国的镜像 --&amp;gt; &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;oneof the central mirrors in china&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.net.cn/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt;  </description>
+    </item>
+    
+    <item>
       <title>Mysql Tuning on Many Tables</title>
       <link>https://wubigo.com/post/mysql-tuning-on-many-tables/</link>
       <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
@@ -1512,6 +1696,16 @@ The table_open_cache and max_connections system variables affect the maximum num
       
       <guid>https://wubigo.com/post/mysql-tuning-on-query/</guid>
       <description>innodb-memcached-multiple-get-range-query  native partitioning in-place APIs</description>
+    </item>
+    
+    <item>
+      <title>Redis Install Ubuntu</title>
+      <link>https://wubigo.com/post/redis-install-ubuntu/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-install-ubuntu/</guid>
+      <description>install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&amp;gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.</description>
     </item>
     
     <item>

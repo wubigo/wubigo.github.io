@@ -6,10 +6,62 @@
     <description>Recent content in SHELL on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Apr 2013 17:08:07 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 17:08:07 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Shadowsocks Ubuntu Client</title>
+      <link>https://wubigo.com/post/shadowsocks-ubuntu-client/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/shadowsocks-ubuntu-client/</guid>
+      <description>install client pip install shadowsocks  client.json
+{ &amp;quot;server&amp;quot;:&amp;quot;server-ip&amp;quot;, &amp;quot;server_port&amp;quot;:8000, &amp;quot;local_port&amp;quot;:3050, &amp;quot;password&amp;quot;:&amp;quot;your-password&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; }  { &amp;quot;server&amp;quot;:&amp;quot;your_server_ip&amp;quot;, #ss服务器IP &amp;quot;server_port&amp;quot;:your_server_port, #端口 &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, #本地ip &amp;quot;local_port&amp;quot;:1080, #本地端口 &amp;quot;password&amp;quot;:&amp;quot;your_server_passwd&amp;quot;,#连接ss密码 &amp;quot;timeout&amp;quot;:300, #等待超时 &amp;quot;method&amp;quot;:&amp;quot;rc4-md5&amp;quot;, #加密方式 &amp;quot;fast_open&amp;quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &amp;gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &amp;quot;workers&amp;quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
+listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.</description>
+    </item>
+    
+    <item>
+      <title>Cassandra</title>
+      <link>https://wubigo.com/post/cassandra/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cassandra/</guid>
+      <description>特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.</description>
+    </item>
+    
+    <item>
+      <title>Spring Oauth2</title>
+      <link>https://wubigo.com/post/spring-oauth2/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-oauth2/</guid>
+      <description> http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource </description>
+    </item>
+    
+    <item>
+      <title>Gitlab Notes</title>
+      <link>https://wubigo.com/post/gitlab-notes/</link>
+      <pubDate>Thu, 28 Apr 2016 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/gitlab-notes/</guid>
+      <description>push to a mirror repository push to github at same time when a commit is pushed to gitlab
+Protected Branches By default, protected branches are designed to:
+ prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
+In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.</description>
+    </item>
+    
+    <item>
+      <title>Kafka vs Rabbit</title>
+      <link>https://wubigo.com/post/kafka-vs-rabbit/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kafka-vs-rabbit/</guid>
+      <description>    rabbit kafka     创建时间 2007 2011   开发语言 erlang scala   AMQP SUPPORT NO   AGENT SMART(broker-centric) keeps track of consumer state dumb(producer-centric)   存储空间 in-memory disk   INGRESS VOLUME 20K messages/sec 100k/sec messages/sec   CONSUMERS mostly online(balancing load to many consumer) online and batch consumer   ROUTING exchange, binding simple   history N/A replay(删除by size 或时间)   数据压缩 N Y   SPRING SUPPORT weak strong   安全 RBAC backed by a built-in data store, LDAP JAAS role based access   管理 Web 和 CLI JMX 和 CLI    </description>
+    </item>
     
     <item>
       <title>Mysql Tuning on Many Tables</title>

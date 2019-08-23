@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-04T06:50:43&#43;08:00">
+  <meta property="og:updated_time" content="2019-04-28T17:08:07&#43;08:00">
   
 
   
@@ -381,10 +381,51 @@
   
   
   <div>
+    <h2><a href="/post/microservices-authentication-and-authorization/">微服务认证和授权（MAA）指南</a></h2>
+    <div class="article-style">
+      
+      微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/spring-actuator/">Spring Actuator</a></h2>
+    <div class="article-style">
+      
+      setup  &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  enable web client all endpoints are exposed to JMX and WEB clents
+By default, all endpoints except for shutdown are enabled.
+ enable all endpoings
+ enable all endpoints accessed by web
+management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/envoy-control-plane-api-server-testing/">Envoy Control Plane API Server Testing</a></h2>
     <div class="article-style">
       
       SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/spring-gateway/">Spring Gateway</a></h2>
+    <div class="article-style">
+      
+      &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.
       
     </div>
   </div>

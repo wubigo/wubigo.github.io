@@ -6,10 +6,33 @@
     <description>Recent content in MYSQL on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Apr 2013 17:08:07 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 17:08:07 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Lake</title>
+      <link>https://wubigo.com/post/data-lake/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake/</guid>
+      <description>设计目标  存取（入库和分析）高效
+ 节省存储空间
+  评估单台设备基于采集评率的每年存储成本
+http://mysql.rjweb.org/doc.php/datawarehouse</description>
+    </item>
+    
+    <item>
+      <title>Spring Oauth2</title>
+      <link>https://wubigo.com/post/spring-oauth2/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-oauth2/</guid>
+      <description> http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource </description>
+    </item>
     
     <item>
       <title>Mysql Tuning on Many Tables</title>
@@ -28,6 +51,16 @@ The table_open_cache and max_connections system variables affect the maximum num
       
       <guid>https://wubigo.com/post/mysql-tuning-on-query/</guid>
       <description>innodb-memcached-multiple-get-range-query  native partitioning in-place APIs</description>
+    </item>
+    
+    <item>
+      <title>Redis Install Ubuntu</title>
+      <link>https://wubigo.com/post/redis-install-ubuntu/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-install-ubuntu/</guid>
+      <description>install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&amp;gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.</description>
     </item>
     
     <item>

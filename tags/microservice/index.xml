@@ -6,10 +6,41 @@
     <description>Recent content in MICROSERVICE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Apr 2018 06:50:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2019 17:08:07 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/microservice/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>微服务认证和授权（MAA）指南</title>
+      <link>https://wubigo.com/post/microservices-authentication-and-authorization/</link>
+      <pubDate>Sun, 28 Apr 2019 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservices-authentication-and-authorization/</guid>
+      <description>微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
+    </item>
+    
+    <item>
+      <title>Spring Actuator</title>
+      <link>https://wubigo.com/post/spring-actuator/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-actuator/</guid>
+      <description>setup  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  enable web client all endpoints are exposed to JMX and WEB clents
+By default, all endpoints except for shutdown are enabled.
+ enable all endpoings
+ enable all endpoints accessed by web
+management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
+    </item>
     
     <item>
       <title>Envoy Control Plane API Server Testing</title>
@@ -18,6 +49,16 @@
       
       <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
       <description>SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.</description>
+    </item>
+    
+    <item>
+      <title>Spring Gateway</title>
+      <link>https://wubigo.com/post/spring-gateway/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-gateway/</guid>
+      <description>&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-zuul&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.</description>
     </item>
     
     <item>

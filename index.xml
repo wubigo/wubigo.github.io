@@ -5,17 +5,8 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Aug 2019 11:54:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 May 2019 17:26:24 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Hugo New Vesion</title>
-      <link>https://wubigo.com/post/hugo-new-vesion/</link>
-      <pubDate>Fri, 23 Aug 2019 11:54:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/hugo-new-vesion/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Secucity Micro Segmentation</title>
@@ -82,6 +73,161 @@ Users will be unable to launch applications with the
 Although safe to disable, this is not recommended since
  you need to boot into safe mode to enable again.
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>微服务认证和授权（MAA）指南</title>
+      <link>https://wubigo.com/post/microservices-authentication-and-authorization/</link>
+      <pubDate>Sun, 28 Apr 2019 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservices-authentication-and-authorization/</guid>
+      <description>
+
+&lt;p&gt;微服务认证和授权有很多方案，&lt;/p&gt;
+
+&lt;p&gt;这里比较各种主流方案的优缺点，&lt;/p&gt;
+
+&lt;p&gt;为你的业务系统选择MAA方案提供指南&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;方案&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;优点&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;缺点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;分布式会话管理&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;简单，成熟，服务器统一管理&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;扩展性比较差&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;客户令牌&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;单点登录&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;API网关令牌管理&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;第三方应用授权&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;SSL/TLS 双向认证&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;方案&#34;&gt;方案&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;分布式会话管理&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;会话信息由服务器存储&lt;/p&gt;
+
+&lt;p&gt;实现方式：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sticky session&lt;/li&gt;
+&lt;li&gt;Session replication&lt;/li&gt;
+&lt;li&gt;Centralized session storage&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;客户令牌&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;令牌由客户持有&lt;/p&gt;
+
+&lt;p&gt;JWT: 头，负载和签名&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;头&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+&amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;,
+&amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;负载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ 
+&amp;quot;id&amp;quot;: 123, 
+&amp;quot;name&amp;quot;: &amp;quot;hi tico&amp;quot;,
+&amp;quot;is_admin&amp;quot;: true,
+&amp;quot;expire&amp;quot;: 1558213420 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;签名&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HMACSHA256(
+base64UrlEncode(header) + &amp;quot;.&amp;quot; +
+base64UrlEncode(payload),
+secret
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;./jwt.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;单点登录&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;API网关令牌管理&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;./jwt-api-gateway.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第三方应用授权&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;API 令牌&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;例如github的API个人令牌&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;OAUTH&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;./JWT-OAUTH.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Someone may wonder why an Authorization Code is used to request Access Token, rather than returning the Access Token to the client directly from the authorization server. The reason why OAuth is designed in this way is to pass through the user agent (browser) during the process of redirecting to the client’s Callback URL. If the Access Token is passed directly, there is a risk of being stolen.&lt;/p&gt;
+
+&lt;p&gt;By using the authorization code, the client directly interacts with the authorization server when applying for the access token, and the authorization server also authorize the client when processing the client’s token request, so it’s prevent others from forging the client’s identity to use the authentication code&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SSL/TLS 双向认证&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例如istio citadel私有证书中心&lt;/p&gt;
+
+&lt;p&gt;[1]. &lt;a href=&#34;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&#34; target=&#34;_blank&#34;&gt;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
