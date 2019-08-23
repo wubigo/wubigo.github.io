@@ -1,10 +1,25 @@
----
-layout: post
-title: 最重要的人脉
-date: 2018-03-28
-tag: 想法
-categories: ["LIFE"]
----
++++
+title = "最重要的人脉"
+date = 2017-03-22T17:08:07+08:00
+tags = ["CAREER", "MANAGE"]
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+
+categories = []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
 
 
 你的老板，才是你最重要的人脉
