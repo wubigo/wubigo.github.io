@@ -14,4 +14,12 @@ git add .
 git commit -a -m %MSG%
 git push
 
+# build static resource
+hugo -s back
+git status
+git add .
+git commit -a -m "deploy:%MSG%"
+git push
+git status
+
 
