@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -33,7 +33,9 @@
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.">
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/git-forkpull-model/">
@@ -147,7 +149,9 @@
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-04T08:06:21&#43;08:00">
@@ -512,8 +516,7 @@
 <p>GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库</p>
 
 <ul>
-<li>打开git命令行客户端，把分叉仓库克隆到本地环境</li>
-</ul>
+<li><p>打开git命令行客户端，把分叉仓库克隆到本地环境</p>
 
 <pre><code>git clone https://github.com/$USER_NAME/wubigo.github.io.git
 cd wubigo.github.io
@@ -526,34 +529,29 @@ origin	https://github.com/Fuang/wubigo.github.io.git (fetch)
 origin	https://github.com/Fuang/wubigo.github.io.git (push)
 upstream	git@github.com:wubigo/wubigo.github.io.git (fetch)
 upstream	git@github.com:wubigo/wubigo.github.io.git (push)
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>同步本地代码到upstream</li>
-</ul>
+<li><p>同步本地代码到upstream</p>
 
 <pre><code>git fetch upstream
 git checkout master
 git rebase upstream/master
 git push
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>查看各个分支的最新提交ID</li>
-</ul>
+<li><p>查看各个分支的最新提交ID</p>
 
 <pre><code>git branch -av
 
 * master                  a3b4a2b Update 2016-02-03-k8s local development setup.md
-  remotes/origin/HEAD     -&gt; origin/master
-  remotes/origin/jekyll   439d951 Merge branch 'master' of github.com:wubigo/igo.github.io
-  remotes/origin/master   a3b4a2b Update 2016-02-03-k8s local development setup.md
-  remotes/upstream/jekyll 439d951 Merge branch 'master' of github.com:wubigo/igo.github.io
-  remotes/upstream/master a38ea93 deploy:github fork&amp;pull model
-</code></pre>
+remotes/origin/HEAD     -&gt; origin/master
+remotes/origin/jekyll   439d951 Merge branch 'master' of github.com:wubigo/igo.github.io
+remotes/origin/master   a3b4a2b Update 2016-02-03-k8s local development setup.md
+remotes/upstream/jekyll 439d951 Merge branch 'master' of github.com:wubigo/igo.github.io
+remotes/upstream/master a38ea93 deploy:github fork&amp;pull model
+</code></pre></li>
 
-<ul>
-<li>从分叉创建pull request</li>
+<li><p>从分叉创建pull request</p></li>
 </ul>
 
 <p>原则上你可以在你分叉的任何分支或提交ID上向upstream仓库发出pull request，
@@ -609,75 +607,6 @@ git push
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -865,7 +794,7 @@ git push
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

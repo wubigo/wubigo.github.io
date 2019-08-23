@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2011-01-01T19:39:03&#43;08:00">
+  <meta property="og:updated_time" content="2013-04-28T17:08:07&#43;08:00">
   
 
   
@@ -381,6 +381,110 @@
   
   
   <div>
+    <h2><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></h2>
+    <div class="article-style">
+      
+      mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></h2>
+    <div class="article-style">
+      
+      innodb-memcached-multiple-get-range-query  native partitioning in-place APIs
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-slave/">Mysql Slave</a></h2>
+    <div class="article-style">
+      
+       [mysqld] server-id = 2 relay-log-index = slave-relay-bin.index relay-log = slave-relay-bin  mysql&gt;CHANGE MASTER TO MASTER_HOST = 'db2',MASTER_PORT = 3306, MASTER_USER = 'repl_user', MASTER_PASSWORD = 'xyzzy';  Connecting the Master mysql&gt; START SLAVE;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></h2>
+    <div class="article-style">
+      
+      Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></h2>
+    <div class="article-style">
+      
+      index buffer Depends on Storage Engine
+MyISAM (Caches Index Pages From .MYI files)
+SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine='MyISAM' AND table_schema NOT IN ('information_schema','performance_schema','mysql');  Subtract that from key_buffer_size.
+InnoDB (Caches Data and Index Pages)
+SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine='InnoDB';  Subtract that from innodb_buffer_pool_size.
+convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELECT CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements FROM information_schema.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql5.7/">Mysql5.7</a></h2>
+    <div class="article-style">
+      
+      mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-partition/">Mysql Partition</a></h2>
+    <div class="article-style">
+      
+       whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition   
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-sql-mode/">Mysql 5.7 SQL MODE</a></h2>
+    <div class="article-style">
+      
+       Disable ONLY_FULL_GROUP_BY SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode'; +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | Variable_name | Value | +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | sql_mode | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |  [mysqld] sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;  mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-master/">Mysql Master</a></h2>
+    <div class="article-style">
+      
+      [mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
+mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-myisam/">Mysql 5.7 MyISAM</a></h2>
+    <div class="article-style">
+      
+      key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/2011-01-01-shell-script/">shell script</a></h2>
     <div class="article-style">
       
@@ -556,7 +660,7 @@ cat big_csv.csv | shuf | head -n 50 &gt; sample_csv.csv
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

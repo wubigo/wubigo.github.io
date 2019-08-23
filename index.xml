@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OS/APP HARDCORE on OS/APP HARDCORE</title>
@@ -6,8 +5,17 @@
     <description>Recent content in OS/APP HARDCORE on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2019 17:26:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Aug 2019 11:54:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo New Vesion</title>
+      <link>https://wubigo.com/post/hugo-new-vesion/</link>
+      <pubDate>Fri, 23 Aug 2019 11:54:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/hugo-new-vesion/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Secucity Micro Segmentation</title>
@@ -364,24 +372,19 @@ response, err := client.AllocateHosts(request)
 &lt;h1 id=&#34;准备&#34;&gt;准备&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;创建角色和授权&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;创建角色和授权&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \
-  --clusterrole=cluster-admin \
-  --user=&amp;quot;cluster-admin-faas&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
+--clusterrole=cluster-admin \
+--user=&amp;quot;cluster-admin-faas&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;分别为FAAS核心服务和函数创建名字空间&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;分别为FAAS核心服务和函数创建名字空间&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;创建凭证&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;创建凭证&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# generate a random password
 PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1)
@@ -389,15 +392,14 @@ PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1)
 kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-user=admin \
 --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;在本地helm仓库增加openfaas&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;在本地helm仓库增加openfaas&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;helm repo add openfaas https://openfaas.github.io/faas-netes/
 &amp;quot;openfaas&amp;quot; has been added to your repositories
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&#34;开始安装&#34;&gt;开始安装&lt;/h1&gt;
 
@@ -424,21 +426,21 @@ PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)
 &lt;h1 id=&#34;验证安装结果&#34;&gt;验证安装结果&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;通过浏览器访问openfaas&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;通过浏览器访问openfaas&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;curl http://&amp;lt;pod-node-ip&amp;gt;:31112
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;输入上面的用户名和密码进入openfaas控制台&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;安装openfaas客户端&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;安装openfaas客户端&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -sSL https://cli.openfaas.com | sh
 echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&#34;removing-the-openfaas&#34;&gt;Removing the OpenFaaS&lt;/h1&gt;
 
@@ -592,41 +594,39 @@ publish the public to web server&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;confit/_default/config.toml&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;hugo build destination&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;hugo build destination&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;publishDir
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Number of items per page in paginated lists&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;Number of items per page in paginated lists&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;paginate = 20  
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;taxonomies&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;by tag&lt;/li&gt;
-&lt;li&gt;by author&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+
+&lt;li&gt;&lt;p&gt;by author&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;tag = &amp;quot;tags&amp;quot;
 author = &amp;quot;authors&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;confit/_default/menus.toml&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Navigation Links widget enable/disabl under &lt;code&gt;content/home/&lt;/code&gt; folder&lt;/li&gt;
-&lt;li&gt;Navigation Links widget display order&lt;/li&gt;
-&lt;/ul&gt;
+
+&lt;li&gt;&lt;p&gt;Navigation Links widget display order&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;weight = 1
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;config/_default/languages.toml&lt;/code&gt;&lt;/p&gt;
 
@@ -641,114 +641,22 @@ languageCode = &amp;quot;zh-Hans&amp;quot;
 &lt;p&gt;&lt;code&gt;content/post/_index.md&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;post view as Card&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;post view as Card&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;view = 3
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;content/home/posts.md&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Number of recent posts to list.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;Number of recent posts to list.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;count = 20
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/hugo-logo-wide.svg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>kubeamd cheat sheet</title>
-      <link>https://wubigo.com/post/kubeamd-cheat-sheet/</link>
-      <pubDate>Mon, 11 Feb 2019 11:38:27 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/kubeamd-cheat-sheet/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;version notes&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;some only works on 1.13&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;,
-GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, 
-GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -&lt;strong&gt;${ARCH}&lt;/strong&gt; suffix&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;get all Pending pods&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get pods --field-selector=status.phase=Pending
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;images list&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm config images list -v 4
-I0217 07:28:13.305268   14495 interface.go:384] Looking for default routes with IPv4 addresses
-I0217 07:28:13.307275   14495 interface.go:389] Default route transits interface &amp;quot;enp0s3&amp;quot;
-I0217 07:28:13.308349   14495 interface.go:196] Interface enp0s3 is up
-I0217 07:28:13.309611   14495 interface.go:244] Interface &amp;quot;enp0s3&amp;quot; has 2 addresses :[192.168.1.9/24 fe80::a00:27ff:fe75:f493/64].
-I0217 07:28:13.310328   14495 interface.go:211] Checking addr  192.168.1.9/24.
-I0217 07:28:13.311219   14495 interface.go:218] IP found 192.168.1.9
-I0217 07:28:13.311961   14495 interface.go:250] Found valid IPv4 address 192.168.1.9 for interface &amp;quot;enp0s3&amp;quot;.
-I0217 07:28:13.312688   14495 interface.go:395] Found active IP 192.168.1.9 
-I0217 07:28:13.313427   14495 version.go:163] fetching Kubernetes version from URL: https://dl.K8S.io/release/stable-1.txt
-I0217 07:28:23.320683   14495 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL &amp;quot;https://dl.K8S.io/release/stable-1.txt&amp;quot;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.txt: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
-I0217 07:28:23.321520   14495 version.go:95] falling back to the local client version: v1.13.3
-I0217 07:28:23.330622   14495 feature_gate.go:206] feature gates: &amp;amp;{map[]}
-K8S.gcr.io/kube-apiserver:v1.13.3
-K8S.gcr.io/kube-controller-manager:v1.13.3
-K8S.gcr.io/kube-scheduler:v1.13.3
-K8S.gcr.io/kube-proxy:v1.13.3
-K8S.gcr.io/pause:3.1
-K8S.gcr.io/etcd:3.2.24
-K8S.gcr.io/coredns:1.2.6
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;pull images beforehand&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm config images pull -v 4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;init-phase&#34;&gt;init phase&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm config print init-defaults &amp;gt;adm.defaults.yaml
-git diff adm.defaults.yaml
--imageRepository: K8S.gcr.io
-+imageRepository: mirrorgooglecontainers
-sudo kubeadm init phase preflight --config=./adm.defaults.yaml -v 4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;self-hosting-the-kubernetes-control-plane&#34;&gt;Self-hosting the Kubernetes control plane&lt;/h1&gt;
-
-&lt;p&gt;As of 1.8, you can experimentally create a self-hosted Kubernetes control plane. This means that key components such as the API server, controller manager, and scheduler run as DaemonSet pods configured via the Kubernetes API instead of static pods configured in the kubelet via static files.
-To create a self-hosted cluster, pass the flag &amp;ndash;feature-gates=SelfHosting=true to kubeadm init.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://kubernetes.io/docs/setup/independent/setup-ha-etcd-with-kubeadm/&#34; target=&#34;_blank&#34;&gt;https://kubernetes.io/docs/setup/independent/setup-ha-etcd-with-kubeadm/&lt;/a&gt;
-&lt;a href=&#34;https://discuss.kubernetes.io/t/question-about-etcd-cluster-with-kubeadm-in-1-11/1228&#34; target=&#34;_blank&#34;&gt;https://discuss.kubernetes.io/t/question-about-etcd-cluster-with-kubeadm-in-1-11/1228&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get configmaps --all-namespaces
-kubectl describe configmaps kubeadm-config -n kube-system
-
-kubectl -n kube-system get deployment coredns -o yaml | \
-  sed &#39;s/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g&#39; | \
-  kubectl apply -f -
-  
-kubectl scale --current-replicas=2 --replicas=1 deployments.apps/nginx1-14
-kubectl logs calico-node-4mb5z -n kube-system
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

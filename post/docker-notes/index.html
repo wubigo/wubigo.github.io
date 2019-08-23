@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -538,17 +538,16 @@ systemctl show --property=Environment docker
 
 <ul>
 <li>delete volumes</li>
-<li>
-<code>
-$ docker volume rm $(docker volume ls -qf dangling=true)
+
+<li><pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)
 $ docker volume ls -qf dangling=true | xargs -r docker volume rm
-</code></li>
-</ul>
+</code></pre>
 
 <pre><code>docker rmi $(docker images --filter &quot;dangling=true&quot; -q --no-trunc)
 docker rmi $(docker images | grep &quot;none&quot; | awk '/ / { print $3 }')
 docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><strong>Caution</strong></p>
 
@@ -558,15 +557,13 @@ docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
 <h1 id="ubuntu-docker-post-installation-steps">ubuntu docker Post-installation steps</h1>
 
 <ul>
-<li>check to docker log for warning</li>
-</ul>
+<li><p>check to docker log for warning</p>
 
 <pre><code>journalctl -xu docker
 journalctl -xu docker.service
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>check-config</li>
+<li><p>check-config</p></li>
 </ul>
 
 <blockquote>
@@ -611,15 +608,13 @@ sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev et
 <h1 id="容器间通信">容器间通信</h1>
 
 <ul>
-<li>icc
-inter-container communication</li>
-</ul>
+<li><p>icc
+inter-container communication</p>
 
 <pre><code>docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.168.200.0/24 -o &quot;com.docker.network.bridge.enable_icc&quot;=&quot;false&quot; no-icc-network
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>enable_ip_masquerade</li>
+<li><p>enable_ip_masquerade</p></li>
 </ul>
 
 <p>是否允许NAT使用宿主的IP掩蔽来自容器访问宿主外的网络包的SOURCE IP</p>
@@ -673,75 +668,6 @@ sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -929,7 +855,7 @@ sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

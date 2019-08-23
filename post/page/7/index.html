@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2014-03-03T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-08-23T11:54:49&#43;08:00">
   
 
   
@@ -378,6 +378,105 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2014-04-03-cdn/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
+The advantages of serving content from such a sub-domain, however, are that
+The sub-domain can be a cookie-less domain
+If you use your cookies correctly (ie.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -986,6 +1085,835 @@ db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database
 
 
 
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-tuning-on-many-tables/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-tuning-on-many-tables/" itemprop="url">Mysql Tuning on Many Tables</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-tuning-on-query/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-tuning-on-query/" itemprop="url">Mysql Tuning on Query</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>innodb-memcached-multiple-get-range-query
+</code></pre>
+
+<p>native partitioning in-place APIs</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 27, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-slave/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-slave/" itemprop="url">Mysql Slave</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<pre><code>[mysqld]
+server-id = 2
+relay-log-index = slave-relay-bin.index
+relay-log = slave-relay-bin
+</code></pre>
+
+<pre><code>mysql&gt;CHANGE MASTER TO MASTER_HOST = 'db2',MASTER_PORT = 3306, MASTER_USER = 'repl_user', MASTER_PASSWORD = 'xyzzy';
+</code></pre>
+
+<h1 id="connecting-the-master">Connecting the Master</h1>
+
+<pre><code>mysql&gt; START SLAVE;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 27, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-tuning-on-os/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-tuning-on-os/" itemprop="url">Mysql Tuning on OS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-5.7-innodb/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5.7-innodb/" itemprop="url">Mysql 5.7 InnoDB</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    index buffer Depends on Storage Engine
+MyISAM (Caches Index Pages From .MYI files)
+SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine='MyISAM' AND table_schema NOT IN ('information_schema','performance_schema','mysql');  Subtract that from key_buffer_size.
+InnoDB (Caches Data and Index Pages)
+SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine='InnoDB';  Subtract that from innodb_buffer_pool_size.
+convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELECT CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements FROM information_schema.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql5.7/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql5.7/" itemprop="url">Mysql5.7</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-partition/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <ul>
+<li><p>whether MySQL Server supports partitioning</p>
+
+<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
+</code></pre></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-5.7-sql-mode/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5.7-sql-mode/" itemprop="url">Mysql 5.7 SQL MODE</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
+
+<pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable_name | Value                                                                                                                                     |
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| sql_mode      | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
+</code></pre>
+
+<pre><code>[mysqld]  
+sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
+</code></pre>
+
+<pre><code>mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-master/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-master/" itemprop="url">Mysql Master</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>[mysqld]
+
+log-bin = master-bin
+log-bin-index = master-bin.index
+server-id = 1
+</code></pre>
+
+<p>Grant the user to retrieve the binary log from the master</p>
+
+<pre><code>mysql&gt;CREATE USER repl_user;
+GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1315,957 +2243,6 @@ NoSQL使用LSM树</p>
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-06-04-mysql/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
-mysql&gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 3, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/linux-notes/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-notes/" itemprop="url">linux note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
- dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-05-03-redis-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 1, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-02-01-tls-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NOTICE
- Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
- Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
- Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    8 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-06-03-io-performance/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-06-03-io-performance/" itemprop="url">Linux File System Read Write Performance Test</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
-$ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
-Simply use the yum commands to search or install packages from EPEL repo:
-# yum search nethogs # yum update # yum --disablerepo=&quot;*&quot; --enablerepo=&quot;epel&quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-04-03-high-performance-ssh/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-04-03-high-performance-ssh/" itemprop="url">High Performance SSH/SCP</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    http://mirror.internode.on.net/pub/OpenBSD/OpenSSH/portable/ http://www.psc.edu/index.php/hpn-ssh-patches/hpn-14-kitchen-sink-patches/viewcategory/24 Extract OpenSSH:
-1
-tar -xzvf openssh-6.6p1.tar.gz
-Change directory in extracted folder and apply patch:
-1
-2
-cd openssh-6.6p1
-zcat /usr/src/openssh-6.6p1-hpnssh14v5.diff.gz | patch
-Configure OpenSSH:
-1
-./configure –prefix=/usr –sysconfdir=/etc/ssh –with-pam
-Remove old config files to prevent any conflicts:
-1
-2
-rm /etc/ssh/ssh_config
-rm /etc/ssh/sshd_config
-Compile and install:
-1
-2
-make
-make install
-Now we have the newest version of OpenSSH installed and patched with the improvements from HPN-SSH; however we still need to make some changes to the /etc/ssh/sshd_config to take advantage of them.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-03-24 17:53:35 &#43;0800 CST" itemprop="datePublished">
-<meta content="2011-03-24 17:53:35 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/hpcloud-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/hpcloud-notes/" itemprop="url">Hpcloud Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="惠普混合云">惠普混合云</h1>
-
-<p>惠普tripleO整体方案
-<img src="./hp2.png" alt="RNA" /></p>
-
-<p>惠普混合云主要模块
-<img src="./hp-1.png" alt="RNA" /></p>
-
-<p>网络控制节点
-<img src="./hp3.png" alt="RNA" /></p>
-
-<p>授权认证部分源代码
-<img src="./ks-1.png" alt="RNA" /></p>
-
-<h1 id="医疗数据分析">医疗数据分析</h1>
-
-<p><img src="./ano-bd.png" alt="RNA" /></p>
-
-<p><img src="./ano-portal.png" alt="RNA" /></p>
-
-<ul>
-<li><p>医疗数据某业务流程
-<img src="./RNA数据处理业务流程图.png" alt="RNA" /></p></li>
-
-<li><p>医疗数据处理图
-<img src="./ano-bd.png" alt="RNA" /></p></li>
-
-<li><p>医疗项目部分工作内容</p></li>
-</ul>
-
-<p><code>部分任务</code>
-<img src="med-t2.png" alt="任务" /></p>
-
-<p><code>部分任务</code>
-<img src="./med-t1.png" alt="任务" /></p>
-
-<p><code>部分源代码</code>
-<img src="./met-source.png" alt="source code" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    18 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-02-03-san/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 1, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-02-01-etcd-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-01-etcd-notes/" itemprop="url">ETCD notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Verify etcd CA data sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text ... X509v3 extensions: X509v3 Key Usage: critical Digital Signature, Key Encipherment X509v3 Extended Key Usage: TLS Web Server Authentication, TLS Web Client Authentication X509v3 Subject Alternative Name: DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1 ...   server.crt is signed for DNS names [bigo-vm3 localhost] and IPs [192.168.1.11 127.0.0.1 ::1]
- etcd config $kubeadm init phase etcd local -v 4 [etcd] wrote Static Pod manifest for a local etcd member to &quot;/etc/kubernetes/manifests/etcd.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-01-03-the-difference-between-a-tmpfs-and-ramfs-ram-disk/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-01-03-the-difference-between-a-tmpfs-and-ramfs-ram-disk/" itemprop="url">the-difference-between-a-tmpfs-and-ramfs-ram-disk</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="tempfs-vs-ramfs">TEMPFS vs RAMFS</h1>
-
-<p><a href="https://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs-ram-disk" target="_blank">https://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs-ram-disk</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2431,7 +2408,7 @@ Now we have the newest version of OpenSSH installed and patched with the improve
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

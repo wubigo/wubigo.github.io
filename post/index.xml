@@ -6,10 +6,19 @@
     <description>Recent content in Posts on OS/APP HARDCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2019 17:26:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Aug 2019 11:54:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo New Vesion</title>
+      <link>https://wubigo.com/post/hugo-new-vesion/</link>
+      <pubDate>Fri, 23 Aug 2019 11:54:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/hugo-new-vesion/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Secucity Micro Segmentation</title>
@@ -115,7 +124,11 @@ secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).G
       <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>准备  创建角色和授权  kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories  开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+      <description>准备  创建角色和授权
+kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
     </item>
     
     <item>
@@ -161,11 +174,7 @@ CNI 网桥
       <pubDate>Fri, 22 Feb 2019 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/blog_on_hugo/</guid>
-      <description>setup for gitlab tee .gitlab-ci.yml &amp;lt;&amp;lt; EOF image: monachus/hugo variables: GIT_SUBMODULE_STRATEGY: recursive pages: script: - hugo artifacts: paths: - public only: - master EOF git init echo &amp;quot;/public&amp;quot; &amp;gt;&amp;gt; .gitignore  post  hugo new post//index.md
- deploy  hugo publish the public to web server
- Configuration Lookup Order confit/_default/
- ./config.toml ./config.yaml ./config.json  confit/_default/config.toml
- hugo build destination  publishDir   Number of items per page in paginated lists  paginate = 20   taxonomies</description>
+      <description>Decide to gave hugo a shot after many years of being jekyll</description>
     </item>
     
     <item>
@@ -177,7 +186,9 @@ CNI 网桥
       <description>version notes
 some only works on 1.13
 kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
- get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.</description>
+ get all Pending pods
+kubectl get pods --field-selector=status.phase=Pending  images list
+kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &amp;quot;enp0s3&amp;quot; I0217 07:28:13.</description>
     </item>
     
     <item>
@@ -204,6 +215,16 @@ https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xac
     </item>
     
     <item>
+      <title>entry into jupyter notebook</title>
+      <link>https://wubigo.com/post/2018-11-28-jupyternotebook/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-28-jupyternotebook/</guid>
+      <description>generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = &#39;0.0.0.0&#39; c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
+Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git</description>
+    </item>
+    
+    <item>
       <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
@@ -212,16 +233,6 @@ https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xac
       <description>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current. snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
 $snap start microK8S $microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&amp;rsquo;t include kube-system
 $microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</description>
-    </item>
-    
-    <item>
-      <title>entry into jupyter notebook</title>
-      <link>https://wubigo.com/post/2018-11-28-jupyternotebook/</link>
-      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-11-28-jupyternotebook/</guid>
-      <description>generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = &#39;0.0.0.0&#39; c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
-Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git</description>
     </item>
     
     <item>
@@ -243,7 +254,7 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       <description>Note:
  Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
  Bazel 0.19.0 doesn&amp;rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
-  $bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot; --sandbox_debug &amp;gt; build.</description>
+$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot; --sandbox_debug &amp;gt; build.</description>
     </item>
     
     <item>
@@ -325,7 +336,8 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</desc
       <description>避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
     </item>
     
     <item>
@@ -353,7 +365,9 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
       <pubDate>Wed, 25 Apr 2018 12:02:41 +0800</pubDate>
       
       <guid>https://wubigo.com/post/web-vue/</guid>
-      <description>CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&amp;gt;npm config list ; cli configs metrics-registry = &amp;quot;https://registry.npmjs.org/&amp;quot; scope = &amp;quot;&amp;quot; user-agent = &amp;quot;npm/6.4.1 node/v10.15.3 win32 x64&amp;quot;  npm config set registry &amp;lt;registry url&amp;gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR</description>
+      <description>CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
+D:\code\API\web&amp;gt;npm config list ; cli configs metrics-registry = &amp;quot;https://registry.npmjs.org/&amp;quot; scope = &amp;quot;&amp;quot; user-agent = &amp;quot;npm/6.4.1 node/v10.15.3 win32 x64&amp;quot;  npm config set registry &amp;lt;registry url&amp;gt;  install with another registry
+npm install --registry=https://registry.npmjs.org/   install vue-cli npm install -g @vue/cli  vue create my-project  OR</description>
     </item>
     
     <item>
@@ -382,9 +396,10 @@ list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.1
       <pubDate>Wed, 11 Apr 2018 08:48:18 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-java-spring-boot-v2/</guid>
-      <description>Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+      <description>JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+-Djava.net.preferIPv4Stack=true  Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
 management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
-mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.aspectj:aspectjweaver:jar:1.9.2:compile [INFO] | +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.4.RELEASE:compile [INFO] | | +- com.zaxxer:HikariCP:jar:3.2.0:compile [INFO] | | \- org.</description>
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.</description>
     </item>
     
     <item>
@@ -453,7 +468,7 @@ Chrome Didn&amp;rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
     </item>
     
     <item>
@@ -535,7 +550,9 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
       
       <guid>https://wubigo.com/post/lang-go-firewall/</guid>
       <description>go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
+proxy  从 Github 的代码库 clone
+go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto  设置 GOPROXY 环境变量配置代理
+  例如：GOPROXY=https://goproxy.io
 https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
 https://gocn.vip/article/1678</description>
     </item>
@@ -658,7 +675,9 @@ https://songlh.github.io/paper/go-study.pdf</description>
       <pubDate>Sat, 24 Feb 2018 07:30:53 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-development-streamline/</guid>
-      <description>准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
+      <description>准备  初始化
+draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
+draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
  skip the push process entirely using the &amp;ndash;skip-image-push flag</description>
     </item>
     
@@ -813,7 +832,8 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
       <description>提示： 以下操作是在VirtualBox虚机环境，并做如下配置
  网络  下拉高级设置，在&amp;rdquo;Adapter Type&amp;rdquo;选择PCnet-FAST III&amp;rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&amp;rdquo;Promiscuous Mode&amp;rdquo;必须设置为&amp;rdquo;Allow All&amp;rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
  多网卡  每块网卡都要做上述调整
-准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+准备  安装util-linux
+sudo apt install util-linux   /etc/network/interface
 cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.</description>
     </item>
     
@@ -898,7 +918,7 @@ Modules record precise dependency requirements and create reproducible builds.
       <description>Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or ``` cat tiller-clusterrolebinding.</description>
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or</description>
     </item>
     
     <item>
@@ -919,7 +939,9 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
       
       <guid>https://wubigo.com/post/linux-ssh/</guid>
       <description>ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
+ForwardAgent yes  Enable ssh-agent on main device
+  .bashrc
 SSH_ENV=&amp;quot;$HOME/.ssh/environment&amp;quot; function start_agent { echo &amp;quot;Initialising new SSH agent...&amp;quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &amp;gt; &amp;quot;${SSH_ENV}&amp;quot; echo succeeded chmod 600 &amp;quot;${SSH_ENV}&amp;quot; . &amp;quot;${SSH_ENV}&amp;quot; &amp;gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &amp;quot;${SSH_ENV}&amp;quot; ]; then .</description>
     </item>
     
@@ -964,7 +986,9 @@ uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescu
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.</description>
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID</description>
     </item>
     
     <item>
@@ -1020,7 +1044,10 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
       <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
+uname -r 4.15.0-45-generic  加载macvlan模块
+sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
+     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
     </item>
     
     <item>
@@ -1061,7 +1088,8 @@ tee CNAME &amp;lt;&amp;lt; EOF wubigo.com EOF  在DNS控制台创建域名记录
       
       <guid>https://wubigo.com/post/k8s-monitor/</guid>
       <description> setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&amp;ndash;using-local-pv
- install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  </description>
+ install
+helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false   </description>
     </item>
     
     <item>
@@ -1091,7 +1119,9 @@ logging driver To configure the Docker daemon to default to a specific logging d
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
+      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver
+func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }  Pointer receiver
+  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find .</description>
     </item>
@@ -1138,19 +1168,6 @@ Once you run multiple backend processes on a server: A Redis daemon (on that ser
     </item>
     
     <item>
-      <title>Hacknews favorites 2017</title>
-      <link>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</guid>
-      <description>The State Of Front-End Frameworks []()
-Let&amp;rsquo;s Encrypt now holds 35% of the market https://nettrack.info/ssl_certificate_issuers.html
-Code together in real time with Teletype for Atom https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html
-How Firefox Got Fast Again https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/
-Do you need a VPN https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</description>
-    </item>
-    
-    <item>
       <title>discourse notes</title>
       <link>https://wubigo.com/post/2017-01-01-discoursenotes/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
@@ -1162,6 +1179,19 @@ Discourse app.yml AWS setup
 how-to-specify-a-different-port-not-80-during-install
 fix these settings after bootstrapping, edit the /containers/app.yml then rebuild to take effect
 ./launcher rebuild app  </description>
+    </item>
+    
+    <item>
+      <title>Hacknews favorites 2017</title>
+      <link>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</guid>
+      <description>The State Of Front-End Frameworks []()
+Let&amp;rsquo;s Encrypt now holds 35% of the market https://nettrack.info/ssl_certificate_issuers.html
+Code together in real time with Teletype for Atom https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html
+How Firefox Got Fast Again https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/
+Do you need a VPN https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</description>
     </item>
     
     <item>
@@ -1202,7 +1232,8 @@ Why I left Apache Spark GraphX and returned to HBase for my graph database https
       
       <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
       <description>namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
+kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
@@ -1277,10 +1308,7 @@ K8S解决的网络问题：
       <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-local-development-setup/</guid>
-      <description>更新到最新正式发布版V1.13.3
-Main external dependencies  go docker cri cni  external-dependencies
-KUBEADM IS CURRENTLY IN BETA
-kubeadm maturity build k8s  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.</description>
+      <description>Setup a local development environment from source code with kubeadm</description>
     </item>
     
     <item>
@@ -1468,6 +1496,99 @@ db.createDatabase(&amp;lsquo;mydb&amp;rsquo;).then( () =&amp;gt; console.log(&am
     </item>
     
     <item>
+      <title>Mysql Tuning on Many Tables</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-many-tables/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-many-tables/</guid>
+      <description>mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on Query</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-query/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-query/</guid>
+      <description>innodb-memcached-multiple-get-range-query  native partitioning in-place APIs</description>
+    </item>
+    
+    <item>
+      <title>Mysql Slave</title>
+      <link>https://wubigo.com/post/mysql-slave/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-slave/</guid>
+      <description> [mysqld] server-id = 2 relay-log-index = slave-relay-bin.index relay-log = slave-relay-bin  mysql&amp;gt;CHANGE MASTER TO MASTER_HOST = &#39;db2&#39;,MASTER_PORT = 3306, MASTER_USER = &#39;repl_user&#39;, MASTER_PASSWORD = &#39;xyzzy&#39;;  Connecting the Master mysql&amp;gt; START SLAVE;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on OS</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-os/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-os/</guid>
+      <description>Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &amp;gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones</description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 InnoDB</title>
+      <link>https://wubigo.com/post/mysql-5.7-innodb/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-innodb/</guid>
+      <description>index buffer Depends on Storage Engine
+MyISAM (Caches Index Pages From .MYI files)
+SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine=&#39;MyISAM&#39; AND table_schema NOT IN (&#39;information_schema&#39;,&#39;performance_schema&#39;,&#39;mysql&#39;);  Subtract that from key_buffer_size.
+InnoDB (Caches Data and Index Pages)
+SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine=&#39;InnoDB&#39;;  Subtract that from innodb_buffer_pool_size.
+convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39;; SELECT CONCAT(&#39;ALTER TABLE `&#39;, table_name, &#39;` ENGINE=MyISAM;&#39;) AS sql_statements FROM information_schema.</description>
+    </item>
+    
+    <item>
+      <title>Mysql5.7</title>
+      <link>https://wubigo.com/post/mysql5.7/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql5.7/</guid>
+      <description>mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;   SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Partition</title>
+      <link>https://wubigo.com/post/mysql-partition/</link>
+      <pubDate>Fri, 22 Mar 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-partition/</guid>
+      <description> whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition   </description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 SQL MODE</title>
+      <link>https://wubigo.com/post/mysql-5.7-sql-mode/</link>
+      <pubDate>Fri, 22 Feb 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-sql-mode/</guid>
+      <description> Disable ONLY_FULL_GROUP_BY SHOW VARIABLES WHERE Variable_name LIKE &#39;sql_mode&#39;; +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | Variable_name | Value | +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | sql_mode | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |  [mysqld] sql_mode = &amp;quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;quot;  mysql&amp;gt; SHOW CREATE TABLE &amp;lt;tablename&amp;gt;;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Master</title>
+      <link>https://wubigo.com/post/mysql-master/</link>
+      <pubDate>Tue, 22 Jan 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-master/</guid>
+      <description>[mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
+mysql&amp;gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY &#39;xyzzy&#39;;  </description>
+    </item>
+    
+    <item>
       <title>API_design Note</title>
       <link>https://wubigo.com/post/2013-01-03-api_design/</link>
       <pubDate>Thu, 03 Jan 2013 00:00:00 +0000</pubDate>
@@ -1526,7 +1647,8 @@ A typical mysqldump command to move data from an external database to an Amazon 
       
       <guid>https://wubigo.com/post/linux-notes/</guid>
       <description>iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
- dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.</description>
+ dmidecode
+sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw</description>
     </item>
     
     <item>
@@ -1536,6 +1658,17 @@ A typical mysqldump command to move data from an external database to an Amazon 
       
       <guid>https://wubigo.com/post/2012-05-03-redis-notes/</guid>
       <description>Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.</description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 MyISAM</title>
+      <link>https://wubigo.com/post/mysql-5.7-myisam/</link>
+      <pubDate>Sun, 22 Apr 2012 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-myisam/</guid>
+      <description>key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.</description>
     </item>
     
     <item>

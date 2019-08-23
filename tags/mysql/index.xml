@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MYSQL on OS/APP HARDCORE</title>
+    <link>https://wubigo.com/tags/mysql/</link>
+    <description>Recent content in MYSQL on OS/APP HARDCORE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Apr 2013 17:08:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql Tuning on Many Tables</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-many-tables/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-many-tables/</guid>
+      <description>mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on Query</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-query/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-query/</guid>
+      <description>innodb-memcached-multiple-get-range-query  native partitioning in-place APIs</description>
+    </item>
+    
+    <item>
+      <title>Mysql Slave</title>
+      <link>https://wubigo.com/post/mysql-slave/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-slave/</guid>
+      <description> [mysqld] server-id = 2 relay-log-index = slave-relay-bin.index relay-log = slave-relay-bin  mysql&amp;gt;CHANGE MASTER TO MASTER_HOST = &#39;db2&#39;,MASTER_PORT = 3306, MASTER_USER = &#39;repl_user&#39;, MASTER_PASSWORD = &#39;xyzzy&#39;;  Connecting the Master mysql&amp;gt; START SLAVE;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on OS</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-os/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-os/</guid>
+      <description>Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &amp;gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones</description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 InnoDB</title>
+      <link>https://wubigo.com/post/mysql-5.7-innodb/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-innodb/</guid>
+      <description>index buffer Depends on Storage Engine
+MyISAM (Caches Index Pages From .MYI files)
+SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine=&#39;MyISAM&#39; AND table_schema NOT IN (&#39;information_schema&#39;,&#39;performance_schema&#39;,&#39;mysql&#39;);  Subtract that from key_buffer_size.
+InnoDB (Caches Data and Index Pages)
+SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine=&#39;InnoDB&#39;;  Subtract that from innodb_buffer_pool_size.
+convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39;; SELECT CONCAT(&#39;ALTER TABLE `&#39;, table_name, &#39;` ENGINE=MyISAM;&#39;) AS sql_statements FROM information_schema.</description>
+    </item>
+    
+    <item>
+      <title>Mysql5.7</title>
+      <link>https://wubigo.com/post/mysql5.7/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql5.7/</guid>
+      <description>mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;   SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Partition</title>
+      <link>https://wubigo.com/post/mysql-partition/</link>
+      <pubDate>Fri, 22 Mar 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-partition/</guid>
+      <description> whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition   </description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 SQL MODE</title>
+      <link>https://wubigo.com/post/mysql-5.7-sql-mode/</link>
+      <pubDate>Fri, 22 Feb 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-sql-mode/</guid>
+      <description> Disable ONLY_FULL_GROUP_BY SHOW VARIABLES WHERE Variable_name LIKE &#39;sql_mode&#39;; +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | Variable_name | Value | +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | sql_mode | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |  [mysqld] sql_mode = &amp;quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;quot;  mysql&amp;gt; SHOW CREATE TABLE &amp;lt;tablename&amp;gt;;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Master</title>
+      <link>https://wubigo.com/post/mysql-master/</link>
+      <pubDate>Tue, 22 Jan 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-master/</guid>
+      <description>[mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
+mysql&amp;gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY &#39;xyzzy&#39;;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 MyISAM</title>
+      <link>https://wubigo.com/post/mysql-5.7-myisam/</link>
+      <pubDate>Sun, 22 Apr 2012 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-myisam/</guid>
+      <description>key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -36,9 +36,10 @@
       <pubDate>Wed, 11 Apr 2018 08:48:18 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-java-spring-boot-v2/</guid>
-      <description>Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+      <description>JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+-Djava.net.preferIPv4Stack=true  Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
 management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
-mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.aspectj:aspectjweaver:jar:1.9.2:compile [INFO] | +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.4.RELEASE:compile [INFO] | | +- com.zaxxer:HikariCP:jar:3.2.0:compile [INFO] | | \- org.</description>
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.</description>
     </item>
     
     <item>
@@ -48,7 +49,9 @@ mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-
       
       <guid>https://wubigo.com/post/lang-go-firewall/</guid>
       <description>go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
+proxy  从 Github 的代码库 clone
+go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto  设置 GOPROXY 环境变量配置代理
+  例如：GOPROXY=https://goproxy.io
 https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
 https://gocn.vip/article/1678</description>
     </item>
@@ -80,7 +83,9 @@ Modules record precise dependency requirements and create reproducible builds.
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
+      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver
+func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }  Pointer receiver
+  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find .</description>
     </item>

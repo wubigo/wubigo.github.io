@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-07T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-08-23T11:54:49&#43;08:00">
   
 
   
@@ -378,6 +378,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 8, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-11-08-buildtensorflow-1-12/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/2018-11-08-buildtensorflow-1-12/">
+      <img src="/post/2018-11-08-buildtensorflow-1-12/featured_hud54c9ec4a911da88f2221e2dd09a79e0_4159_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-08-buildtensorflow-1-12/" itemprop="url">build tensorflow 1.12</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Note:
+ Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
+ Bazel 0.19.0 doesn&rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
+$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot; --sandbox_debug &gt; build.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -968,7 +1061,8 @@ ip -s link show eth0  stop irqbalance for home user
     避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
   </div>
   
 
@@ -1227,7 +1321,9 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
 
   
   <div class="article-style" itemprop="articleBody">
-    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR
+    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
+D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;  install with another registry
+npm install --registry=https://registry.npmjs.org/   install vue-cli npm install -g @vue/cli  vue create my-project  OR
   </div>
   
 
@@ -1527,9 +1623,10 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
 
   
   <div class="article-style" itemprop="articleBody">
-    Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+    JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+-Djava.net.preferIPv4Stack=true  Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
 management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
-mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.aspectj:aspectjweaver:jar:1.9.2:compile [INFO] | +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.4.RELEASE:compile [INFO] | | +- com.zaxxer:HikariCP:jar:3.2.0:compile [INFO] | | \- org.
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.
   </div>
   
 
@@ -2087,7 +2184,7 @@ Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
   </div>
   
 
@@ -2173,151 +2270,6 @@ enter password to unlock your keyring  方法1（可靠）
   
   <div class="article-style" itemprop="articleBody">
     helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: '44471' [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-03-28 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/life/">LIFE</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/">
-      <img src="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/featured_hua4fab6e409d7c02df7c1418e5f288793_19875_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/" itemprop="url">最重要的人脉</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    你的老板，才是你最重要的人脉
-我相信这世界上，90% 的人都有过诅咒上司的一刻。偏执、变态、有病这些词，都是恨不得改成老板微信标签的定语。
-但是说大实话，年纪轻轻就有人促使你学会面对职场残酷的人，那不是一个贵人是什么？
-但是我们该如何面对这个残忍的贵人呢？我掏心掏肺给你一点方向。
-上司不是用来喜欢的 他不过是你的资源 最近老同事 Susan 给我打来了电话，很苦恼：我怎么就摊上了这样的破上司呢？
-不等我回答，她就直接自问自答：老板觉得我有能力，但是认为我对他不够尊重，就因为这样竟然就要封杀我！我要跳槽了！
-我笑了，你的情形再惨，惨得过孙悟空吗？毕竟唐僧动不动就给他念紧箍咒，没两天就叫他收拾包袱走人，他不也一样跟唐僧一起去取了个经回来吗。
-这无非是因为，孙悟空是足够聪明的猴子。
-他知道，唐僧是他老孙的一个重要资源，而不仅仅是他的上司。哪怕师傅再迂腐无能，再是非不分，他还是能调动观音菩萨、如来 佛祖来到身边的人。
-「要换做是我」，我笑着说，「尊重还不容易吗，态度好点就行了，直到他把行业诸多诀窍都教会我，再走。」
-Susan 开始若有所思了。她和大部分年轻人一样，对这个道理都不太懂。
-大部分人觉得：老板是资方，自己是劳方，天生就是对立的两端。毕竟在现实生活中逼你干活、骂你不对、给你 Mission impossible 的人就是他啊。
-但是聪明人却是这么看的：老板是小宇宙，自己也是小宇宙，只要懂得挖，他就是我的合作方，我的资源库。
-话说大名鼎鼎的格力董明珠，也有一个相处得不太顺当的前老板朱江洪。
-1991 年，朱江洪是格力的总经理，董明珠是一名普通的销售。一个技术狂，一个铁娘子，免不了争吵。
-然而争吵归争吵，董明珠还是在朱江洪的提拔下，从经营部长、大区经理、副总、总裁做到到格力集团董事长。两个人合作，把格力带进了千亿俱乐部，甚至突破了两千亿销售大关。
-董明珠就是这样一个足够机智的人。吵架归吵架，矛盾归矛盾，心底里骂过对方多少句「傻X」没关系，互相依赖、相互合作做出成绩来才是关键。
-每一个老板，无论多差劲，好歹都有一丝半点闪光点，否则他坐不到老板的位置上
-这样一个人，就是你人生长河中一个重要的资源库。
-多骂他几句「有病」，形成对立关系，无非是绝了自己获取人脉、信息、协助、建议的后路，这不是很笨吗？
-所有的职场恩怨，都起源于沟通不够 我刚开始工作的公司是个外企，沟通风格相当自由。
-上司和下属之间，有工作谈工作，没工作谈目标，没什么不能直接说的。很多人，哪怕跨了级，情同姐妹、称兄道弟的却比比皆是。
-然而当我到第一个民企工作的时候就感觉很压抑了。
-老板喜欢拍马屁，下属喜欢越位拍马屁，办公室流行着欲言又止的气氛，私下拉小群组帮派却热火朝天。所谓的人事厚黑学、信息不对称无处不在，我也算是开眼界了。
-然而我始终是一个好学宝宝，遇到问题和困难都喜欢探究个为什么。
-我发现，造成这么多职场政治的终极原因，无非就是沟通的问题。
-上司和下属之间沟通不明确，不拿出真心来说清楚要求，说一句留半句，剩下 9 句让你猜，这才是致命的低效源头
-俄国作家契科夫曾经写过小说《公务员之死》。这个倒霉蛋公务员就是不会沟通的典型。
-他不小心打喷嚏的时候把鼻涕喷在前座的将军身上，公务员连忙道歉，将军撇了撇嘴说「没关系，算了」。
-然而，公务员却把将军的「撇嘴」看成很生气，接下来每天都去将军那里道歉，将军烦不胜烦，更加不想理他。结果小公务员就一直提心吊胆，到最后竟然吓死了。
-这就是「说者无心，听者有意」的典型。小学语文课不好好做阅读理解，跑到职场上对老板表情做那么多阅读理解干嘛？
-上司很糟糕不跟你沟通，你不也很糟糕地没去主动找上司沟通吗？ 这世界上沟通是相互的，依赖别人终究被动，依赖自己才是王道
-糟糕上司永远没有最后，跳槽也解决不了 不知道大家发现了没有，身边的朋友，只要在一个公司遇到委屈，很可能就会跳槽跑路。
-他们常常寄望的是，下一个公司遇到一个圣人一样的妈妈老板，天天怕你冷了怕你饿了，更怕你的玻璃心掉一地碎了，像养蛙游戏的老母亲一样日日念叨着你快回来。
-实际上，很可能下一个老板更奇葩，更凶猛，KPI 更难完成。大概这世界上遇到好老板的几率，和媳妇遇到好婆婆的几率差不多低。
-大家熟知的偶像刘德华，在成为天王巨星之前也跟不少导演合作过了。
-80 年代和杜琪峰合作拍《鹿鼎记》，由始到终都被杜老板骂不如男一号梁朝伟。
-90 年代写了第一首歌《情是那么笨》，被知名作词人黄霑毫不留情地指责：「没见过写情这么笨的作词人。」
-当他进军歌坛的时候，还是被歌坛的老大哥谭咏麟一脸不客气地说他不会唱歌，劝他打消进军歌坛的念头。
-你看，哪怕是个有点名声的小鲜肉换各种角色都可能被前辈痛骂，何况你这个籍籍无名的小土豆，怎么可能通过跳槽就彻底换了一个毫不糟心的环境呢？
-糟糕上司哪里都有，如果你能死不要脸地撑到最后，妥妥用能力告诉他「老大，你看走眼了」，那才叫做真的威风
-职场说到底也是成年人的生意场，每个人都是自己的老板。 你的老板，你的同事，你的合作伙伴，都是你的供应商。
-他们身上的精华可以吸取，糟点可以避开，那你的装备才会越来越多，在升职加薪的路上一路打怪冲关。
-这年头流行让别人给自己「赋能」，现代管理学之父彼得·德鲁克比我们早数十年就看到上司的这个「功能」。他说：
- Making the strength of the boss productive is a key to the subordinate’s own effectiveness.
   </div>
   
 
@@ -2492,7 +2444,7 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>
