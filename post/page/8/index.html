@@ -403,6 +403,94 @@
 
 
 
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2014-01-03-arangodb/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-03-arangodb/" itemprop="url">arrangodb note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    1: ArangoDB automatically indexes the _key attribute in each collection. There is no need to index this attribute separately. Please note that a document&rsquo;s _id attribute is derived from the _key attribute, and is thus implicitly indexed, too.
+2: Creating a database
+We don’t want to mess with any existing data, so let’s start by creating a new database called “mydb”:
+db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database created&rsquo;), err =&gt; console.error(&lsquo;Failed to create database:&lsquo;, err) );
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2014-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2014-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2251,96 +2339,6 @@ $virtualenv -p /home/whg/python2.
 <p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
 NoSQL使用LSM树</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2012-06-04-mysql/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
-mysql&gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
   </div>
   
 

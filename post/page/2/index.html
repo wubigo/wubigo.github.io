@@ -403,6 +403,109 @@
 
 
 
+<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-11-24-microk8s/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
+snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
+
+<pre><code>$snap start microK8S
+$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
+$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
+
+
+</code></pre>
+
+<p>for resource under namespace kube-system
+all-namespaces don&rsquo;t include kube-system</p>
+
+<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
+
+</code></pre>
+
+<p><a href="https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf" target="_blank">https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-11-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-11-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2140,111 +2243,6 @@ Customer User: customer@thingsboard.org / customer
     CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
 D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;  install with another registry
 npm install --registry=https://registry.npmjs.org/   install vue-cli npm install -g @vue/cli  vue create my-project  OR
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-24 19:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-24 19:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/tcpdump-windows/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/tcpdump-windows/" itemprop="url">Tcpdump Windows</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="install-winpcap-and-windump">install winpcap and windump</h1>
-
-<p><a href="https://www.winpcap.org" target="_blank">https://www.winpcap.org</a></p>
-
-<h1 id="list-all-interfaces">list all interfaces</h1>
-
-<pre><code>windump -D
-</code></pre>
-
-<h1 id="dump-on-interface">dump on interface</h1>
-
-<pre><code>windump -i 1 -n dst host 172.17.17.6
-</code></pre>
-
-<h1 id="see-entire-packet-payload-using-tcpdump">See entire packet payload using tcpdump</h1>
-
-<pre><code>windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
-</code></pre>
-
   </div>
   
 
