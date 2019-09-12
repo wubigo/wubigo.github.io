@@ -120,8 +120,8 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 (venv) d:\code\venv>aws configure
 
 AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: dont-touch-key
-Default region name [local]:local
+AWS Secret Access Key [None]: fake-key
+Default region name [local]: local
 Default output format [None]:
 
 ```
@@ -184,4 +184,5 @@ https://localstack.cloud/
 # 参考
 
 - https://hub.docker.com/r/amazon/aws-stepfunctions-local
+- https://docs.aws.amazon.com/lambda/latest/dg/limits.html
 

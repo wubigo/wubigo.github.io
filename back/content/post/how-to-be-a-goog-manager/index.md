@@ -1,7 +1,7 @@
 +++
 title = "管理的基本规则"
-date = 2018-06-23T14:37:35+08:00
-draft = false
+date = 2019-06-23T14:37:35+08:00
+draft = true
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
