@@ -51,32 +51,11 @@ AWS领先的设计理念和强大的技术生态
 那如何使用localstack呢？
 
 
-# 安装AWS客户端
-
-- 安装到虚拟环境
-
-```
-(venv) d:\code\venv>pip install awscli
-
-```
-
-可以安装到系统环境
-
-- 配置AWS CLI
-
-```
-(venv) d:\code\venv>aws configure
-
-AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: dont-touch-key
-Default region name [local]:local
-Default output format [None]:
-
-```
-
 # 安装localstack
 
-localstack还是一个非常活跃的项目，建议通过源代码安装
+localstack是一个非常活跃的正在快速成长中的项目，
+
+建议通过源代码安装
 
 - 下载源代码
 
@@ -122,6 +101,31 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 到目前为至，localstack已经安装完毕。
 
 下边，我们来验证公有云服务是否可用。
+
+
+# 安装AWS客户端
+
+- 安装到虚拟环境
+
+```
+(venv) d:\code\venv>pip install awscli
+
+```
+
+可以安装到系统环境
+
+- 配置AWS CLI
+
+```
+(venv) d:\code\venv>aws configure
+
+AWS Access Key ID [None]: any-id-is-ok
+AWS Secret Access Key [None]: dont-touch-key
+Default region name [local]:local
+Default output format [None]:
+
+```
+
 
 # 验证服务编排
 
