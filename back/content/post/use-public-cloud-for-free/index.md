@@ -87,7 +87,7 @@ git clone git@github.com:localstack/localstack.git
 
 - 启用需要使用的AWS服务
 
-修改配置文件，启用你需要使用的AWS服务:ec3,s3,iot,kafka等。
+修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 
 注意服务的名字必须来自[服务名字列表](https://docs.aws.amazon.com/cli/latest/reference/#available-services)， 否则不识别
 
