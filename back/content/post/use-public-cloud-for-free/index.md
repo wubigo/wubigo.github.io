@@ -20,7 +20,7 @@ categories = []
 +++
 
 
-AWS领先的设计理念和庞大的技术生态
+AWS领先的设计理念和强大的技术生态
 
 使你身陷其中，学习你要用它，开发你要
 
@@ -28,7 +28,7 @@ AWS领先的设计理念和庞大的技术生态
 
 上线开发也是十几万的费用。
 
-今天向你推荐 localstack（与openstack关系不大），
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
 
 让你使用AWS免费，至少在项目POC或开发测试阶段免费。
 
@@ -114,6 +114,12 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 ```
 
 系统消息显示需要的服务/端口已经启动。
+
+到目前为至，localstack已经安装完毕。
+
+下边，我们来验证公有云服务是否可用。
+
+# 验证服务编排
 
 
 - 试用stepfunctions服务
