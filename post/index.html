@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-09-12T07:46:24&#43;08:00">
+  <meta property="og:updated_time" content="2019-09-13T07:07:56&#43;08:00">
   
 
   
@@ -378,6 +378,210 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 13, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-proxy/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-proxy/" itemprop="url">Docker Proxy for daemon and client</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
+
+<ul>
+<li>systemd level</li>
+</ul>
+
+<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
+
+<pre><code>[Service]
+Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;
+</code></pre>
+
+<ul>
+<li>service level</li>
+</ul>
+
+<p><code>/etc/default/docker</code></p>
+
+<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
+</code></pre>
+
+<ul>
+<li>daemon level</li>
+</ul>
+
+<p><code>/etc/docker/daemon</code></p>
+
+<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
+
+<p><code>~/.docker/config.json</code></p>
+
+<pre><code>       &quot;proxies&quot;:{
+                &quot;default&quot;:{}
+        }
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-09-12 09:50:26 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-12 09:50:26 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/see-you-again-bpm/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/see-you-again-bpm/" itemprop="url">再见Bpm</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2161,200 +2365,6 @@ curl -IL http://wubigo.com/post
 <p>每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。</p>
 
 <p><a href="https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838" target="_blank">https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-11-28-jupyternotebook/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/2018-11-28-jupyternotebook/">
-      <img src="/post/2018-11-28-jupyternotebook/featured_hu6922e98a8385358ee55505c52767dd06_20739_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-28-jupyternotebook/" itemprop="url">entry into jupyter notebook</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = '0.0.0.0' c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
-Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-11-24-microk8s/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
-snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
-
-<pre><code>$snap start microK8S
-$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
-
-
-</code></pre>
-
-<p>for resource under namespace kube-system
-all-namespaces don&rsquo;t include kube-system</p>
-
-<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
-
-</code></pre>
-
-<p><a href="https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf" target="_blank">https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</a></p>
 
   </div>
   

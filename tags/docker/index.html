@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-22T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-09-13T07:07:56&#43;08:00">
   
 
   
@@ -379,6 +379,19 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/docker-proxy/">Docker Proxy for daemon and client</a></h2>
+    <div class="article-style">
+      
+       DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
+[Service] Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;   service level  /etc/default/docker
+export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
+DOCKER CLIENT PROXY ~/.docker/config.json
+ &quot;proxies&quot;:{ &quot;default&quot;:{} }  
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/2018-11-22-cninetworkproviderforkubernetes/">Choosing a CNI Network Provider for Kubernetes</a></h2>

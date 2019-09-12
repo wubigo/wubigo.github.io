@@ -5,8 +5,64 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Sep 2019 07:46:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2019 07:07:56 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Docker Proxy for daemon and client</title>
+      <link>https://wubigo.com/post/docker-proxy/</link>
+      <pubDate>Fri, 13 Sep 2019 07:07:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-proxy/</guid>
+      <description>
+
+&lt;h1 id=&#34;docker-deamon-proxy&#34;&gt;DOCKER DEAMON PROXY&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;systemd level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/systemd/system/docker.service.d/https-proxy.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Service]
+Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;service level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/default/docker&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;daemon level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/docker/daemon&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker-client-proxy&#34;&gt;DOCKER CLIENT PROXY&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;~/.docker/config.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;       &amp;quot;proxies&amp;quot;:{
+                &amp;quot;default&amp;quot;:{}
+        }
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>再见Bpm</title>
+      <link>https://wubigo.com/post/see-you-again-bpm/</link>
+      <pubDate>Thu, 12 Sep 2019 09:50:26 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/see-you-again-bpm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>免费使用公有云服务</title>
@@ -109,8 +165,8 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 &lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws configure
 
 AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: dont-touch-key
-Default region name [local]:local
+AWS Secret Access Key [None]: fake-key
+Default region name [local]: local
 Default output format [None]:
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -171,6 +227,7 @@ Default output format [None]:
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://hub.docker.com/r/amazon/aws-stepfunctions-local&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/amazon/aws-stepfunctions-local&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&#34; target=&#34;_blank&#34;&gt;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -777,76 +834,6 @@ kubectl delete namespace/openfaas-fn
 &lt;p&gt;mozilla crowdsources the largest dataset of human voices available for use, including 18 different languages, adding up to almost 1,400 hours of recorded voice data from more than 42,000 contributors&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/&#34; target=&#34;_blank&#34;&gt;https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>K8S CNI操作指引</title>
-      <link>https://wubigo.com/post/k8s-cni/</link>
-      <pubDate>Sun, 24 Feb 2019 16:18:43 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s-cni/</guid>
-      <description>
-
-&lt;h1 id=&#34;简介&#34;&gt;简介&lt;/h1&gt;
-
-&lt;p&gt;CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中，
-  K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。
-  许多网络厂商的产品都提供同时都支持CNM和CNI的产品。&lt;/p&gt;
-
-&lt;p&gt;在容器网络环境，经常看到docker看不到K8S POD的IP网络配置，
-  DOCKER容器有时候和POD无法通信。&lt;/p&gt;
-
-&lt;p&gt;CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式，
-  网络插件支持创建和删除指令。POD启动的时候发送创建指令。&lt;/p&gt;
-
-&lt;p&gt;POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID，
-  然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络，
-  并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。&lt;/p&gt;
-
-&lt;p&gt;当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)&lt;/p&gt;
-
-&lt;h1 id=&#34;k8s网络基础&#34;&gt;K8S网络基础&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-network-basic/&#34;&gt;K8S网络基础&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;cni插件&#34;&gt;CNI插件&lt;/h1&gt;
-
-&lt;h1 id=&#34;cni实现方式&#34;&gt;CNI实现方式&lt;/h1&gt;
-
-&lt;p&gt;CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Flannel&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Kube-router&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s_cni_kube-router/&#34;&gt;Kube-router&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;OpenVSwitch&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Calico&lt;/p&gt;
-
-&lt;p&gt;Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s_cni_calico&#34;&gt;CNI-Calico&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Weave Net&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;网桥&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/cni_l2_network_on_bare_metal/&#34;&gt;CNI 网桥&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hpcloud</title>
-      <link>https://wubigo.com/project/hpcloud/</link>
-      <pubDate>Sat, 23 Feb 2019 16:45:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/project/hpcloud/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.hpe.com/us/en/solutions/cloud.html&#34; target=&#34;_blank&#34;&gt;hpcloud&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
