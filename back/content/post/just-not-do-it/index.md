@@ -1,6 +1,6 @@
 +++
 title = "只练不说假把式"
-date = 2019-05-30T06:39:51+08:00
+date = 2018-05-30T06:39:51+08:00
 draft = false
 
 # Tags and categories

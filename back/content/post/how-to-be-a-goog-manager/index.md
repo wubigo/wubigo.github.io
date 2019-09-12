@@ -1,6 +1,6 @@
 +++
 title = "管理的基本规则"
-date = 2019-06-23T14:37:35+08:00
+date = 2018-06-23T14:37:35+08:00
 draft = false
 
 # Tags and categories
