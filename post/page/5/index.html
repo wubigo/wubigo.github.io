@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-06-23T14:37:35&#43;08:00">
+  <meta property="og:updated_time" content="2019-09-12T07:46:24&#43;08:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/istio-pilot-docker/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/istio-pilot-docker/" itemprop="url">Istio Pilot Docker</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    使用一个没有被占用的网段设置DOCKER_GATEWAY
+export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
+kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2152,87 +2239,6 @@ http://ruby.taobao.org/
 </code></pre>
 
   </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/effective-coding-python/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/effective-coding-python/" itemprop="url">Effective Coding Python</a>
-  </h3>
-
   
 
   
