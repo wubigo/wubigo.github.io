@@ -423,7 +423,15 @@ Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
 &lt;p&gt;&lt;code&gt;localstack\docker-compose.yml&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}
+
+ DATA_DIR=${DATA_DIR-/tmp/localstack/data }
+
+
+ volumes:
+      - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;make sure driver D is shared in docker desktop daemon&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;docker-compose up
 

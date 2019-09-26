@@ -35,7 +35,8 @@ git clone git@github.com:localstack/localstack.git  启用需要使用的AWS服�
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}  docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)... localstack_1 | Starting mock IAM (http port 4593)... localstack_1 | Starting mock API Gateway (http port 4567)... localstack_1 | Starting mock DynamoDB (http port 4569).</description>
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)... localstack_1 | Starting mock IAM (http port 4593).</description>
     </item>
     
     <item>
