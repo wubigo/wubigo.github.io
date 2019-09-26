@@ -5,8 +5,281 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Sep 2019 09:39:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2019 07:48:37 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>从虚拟机到容器再到函数计算</title>
+      <link>https://wubigo.com/post/from-vm-to-container-to-serverless/</link>
+      <pubDate>Thu, 26 Sep 2019 07:48:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/from-vm-to-container-to-serverless/</guid>
+      <description>
+
+&lt;p&gt;昨天看到AWS STEP FUNCTIONS支持嵌套的工作流&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/&#34; target=&#34;_blank&#34;&gt;https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，&lt;/p&gt;
+
+&lt;p&gt;后来工作流服务就没有大的工作，SWF框架的核心开发者一部分&lt;/p&gt;
+
+&lt;p&gt;离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS&lt;/p&gt;
+
+&lt;p&gt;支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快&lt;/p&gt;
+
+&lt;p&gt;工作流服务会走进很多中小企业的应用开发工具包。&lt;/p&gt;
+
+&lt;p&gt;回顾一下自己的工作历史：&lt;/p&gt;
+
+&lt;p&gt;从以前的数据中心服务器SA(2006), 到虚拟主机ESX，&lt;/p&gt;
+
+&lt;p&gt;再到OPENSTACK(2010)搭建混合云，&lt;/p&gt;
+
+&lt;p&gt;然后利用K8S(2014)搭建PaaS，现在SERVERLESS,&lt;/p&gt;
+
+&lt;p&gt;计算架构正在发生快速的演进。本文梳理了算力演进历史和未来&lt;/p&gt;
+
+&lt;p&gt;内容&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;从虚拟主机到容器&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;从容器到unikernel&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数计算的蓬勃发展&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;什么是虚拟计算&#34;&gt;什么是虚拟计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./virtulization.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;hypervisor分类&#34;&gt;hypervisor分类&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-1 裸机&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;KVM, QEMU, VMWare, Virtualbox&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-2 托管&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;XenServer， Hyper-v， KVM, ESX, Xen&lt;/p&gt;
+
+&lt;h1 id=&#34;虚拟机的问题&#34;&gt;虚拟机的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;贵&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;操作慢&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.&lt;/p&gt;
+
+&lt;p&gt;启动，备份非常不便。&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算&#34;&gt;容器计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./container.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;|虚拟机|            容器
+|:&amp;mdash;|:&amp;mdash;|:&amp;mdash;|
+构件|  完整的操作系统和应用|  微内核和应用
+虚拟技术|  硬件虚拟化|  操作系统虚拟化&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./c-vs-v.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算带来什么好处&#34;&gt;容器计算带来什么好处&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器镜像小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;alpine的容量是2M&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器占用的硬件资源更少&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台PC可以启动上百个容器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器启动快&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般几毫秒可以启动&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器不用备份&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器创建只需要一个Dockerfile，容器镜像是只读镜像&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器和微服务器架构，DevOps, CI/CD天然融合&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;容器存在的问题&#34;&gt;容器存在的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安全&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器共享操作系统内核，具体较低的隔离级别，&lt;/p&gt;
+
+&lt;p&gt;如果内核出问题，其他的容器也会处于风险之中&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网络&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如何在足够的隔离级别和复杂的高效网络连接权衡&lt;/p&gt;
+
+&lt;h1 id=&#34;容器编排&#34;&gt;容器编排&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;K8S&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EKS&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SWARM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MARATHON&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MAGNM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;FLEET&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用户轻松在计算集群里面部署，管理，扩展基于容器的应用而&lt;/p&gt;
+
+&lt;p&gt;不用关心容器和服务器的绑定，系统扩容等问题&lt;/p&gt;
+
+&lt;h1 id=&#34;容器网络&#34;&gt;容器网络&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DOCKER规范，libnetwork实现&lt;/p&gt;
+
+&lt;p&gt;内置的驱动包括none, host, bridge , overlay, MACvlan&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker network ls
+ NAME                 DRIVER              SCOPE
+68343147e103        bridge               bridge              local
+5d7df1d8f633        docker_default       bridge              local
+d3990aab14a9        host                 host                local
+fe4ec77439f4        none                 null                local
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./CNM.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;COREOS规范，被K8S, MESOS, CLOUD Foundry采用&lt;/p&gt;
+
+&lt;p&gt;json格式的网络模式定义&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./cni.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker的核心组件&#34;&gt;docker的核心组件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;LXC&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AUFS&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;docker的优势&#34;&gt;DOCKER的优势&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;镜像不可修改&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;部署没有第三方依赖&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;注册器简单且容易扩展&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;容易回滚&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对DOCKER的误解：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果学习了docker就不必学其他的系统知识了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;每个容器只能有一个进程&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用容器了就不必使用其他的配置管理工具了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;必须使用容器才能达到高效敏捷和一致性状态优势&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;open-containers-initiative&#34;&gt;Open Containers Initiative&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./oci.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;unikernel&#34;&gt;UniKernel&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./UniKernel.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;函数计算的兴起&#34;&gt;函数计算的兴起&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;No server is easier to manage than no-server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;背景：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前端技术演进&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;强大的原生客户/移动客户端让开发者通过调用各种云服务&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;编写大规模互联网应用，替换传统的后台服务&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTTP/S应用接口及基于token的安全认证成为工业标准&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;后台的定制化开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基于云服务器定制开发&lt;/p&gt;
+
+&lt;h1 id=&#34;serverless-vs-paas&#34;&gt;ServerLess  VS  PaaS&lt;/h1&gt;
+
+&lt;p&gt;PasS可能是ServerLess的一个迭代&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./serverless.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./article.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Step Functions 常见问题</title>
+      <link>https://wubigo.com/post/step-functions/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/step-functions/</guid>
+      <description>
+
+&lt;h1 id=&#34;aws-step-functions-vs&#34;&gt;AWS Step Functions   VS&lt;/h1&gt;
+
+&lt;p&gt;Adds Support for Nested Workflows&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>宽带服务</title>
@@ -25,6 +298,8 @@
 &lt;p&gt;5G mobile broadband&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&#34; target=&#34;_blank&#34;&gt;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&#34; target=&#34;_blank&#34;&gt;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -739,112 +1014,6 @@ response, err := client.AllocateHosts(request)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;调用ANSIBLE开始在CVM部署K8S集群&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>无服务器计算环境OPENFAAS搭建</title>
-      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
-      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>
-
-&lt;h1 id=&#34;准备&#34;&gt;准备&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;创建角色和授权&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \
---clusterrole=cluster-admin \
---user=&amp;quot;cluster-admin-faas&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;分别为FAAS核心服务和函数创建名字空间&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;创建凭证&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# generate a random password
-PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1)
-
-kubectl -n openfaas create secret generic basic-auth \
---from-literal=basic-auth-user=admin \
---from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;在本地helm仓库增加openfaas&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;helm repo add openfaas https://openfaas.github.io/faas-netes/
-&amp;quot;openfaas&amp;quot; has been added to your repositories
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;开始安装&#34;&gt;开始安装&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;helm repo update \
- &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \
-    --namespace openfaas  \
-    --set basic_auth=true \
-    --set functionNamespace=openfaas-fn
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;默认通过NodePorts方式访问openfaas控制台&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl -n openfaas get svc -o wide |grep external
-gateway-external   NodePort    10.105.222.28    &amp;lt;none&amp;gt;        8080:31112/TCP   91m   app=gateway
-
-export OPENFAAS_URL=http://&amp;lt;pod-node-ip&amp;gt;:31112
-curl OPENFAAS_URL
-USERNAME=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-user)
-PASSWD=$(kubectl get secrets basic-auth -n openfaas -o yaml | grep basic-auth-password)
-PASSWD=$(echo &#39;$PASSWD&#39; | base64 --decode)
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;验证安装结果&#34;&gt;验证安装结果&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;通过浏览器访问openfaas&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl http://&amp;lt;pod-node-ip&amp;gt;:31112
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;输入上面的用户名和密码进入openfaas控制台&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装openfaas客户端&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -sSL https://cli.openfaas.com | sh
-echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;removing-the-openfaas&#34;&gt;Removing the OpenFaaS&lt;/h1&gt;
-
-&lt;p&gt;All control plane components can be cleaned up with helm:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;helm delete --purge openfaas
-kubectl delete namespace/openfaas
-kubectl delete namespace/openfaas-fn
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>mozilla crowdsources the largest dataset of human voices</title>
-      <link>https://wubigo.com/post/speech_recognition-transcribed-voice-dataset/</link>
-      <pubDate>Fri, 01 Mar 2019 04:19:39 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/speech_recognition-transcribed-voice-dataset/</guid>
-      <description>&lt;p&gt;转录语音数据集&lt;/p&gt;
-
-&lt;p&gt;mozilla crowdsources the largest dataset of human voices available for use, including 18 different languages, adding up to almost 1,400 hours of recorded voice data from more than 42,000 contributors&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/&#34; target=&#34;_blank&#34;&gt;https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

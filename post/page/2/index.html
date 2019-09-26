@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-09-16T09:39:21&#43;08:00">
+  <meta property="og:updated_time" content="2019-09-26T07:48:37&#43;08:00">
   
 
   
@@ -378,6 +378,213 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 1, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2019-02-01-http3notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2019-02-01-http3notes/" itemprop="url">HTTP/3</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    track http redirection  http://wubigo.com/post -&gt; http://wubigo.com/post/ -&gt; https://wubigo.com/post/
+curl -IL http://wubigo.com/post
+ HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-01 08:01:48 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-01 08:01:48 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/microservice-security-aaa/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/microservice-security-aaa/" itemprop="url">微服务安全：认证，授权和审计(AAA)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="微服务安全要点">微服务安全要点</h1>
+
+<ul>
+<li>通信链路加密</li>
+<li>灵活的服务访问控制，包括细粒度访问策略</li>
+<li>访问日志审计</li>
+<li>服务提供方可替代性(batteries included)和可集成性</li>
+</ul>
+
+<h1 id="基本概念">基本概念</h1>
+
+<ul>
+<li>安全标识</li>
+</ul>
+
+<p>在K8S，安全标识(service account)代表一个用户，一个服务或一组服务。</p>
+
+<ul>
+<li>安全命名</li>
+</ul>
+
+<p>安全命名定义可运行服务的安全标识</p>
+
+<h1 id="微服务认证">微服务认证</h1>
+
+<ul>
+<li>传输层认证</li>
+<li>终端用户认证</li>
+</ul>
+
+<p>每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。</p>
+
+<p><a href="https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838" target="_blank">https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2057,196 +2264,6 @@ log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).
     install client pip install shadowsocks  client.json
 { &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
 listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/spring-actuator/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/spring-actuator/" itemprop="url">Spring Actuator</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    setup  &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  enable web client all endpoints are exposed to JMX and WEB clents
-By default, all endpoints except for shutdown are enabled.
- enable all endpoings
- enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
-WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/thingboard/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/thingboard/" itemprop="url">Thingboard</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<pre><code>docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb:2.3.1
-</code></pre>
-
-<h1 id="default-credentials">default credentials:</h1>
-
-<pre><code>Systen Administrator: sysadmin@thingsboard.org / sysadmin
-Tenant Administrator: tenant@thingsboard.org / tenant
-Customer User: customer@thingsboard.org / customer
-</code></pre>
-
-<h1 id="manage-device-credentials">Manage device credentials</h1>
-
-<p>login as tenant</p>
-
   </div>
   
 

@@ -28,16 +28,32 @@
   
     
   
-  <meta name="description" content="https://news.ycombinator.com/item?id=20726906
-ISP Starter Kit
-http://www.wispa.org/Resources/HOW-TO-START-A-WISP
-wireless fiber
-5G mobile broadband
-https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution
-https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml">
+  <meta name="description" content="昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快
+工作流服务会走进很多中小企业的应用开发工具包。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&mdash;|:&mdash;|:&mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/start-your-own-isp/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/from-vm-to-container-to-serverless/">
 
   
 
@@ -126,7 +142,7 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/start-your-own-isp/">
+  <link rel="canonical" href="https://wubigo.com/post/from-vm-to-container-to-serverless/">
 
   
   
@@ -141,27 +157,43 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/post/start-your-own-isp/">
-  <meta property="og:title" content="宽带服务 | SOFTCORE">
-  <meta property="og:description" content="https://news.ycombinator.com/item?id=20726906
-ISP Starter Kit
-http://www.wispa.org/Resources/HOW-TO-START-A-WISP
-wireless fiber
-5G mobile broadband
-https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution
-https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/from-vm-to-container-to-serverless/">
+  <meta property="og:title" content="从虚拟机到容器再到函数计算 | SOFTCORE">
+  <meta property="og:description" content="昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快
+工作流服务会走进很多中小企业的应用开发工具包。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&mdash;|:&mdash;|:&mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-16T09:39:21&#43;08:00">
+  <meta property="article:published_time" content="2019-09-26T07:48:37&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-09-16T09:39:21&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2019-09-26T07:48:37&#43;08:00">
   
 
   
 
-  <title>宽带服务 | SOFTCORE</title>
+  
+
+  <title>从虚拟机到容器再到函数计算 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -378,7 +410,7 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">宽带服务</h1>
+  <h1 itemprop="name">从虚拟机到容器再到函数计算</h1>
 
   
 
@@ -387,8 +419,8 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
 
 
 
-<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -401,7 +433,7 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
     
       
     
-    <time>Sep 16, 2019</time>
+    <time>Sep 26, 2019</time>
   </span>
   
 
@@ -417,7 +449,7 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   
   
   <span class="middot-divider"></span>
-  <a href="/post/start-your-own-isp/#disqus_thread"></a>
+  <a href="/post/from-vm-to-container-to-serverless/#disqus_thread"></a>
   
 
   
@@ -428,35 +460,35 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e5%ae%bd%e5%b8%a6%e6%9c%8d%e5%8a%a1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fstart-your-own-isp%2f"
+         href="https://twitter.com/intent/tweet?text=%e4%bb%8e%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%88%b0%e5%ae%b9%e5%99%a8%e5%86%8d%e5%88%b0%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fstart-your-own-isp%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fstart-your-own-isp%2f&amp;title=%e5%ae%bd%e5%b8%a6%e6%9c%8d%e5%8a%a1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f&amp;title=%e4%bb%8e%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%88%b0%e5%ae%b9%e5%99%a8%e5%86%8d%e5%88%b0%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fstart-your-own-isp%2f&amp;title=%e5%ae%bd%e5%b8%a6%e6%9c%8d%e5%8a%a1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f&amp;title=%e4%bb%8e%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%88%b0%e5%ae%b9%e5%99%a8%e5%86%8d%e5%88%b0%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e5%ae%bd%e5%b8%a6%e6%9c%8d%e5%8a%a1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fstart-your-own-isp%2f">
+         href="mailto:?subject=%e4%bb%8e%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%88%b0%e5%ae%b9%e5%99%a8%e5%86%8d%e5%88%b0%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97&amp;body=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -494,19 +526,256 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p><a href="https://news.ycombinator.com/item?id=20726906" target="_blank">https://news.ycombinator.com/item?id=20726906</a></p>
+      
 
-<p><a href="https://news.ycombinator.com/item?id=17067144" target="_blank">ISP Starter Kit</a></p>
+<p>昨天看到AWS STEP FUNCTIONS支持嵌套的工作流</p>
 
-<p><a href="http://www.wispa.org/Resources/HOW-TO-START-A-WISP" target="_blank">http://www.wispa.org/Resources/HOW-TO-START-A-WISP</a></p>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/" target="_blank">https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/</a></p>
 
-<p>wireless fiber</p>
+<p>，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，</p>
 
-<p>5G mobile broadband</p>
+<p>后来工作流服务就没有大的工作，SWF框架的核心开发者一部分</p>
 
-<p><a href="https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution" target="_blank">https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution</a></p>
+<p>离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS</p>
 
-<p><a href="https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml" target="_blank">https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</a></p>
+<p>支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快</p>
+
+<p>工作流服务会走进很多中小企业的应用开发工具包。</p>
+
+<p>回顾一下自己的工作历史：</p>
+
+<p>从以前的数据中心服务器SA(2006), 到虚拟主机ESX，</p>
+
+<p>再到OPENSTACK(2010)搭建混合云，</p>
+
+<p>然后利用K8S(2014)搭建PaaS，现在SERVERLESS,</p>
+
+<p>计算架构正在发生快速的演进。本文梳理了算力演进历史和未来</p>
+
+<p>内容</p>
+
+<ul>
+<li><p>从虚拟主机到容器</p></li>
+
+<li><p>从容器到unikernel</p></li>
+
+<li><p>函数计算的蓬勃发展</p></li>
+</ul>
+
+<h1 id="什么是虚拟计算">什么是虚拟计算</h1>
+
+<p><img src="./virtulization.png" alt="" /></p>
+
+<h1 id="hypervisor分类">hypervisor分类</h1>
+
+<ul>
+<li>Type-1 裸机</li>
+</ul>
+
+<p>KVM, QEMU, VMWare, Virtualbox</p>
+
+<ul>
+<li>Type-2 托管</li>
+</ul>
+
+<p>XenServer， Hyper-v， KVM, ESX, Xen</p>
+
+<h1 id="虚拟机的问题">虚拟机的问题</h1>
+
+<ul>
+<li>贵</li>
+</ul>
+
+<p>一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年</p>
+
+<ul>
+<li>操作慢</li>
+</ul>
+
+<p>一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.</p>
+
+<p>启动，备份非常不便。</p>
+
+<h1 id="容器计算">容器计算</h1>
+
+<p><img src="./container.png" alt="" /></p>
+
+<p>|虚拟机|            容器
+|:&mdash;|:&mdash;|:&mdash;|
+构件|  完整的操作系统和应用|  微内核和应用
+虚拟技术|  硬件虚拟化|  操作系统虚拟化</p>
+
+<p><img src="./c-vs-v.png" alt="" /></p>
+
+<h1 id="容器计算带来什么好处">容器计算带来什么好处</h1>
+
+<ul>
+<li>容器镜像小</li>
+</ul>
+
+<p>alpine的容量是2M</p>
+
+<ul>
+<li>容器占用的硬件资源更少</li>
+</ul>
+
+<p>一台PC可以启动上百个容器</p>
+
+<ul>
+<li>容器启动快</li>
+</ul>
+
+<p>一般几毫秒可以启动</p>
+
+<ul>
+<li>容器不用备份</li>
+</ul>
+
+<p>容器创建只需要一个Dockerfile，容器镜像是只读镜像</p>
+
+<ul>
+<li>容器和微服务器架构，DevOps, CI/CD天然融合</li>
+</ul>
+
+<h1 id="容器存在的问题">容器存在的问题</h1>
+
+<ul>
+<li>安全</li>
+</ul>
+
+<p>容器共享操作系统内核，具体较低的隔离级别，</p>
+
+<p>如果内核出问题，其他的容器也会处于风险之中</p>
+
+<ul>
+<li>网络</li>
+</ul>
+
+<p>如何在足够的隔离级别和复杂的高效网络连接权衡</p>
+
+<h1 id="容器编排">容器编排</h1>
+
+<ul>
+<li><p>K8S</p></li>
+
+<li><p>EKS</p></li>
+
+<li><p>SWARM</p></li>
+
+<li><p>MARATHON</p></li>
+
+<li><p>MAGNM</p></li>
+
+<li><p>FLEET</p></li>
+</ul>
+
+<p>用户轻松在计算集群里面部署，管理，扩展基于容器的应用而</p>
+
+<p>不用关心容器和服务器的绑定，系统扩容等问题</p>
+
+<h1 id="容器网络">容器网络</h1>
+
+<ul>
+<li>CNM</li>
+</ul>
+
+<p>DOCKER规范，libnetwork实现</p>
+
+<p>内置的驱动包括none, host, bridge , overlay, MACvlan</p>
+
+<pre><code>$ docker network ls
+ NAME                 DRIVER              SCOPE
+68343147e103        bridge               bridge              local
+5d7df1d8f633        docker_default       bridge              local
+d3990aab14a9        host                 host                local
+fe4ec77439f4        none                 null                local
+</code></pre>
+
+<p><img src="./CNM.png" alt="" /></p>
+
+<ul>
+<li>CNI</li>
+</ul>
+
+<p>COREOS规范，被K8S, MESOS, CLOUD Foundry采用</p>
+
+<p>json格式的网络模式定义</p>
+
+<p><img src="./cni.png" alt="" /></p>
+
+<h1 id="docker的核心组件">docker的核心组件</h1>
+
+<ul>
+<li><p>LXC</p></li>
+
+<li><p>AUFS</p></li>
+</ul>
+
+<h1 id="docker的优势">DOCKER的优势</h1>
+
+<ul>
+<li><p>镜像不可修改</p></li>
+
+<li><p>部署没有第三方依赖</p></li>
+
+<li><p>注册器简单且容易扩展</p></li>
+
+<li><p>容易回滚</p></li>
+</ul>
+
+<p>对DOCKER的误解：</p>
+
+<ul>
+<li><p>如果学习了docker就不必学其他的系统知识了</p></li>
+
+<li><p>每个容器只能有一个进程</p></li>
+
+<li><p>用容器了就不必使用其他的配置管理工具了</p></li>
+
+<li><p>必须使用容器才能达到高效敏捷和一致性状态优势</p></li>
+</ul>
+
+<h1 id="open-containers-initiative">Open Containers Initiative</h1>
+
+<p><img src="./oci.png" alt="" /></p>
+
+<h1 id="unikernel">UniKernel</h1>
+
+<p><img src="./UniKernel.png" alt="" /></p>
+
+<h1 id="函数计算的兴起">函数计算的兴起</h1>
+
+<p><strong>No server is easier to manage than no-server</strong></p>
+
+<p>背景：</p>
+
+<ul>
+<li>前端技术演进</li>
+</ul>
+
+<ol>
+<li>强大的原生客户/移动客户端让开发者通过调用各种云服务</li>
+</ol>
+
+<p>编写大规模互联网应用，替换传统的后台服务</p>
+
+<ol>
+<li>HTTP/S应用接口及基于token的安全认证成为工业标准</li>
+</ol>
+
+<ul>
+<li>后台的定制化开发</li>
+</ul>
+
+<p>基于云服务器定制开发</p>
+
+<h1 id="serverless-vs-paas">ServerLess  VS  PaaS</h1>
+
+<p>PasS可能是ServerLess的一个迭代</p>
+
+<p><img src="./serverless.png" alt="" /></p>
+
+<p><img src="./article.png" alt="" /></p>
 
     </div>
 
@@ -515,13 +784,7 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/isp/">ISP</a>
-  
-  <a class="badge badge-light" href="/tags/broadband/">BROADBAND</a>
-  
-  <a class="badge badge-light" href="/tags/wisp/">WISP</a>
-  
-  <a class="badge badge-light" href="/tags/network/">NETWORK</a>
+  <a class="badge badge-light" href="/tags/architecture/">ARCHITECTURE</a>
   
 </div>
 
@@ -545,24 +808,6 @@ https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gb
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/">Wireless and Wired Connection Both at a Same Time in Windows</a></li>
-          
-          <li><a href="/post/k8s-cni/">K8S CNI操作指引</a></li>
-          
-          <li><a href="/post/k8s_cni_calico/">K8s CNI之Calico实现</a></li>
-          
-          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
-          
-          <li><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></li>
-          
-        </ul>
-      </div>
       
     
 

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -53,7 +53,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#4caf50">
   
 
   
@@ -114,8 +114,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/architecture/index.xml" type="application/rss+xml" title="为人民服务">
-  <link rel="feed" href="https://wubigo.com/tags/architecture/index.xml" type="application/rss+xml" title="为人民服务">
+  <link rel="alternate" href="https://wubigo.com/tags/architecture/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="feed" href="https://wubigo.com/tags/architecture/index.xml" type="application/rss+xml" title="SOFTCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -136,20 +136,20 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="为人民服务">
+  <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/tags/architecture/">
-  <meta property="og:title" content="architecture | 为人民服务">
+  <meta property="og:title" content="ARCHITECTURE | SOFTCORE">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2016-02-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-09-26T07:48:37&#43;08:00">
   
 
   
 
   
 
-  <title>architecture | 为人民服务</title>
+  <title>ARCHITECTURE | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +189,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">为人民服务</a>
+      <a class="navbar-brand" href="/">SOFTCORE</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -366,7 +366,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">architecture</h1>
+  <h1 itemprop="name">ARCHITECTURE</h1>
 
   
 
@@ -381,13 +381,32 @@
   
   
   <div>
-    <h2><a href="/post/2016-02-01-microservice-notes/">microservice notes</a></h2>
+    <h2><a href="/post/from-vm-to-container-to-serverless/">从虚拟机到容器再到函数计算</a></h2>
     <div class="article-style">
       
-      Microservices at Netflix Scale https://gotocon.com/dl/goto-amsterdam-2016/slides/RuslanMeshenberg_MicroservicesAtNetflixScaleFirstPrinciplesTradeoffsLessonsLearned.pdf
-securing microservice with UAA
-user accounting and authorizing service(UAA) Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
-JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.
+      昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快
+工作流服务会走进很多中小企业的应用开发工具包。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&mdash;|:&mdash;|:&mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M
       
     </div>
   </div>
@@ -545,7 +564,7 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>
