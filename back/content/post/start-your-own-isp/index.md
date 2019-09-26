@@ -34,3 +34,6 @@ wireless fiber
 
 
 https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution
+
+
+https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml
