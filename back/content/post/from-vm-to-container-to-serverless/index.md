@@ -30,9 +30,11 @@ https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-suppor
 
 离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
 
-支持工作流，看来这个千亿规模的市场又快被颠覆了。 可以预计很快
+支持工作流，看来这个千亿规模的市场又快被颠覆了。
 
-工作流服务会走进很多中小企业的应用开发工具包。
+20对年来，工作流都是超大型企业的配置专利，而STEP function的推出
+
+可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。
 
 回顾一下自己的工作历史：
 
