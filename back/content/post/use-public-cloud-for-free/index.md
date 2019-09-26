@@ -78,7 +78,15 @@ git clone git@github.com:localstack/localstack.git
 
 ```
  SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}
+
+ DATA_DIR=${DATA_DIR-/tmp/localstack/data }
+
+
+ volumes:
+      - "${TMPDIR:-d:/tmp/localstack}:/tmp/localstack"
 ```
+
+**make sure driver D is shared in docker desktop daemon**
 
 
 ```
