@@ -20,9 +20,7 @@ categories = []
 +++
 
 
-昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
-
-https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/
+昨天看到AWS [STEP FUNCTIONS支持嵌套的工作流](https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/)
 
 ，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
 
