@@ -98,7 +98,27 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 
 系统消息显示需要的服务/端口已经启动。
 
+
 到目前为至，localstack已经安装完毕。
+
+
+# 记录并保存localstack的操作数据
+
+ Localstack is recording all API calls in JSON file. 
+ 
+ When the container restarts, it will re-apply these calls - 
+ 
+ this is how we are able to keep our data between restarts
+
+`docker-compose.yml`
+
+```
+- DATA_DIR=/tmp/localstack/data
+```
+
+
+
+
 
 下边，我们来验证公有云服务是否可用。
 
