@@ -61,6 +61,8 @@ localstack是一个非常活跃的正在快速成长中的项目，
 
 ```
 git clone git@github.com:localstack/localstack.git
+git fetch --all
+git checkout tags/v0.10.3 -b v0.10.3
 
 ```
 
