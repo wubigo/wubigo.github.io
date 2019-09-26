@@ -1310,6 +1310,107 @@ ip -s link show eth0  stop irqbalance for home user
 
 
 
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-win10-volume/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-win10-volume/" itemprop="url">WIN用户使用Docker卷</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>在windows，启动卷必须线启用共享驱动</p>
+
+<h1 id="启用共享驱动">启用共享驱动</h1>
+
+<pre><code>1: Open &quot;Settings&quot; in Docker Desktop -&gt; 
+   &quot;Shared Drives&quot; -&gt; 
+   &quot;Reset Credentials&quot; -&gt; 
+   select drive &quot;D&quot; -&gt; &quot;Apply&quot;
+</code></pre>
+
+<h1 id="检查测试卷">检查测试卷</h1>
+
+<pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
 
@@ -2177,93 +2278,6 @@ log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).
   <div class="article-style" itemprop="articleBody">
     <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/shadowsocks-ubuntu-client/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/shadowsocks-ubuntu-client/" itemprop="url">Shadowsocks Ubuntu Client</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    install client pip install shadowsocks  client.json
-{ &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
-listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.
   </div>
   
 

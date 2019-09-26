@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content=" 在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &quot;Settings&quot; in Docker Desktop -&gt; &quot;Shared Drives&quot; -&gt; &quot;Reset Credentials&quot; -&gt; select drive &quot;D&quot; -&gt; &quot;Apply&quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/win/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-win10-volume/">
 
   
 
@@ -114,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/win/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/tags/win/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/win/">
+  <link rel="canonical" href="https://wubigo.com/post/docker-win10-volume/">
 
   
   
@@ -137,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/tags/win/">
-  <meta property="og:title" content="WIN | SOFTCORE">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/docker-win10-volume/">
+  <meta property="og:title" content="WIN用户使用Docker卷 | SOFTCORE">
+  <meta property="og:description" content=" 在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &quot;Settings&quot; in Docker Desktop -&gt; &quot;Shared Drives&quot; -&gt; &quot;Reset Credentials&quot; -&gt; select drive &quot;D&quot; -&gt; &quot;Apply&quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-09-26T17:14:12&#43;08:00">
+  <meta property="article:published_time" content="2018-09-26T17:14:12&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-09-26T17:14:12&#43;08:00">
   
 
   
 
   
 
-  <title>WIN | SOFTCORE</title>
+  <title>WIN用户使用Docker卷 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -345,7 +347,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -362,47 +366,226 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">WIN用户使用Docker卷</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">WIN</h1>
+
+
+
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-win10-volume/#disqus_thread"></a>
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=WIN%e7%94%a8%e6%88%b7%e4%bd%bf%e7%94%a8Docker%e5%8d%b7&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-win10-volume%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-win10-volume%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-win10-volume%2f&amp;title=WIN%e7%94%a8%e6%88%b7%e4%bd%bf%e7%94%a8Docker%e5%8d%b7"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-win10-volume%2f&amp;title=WIN%e7%94%a8%e6%88%b7%e4%bd%bf%e7%94%a8Docker%e5%8d%b7"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=WIN%e7%94%a8%e6%88%b7%e4%bd%bf%e7%94%a8Docker%e5%8d%b7&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-win10-volume%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-       在windows，启动卷必须线启用共享驱动
-启用共享驱动 1: Open &quot;Settings&quot; in Docker Desktop -&gt; &quot;Shared Drives&quot; -&gt; &quot;Reset Credentials&quot; -&gt; select drive &quot;D&quot; -&gt; &quot;Apply&quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  
-      
+
+<p>在windows，启动卷必须线启用共享驱动</p>
+
+<h1 id="启用共享驱动">启用共享驱动</h1>
+
+<pre><code>1: Open &quot;Settings&quot; in Docker Desktop -&gt; 
+   &quot;Shared Drives&quot; -&gt; 
+   &quot;Reset Credentials&quot; -&gt; 
+   select drive &quot;D&quot; -&gt; &quot;Apply&quot;
+</code></pre>
+
+<h1 id="检查测试卷">检查测试卷</h1>
+
+<pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
+</code></pre>
+
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></h2>
-    <div class="article-style">
-      
-       docker proxy run cmd as administrator cmd&gt;cd $GIT_HOME cmd&gt;echo &gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  
-      
-    </div>
-  </div>
-  
 
-  
+    
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
+  
+  <a class="badge badge-light" href="/tags/win/">WIN</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></li>
+          
+          <li><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></li>
+          
+          <li><a href="/post/docker-alpine/">Docker Alpine</a></li>
+          
+          <li><a href="/post/docker_network/">Docker网络</a></li>
+          
+          <li><a href="/post/docker_network_macvlan/">Docker网络macvlan</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-wubigo-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -556,6 +739,4 @@
 
   </body>
 </html>
-
-
 

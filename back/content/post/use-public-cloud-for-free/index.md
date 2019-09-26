@@ -104,6 +104,8 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 
 # 记录并保存localstack的操作数据
 
+ if volumes in  docker settings
+ 
  Localstack is recording all API calls in JSON file. 
  
  When the container restarts, it will re-apply these calls - 

@@ -415,6 +415,16 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html
   </div>
   
   <div>
+    <h2><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></h2>
+    <div class="article-style">
+      
+       在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &quot;Settings&quot; in Docker Desktop -&gt; &quot;Shared Drives&quot; -&gt; &quot;Reset Credentials&quot; -&gt; select drive &quot;D&quot; -&gt; &quot;Apply&quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></h2>
     <div class="article-style">
       
