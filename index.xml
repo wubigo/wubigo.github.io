@@ -505,7 +505,7 @@ Default output format [None]:
 
 &lt;p&gt;配置保持一致&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:8083 list-activities
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-activities
 
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -513,13 +513,13 @@ Default output format [None]:
 &lt;li&gt;&lt;p&gt;创建一个HelloWorld工作流&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;
-(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:8083 create-state-machine --definition &amp;quot;{\&amp;quot;Comment\&amp;quot;: \&amp;quot;A Hello World example of the Amazon States Language using a Pass state\&amp;quot;,\&amp;quot;StartAt\&amp;quot;: \&amp;quot;HelloWorld\&amp;quot;,\&amp;quot;States\&amp;quot;: {\&amp;quot;HelloWorld\&amp;quot;: {\&amp;quot;Type\&amp;quot;: \&amp;quot;Pass\&amp;quot;,\&amp;quot;End\&amp;quot;: true}}}&amp;quot; --name &amp;quot;HelloWorld&amp;quot; --role-arn &amp;quot;arn:aws:iam::012345678901:role/DummyRole&amp;quot;
+(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &amp;quot;{\&amp;quot;Comment\&amp;quot;: \&amp;quot;A Hello World example of the Amazon States Language using a Pass state\&amp;quot;,\&amp;quot;StartAt\&amp;quot;: \&amp;quot;HelloWorld\&amp;quot;,\&amp;quot;States\&amp;quot;: {\&amp;quot;HelloWorld\&amp;quot;: {\&amp;quot;Type\&amp;quot;: \&amp;quot;Pass\&amp;quot;,\&amp;quot;End\&amp;quot;: true}}}&amp;quot; --name &amp;quot;HelloWorld&amp;quot; --role-arn &amp;quot;arn:aws:iam::012345678901:role/DummyRole&amp;quot;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;显示创建的工作流&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:8083 list-state-machines
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
 {
 &amp;quot;stateMachines&amp;quot;: [
     {

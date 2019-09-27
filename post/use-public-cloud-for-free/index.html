@@ -657,7 +657,7 @@ Default output format [None]:
 
 <p>配置保持一致</p>
 
-<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:8083 list-activities
+<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 list-activities
 
 </code></pre>
 
@@ -665,13 +665,13 @@ Default output format [None]:
 <li><p>创建一个HelloWorld工作流</p>
 
 <pre><code>
-(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:8083 create-state-machine --definition &quot;{\&quot;Comment\&quot;: \&quot;A Hello World example of the Amazon States Language using a Pass state\&quot;,\&quot;StartAt\&quot;: \&quot;HelloWorld\&quot;,\&quot;States\&quot;: {\&quot;HelloWorld\&quot;: {\&quot;Type\&quot;: \&quot;Pass\&quot;,\&quot;End\&quot;: true}}}&quot; --name &quot;HelloWorld&quot; --role-arn &quot;arn:aws:iam::012345678901:role/DummyRole&quot;
+(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &quot;{\&quot;Comment\&quot;: \&quot;A Hello World example of the Amazon States Language using a Pass state\&quot;,\&quot;StartAt\&quot;: \&quot;HelloWorld\&quot;,\&quot;States\&quot;: {\&quot;HelloWorld\&quot;: {\&quot;Type\&quot;: \&quot;Pass\&quot;,\&quot;End\&quot;: true}}}&quot; --name &quot;HelloWorld&quot; --role-arn &quot;arn:aws:iam::012345678901:role/DummyRole&quot;
 
 </code></pre></li>
 
 <li><p>显示创建的工作流</p>
 
-<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:8083 list-state-machines
+<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
 {
 &quot;stateMachines&quot;: [
     {
