@@ -169,7 +169,7 @@ Default output format [None]:
 配置保持一致
 
 ```
-(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:8083 list-activities
+(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:4585 list-activities
 
 ```
 
@@ -178,14 +178,14 @@ Default output format [None]:
 
 ```
 
-(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:8083 create-state-machine --definition "{\"Comment\": \"A Hello World example of the Amazon States Language using a Pass state\",\"StartAt\": \"HelloWorld\",\"States\": {\"HelloWorld\": {\"Type\": \"Pass\",\"End\": true}}}" --name "HelloWorld" --role-arn "arn:aws:iam::012345678901:role/DummyRole"
+(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition "{\"Comment\": \"A Hello World example of the Amazon States Language using a Pass state\",\"StartAt\": \"HelloWorld\",\"States\": {\"HelloWorld\": {\"Type\": \"Pass\",\"End\": true}}}" --name "HelloWorld" --role-arn "arn:aws:iam::012345678901:role/DummyRole"
 
 ```
 
 -  显示创建的工作流
 
 ```
-(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:8083 list-state-machines
+(venv) d:\code\venv>aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
 {
     "stateMachines": [
         {
