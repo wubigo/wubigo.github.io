@@ -41,13 +41,13 @@
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
  下载源代码
-git clone git@github.com:localstack/localstack.git  启用需要使用的AWS服务
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
   修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
  SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)... localstack_1 | Starting mock IAM (http port 4593).">
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/use-public-cloud-for-free/">
@@ -169,13 +169,13 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
  下载源代码
-git clone git@github.com:localstack/localstack.git  启用需要使用的AWS服务
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
   修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
  SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)... localstack_1 | Starting mock IAM (http port 4593)."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-12T07:46:24&#43;08:00">
@@ -560,6 +560,8 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 <li><p>下载源代码</p>
 
 <pre><code>git clone git@github.com:localstack/localstack.git
+git fetch --all
+git checkout tags/v0.10.3 -b v0.10.3
 
 </code></pre></li>
 
