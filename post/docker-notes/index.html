@@ -622,6 +622,29 @@ inter-container communication</p>
 <pre><code>com.docker.network.bridge.enable_ip_masquerade
 </code></pre>
 
+<h1 id="改变默认的数据存储位置和驱动">改变默认的数据存储位置和驱动</h1>
+
+<ul>
+<li>配置</li>
+</ul>
+
+<p><code>daemon.json</code></p>
+
+<pre><code>{
+    &quot;data-root&quot;: &quot;/mnt/docker&quot;,
+    &quot;storage-driver&quot;: &quot;overlay2&quot;
+}
+</code></pre>
+
+<ul>
+<li><p>移动数据</p>
+
+<pre><code>systemctl stop docker
+mv /var/lib/docker/* /mnt/docker/
+systemctl start docker
+</code></pre></li>
+</ul>
+
 <h1 id="定位容器的veth接口">定位容器的VETH接口</h1>
 
 <pre><code>docker exec CID sudo ethtool -S eth0
