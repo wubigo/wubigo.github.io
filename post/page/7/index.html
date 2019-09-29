@@ -403,6 +403,92 @@
 
 
 
+<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/redis-with-spring-boot-v2/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/redis-with-spring-boot-v2/" itemprop="url">Redis With Spring Boot V2</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    LETTUCE VS JEDIS While Jedis is easy to use and supports a vast number of Redis features, it is not thread safe and needs connection pooling to work in a multi-threaded environment. Connection pooling comes at the cost of a physical connection per Jedis instance which increases the number of Redis connections.
+Lettuce, on the other hand, is built on netty (https://netty.io/) and connection instances can be shared across multiple threads.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="datePublished">
 <meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="dateModified">
 
@@ -2129,105 +2215,6 @@ mysql utf8 For the recent version of MySQL,
 default-character-set = utf8 causes a problem. It&rsquo;s deprecated I think.
 As Justin Ball says in &ldquo;Upgrade to MySQL 5.5.12 and now MySQL won’t start, you should:
 Remove that directive and you should be good. Then your configuration file (&lsquo;/etc/my.cnf&rsquo; for example) should look like that: [mysqld] collation-server = utf8_unicode_ci init-connect=&lsquo;SET NAMES utf8&rsquo; character-set-server = utf8 Restart MySQL.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2014-04-03-cdn/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
-The advantages of serving content from such a sub-domain, however, are that
-The sub-domain can be a cookie-less domain
-If you use your cookies correctly (ie.
   </div>
   
 

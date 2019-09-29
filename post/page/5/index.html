@@ -433,6 +433,92 @@
   
   
   <span class="middot-divider"></span>
+  <a href="/post/spring-gateway/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/spring-gateway/" itemprop="url">Spring Gateway</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
   <a href="/post/spring-oauth2/#disqus_thread"></a>
   
 
@@ -2104,127 +2190,6 @@ git fetch upstream git checkout master git rebase upstream/master git push  查�
     <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker_network/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker默认的网络">docker默认的网络</h1>
-
-<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
-
-<h1 id="docker网络macvlan">Docker网络macvlan</h1>
-
-<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
-
-<h1 id="docker宿主网络">Docker宿主网络</h1>
-
-<p><a href="/post/docker-network-host/">宿主网络</a></p>
-
-<h1 id="docker覆盖网络">Docker覆盖网络</h1>
-
-<h1 id="宿主端口绑定">宿主端口绑定</h1>
-
-<p>绑定方式： -p</p>
-
-<p>绑定形式</p>
-
-<blockquote>
-<p>ip:hostPort:containerPort| ip::containerPort <br />
-  | hostPort:containerPort | containerPort</p>
-</blockquote>
-
-<p>containerPort必须指定</p>
-
-<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
-</code></pre>
-
-<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
-
-<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
-</code></pre>
-
-  </div>
   
 
   
