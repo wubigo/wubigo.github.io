@@ -159,6 +159,27 @@ docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.1
 com.docker.network.bridge.enable_ip_masquerade
 ```
 
+# 改变默认的数据存储位置和驱动
+
+- 配置
+
+`daemon.json`
+
+```
+{
+    "data-root": "/mnt/docker",
+    "storage-driver": "overlay2"
+}
+```
+
+- 移动数据
+
+```
+systemctl stop docker
+mv /var/lib/docker/* /mnt/docker/
+systemctl start docker
+```
+
 # 定位容器的VETH接口
 
 ```
