@@ -5,8 +5,86 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Sep 2019 07:48:37 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 14:21:19 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>
+
+&lt;p&gt;在windows中使用docker有多种方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;docker WIN10 desktop&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;WSL&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文主要介绍在WSL中使用docker&lt;/p&gt;
+
+&lt;h1 id=&#34;前提条件&#34;&gt;前提条件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows 10 Version 1803以上(支持cgroups)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Docker 17.09&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;安装wsl&#34;&gt;安装WSL&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34; target=&#34;_blank&#34;&gt;install WSL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装ubuntu-for-wsl-16-0-4-lts&#34;&gt;安装Ubuntu for WSL 16.0.4 LTS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-manual&#34; target=&#34;_blank&#34;&gt;install ubuntu in WSL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装docker&#34;&gt;安装DOCKER&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装docker&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
+$ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
+$ sudo usermod -aG docker $USER
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;启动docker服务&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/usr/local/sbin/start_docker.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+sudo cgroupfs-mount
+sudo service docker start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;在系统启动的时候运行docker服务&#34;&gt;在系统启动的时候运行docker服务&lt;/h1&gt;
+
+&lt;p&gt;在&lt;strong&gt;控制面版\管理工具\计划任务&lt;/strong&gt;创建任务&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./task-trigger.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./action.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;操作的参数如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-c &amp;quot;sudo /bin/sh /usr/local/sbin/start_docker.sh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;REF&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa&#34; target=&#34;_blank&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>虚拟机 -&gt; 容器 -&gt; 函数计算</title>
@@ -1012,45 +1090,6 @@ git branch -av|grep 1.13
 
 &lt;pre&gt;&lt;code&gt;func (kl *Kubelet) syncPod(o syncPodOptions) error {
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>通过SDK操纵公有云</title>
-      <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
-      <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
-      <description>
-
-&lt;p&gt;基于腾讯云Go SDK开发&lt;/p&gt;
-
-&lt;h1 id=&#34;下载开发工具集&#34;&gt;下载开发工具集&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;go get -u github.com/tencentcloud/tencentcloud-sdk-go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;为集群准备cvm&#34;&gt;为集群准备CVM&lt;/h1&gt;
-
-&lt;p&gt;从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
-然后把安全凭证传送给SDK客户端&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;)
-credential := CloudCommon.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;)
-client, _ := cvm.NewClient(credential, regions.Beijing)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;request := cvm.NewAllocateHostsRequest()
-request.FromJsonString(K8SClient.Configs(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;K8S-TENCENT-PROD&amp;quot;))
-response, err := client.AllocateHosts(request)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;通过ansible在cvm搭建k8s集群&#34;&gt;通过ANSIBLE在CVM搭建K8S集群&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;Ansible.Hosts().Get(response.ToJsonString())
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;调用ANSIBLE开始在CVM部署K8S集群&lt;/p&gt;
 </description>
     </item>
     

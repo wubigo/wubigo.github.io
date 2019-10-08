@@ -48,6 +48,10 @@ categories = []
 
 - 启动ubuntu in WSL(以管理员身份运行)
 
+```
+c:\>wsl -d Ubuntu-16.04
+```
+
 - 安装docker
 
 ```
@@ -79,6 +83,15 @@ sudo service docker start
 
 ```
 -c "sudo /bin/sh /usr/local/sbin/start_docker.sh"
+```
+
+# 备份WSL
+
+**在备份前保存并关闭所有的WSL进程，否则正在运行的进程被强行关闭**
+
+```
+c:\>wsl -l
+c:\>wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 ```
 
 REF
