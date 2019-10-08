@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-09-26T17:14:12&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
   
 
   
@@ -379,6 +379,26 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/docker-within-wsl/">在WSL中使用Docker</a></h2>
+    <div class="article-style">
+      
+      在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
+ 安装docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu $ sudo usermod -aG docker $USER  启动docker服务
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></h2>

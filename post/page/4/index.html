@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-09-26T07:48:37&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
   
 
   
@@ -378,6 +378,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-sdk-setup/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-sdk-setup/" itemprop="url">K8S SDK Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="安装golang-dep">安装Golang Dep</h1>
+
+<pre><code>go get -v github.com/tools/godep
+</code></pre>
+
+<h1 id="安装client-go">安装client-go</h1>
+
+<pre><code>go get k8s.io/client-go/kubernetes
+cd $GOPATH/src/k8s.io/client-go
+git checkout v10.0.0
+godep restore ./...
+</code></pre>
+
+<h1 id="集群外开发">集群外开发</h1>
+
+<h1 id="集群内开发">集群内开发</h1>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2156,96 +2259,6 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     # side car proxy
  方法1  Namespace labels
 kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/cassandra/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/cassandra/">
-      <img src="/post/cassandra/featured_hu22b11bbc68f072918e062ea4bc21e939_19335_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cassandra/" itemprop="url">Cassandra</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.
   </div>
   
 

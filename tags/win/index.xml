@@ -6,10 +6,30 @@
     <description>Recent content in WIN on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Sep 2018 17:14:12 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 14:21:19 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/win/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
+ 安装docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu $ sudo usermod -aG docker $USER  启动docker服务</description>
+    </item>
     
     <item>
       <title>WIN用户使用Docker卷</title>
