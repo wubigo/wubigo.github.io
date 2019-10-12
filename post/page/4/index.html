@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-11T17:39:50&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-12T16:19:59&#43;08:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-03-07-connectingtosslservices/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-03-07-connectingtosslservices/" itemprop="url">Connecting to SSL services</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    JDK Version java -version openjdk version &quot;1.8.0_151&quot; OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12) OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)  Verify that the target server is configured to serve SSL https://www.ssllabs.com/ssltest/
+Connecting to SSL services https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html
+If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you are using Sun’s JDK, you need to install the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files. See the following links for more information:
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2205,103 +2292,6 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-05-03-atomnote/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-05-03-atomnote/" itemprop="url">atom note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="proxy-config-for-windows">proxy config for Windows</h1>
-
-<pre><code>   ~/.atom/.apmrc
-   https-proxy = http://192.168.0.119:3128/
-   http-proxy = http://192.168.0.119:3128/
-</code></pre>
-
-<h1 id="set-up-use-atom-as-a-markdown-editor">Set Up &amp; Use Atom as a Markdown Editor</h1>
-
-<p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
-
   </div>
   
 
