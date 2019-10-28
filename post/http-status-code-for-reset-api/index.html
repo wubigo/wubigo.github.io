@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,13 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
+ Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+https://httpstatuses.com/
+The main choice is do you want to treat the HTTP status code as part of your REST API or not.">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/http-status-code-for-reset-api/">
 
   
 
@@ -116,15 +115,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/http-status-code-for-reset-api/">
 
   
   
@@ -139,19 +138,24 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | SOFTCORE">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/http-status-code-for-reset-api/">
+  <meta property="og:title" content="REST API中如何使用Http状态码 | SOFTCORE">
+  <meta property="og:description" content="Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
+ Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+https://httpstatuses.com/
+The main choice is do you want to treat the HTTP status code as part of your REST API or not."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
+  <meta property="article:published_time" content="2018-10-26T11:14:14&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-10-26T11:14:14&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | SOFTCORE</title>
+  <title>REST API中如何使用Http状态码 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -333,22 +337,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -363,7 +351,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -380,179 +370,244 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">REST API中如何使用Http状态码</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/faas/">FAAS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/serverless/">SERVERLESS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/deeplearning/">DEEPLEARNING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/rnn/">RNN</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/speech_recognition/">SPEECH_RECOGNITION</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/cni/">CNI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/blog/">BLOG</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/http/">HTTP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/web/">WEB</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/tensorflow/">TENSORFLOW</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/java/">JAVA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/rest/">REST</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/paas/">PAAS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/go/">GO</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/lang/">LANG</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/devops/">DEVOPS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/communication/">communication</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/bigdata/">BIGDATA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/datalake/">DATALAKE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/groovy/">GROOVY</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/">&laquo;</a></li>
+  <span class="article-date">
     
     
-    <li class="page-item"><a class="page-link" href="/tags/page/3/">&raquo;</a></li>
+      
     
+    <time>Oct 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/http-status-code-for-reset-api/#disqus_thread"></a>
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=REST%20API%e4%b8%ad%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Http%e7%8a%b6%e6%80%81%e7%a0%81&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fhttp-status-code-for-reset-api%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fhttp-status-code-for-reset-api%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fhttp-status-code-for-reset-api%2f&amp;title=REST%20API%e4%b8%ad%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Http%e7%8a%b6%e6%80%81%e7%a0%81"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fhttp-status-code-for-reset-api%2f&amp;title=REST%20API%e4%b8%ad%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Http%e7%8a%b6%e6%80%81%e7%a0%81"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=REST%20API%e4%b8%ad%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Http%e7%8a%b6%e6%80%81%e7%a0%81&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fhttp-status-code-for-reset-api%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="status-line">Status-Line</h1>
+
+<p>The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.</p>
+
+<pre><code>      Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+</code></pre>
+
+<h1 id="status-code-vs-status-in-body">status code vs status in body</h1>
+
+<p><a href="https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html" target="_blank">https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html</a></p>
+
+<p><a href="https://httpstatuses.com/" target="_blank">https://httpstatuses.com/</a></p>
+
+<p>The main choice is do you want to treat the HTTP status code as part of your REST API or not.</p>
+
+<p>Both ways work fine. I agree that, strictly speaking, one of the ideas of REST is that you should use the HTTP Status code as a part of your API (return 200 or 201 for a successful operation and a 4xx or 5xx depending on various error cases.) However, there are no REST police. You can do what you want. I have seen far more egregious non-REST APIs being called &ldquo;RESTful.&rdquo;</p>
+
+<p>At this point (August, 2015) I do recommend that you use the HTTP Status code as part of your API. It is now much easier to see the return code when using frameworks than it was in the past. In particular, it is now easier to see the non-200 return case and the body of non-200 responses than it was in the past.</p>
+
+<p>The HTTP Status code is part of your api</p>
+
+<p>You will need to carefully pick 4xx codes that fit your error conditions. You can include a rest, xml, or plaintext message as the payload that includes a sub-code and a descriptive comment.</p>
+
+<p>The clients will need to use a software framework that enables them to get at the HTTP-level status code. Usually do-able, not always straight-forward.</p>
+
+<p>The clients will have to distinguish between HTTP status codes that indicate a communications error and your own status codes that indicate an application-level issue.</p>
+
+<p>The HTTP Status code is NOT part of your api</p>
+
+<p>The HTTP status code will always be 200 if your app received the request and then responded (both success and error cases)</p>
+
+<p>ALL of your responses should include &ldquo;envelope&rdquo; or &ldquo;header&rdquo; information. Typically something like:</p>
+
+<pre><code>envelope_ver: 1.0
+status:  # use any codes you like. Reserve a code for success. 
+msg: &quot;ok&quot; # A human string that reflects the code. Useful for debugging.
+data: ...  # The data of the response, if any.
+</code></pre>
+
+<p>This method can be easier for clients since the status for the response is always in the same place (no sub-codes needed), no limits on the codes, no need to fetch the HTTP-level status-code.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/http/">HTTP</a>
+  
+  <a class="badge badge-light" href="/tags/rest/">REST</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/http-session-management/">HTTP Session Management</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-wubigo-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -706,6 +761,4 @@
 
   </body>
 </html>
-
-
 
