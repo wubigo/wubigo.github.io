@@ -105,9 +105,8 @@ vendor package go help gopath find .</description>
       <pubDate>Fri, 01 Jan 2010 19:39:03 +0800</pubDate>
       
       <guid>https://wubigo.com/post/2010-01-01-java-notes/</guid>
-      <description>访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括
- 方法名 参数类型 参数顺序  不包括
- 返回类型 可见性 抛出例外  过载和覆盖  过载: 方法名称相同但签名不同 覆盖:  签名相同，而且返回类型也必须相同 可见性不能减少，可以增加可见性 例外必须相同或者是父类例外的子类   visibility and Atomicity in the absence of synchronization, there are a number of reasons a thread might not immediately ‐ or ever ‐ see the results of an operation in another thread.</description>
+      <description>javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括</description>
     </item>
     
   </channel>

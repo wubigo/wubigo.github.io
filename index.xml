@@ -5,8 +5,103 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 16:19:59 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2019 11:26:02 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>开源的工作流引擎技术演进历史</title>
+      <link>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</link>
+      <pubDate>Sun, 27 Oct 2019 11:26:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</guid>
+      <description>
+
+&lt;h1 id=&#34;第一代&#34;&gt;第一代&lt;/h1&gt;
+
+&lt;p&gt;2003年， jBPM 1.0发布。&lt;/p&gt;
+
+&lt;p&gt;运行环境：J2EE&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)&lt;/p&gt;
+
+&lt;p&gt;当时的主流的技术： applets, Swing桌面和EJB&lt;/p&gt;
+
+&lt;h1 id=&#34;第二代&#34;&gt;第二代&lt;/h1&gt;
+
+&lt;p&gt;2004年，jBPM 2.0发布&lt;/p&gt;
+
+&lt;p&gt;同时jBPM加入JBoss基金会.&lt;/p&gt;
+
+&lt;p&gt;运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器&lt;/p&gt;
+
+&lt;h1 id=&#34;第三代&#34;&gt;第三代&lt;/h1&gt;
+
+&lt;p&gt;2005年, jBPM 3.0发布，支持BPEL&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：过程虚拟机&lt;/p&gt;
+
+&lt;p&gt;架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通&lt;/p&gt;
+
+&lt;p&gt;过JAVA实现状态机，而且支持建模&lt;/p&gt;
+
+&lt;p&gt;HIBERNETE作为持久机制并同时提供会话对象的概念，&lt;/p&gt;
+
+&lt;p&gt;工作流引擎所有的相关性交互都纳入&lt;a href=&#34;https://docs.jboss.org/jbpm/v3.2/javadoc-jpdl/org/jbpm/JbpmContext.html&#34; target=&#34;_blank&#34;&gt;contextual block&lt;/a&gt;范畴&lt;/p&gt;
+
+&lt;p&gt;这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础&lt;/p&gt;
+
+&lt;h1 id=&#34;第四代&#34;&gt;第四代&lt;/h1&gt;
+
+&lt;p&gt;2009年， jBPM 4.0 alpha版发布.&lt;/p&gt;
+
+&lt;p&gt;过程虚拟机成功工作流引擎的核心。&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：BPMN, jPDL 和 BPEL&lt;/p&gt;
+
+&lt;p&gt;因为团队人员离开并启动Activiti，正式版没能发布。&lt;/p&gt;
+
+&lt;p&gt;主要改进：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无状态的服务API&lt;/li&gt;
+&lt;li&gt;运行时和历史数据的分离： 保证运行时持久的性能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;第五代&#34;&gt;第五代&lt;/h1&gt;
+
+&lt;p&gt;2010年, Activiti 1发布&lt;/p&gt;
+
+&lt;p&gt;改变：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;版权从LGPL转到APACHE.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;过程定义语言：BPMN(唯一)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;从性能和扩展性加强PVM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;多租户支持&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;轻量级架构&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;第六代&#34;&gt;第六代&lt;/h1&gt;
+
+&lt;p&gt;2017年，flowable 6.0发布。&lt;/p&gt;
+
+&lt;p&gt;改变：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据远完全抽象：支持NoSQL&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CMMN支持&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数式工作流&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>心理学家：21世纪最重要的工作技能</title>
@@ -973,86 +1068,6 @@ apt install google-chrome-stable
 &lt;h1 id=&#34;集成开发-测试部署&#34;&gt;集成开发，测试部署&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-ide-tool&#34;&gt;IDE&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>K8s Pod Command Override</title>
-      <link>https://wubigo.com/post/k8s-pod-command-override/</link>
-      <pubDate>Mon, 18 Mar 2019 14:49:10 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s-pod-command-override/</guid>
-      <description>
-
-&lt;p&gt;K8S POD Command Override OCR&lt;/p&gt;
-
-&lt;h1 id=&#34;docker-entrypoint-vs-k8s-command&#34;&gt;docker Entrypoint vs k8s command&lt;/h1&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;docker&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;k8s&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;entry&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ENTRYPOINT&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;command&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;arguments&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;CMD&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;args&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;k8s command and args override the default OCR Entrypoint and Cmd&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;FROM alpine:3.8
-RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/*
-CMD [&amp;quot;--version&amp;quot;]
-ENTRYPOINT [&amp;quot;curl&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;cmd-override-pod.yaml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: v1
-kind: Pod
-metadata:
-  name: command-override
-  labels:
-    purpose: override-command
-spec:
-  containers:
-  - name: command-override-container
-    image: bigo/curl:v1
-    command: [&amp;quot;curl&amp;quot;]
-    args: [&amp;quot;--help&amp;quot;]
-  restartPolicy: Never
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;docker run -it bigo/curl:v1
-curl 7.61.1 (x86_64-alpine-linux-musl) libcurl/7.61.1 LibreSSL/2.0.0 zlib/1.2.11 libssh2/1.8.0 nghttp2/1.32.0
-Release-Date: 2018-09-05
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl apply -f cmd-override-pod.yaml
-kubectl logs command-override
-
-Usage: curl [options...] &amp;lt;url&amp;gt;
-     --abstract-unix-socket &amp;lt;path&amp;gt; Connect via abstract Unix domain socket
-     --anyauth       Pick any authentication method
- -a, --append        Append to target file when uploading
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
