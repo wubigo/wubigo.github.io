@@ -19,6 +19,17 @@ categories = ["IT"]
   focal_point = ""
 +++
 
+# javax.net.ssl.SSLException: Received fatal alert: protocol_version
+
+
+On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+
+```
+echo 'export JAVA_TOOL_OPTIONS="-Dhttps.protocols=TLSv1.2"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+
 # 访问可见性
 
 |修饰符|类|包|子类|所有人|
