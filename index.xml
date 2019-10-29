@@ -5,8 +5,151 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2019 11:26:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>JAVA这两年</title>
+      <link>https://wubigo.com/post/java-last-2-years/</link>
+      <pubDate>Tue, 29 Oct 2019 10:17:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-last-2-years/</guid>
+      <description>
+
+&lt;p&gt;JAVA 这两年最重要的项目就是GRAAL的正式版发布。&lt;/p&gt;
+
+&lt;p&gt;GRAAL能做什么？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;启动时间小于100ms， 向C, GO, ERLANG一样的执行速度&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更低的内存占用：只占用传统的JVM应用20%的内存&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这听起来是不是该项目为java函数计算做准备的？&lt;/p&gt;
+
+&lt;p&gt;是，但不完全是。&lt;/p&gt;
+
+&lt;p&gt;GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JavaScrip&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Ruby&lt;/li&gt;
+&lt;li&gt;R&lt;/li&gt;
+&lt;li&gt;JVM 语言（Java, Scala, Groovy, Kotlin, Clojure）&lt;/li&gt;
+&lt;li&gt;LLVM语言 (C , C++)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;而且更重要的是不同语言之间零成本互相调用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz
+
+tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz
+export PATH=$PATH:$GRAAL_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;js --version
+GraalVM JavaScript (GraalVM CE Native 19.2.1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gu install native-image
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;gu available
+Downloading: Component catalog from www.graalvm.org
+ComponentId              Version             Component name      Origin
+--------------------------------------------------------------------------------
+llvm-toolchain           19.2.1              LLVM.org toolchain  github.com
+native-image             19.2.1              Native Image        github.com
+python                   19.2.1              Graal.Python        github.com
+R                        19.2.1              FastR               github.com
+ruby                     19.2.1              TruffleRuby         github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;polyglot --jvm --shell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;使用native-image创建一个java编写的可执行二进制文件&#34;&gt;使用native-image创建一个JAVA编写的可执行二进制文件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class HelloWorld {
+   public static void main(String... args) {
+      System.out.println(&amp;quot;Hello World&amp;quot;);
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;javac HelloWorld.java
+native-image -cp . HelloWorld
+
+Build on Server(pid: 20375, port: 45977)
+[helloworld:20375]    classlist:     199.03 ms
+[helloworld:20375]        (cap):   1,866.60 ms
+[helloworld:20375]        setup:   5,938.57 ms
+[helloworld:20375]   (typeflow):  17,532.76 ms
+[helloworld:20375]    (objects):   8,477.10 ms
+[helloworld:20375]   (features):   2,365.65 ms
+[helloworld:20375]     analysis:  28,469.52 ms
+[helloworld:20375]     (clinit):     861.90 ms
+[helloworld:20375]     universe:   2,785.89 ms
+[helloworld:20375]      (parse):   9,430.36 ms
+[helloworld:20375]     (inline):   1,623.19 ms
+[helloworld:20375]    (compile):  11,158.60 ms
+[helloworld:20375]      compile:  22,588.75 ms
+[helloworld:20375]        image:     687.25 ms
+[helloworld:20375]        write:   1,153.04 ms
+[helloworld:20375]      [total]:  62,321.01 ms
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./helloworld
+Hello World
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
+
+&lt;h1 id=&#34;微服务&#34;&gt;微服务&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sparkjava.com/&#34; target=&#34;_blank&#34;&gt;http://sparkjava.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://quarkus.io/get-started/&#34; target=&#34;_blank&#34;&gt;https://quarkus.io/get-started/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&#34; target=&#34;_blank&#34;&gt;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&#34; target=&#34;_blank&#34;&gt;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>开源的工作流引擎技术演进历史</title>
@@ -1050,24 +1193,6 @@ sudo mv google-chrome.list.save google-chrome.list
 apt update
 apt install google-chrome-stable
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>K8s高效应用开发工具集</title>
-      <link>https://wubigo.com/post/k8s-app-development-toolbox/</link>
-      <pubDate>Sun, 24 Mar 2019 08:01:56 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s-app-development-toolbox/</guid>
-      <description>
-
-&lt;h1 id=&#34;本地流线型开发&#34;&gt;本地流线型开发&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-development-streamline/&#34;&gt;本地流线型开发&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;集成开发-测试部署&#34;&gt;集成开发，测试部署&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-ide-tool&#34;&gt;IDE&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

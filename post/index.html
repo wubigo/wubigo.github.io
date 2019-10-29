@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-27T11:26:02&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-29T10:17:03&#43;08:00">
   
 
   
@@ -378,6 +378,101 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/java-last-2-years/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/java-last-2-years/" itemprop="url">JAVA这两年</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    JAVA 这两年最重要的项目就是GRAAL的正式版发布。
+GRAAL能做什么？
+ 让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件，  启动时间小于100ms， 向C, GO, ERLANG一样的执行速度
+ 更低的内存占用：只占用传统的JVM应用20%的内存
+  这听起来是不是该项目为java函数计算做准备的？
+是，但不完全是。
+GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
+ JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且更重要的是不同语言之间零成本互相调用
+安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
+js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
+gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2265,95 +2360,6 @@ response, err := client.AllocateHosts(request)
 
 <p>调用ANSIBLE开始在CVM部署K8S集群</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-03 08:45:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-03 08:45:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/serverless-computing-why-how/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-computing-why-how/" itemprop="url">无服务器计算环境OPENFAAS搭建</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    准备  创建角色和授权
-kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
   </div>
   
 
