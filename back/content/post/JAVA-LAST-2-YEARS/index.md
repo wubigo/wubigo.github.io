@@ -31,7 +31,7 @@ GRAAL能做什么？
 
 - 更低的内存占用：只占用传统的JVM应用20%的内存  
 
-这听起来是不是该项目为java函数计算做准备的？
+这听起来是不是该项目为函数计算做准备的？
 
 是，但不完全是。
 
@@ -44,7 +44,7 @@ GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下
 - JVM 语言（Java, Scala, Groovy, Kotlin, Clojure）
 - LLVM语言 (C , C++)
 
-**而且更重要的是不同语言之间零成本互相调用**
+**而且不同语言之间零成本互相调用**
 
 
 
@@ -92,7 +92,7 @@ ruby                     19.2.1              TruffleRuby         github.com
 polyglot --jvm --shell
 ```
 
-# 使用native-image创建一个JAVA编写的可执行二进制文件
+# 创建JAVA编写的可执行二进制文件
 
 - 安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc
 
