@@ -32,10 +32,10 @@
 GRAAL能做什么？
  让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件，  启动时间小于100ms， 向C, GO, ERLANG一样的执行速度
  更低的内存占用：只占用传统的JVM应用20%的内存
-  这听起来是不是该项目为java函数计算做准备的？
+  这听起来是不是该项目为函数计算做准备的？
 是，但不完全是。
 GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
- JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C&#43;&#43;)  而且更重要的是不同语言之间零成本互相调用
+ JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C&#43;&#43;)  而且不同语言之间零成本互相调用
 安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
 js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
 gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.">
@@ -151,10 +151,10 @@ gu install native-image  gu available Downloading: Component catalog from www.gr
 GRAAL能做什么？
  让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件，  启动时间小于100ms， 向C, GO, ERLANG一样的执行速度
  更低的内存占用：只占用传统的JVM应用20%的内存
-  这听起来是不是该项目为java函数计算做准备的？
+  这听起来是不是该项目为函数计算做准备的？
 是，但不完全是。
 GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
- JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C&#43;&#43;)  而且更重要的是不同语言之间零成本互相调用
+ JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C&#43;&#43;)  而且不同语言之间零成本互相调用
 安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
 js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
 gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -518,7 +518,7 @@ gu install native-image  gu available Downloading: Component catalog from www.gr
 <li>更低的内存占用：只占用传统的JVM应用20%的内存<br /></li>
 </ul>
 
-<p>这听起来是不是该项目为java函数计算做准备的？</p>
+<p>这听起来是不是该项目为函数计算做准备的？</p>
 
 <p>是，但不完全是。</p>
 
@@ -533,7 +533,7 @@ gu install native-image  gu available Downloading: Component catalog from www.gr
 <li>LLVM语言 (C , C++)</li>
 </ul>
 
-<p><strong>而且更重要的是不同语言之间零成本互相调用</strong></p>
+<p><strong>而且不同语言之间零成本互相调用</strong></p>
 
 <h1 id="安装">安装</h1>
 
@@ -572,7 +572,7 @@ ruby                     19.2.1              TruffleRuby         github.com
 <pre><code>polyglot --jvm --shell
 </code></pre>
 
-<h1 id="使用native-image创建一个java编写的可执行二进制文件">使用native-image创建一个JAVA编写的可执行二进制文件</h1>
+<h1 id="创建java编写的可执行二进制文件">创建JAVA编写的可执行二进制文件</h1>
 
 <ul>
 <li><p>安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc</p>
