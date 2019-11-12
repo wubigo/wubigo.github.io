@@ -69,3 +69,10 @@ data: ...  # The data of the response, if any.
 ```
 
 This method can be easier for clients since the status for the response is always in the same place (no sub-codes needed), no limits on the codes, no need to fetch the HTTP-level status-code.
+
+
+
+
+
+
+https://cloud.google.com/blog/products/api-management/restful-api-design-what-about-errors

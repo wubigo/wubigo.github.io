@@ -20,6 +20,9 @@ categories = []
 +++
 
 
+# cloud data management
+
+https://dataschool.com/data-governance
 
 
 # 三层数据仓库架构
