@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-29T10:17:03&#43;08:00">
+  <meta property="og:updated_time" content="2012-05-03T00:00:00&#43;00:00">
   
 
   
@@ -378,6 +378,681 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 3, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-05-03-redis-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 22, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-5.7-myisam/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5.7-myisam/" itemprop="url">Mysql 5.7 MyISAM</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 1, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2012-02-01-tls-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    NOTICE
+ Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
+ Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
+ Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2011-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 3, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2011-06-03-io-performance/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-06-03-io-performance/" itemprop="url">Linux File System Read Write Performance Test</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
+$ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
+Simply use the yum commands to search or install packages from EPEL repo:
+# yum search nethogs # yum update # yum --disablerepo=&quot;*&quot; --enablerepo=&quot;epel&quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&rsquo;s performance.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2011-04-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2011-04-03-high-performance-ssh/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-04-03-high-performance-ssh/" itemprop="url">High Performance SSH/SCP</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    http://mirror.internode.on.net/pub/OpenBSD/OpenSSH/portable/ http://www.psc.edu/index.php/hpn-ssh-patches/hpn-14-kitchen-sink-patches/viewcategory/24 Extract OpenSSH:
+1
+tar -xzvf openssh-6.6p1.tar.gz
+Change directory in extracted folder and apply patch:
+1
+2
+cd openssh-6.6p1
+zcat /usr/src/openssh-6.6p1-hpnssh14v5.diff.gz | patch
+Configure OpenSSH:
+1
+./configure –prefix=/usr –sysconfdir=/etc/ssh –with-pam
+Remove old config files to prevent any conflicts:
+1
+2
+rm /etc/ssh/ssh_config
+rm /etc/ssh/sshd_config
+Compile and install:
+1
+2
+make
+make install
+Now we have the newest version of OpenSSH installed and patched with the improvements from HPN-SSH; however we still need to make some changes to the /etc/ssh/sshd_config to take advantage of them.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2011-03-24 17:53:35 &#43;0800 CST" itemprop="datePublished">
+<meta content="2011-03-24 17:53:35 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 24, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/hpcloud-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/hpcloud-notes/" itemprop="url">Hpcloud Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="惠普混合云">惠普混合云</h1>
+
+<p>惠普tripleO整体方案
+<img src="./hp2.png" alt="RNA" /></p>
+
+<p>惠普混合云主要模块
+<img src="./hp-1.png" alt="RNA" /></p>
+
+<p>网络控制节点
+<img src="./hp3.png" alt="RNA" /></p>
+
+<p>授权认证部分源代码
+<img src="./ks-1.png" alt="RNA" /></p>
+
+<h1 id="医疗数据分析">医疗数据分析</h1>
+
+<p><img src="./ano-bd.png" alt="RNA" /></p>
+
+<p><img src="./ano-portal.png" alt="RNA" /></p>
+
+<ul>
+<li><p>医疗数据某业务流程
+<img src="./RNA数据处理业务流程图.png" alt="RNA" /></p></li>
+
+<li><p>医疗数据处理图
+<img src="./ano-bd.png" alt="RNA" /></p></li>
+
+<li><p>医疗项目部分工作内容</p></li>
+</ul>
+
+<p><code>部分任务</code>
+<img src="med-t2.png" alt="任务" /></p>
+
+<p><code>部分任务</code>
+<img src="./med-t1.png" alt="任务" /></p>
+
+<p><code>部分源代码</code>
+<img src="./met-source.png" alt="source code" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    18 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2011-02-03-san/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1784,7 +2459,7 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

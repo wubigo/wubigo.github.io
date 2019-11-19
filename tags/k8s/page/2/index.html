@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-24T08:01:56&#43;08:00">
+  <meta property="og:updated_time" content="2018-02-26T11:11:08&#43;08:00">
   
 
   
@@ -393,9 +393,7 @@
     <h2><a href="/post/k8s-development-streamline/">K8s Development Streamline with draft</a></h2>
     <div class="article-style">
       
-      准备  初始化
-draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
-draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+      准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag
       
     </div>
@@ -472,7 +470,7 @@ ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root roo
       Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
       
     </div>
   </div>
@@ -513,8 +511,7 @@ sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo
     <div class="article-style">
       
        setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv
- install
-helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false   
+ install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  
       
     </div>
   </div>
@@ -535,8 +532,7 @@ helm install --name prometheus1 stable/prometheus --set server.persistentVolume.
     <div class="article-style">
       
       namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
-kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
@@ -732,7 +728,7 @@ K8S解决的网络问题：
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

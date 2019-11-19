@@ -24,8 +24,7 @@
 实现方式：
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
- 头
-{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
+ 头  { &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }   负载  { &amp;quot;id&amp;quot;: 123, &amp;quot;name&amp;quot;: &amp;quot;hi tico&amp;quot;, &amp;quot;is_admin&amp;quot;: true, &amp;quot;expire&amp;quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) + &amp;quot;.</description>
     </item>
     
     <item>
@@ -38,7 +37,7 @@ JWT: 头，负载和签名
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+  management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
     </item>
     

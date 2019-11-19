@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -28,9 +28,7 @@
   
     
   
-  <meta name="description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver
-func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }  Pointer receiver
-  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+  <meta name="description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find .">
 
@@ -141,9 +139,7 @@ vendor package go help gopath find .">
   <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
   <meta property="og:title" content="GO NOTES | SOFTCORE">
-  <meta property="og:description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver
-func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }  Pointer receiver
-  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+  <meta property="og:description" content="Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X &#43;= factor //-&gt; this.X &#43;= factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -495,14 +491,16 @@ vendor package go help gopath find ."><meta property="og:image" content="https:/
 <h1 id="method-s-receiver">Method&rsquo;s receiver</h1>
 
 <ul>
-<li><p>go don&rsquo;t user special name like( this or self ) for the receiver</p>
+<li>go don&rsquo;t user special name like( this or self ) for the receiver</li>
+</ul>
 
 <pre><code>func (p Point) MoveBy(factor float){
 	p.X += factor  //-&gt;  this.X += factor
 }
-</code></pre></li>
+</code></pre>
 
-<li><p>Pointer receiver</p></li>
+<ul>
+<li>Pointer receiver</li>
 </ul>
 
 <h1 id="project-layout-internal-app-pkg-directory-clarification">project-layout Internal app/pkg Directory Clarification</h1>
@@ -650,7 +648,8 @@ func main() {
 <h1 id="expression-in-go-defer-must-be-function-call">expression in go/defer must be function call</h1>
 
 <ul>
-<li><p>express anonymous function as function call()</p>
+<li>express anonymous function as function call()</li>
+</ul>
 
 <pre><code>var s1 [3]string = [3]string{&quot;go&quot;, &quot;func&quot;, &quot;value&quot;}
 
@@ -685,8 +684,7 @@ func main() {
 	}
 
 }
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="install-go-1-10">install go-1.10</h1>
 
@@ -735,7 +733,8 @@ src     bin    pkg
 </code></pre>
 
 <ul>
-<li><p>在本地文件系统$GOPATH/pkg/$GOOS_$GOARCH/<import_path>查找</p>
+<li>在本地文件系统$GOPATH/pkg/$GOOS_$GOARCH/<import_path>查找</li>
+</ul>
 
 <pre><code>import &quot;github.com/google/go-github/github&quot;
 
@@ -745,14 +744,19 @@ go/src/wubigo.com/cloud/github_client/main.go:7:2: cannot find package &quot;git
 	/home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
 Process exiting with code: 1
 ...
-</code></pre></li>
+</code></pre>
 
-<li><p>如果没找到，需要go get通过<import_path>安装</p>
+<ul>
+<li>如果没找到，需要go get通过<import_path>安装</li>
+</ul>
 
 <pre><code>go get github.com/google/go-github/github
-</code></pre></li>
+</code></pre>
 
-<li><p>import path custom domain name</p>
+<ul>
+<li>import path custom domain name
+<br /></li>
+</ul>
 
 <pre><code>curl golang.org/x/tools/cmd/rename
 &lt;!DOCTYPE html&gt;
@@ -766,8 +770,7 @@ Process exiting with code: 1
 &lt;body&gt;
 Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/rename&quot;&gt;move along&lt;/a&gt;.
 &lt;/body&gt;
-</code></pre></li>
-</ul>
+</code></pre>
 
 <blockquote>
 <p>Canonical import paths</p>
@@ -876,6 +879,75 @@ Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/r
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -1075,7 +1147,7 @@ Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/r
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

@@ -18,8 +18,7 @@
       
       <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
       <description>namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
-kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>

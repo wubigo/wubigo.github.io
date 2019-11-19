@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-29T10:17:03&#43;08:00">
+  <meta property="og:updated_time" content="2018-10-26T11:14:14&#43;08:00">
   
 
   
@@ -378,6 +378,698 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/http-status-code-for-reset-api/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/http-status-code-for-reset-api/" itemprop="url">REST API中如何使用Http状态码</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
+ Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+https://httpstatuses.com/
+The main choice is do you want to treat the HTTP status code as part of your REST API or not.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 21, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/pass-over-iaas/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/pass-over-iaas/" itemprop="url">面向应用的无服务器架构</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>根据多年在IAAS/PAAS平台的建议经验，并帮助多个行业例如医疗，电信，
+建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享，
+希望能为中小企业上云提供一些有价值的建议。</p>
+
+<p><strong>本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心，
+需要根据目前的计算能力选择相应的云服务厂商</strong></p>
+
+<p>云服务模型</p>
+
+<p><img src="./cloud-model.jpeg" alt="RNA" /></p>
+
+<p>从云服务模型可以看出，企业上云有以下路径可选。
+但导向是一致的，专注业务，IT外包。</p>
+
+<ul>
+<li>从自建数据中心向IaaS平台迁移</li>
+<li>从IaaS平台向PaaS迁移</li>
+<li>在公有云厂家间迁移</li>
+<li>从IaaS平台向FaaS迁移</li>
+<li>混合云</li>
+</ul>
+
+<p>上云的初级阶段:
+购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同，
+如何选择最高性价比的云主机，参考</p>
+
+<p><a href="/post/iaas-how-to-buy-ec2/">云主机主要性价比指标</a></p>
+
+<p>硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：</p>
+
+<ul>
+<li>云主机内网/外网平均带宽(最核心指标)</li>
+<li>存储(网络硬盘)IO吞吐量</li>
+<li>初始化完成后首次资源利用率</li>
+</ul>
+
+<p>其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构
+起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成
+这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016
+年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。</p>
+
+<p><strong>网络带宽是很多企业战略转型决定上云遇到的第一个大坑</strong></p>
+
+<blockquote>
+<p>内网平均带宽也是衡量私有云厂商服务能力的核心指标</p>
+</blockquote>
+
+<p>所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益</p>
+
+<p><a href="/post/iaas-benchmark-2016/">国内外云厂商主要产品基准测试对比图</a></p>
+
+<p><a href="/post/iaas-gears">上云注意事项</a></p>
+
+<p>上云的中级阶段：PaaS</p>
+
+<p><a href="/post/paas-how-to-buy">如何选择PAAS供应商</a></p>
+
+<p>上云的终级阶段: 不需要服务器。</p>
+
+<p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/docker-win10-volume/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-win10-volume/" itemprop="url">WIN用户使用Docker卷</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>在windows，启动卷必须线启用共享驱动</p>
+
+<h1 id="启用共享驱动">启用共享驱动</h1>
+
+<pre><code>1: Open &quot;Settings&quot; in Docker Desktop -&gt; 
+   &quot;Shared Drives&quot; -&gt; 
+   &quot;Reset Credentials&quot; -&gt; 
+   select drive &quot;D&quot; -&gt; &quot;Apply&quot;
+</code></pre>
+
+<h1 id="检查测试卷">检查测试卷</h1>
+
+<pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-go-dep-manage/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-go-dep-manage/" itemprop="url">Lang Go Dep Manage</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="glide">glide</h1>
+
+<p>To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-06-26 11:10:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-26 11:10:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s_cni_calico/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s_cni_calico/" itemprop="url">K8s CNI之Calico实现</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="准备">准备</h1>
+
+<ul>
+<li>搭建测试环境</li>
+</ul>
+
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-06-04 21:02:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-04 21:02:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 4, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/helm-without-tiller/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/helm-without-tiller/" itemprop="url">避开Tiller使用Helm部署K8S应用</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    避开Tiller使用Helm部署K8S应用
+Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
+ 部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-external-services/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -800,7 +1492,7 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
   
   <span class="middot-divider"></span>
-  <a href="/post/groovy-notes/#disqus_thread"></a>
+  <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/#disqus_thread"></a>
   
 
   
@@ -816,15 +1508,13 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
+    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    Allow more ways of creating objects using literals
- Introduce new datatypes together with their operators and expressions.
-  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
-log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
+    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
+
   </div>
   
 
@@ -888,7 +1578,7 @@ log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).
   
   
   <span class="middot-divider"></span>
-  <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/#disqus_thread"></a>
+  <a href="/post/groovy-notes/#disqus_thread"></a>
   
 
   
@@ -904,13 +1594,15 @@ log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
+    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
-
+    Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 
@@ -1086,7 +1778,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+  management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
   </div>
   
@@ -1272,9 +1964,7 @@ Customer User: customer@thingsboard.org / customer
 
   
   <div class="article-style" itemprop="articleBody">
-    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
-D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;  install with another registry
-npm install --registry=https://registry.npmjs.org/   install vue-cli npm install -g @vue/cli  vue create my-project  OR
+    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR
   </div>
   
 
@@ -1587,649 +2277,6 @@ mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-04-07-dgraphnotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/2018-04-07-dgraphnotes/">
-      <img src="/post/2018-04-07-dgraphnotes/featured_hu8ccc471813a5f222bb11aa8da163f5de_72674_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-04-07-dgraphnotes/" itemprop="url">Dgraph note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="start-dgraph-cluster">Start Dgraph cluster</h1>
-
-<pre><code>dgraph zero
-</code></pre>
-
-<h1 id="start-dgraph-server">start Dgraph server</h1>
-
-<pre><code> dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
-
- Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]
-
-</code></pre>
-
-<h1 id="how-do-i-configure-go-to-use-a-proxy">How do I configure Go to use a proxy</h1>
-
-<p><a href="https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy" target="_blank">https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy</a></p>
-
-<h1 id="web-based-graph-visualization-with-d3-and-keylines">Web based graph visualization with D3 and KeyLines</h1>
-
-<p><a href="https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/" target="_blank">https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/</a></p>
-
-<h1 id="setup-client">SETUP CLIENT</h1>
-
-<pre><code>set http_proxy=192.168.0.119:3128
-git config --global http.proxy http://192.168.0.119:3128
-go get -u github.com/derekparker/delve/cmd/dlv
-go get -u -v github.com/dgraph-io/dgo
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 4, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/envoy-control-plane-api-server-testing/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/envoy-control-plane-api-server-testing/" itemprop="url">Envoy Control Plane API Server Testing</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-envoy-example/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-envoy-example/" itemprop="url">K8s Envoy Example</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    envoy.yaml.tmpl
-admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 1, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-service-headless/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-service-headless/" itemprop="url">K8s Service Headless</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    To ensure stable network ID , need to define a headless service for stateful applications
-StatefulSets are valuable for applications that require one or more of the following.
- Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
-apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/envoy-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/envoy-notes/" itemprop="url">Envoy NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/linux-chrome/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-chrome/" itemprop="url">Linux Chrome</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
- 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
-.config/google-chrome/Default/Preferences
-sed -i '/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
-Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
- 方法2（不可靠）  Type in address bar (Crtl+L).
-chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring  方法1（可靠）
- set password-store to basic
-dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    13 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/helm-chart-istio/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/helm-chart-istio/" itemprop="url">Helm Chart Istio</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: '44471' [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2395,7 +2442,7 @@ dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

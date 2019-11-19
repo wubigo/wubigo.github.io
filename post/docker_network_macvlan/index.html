@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -31,10 +31,7 @@
   <meta name="description" content="介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.">
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker_network_macvlan/">
@@ -146,10 +143,7 @@ sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡
   <meta property="og:description" content="介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-01T10:49:32&#43;08:00">
@@ -521,22 +515,26 @@ sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡
 <h1 id="准备">准备</h1>
 
 <ul>
-<li><p>需要4.0以上的内核</p>
+<li>需要4.0以上的内核</li>
+</ul>
 
 <pre><code>uname -r
 4.15.0-45-generic
-</code></pre></li>
+</code></pre>
 
-<li><p>加载macvlan模块</p>
+<ul>
+<li>加载macvlan模块</li>
+</ul>
 
 <pre><code>sudo modprobe macvlan
 lsmod | grep macvlan
 ...
 macvlan    24576  0
 ...
-</code></pre></li>
+</code></pre>
 
-<li><p>配置网卡为混杂模式</p></li>
+<ul>
+<li>配置网卡为混杂模式</li>
 </ul>
 
 <table>
@@ -607,28 +605,32 @@ default via 192.168.1.1 dev enp0s3 onlink
 <p>变通方法：</p>
 
 <ul>
-<li><p>预留ip &ndash;aux-address=&ldquo;macvlan_bridge=192.168.1.199&rdquo;</p>
+<li>预留ip &ndash;aux-address=&ldquo;macvlan_bridge=192.168.1.199&rdquo;</li>
+</ul>
 
 <pre><code>docker network create -d macvlan  \
---subnet=192.168.1.0/24  \
---ip-range=192.168.1.128/25 \
---gateway=192.168.1.1  \
--o parent=enp0s3 macLan \
---aux-address=&quot;macvlan_bridge=192.168.1.199&quot;
-</code></pre></li>
+  --subnet=192.168.1.0/24  \
+  --ip-range=192.168.1.128/25 \
+  --gateway=192.168.1.1  \
+  -o parent=enp0s3 macLan \
+  --aux-address=&quot;macvlan_bridge=192.168.1.199&quot;
+</code></pre>
 
-<li><p>创建一个新的macvlan</p>
+<ul>
+<li>创建一个新的macvlan</li>
+</ul>
 
 <pre><code>sudo ip link add macvlan_bridge link enp0s3 type macvlan  mode bridge
 sudo ip addr add 192.168.1.199/32 dev macvlan_bridge
 sudo ip link set macvlan_bridge up
-</code></pre></li>
+</code></pre>
 
-<li><p>指示宿主通过macvlan_bridge访问部署在宿主上的容器网络</p>
+<ul>
+<li>指示宿主通过macvlan_bridge访问部署在宿主上的容器网络</li>
+</ul>
 
 <pre><code>ip route add 192.168.1.128/27 dev macvlan_bridge
-</code></pre></li>
-</ul>
+</code></pre>
 
     </div>
 
@@ -661,6 +663,75 @@ sudo ip link set macvlan_bridge up
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -866,7 +937,7 @@ sudo ip link set macvlan_bridge up
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

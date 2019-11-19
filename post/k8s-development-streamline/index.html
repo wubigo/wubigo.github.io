@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -28,9 +28,7 @@
   
     
   
-  <meta name="description" content="准备  初始化
-draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
-draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+  <meta name="description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag">
 
   
@@ -140,9 +138,7 @@ draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
   <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/post/k8s-development-streamline/">
   <meta property="og:title" content="K8s Development Streamline with draft | SOFTCORE">
-  <meta property="og:description" content="准备  初始化
-draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
-draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+  <meta property="og:description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -493,7 +489,8 @@ draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
 <h1 id="准备">准备</h1>
 
 <ul>
-<li><p>初始化</p>
+<li>初始化</li>
+</ul>
 
 <pre><code class="language-shell">draft init
 
@@ -509,13 +506,14 @@ Installed pack repository github.com/Azure/draft
 Installation of default pack repositories complete
 $DRAFT_HOME has been configured at /home/bigo/.draft.
 ...
-</code></pre></li>
+</code></pre>
 
-<li><p>设置docker镜像寄存器</p>
+<ul>
+<li>设置docker镜像寄存器</li>
+</ul>
 
 <pre><code>draft config set registry registry.cn-beijing.aliyuncs.com/k4s
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p>or</p>
 
@@ -553,7 +551,8 @@ Inspect the logs with `draft logs 01D6QETAPPM7ZYAM7G733ZVMY7`
 <pre><code>draft logs 01D6QETAPPM7ZYAM7G733ZVMY7
 </code></pre></li>
 
-<li><p>检查软件列表</p>
+<li><p>检查软件列表</p></li>
+</ul>
 
 <pre><code>helm ls | grep go-web
 
@@ -561,16 +560,17 @@ Inspect the logs with `draft logs 01D6QETAPPM7ZYAM7G733ZVMY7`
 NAME         REVISION	UPDATED          	STATUS  	CHART                	APP VERSION	NAMESPACE
 go-web       Sun Mar 24 17:01:54 2018	  DEPLOYED	go-web-v0.1.0	           	        default 
 ...
-</code></pre></li>
+</code></pre>
 
-<li><p>检查PODS</p>
+<ul>
+<li>检查PODS</li>
+</ul>
 
 <pre><code>kubectl get pods | grep go-web
 
 NAME                     READY   STATUS    RESTARTS   AGE
 go-web-f94bd78d5-qcmq9   1/1     Running   0          5m38s
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="访问应用">访问应用</h1>
 
@@ -598,11 +598,11 @@ Connect to go-web:8080 on **localhost:34261**
 <li><pre><code>draft up
 </code></pre></li>
 
-<li><p>测试</p>
+<li><p>测试</p></li>
+</ul>
 
 <pre><code>draft connect
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="删除应用">删除应用</h1>
 
@@ -639,6 +639,75 @@ helm ls |grep go-web
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -844,7 +913,7 @@ helm ls |grep go-web
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>
