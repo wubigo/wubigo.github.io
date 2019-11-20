@@ -1,6 +1,6 @@
 +++
 title = "Local Aws Step Function With Local Lambda"
-date = 2019-09-26T14:43:54+08:00
+date = 2018-09-26T14:43:54+08:00
 draft = false
 
 # Tags and categories
