@@ -1,5 +1,5 @@
 +++
-title = "Local Aws Step Function With Local Lambda"
+title = "基于local stack的Step Function本地化开发"
 date = 2018-09-26T14:43:54+08:00
 draft = false
 

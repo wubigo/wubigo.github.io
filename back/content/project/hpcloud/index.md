@@ -26,6 +26,10 @@ categories = []
 
 - 函数计算的有哪些好处
 
+- 公有云服务本地化
+
+[免费使用公有云服务](/post/use-public-cloud-for-free/)
+
 - 搭建本地的函数计算的开发环境(localstack+terraform+serverless)
 
 [开发环境本地搭建参考](/tags/serverless/)
