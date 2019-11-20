@@ -138,7 +138,7 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
   
   <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/post/aws-localstack-serverless/">
-  <meta property="og:title" content="Aws Localstack Serverless | SOFTCORE">
+  <meta property="og:title" content="基于Localstack的Serverless框架本地集成 | SOFTCORE">
   <meta property="og:description" content="install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
 serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
 
   
 
-  <title>Aws Localstack Serverless | SOFTCORE</title>
+  <title>基于Localstack的Serverless框架本地集成 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -370,7 +370,7 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Aws Localstack Serverless</h1>
+  <h1 itemprop="name">基于Localstack的Serverless框架本地集成</h1>
 
   
 
@@ -420,7 +420,7 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Aws%20Localstack%20Serverless&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84Serverless%e6%a1%86%e6%9e%b6%e6%9c%ac%e5%9c%b0%e9%9b%86%e6%88%90&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -434,21 +434,21 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f&amp;title=Aws%20Localstack%20Serverless"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84Serverless%e6%a1%86%e6%9e%b6%e6%9c%ac%e5%9c%b0%e9%9b%86%e6%88%90"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f&amp;title=Aws%20Localstack%20Serverless"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84Serverless%e6%a1%86%e6%9e%b6%e6%9c%ac%e5%9c%b0%e9%9b%86%e6%88%90"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Aws%20Localstack%20Serverless&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f">
+         href="mailto:?subject=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84Serverless%e6%a1%86%e6%9e%b6%e6%9c%ac%e5%9c%b0%e9%9b%86%e6%88%90&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-localstack-serverless%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -738,11 +738,13 @@ ServiceEndpoint: https://gnz8rtc0xd.execute-api.us-east-1.amazonaws.com/local
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/aws-cloudformation-with-localstack/">Aws Cloudformation With Localstack</a></li>
+          <li><a href="/post/aws-lambda-with-localstack/">基于Localstack的本地Lambda开发</a></li>
           
-          <li><a href="/post/aws-lambda-with-localstack/">Aws Lambda With Localstack</a></li>
+          <li><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></li>
           
-          <li><a href="/post/aws-step-function-with-local-lambda/">Local Aws Step Function With Local Lambda</a></li>
+          <li><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></li>
+          
+          <li><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></li>
           
         </ul>
       </div>

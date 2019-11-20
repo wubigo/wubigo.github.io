@@ -403,126 +403,6 @@
 
 
 
-<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2018-04-07-dgraphnotes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/2018-04-07-dgraphnotes/">
-      <img src="/post/2018-04-07-dgraphnotes/featured_hu8ccc471813a5f222bb11aa8da163f5de_72674_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-04-07-dgraphnotes/" itemprop="url">Dgraph note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="start-dgraph-cluster">Start Dgraph cluster</h1>
-
-<pre><code>dgraph zero
-</code></pre>
-
-<h1 id="start-dgraph-server">start Dgraph server</h1>
-
-<pre><code> dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
-
- Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]
-
-</code></pre>
-
-<h1 id="how-do-i-configure-go-to-use-a-proxy">How do I configure Go to use a proxy</h1>
-
-<p><a href="https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy" target="_blank">https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy</a></p>
-
-<h1 id="web-based-graph-visualization-with-d3-and-keylines">Web based graph visualization with D3 and KeyLines</h1>
-
-<p><a href="https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/" target="_blank">https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/</a></p>
-
-<h1 id="setup-client">SETUP CLIENT</h1>
-
-<pre><code>set http_proxy=192.168.0.119:3128
-git config --global http.proxy http://192.168.0.119:3128
-go get -u github.com/derekparker/delve/cmd/dlv
-go get -u -v github.com/dgraph-io/dgo
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
 
@@ -2245,6 +2125,96 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
 
 <p><a href="https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/" target="_blank">https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/</a></p>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-kubectl-cheatsheet/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/k8s-kubectl-cheatsheet/">
+      <img src="/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-kubectl-cheatsheet/" itemprop="url">kubectl cheat sheet</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
   </div>
   
 

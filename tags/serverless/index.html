@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-03T08:45:55&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-19T16:46:13&#43;08:00">
   
 
   
@@ -381,20 +381,7 @@
   
   
   <div>
-    <h2><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></h2>
-    <div class="article-style">
-      
-      准备  创建角色和授权
-kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-get-sqs-notification-on-s3-object-creation/">Aws Get Sqs Notification on S3 Object Creation</a></h2>
+    <h2><a href="/post/aws-get-sqs-notification-on-s3-object-creation/">基于local stack的本地S3对象创建通知</a></h2>
     <div class="article-style">
       
       get s3 object creation notification  create queue
@@ -416,7 +403,7 @@ While these methods are great ways to test and debug issues associated with indi
   </div>
   
   <div>
-    <h2><a href="/post/aws-serverless-localstack-examples/">Aws Serverless Localstack Examples</a></h2>
+    <h2><a href="/post/aws-serverless-localstack-examples/">基于Localstack的函数计算开发应用列表</a></h2>
     <div class="article-style">
       
       serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
@@ -426,7 +413,7 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; +
   </div>
   
   <div>
-    <h2><a href="/post/aws-localstack-serverless/">Aws Localstack Serverless</a></h2>
+    <h2><a href="/post/aws-localstack-serverless/">基于Localstack的Serverless框架本地集成</a></h2>
     <div class="article-style">
       
       install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
@@ -437,7 +424,33 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
   </div>
   
   <div>
-    <h2><a href="/post/aws-cloudformation-with-localstack/">Aws Cloudformation With Localstack</a></h2>
+    <h2><a href="/post/aws-lambda-with-localstack/">基于Localstack的本地Lambda开发</a></h2>
+    <div class="article-style">
+      
+      Create function index.js
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></h2>
+    <div class="article-style">
+      
+      安装AWS CLI
+(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
+(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></h2>
     <div class="article-style">
       
        https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
@@ -452,27 +465,14 @@ AWSTemplateFormatVersion: '2010-09-09' Description: Simple CloudFormation Test T
   </div>
   
   <div>
-    <h2><a href="/post/aws-lambda-with-localstack/">Aws Lambda With Localstack</a></h2>
+    <h2><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></h2>
     <div class="article-style">
       
-      Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
-zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-step-function-with-local-lambda/">Local Aws Step Function With Local Lambda</a></h2>
-    <div class="article-style">
-      
-      安装AWS CLI
-(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
-可以安装到系统环境
- 配置AWS CLI
-(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
-(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+      准备  创建角色和授权
+kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
       
     </div>
   </div>

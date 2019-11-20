@@ -137,7 +137,7 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; &
   
   <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/post/aws-serverless-localstack-examples/">
-  <meta property="og:title" content="Aws Serverless Localstack Examples | SOFTCORE">
+  <meta property="og:title" content="基于Localstack的函数计算开发应用列表 | SOFTCORE">
   <meta property="og:description" content="serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
 import json def my_handler(event, context): print(&quot;Received event: &quot; &#43; json."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -151,7 +151,7 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; &
 
   
 
-  <title>Aws Serverless Localstack Examples | SOFTCORE</title>
+  <title>基于Localstack的函数计算开发应用列表 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -368,7 +368,7 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; &
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Aws Serverless Localstack Examples</h1>
+  <h1 itemprop="name">基于Localstack的函数计算开发应用列表</h1>
 
   
 
@@ -418,7 +418,7 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; &
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Aws%20Serverless%20Localstack%20Examples&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97%e5%bc%80%e5%8f%91%e5%ba%94%e7%94%a8%e5%88%97%e8%a1%a8&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -432,21 +432,21 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; &
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f&amp;title=Aws%20Serverless%20Localstack%20Examples"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97%e5%bc%80%e5%8f%91%e5%ba%94%e7%94%a8%e5%88%97%e8%a1%a8"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f&amp;title=Aws%20Serverless%20Localstack%20Examples"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97%e5%bc%80%e5%8f%91%e5%ba%94%e7%94%a8%e5%88%97%e8%a1%a8"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Aws%20Serverless%20Localstack%20Examples&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f">
+         href="mailto:?subject=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97%e5%bc%80%e5%8f%91%e5%ba%94%e7%94%a8%e5%88%97%e8%a1%a8&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-serverless-localstack-examples%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -574,13 +574,15 @@ def my_handler(event, context):
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/aws-localstack-serverless/">Aws Localstack Serverless</a></li>
+          <li><a href="/post/aws-localstack-serverless/">基于Localstack的Serverless框架本地集成</a></li>
           
-          <li><a href="/post/aws-cloudformation-with-localstack/">Aws Cloudformation With Localstack</a></li>
+          <li><a href="/post/aws-lambda-with-localstack/">基于Localstack的本地Lambda开发</a></li>
           
-          <li><a href="/post/aws-lambda-with-localstack/">Aws Lambda With Localstack</a></li>
+          <li><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></li>
           
-          <li><a href="/post/aws-step-function-with-local-lambda/">Local Aws Step Function With Local Lambda</a></li>
+          <li><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></li>
+          
+          <li><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></li>
           
         </ul>
       </div>

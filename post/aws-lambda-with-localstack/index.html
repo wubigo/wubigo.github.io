@@ -138,7 +138,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
   
   <meta property="og:site_name" content="SOFTCORE">
   <meta property="og:url" content="https://wubigo.com/post/aws-lambda-with-localstack/">
-  <meta property="og:title" content="Aws Lambda With Localstack | SOFTCORE">
+  <meta property="og:title" content="基于Localstack的本地Lambda开发 | SOFTCORE">
   <meta property="og:description" content="Create function index.js
 exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包
 zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 
   
 
-  <title>Aws Lambda With Localstack | SOFTCORE</title>
+  <title>基于Localstack的本地Lambda开发 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -370,7 +370,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Aws Lambda With Localstack</h1>
+  <h1 itemprop="name">基于Localstack的本地Lambda开发</h1>
 
   
 
@@ -420,7 +420,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Aws%20Lambda%20With%20Localstack&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e6%9c%ac%e5%9c%b0Lambda%e5%bc%80%e5%8f%91&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -434,21 +434,21 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f&amp;title=Aws%20Lambda%20With%20Localstack"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e6%9c%ac%e5%9c%b0Lambda%e5%bc%80%e5%8f%91"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f&amp;title=Aws%20Lambda%20With%20Localstack"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f&amp;title=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e6%9c%ac%e5%9c%b0Lambda%e5%bc%80%e5%8f%91"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Aws%20Lambda%20With%20Localstack&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f">
+         href="mailto:?subject=%e5%9f%ba%e4%ba%8eLocalstack%e7%9a%84%e6%9c%ac%e5%9c%b0Lambda%e5%bc%80%e5%8f%91&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-with-localstack%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -587,7 +587,11 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/aws-step-function-with-local-lambda/">Local Aws Step Function With Local Lambda</a></li>
+          <li><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></li>
+          
+          <li><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></li>
+          
+          <li><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></li>
           
         </ul>
       </div>

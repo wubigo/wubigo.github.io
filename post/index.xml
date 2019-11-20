@@ -335,19 +335,6 @@ secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).G
     </item>
     
     <item>
-      <title>无服务器计算环境OPENFAAS搭建</title>
-      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
-      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>准备  创建角色和授权
-kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
-    </item>
-    
-    <item>
       <title>mozilla crowdsources the largest dataset of human voices</title>
       <link>https://wubigo.com/post/speech_recognition-transcribed-voice-dataset/</link>
       <pubDate>Fri, 01 Mar 2019 04:19:39 +0800</pubDate>
@@ -462,7 +449,7 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
     </item>
     
     <item>
-      <title>Aws Get Sqs Notification on S3 Object Creation</title>
+      <title>基于local stack的本地S3对象创建通知</title>
       <link>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</link>
       <pubDate>Mon, 19 Nov 2018 16:46:13 +0800</pubDate>
       
@@ -484,7 +471,7 @@ While these methods are great ways to test and debug issues associated with indi
     </item>
     
     <item>
-      <title>Aws Serverless Localstack Examples</title>
+      <title>基于Localstack的函数计算开发应用列表</title>
       <link>https://wubigo.com/post/aws-serverless-localstack-examples/</link>
       <pubDate>Fri, 16 Nov 2018 07:25:19 +0800</pubDate>
       
@@ -494,7 +481,7 @@ import json def my_handler(event, context): print(&amp;quot;Received event: &amp
     </item>
     
     <item>
-      <title>Aws Localstack Serverless</title>
+      <title>基于Localstack的Serverless框架本地集成</title>
       <link>https://wubigo.com/post/aws-localstack-serverless/</link>
       <pubDate>Thu, 15 Nov 2018 15:39:37 +0800</pubDate>
       
@@ -581,22 +568,7 @@ The main choice is do you want to treat the HTTP status code as part of your RES
     </item>
     
     <item>
-      <title>Aws Cloudformation With Localstack</title>
-      <link>https://wubigo.com/post/aws-cloudformation-with-localstack/</link>
-      <pubDate>Sat, 29 Sep 2018 14:20:42 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/aws-cloudformation-with-localstack/</guid>
-      <description> https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
-https://github.com/localstack/localstack/issues/632
-AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless applications at a higher level
-localstack default regrion us-east-1
-create stack file path has to be in file URL format(file:///home/user/&amp;hellip;)
-func.yaml
-AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  </description>
-    </item>
-    
-    <item>
-      <title>Aws Lambda With Localstack</title>
+      <title>基于Localstack的本地Lambda开发</title>
       <link>https://wubigo.com/post/aws-lambda-with-localstack/</link>
       <pubDate>Sat, 29 Sep 2018 09:39:28 +0800</pubDate>
       
@@ -617,7 +589,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
     </item>
     
     <item>
-      <title>Local Aws Step Function With Local Lambda</title>
+      <title>基于local stack的Step Function本地化开发</title>
       <link>https://wubigo.com/post/aws-step-function-with-local-lambda/</link>
       <pubDate>Wed, 26 Sep 2018 14:43:54 +0800</pubDate>
       
@@ -679,6 +651,21 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
       
       <guid>https://wubigo.com/post/2019-01-01-sevenlevelcommunication/</guid>
       <description>The most important conversation you ever have is the one with yourself</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的本地云服务编排</title>
+      <link>https://wubigo.com/post/aws-cloudformation-with-localstack/</link>
+      <pubDate>Sun, 29 Apr 2018 14:20:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-cloudformation-with-localstack/</guid>
+      <description> https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
+https://github.com/localstack/localstack/issues/632
+AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless applications at a higher level
+localstack default regrion us-east-1
+create stack file path has to be in file URL format(file:///home/user/&amp;hellip;)
+func.yaml
+AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  </description>
     </item>
     
     <item>
@@ -1435,6 +1422,19 @@ uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescu
  打开git命令行客户端，把分叉仓库克隆到本地环境
 git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
 git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID</description>
+    </item>
+    
+    <item>
+      <title>无服务器计算环境OPENFAAS搭建</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Fri, 03 Mar 2017 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>准备  创建角色和授权
+kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
     </item>
     
     <item>
