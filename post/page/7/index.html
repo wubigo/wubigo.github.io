@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-02-23T07:21:31&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-29T10:17:03&#43;08:00">
   
 
   
@@ -653,7 +653,9 @@ logging driver To configure the Docker daemon to default to a specific logging d
 
   
   <div class="article-style" itemprop="articleBody">
-    Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
+    Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver
+func (p Point) MoveBy(factor float){ p.X += factor //-&gt; this.X += factor }  Pointer receiver
+  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
 https://github.com/golang-standards/project-layout/issues/9
 vendor package go help gopath find .
   </div>
@@ -1083,7 +1085,7 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
   
   <span class="middot-divider"></span>
-  <a href="/post/2017-01-01-hacknewsfavorites2017/#disqus_thread"></a>
+  <a href="/post/2017-01-01-discoursenotes/#disqus_thread"></a>
   
 
   
@@ -1099,32 +1101,31 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
+    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
+<h1 id="discourse-setup">discourse-setup</h1>
 
-<p>[]()</p>
+<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
 
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
+<pre><code>$cp samples/standalone.yml containers/app.yml
+</code></pre>
 
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
+<p>Discourse app.yml AWS setup example</p>
 
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
+<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
 
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
+<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
 
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
+<p>fix these settings after bootstrapping, edit the /containers/app.yml
+  then rebuild to take effect</p>
 
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
+<pre><code>./launcher rebuild app
+</code></pre>
 
   </div>
   
@@ -1189,7 +1190,7 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
   
   <span class="middot-divider"></span>
-  <a href="/post/2017-01-01-discoursenotes/#disqus_thread"></a>
+  <a href="/post/2017-01-01-hacknewsfavorites2017/#disqus_thread"></a>
   
 
   
@@ -1205,31 +1206,32 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
+    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="discourse-setup">discourse-setup</h1>
+<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
 
-<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
+<p>[]()</p>
 
-<pre><code>$cp samples/standalone.yml containers/app.yml
-</code></pre>
+<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
 
-<p>Discourse app.yml AWS setup example</p>
+<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
 
-<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
+<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
 
-<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
+<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
 
-<p>fix these settings after bootstrapping, edit the /containers/app.yml
-  then rebuild to take effect</p>
+<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
 
-<pre><code>./launcher rebuild app
-</code></pre>
+<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
+
+<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
+
+<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
 
   </div>
   
@@ -1764,7 +1766,8 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
   
   <div class="article-style" itemprop="articleBody">
     namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
+kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
@@ -2441,7 +2444,7 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

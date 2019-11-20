@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -656,8 +656,7 @@
 <h1 id="build-k8s">build k8s</h1>
 
 <ul>
-<li>docker v17.03</li>
-</ul>
+<li><p>docker v17.03</p>
 
 <pre><code>sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
 docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
@@ -676,9 +675,8 @@ docker pull coredns/coredns:1.1.3
 docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
 
 
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>cri-tools v1.11.0</p>
 
 <pre><code>git clone  https://github.com/kubernetes-sigs/cri-tools.git $GOPATH/src/github.com/kubernetes-sigs/
@@ -711,8 +709,7 @@ git checkout tags/v1.11.7 -b v1.11.7
 ++++ KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
 </code></pre></li>
 
-<li><p>build v1.11.7</p></li>
-</ul>
+<li><p>build v1.11.7</p>
 
 <pre><code>cd kubernetes
 git remote add upstream https://github.com/kubernetes/kubernetes.git
@@ -728,7 +725,8 @@ docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.
 export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
 bash -x ./build/run.sh make &gt; run.log 2&gt;&amp;1
 ./_output/dockerized/bin/linux/amd64/kubeadm version| grep v1.11.7
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>or</p>
 
@@ -863,27 +861,25 @@ ient.key member list
 <li><a href="http://wubigo.com/2012/06/linux/#instll-docker-v1703" target="_blank">install docker v17.03</a></li>
 <li>IPVS proxier
 <a href="http://wubigo.com/2012/06/linux/#ipvs" target="_blank">load IPVS mod</a></li>
-<li>install  ebtables socat</li>
-</ul>
+
+<li><p>install  ebtables socat</p>
 
 <pre><code>apt install ebtables socat
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>install kubelet service</li>
-<li>get token</li>
-</ul>
+<li><p>install kubelet service</p></li>
+
+<li><p>get token</p>
 
 <pre><code>kubeadm token list
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>get token-ca-cert-hash</li>
-</ul>
+<li><p>get token-ca-cert-hash</p>
 
 <pre><code>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | \
-   openssl dgst -sha256 -hex | sed 's/^.* //'
-</code></pre>
+openssl dgst -sha256 -hex | sed 's/^.* //'
+</code></pre></li>
+</ul>
 
 <blockquote>
 <p>all in one shell</p>
@@ -967,12 +963,12 @@ kubectl run curl -it --image=curl-alpine:1.0 --restart=Never sh
 </code></pre>
 
 <ul>
-<li>tear down cluster</li>
-</ul>
+<li><p>tear down cluster</p>
 
 <pre><code>kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets
 kubectl delete node &lt;node name&gt;
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>Then, on the node being removed, reset all kubeadm installed state:</p>
 
@@ -1035,75 +1031,6 @@ If you wish to reset iptables, you must do so manually:</p>
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -1291,7 +1218,7 @@ If you wish to reset iptables, you must do so manually:</p>
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

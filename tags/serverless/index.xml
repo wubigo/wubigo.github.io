@@ -6,24 +6,40 @@
     <description>Recent content in SERVERLESS on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Nov 2019 16:46:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2019 08:45:55 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>无服务器计算环境OPENFAAS搭建</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>准备  创建角色和授权
+kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+    </item>
+    
+    <item>
       <title>Aws Get Sqs Notification on S3 Object Creation</title>
       <link>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</link>
-      <pubDate>Tue, 19 Nov 2019 16:46:13 +0800</pubDate>
+      <pubDate>Mon, 19 Nov 2018 16:46:13 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</guid>
-      <description>get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/march --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }   create s3 notification config  cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification.</description>
+      <description>get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/march --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }  create s3 notification config
+cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }  make notification effect</description>
     </item>
     
     <item>
       <title>Aws Log</title>
       <link>https://wubigo.com/post/aws-log/</link>
-      <pubDate>Sat, 16 Nov 2019 16:00:25 +0800</pubDate>
+      <pubDate>Fri, 16 Nov 2018 16:00:25 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-log/</guid>
       <description>AWS Lambda By default, all native logs within a Lambda function are stored in the function execution result within Lambda. Additionally, if you would like to review log information immediately after executing a function, invoking the Lambda function with the LogType parameter will retrieve the last 4KB of log data generated by the function. This information is returned in the x-amz-log-results header in the HTTP response.
@@ -33,7 +49,7 @@ While these methods are great ways to test and debug issues associated with indi
     <item>
       <title>Aws Serverless Localstack Examples</title>
       <link>https://wubigo.com/post/aws-serverless-localstack-examples/</link>
-      <pubDate>Sat, 16 Nov 2019 07:25:19 +0800</pubDate>
+      <pubDate>Fri, 16 Nov 2018 07:25:19 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-serverless-localstack-examples/</guid>
       <description>serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &amp;quot;logGroups&amp;quot;: [ { &amp;quot;arn&amp;quot;: &amp;quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&amp;quot;, &amp;quot;creationTime&amp;quot;: 1573867924377.624, &amp;quot;metricFilterCount&amp;quot;: 0, &amp;quot;logGroupName&amp;quot;: &amp;quot;/aws/lambda/upload-local-postprocess&amp;quot;, &amp;quot;storedBytes&amp;quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &amp;quot;logStreams&amp;quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
@@ -43,17 +59,18 @@ import json def my_handler(event, context): print(&amp;quot;Received event: &amp
     <item>
       <title>Aws Localstack Serverless</title>
       <link>https://wubigo.com/post/aws-localstack-serverless/</link>
-      <pubDate>Fri, 15 Nov 2019 15:39:37 +0800</pubDate>
+      <pubDate>Thu, 15 Nov 2018 15:39:37 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-localstack-serverless/</guid>
-      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources</description>
     </item>
     
     <item>
       <title>Aws Cloudformation With Localstack</title>
       <link>https://wubigo.com/post/aws-cloudformation-with-localstack/</link>
-      <pubDate>Sun, 29 Sep 2019 14:20:42 +0800</pubDate>
+      <pubDate>Sat, 29 Sep 2018 14:20:42 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-cloudformation-with-localstack/</guid>
       <description> https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
@@ -68,32 +85,27 @@ AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormatio
     <item>
       <title>Aws Lambda With Localstack</title>
       <link>https://wubigo.com/post/aws-lambda-with-localstack/</link>
-      <pubDate>Sun, 29 Sep 2019 09:39:28 +0800</pubDate>
+      <pubDate>Sat, 29 Sep 2018 09:39:28 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-lambda-with-localstack/</guid>
       <description>Create function index.js
-exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
+exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
     </item>
     
     <item>
       <title>Local Aws Step Function With Local Lambda</title>
       <link>https://wubigo.com/post/aws-step-function-with-local-lambda/</link>
-      <pubDate>Thu, 26 Sep 2019 14:43:54 +0800</pubDate>
+      <pubDate>Wed, 26 Sep 2018 14:43:54 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-step-function-with-local-lambda/</guid>
-      <description>安装AWS CLI  (venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local  awslocal = aws &amp;ndash;endpoint-url=http://localhost:
+      <description>安装AWS CLI
+(venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local   awslocal = aws &amp;ndash;endpoint-url=http://localhost:
 可以安装到系统环境
- 配置AWS CLI  (venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:  命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI  (venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
-    </item>
-    
-    <item>
-      <title>无服务器计算环境OPENFAAS搭建</title>
-      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
-      <pubDate>Sun, 03 Mar 2019 08:45:55 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>准备  创建角色和授权  kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories  开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+ 配置AWS CLI
+(venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
+(venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
     </item>
     
   </channel>

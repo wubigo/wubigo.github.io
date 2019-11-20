@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -35,7 +35,8 @@
 实现方式：
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
- 头  { &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }   负载  { &quot;id&quot;: 123, &quot;name&quot;: &quot;hi tico&quot;, &quot;is_admin&quot;: true, &quot;expire&quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) &#43; &quot;.">
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/microservices-authentication-and-authorization/">
@@ -151,7 +152,8 @@ JWT: 头，负载和签名
 实现方式：
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
- 头  { &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }   负载  { &quot;id&quot;: 123, &quot;name&quot;: &quot;hi tico&quot;, &quot;is_admin&quot;: true, &quot;expire&quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) &#43; &quot;."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-04-28T17:08:07&#43;08:00">
@@ -577,18 +579,15 @@ JWT: 头，负载和签名
 <p>JWT: 头，负载和签名</p>
 
 <ol>
-<li>头</li>
-</ol>
+<li><p>头</p>
 
 <pre><code>{
 &quot;typ&quot;: &quot;JWT&quot;,
 &quot;alg&quot;: &quot;HS256&quot;
 }
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>负载</li>
-</ol>
+<li><p>负载</p>
 
 <pre><code>{ 
 &quot;id&quot;: 123, 
@@ -596,18 +595,17 @@ JWT: 头，负载和签名
 &quot;is_admin&quot;: true,
 &quot;expire&quot;: 1558213420 
 }
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>签名</li>
-</ol>
+<li><p>签名</p>
 
 <pre><code>HMACSHA256(
-  base64UrlEncode(header) + &quot;.&quot; +
-  base64UrlEncode(payload),
-  secret
+base64UrlEncode(header) + &quot;.&quot; +
+base64UrlEncode(payload),
+secret
 )
-</code></pre>
+</code></pre></li>
+</ol>
 
 <p><img src="./jwt.png" alt="" /></p>
 
@@ -676,75 +674,6 @@ JWT: 头，负载和签名
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -948,7 +877,7 @@ JWT: 头，负载和签名
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

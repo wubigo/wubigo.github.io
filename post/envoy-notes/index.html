@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -598,7 +598,7 @@ docker exec -it envoy bash
 <h1 id="监听器">监听器</h1>
 
 <ul>
-<li>监听过滤器（内置）<br />
+<li><p>监听过滤器（内置）</p>
 
 <ul>
 <li>envoy.client_ssl_auth</li>
@@ -629,14 +629,15 @@ docker exec -it envoy bash
 <li>envoy.mongo_proxy</li>
 <li>envoy.ratelimit</li>
 <li>envoy.redis_proxy</li>
-<li>envoy.tcp_proxy</li>
-</ul></li>
-</ul>
+
+<li><p>envoy.tcp_proxy</p>
 
 <pre><code>route_config:
-   virtual_hosts:
-       domains: -&gt; matched against the http requests Host header
-</code></pre>
+virtual_hosts:
+domains: -&gt; matched against the http requests Host header
+</code></pre></li>
+</ul></li>
+</ul>
 
 <p>config envoy by following its api
 <strong>api document is automatically generated from protocol buffers</strong></p>
@@ -653,14 +654,12 @@ docker exec -it envoy bash
 
 <li><p>endpoints[EDS]</p></li>
 
-<li><p>v1</p></li>
-</ul>
+<li><p>v1</p>
 
 <pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>v2</li>
+<li><p>v2</p></li>
 </ul>
 
 <p>Health Discovery Service (HDS)</p>
@@ -679,14 +678,15 @@ docker exec -it envoy bash
 <li>STRICT_DNS</li>
 <li>LOGICAL_DNS<br /></li>
 <li>EDS    ⁣</li>
-<li>ORIGINAL_DST</li>
+
+<li><p>ORIGINAL_DST</p>
+
+<pre><code>clusters:
+- name: service_backend
+type: []
+</code></pre></li>
 </ul></li>
 </ul>
-
-<pre><code>  clusters:
-  - name: service_backend
-    type: []
-</code></pre>
 
 <p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
 
@@ -800,75 +800,6 @@ envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -1074,7 +1005,7 @@ envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

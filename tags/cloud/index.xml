@@ -29,7 +29,9 @@
 那如何使用localstack呢？
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
- 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml

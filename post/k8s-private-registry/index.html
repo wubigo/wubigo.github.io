@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -520,15 +520,15 @@
 </code></pre>
 
 <ul>
-<li>convert the base64-encoded auth data to a readable format</li>
-</ul>
+<li><p>convert the base64-encoded auth data to a readable format</p>
 
 <pre><code>echo &quot;d3ViaWdvOjEyMzEyMwo=&quot; | base64 --decode 
 </code></pre>
 
 <pre><code>nodes=$(kubectl get nodes -o jsonpath='{range.items[*].metadata}{.name} {end}')
 for n in $nodes; do scp ~/.docker/config.json root@$n:/var/lib/kubelet/config.json; done
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/" target="_blank">https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/</a></p>
 
@@ -561,75 +561,6 @@ for n in $nodes; do scp ~/.docker/config.json root@$n:/var/lib/kubelet/config.js
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，服务网格建设经验.管理超过50P的数据仓库和基于HADOOP生态的大数据分析平台</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
@@ -835,7 +766,7 @@ for n in $nodes; do scp ~/.docker/config.json root@$n:/var/lib/kubelet/config.js
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>

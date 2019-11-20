@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-10-26T11:14:14&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-29T10:17:03&#43;08:00">
   
 
   
@@ -403,8 +403,8 @@
 
 
 
-<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -417,95 +417,7 @@
     
       
     
-    <time>Oct 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/http-status-code-for-reset-api/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/http-status-code-for-reset-api/" itemprop="url">REST API中如何使用Http状态码</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
- Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
-https://httpstatuses.com/
-The main choice is do you want to treat the HTTP status code as part of your REST API or not.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 21, 2018</time>
+    <time>Sep 29, 2018</time>
   </span>
   
 
@@ -521,7 +433,7 @@ The main choice is do you want to treat the HTTP status code as part of your RES
   
   
   <span class="middot-divider"></span>
-  <a href="/post/pass-over-iaas/#disqus_thread"></a>
+  <a href="/post/aws-lambda-with-localstack/#disqus_thread"></a>
   
 
   
@@ -537,72 +449,14 @@ The main choice is do you want to treat the HTTP status code as part of your RES
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/pass-over-iaas/" itemprop="url">面向应用的无服务器架构</a>
+    <a href="/post/aws-lambda-with-localstack/" itemprop="url">Aws Lambda With Localstack</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <p>根据多年在IAAS/PAAS平台的建议经验，并帮助多个行业例如医疗，电信，
-建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享，
-希望能为中小企业上云提供一些有价值的建议。</p>
-
-<p><strong>本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心，
-需要根据目前的计算能力选择相应的云服务厂商</strong></p>
-
-<p>云服务模型</p>
-
-<p><img src="./cloud-model.jpeg" alt="RNA" /></p>
-
-<p>从云服务模型可以看出，企业上云有以下路径可选。
-但导向是一致的，专注业务，IT外包。</p>
-
-<ul>
-<li>从自建数据中心向IaaS平台迁移</li>
-<li>从IaaS平台向PaaS迁移</li>
-<li>在公有云厂家间迁移</li>
-<li>从IaaS平台向FaaS迁移</li>
-<li>混合云</li>
-</ul>
-
-<p>上云的初级阶段:
-购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同，
-如何选择最高性价比的云主机，参考</p>
-
-<p><a href="/post/iaas-how-to-buy-ec2/">云主机主要性价比指标</a></p>
-
-<p>硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：</p>
-
-<ul>
-<li>云主机内网/外网平均带宽(最核心指标)</li>
-<li>存储(网络硬盘)IO吞吐量</li>
-<li>初始化完成后首次资源利用率</li>
-</ul>
-
-<p>其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构
-起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成
-这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016
-年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。</p>
-
-<p><strong>网络带宽是很多企业战略转型决定上云遇到的第一个大坑</strong></p>
-
-<blockquote>
-<p>内网平均带宽也是衡量私有云厂商服务能力的核心指标</p>
-</blockquote>
-
-<p>所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益</p>
-
-<p><a href="/post/iaas-benchmark-2016/">国内外云厂商主要产品基准测试对比图</a></p>
-
-<p><a href="/post/iaas-gears">上云注意事项</a></p>
-
-<p>上云的中级阶段：PaaS</p>
-
-<p><a href="/post/paas-how-to-buy">如何选择PAAS供应商</a></p>
-
-<p>上云的终级阶段: 不需要服务器。</p>
-
-<p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
-
+    Create function index.js
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
   </div>
   
 
@@ -704,6 +558,97 @@ The main choice is do you want to treat the HTTP status code as part of your RES
 <pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
 </code></pre>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/aws-step-function-with-local-lambda/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-step-function-with-local-lambda/" itemprop="url">Local Aws Step Function With Local Lambda</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装AWS CLI
+(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
+(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
   </div>
   
 
@@ -975,7 +920,8 @@ The main choice is do you want to treat the HTTP status code as part of your RES
     避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.
   </div>
   
 
@@ -1492,7 +1438,7 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
   
   <span class="middot-divider"></span>
-  <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/#disqus_thread"></a>
+  <a href="/post/groovy-notes/#disqus_thread"></a>
   
 
   
@@ -1508,13 +1454,15 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
+    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
-
+    Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 
@@ -1578,7 +1526,7 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
   
   <span class="middot-divider"></span>
-  <a href="/post/groovy-notes/#disqus_thread"></a>
+  <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/#disqus_thread"></a>
   
 
   
@@ -1594,15 +1542,13 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
+    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    Allow more ways of creating objects using literals
- Introduce new datatypes together with their operators and expressions.
-  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
-log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
+    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
+
   </div>
   
 
@@ -1778,7 +1724,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-  management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
   </div>
   
@@ -1964,7 +1910,9 @@ Customer User: customer@thingsboard.org / customer
 
   
   <div class="article-style" itemprop="articleBody">
-    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR
+    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
+D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;  install with another registry
+npm install --registry=https://registry.npmjs.org/   install vue-cli npm install -g @vue/cli  vue create my-project  OR
   </div>
   
 
@@ -2442,7 +2390,7 @@ mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
   </body>
 </html>
