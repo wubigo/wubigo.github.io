@@ -403,6 +403,93 @@
 
 
 
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/aws-lambda-with-localstack/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-lambda-with-localstack/" itemprop="url">基于Localstack的本地Lambda开发</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Create function index.js
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
 
@@ -2162,94 +2249,6 @@ npm install --registry=https://registry.npmjs.org/   install vue-cli npm install
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-11 08:48:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-11 08:48:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/lang-java-spring-boot-v2/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-java-spring-boot-v2/" itemprop="url">Lang Java Spring Boot V2</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
--Djava.net.preferIPv4Stack=true  Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
-management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
-mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.
   </div>
   
 
