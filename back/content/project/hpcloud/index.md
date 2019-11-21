@@ -26,14 +26,20 @@ categories = []
 
 - 函数计算的有哪些好处
 
-- 公有云服务本地化
+- 公有云服务本地开发环境搭建
+
+开发者可以免费使用如下公有云服务进行开发测试
 
 [免费使用公有云服务](/post/use-public-cloud-for-free/)
 
-- 搭建本地的函数计算的开发环境(localstack+terraform+serverless)
+- 函数计算本地开发环境搭建
+
+基于localstack+terraform+serverless
+
+搭建一个完全本地的函数计算开发环境
 
 [开发环境本地搭建参考](/tags/serverless/)
 
-- 函数计算真实应用场景开发
+- 函数计算真实应用场景开发案例
 
 [函数计算应用案例](/tags/serverless/)
