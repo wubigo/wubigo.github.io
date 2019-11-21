@@ -33,7 +33,7 @@ awslocal sqs create-queue --queue-name localstack
 - get  queue arn
 
 ```
- awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/march --attribute-names All
+ awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All
 {
     "Attributes": {
         "ApproximateNumberOfMessagesNotVisible": "0",
