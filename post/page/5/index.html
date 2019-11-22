@@ -403,6 +403,92 @@
 
 
 
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-csi/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2159,96 +2245,6 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     使用一个没有被占用的网段设置DOCKER_GATEWAY
 export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
 kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-04-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2017-04-02-microserviceplatformspring-cloudvskubernetes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-04-02-microserviceplatformspring-cloudvskubernetes/" itemprop="url">Microservice platform Spring-cloud VS Kubernetes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="microservice-platform-spring-cloud-vs-kubernetes">Microservice platform Spring-cloud VS Kubernetes</h1>
-
-<p><a href="https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/" target="_blank">https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/</a></p>
-
   </div>
   
 
