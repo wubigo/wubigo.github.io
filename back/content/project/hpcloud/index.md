@@ -24,7 +24,9 @@ categories = []
 
 - WEB应用架构演进：虚机，容器，函数计算
 
-- 函数计算的有哪些好处
+- 函数计算之道
+
+[函数计算进行时](/post/computing-in-function-way/)
 
 - 公有云服务本地开发环境搭建
 
