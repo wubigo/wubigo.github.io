@@ -52,16 +52,16 @@ categories = []
 
 ### 函数计算本地开发环境搭建
 
+  搭建一个完全本地的函数计算开发环境
+
   函数计算的本地开发环境搭建有两种方式：
 
 - 基于localstack+terraform+serverless
-
-  搭建一个完全本地的函数计算开发环境
-
-- 基于kubeless
   
-  [开发环境本地搭建参考](/tags/serverless/)
+  [开发环境本地搭建参考](/tags/serverless/)  
 
+- 基于kubeless/knative+k8s
+  
 ### 函数计算真实应用场景开发案例
 
   [函数计算应用案例](/tags/serverless/)
