@@ -1135,6 +1135,18 @@ Books I read this year https://www.gatesnotes.com/About-Bill-Gates/Best-Books-20
     </item>
     
     <item>
+      <title>Terraform Notes</title>
+      <link>https://wubigo.com/post/terraform-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 15:11:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-notes/</guid>
+      <description>前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &amp;quot;aws&amp;quot; { profile = &amp;quot;default&amp;quot; region = &amp;quot;us-east-1&amp;quot; endpoints { ec2 = &amp;quot;http://localhost:4597&amp;quot; sts = &amp;quot;http://localhost:4592&amp;quot; } } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-2757f631&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
+    
+    <item>
       <title>Win10 Customize</title>
       <link>https://wubigo.com/post/win10-customize/</link>
       <pubDate>Fri, 29 Sep 2017 15:26:01 +0800</pubDate>

@@ -403,6 +403,117 @@
 
 
 
+<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2017-03-01-jekyll/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-03-01-jekyll/" itemprop="url">jekyll notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="how-to-allow-unsafe-ports-in-chrome">How to allow unsafe ports in Chrome</h1>
+
+<p><a href="http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome" target="_blank">http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome</a></p>
+
+<h1 id="config">config</h1>
+
+<pre><code>$ cat _config.yml
+port: 6000
+</code></pre>
+
+<h1 id="build-for-production">build for production</h1>
+
+<pre><code>$rm site.tar (remove before build otherwise tar-self is repackaged too)
+$JEKYLL_ENV=production bundle exec jekyll build
+$tar zcvf site.tar _site/*
+</code></pre>
+
+<h1 id="replace-gem-source-mirror">replace gem source mirror</h1>
+
+<pre><code>gem sources --remove https://rubygems.org/
+gem sources -a http://ruby.taobao.org/
+gem sources -l
+http://ruby.taobao.org/
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="dateModified">
 
@@ -2143,91 +2254,6 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
   <div class="article-style" itemprop="articleBody">
     Dockerfile ENTRYPOINT有两种形式
  exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-03-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-03-21 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 21, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2016-03-21-streamdataprocessing/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-03-21-streamdataprocessing/" itemprop="url">streaming note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    log-based vs memory-based broker “Thus, in situations where messages may be expensive to process and you want to parallelize processing on a message-by-message basis, and where message ordering is not so important, the JMS/AMQP style of message broker is preferable. On the other hand, in situations with high message throughput, where each message is fast to process and where message ordering is important, the log-based approach works very well.”
   </div>
   
 

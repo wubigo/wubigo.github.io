@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TERRAFORM on SOFTCORE</title>
+    <link>https://wubigo.com/tags/terraform/</link>
+    <description>Recent content in TERRAFORM on SOFTCORE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Nov 2017 15:11:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Terraform Notes</title>
+      <link>https://wubigo.com/post/terraform-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 15:11:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-notes/</guid>
+      <description>前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &amp;quot;aws&amp;quot; { profile = &amp;quot;default&amp;quot; region = &amp;quot;us-east-1&amp;quot; endpoints { ec2 = &amp;quot;http://localhost:4597&amp;quot; sts = &amp;quot;http://localhost:4592&amp;quot; } } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-2757f631&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
+    
+  </channel>
+</rss>

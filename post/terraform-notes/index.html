@@ -28,10 +28,13 @@
   
     
   
-  <meta name="description" content="https://github.com/wubigo/localstack-examples">
+  <meta name="description" content="前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-s3-upload-with-localstack/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/terraform-notes/">
 
   
 
@@ -120,7 +123,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-s3-upload-with-localstack/">
+  <link rel="canonical" href="https://wubigo.com/post/terraform-notes/">
 
   
   
@@ -135,21 +138,24 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/post/aws-s3-upload-with-localstack/">
-  <meta property="og:title" content="Aws S3 Upload With Localstack | SOFTCORE">
-  <meta property="og:description" content="https://github.com/wubigo/localstack-examples"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/terraform-notes/">
+  <meta property="og:title" content="Terraform Notes | SOFTCORE">
+  <meta property="og:description" content="前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-10-20T13:22:06&#43;08:00">
+  <meta property="article:published_time" content="2017-11-23T15:11:01&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-10-20T13:22:06&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-11-23T15:11:01&#43;08:00">
   
 
   
 
-  <title>Aws S3 Upload With Localstack | SOFTCORE</title>
+  
+
+  <title>Terraform Notes | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -366,7 +372,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Aws S3 Upload With Localstack</h1>
+  <h1 itemprop="name">Terraform Notes</h1>
 
   
 
@@ -375,8 +381,8 @@
 
 
 
-<meta content="2018-10-20 13:22:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-20 13:22:06 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -389,7 +395,7 @@
     
       
     
-    <time>Oct 20, 2018</time>
+    <time>Nov 23, 2017</time>
   </span>
   
 
@@ -405,7 +411,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/aws-s3-upload-with-localstack/#disqus_thread"></a>
+  <a href="/post/terraform-notes/#disqus_thread"></a>
   
 
   
@@ -416,35 +422,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Aws%20S3%20Upload%20With%20Localstack&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-s3-upload-with-localstack%2f"
+         href="https://twitter.com/intent/tweet?text=Terraform%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fterraform-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-s3-upload-with-localstack%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fterraform-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-s3-upload-with-localstack%2f&amp;title=Aws%20S3%20Upload%20With%20Localstack"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fterraform-notes%2f&amp;title=Terraform%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-s3-upload-with-localstack%2f&amp;title=Aws%20S3%20Upload%20With%20Localstack"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fterraform-notes%2f&amp;title=Terraform%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Aws%20S3%20Upload%20With%20Localstack&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-s3-upload-with-localstack%2f">
+         href="mailto:?subject=Terraform%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fterraform-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -482,7 +488,88 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p><a href="https://github.com/wubigo/localstack-examples" target="_blank">https://github.com/wubigo/localstack-examples</a></p>
+      
+
+<h2 id="前提条件">前提条件</h2>
+
+<h3 id="配置aws">配置AWS</h3>
+
+<pre><code>aws configure list
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                &lt;not set&gt;             None    None
+access_key     ****************s-ok shared-credentials-file
+secret_key     ****************-key shared-credentials-file
+    region                    local      config-file    ~/.aws/config
+</code></pre>
+
+<p><code>~/.aws/config</code></p>
+
+<pre><code>[default]
+output = json
+region = local
+</code></pre>
+
+<p><code>~/.aws/credentials</code></p>
+
+<pre><code>[default]
+aws_access_key_id = any-id-is-ok
+aws_secret_access_key = fake-key
+</code></pre>
+
+<h3 id="启动aws本地服务">启动aws本地服务</h3>
+
+<pre><code>localstack start
+</code></pre>
+
+<h2 id="创建ec2">创建EC2</h2>
+
+<h3 id="配置">配置</h3>
+
+<pre><code>mkdir ec2
+
+cd ec2
+
+touch ec2.tf
+</code></pre>
+
+<p><code>ec2.tf</code></p>
+
+<pre><code>provider &quot;aws&quot; {
+  profile    = &quot;default&quot;
+  region     = &quot;us-east-1&quot;
+  endpoints {
+      ec2    = &quot;http://localhost:4597&quot;
+      sts    = &quot;http://localhost:4592&quot;
+  }
+
+}
+
+resource &quot;aws_instance&quot; &quot;example&quot; {
+  ami           = &quot;ami-2757f631&quot;
+  instance_type = &quot;t2.micro&quot;
+}
+
+</code></pre>
+
+<h3 id="初始化">初始化</h3>
+
+<ul>
+<li><p>下载SP</p>
+
+<pre><code>terraform  init
+</code></pre></li>
+
+<li><p>应用配置</p>
+
+<pre><code>terraform apply
+</code></pre></li>
+</ul>
+
+<h3 id="检查结果">检查结果</h3>
+
+<pre><code>awslocal ec2 describe-instances
+</code></pre>
 
     </div>
 
@@ -493,7 +580,7 @@
   
   <a class="badge badge-light" href="/tags/localstack/">LOCALSTACK</a>
   
-  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
+  <a class="badge badge-light" href="/tags/terraform/">TERRAFORM</a>
   
 </div>
 
@@ -517,24 +604,6 @@
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/aws-lambda-with-localstack/">基于Localstack的本地Lambda开发</a></li>
-          
-          <li><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></li>
-          
-          <li><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></li>
-          
-          <li><a href="/post/terraform-notes/">Terraform Notes</a></li>
-          
-          <li><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></li>
-          
-        </ul>
-      </div>
       
     
 

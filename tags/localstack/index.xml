@@ -132,5 +132,17 @@ func.yaml
 AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  </description>
     </item>
     
+    <item>
+      <title>Terraform Notes</title>
+      <link>https://wubigo.com/post/terraform-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 15:11:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-notes/</guid>
+      <description>前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &amp;quot;aws&amp;quot; { profile = &amp;quot;default&amp;quot; region = &amp;quot;us-east-1&amp;quot; endpoints { ec2 = &amp;quot;http://localhost:4597&amp;quot; sts = &amp;quot;http://localhost:4592&amp;quot; } } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-2757f631&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
+    
   </channel>
 </rss>
