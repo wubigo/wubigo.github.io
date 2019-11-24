@@ -101,8 +101,23 @@ terraform  init
 terraform apply
 ```
 
+成功执行后`terraform.tfstate`自动生成，该文件记录被管理资源的ID
+
+- 显示结果
+
+```
+terraform show
+```
+
 ### 检查结果
 
 ```
 awslocal ec2 describe-instances
+```
+
+
+### 销毁资源
+
+```
+terraform destroy
 ```
