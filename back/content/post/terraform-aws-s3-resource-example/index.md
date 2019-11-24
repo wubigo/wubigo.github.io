@@ -1,6 +1,6 @@
 +++
 title = "Terraform Aws S3 Resource Example"
-date = 2019-11-23T17:17:44+08:00
+date = 2018-07-23T17:17:44+08:00
 draft = false
 
 # Tags and categories

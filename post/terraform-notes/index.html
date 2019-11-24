@@ -585,6 +585,25 @@ resource &quot;aws_instance&quot; &quot;example&quot; {
 <pre><code>terraform destroy
 </code></pre>
 
+<h2 id="配置-1">配置</h2>
+
+<p><code>.terraformrc</code></p>
+
+<pre><code>plugin_cache_dir   = &quot;$HOME/.terraform.d/plugin-cache&quot;
+disable_checkpoint = true
+</code></pre>
+
+<ul>
+<li>Third-party Plugins</li>
+</ul>
+
+<p>These third-party providers must be manually installed,</p>
+
+<p>since terraform init cannot automatically download them</p>
+
+<pre><code>~/.terraform.d/plugin
+</code></pre>
+
     </div>
 
     
