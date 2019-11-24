@@ -121,3 +121,24 @@ awslocal ec2 describe-instances
 ```
 terraform destroy
 ```
+
+
+## 配置
+
+`.terraformrc`
+
+```
+plugin_cache_dir   = "$HOME/.terraform.d/plugin-cache"
+disable_checkpoint = true
+```
+
+- Third-party Plugins
+
+These third-party providers must be manually installed, 
+
+since terraform init cannot automatically download them
+
+``` 
+~/.terraform.d/plugin
+```
+
