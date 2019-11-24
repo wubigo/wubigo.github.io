@@ -5,120 +5,8 @@
     <description>Recent content in SOFTCORE on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Nov 2019 17:17:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Terraform Aws S3 Resource Example</title>
-      <link>https://wubigo.com/post/terraform-aws-s3-resource-example/</link>
-      <pubDate>Sat, 23 Nov 2019 17:17:44 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/terraform-aws-s3-resource-example/</guid>
-      <description>
-
-&lt;h2 id=&#34;add-notification-configuration-to-sns-topic&#34;&gt;Add notification configuration to SNS Topic&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;resource &amp;quot;aws_sns_topic&amp;quot; &amp;quot;topic&amp;quot; {
-  name = &amp;quot;s3-event-notification-topic&amp;quot;
-
-  policy = &amp;lt;&amp;lt;POLICY
-{
-    &amp;quot;Version&amp;quot;:&amp;quot;2012-10-17&amp;quot;,
-    &amp;quot;Statement&amp;quot;:[{
-        &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;,
-        &amp;quot;Principal&amp;quot;: {&amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot;},
-        &amp;quot;Action&amp;quot;: &amp;quot;SNS:Publish&amp;quot;,
-        &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws:sns:*:*:s3-event-notification-topic&amp;quot;,
-        &amp;quot;Condition&amp;quot;:{
-            &amp;quot;ArnLike&amp;quot;:{&amp;quot;aws:SourceArn&amp;quot;:&amp;quot;${aws_s3_bucket.bucket.arn}&amp;quot;}
-        }
-    }]
-}
-POLICY
-}
-
-resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; {
-  bucket = &amp;quot;your_bucket_name&amp;quot;
-}
-
-resource &amp;quot;aws_s3_bucket_notification&amp;quot; &amp;quot;bucket_notification&amp;quot; {
-  bucket = &amp;quot;${aws_s3_bucket.bucket.id}&amp;quot;
-
-  topic {
-    topic_arn     = &amp;quot;${aws_sns_topic.topic.arn}&amp;quot;
-    events        = [&amp;quot;s3:ObjectCreated:*&amp;quot;]
-    filter_suffix = &amp;quot;.log&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;add-notification-configuration-to-lambda-function&#34;&gt;Add notification configuration to Lambda Function&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;iam_for_lambda&amp;quot; {
-  name = &amp;quot;iam_for_lambda&amp;quot;
-
-  assume_role_policy = &amp;lt;&amp;lt;EOF
-{
-  &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;,
-  &amp;quot;Statement&amp;quot;: [
-    {
-      &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;,
-      &amp;quot;Principal&amp;quot;: {
-        &amp;quot;Service&amp;quot;: &amp;quot;lambda.amazonaws.com&amp;quot;
-      },
-      &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;
-    }
-  ]
-}
-EOF
-}
-
-resource &amp;quot;aws_lambda_permission&amp;quot; &amp;quot;allow_bucket&amp;quot; {
-  statement_id  = &amp;quot;AllowExecutionFromS3Bucket&amp;quot;
-  action        = &amp;quot;lambda:InvokeFunction&amp;quot;
-  function_name = &amp;quot;${aws_lambda_function.func.arn}&amp;quot;
-  principal     = &amp;quot;s3.amazonaws.com&amp;quot;
-  source_arn    = &amp;quot;${aws_s3_bucket.bucket.arn}&amp;quot;
-}
-
-resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;func&amp;quot; {
-  filename      = &amp;quot;your-function.zip&amp;quot;
-  function_name = &amp;quot;example_lambda_name&amp;quot;
-  role          = &amp;quot;${aws_iam_role.iam_for_lambda.arn}&amp;quot;
-  handler       = &amp;quot;exports.example&amp;quot;
-  runtime       = &amp;quot;go1.x&amp;quot;
-}
-
-resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; {
-  bucket = &amp;quot;your_bucket_name&amp;quot;
-}
-
-resource &amp;quot;aws_s3_bucket_notification&amp;quot; &amp;quot;bucket_notification&amp;quot; {
-  bucket = &amp;quot;${aws_s3_bucket.bucket.id}&amp;quot;
-
-  lambda_function {
-    lambda_function_arn = &amp;quot;${aws_lambda_function.func.arn}&amp;quot;
-    events              = [&amp;quot;s3:ObjectCreated:*&amp;quot;]
-    filter_prefix       = &amp;quot;AWSLogs/&amp;quot;
-    filter_suffix       = &amp;quot;.log&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;import&#34;&gt;import&lt;/h2&gt;
-
-&lt;p&gt;S3 bucket notification can be imported using the bucket&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;terraform import aws_s3_bucket_notification.bucket_notification bucket-name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification.html&#34; target=&#34;_blank&#34;&gt;https://www.terraform.io/docs/providers/aws/r/s3_bucket_notification.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;localstack-endpoints&#34;&gt;localstack endpoints&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.terraform.io/docs/providers/aws/guides/custom-service-endpoints.html#localstack&#34; target=&#34;_blank&#34;&gt;https://www.terraform.io/docs/providers/aws/guides/custom-service-endpoints.html#localstack&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>JAVA这两年</title>
@@ -1270,6 +1158,41 @@ secret
 &lt;p&gt;例如istio citadel私有证书中心&lt;/p&gt;
 
 &lt;p&gt;[1]. &lt;a href=&#34;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&#34; target=&#34;_blank&#34;&gt;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linux删除Python3.5</title>
+      <link>https://wubigo.com/post/linux-python3.5-remove/</link>
+      <pubDate>Sun, 24 Mar 2019 14:04:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-python3.5-remove/</guid>
+      <description>&lt;p&gt;之前一直用pycharm,今天把code升级到1.3.2的时候，
+突然提示我安装python扩展，决定试试。
+结果发现python的解释器设置有问题，
+总是设置为系统的解释器，
+而虚拟环境的解释器不起作用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt remove --purge python3.5
+reboot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
+造成了很大的麻烦。&lt;/p&gt;
+
+&lt;p&gt;Ctrl+Alt+F1进入虚拟控制台登录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt install python3.5
+apt install ubuntu-desktop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重新安装chrome和virtualbox&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /etc/apt/sources.list.d
+sudo mv google-chrome.list.save google-chrome.list
+apt update
+apt install google-chrome-stable
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

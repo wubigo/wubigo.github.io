@@ -6,19 +6,10 @@
     <description>Recent content in Posts on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Nov 2019 17:17:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Terraform Aws S3 Resource Example</title>
-      <link>https://wubigo.com/post/terraform-aws-s3-resource-example/</link>
-      <pubDate>Sat, 23 Nov 2019 17:17:44 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/terraform-aws-s3-resource-example/</guid>
-      <description>Add notification configuration to SNS Topic resource &amp;quot;aws_sns_topic&amp;quot; &amp;quot;topic&amp;quot; { name = &amp;quot;s3-event-notification-topic&amp;quot; policy = &amp;lt;&amp;lt;POLICY { &amp;quot;Version&amp;quot;:&amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;:[{ &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Principal&amp;quot;: {&amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot;}, &amp;quot;Action&amp;quot;: &amp;quot;SNS:Publish&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws:sns:*:*:s3-event-notification-topic&amp;quot;, &amp;quot;Condition&amp;quot;:{ &amp;quot;ArnLike&amp;quot;:{&amp;quot;aws:SourceArn&amp;quot;:&amp;quot;${aws_s3_bucket.bucket.arn}&amp;quot;} } }] } POLICY } resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; { bucket = &amp;quot;your_bucket_name&amp;quot; } resource &amp;quot;aws_s3_bucket_notification&amp;quot; &amp;quot;bucket_notification&amp;quot; { bucket = &amp;quot;${aws_s3_bucket.bucket.id}&amp;quot; topic { topic_arn = &amp;quot;${aws_sns_topic.topic.arn}&amp;quot; events = [&amp;quot;s3:ObjectCreated:*&amp;quot;] filter_suffix = &amp;quot;.log&amp;quot; } }  Add notification configuration to Lambda Function resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;iam_for_lambda&amp;quot; { name = &amp;quot;iam_for_lambda&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
-    </item>
     
     <item>
       <title>JAVA这两年</title>
@@ -661,6 +652,15 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;
       
       <guid>https://wubigo.com/post/lang-go-dep-manage/</guid>
       <description>glide To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</description>
+    </item>
+    
+    <item>
+      <title>Terraform Aws S3 Resource Example</title>
+      <link>https://wubigo.com/post/terraform-aws-s3-resource-example/</link>
+      <pubDate>Mon, 23 Jul 2018 17:17:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-aws-s3-resource-example/</guid>
+      <description>Add notification configuration to SNS Topic resource &amp;quot;aws_sns_topic&amp;quot; &amp;quot;topic&amp;quot; { name = &amp;quot;s3-event-notification-topic&amp;quot; policy = &amp;lt;&amp;lt;POLICY { &amp;quot;Version&amp;quot;:&amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;:[{ &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Principal&amp;quot;: {&amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot;}, &amp;quot;Action&amp;quot;: &amp;quot;SNS:Publish&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws:sns:*:*:s3-event-notification-topic&amp;quot;, &amp;quot;Condition&amp;quot;:{ &amp;quot;ArnLike&amp;quot;:{&amp;quot;aws:SourceArn&amp;quot;:&amp;quot;${aws_s3_bucket.bucket.arn}&amp;quot;} } }] } POLICY } resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; { bucket = &amp;quot;your_bucket_name&amp;quot; } resource &amp;quot;aws_s3_bucket_notification&amp;quot; &amp;quot;bucket_notification&amp;quot; { bucket = &amp;quot;${aws_s3_bucket.bucket.id}&amp;quot; topic { topic_arn = &amp;quot;${aws_sns_topic.topic.arn}&amp;quot; events = [&amp;quot;s3:ObjectCreated:*&amp;quot;] filter_suffix = &amp;quot;.log&amp;quot; } }  Add notification configuration to Lambda Function resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;iam_for_lambda&amp;quot; { name = &amp;quot;iam_for_lambda&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
     </item>
     
     <item>
