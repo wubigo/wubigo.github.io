@@ -6,10 +6,19 @@
     <description>Recent content in Posts on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Nov 2019 17:17:44 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terraform Aws S3 Resource Example</title>
+      <link>https://wubigo.com/post/terraform-aws-s3-resource-example/</link>
+      <pubDate>Sat, 23 Nov 2019 17:17:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-aws-s3-resource-example/</guid>
+      <description>Add notification configuration to SNS Topic resource &amp;quot;aws_sns_topic&amp;quot; &amp;quot;topic&amp;quot; { name = &amp;quot;s3-event-notification-topic&amp;quot; policy = &amp;lt;&amp;lt;POLICY { &amp;quot;Version&amp;quot;:&amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;:[{ &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Principal&amp;quot;: {&amp;quot;AWS&amp;quot;:&amp;quot;*&amp;quot;}, &amp;quot;Action&amp;quot;: &amp;quot;SNS:Publish&amp;quot;, &amp;quot;Resource&amp;quot;: &amp;quot;arn:aws:sns:*:*:s3-event-notification-topic&amp;quot;, &amp;quot;Condition&amp;quot;:{ &amp;quot;ArnLike&amp;quot;:{&amp;quot;aws:SourceArn&amp;quot;:&amp;quot;${aws_s3_bucket.bucket.arn}&amp;quot;} } }] } POLICY } resource &amp;quot;aws_s3_bucket&amp;quot; &amp;quot;bucket&amp;quot; { bucket = &amp;quot;your_bucket_name&amp;quot; } resource &amp;quot;aws_s3_bucket_notification&amp;quot; &amp;quot;bucket_notification&amp;quot; { bucket = &amp;quot;${aws_s3_bucket.bucket.id}&amp;quot; topic { topic_arn = &amp;quot;${aws_sns_topic.topic.arn}&amp;quot; events = [&amp;quot;s3:ObjectCreated:*&amp;quot;] filter_suffix = &amp;quot;.log&amp;quot; } }  Add notification configuration to Lambda Function resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;iam_for_lambda&amp;quot; { name = &amp;quot;iam_for_lambda&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
+    </item>
     
     <item>
       <title>JAVA这两年</title>
@@ -415,6 +424,19 @@ curl -IL http://wubigo.com/post
  安全命名  安全命名定义可运行服务的安全标识
 微服务认证  传输层认证 终端用户认证  每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。
 https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</description>
+    </item>
+    
+    <item>
+      <title>Aws Lambda Notes</title>
+      <link>https://wubigo.com/post/aws-lambda-notes/</link>
+      <pubDate>Sat, 24 Nov 2018 09:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-notes/</guid>
+      <description>serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code
+and runtime configuration.</description>
     </item>
     
     <item>
@@ -1132,6 +1154,15 @@ Books I read this year https://www.gatesnotes.com/About-Bill-Gates/Best-Books-20
       
       <guid>https://wubigo.com/post/2017-12-02-machinelearning101slidedeck/</guid>
       <description>Machine Learning 101 slidedeck https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;amp;cmp=em-data-na-na-newsltr_20171213&amp;amp;slide=id.g183f28bdc3_0_90</description>
+    </item>
+    
+    <item>
+      <title>Aws Apigateway Notes</title>
+      <link>https://wubigo.com/post/aws-apigateway-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 20:52:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-apigateway-notes/</guid>
+      <description> create rest api resource awslocal apigateway create-rest-api --name &#39;My First API&#39; --description &#39;This is my first API&#39;  awslocal apigateway get-rest-apis { &amp;quot;items&amp;quot;: [ { &amp;quot;createdDate&amp;quot;: 1574513755, &amp;quot;id&amp;quot;: &amp;quot;tjc336382o&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;hello_api2&amp;quot; }, { &amp;quot;description&amp;quot;: &amp;quot;This is my first API&amp;quot;, &amp;quot;createdDate&amp;quot;: 1574513755, &amp;quot;id&amp;quot;: &amp;quot;foyylqv018&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;My First API&amp;quot; } ] }  </description>
     </item>
     
     <item>

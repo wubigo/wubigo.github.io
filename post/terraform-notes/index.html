@@ -566,9 +566,23 @@ resource &quot;aws_instance&quot; &quot;example&quot; {
 </code></pre></li>
 </ul>
 
+<p>成功执行后<code>terraform.tfstate</code>自动生成，该文件记录被管理资源的ID</p>
+
+<ul>
+<li><p>显示结果</p>
+
+<pre><code>terraform show
+</code></pre></li>
+</ul>
+
 <h3 id="检查结果">检查结果</h3>
 
 <pre><code>awslocal ec2 describe-instances
+</code></pre>
+
+<h3 id="销毁资源">销毁资源</h3>
+
+<pre><code>terraform destroy
 </code></pre>
 
     </div>
