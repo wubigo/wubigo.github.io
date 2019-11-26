@@ -28,16 +28,10 @@
   
     
   
-  <meta name="description" content="安装AWS CLI
-(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
-可以安装到系统环境
- 配置AWS CLI
-(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
-(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.">
+  <meta name="description" content=" awslocal lambda add-permission --function-name ServerlessExample --action lambda:InvokeFunction --statement-id sns-topic --principal apigateway.amazonaws.com --source-arn &quot;arn:aws:execute-api:us-east-1:123456789012:pmte6kdjb6/*/*&quot;  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-step-function-with-local-lambda/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-apigateway/">
 
   
 
@@ -126,7 +120,7 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-step-function-with-local-lambda/">
+  <link rel="canonical" href="https://wubigo.com/post/aws-lambda-apigateway/">
 
   
   
@@ -141,27 +135,21 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/post/aws-step-function-with-local-lambda/">
-  <meta property="og:title" content="基于local stack的Step Function本地化开发 | SOFTCORE">
-  <meta property="og:description" content="安装AWS CLI
-(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
-可以安装到系统环境
- 配置AWS CLI
-(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
-(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/aws-lambda-apigateway/">
+  <meta property="og:title" content="Aws Lambda Apigateway | SOFTCORE">
+  <meta property="og:description" content=" awslocal lambda add-permission --function-name ServerlessExample --action lambda:InvokeFunction --statement-id sns-topic --principal apigateway.amazonaws.com --source-arn &quot;arn:aws:execute-api:us-east-1:123456789012:pmte6kdjb6/*/*&quot;  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-09-26T14:43:54&#43;08:00">
+  <meta property="article:published_time" content="2018-10-26T14:49:57&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-09-26T14:43:54&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-10-26T14:49:57&#43;08:00">
   
 
   
 
-  <title>基于local stack的Step Function本地化开发 | SOFTCORE</title>
+  
+
+  <title>Aws Lambda Apigateway | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -378,7 +366,7 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">基于local stack的Step Function本地化开发</h1>
+  <h1 itemprop="name">Aws Lambda Apigateway</h1>
 
   
 
@@ -387,8 +375,8 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
 
 
 
-<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -401,7 +389,7 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
     
       
     
-    <time>Sep 26, 2018</time>
+    <time>Oct 26, 2018</time>
   </span>
   
 
@@ -410,14 +398,14 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/aws-step-function-with-local-lambda/#disqus_thread"></a>
+  <a href="/post/aws-lambda-apigateway/#disqus_thread"></a>
   
 
   
@@ -428,35 +416,35 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8elocal%20stack%e7%9a%84Step%20Function%e6%9c%ac%e5%9c%b0%e5%8c%96%e5%bc%80%e5%8f%91&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-step-function-with-local-lambda%2f"
+         href="https://twitter.com/intent/tweet?text=Aws%20Lambda%20Apigateway&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-apigateway%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-step-function-with-local-lambda%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-apigateway%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-step-function-with-local-lambda%2f&amp;title=%e5%9f%ba%e4%ba%8elocal%20stack%e7%9a%84Step%20Function%e6%9c%ac%e5%9c%b0%e5%8c%96%e5%bc%80%e5%8f%91"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-apigateway%2f&amp;title=Aws%20Lambda%20Apigateway"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-step-function-with-local-lambda%2f&amp;title=%e5%9f%ba%e4%ba%8elocal%20stack%e7%9a%84Step%20Function%e6%9c%ac%e5%9c%b0%e5%8c%96%e5%bc%80%e5%8f%91"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-apigateway%2f&amp;title=Aws%20Lambda%20Apigateway"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e5%9f%ba%e4%ba%8elocal%20stack%e7%9a%84Step%20Function%e6%9c%ac%e5%9c%b0%e5%8c%96%e5%bc%80%e5%8f%91&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-step-function-with-local-lambda%2f">
+         href="mailto:?subject=Aws%20Lambda%20Apigateway&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-apigateway%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -494,246 +482,14 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-&#39
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <ul>
-<li><p>安装AWS CLI</p>
-
-<pre><code>(venv) d:\code\venv&gt;pip install awscli
-
-pip install awscli-local
-
-</code></pre></li>
-</ul>
-
-<p><strong>awslocal = aws &ndash;endpoint-url=<a href="http://localhost:" target="_blank">http://localhost:</a><port></strong></p>
-
-<p>可以安装到系统环境</p>
-
-<ul>
-<li><p>配置AWS CLI</p>
-
-<pre><code>(venv) d:\code\venv&gt;aws configure
-
-AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: fake-key
-Default region name [local]: local
-Default output format [None]:
-
-</code></pre></li>
-</ul>
-
-<p>命令行自动完成</p>
-
-<pre><code>$which aws_completer
-~/code/venv/bin/aws_completer
+      <pre><code> awslocal lambda add-permission --function-name ServerlessExample --action lambda:InvokeFunction --statement-id sns-topic --principal apigateway.amazonaws.com --source-arn &quot;arn:aws:execute-api:us-east-1:123456789012:pmte6kdjb6/*/*&quot;
 </code></pre>
-
-<pre><code>
-tee ~/.bashrc &lt;&lt;-'EOF'
-complete -C '~/code/venv/bin/aws_completer' aws
-EOF
-
-</code></pre>
-
-<ul>
-<li><p>安装AWS SAM CLI</p>
-
-<pre><code>(venv) d:\code&gt;pip install aws-sam-cli
-(venv) d:\code&gt;sam --version
-SAM CLI, version 0.22.0
-</code></pre></li>
-
-<li><p>启动S3</p>
-
-<pre><code>(venv) d:\code&gt;localstack\docker-compose up
-</code></pre></li>
-
-<li><p>创建bucket</p>
-
-<pre><code>(venv) d:\code&gt;aws configure get region
-local
-
-
-(venv) d:\code&gt;aws --endpoint-url=http://localhost:4572 s3 mb s3://demo-bucket
-</code></pre></li>
-</ul>
-
-<p>upload a file to bucket</p>
-
-<pre><code>(venv) d:\code&gt;aws --endpoint-url=http://localhost:4572 s3 cp java0.log s3://demo-bucket
-(venv) d:\code&gt;aws --endpoint-url=http://localhost:4572 s3 ls s3://demo-bucket
-</code></pre>
-
-<p>Attach an ACL to the bucket so it is readable:</p>
-
-<pre><code>aws --endpoint-url=http://localhost:4572 s3api put-bucket-acl --bucket demo-bucket --acl public-read
-</code></pre>
-
-<ul>
-<li><p>list object acl</p>
-
-<pre><code>aws --endpoint-url=http://localhost:4572 s3api get-object-acl --bucket demo-bucket --key java0.log
-{
-&quot;Owner&quot;: {
-    &quot;DisplayName&quot;: &quot;webfile&quot;,
-    &quot;ID&quot;: &quot;75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a&quot;
-},
-&quot;Grants&quot;: [
-    {
-        &quot;Grantee&quot;: {
-            &quot;Type&quot;: &quot;CanonicalUser&quot;,
-            &quot;ID&quot;: &quot;75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a&quot;
-        },
-        &quot;Permission&quot;: &quot;FULL_CONTROL&quot;
-    }
-]
-}
-</code></pre></li>
-
-<li><p>set object url and can be downloaded by public</p>
-
-<pre><code>aws --endpoint-url=http://localhost:4572 s3api put-object-acl --bucket demo-bucket --key java0.log  --acl public-read
- 
-aws --endpoint-url=http://localhost:4572 s3 presign s3://demo-bucket/java0.log
-
-http://localhost:4572/demo-bucket/java0.log
-</code></pre></li>
-</ul>
-
-<p>display the names of all S3 buckets (across all regions)</p>
-
-<pre><code>(venv) d:\code&gt;aws --endpoint-url=http://localhost:4572 s3api list-buckets --query &quot;Buckets[].Name&quot;
-
-[
-    &quot;demo-bucket&quot;
-]
-
-
-
-aws --endpoint-url=http://localhost:4572 s3api list-objects --bucket demo-bucket
-{
-    &quot;Contents&quot;: [
-        {
-            &quot;LastModified&quot;: &quot;2019-09-29T10:17:02.386Z&quot;,
-            &quot;ETag&quot;: &quot;\&quot;d41d8cd98f00b204e9800998ecf8427e\&quot;&quot;,
-            &quot;StorageClass&quot;: &quot;STANDARD&quot;,
-            &quot;Key&quot;: &quot;java0.log&quot;,
-            &quot;Owner&quot;: {
-                &quot;DisplayName&quot;: &quot;webfile&quot;,
-                &quot;ID&quot;: &quot;75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a&quot;
-            },
-            &quot;Size&quot;: 0
-        }
-    ]
-}
-
-</code></pre>
-
-<p>or specified region</p>
-
-<pre><code>(venv) d:\code&gt;aws --endpoint-url=http://localhost:4572 --region local s3api list-buckets --query &quot;Buckets[].Name&quot;
-
-[
-    &quot;demo-bucket&quot;
-]
-</code></pre>
-
-<ul>
-<li><p>下载样例程序</p>
-
-<pre><code>(venv) [code]$sam init --runtime python2.7
-
-[+] Initializing project structure...
-
-Project generated: ./sam-app
-
-Steps you can take next within the project folder
-===================================================
-[*] Invoke Function: sam local invoke HelloWorldFunction --event event.json
-[*] Start API Gateway locally: sam local start-api
-
-Read sam-app/README.md for further instructions
-
-</code></pre></li>
-
-<li><p>本地调用</p>
-
-<pre><code>echo '{&quot;message&quot;: &quot;Hey, are you there?&quot; }' | sam local invoke &quot;HelloWorldFunction&quot;
-</code></pre></li>
-
-<li><p>编译</p>
-
-<pre><code>(venv) [sam-app]$ cd sam-app &amp;&amp; sam build
-
-Build Succeeded
-
-Built Artifacts  : .aws-sam/build
-Built Template   : .aws-sam/build/template.yaml
-
-Commands you can use next
-=========================
-[*] Invoke Function: sam local invoke
-[*] Package: sam package --s3-bucket &lt;yourbucket&gt;
-
-</code></pre></li>
-
-<li><p>启动本地API网关</p>
-
-<pre><code>venv) [sam-app]$ sam local start-api
-
-2019-09-27 10:18:10  * Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)
-
-</code></pre>
-
-<pre><code>$curl http://127.0.0.1:3000/hello
-
-{&quot;message&quot;: &quot;hello world&quot;}
-</code></pre></li>
-
-<li><p>启动lambda服务</p>
-
-<pre><code>(venv) [sam-app]$ sam local start-lambda
-</code></pre></li>
-
-<li><p>运行函数计算服务</p>
-
-<pre><code>aws --endpoint-url=http://localhost:4585 stepfunctions list-state-machines --region local
-
-{
-&quot;activities&quot;: []
-}
-
-</code></pre>
-
-<pre><code>aws stepfunctions --endpoint http://localhost:4585 create-state-machine --definition &quot;{\
-\&quot;Comment\&quot;: \&quot;A Hello World example of the Amazon States Language using an AWS Lambda Local function\&quot;,\
-\&quot;StartAt\&quot;: \&quot;HelloWorld\&quot;,\
-\&quot;States\&quot;: {\
-\&quot;HelloWorld\&quot;: {\
-  \&quot;Type\&quot;: \&quot;Task\&quot;,\
-  \&quot;Resource\&quot;: \&quot;arn:aws:lambda:us-east-1:123456789012:function:HelloWorldFunction\&quot;,\
-  \&quot;End\&quot;: true\
-}\
-}\
-}\
-}}&quot; --name &quot;HelloWorld&quot; --role-arn &quot;arn:aws:iam::012345678901:role/DummyRole&quot; --region local
-</code></pre></li>
-</ul>
-
-<p>aws &ndash;endpoint-url=<a href="http://localhost:4585" target="_blank">http://localhost:4585</a> &ndash;lambda-endpoint <a href="http://localhost:3001" target="_blank">http://localhost:3001</a></p>
 
     </div>
 
     
 
 
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
-  
-  <a class="badge badge-light" href="/tags/localstack/">LOCALSTACK</a>
-  
-</div>
-
 
 
 
@@ -754,20 +510,6 @@ Commands you can use next
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></li>
-          
-          <li><a href="/post/terraform-notes/">Terraform Notes</a></li>
-          
-          <li><a href="/post/serverless-computing-why-how/">无服务器计算环境OPENFAAS搭建</a></li>
-          
-        </ul>
-      </div>
       
     
 

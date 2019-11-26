@@ -403,6 +403,108 @@
 
 
 
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql-5.7-sql-mode/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5.7-sql-mode/" itemprop="url">Mysql 5.7 SQL MODE</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
+
+<pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable_name | Value                                                                                                                                     |
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| sql_mode      | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
+</code></pre>
+
+<pre><code>[mysqld]  
+sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
+</code></pre>
+
+<pre><code>mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
 
@@ -2190,92 +2292,6 @@ scipy == 1.1.0
 <pre><code>cat big_csv.csv | shuf | head -n 50 &gt; sample_csv.csv
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 22, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2010-01-22-computer-networking/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-22-computer-networking/" itemprop="url">computer networking</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    iproute2 SCTP transport-layer protocols are implemented in the end systems but not in network routers.
-The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.
   </div>
   
 

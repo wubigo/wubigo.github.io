@@ -403,6 +403,94 @@
 
 
 
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/http-status-code-for-reset-api/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/http-status-code-for-reset-api/" itemprop="url">REST API中如何使用Http状态码</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
+ Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+https://httpstatuses.com/
+The main choice is do you want to treat the HTTP status code as part of your REST API or not.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="dateModified">
 
@@ -865,11 +953,6 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 
   
   
-  
-  
-  <a href="/post/aws-step-function-with-local-lambda/">
-      <img src="/post/aws-step-function-with-local-lambda/featured_hue5caaf1c45ffc469ea31223927edc1f0_12613_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
-  </a>
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
@@ -2168,106 +2251,6 @@ By default, all endpoints except for shutdown are enabled.
  enable all endpoints accessed by web
 management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/thingboard/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/thingboard/" itemprop="url">Thingboard</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<pre><code>docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb:2.3.1
-</code></pre>
-
-<h1 id="default-credentials">default credentials:</h1>
-
-<pre><code>Systen Administrator: sysadmin@thingsboard.org / sysadmin
-Tenant Administrator: tenant@thingsboard.org / tenant
-Customer User: customer@thingsboard.org / customer
-</code></pre>
-
-<h1 id="manage-device-credentials">Manage device credentials</h1>
-
-<p>login as tenant</p>
-
   </div>
   
 
