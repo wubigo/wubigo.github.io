@@ -40,6 +40,17 @@ categories = []
 
 ### WEB应用架构演进：虚机，容器，函数计算
 
+- 微服务架构软件交付流程
+
+![](./micro.png)
+
+- 函数计算架构软件交付流程
+
+![](./func.png)
+
+
+
+
 ### 函数计算之道
 
   [函数计算进行时](/post/computing-in-function-way/)
@@ -65,3 +76,8 @@ categories = []
 ### 函数计算真实应用场景开发案例
 
   [函数计算应用案例](/tags/serverless/)
+
+
+## 函数计算云服务
+
+![](./step-cloud.png)
