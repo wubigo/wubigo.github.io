@@ -28,11 +28,12 @@
   
     
   
-  <meta name="description" content="Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
-# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones">
+  <meta name="description" content="运行环境 terraform -v Terraform v0.12.16 &#43; provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&lt;p&gt;Hello world!&lt;/p&gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-tuning-on-os/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lambda-apigateway/">
 
   
 
@@ -121,7 +122,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/mysql-tuning-on-os/">
+  <link rel="canonical" href="https://wubigo.com/post/lambda-apigateway/">
 
   
   
@@ -136,22 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="SOFTCORE">
-  <meta property="og:url" content="https://wubigo.com/post/mysql-tuning-on-os/">
-  <meta property="og:title" content="Mysql Tuning on OS | SOFTCORE">
-  <meta property="og:description" content="Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
-# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/lambda-apigateway/">
+  <meta property="og:title" content="函数＋网关 | SOFTCORE">
+  <meta property="og:description" content="运行环境 terraform -v Terraform v0.12.16 &#43; provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&lt;p&gt;Hello world!&lt;/p&gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-04-27T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2018-11-28T23:38:18&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-04-27T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-11-28T23:38:18&#43;08:00">
   
 
   
 
-  <title>Mysql Tuning on OS | SOFTCORE</title>
+  
+
+  <title>函数＋网关 | SOFTCORE</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -368,7 +370,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Mysql Tuning on OS</h1>
+  <h1 itemprop="name">函数＋网关</h1>
 
   
 
@@ -377,8 +379,8 @@
 
 
 
-<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -391,7 +393,7 @@
     
       
     
-    <time>Apr 27, 2013</time>
+    <time>Nov 28, 2018</time>
   </span>
   
 
@@ -400,14 +402,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/mysql-tuning-on-os/#disqus_thread"></a>
+  <a href="/post/lambda-apigateway/#disqus_thread"></a>
   
 
   
@@ -418,35 +420,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mysql%20Tuning%20on%20OS&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-os%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%87%bd%e6%95%b0%ef%bc%8b%e7%bd%91%e5%85%b3&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-apigateway%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-os%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flambda-apigateway%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-os%2f&amp;title=Mysql%20Tuning%20on%20OS"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-apigateway%2f&amp;title=%e5%87%bd%e6%95%b0%ef%bc%8b%e7%bd%91%e5%85%b3"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-os%2f&amp;title=Mysql%20Tuning%20on%20OS"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flambda-apigateway%2f&amp;title=%e5%87%bd%e6%95%b0%ef%bc%8b%e7%bd%91%e5%85%b3"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mysql%20Tuning%20on%20OS&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-os%2f">
+         href="mailto:?subject=%e5%87%bd%e6%95%b0%ef%bc%8b%e7%bd%91%e5%85%b3&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flambda-apigateway%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -486,73 +488,164 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="server-and-operating-system">Server and Operating System</h1>
+<h2 id="运行环境">运行环境</h2>
+
+<pre><code>terraform -v
+
+Terraform v0.12.16
++ provider.aws v2.39.0
+
+</code></pre>
+
+<h2 id="创建函数">创建函数</h2>
+
+<p><code>main.js</code></p>
+
+<pre><code>'use strict'
+
+exports.handler = function(event, context, callback) {
+  var response = {
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8'
+    },
+    body: '&lt;p&gt;Hello world!&lt;/p&gt;'
+  }
+  callback(null, response)
+}
+</code></pre>
+
+<pre><code>zip ../example.zip main.js
+</code></pre>
+
+<h2 id="上传">上传</h2>
+
+<pre><code>awslocal s3api create-bucket --bucket=terraform-serverless-example
+awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip
+</code></pre>
+
+<h2 id="创建资源">创建资源</h2>
+
+<p><code>lambda.tf</code></p>
+
+<pre><code>resource &quot;aws_lambda_function&quot; &quot;example&quot; {
+   function_name = &quot;ServerlessExample&quot;
+
+   # The bucket name as created earlier with &quot;aws s3api create-bucket&quot;
+   s3_bucket = &quot;terraform-serverless-example&quot;
+   s3_key    = &quot;v1.0.0/example.zip&quot;
+
+   # &quot;main&quot; is the filename within the zip file (main.js) and &quot;handler&quot;
+   # is the name of the property under which the handler function was
+   # exported in that file.
+   handler = &quot;main.handler&quot;
+   runtime = &quot;nodejs10.x&quot;
+
+   role = aws_iam_role.lambda_exec.arn
+ }
+
+ # IAM role which dictates what other AWS services the Lambda function
+ # may access.
+ resource &quot;aws_iam_role&quot; &quot;lambda_exec&quot; {
+   name = &quot;serverless_example_lambda&quot;
+
+   assume_role_policy = &lt;&lt;EOF
+ {&quot;Version&quot;: &quot;2012-10-17&quot;,
+   &quot;Statement&quot;: [
+     {
+       &quot;Action&quot;: &quot;sts:AssumeRole&quot;,
+       &quot;Principal&quot;: {
+         &quot;Service&quot;: &quot;lambda.amazonaws.com&quot;
+       },
+       &quot;Effect&quot;: &quot;Allow&quot;,
+       &quot;Sid&quot;: &quot;&quot;
+     }
+   ]
+ }
+ EOF
+
+ }
+
+</code></pre>
+
+<p><code>api_gateway.tf</code></p>
+
+<pre><code>resource &quot;aws_api_gateway_rest_api&quot; &quot;example&quot; {
+  name        = &quot;ServerlessExample&quot;
+  description = &quot;Terraform Serverless Application Example&quot;
+}
+
+resource &quot;aws_api_gateway_resource&quot; &quot;proxy&quot; {
+   rest_api_id = aws_api_gateway_rest_api.example.id
+   parent_id   = aws_api_gateway_rest_api.example.root_resource_id
+   path_part   = &quot;{proxy+}&quot;
+}
+
+resource &quot;aws_api_gateway_method&quot; &quot;proxy&quot; {
+   rest_api_id   = aws_api_gateway_rest_api.example.id
+   resource_id   = aws_api_gateway_resource.proxy.id
+   http_method   = &quot;ANY&quot;
+   authorization = &quot;NONE&quot;
+ }
+
+ resource &quot;aws_api_gateway_integration&quot; &quot;lambda&quot; {
+   rest_api_id = aws_api_gateway_rest_api.example.id
+   resource_id = aws_api_gateway_method.proxy.resource_id
+   http_method = aws_api_gateway_method.proxy.http_method
+
+   integration_http_method = &quot;POST&quot;
+   type                    = &quot;AWS_PROXY&quot;
+   uri                     = aws_lambda_function.example.invoke_arn
+ }
+
+
+ resource &quot;aws_api_gateway_method&quot; &quot;proxy_root&quot; {
+   rest_api_id   = aws_api_gateway_rest_api.example.id
+   resource_id   = aws_api_gateway_rest_api.example.root_resource_id
+   http_method   = &quot;ANY&quot;
+   authorization = &quot;NONE&quot;
+ }
+
+ resource &quot;aws_api_gateway_integration&quot; &quot;lambda_root&quot; {
+   rest_api_id = aws_api_gateway_rest_api.example.id
+   resource_id = aws_api_gateway_method.proxy_root.resource_id
+   http_method = aws_api_gateway_method.proxy_root.http_method
+
+   integration_http_method = &quot;POST&quot;
+   type                    = &quot;AWS_PROXY&quot;
+   uri                     = aws_lambda_function.example.invoke_arn
+ }
+
+
+resource &quot;aws_api_gateway_deployment&quot; &quot;example&quot; {
+   depends_on = [
+     aws_api_gateway_integration.lambda,
+     aws_api_gateway_integration.lambda_root,
+   ]
+
+   rest_api_id = aws_api_gateway_rest_api.example.id
+   stage_name  = &quot;test&quot;
+ }
+
+</code></pre>
+
+<h2 id="get-invoke-url">get invoke_url</h2>
 
 <ul>
-<li>Kernel – vm.swappiness</li>
+<li><p>get api-id</p>
+
+<pre><code>awslocal apigateway get-rest-apis
+
+</code></pre></li>
+
+<li><p>get stage</p></li>
 </ul>
 
-<p>Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping</p>
-
-<pre><code># Set the swappiness value as root
-echo 1 &gt; /proc/sys/vm/swappiness
-# Alternatively, using sysctl
-sysctl -w vm.swappiness=1
-# Verify the change
-cat /proc/sys/vm/swappiness
-1
-# Alternatively, using sysctl
-sysctl vm.swappiness
-vm.swappiness = 1
+<pre><code>   awslocal apigateway get-stages --rest-api-id 
 </code></pre>
 
-<h1 id="filesystems-xfs-ext4-zfs">Filesystems – XFS/ext4/ZFS</h1>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">FILE SIZE</th>
-<th align="left">mount option</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left">EXT4</td>
-<td align="left">16TB</td>
-<td align="left">noatime,data=writeback,barrier=0,nobh,errors=remount-ro</td>
-</tr>
-
-<tr>
-<td align="left">XFS</td>
-<td align="left">8EiB</td>
-<td align="left">defaults,nobarrier</td>
-</tr>
-</tbody>
-</table>
-
-<h1 id="disk-subsystem-i-o-scheduler">Disk Subsystem – I/O scheduler</h1>
-
-<p>Most modern Linux distributions come with noop or deadline I/O schedulers by default,
-both providing better performance than the cfq and anticipatory ones</p>
-
-<pre><code># View the I/O scheduler setting. The value in square brackets shows the running scheduler
-cat /sys/block/sdb/queue/scheduler
-noop deadline [cfq]
-# Change the setting
-sudo echo noop &gt; /sys/block/sdb/queue/scheduler
+<pre><code>http://localhost:4567/restapis/&lt;api-id&gt;/&lt;stage&gt;/_user_request_/
 </code></pre>
-
-<h1 id="disk-subsystem-volume-optimization">Disk Subsystem – Volume optimization</h1>
-
-<p>separation of OS and data partitions, not just logically but physically, will
-improve database performance. The RAID level can also have an impact: RAID-5
-should be avoided as the checksum needed to ensure integrity is costly</p>
-
-<h1 id="system-architecture-numa-settings">System Architecture – NUMA settings</h1>
-
-<p>the innodb_numa_interleave option to be available, MySQL must be compiled on a NUMA-enabled Linux system</p>
 
     </div>
 
@@ -561,9 +654,11 @@ should be avoided as the checksum needed to ensure integrity is costly</p>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
+  <a class="badge badge-light" href="/tags/localstack/">LOCALSTACK</a>
   
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
+  
+  <a class="badge badge-light" href="/tags/terraform/">TERRAFORM</a>
   
 </div>
 
@@ -662,15 +757,15 @@ should be avoided as the checksum needed to ensure integrity is costly</p>
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
+          <li><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></li>
           
-          <li><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></li>
+          <li><a href="/post/aws-get-sqs-notification-on-s3-object-creation/">基于local stack的本地S3对象创建通知</a></li>
           
-          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
+          <li><a href="/post/aws-log/">Aws Log</a></li>
           
-          <li><a href="/post/mysql-partition/">Mysql Partition</a></li>
+          <li><a href="/post/aws-serverless-localstack-examples/">基于Localstack的函数计算开发应用列表</a></li>
           
-          <li><a href="/post/mysql-5.7-sql-mode/">Mysql 5.7 SQL MODE</a></li>
+          <li><a href="/post/aws-localstack-serverless/">基于Localstack的Serverless框架本地集成</a></li>
           
         </ul>
       </div>

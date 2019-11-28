@@ -6,10 +6,19 @@
     <description>Recent content in Posts on SOFTCORE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 00:00:35 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lambda Apigateway　ｇｇｇｇ</title>
+      <link>https://wubigo.com/post/lambda-apigateway-%EF%BD%87%EF%BD%87%EF%BD%87%EF%BD%87/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:35 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-apigateway-%EF%BD%87%EF%BD%87%EF%BD%87%EF%BD%87/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAVA这两年</title>
@@ -410,6 +419,17 @@ curl -IL http://wubigo.com/post
  安全命名  安全命名定义可运行服务的安全标识
 微服务认证  传输层认证 终端用户认证  每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。
 https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</description>
+    </item>
+    
+    <item>
+      <title>函数＋网关</title>
+      <link>https://wubigo.com/post/lambda-apigateway/</link>
+      <pubDate>Wed, 28 Nov 2018 23:38:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-apigateway/</guid>
+      <description>运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&amp;lt;p&amp;gt;Hello world!&amp;lt;/p&amp;gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;example&amp;quot; { function_name = &amp;quot;ServerlessExample&amp;quot; # The bucket name as created earlier with &amp;quot;aws s3api create-bucket&amp;quot; s3_bucket = &amp;quot;terraform-serverless-example&amp;quot; s3_key = &amp;quot;v1.</description>
     </item>
     
     <item>
