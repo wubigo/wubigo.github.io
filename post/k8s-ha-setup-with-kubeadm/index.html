@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -527,11 +527,11 @@ sudo kubeadm init phase certs etcd-healthcheck-client --config=/tmp/${HOST0}/kub
 sudo kubeadm init phase certs apiserver-etcd-client --config=/tmp/${HOST0}/kubeadmcfg.yaml
 </code></pre></li>
 
-<li><p>Create the static pod manifests</p>
+<li><p>Create the static pod manifests</p></li>
+</ul>
 
 <pre><code>kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p><code>/etc/kubernetes/manifests</code></p>
 
@@ -603,10 +603,11 @@ status: {}
 </code></pre>
 
 <ul>
-<li><p>ensure the etcd pod is running</p>
+<li>ensure the etcd pod is running</li>
+</ul>
 
 <pre><code>journalctl -xeu kubelet
-remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image service failed: rpc error: code = Unknown desc = Error response fro
+ remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image service failed: rpc error: code = Unknown desc = Error response fro
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537292    4221 kuberuntime_image.go:51] Pull image &quot;k8s.gcr.io/etcd:3.2.24&quot; failed: rpc error: code = Unknown desc = Error response from daemon: Get 
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537393    4221 kuberuntime_manager.go:749] container start failed: ErrImagePull: rpc error: code = Unknown desc = Error response from daemon: Get htt
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537469    4221 pod_workers.go:190] Error syncing pod 30ecbbae123bb7b8baaa2f08cb762164 (&quot;etcd-bigo-vm2_kube-system(30ecbbae123bb7b8baaa2f08cb762164)&quot;)
@@ -614,9 +615,11 @@ remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image ser
 
 <pre><code>docker pull mirrorgooglecontainers/etcd:3.2.24
 docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
-</code></pre></li>
+</code></pre>
 
-<li><p>Check the cluster health</p>
+<ul>
+<li>Check the cluster health</li>
+</ul>
 
 <pre><code>docker run --rm -it \
 --net host \
@@ -625,20 +628,19 @@ docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 --key-file /etc/kubernetes/pki/etcd/peer.key \
 --ca-file /etc/kubernetes/pki/etcd/ca.crt \
 --endpoints https://${HOST0}:2379 cluster-health
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="set-up-the-first-control-plane-node">Set up the first control plane node</h1>
 
 <ul>
-<li><p>Copy the following files from any node from the etcd cluster</p>
+<li>Copy the following files from any node from the etcd cluster</li>
+</ul>
 
 <pre><code>export CONTROL_PLANE=&quot;192.168.1.9&quot;
 scp /etc/kubernetes/pki/etcd/ca.crt &quot;${CONTROL_PLANE}&quot;:
 scp /etc/kubernetes/pki/apiserver-etcd-client.crt &quot;${CONTROL_PLANE}&quot;:
 scp /etc/kubernetes/pki/apiserver-etcd-client.key &quot;${CONTROL_PLANE}&quot;:
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p><code>kubeadm-config.yaml</code></p>
 
@@ -715,6 +717,75 @@ sed -i -e &quot;s/# etcd-key: null/etcd-key: $KEY/g&quot; calico.yaml
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -920,7 +991,7 @@ sed -i -e &quot;s/# etcd-key: null/etcd-key: $KEY/g&quot; calico.yaml
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

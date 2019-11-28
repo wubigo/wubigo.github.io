@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -29,8 +29,7 @@
     
   
   <meta name="description" content="Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包
-zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.">
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-with-localstack/">
@@ -140,8 +139,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
   <meta property="og:url" content="https://wubigo.com/post/aws-lambda-with-localstack/">
   <meta property="og:title" content="基于Localstack的本地Lambda开发 | SOFTCORE">
   <meta property="og:description" content="Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包
-zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-09-29T09:39:28&#43;08:00">
@@ -500,7 +498,8 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 </code></pre>
 
 <ul>
-<li><p>打包</p>
+<li>打包</li>
+</ul>
 
 <pre><code>zip function.zip index.js
 </code></pre>
@@ -508,45 +507,48 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 <pre><code>aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574
 </code></pre>
 
-<pre><code>aws lambda get-function --function-name my-function  --endpoint-url=http://localhost:4574
+<pre><code> aws lambda get-function --function-name my-function  --endpoint-url=http://localhost:4574
 {
-&quot;Code&quot;: {
-    &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot;
-},
-&quot;Configuration&quot;: {
-    &quot;TracingConfig&quot;: {
-        &quot;Mode&quot;: &quot;PassThrough&quot;
+    &quot;Code&quot;: {
+        &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot;
     },
-    &quot;Version&quot;: &quot;$LATEST&quot;,
-    &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;,
-    &quot;FunctionName&quot;: &quot;my-function&quot;,
-    &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.752+0000&quot;,
-    &quot;RevisionId&quot;: &quot;c79398c9-556b-4ed1-ad72-91332dd1f6e0&quot;,
-    &quot;CodeSize&quot;: 322,
-    &quot;FunctionArn&quot;: &quot;arn:aws:lambda:us-east-1:000000000000:function:my-function&quot;,
-    &quot;Handler&quot;: &quot;index.handler&quot;,
-    &quot;Role&quot;: &quot;arn:aws:iam::123456789012:role/lambda-cli-role&quot;,
-    &quot;Timeout&quot;: 3,
-    &quot;Runtime&quot;: &quot;nodejs10.x&quot;,
-    &quot;Description&quot;: &quot;&quot;
-}
+    &quot;Configuration&quot;: {
+        &quot;TracingConfig&quot;: {
+            &quot;Mode&quot;: &quot;PassThrough&quot;
+        },
+        &quot;Version&quot;: &quot;$LATEST&quot;,
+        &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;,
+        &quot;FunctionName&quot;: &quot;my-function&quot;,
+        &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.752+0000&quot;,
+        &quot;RevisionId&quot;: &quot;c79398c9-556b-4ed1-ad72-91332dd1f6e0&quot;,
+        &quot;CodeSize&quot;: 322,
+        &quot;FunctionArn&quot;: &quot;arn:aws:lambda:us-east-1:000000000000:function:my-function&quot;,
+        &quot;Handler&quot;: &quot;index.handler&quot;,
+        &quot;Role&quot;: &quot;arn:aws:iam::123456789012:role/lambda-cli-role&quot;,
+        &quot;Timeout&quot;: 3,
+        &quot;Runtime&quot;: &quot;nodejs10.x&quot;,
+        &quot;Description&quot;: &quot;&quot;
+    }
 }
 
-</code></pre></li>
+</code></pre>
 
-<li><p>验证调用</p>
+<ul>
+<li>验证调用</li>
+</ul>
 
 <pre><code>(venv) $aws lambda list-functions --endpoint-url=http://localhost:4574
 
 
 (venv) $aws lambda invoke --function-name my-function out --log-type Tail --endpoint-url=http://localhost:4574
-</code></pre></li>
+</code></pre>
 
-<li><p>清理</p>
+<ul>
+<li>清理</li>
+</ul>
 
 <pre><code>aws lambda delete-function --function-name my-function --endpoint-url=http://localhost:4574
-</code></pre></li>
-</ul>
+</code></pre>
 
     </div>
 
@@ -577,6 +579,75 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -780,7 +851,7 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

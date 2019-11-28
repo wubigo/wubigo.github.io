@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -404,7 +404,7 @@ provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -552,28 +552,67 @@ resource &quot;aws_instance&quot; &quot;example&quot; {
 
 </code></pre>
 
+<h1 id="aws-localstack-provider">aws localstack provider</h1>
+
+<pre><code>provider &quot;aws&quot; {
+  access_key                  = &quot;mock_access_key&quot;
+  region                      = &quot;us-east-1&quot;
+  secret_key                  = &quot;mock_secret_key&quot;
+  
+  s3_force_path_style         = true  
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  skip_requesting_account_id  = true
+
+  endpoints {
+    apigateway     = &quot;http://localhost:4567&quot;
+    cloudformation = &quot;http://localhost:4581&quot;
+    cloudwatch     = &quot;http://localhost:4582&quot;
+    dynamodb       = &quot;http://localhost:4569&quot;
+    es             = &quot;http://localhost:4578&quot;
+    firehose       = &quot;http://localhost:4573&quot;
+    iam            = &quot;http://localhost:4593&quot;
+    kinesis        = &quot;http://localhost:4568&quot;
+    lambda         = &quot;http://localhost:4574&quot;
+    route53        = &quot;http://localhost:4580&quot;
+    redshift       = &quot;http://localhost:4577&quot;
+    s3             = &quot;http://localhost:4572&quot;
+    secretsmanager = &quot;http://localhost:4584&quot;
+    ses            = &quot;http://localhost:4579&quot;
+    sns            = &quot;http://localhost:4575&quot;
+    sqs            = &quot;http://localhost:4576&quot;
+    ssm            = &quot;http://localhost:4583&quot;
+    stepfunctions  = &quot;http://localhost:4585&quot;
+    sts            = &quot;http://localhost:4592&quot;
+  }
+}
+
+</code></pre>
+
 <h3 id="初始化">初始化</h3>
 
 <ul>
-<li><p>下载SP</p>
+<li>下载SP</li>
+</ul>
 
 <pre><code>terraform  init
-</code></pre></li>
+</code></pre>
 
-<li><p>应用配置</p>
+<ul>
+<li>应用配置</li>
+</ul>
 
 <pre><code>terraform apply
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p>成功执行后<code>terraform.tfstate</code>自动生成，该文件记录被管理资源的ID</p>
 
 <ul>
-<li><p>显示结果</p>
+<li>显示结果</li>
+</ul>
 
 <pre><code>terraform show
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h3 id="检查结果">检查结果</h3>
 
@@ -633,6 +672,75 @@ disable_checkpoint = true
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -820,7 +928,7 @@ disable_checkpoint = true
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

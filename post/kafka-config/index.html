@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -508,12 +508,14 @@ log.retention.hours=168
 <h1 id="admin-topic">admin topic</h1>
 
 <ul>
-<li><p>list all topic</p>
+<li>list all topic</li>
+</ul>
 
 <pre><code>./kafka-topics.sh --bootstrap-server 172.16.16.5:9092 --list
-</code></pre></li>
+</code></pre>
 
-<li><p>delete topic</p></li>
+<ul>
+<li>delete topic</li>
 </ul>
 
 <p><code>delete.topic.enable</code> option set to true</p>
@@ -524,16 +526,17 @@ log.retention.hours=168
 </code></pre>
 
 <ul>
-<li><p>describe topic</p>
+<li>describe topic</li>
+</ul>
 
 <pre><code>./kafka-topics.sh --bootstrap-server 172.16.16.5:9092 --describe  --topic alert1
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="admin-consume-group">admin consume group</h1>
 
 <ul>
-<li><p>list</p>
+<li>list</li>
+</ul>
 
 <pre><code>./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092 --list
 </code></pre>
@@ -541,25 +544,26 @@ log.retention.hours=168
 <pre><code>./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092 --describe --group group_id
 </code></pre>
 
-<pre><code>./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092  --describe --group group_id --members
+<pre><code> ./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092  --describe --group group_id --members
 
 
-CONSUMER-ID                                     HOST            CLIENT-ID       #PARTITIONS
+ CONSUMER-ID                                     HOST            CLIENT-ID       #PARTITIONS
 consumer-2-c76c0c52-35e2-487e-9c63-39719cb2560b /192.168.200.67 consumer-2      0
 consumer-2-25c4357a-38e4-4258-aa05-9072a824e03a /192.168.200.67 consumer-2      1
 
 </code></pre>
 
-<pre><code>./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092  --describe --group group_id --members --verbose
+<pre><code> ./kafka-consumer-groups.sh --bootstrap-server 172.16.16.5:9092  --describe --group group_id --members --verbose
 
 CONSUMER-ID                                     HOST            CLIENT-ID       #PARTITIONS     ASSIGNMENT
 consumer-2-c76c0c52-35e2-487e-9c63-39719cb2560b /192.168.200.67 consumer-2      0               -
 consumer-2-25c4357a-38e4-4258-aa05-9072a824e03a /192.168.200.67 consumer-2      1               users(0)
 
 
-</code></pre></li>
+</code></pre>
 
-<li><p>reset offset</p></li>
+<ul>
+<li>reset offset</li>
 </ul>
 
 <p>test</p>
@@ -644,6 +648,75 @@ kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -841,7 +914,7 @@ kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

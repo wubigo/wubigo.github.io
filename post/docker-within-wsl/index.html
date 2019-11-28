@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -37,9 +37,7 @@
  Docker 17.09
   安装WSL install WSL
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.">
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)  c:\&gt;wsl -d Ubuntu-16.04   安装docker  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-within-wsl/">
@@ -157,9 +155,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
  Docker 17.09
   安装WSL install WSL
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)  c:\&gt;wsl -d Ubuntu-16.04   安装docker  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-10-08T14:21:19&#43;08:00">
@@ -537,20 +533,24 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
 <h1 id="安装docker">安装DOCKER</h1>
 
 <ul>
-<li><p>启动ubuntu in WSL(以管理员身份运行)</p>
+<li>启动ubuntu in WSL(以管理员身份运行)</li>
+</ul>
 
 <pre><code>c:\&gt;wsl -d Ubuntu-16.04
-</code></pre></li>
+</code></pre>
 
-<li><p>安装docker</p>
+<ul>
+<li>安装docker</li>
+</ul>
 
 <pre><code>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
 $ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
 $ sudo usermod -aG docker $USER
-</code></pre></li>
+</code></pre>
 
-<li><p>启动docker服务</p></li>
+<ul>
+<li>启动docker服务</li>
 </ul>
 
 <p><code>/usr/local/sbin/start_docker.sh</code></p>
@@ -614,6 +614,75 @@ c:\&gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -819,7 +888,7 @@ c:\&gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>

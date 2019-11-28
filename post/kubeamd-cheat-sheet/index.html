@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -31,9 +31,7 @@
   <meta name="description" content="version notes
 some only works on 1.13
 kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
- get all Pending pods
-kubectl get pods --field-selector=status.phase=Pending  images list
-kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &quot;enp0s3&quot; I0217 07:28:13.">
+ get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/kubeamd-cheat-sheet/">
@@ -144,9 +142,7 @@ kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Lo
   <meta property="og:description" content="version notes
 some only works on 1.13
 kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
- get all Pending pods
-kubectl get pods --field-selector=status.phase=Pending  images list
-kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &quot;enp0s3&quot; I0217 07:28:13."><meta property="og:image" content="https://wubigo.com/post/kubeamd-cheat-sheet/featured.jpg">
+ get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface."><meta property="og:image" content="https://wubigo.com/post/kubeamd-cheat-sheet/featured.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-02-11T11:38:27&#43;08:00">
@@ -650,12 +646,15 @@ GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/am
 <p>Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -<strong>${ARCH}</strong> suffix</p>
 
 <ul>
-<li><p>get all Pending pods</p>
+<li>get all Pending pods</li>
+</ul>
 
 <pre><code>kubectl get pods --field-selector=status.phase=Pending
-</code></pre></li>
+</code></pre>
 
-<li><p>images list</p>
+<ul>
+<li>images list</li>
+</ul>
 
 <pre><code>kubeadm config images list -v 4
 I0217 07:28:13.305268   14495 interface.go:384] Looking for default routes with IPv4 addresses
@@ -677,13 +676,14 @@ K8S.gcr.io/kube-proxy:v1.13.3
 K8S.gcr.io/pause:3.1
 K8S.gcr.io/etcd:3.2.24
 K8S.gcr.io/coredns:1.2.6
-</code></pre></li>
+</code></pre>
 
-<li><p>pull images beforehand</p>
+<ul>
+<li>pull images beforehand</li>
+</ul>
 
 <pre><code>kubeadm config images pull -v 4
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="init-phase">init phase</h1>
 
@@ -743,6 +743,75 @@ kubectl logs calico-node-4mb5z -n kube-system
 
 
 
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
+    
+    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
 
 
@@ -948,7 +1017,7 @@ kubectl logs calico-node-4mb5z -n kube-system
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
   </body>
 </html>
