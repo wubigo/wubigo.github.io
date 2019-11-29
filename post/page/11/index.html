@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2011-01-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2010-03-07T15:52:11&#43;08:00">
   
 
   
@@ -378,109 +378,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/2011-01-01-dockerfile/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-01-01-dockerfile/" itemprop="url">Dockerfile</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="tiller-tag-tiller-version">tiller (tag=$(tiller version))</h1>
-
-<pre><code>FROM alpine:3.8
-RUN apk update &amp;&amp; apk add ca-certificates socat &amp;&amp; rm -rf /var/cache/apk/*
-ENV HOME /tmp
-COPY tiller /tiller
-EXPOSE 44134
-USER 65534
-ENTRYPOINT [&quot;/tiller&quot;]
-</code></pre>
-
-<blockquote>
-<p>docker push registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3</p>
-</blockquote>
-
-<h1 id="util">util</h1>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       

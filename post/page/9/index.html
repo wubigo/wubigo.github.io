@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2015-03-11T10:18:35&#43;08:00">
+  <meta property="og:updated_time" content="2015-03-03T00:00:00&#43;00:00">
   
 
   
@@ -378,93 +378,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-03-11 10:18:35 &#43;0800 CST" itemprop="datePublished">
-<meta content="2015-03-11 10:18:35 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 11, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/data-warehouse/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/data-warehouse/" itemprop="url">数据仓库</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    cloud data management https://dataschool.com/data-governance
-三层数据仓库架构 Generally a data warehouses adopts a three-tier architecture. Following are the three tiers of the data warehouse architecture.
- Bottom Tier − The bottom tier of the architecture is the data warehouse database server. It is the relational database system. We use the back end tools and utilities to feed data into the bottom tier. These back end tools and utilities perform the Extract, Clean, Load, and refresh functions.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2378,6 +2291,93 @@ SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_sche
 InnoDB (Caches Data and Index Pages)
 SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine='InnoDB';  Subtract that from innodb_buffer_pool_size.
 convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELECT CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements FROM information_schema.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/mysql5.7/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql5.7/" itemprop="url">Mysql5.7</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection  mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;  SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
   </div>
   
 
