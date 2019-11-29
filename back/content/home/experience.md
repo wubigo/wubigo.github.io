@@ -28,9 +28,9 @@ date_format = "January 2006"
   description = """
   Responsibilities include:
   
-  * Analysing hpcloud.com
+  
   * Modelling hpcloud.com
-  * Deploying hpcloud.com
+  
   """
 
 [[experience]]
