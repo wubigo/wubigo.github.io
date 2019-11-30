@@ -116,8 +116,8 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -138,9 +138,9 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/k8s-logging-efk/">
-  <meta property="og:title" content="K8s日志EFK | SOFTCORE">
+  <meta property="og:title" content="K8s日志EFK | 函数计算">
   <meta property="og:description" content="namespace  kube-logging.yaml
 kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
@@ -157,7 +157,7 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
 
   
 
-  <title>K8s日志EFK | SOFTCORE</title>
+  <title>K8s日志EFK | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -197,7 +197,7 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

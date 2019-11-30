@@ -112,8 +112,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,9 +134,9 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/">
-  <meta property="og:title" content="基于local stack的本地S3对象创建通知 | SOFTCORE">
+  <meta property="og:title" content="基于local stack的本地S3对象创建通知 | 函数计算">
   <meta property="og:description" content="get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }   create s3 notification config  cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -149,7 +149,7 @@
 
   
 
-  <title>基于local stack的本地S3对象创建通知 | SOFTCORE</title>
+  <title>基于local stack的本地S3对象创建通知 | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +189,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

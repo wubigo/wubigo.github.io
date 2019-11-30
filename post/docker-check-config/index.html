@@ -112,8 +112,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,9 +134,9 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/docker-check-config/">
-  <meta property="og:title" content="Docker Check Config | SOFTCORE">
+  <meta property="og:title" content="Docker Check Config | 函数计算">
   <meta property="og:description" content="#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = &#39;bold&#39; ]; then codes=( &quot;${codes[@]}&quot; &#39;1&#39; ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -149,7 +149,7 @@
 
   
 
-  <title>Docker Check Config | SOFTCORE</title>
+  <title>Docker Check Config | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +189,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

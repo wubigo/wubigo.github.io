@@ -112,8 +112,8 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -134,9 +134,9 @@
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/terraform-aws-s3-resource-example/">
-  <meta property="og:title" content="Terraform Aws S3 Resource Example | SOFTCORE">
+  <meta property="og:title" content="Terraform Aws S3 Resource Example | 函数计算">
   <meta property="og:description" content="Add notification configuration to SNS Topic resource &quot;aws_sns_topic&quot; &quot;topic&quot; { name = &quot;s3-event-notification-topic&quot; policy = &lt;&lt;POLICY { &quot;Version&quot;:&quot;2012-10-17&quot;, &quot;Statement&quot;:[{ &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: {&quot;AWS&quot;:&quot;*&quot;}, &quot;Action&quot;: &quot;SNS:Publish&quot;, &quot;Resource&quot;: &quot;arn:aws:sns:*:*:s3-event-notification-topic&quot;, &quot;Condition&quot;:{ &quot;ArnLike&quot;:{&quot;aws:SourceArn&quot;:&quot;${aws_s3_bucket.bucket.arn}&quot;} } }] } POLICY } resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; { bucket = &quot;your_bucket_name&quot; } resource &quot;aws_s3_bucket_notification&quot; &quot;bucket_notification&quot; { bucket = &quot;${aws_s3_bucket.bucket.id}&quot; topic { topic_arn = &quot;${aws_sns_topic.topic.arn}&quot; events = [&quot;s3:ObjectCreated:*&quot;] filter_suffix = &quot;.log&quot; } }  Add notification configuration to Lambda Function resource &quot;aws_iam_role&quot; &quot;iam_for_lambda&quot; { name = &quot;iam_for_lambda&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -149,7 +149,7 @@
 
   
 
-  <title>Terraform Aws S3 Resource Example | SOFTCORE</title>
+  <title>Terraform Aws S3 Resource Example | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -189,7 +189,7 @@
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

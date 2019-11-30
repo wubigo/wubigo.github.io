@@ -114,8 +114,8 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -136,9 +136,9 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/lambda-apigateway/">
-  <meta property="og:title" content="函数＋网关 | SOFTCORE">
+  <meta property="og:title" content="函数＋网关 | 函数计算">
   <meta property="og:description" content="运行环境 terraform -v Terraform v0.12.16 &#43; provider.aws v2.39.0  创建函数 main.js
 &#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&lt;p&gt;Hello world!&lt;/p&gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
 resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
 
   
 
-  <title>函数＋网关 | SOFTCORE</title>
+  <title>函数＋网关 | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -193,7 +193,7 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

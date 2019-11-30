@@ -113,8 +113,8 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="SOFTCORE">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -135,9 +135,9 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="SOFTCORE">
+  <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/k8s-envoy-example/">
-  <meta property="og:title" content="K8s Envoy Example | SOFTCORE">
+  <meta property="og:title" content="K8s Envoy Example | 函数计算">
   <meta property="og:description" content="envoy.yaml.tmpl
 admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -151,7 +151,7 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
 
   
 
-  <title>K8s Envoy Example | SOFTCORE</title>
+  <title>K8s Envoy Example | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -191,7 +191,7 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">SOFTCORE</a>
+      <a class="navbar-brand" href="/">函数计算</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
