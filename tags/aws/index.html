@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -28,12 +30,10 @@
   
     
   
-  <meta name="description" content="Improve docker container detection and resource configuration usage
-https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
-https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
+  <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/dockering-java-8/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/aws/">
 
   
 
@@ -114,15 +114,15 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="alternate" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="feed" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="函数计算">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/dockering-java-8/">
+  <link rel="canonical" href="https://wubigo.com/tags/aws/">
 
   
   
@@ -137,23 +137,19 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="函数计算">
-  <meta property="og:url" content="https://wubigo.com/post/dockering-java-8/">
-  <meta property="og:title" content="Dockering Java 8 | 函数计算">
-  <meta property="og:description" content="Improve docker container detection and resource configuration usage
-https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
-https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/tags/aws/">
+  <meta property="og:title" content="AWS | 函数计算">
+  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-11-05T09:33:48&#43;08:00">
-  
-  <meta property="article:modified_time" content="2018-11-05T09:33:48&#43;08:00">
+  <meta property="og:updated_time" content="2017-11-30T17:51:29&#43;08:00">
   
 
   
 
   
 
-  <title>Dockering Java 8 | 函数计算</title>
+  <title>AWS | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -349,9 +345,7 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
 </nav>
 
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
 
-  
 
 
 
@@ -368,284 +362,41 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
 
   
   
-  
-<div class="article-container pt-3">
-  <h1 itemprop="name">Dockering Java 8</h1>
-
-  
-
   
     
-
-
-
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
   
+<div class="universal-wrapper pt-3">
+  <h1 itemprop="name">AWS</h1>
+
   
 
   
-  <span class="article-date">
-    
-    
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/aws-free-tier-quota/">AWS云服务每月免费额度列表</a></h2>
+    <div class="article-style">
       
-    
-    <time>Nov 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/dockering-java-8/#disqus_thread"></a>
-  
-
-  
-
-  
-    
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Dockering%20Java%208&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f"
-         target="_blank" rel="noopener">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f&amp;title=Dockering%20Java%208"
-         target="_blank" rel="noopener">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f&amp;title=Dockering%20Java%208"
-         target="_blank" rel="noopener">
-        <i class="fab fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=Dockering%20Java%208&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-  
-
-</div>
-
-    
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-  
-</div>
-
-
-
-  <div class="article-container">
-
-    <div class="article-style" itemprop="articleBody">
-      <p><strong>Improve docker container detection and resource configuration usage</strong></p>
-
-<p><a href="https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54" target="_blank">https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54</a></p>
-
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
-
+      S3 The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+LAMBDA Lambda provides a free tier with 1M free requests and 400,000 GB-seconds of
+compute time
+      
     </div>
-
-    
-
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
-  
-  <a class="badge badge-light" href="/tags/java/">JAVA</a>
-  
-</div>
-
-
-
-
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
   </div>
+  
+
+  
+
 </div>
-
-
-
-      
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></li>
-          
-          <li><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></li>
-          
-          <li><a href="/post/groovy-notes/">Groovy Notes</a></li>
-          
-          <li><a href="/post/lang-java-spring-cloud/">Lang Java Spring Cloud</a></li>
-          
-          <li><a href="/post/lang-java-spring-boot-v2/">Lang Java Spring Boot V2</a></li>
-          
-        </ul>
-      </div>
-      
-    
-
-    
-
-    
-<section id="comments">
-  <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "https-wubigo-com" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section>
-
-
-
-  </div>
-</article>
-
 <div class="container">
   <footer class="site-footer">
   
@@ -799,4 +550,6 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
 
   </body>
 </html>
+
+
 
