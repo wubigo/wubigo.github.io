@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-01T04:19:39&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-03T20:24:49&#43;08:00">
   
 
   
@@ -378,6 +378,121 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/dev-on-tencent-cloud-sdk-in-go/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/dev-on-tencent-cloud-sdk-in-go/" itemprop="url">通过SDK操纵公有云</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>基于腾讯云Go SDK开发</p>
+
+<h1 id="下载开发工具集">下载开发工具集</h1>
+
+<pre><code>go get -u github.com/tencentcloud/tencentcloud-sdk-go
+</code></pre>
+
+<h1 id="为集群准备cvm">为集群准备CVM</h1>
+
+<p>从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
+然后把安全凭证传送给SDK客户端</p>
+
+<pre><code>secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;)
+credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;)
+client, _ := cvm.NewClient(credential, regions.Beijing)
+</code></pre>
+
+<pre><code>request := cvm.NewAllocateHostsRequest()
+request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;))
+response, err := client.AllocateHosts(request)
+</code></pre>
+
+<h1 id="通过ansible在cvm搭建k8s集群">通过ANSIBLE在CVM搭建K8S集群</h1>
+
+<pre><code>Ansible.Hosts().Get(response.ToJsonString())
+</code></pre>
+
+<p>调用ANSIBLE开始在CVM部署K8S集群</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2192,96 +2307,6 @@ $ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	o
 use Jumbo frames
 ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
 ip -s link show eth0  stop irqbalance for home user
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/dockering-java-8/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dockering-java-8/" itemprop="url">Dockering Java 8</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><strong>Improve docker container detection and resource configuration usage</strong></p>
-
-<p><a href="https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54" target="_blank">https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54</a></p>
-
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
-
   </div>
   
 
