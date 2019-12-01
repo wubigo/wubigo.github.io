@@ -433,6 +433,94 @@
   
   
   <span class="middot-divider"></span>
+  <a href="/post/groovy-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
   <a href="/post/shadowsocks-ubuntu-client/#disqus_thread"></a>
   
 
@@ -2186,109 +2274,6 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
 首先，你要搞清楚的是，你是读者型（习惯阅读信息）还是听者型（习惯听取信息）的人。绝大多数人甚至都不知道还有读者型和听者型之说，而且很少有人既是读者型又是听者型。知道自己属于哪种类型的人更少。
 没有几个听者型的人可以通过努力变成合格的读者型——不管是主动还是被动的努力，反之亦然。不了解你的工作方式不可能发挥才干或取得成就。
 我们如何学习 要了解一个人的工作方式，需要弄清的第二点是，他是如何学习的。
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-sdk-setup/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-sdk-setup/" itemprop="url">K8S SDK Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="安装golang-dep">安装Golang Dep</h1>
-
-<pre><code>go get -v github.com/tools/godep
-</code></pre>
-
-<h1 id="安装client-go">安装client-go</h1>
-
-<pre><code>go get k8s.io/client-go/kubernetes
-cd $GOPATH/src/k8s.io/client-go
-git checkout v10.0.0
-godep restore ./...
-</code></pre>
-
-<h1 id="集群外开发">集群外开发</h1>
-
-<h1 id="集群内开发">集群内开发</h1>
-
   </div>
   
 

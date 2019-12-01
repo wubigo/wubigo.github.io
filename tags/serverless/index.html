@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-11-30T11:43:11&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-30T23:54:07&#43;08:00">
   
 
   
@@ -381,12 +381,14 @@
   
   
   <div>
-    <h2><a href="/post/serverless-architectures/">书籍推荐:无服务器架构及应用案例详解</a></h2>
+    <h2><a href="/post/aws-iam-policy/">Aws IAM Policy</a></h2>
     <div class="article-style">
       
-      Serverless Architectures
-
-ISBN-10: 1617293822  
+      AWS leverages a standard JSON Identity and Access Management (IAM)
+policy document format across many services to control authorization
+to resources and API actions
+terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
+resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
       
     </div>
   </div>
@@ -506,6 +508,21 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF
   </div>
   
   <div>
+    <h2><a href="/post/serverless-user-case/">无服务器架构应用场景</a></h2>
+    <div class="article-style">
+      
+       无服务器架构应用场景  应用后台
+ 数据处理
+ 实时分析
+ 遗留应用API代理
+ 调动服务
+ RPA
+  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></h2>
     <div class="article-style">
       
@@ -516,6 +533,17 @@ localstack default regrion us-east-1
 create stack file path has to be in file URL format(file:///home/user/&hellip;)
 func.yaml
 AWSTemplateFormatVersion: '2010-09-09' Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/serverless-architectures/">书籍推荐:无服务器架构及应用案例详解</a></h2>
+    <div class="article-style">
+      
+      Serverless Architectures
+
+ISBN-10: 1617293822  
       
     </div>
   </div>
