@@ -90,3 +90,25 @@ exports.onCreateNode = ({ node }) => {
 
 
 This onCreateNode function will be called by Gatsby whenever a new node is created (or updated).
+
+
+## GraphQL Playground
+
+```
+GATSBY_GRAPHQL_IDE=playground gatsby develop
+
+
+View the GraphQL Playground, an in-browser IDE, to explore your site's data and schema
+⠀
+  http://localhost:8000/___graphql
+
+
+```
+
+The GATSBY_GRAPHQL_IDE=playground part of this command is optional.
+
+Adding it enables the GraphQL Playground instead of GraphiQL,
+
+which is an older interface for exploring GraphQL.
+
+
