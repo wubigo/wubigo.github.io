@@ -19,6 +19,7 @@ categories = []
   focal_point = ""
 +++
 
+![](./orca.jpg)
 
 心理学家：21世纪最重要的工作技能
 
