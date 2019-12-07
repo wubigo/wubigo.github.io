@@ -1,12 +1,12 @@
 +++
-title = "java notes"
-date = 2010-01-01T19:39:03+08:00
+title = "Java Notes"
+date = 2010-01-01T15:06:20+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["JAVA", "LANG"]
-categories = ["IT"]
+tags = ["JAVA","LANG"]
+categories = []
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
@@ -18,6 +18,12 @@ categories = ["IT"]
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+# JVM MEMORY MODEL
+
+![](./jvm-memory-mode.png)
+
+
 
 # javax.net.ssl.SSLException: Received fatal alert: protocol_version
 
