@@ -140,15 +140,5 @@ Simply use the yum commands to search or install packages from EPEL repo:
  #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/K8S.gcr.io\///&#39; | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &amp;quot;registry.cn-beijing.aliyuncs.com&amp;quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &amp;quot;$VM&amp;quot; ]; then VM = t1 echo &amp;quot;VAR VM is not set&amp;quot; exit fi tee daemon.</description>
     </item>
     
-    <item>
-      <title>java notes</title>
-      <link>https://wubigo.com/post/2010-01-01-java-notes/</link>
-      <pubDate>Fri, 01 Jan 2010 19:39:03 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/2010-01-01-java-notes/</guid>
-      <description>javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
-echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括</description>
-    </item>
-    
   </channel>
 </rss>
