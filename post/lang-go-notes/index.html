@@ -495,7 +495,7 @@ vendor package go help gopath find ."><meta property="og:image" content="https:/
 </ul>
 
 <pre><code>func (p Point) MoveBy(factor float){
-	p.X += factor  //-&gt;  this.X += factor
+    p.X += factor  //-&gt;  this.X += factor
 }
 </code></pre>
 
@@ -590,20 +590,20 @@ import &quot;fmt&quot;
 var f func(int) int
 
 func main() {
-	//fmt.Println(f(2))
-	fmt.Println(f(2))
-	f = func(i int) int {
-		if i == 0 {
-			return 1
-		}
-		return i * f(i-1)
-	}
-	fmt.Println(f(2))
+    //fmt.Println(f(2))
+    fmt.Println(f(2))
+    f = func(i int) int {
+        if i == 0 {
+            return 1
+        }
+        return i * f(i-1)
+    }
+    fmt.Println(f(2))
 }
 
 
 
-panic: runtime error: invalid memory address or nil pointer dereference[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x4850f0]goroutine 1 [running]:main.main()	/home/bigo/go/src/github.com/gopl.io/ch5/t2/main.go:9 +0x30exit status 2Process exiting with code: 1
+panic: runtime error: invalid memory address or nil pointer dereference[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x4850f0]goroutine 1 [running]:main.main()  /home/bigo/go/src/github.com/gopl.io/ch5/t2/main.go:9 +0x30exit status 2Process exiting with code: 1
 </code></pre>
 
 <p><img src="/img/post/nil_pointer_dereference.png" alt="nil pointer dereference" /></p>
@@ -616,28 +616,28 @@ panic: runtime error: invalid memory address or nil pointer dereference[signal S
 var fs []func()
 
 func main() {
-	for _, v := range s1 {
-		//fmt.Printf(&quot;%d\n&quot;, v)
-		fs = append(fs, func() {
-			fmt.Printf(&quot;%d\n&quot;, v) //v is caputed and shared
-		})
-	}
+    for _, v := range s1 {
+        //fmt.Printf(&quot;%d\n&quot;, v)
+        fs = append(fs, func() {
+            fmt.Printf(&quot;%d\n&quot;, v) //v is caputed and shared
+        })
+    }
 
-	for _, f := range fs {
-		f()
-	}
+    for _, f := range fs {
+        f()
+    }
 
-	fs = nil
-	for _, v := range s1 {
-		i := v
-		fs = append(fs, func() {
-			fmt.Printf(&quot;%d\n&quot;, i)
-		})
-	}
+    fs = nil
+    for _, v := range s1 {
+        i := v
+        fs = append(fs, func() {
+            fmt.Printf(&quot;%d\n&quot;, i)
+        })
+    }
 
-	for _, f := range fs {
-		f()
-	}
+    for _, f := range fs {
+        f()
+    }
 
 }
 
@@ -654,34 +654,34 @@ func main() {
 <pre><code>var s1 [3]string = [3]string{&quot;go&quot;, &quot;func&quot;, &quot;value&quot;}
 
 func f(s string) {
-	fmt.Println(s)
+    fmt.Println(s)
 }
 
 func main() {
-	fmt.Println(&quot;s escapsed&quot;)
-	for _, s := range s1 {
-		defer func() { fmt.Println(s) }()
-	}
+    fmt.Println(&quot;s escapsed&quot;)
+    for _, s := range s1 {
+        defer func() { fmt.Println(s) }()
+    }
 
-	fmt.Println(&quot;work expected&quot;)
+    fmt.Println(&quot;work expected&quot;)
 
-	for _, s := range s1 {
-		defer func(s string) { fmt.Println(s) }(s)
-	}
+    for _, s := range s1 {
+        defer func(s string) { fmt.Println(s) }(s)
+    }
 
-	for _, s := range s1 {
-		defer f(s)
-	}
+    for _, s := range s1 {
+        defer f(s)
+    }
 
-	for _, s := range s1 {
-		go func(s string) {
-			fmt.Println(&quot;h %s&quot;, s)
-		}(s)
-	}
+    for _, s := range s1 {
+        go func(s string) {
+            fmt.Println(&quot;h %s&quot;, s)
+        }(s)
+    }
 
-	for _, s := range s1 {
-		go f(s)
-	}
+    for _, s := range s1 {
+        go f(s)
+    }
 
 }
 </code></pre>
@@ -740,8 +740,8 @@ src     bin    pkg
 
 ...
 go/src/wubigo.com/cloud/github_client/main.go:7:2: cannot find package &quot;github.com/google/go-github/github&quot; in any of:
-	/usr/lib/go-1.11/src/github.com/google/go-github/github (from $GOROOT)
-	/home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
+    /usr/lib/go-1.11/src/github.com/google/go-github/github (from $GOROOT)
+    /home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
 Process exiting with code: 1
 ...
 </code></pre>
@@ -879,75 +879,6 @@ Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/r
 
 
 
-
-
-
-<div class="media author-card" itemscope itemtype="http://schema.org/Person">
-  
-  
-  <img class="portrait mr-3" src="/author/admin/avatar_hu2dfb63223b812b566c751c91d6e2df97_40014_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-  
-
-  <div class="media-body">
-    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Wu Bigo</a></h5>
-    
-    <p class="card-text" itemprop="description">多年的公有云，混合云，PAAS，数据仓库建设经验，目前专注于微服务/编排，函数计算，工作流和应用架构开发</p>
-    <ul class="network-icon" aria-hidden="true">
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="/#contact" >
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://twitter.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a itemprop="sameAs" href="https://github.com/wubigo" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>
-        </a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 
 
