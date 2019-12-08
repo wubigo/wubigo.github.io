@@ -61,9 +61,10 @@ categories = []
 
 ## 先锋基金IT迁移架构图
 
-![第一阶段](./varguard-stage-1.png)
-![第二阶段](./varguard-stage-2.png)
-![第三阶段](./varguard-stage-3.png)
+![第一阶段](./varguard-stage-0.png)*数据中心包括hadoop数据仓库和PaaS*
+![第一阶段](./varguard-stage-1.png)*数据仓库和PaaS迁移到AWS*
+![第二阶段](./varguard-stage-2.png)*实施基于函数计算的EDA架构*
+![第三阶段](./varguard-stage-3.png)*PaaS迁移到Fargate*
 ![结果](./varguard-result.png)
 
 

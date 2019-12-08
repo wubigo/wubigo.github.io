@@ -6,8 +6,91 @@
     <description>Recent content in 函数计算 on 函数计算</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 11:37:33 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS Re:Invent 2019主题汇总</title>
+      <link>https://wubigo.com/post/aws-reinvent-2019-keynote/</link>
+      <pubDate>Sun, 08 Dec 2019 11:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-reinvent-2019-keynote/</guid>
+      <description>
+
+&lt;h2 id=&#34;计算&#34;&gt;计算&lt;/h2&gt;
+
+&lt;p&gt;尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，&lt;/p&gt;
+
+&lt;p&gt;主要的新功能包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基于Nitro平台的针对HPC和机器学习的负载的实例&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;基于定制芯片Inferencia针对机器学习实例&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标准实例支持100Gb网络带宽&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;网络&#34;&gt;网络&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;传输网关支持多播&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;加速的网络到网络的VPN链接&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;存储和数据分析&#34;&gt;存储和数据分析&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;S3 Access Points和数据湖&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ES搜索支持S3&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AQUA查询加速器&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;托管的Cassandra服务&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;函数计算&#34;&gt;函数计算&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/lambda-provisioned-concurrency/&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EKS正式支持FARGATE&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;先锋基金it迁移架构图&#34;&gt;先锋基金IT迁移架构图&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;./varguard-stage-1.png&#34; alt=&#34;第一阶段&#34; /&gt;
+&lt;img src=&#34;./varguard-stage-2.png&#34; alt=&#34;第二阶段&#34; /&gt;
+&lt;img src=&#34;./varguard-stage-3.png&#34; alt=&#34;第三阶段&#34; /&gt;
+&lt;img src=&#34;./varguard-result.png&#34; alt=&#34;结果&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lambda Provisioned Concurrency</title>
+      <link>https://wubigo.com/post/lambda-provisioned-concurrency/</link>
+      <pubDate>Sun, 08 Dec 2019 11:01:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-provisioned-concurrency/</guid>
+      <description>
+
+&lt;h2 id=&#34;provisioned-concurrency-for-lambda-functions&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/h2&gt;
+
+&lt;p&gt;To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.&lt;/p&gt;
+
+&lt;p&gt;This is a feature that keeps functions initialized and hyper-ready to respond in double-digit milliseconds. This addition is helpful for implementing interactive services, such as web and mobile backends, latency-sensitive microservices, or synchronous APIs.&lt;/p&gt;
+
+&lt;p&gt;On enabling Provisioned Concurrency for a function, the Lambda service will initialize the requested number of execution environments so they can be ready to respond to invocations.&lt;/p&gt;
+
+&lt;p&gt;To know more Provisioned Concurrency in detail, read the &lt;a href=&#34;https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/&#34; target=&#34;_blank&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>JAVA这两年</title>
@@ -1017,200 +1100,6 @@ Users will be unable to launch applications with the
 
 Although safe to disable, this is not recommended since
  you need to boot into safe mode to enable again.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>微服务认证和授权（MAA）指南</title>
-      <link>https://wubigo.com/post/microservices-authentication-and-authorization/</link>
-      <pubDate>Sun, 28 Apr 2019 17:08:07 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/microservices-authentication-and-authorization/</guid>
-      <description>
-
-&lt;p&gt;微服务认证和授权有很多方案，&lt;/p&gt;
-
-&lt;p&gt;这里比较各种主流方案的优缺点，&lt;/p&gt;
-
-&lt;p&gt;为你的业务系统选择MAA方案提供指南&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;方案&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;优点&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;缺点&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;分布式会话管理&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;简单，成熟，服务器统一管理&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;扩展性比较差&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;客户令牌&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;单点登录&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;API网关令牌管理&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;第三方应用授权&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;SSL/TLS 双向认证&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&#34;方案&#34;&gt;方案&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;分布式会话管理&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;会话信息由服务器存储&lt;/p&gt;
-
-&lt;p&gt;实现方式：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Sticky session&lt;/li&gt;
-&lt;li&gt;Session replication&lt;/li&gt;
-&lt;li&gt;Centralized session storage&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;客户令牌&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;令牌由客户持有&lt;/p&gt;
-
-&lt;p&gt;JWT: 头，负载和签名&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;头&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-&amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;,
-&amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;负载&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;{ 
-&amp;quot;id&amp;quot;: 123, 
-&amp;quot;name&amp;quot;: &amp;quot;hi tico&amp;quot;,
-&amp;quot;is_admin&amp;quot;: true,
-&amp;quot;expire&amp;quot;: 1558213420 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;签名&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;HMACSHA256(
-  base64UrlEncode(header) + &amp;quot;.&amp;quot; +
-  base64UrlEncode(payload),
-  secret
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./jwt.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;单点登录&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;API网关令牌管理&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;./jwt-api-gateway.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;第三方应用授权&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;API 令牌&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;例如github的API个人令牌&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;OAUTH&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;./JWT-OAUTH.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Someone may wonder why an Authorization Code is used to request Access Token, rather than returning the Access Token to the client directly from the authorization server. The reason why OAuth is designed in this way is to pass through the user agent (browser) during the process of redirecting to the client’s Callback URL. If the Access Token is passed directly, there is a risk of being stolen.&lt;/p&gt;
-
-&lt;p&gt;By using the authorization code, the client directly interacts with the authorization server when applying for the access token, and the authorization server also authorize the client when processing the client’s token request, so it’s prevent others from forging the client’s identity to use the authentication code&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SSL/TLS 双向认证&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;例如istio citadel私有证书中心&lt;/p&gt;
-
-&lt;p&gt;[1]. &lt;a href=&#34;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&#34; target=&#34;_blank&#34;&gt;https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Linux删除Python3.5</title>
-      <link>https://wubigo.com/post/linux-python3.5-remove/</link>
-      <pubDate>Sun, 24 Mar 2019 14:04:09 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/linux-python3.5-remove/</guid>
-      <description>&lt;p&gt;之前一直用pycharm,今天把code升级到1.3.2的时候，
-突然提示我安装python扩展，决定试试。
-结果发现python的解释器设置有问题，
-总是设置为系统的解释器，
-而虚拟环境的解释器不起作用。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt remove --purge python3.5
-reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
-造成了很大的麻烦。&lt;/p&gt;
-
-&lt;p&gt;Ctrl+Alt+F1进入虚拟控制台登录&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apt install python3.5
-apt install ubuntu-desktop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;重新安装chrome和virtualbox&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /etc/apt/sources.list.d
-sudo mv google-chrome.list.save google-chrome.list
-apt update
-apt install google-chrome-stable
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

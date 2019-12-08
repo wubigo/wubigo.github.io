@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-03-07T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-03-22T14:34:01&#43;08:00">
   
 
   
@@ -248,9 +248,9 @@
         
 
         <li class="nav-item">
-          <a class="nav-link" href="/#tags">
+          <a class="nav-link" href="/#posts">
             
-            <span>Tags</span>
+            <span>Posts</span>
             
           </a>
         </li>
@@ -267,9 +267,9 @@
         
 
         <li class="nav-item">
-          <a class="nav-link" href="/#posts">
+          <a class="nav-link" href="/#tags">
             
-            <span>Posts</span>
+            <span>Tags</span>
             
           </a>
         </li>
@@ -378,6 +378,206 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/lang-go-firewall/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-go-firewall/" itemprop="url">Go穿越Firewall</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="go-doc">go doc</h1>
+
+<p><a href="https://golang.google.cn" target="_blank">https://golang.google.cn</a></p>
+
+<h1 id="proxy">proxy</h1>
+
+<ul>
+<li>从 Github 的代码库 clone</li>
+</ul>
+
+<pre><code>go get -u github.com/golang/text
+mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
+
+go get -u github.com/golang/crypto
+mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
+</code></pre>
+
+<ul>
+<li>设置 GOPROXY 环境变量配置代理</li>
+</ul>
+
+<p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
+
+<p><a href="https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md" target="_blank">https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md</a></p>
+
+<p><a href="https://gocn.vip/article/1678" target="_blank">https://gocn.vip/article/1678</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-openshift/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-openshift/" itemprop="url">K8s Openshift</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2045,215 +2245,6 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 <h1 id="machine-learning-101-slidedeck">Machine Learning 101 slidedeck</h1>
 
 <p><a href="https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90" target="_blank">https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/aws-free-tier-quota/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-free-tier-quota/" itemprop="url">AWS云服务每月免费额度列表</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="s3">S3</h2>
-
-<p>The S3 free tier allows users to store 5 GB of data with standard storage, issue</p>
-
-<p>20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each</p>
-
-<p>month</p>
-
-<h2 id="lambda">LAMBDA</h2>
-
-<p>Lambda provides a free tier with 1M free requests and 400,000 GB-seconds of</p>
-
-<p>compute time</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/aws-apigateway-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-apigateway-notes/" itemprop="url">Aws Apigateway Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="create-rest-api-resource">create rest api resource</h2>
-
-<pre><code>awslocal apigateway create-rest-api --name 'My First API' --description 'This is my first API'
-</code></pre>
-
-<pre><code>awslocal apigateway get-rest-apis                                         {
-    &quot;items&quot;: [
-        {
-            &quot;createdDate&quot;: 1574513755,
-            &quot;id&quot;: &quot;tjc336382o&quot;,
-            &quot;name&quot;: &quot;hello_api2&quot;
-        },
-        {
-            &quot;description&quot;: &quot;This is my first API&quot;,
-            &quot;createdDate&quot;: 1574513755,
-            &quot;id&quot;: &quot;foyylqv018&quot;,
-            &quot;name&quot;: &quot;My First API&quot;
-        }
-    ]
-}
-
-</code></pre>
 
   </div>
   
