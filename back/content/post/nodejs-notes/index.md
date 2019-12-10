@@ -97,3 +97,41 @@ const user = {
   \[key]: 'Robin',
 };
 ```
+
+## Bindings
+
+class methods don’t
+
+automatically bind this to the class instance
+
+That’s a main source of bugs when using React, because if you want to access
+
+this.state in your class method, it cannot be retrieved because this is undefined. So in order to
+
+make this accessible in your class methods, you have to bind the class methods to this.
+
+class methods can be autobound automatically without
+
+binding them explicitly by using JavaScript ES6 arrow functions
+
+```
+class A { 
+    constructor() {
+        this.foo = this.foo.bind(this)
+    }
+
+    foo() {
+        console.log('foo from A')
+    }
+}
+
+
+
+
+
+class A {
+    foo = () => {
+        console.log('foo from A')
+    }
+}
+```
