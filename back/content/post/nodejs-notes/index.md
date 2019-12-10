@@ -24,5 +24,9 @@ categories = []
 
 ```
 npm config set registry=http://registry.npm.taobao.org
+
+npm config ls -l
+
+userconfig = "C:\\Users\\Administrator\\.npmrc"
 ```
 

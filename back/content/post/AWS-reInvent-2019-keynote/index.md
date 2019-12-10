@@ -1,5 +1,5 @@
 +++
-title = "AWS Re:Invent 2019主题汇总"
+title = "AWS Re:Invent 2019主题汇总-P1"
 date = 2019-12-08T11:37:33+08:00
 draft = false
 
@@ -61,9 +61,9 @@ categories = []
 
 ## 先锋基金IT迁移架构图
 
-![第一阶段](./varguard-stage-0.png)*私有云架构包括hadoop数据仓库和PaaS(2015年)*
+![第一阶段](./varguard-stage-0.png)*私有云架构包括4千万行的单体应用，20P的hadoop数据仓库和PaaS(2015年)*
 ![第一阶段](./varguard-stage-1.png)*数据仓库和PaaS迁移到AWS*
-![第二阶段](./varguard-stage-2.png)*实施基于函数计算的EDA架构*
+![第二阶段](./varguard-stage-2.png)*PaaS实施基于EDA架构的改造*
 ![第三阶段](./varguard-stage-3.png)*PaaS迁移到Fargate*
 ![结果](./varguard-result.png)
 
