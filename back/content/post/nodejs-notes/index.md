@@ -135,3 +135,7 @@ class A {
     }
 }
 ```
+
+
+The official React documentation sticks to the class method bindings in the constructor
+
