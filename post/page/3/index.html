@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-16T07:25:19&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-15T15:39:37&#43;08:00">
   
 
   
@@ -378,92 +378,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/aws-serverless-localstack-examples/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-serverless-localstack-examples/" itemprop="url">基于Localstack的函数计算开发应用列表</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
-import json def my_handler(event, context): print(&quot;Received event: &quot; + json.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2251,6 +2165,104 @@ Resources:
 
 
 </code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/data-lake/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/data-lake/" itemprop="url">Data Lake</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="设计目标">设计目标</h1>
+
+<ul>
+<li><p>存取（入库和分析）高效</p></li>
+
+<li><p>节省存储空间</p></li>
+</ul>
+
+<p>评估单台设备基于采集评率的每年存储成本</p>
+
+<p><a href="http://mysql.rjweb.org/doc.php/datawarehouse" target="_blank">http://mysql.rjweb.org/doc.php/datawarehouse</a></p>
 
   </div>
   
