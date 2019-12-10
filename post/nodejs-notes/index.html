@@ -28,7 +28,11 @@
   
     
   
-  <meta name="description" content=" set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  ">
+  <meta name="description" content="set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  declare variables ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will
+rarely find var anymore.
+A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,
+modified)
+Immutability is embraced in React and its ecosystem. That’s why const should be your default">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/nodejs-notes/">
@@ -137,7 +141,11 @@
   <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/nodejs-notes/">
   <meta property="og:title" content="Nodejs Notes | 函数计算">
-  <meta property="og:description" content=" set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  declare variables ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will
+rarely find var anymore.
+A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,
+modified)
+Immutability is embraced in React and its ecosystem. That’s why const should be your default"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-12-03T08:39:52&#43;08:00">
@@ -398,7 +406,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -491,6 +499,63 @@
 npm config ls -l
 
 userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;
+</code></pre>
+
+<h2 id="declare-variables">declare variables</h2>
+
+<p>ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will</p>
+
+<p>rarely find var anymore.</p>
+
+<p>A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,</p>
+
+<p>modified)</p>
+
+<p>Immutability is embraced in React and its ecosystem. That’s why const should be your default</p>
+
+<p>choice when you define a variable.</p>
+
+<h2 id="es6-arrow-functions">ES6 Arrow Functions</h2>
+
+<pre><code>// function expression
+function () { ... }
+// arrow function expression
+() =&gt; { ... }
+</code></pre>
+
+<p>You can remove the   parentheses when the function</p>
+
+<p>gets only one argument, but have to keep them when</p>
+
+<p>it gets multiple arguments.</p>
+
+<pre><code>// allowed
+item =&gt; { ... }
+// allowed
+(item) =&gt; { ... }
+
+
+// not allowed
+item, key =&gt; { ... }
+// allowed
+(item, key) =&gt; { ... }
+
+</code></pre>
+
+<p>Additionally, you can remove the block body, meaning the curly braces, of the ES6 arrow function.
+In a concise body an implicit return is attached. Thus you can remove the return statement. That
+will happen more often in the book, so be sure to understand the difference between a block body
+and a concise body when using arrow functions</p>
+
+<h2 id="es6-object-initializer">ES6 Object Initializer</h2>
+
+<p>you are allowed to use computed property names in JavaScript ES6</p>
+
+<pre><code>// ES6
+const key = 'name';
+const user = {
+  \[key]: 'Robin',
+};
 </code></pre>
 
     </div>
