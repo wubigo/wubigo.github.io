@@ -1,4 +1,4 @@
-# echo off
+REM echo off
 
 set MSG=%1
 
@@ -14,7 +14,7 @@ git add .
 git commit -a -m %MSG%
 git push
 
-# build static resource
+REM build static resource
 hugo -s back
 git status
 git add .
