@@ -43,7 +43,7 @@
  托管的Cassandra服务
   函数计算  Provisioned Concurrency for Lambda Functions
  EKS正式支持FARGATE
-  先锋基金IT迁移架构图 私有云架构包括hadoop数据仓库和PaaS(2015年) 数据仓库和PaaS迁移到AWS 实施基于函数计算的EDA架构 PaaS迁移到Fargate ">
+  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，20P的hadoop数据仓库和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
@@ -151,7 +151,7 @@
   
   <meta property="og:site_name" content="函数计算">
   <meta property="og:url" content="https://wubigo.com/post/aws-reinvent-2019-keynote/">
-  <meta property="og:title" content="AWS Re:Invent 2019主题汇总 | 函数计算">
+  <meta property="og:title" content="AWS Re:Invent 2019主题汇总-P1 | 函数计算">
   <meta property="og:description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
 主要的新功能包括：
  基于Nitro平台的针对HPC和机器学习的负载的实例
@@ -167,7 +167,7 @@
  托管的Cassandra服务
   函数计算  Provisioned Concurrency for Lambda Functions
  EKS正式支持FARGATE
-  先锋基金IT迁移架构图 私有云架构包括hadoop数据仓库和PaaS(2015年) 数据仓库和PaaS迁移到AWS 实施基于函数计算的EDA架构 PaaS迁移到Fargate "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，20P的hadoop数据仓库和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-12-08T11:37:33&#43;08:00">
@@ -179,7 +179,7 @@
 
   
 
-  <title>AWS Re:Invent 2019主题汇总 | 函数计算</title>
+  <title>AWS Re:Invent 2019主题汇总-P1 | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -396,7 +396,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">AWS Re:Invent 2019主题汇总</h1>
+  <h1 itemprop="name">AWS Re:Invent 2019主题汇总-P1</h1>
 
   
 
@@ -446,7 +446,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://twitter.com/intent/tweet?text=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -460,21 +460,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f">
+         href="mailto:?subject=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -562,9 +562,9 @@
 
 <h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
 
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括hadoop数据仓库和PaaS(2015年)</em>
+<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，20P的hadoop数据仓库和PaaS(2015年)</em>
 <img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>实施基于函数计算的EDA架构</em>
+<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
 <img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
 <img src="./varguard-result.png" alt="结果" /></p>
 
