@@ -18,7 +18,7 @@ REM build static resource
 hugo -s back
 git status
 git add .
-set MSG="deploy:"%MSG%
+set MSG=deploy:%MSG%
 git commit -a -m %MSG%
 git push
 git status
