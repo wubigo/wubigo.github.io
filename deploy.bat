@@ -2,7 +2,7 @@ echo off
 
 set MSG=%1
 
-echo "MSG="+%MSG%
+echo "MSG="%MSG%
 
 IF [%MSG%] == [] (
     echo "Post MSG can be empty"
