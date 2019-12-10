@@ -139,3 +139,21 @@ class A {
 
 The official React documentation sticks to the class method bindings in the constructor
 
+
+## EXPORT default statement
+
+- to export and import a single functionality
+- to highlight the main functionality of the exported API of a module
+- to have a fallback import functionality
+
+
+```
+const robin = {
+    firstname: 'robin',
+    lastname: 'wieruch',
+};
+export default robin;
+```
+
+Furthermore, the import name can differ from the exported default name
+
