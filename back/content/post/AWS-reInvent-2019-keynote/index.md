@@ -58,6 +58,8 @@ categories = []
 
 - EKS正式支持FARGATE
 
+- RDS PROXY
+
 
 ## 先锋基金IT迁移架构图
 
