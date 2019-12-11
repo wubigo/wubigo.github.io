@@ -63,7 +63,7 @@ categories = []
 
 ## 先锋基金IT迁移架构图
 
-![第一阶段](./varguard-stage-0.png)*私有云架构包括4千万行的单体应用，20P的hadoop数据仓库和PaaS(2015年)*
+![第一阶段](./varguard-stage-0.png)*私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)*
 ![第一阶段](./varguard-stage-1.png)*数据仓库和PaaS迁移到AWS*
 ![第二阶段](./varguard-stage-2.png)*PaaS实施基于EDA架构的改造*
 ![第三阶段](./varguard-stage-3.png)*PaaS迁移到Fargate*
