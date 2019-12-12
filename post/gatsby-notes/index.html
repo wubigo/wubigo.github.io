@@ -150,9 +150,9 @@ import React from &quot;react&quot; export default () =&gt; React.createElement(
 JavaScript. How does the browser read that?"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-02-03T09:03:37&#43;08:00">
+  <meta property="article:published_time" content="2018-09-03T09:03:37&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-02-03T09:03:37&#43;08:00">
+  <meta property="article:modified_time" content="2018-09-03T09:03:37&#43;08:00">
   
 
   
@@ -385,8 +385,8 @@ JavaScript. How does the browser read that?"><meta property="og:image" content="
 
 
 
-<meta content="2018-02-03 09:03:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-03 09:03:37 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -399,7 +399,7 @@ JavaScript. How does the browser read that?"><meta property="og:image" content="
     
       
     
-    <time>Feb 3, 2018</time>
+    <time>Sep 3, 2018</time>
   </span>
   
 
@@ -408,7 +408,7 @@ JavaScript. How does the browser read that?"><meta property="og:image" content="
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -576,6 +576,60 @@ View the GraphQL Playground, an in-browser IDE, to explore your site's data and 
 
 <p>which is an older interface for exploring GraphQL.</p>
 
+<h2 id="graphql-query-template">GraphQL query template</h2>
+
+<p>All context values are made available to a template’s GraphQL queries</p>
+
+<p>as arguments prefaced with $</p>
+
+<pre><code> exports.createPages = async function({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  data.allMarkdownRemark.edges.forEach(edge =&gt; {
+    const slug = edge.node.fields.slug
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/blog-post.js`),
+      context: { slug: slug },
+    })
+  })
+}
+
+</code></pre>
+
+<h2 id="faq">FAQ</h2>
+
+<ul>
+<li>There are multiple modules with names that only differ in casing(WIN)</li>
+</ul>
+
+<p>Potential solutions:</p>
+
+<pre><code>cd C:\gatsby\dir before starting gatsby, specifying uppercase
+
+Use powershell instead of cmd (powershell will redirect to the correct dir and set the env var correctly)
+
+Use UNIX file paths and let Windows figure it out (cd /gatsby/dir instead of cd c:\gatsby\dir), but note this will only help if you always use UNIX paths for shell navigation; if you're already in the bogus dir, cmd will not handle it properly.
+
+Gatsby could always enforce/assume uppercase drive letters when checking paths
+</code></pre>
+
+<pre><code>d:\code\hello-world&gt;gatsby -v
+Gatsby CLI version: 2.8.18
+Gatsby version: 2.18.8
+</code></pre>
+
     </div>
 
     
@@ -616,6 +670,8 @@ View the GraphQL Playground, an in-browser IDE, to explore your site's data and 
         <ul>
           
           <li><a href="/post/nodejs-notes/">Nodejs Notes</a></li>
+          
+          <li><a href="/post/web-vue/">Web Vue</a></li>
           
         </ul>
       </div>

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-15T15:39:37&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-16T07:25:19&#43;08:00">
   
 
   
@@ -378,6 +378,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 16, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/aws-serverless-localstack-examples/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-serverless-localstack-examples/" itemprop="url">基于Localstack的函数计算开发应用列表</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
+import json def my_handler(event, context): print(&quot;Received event: &quot; + json.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1445,6 +1531,96 @@ $which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF
 
 
 
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 3, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/gatsby-notes/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/gatsby-notes/" itemprop="url">Gatsby Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    bind eip gatsby develop -- --host=0.0.0.0  Prettier VS Code plugin JSX The hybrid “HTML-in-JS” is actually a syntax extension
+of JavaScript, for React, called JSX
+In pure JavaScript, it looks more like this:
+src/pages/index.js
+import React from &quot;react&quot; export default () =&gt; React.createElement(&quot;div&quot;, null, &quot;Hello world!&quot;)  Now you can spot the use of the &lsquo;react&rsquo; import! But wait. You’re writing JSX, not pure HTML and
+JavaScript. How does the browser read that?
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
 
@@ -2044,225 +2220,6 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
 
 <li><p>RPA</p></li>
 </ul>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-29 14:20:42 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-29 14:20:42 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/aws-cloudformation-with-localstack/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-cloudformation-with-localstack/" itemprop="url">基于Localstack的本地云服务编排</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p><a href="https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628" target="_blank">https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628</a></p>
-
-<p><a href="https://github.com/localstack/localstack/issues/632" target="_blank">https://github.com/localstack/localstack/issues/632</a></p>
-
-<p>AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless
-applications at a higher level</p>
-
-<h1 id="localstack-default-regrion">localstack default regrion</h1>
-
-<p><strong>us-east-1</strong></p>
-
-<h1 id="create-stack">create stack</h1>
-
-<p><strong>file path has to be in file URL format(file:///home/user/&hellip;)</strong></p>
-
-<p><code>func.yaml</code></p>
-
-<pre><code>AWSTemplateFormatVersion: '2010-09-09'
-Description: Simple CloudFormation Test Template
-Resources:
-  S3Bucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: PublicRead
-      BucketName: test-bucket-1
-</code></pre>
-
-<pre><code>aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1
-</code></pre>
-
-<pre><code>aws cloudformation describe-stacks  --endpoint-url=http://localhost:4581 --region us-east-1
-
-
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/data-lake/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/data-lake/" itemprop="url">Data Lake</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="设计目标">设计目标</h1>
-
-<ul>
-<li><p>存取（入库和分析）高效</p></li>
-
-<li><p>节省存储空间</p></li>
-</ul>
-
-<p>评估单台设备基于采集评率的每年存储成本</p>
-
-<p><a href="http://mysql.rjweb.org/doc.php/datawarehouse" target="_blank">http://mysql.rjweb.org/doc.php/datawarehouse</a></p>
 
   </div>
   

@@ -28,11 +28,10 @@
   
     
   
-  <meta name="description" content="mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
-The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.">
+  <meta name="description" content="https://git-lfs.github.com/">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-tuning-on-many-tables/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/git-extension-for-versioning-large-files/">
 
   
 
@@ -121,7 +120,7 @@ The table_open_cache and max_connections system variables affect the maximum num
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/mysql-tuning-on-many-tables/">
+  <link rel="canonical" href="https://wubigo.com/post/git-extension-for-versioning-large-files/">
 
   
   
@@ -136,22 +135,21 @@ The table_open_cache and max_connections system variables affect the maximum num
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="函数计算">
-  <meta property="og:url" content="https://wubigo.com/post/mysql-tuning-on-many-tables/">
-  <meta property="og:title" content="Mysql Tuning on Many Tables | 函数计算">
-  <meta property="og:description" content="mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
-The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/git-extension-for-versioning-large-files/">
+  <meta property="og:title" content="git管理大文件 | 函数计算">
+  <meta property="og:description" content="https://git-lfs.github.com/"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2019-02-12T09:56:28&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2019-02-12T09:56:28&#43;08:00">
   
 
   
 
-  <title>Mysql Tuning on Many Tables | 函数计算</title>
+  
+
+  <title>git管理大文件 | 函数计算</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -368,7 +366,7 @@ The table_open_cache and max_connections system variables affect the maximum num
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Mysql Tuning on Many Tables</h1>
+  <h1 itemprop="name">git管理大文件</h1>
 
   
 
@@ -377,8 +375,8 @@ The table_open_cache and max_connections system variables affect the maximum num
 
 
 
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-02-12 09:56:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-02-12 09:56:28 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -391,7 +389,7 @@ The table_open_cache and max_connections system variables affect the maximum num
     
       
     
-    <time>Apr 28, 2013</time>
+    <time>Feb 12, 2019</time>
   </span>
   
 
@@ -407,7 +405,7 @@ The table_open_cache and max_connections system variables affect the maximum num
   
   
   <span class="middot-divider"></span>
-  <a href="/post/mysql-tuning-on-many-tables/#disqus_thread"></a>
+  <a href="/post/git-extension-for-versioning-large-files/#disqus_thread"></a>
   
 
   
@@ -418,35 +416,35 @@ The table_open_cache and max_connections system variables affect the maximum num
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mysql%20Tuning%20on%20Many%20Tables&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-many-tables%2f"
+         href="https://twitter.com/intent/tweet?text=git%e7%ae%a1%e7%90%86%e5%a4%a7%e6%96%87%e4%bb%b6&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgit-extension-for-versioning-large-files%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-many-tables%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fgit-extension-for-versioning-large-files%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-many-tables%2f&amp;title=Mysql%20Tuning%20on%20Many%20Tables"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgit-extension-for-versioning-large-files%2f&amp;title=git%e7%ae%a1%e7%90%86%e5%a4%a7%e6%96%87%e4%bb%b6"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-many-tables%2f&amp;title=Mysql%20Tuning%20on%20Many%20Tables"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fgit-extension-for-versioning-large-files%2f&amp;title=git%e7%ae%a1%e7%90%86%e5%a4%a7%e6%96%87%e4%bb%b6"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mysql%20Tuning%20on%20Many%20Tables&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-many-tables%2f">
+         href="mailto:?subject=git%e7%ae%a1%e7%90%86%e5%a4%a7%e6%96%87%e4%bb%b6&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fgit-extension-for-versioning-large-files%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -484,17 +482,7 @@ The table_open_cache and max_connections system variables affect the maximum num
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code> mysqladmin status
-</code></pre>
-
-<p>MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance</p>
-
-<p>The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors. Many operating systems permit you to increase the open-files limit, although the method varies widely from system to system. Consult your operating system documentation to determine whether it is possible to increase the limit and how to do so.</p>
-
-<p>To determine whether your table cache is too small, check the Opened_tables status variable, which indicates the number of table-opening operations since the server started:</p>
-
-<pre><code>mysql&gt; SHOW GLOBAL STATUS LIKE 'Opened_tables';
-</code></pre>
+      <p><a href="https://git-lfs.github.com/" target="_blank">https://git-lfs.github.com/</a></p>
 
     </div>
 
@@ -503,9 +491,7 @@ The table_open_cache and max_connections system variables affect the maximum num
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/git/">GIT</a>
   
 </div>
 
@@ -535,15 +521,9 @@ The table_open_cache and max_connections system variables affect the maximum num
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
+          <li><a href="/post/git-forkpull-model/">分叉拉取模式(fork and pull model)</a></li>
           
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
-          
-          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
-          
-          <li><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></li>
+          <li><a href="/post/gitlab-notes/">Gitlab Notes</a></li>
           
         </ul>
       </div>
