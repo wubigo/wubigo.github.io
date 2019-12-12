@@ -146,6 +146,24 @@ which is an older interface for exploring GraphQL.
 
 ```
 
+## Server-side environment variables
+
+`gatsby-config.js` or `gatsby-node.js`:
+
+```
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+```
+
+
+`.env.development`
+
+```
+GATSBY_GRAPHQL_IDE=playground
+```
 
 
 ## FAQ
