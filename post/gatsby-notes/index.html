@@ -608,6 +608,22 @@ View the GraphQL Playground, an in-browser IDE, to explore your site's data and 
 
 </code></pre>
 
+<h2 id="server-side-environment-variables">Server-side environment variables</h2>
+
+<p><code>gatsby-config.js</code> or <code>gatsby-node.js</code>:</p>
+
+<pre><code>
+require(&quot;dotenv&quot;).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+</code></pre>
+
+<p><code>.env.development</code></p>
+
+<pre><code>GATSBY_GRAPHQL_IDE=playground
+</code></pre>
+
 <h2 id="faq">FAQ</h2>
 
 <ul>
