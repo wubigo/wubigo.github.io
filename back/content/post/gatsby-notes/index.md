@@ -1,6 +1,6 @@
 +++
 title = "Gatsby Notes"
-date = 2018-02-03T09:03:37+08:00
+date = 2018-09-03T09:03:37+08:00
 draft = false
 
 # Tags and categories
@@ -110,5 +110,65 @@ The GATSBY_GRAPHQL_IDE=playground part of this command is optional.
 Adding it enables the GraphQL Playground instead of GraphiQL,
 
 which is an older interface for exploring GraphQL.
+
+
+## GraphQL query template
+
+ All context values are made available to a template’s GraphQL queries 
+ 
+ as arguments prefaced with $
+
+
+ ```
+ exports.createPages = async function({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  data.allMarkdownRemark.edges.forEach(edge => {
+    const slug = edge.node.fields.slug
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/blog-post.js`),
+      context: { slug: slug },
+    })
+  })
+}
+
+```
+
+
+
+## FAQ
+
+- There are multiple modules with names that only differ in casing(WIN)
+
+Potential solutions:
+
+```
+cd C:\gatsby\dir before starting gatsby, specifying uppercase
+
+Use powershell instead of cmd (powershell will redirect to the correct dir and set the env var correctly)
+
+Use UNIX file paths and let Windows figure it out (cd /gatsby/dir instead of cd c:\gatsby\dir), but note this will only help if you always use UNIX paths for shell navigation; if you're already in the bogus dir, cmd will not handle it properly.
+
+Gatsby could always enforce/assume uppercase drive letters when checking paths
+```
+
+
+```
+d:\code\hello-world>gatsby -v
+Gatsby CLI version: 2.8.18
+Gatsby version: 2.18.8
+```
 
 
