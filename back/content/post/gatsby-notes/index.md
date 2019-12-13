@@ -165,6 +165,14 @@ require("dotenv").config({
 GATSBY_GRAPHQL_IDE=playground
 ```
 
+## MDX
+
+After installing gatsby-plugin-mdx, MDX files located in src/pages will turn into pages.
+
+Pages are rendered at a URL that is constructed from the filesystem path inside src/pages.
+
+An MDX file at src/pages/awesome.mdx will result in a page being rendered at mysite.com/awesome
+
 
 ## FAQ
 
