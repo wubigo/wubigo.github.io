@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-12-03T08:39:52&#43;08:00">
+  <meta property="og:updated_time" content="2017-12-11T07:25:10&#43;08:00">
   
 
   
@@ -378,6 +378,107 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-11 07:25:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-11 07:25:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/enterprise-architecture-framework/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/enterprise-architecture-framework/" itemprop="url">Enterprise Architecture Framework</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="architecture-domain">Architecture domain</h2>
+
+<p>Since Stephen Spewak&rsquo;s Enterprise Architecture Planning (EAP) in 1993, and perhaps before then, it has been normal to divide enterprises architecture into four architecture domains.</p>
+
+<ul>
+<li>Business architecture,</li>
+<li>Data architecture,</li>
+<li>Applications architecture,</li>
+<li>Technology architecture.</li>
+</ul>
+
+<p><img src="./Enterprise_Architecture.jpg" alt="" /><em>Layers of the enterprise architecture</em></p>
+
+<p><img src="./Architecture_Domain_Reference_Architecture.jpg" alt="" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2172,108 +2273,6 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
 Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
  A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/docker-alpine/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-alpine/" itemprop="url">Docker Alpine</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="set-date">set date</h1>
-
-<pre><code>FROM alpine:3.8
-RUN apk add --no-cache tzdata &amp;&amp; rm -rf /var/cache/apk/*
-ENV TZ Asia/Shanghai
-RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
-</code></pre>
-
-<pre><code>docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash
-</code></pre>
-
-<p>创建<code>/etc/localtime</code></p>
-
-<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre>
-
   </div>
   
 
