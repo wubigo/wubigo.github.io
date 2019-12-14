@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-08T11:37:33&#43;08:00">
+  <meta property="og:updated_time" content="2019-12-14T02:16:59&#43;08:00">
   
 
   
@@ -378,6 +378,108 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-12-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 14, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/serverless-database/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-database/" itemprop="url">数据库无服务器架构</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="问题">问题</h2>
+
+<p>长链接</p>
+
+<p>通过连接池和数据库保持长链接</p>
+
+<blockquote>
+<p>Amazon Aurora Serverless is an on-demand, auto-scaling configuration for
+Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions),
+where the database will automatically start up, shut down, and scale
+capacity up or down based on your application&rsquo;s needs. It enables you
+to run your database in the cloud without managing any database instances.
+It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
+unpredictable workloads.</p>
+</blockquote>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2284,93 +2386,6 @@ docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   a
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 17, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/k8s-logging/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-logging/" itemprop="url">K8s Logging</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
-/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
-ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
   </div>
   
 

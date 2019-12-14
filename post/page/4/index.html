@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-05-10T18:32:22&#43;08:00">
   
 
   
@@ -378,6 +378,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-external-services/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2178,91 +2264,6 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
 StatefulSets are valuable for applications that require one or more of the following.
  Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
 apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/envoy-notes/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/envoy-notes/" itemprop="url">Envoy NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
   </div>
   
 

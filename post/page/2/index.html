@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-04T11:13:20&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-17T10:25:07&#43;08:00">
   
 
   
@@ -378,6 +378,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/k8s-logging/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-logging/" itemprop="url">K8s Logging</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2256,94 +2343,6 @@ Sharing notebooks When people talk of sharing their notebooks, there are general
   <div class="article-style" itemprop="articleBody">
     The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
 Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-20 11:56:47 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-20 11:56:47 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 20, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/serverless-supports-events-type-on-aws/#disqus_thread"></a>
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-supports-events-type-on-aws/" itemprop="url">Serverless Supports Events Type on Aws</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://serverless.com/framework/docs/providers/aws/events/" target="_blank">https://serverless.com/framework/docs/providers/aws/events/</a></p>
-
-<p><img src="./event-types.png" alt="" /></p>
-
   </div>
   
 
