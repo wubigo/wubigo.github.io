@@ -125,3 +125,7 @@ count = 20
 
 ![](/img/post/hugo-logo-wide.svg)
  
+
+# theme
+
+https://sourcethemes.com/academic/zh/docs/page-builder/#icons
