@@ -1,5 +1,5 @@
 +++
-title = "AWS云服务每月免费额度列表"
+title = "AWS云服务免费额度列表"
 date = 2017-11-30T17:51:29+08:00
 draft = false
 
@@ -21,7 +21,38 @@ categories = []
 
 ![](./free.png)
 
-## S3
+
+## AWS免费类型
+
+- 首次注册后的12个月免费
+
+- 永久免费
+
+- 试用
+
+
+## aws永久免费的服务
+
+### 计算服务
+
+- Lambda
+
+1百万请求/月
+
+3百万秒计算时间/月
+
+- Step
+
+4000/月
+
+
+### 存储
+
+- DynamoDB
+
+25GB
+
+- S3
 
 The S3 free tier allows users to store 5 GB of data with standard storage, issue
 
@@ -29,8 +60,6 @@ The S3 free tier allows users to store 5 GB of data with standard storage, issue
 
 month
 
-## LAMBDA
+- Glacier
 
-Lambda provides a free tier with 1M free requests and 400,000 GB-seconds of
-
-compute time
+10GB
