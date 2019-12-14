@@ -19,6 +19,8 @@ categories = []
   focal_point = ""
 +++
 
+![](./free.png)
+
 ## S3
 
 The S3 free tier allows users to store 5 GB of data with standard storage, issue
