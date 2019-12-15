@@ -37,20 +37,20 @@ categories = []
 
 - Lambda
 
-1百万请求/月
+    1百万请求/月
 
-3百万秒计算时间/月
+    3百万秒计算时间/月
 
 - Step
 
-4000/月
+    4000/月
 
 
 ### 存储
 
 - DynamoDB
 
-25GB
+    25GB
 
 - S3
 
@@ -62,4 +62,4 @@ month
 
 - Glacier
 
-10GB
+    10GB
