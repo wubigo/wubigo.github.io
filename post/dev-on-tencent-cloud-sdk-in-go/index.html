@@ -114,8 +114,8 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="函数计算">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -136,9 +136,9 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="函数计算">
+  <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/">
-  <meta property="og:title" content="通过SDK操纵公有云 | 函数计算">
+  <meta property="og:title" content="通过SDK操纵公有云 | NgAPP">
   <meta property="og:description" content="基于腾讯云Go SDK开发
 下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  为集群准备CVM 从本地开发集群K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
 secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;) credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;) client, _ := cvm.NewClient(credential, regions.Beijing)  request := cvm.NewAllocateHostsRequest() request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;)) response, err := client.AllocateHosts(request)  通过ANSIBLE在CVM搭建K8S集群 Ansible.Hosts().Get(response.ToJsonString())  调用ANSIBLE开始在CVM部署K8S集群"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
 
   
 
-  <title>通过SDK操纵公有云 | 函数计算</title>
+  <title>通过SDK操纵公有云 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -193,7 +193,7 @@ secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">函数计算</a>
+      <a class="navbar-brand" href="/">NgAPP</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
