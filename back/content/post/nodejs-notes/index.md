@@ -157,3 +157,17 @@ export default robin;
 
 Furthermore, the import name can differ from the exported default name
 
+
+## Asynchronous code execution
+
+Because most of the JavaScript runtimes are single-threaded, many longer operations,
+such as network requests, are executed asynchronously. Asynchronous code execution
+is handled by two known concepts: callbacks and promises.
+
+- promises 
+
+        A promise represents an eventual result of an asynchronous operation
+
+        Promises are just pretty wrappers around callbacks. In real-world situations, you
+        wrap a promise around a certain action or operation. A promise can have two possible
+        outcomes: it can be resolved (fulfilled) or rejected (unfulfilled).
