@@ -425,7 +425,7 @@ Immutability is embraced in React and its ecosystem. That’s why const should b
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -629,6 +629,23 @@ export default robin;
 </code></pre>
 
 <p>Furthermore, the import name can differ from the exported default name</p>
+
+<h2 id="asynchronous-code-execution">Asynchronous code execution</h2>
+
+<p>Because most of the JavaScript runtimes are single-threaded, many longer operations,
+such as network requests, are executed asynchronously. Asynchronous code execution
+is handled by two known concepts: callbacks and promises.</p>
+
+<ul>
+<li><p>promises</p>
+
+<pre><code>A promise represents an eventual result of an asynchronous operation
+
+Promises are just pretty wrappers around callbacks. In real-world situations, you
+wrap a promise around a certain action or operation. A promise can have two possible
+outcomes: it can be resolved (fulfilled) or rejected (unfulfilled).
+</code></pre></li>
+</ul>
 
     </div>
 

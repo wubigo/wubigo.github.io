@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer tee ~/.bashrc &lt;&lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws EOF aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-02 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.0.0 No repository field.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/aws/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/serverless-nodejs/">
 
   
 
@@ -114,15 +112,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/aws/">
+  <link rel="canonical" href="https://wubigo.com/post/serverless-nodejs/">
 
   
   
@@ -137,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/aws/">
-  <meta property="og:title" content="AWS | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/serverless-nodejs/">
+  <meta property="og:title" content="Serverless Nodejs | NgAPP">
+  <meta property="og:description" content="wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer tee ~/.bashrc &lt;&lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws EOF aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-02 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.0.0 No repository field."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-08T11:37:33&#43;08:00">
+  <meta property="article:published_time" content="2018-12-15T22:54:39&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-12-15T22:54:39&#43;08:00">
   
 
   
 
   
 
-  <title>AWS | NgAPP</title>
+  <title>Serverless Nodejs | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -364,7 +364,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,126 +383,312 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Serverless Nodejs</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">AWS</h1>
+
+
+
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 15, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Serverless%20Nodejs&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-nodejs%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fserverless-nodejs%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-nodejs%2f&amp;title=Serverless%20Nodejs"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-nodejs%2f&amp;title=Serverless%20Nodejs"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Serverless%20Nodejs&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fserverless-nodejs%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/aws-reinvent-2019-keynote/">AWS Re:Invent 2019主题汇总-P1</a></h2>
-    <div class="article-style">
-      
-       计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate 
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></h2>
-    <div class="article-style">
-      
-      AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/serverless-nodejs/">Serverless Nodejs</a></h2>
-    <div class="article-style">
-      
-      wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer tee ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws EOF aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-02 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.0.0 No repository field.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-iam-policy/">Aws IAM Policy</a></h2>
-    <div class="article-style">
-      
-      AWS leverages a standard JSON Identity and Access Management (IAM)
-policy document format across many services to control authorization
-to resources and API actions
-terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
-resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></h2>
-    <div class="article-style">
-      
-       AWS免费类型  首次注册后的12个月免费
- 永久免费
- 试用
-  aws永久免费的服务 计算服务  Lambda
-1百万请求/月
-3百万秒计算时间/月
- Step
-4000/月
-  存储  DynamoDB
-25GB
- S3
-  The S3 free tier allows users to store 5 GB of data with standard storage, issue
-20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
-month
- Glacier
-10GB
-  
-      
-    </div>
-  </div>
-  
+    <div class="article-style" itemprop="articleBody">
+      <pre><code>wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz
 
-  
+tar xvf node-v12.13.1-linux-x64.tar.xz
 
+export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH
+
+
+wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip
+
+sudo apt install unzip
+
+unzip FinalSourceCode.zip
+
+mv Final\ Source\ Code/ sls
+
+
+sudo apt install python-pip
+
+pip install awscli
+
+which aws_completer
+
+tee ~/.bashrc &lt;&lt;-'EOF'
+complete -C '/home/ubuntu/.local/bin/aws_completer' aws
+EOF
+
+
+
+aws configure
+
+
+npm install claudia -g
+
+claudia -v
+5.11.0
+
+
+cd chapter-02
+
+npm install
+
+claudia create \
+--region ap-northeast-1 \
+--api-module api
+
+
+packaging files npm install -q --no-audit --production
+npm WARN pizza-api@1.0.0 No repository field.
+
+saving configuration
+{
+  &quot;lambda&quot;: {
+    &quot;role&quot;: &quot;pizza-api-executor&quot;,
+    &quot;name&quot;: &quot;pizza-api&quot;,
+    &quot;region&quot;: &quot;ap-northeast-1&quot;
+  },
+  &quot;api&quot;: {
+    &quot;id&quot;: &quot;4auh8wzh16&quot;,
+    &quot;module&quot;: &quot;api&quot;,
+    &quot;url&quot;: &quot;https://4auh8wzh16.execute-api.ap-northeast-1.amazonaws.com/latest&quot;
+  }
+}
+
+
+</code></pre>
+
+<p><code>package.json</code></p>
+
+<pre><code>&quot;dependencies&quot;: {
+    &quot;claudia-api-builder&quot;: &quot;^4.1.2&quot;
+},
+</code></pre>
+
+<pre><code>aws apigateway get-resources --rest-api-id &quot;4auh8wzh16&quot;
+
+ {
+            &quot;path&quot;: &quot;/pizzas/{id}&quot;,
+            &quot;resourceMethods&quot;: {
+                &quot;OPTIONS&quot;: {},
+                &quot;GET&quot;: {}
+            },
+            &quot;id&quot;: &quot;i9rknj&quot;,
+            &quot;pathPart&quot;: &quot;{id}&quot;,
+            &quot;parentId&quot;: &quot;el67kl&quot;
+}
+
+</code></pre>
+
+<pre><code>claudia update
+
+updating REST API       apigateway.setAcceptHeader
+{
+  &quot;FunctionName&quot;: &quot;pizza-api&quot;,
+  &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:465691908928:function:pizza-api:2&quot;,
+  &quot;Runtime&quot;: &quot;nodejs12.x&quot;,
+  &quot;Role&quot;: &quot;arn:aws:iam::465691908928:role/pizza-api-executor&quot;,
+  &quot;Handler&quot;: &quot;api.proxyRouter&quot;,
+  &quot;CodeSize&quot;: 17910,
+  &quot;Description&quot;: &quot;A pizza API, an example app from \&quot;Serverless applications with Claudia.js\&quot;&quot;,
+  &quot;Timeout&quot;: 3,
+  &quot;MemorySize&quot;: 128,
+  &quot;LastModified&quot;: &quot;2019-12-16T02:01:14.766+0000&quot;,
+  &quot;CodeSha256&quot;: &quot;RDF1eXIMV2PKlTQZt9uUSayhdREMECZzTQaP92WWCqg=&quot;,
+  &quot;Version&quot;: &quot;2&quot;,
+  &quot;KMSKeyArn&quot;: null,
+  &quot;TracingConfig&quot;: {
+    &quot;Mode&quot;: &quot;PassThrough&quot;
+  },
+  &quot;MasterArn&quot;: null,
+  &quot;RevisionId&quot;: &quot;d0e645d2-86e5-44b2-b20c-f95526be2094&quot;,
+  &quot;State&quot;: &quot;Active&quot;,
+  &quot;StateReason&quot;: null,
+  &quot;StateReasonCode&quot;: null,
+  &quot;LastUpdateStatus&quot;: &quot;Successful&quot;,
+  &quot;LastUpdateStatusReason&quot;: null,
+  &quot;LastUpdateStatusReasonCode&quot;: null,
+  &quot;url&quot;: &quot;https://4auh8wzh16.execute-api.ap-northeast-1.amazonaws.com/latest&quot;
+}
+
+</code></pre>
+
+<p><img src="/img/serverless-node-packaging.png" alt="" /></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
+  
+  <a class="badge badge-light" href="/tags/sls/">SLS</a>
+  
+  <a class="badge badge-light" href="/tags/cloud/">CLOUD</a>
+  
+  <a class="badge badge-light" href="/tags/node/">NODE</a>
+  
+  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/aws-iam-policy/">Aws IAM Policy</a></li>
+          
+          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
+          
+          <li><a href="/post/gatsby-debug/">Gatsby Debug</a></li>
+          
+          <li><a href="/post/lambda-apigateway/">函数＋网关</a></li>
+          
+          <li><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -660,6 +848,4 @@ month
 
   </body>
 </html>
-
-
 
