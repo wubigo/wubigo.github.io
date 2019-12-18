@@ -28,26 +28,32 @@
   
     
   
-  <meta name="description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate ">
+  <meta name="description" content="Listen Notes(以下简称LN)是一个iPod试听资料搜索引擎和数据库，
+它使用的技术是非常过时的，没有AI，没有深度学习，
+没有区块链。“如果有谁一定要说我在使用AI，那他一定没有
+使用真正的AI&rdquo;。
+通过阅读本帖，你能完全复制一个Listen Notes和其他相似的网站。
+你不需要雇佣很多工程师。是否还记得，当脸书以5700万美元收购
+Instagram的时候，Instagram总共只有13名员工，包括非工程技术
+人员。Instagram是在2012初成立的，现在是2019，云计算技术更加
+成熟，站在巨人的肩膀上，一个规模较小的工程团队更有可能做出一
+些有意义的产品，即使是像我这样的OPC(一个人独立成立的公司)。
+我发现本帖已经在HN和reddit上被广泛分享，对此，我在这里做些
+澄清：
+ 本帖并不是最新的。LN使用的技术栈在不停的演进，经过过去两年的
+全职的开发，技术开始变得有点复杂了。LN在2017年初启动的时候
+只用了3台VPS.这里所说的“过时”是指我只使用了我熟悉的技术来快速
+的开发产品，聚焦到业务侧
+ 现在我每天只花20%的时间在工程技术上，其他的时间都在进行业务沟通，
+回复邮件，每天不断总结思考
+ 如果因为没有使用你推荐的技术，或者没有回复你提出的问题，而冒犯了
+你的话，请你原谅。我不能做到让每个人都开心满意
+ 本帖只是告诉你做互联网产品的一种方法，但并不是唯一方法。而且它可能
+不是最好的方法。它通过使用数据手段帮你了解技术世界。
+  https://broadcast.listennotes.com/the-boring-technology-behind-listen-notes-56697c2e347b">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/the-boring-technology-behind-a-one-person-internet-company/">
 
   
 
@@ -136,7 +142,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="canonical" href="https://wubigo.com/post/the-boring-technology-behind-a-one-person-internet-company/">
 
   
   
@@ -151,37 +157,43 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/aws-reinvent-2019-keynote/">
-  <meta property="og:title" content="AWS Re:Invent 2019主题汇总-P1 | NgAPP">
-  <meta property="og:description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/the-boring-technology-behind-a-one-person-internet-company/">
+  <meta property="og:title" content="一个OPC互联网公司使用的老技术 | NgAPP">
+  <meta property="og:description" content="Listen Notes(以下简称LN)是一个iPod试听资料搜索引擎和数据库，
+它使用的技术是非常过时的，没有AI，没有深度学习，
+没有区块链。“如果有谁一定要说我在使用AI，那他一定没有
+使用真正的AI&rdquo;。
+通过阅读本帖，你能完全复制一个Listen Notes和其他相似的网站。
+你不需要雇佣很多工程师。是否还记得，当脸书以5700万美元收购
+Instagram的时候，Instagram总共只有13名员工，包括非工程技术
+人员。Instagram是在2012初成立的，现在是2019，云计算技术更加
+成熟，站在巨人的肩膀上，一个规模较小的工程团队更有可能做出一
+些有意义的产品，即使是像我这样的OPC(一个人独立成立的公司)。
+我发现本帖已经在HN和reddit上被广泛分享，对此，我在这里做些
+澄清：
+ 本帖并不是最新的。LN使用的技术栈在不停的演进，经过过去两年的
+全职的开发，技术开始变得有点复杂了。LN在2017年初启动的时候
+只用了3台VPS.这里所说的“过时”是指我只使用了我熟悉的技术来快速
+的开发产品，聚焦到业务侧
+ 现在我每天只花20%的时间在工程技术上，其他的时间都在进行业务沟通，
+回复邮件，每天不断总结思考
+ 如果因为没有使用你推荐的技术，或者没有回复你提出的问题，而冒犯了
+你的话，请你原谅。我不能做到让每个人都开心满意
+ 本帖只是告诉你做互联网产品的一种方法，但并不是唯一方法。而且它可能
+不是最好的方法。它通过使用数据手段帮你了解技术世界。
+  https://broadcast.listennotes.com/the-boring-technology-behind-listen-notes-56697c2e347b"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-12-08T11:37:33&#43;08:00">
+  <meta property="article:published_time" content="2018-02-18T19:10:14&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-12-08T11:37:33&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-02-18T19:10:14&#43;08:00">
   
 
   
 
-  <title>AWS Re:Invent 2019主题汇总-P1 | NgAPP</title>
+  
+
+  <title>一个OPC互联网公司使用的老技术 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -417,7 +429,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">AWS Re:Invent 2019主题汇总-P1</h1>
+  <h1 itemprop="name">一个OPC互联网公司使用的老技术</h1>
 
   
 
@@ -426,8 +438,8 @@
 
 
 
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-02-18 19:10:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-18 19:10:14 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -440,7 +452,7 @@
     
       
     
-    <time>Dec 8, 2019</time>
+    <time>Feb 18, 2018</time>
   </span>
   
 
@@ -464,35 +476,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://twitter.com/intent/tweet?text=%e4%b8%80%e4%b8%aaOPC%e4%ba%92%e8%81%94%e7%bd%91%e5%85%ac%e5%8f%b8%e4%bd%bf%e7%94%a8%e7%9a%84%e8%80%81%e6%8a%80%e6%9c%af&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fthe-boring-technology-behind-a-one-person-internet-company%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fthe-boring-technology-behind-a-one-person-internet-company%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fthe-boring-technology-behind-a-one-person-internet-company%2f&amp;title=%e4%b8%80%e4%b8%aaOPC%e4%ba%92%e8%81%94%e7%bd%91%e5%85%ac%e5%8f%b8%e4%bd%bf%e7%94%a8%e7%9a%84%e8%80%81%e6%8a%80%e6%9c%af"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fthe-boring-technology-behind-a-one-person-internet-company%2f&amp;title=%e4%b8%80%e4%b8%aaOPC%e4%ba%92%e8%81%94%e7%bd%91%e5%85%ac%e5%8f%b8%e4%bd%bf%e7%94%a8%e7%9a%84%e8%80%81%e6%8a%80%e6%9c%af"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f">
+         href="mailto:?subject=%e4%b8%80%e4%b8%aaOPC%e4%ba%92%e8%81%94%e7%bd%91%e5%85%ac%e5%8f%b8%e4%bd%bf%e7%94%a8%e7%9a%84%e8%80%81%e6%8a%80%e6%9c%af&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fthe-boring-technology-behind-a-one-person-internet-company%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -530,63 +542,53 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <p>Listen Notes(以下简称LN)是一个iPod试听资料搜索引擎和数据库，</p>
 
-<h2 id="计算">计算</h2>
+<p>它使用的技术是非常过时的，没有AI，没有深度学习，</p>
 
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
+<p>没有区块链。“如果有谁一定要说我在使用AI，那他一定没有</p>
 
-<p>主要的新功能包括：</p>
+<p>使用真正的AI&rdquo;。</p>
 
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
+<p>通过阅读本帖，你能完全复制一个Listen Notes和其他相似的网站。</p>
 
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
+<p>你不需要雇佣很多工程师。是否还记得，当脸书以5700万美元收购</p>
 
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
+<p>Instagram的时候，Instagram总共只有13名员工，包括非工程技术</p>
 
-<h2 id="网络">网络</h2>
+<p>人员。Instagram是在2012初成立的，现在是2019，云计算技术更加</p>
 
-<ul>
-<li><p>传输网关支持多播</p></li>
+<p>成熟，站在巨人的肩膀上，一个规模较小的工程团队更有可能做出一</p>
 
-<li><p>加速的网络到网络的VPN链接</p></li>
-</ul>
+<p>些有意义的产品，即使是像我这样的OPC(一个人独立成立的公司)。</p>
 
-<h2 id="存储和数据分析">存储和数据分析</h2>
+<p>我发现本帖已经在HN和reddit上被广泛分享，对此，我在这里做些</p>
+
+<p>澄清：</p>
 
 <ul>
-<li><p>S3 Access Points和数据湖</p></li>
+<li><p>本帖并不是最新的。LN使用的技术栈在不停的演进，经过过去两年的</p>
 
-<li><p>ES搜索支持S3</p></li>
+<p>全职的开发，技术开始变得有点复杂了。LN在2017年初启动的时候</p>
 
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
+<p>只用了3台VPS.这里所说的“过时”是指我只使用了我熟悉的技术来快速</p>
 
-<li><p>AQUA查询加速器</p></li>
+<p>的开发产品，聚焦到业务侧</p></li>
 
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
+<li><p>现在我每天只花20%的时间在工程技术上，其他的时间都在进行业务沟通，</p>
 
-<li><p>托管的Cassandra服务</p></li>
+<p>回复邮件，每天不断总结思考</p></li>
+
+<li><p>如果因为没有使用你推荐的技术，或者没有回复你提出的问题，而冒犯了</p>
+
+<p>你的话，请你原谅。我不能做到让每个人都开心满意</p></li>
+
+<li><p>本帖只是告诉你做互联网产品的一种方法，但并不是唯一方法。而且它可能</p>
+
+<p>不是最好的方法。它通过使用数据手段帮你了解技术世界。</p></li>
 </ul>
 
-<h2 id="函数计算">函数计算</h2>
-
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
-
-<li><p>EKS正式支持FARGATE</p></li>
-
-<li><p>RDS PROXY</p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
+<p><a href="https://broadcast.listennotes.com/the-boring-technology-behind-listen-notes-56697c2e347b" target="_blank">https://broadcast.listennotes.com/the-boring-technology-behind-listen-notes-56697c2e347b</a></p>
 
     </div>
 
@@ -595,9 +597,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/aws/">AWS</a>
-  
-  <a class="badge badge-light" href="/tags/cloud/">CLOUD</a>
+  <a class="badge badge-light" href="/tags/startup/">STARTUP</a>
   
 </div>
 
@@ -621,22 +621,6 @@
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></li>
-          
-          <li><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></li>
-          
-          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
-          
-          <li><a href="/post/aws-iam-policy/">Aws IAM Policy</a></li>
-          
-        </ul>
-      </div>
       
     
 

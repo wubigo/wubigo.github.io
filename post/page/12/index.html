@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2010-01-01T15:06:20&#43;08:00">
+  <meta property="og:updated_time" content="2010-01-03T00:00:00&#43;00:00">
   
 
   
@@ -397,6 +397,103 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2010-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2010-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2010</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="turn-on-ie-proxy">turn on IE proxy</h1>
+
+<pre><code>@ECHO OFF
+ECHO Turn on proxy! please wait...
+REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
+</code></pre>
+
+<h1 id="turn-off-ie-proxy">turn off IE proxy</h1>
+
+<pre><code>@ECHO OFF
+ECHO Turn off IE Proxy! please wait...
+REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       

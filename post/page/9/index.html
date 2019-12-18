@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2016-03-21T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2016-04-13T09:23:00&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 13, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-dockerfile-entrypoint/" itemprop="url">Docker Dockerfile ENTRYPOINT</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Dockerfile ENTRYPOINT有两种形式
+ exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2096,117 +2179,6 @@ Remove that directive and you should be good. Then your configuration file (&lsq
 The advantages of serving content from such a sub-domain, however, are that
 The sub-domain can be a cookie-less domain
 If you use your cookies correctly (ie.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-03-03-boot/" itemprop="url">SPRING-boot note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>1: all required dep on jsp tomcat</p>
-
-<pre><code>&lt;!-- Compile --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-        &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;!-- Provided --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
-        &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;!-- Test --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-</code></pre>
-
   </div>
   
 
