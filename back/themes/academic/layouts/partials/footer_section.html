@@ -1,8 +1,9 @@
 <footer class="site-footer">
 
 
-  <img src="/author/admin/avatar.jpg" alt="Weixin:NgAPP">
-
+  
+   <center><img src="/author/admin/avatar.jpg" alt="Weixin:NgAPP"></center>
+  
   
   {{ with .Site.GetPage "privacy.md" }}
   <p class="powered-by">
@@ -14,6 +15,8 @@
   
 
   <p class="powered-by">
+
+    
     {{ with .Site.Copyright }}{{ . | markdownify}} &middot; {{ end }}
 
     Powered by the
