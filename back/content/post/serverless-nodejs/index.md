@@ -20,8 +20,14 @@ categories = []
 +++
 
 
+## restore snapshot shell
+
+`snapshot.sh`
 
 ```
+!#/bin/bash
+
+
 wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz
 
 tar xvf node-v12.13.1-linux-x64.tar.xz
@@ -31,6 +37,8 @@ export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH
 
 wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip
 
+
+sudo apt update
 sudo apt install unzip
 
 unzip FinalSourceCode.zip
@@ -44,14 +52,19 @@ pip install awscli
 
 which aws_completer
 
-tee ~/.bashrc <<-'EOF'
+cp ~/.bashrc ~/.bashrc_orig
+
+tee -a ~/.bashrc <<-'EOF'
 complete -C '/home/ubuntu/.local/bin/aws_completer' aws
+export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH
 EOF
 
+```
 
 
+
+```
 aws configure
-
 
 npm install claudia -g
 

@@ -1,6 +1,6 @@
 +++
 title = "一个OPC互联网公司使用的老技术"
-date = 2018-02-18T19:10:14+08:00
+date = 2018-10-18T19:10:14+08:00
 draft = false
 
 # Tags and categories
