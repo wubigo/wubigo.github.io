@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="innodb-memcached-multiple-get-range-query  native partitioning in-place APIs">
+  <meta name="description" content="对象创建有如下几种方式
+使用{} let animal = {} animal.name = &#39;Leo&#39; animal.energy = 10 animal.eat = function (amount) { console.log(`${this.name} is eating.`) this.energy &#43;= amount } animal.sleep = function (length) { console.log(`${this.name} is sleeping.`) this.energy &#43;= length } animal.play = function (length) { console.log(`${this.name} is playing.`) this.energy -= length }  构造函数 function Animal (name, energy) { let animal = {} animal.name = name animal.energy = energy animal.eat = function (amount) { console.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-tuning-on-query/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/nodejs-prototype/">
 
   
 
@@ -120,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/mysql-tuning-on-query/">
+  <link rel="canonical" href="https://wubigo.com/post/nodejs-prototype/">
 
   
   
@@ -135,21 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/mysql-tuning-on-query/">
-  <meta property="og:title" content="Mysql Tuning on Query | NgAPP">
-  <meta property="og:description" content="innodb-memcached-multiple-get-range-query  native partitioning in-place APIs"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/nodejs-prototype/">
+  <meta property="og:title" content="Nodejs对象创建方式 | NgAPP">
+  <meta property="og:description" content="对象创建有如下几种方式
+使用{} let animal = {} animal.name = &#39;Leo&#39; animal.energy = 10 animal.eat = function (amount) { console.log(`${this.name} is eating.`) this.energy &#43;= amount } animal.sleep = function (length) { console.log(`${this.name} is sleeping.`) this.energy &#43;= length } animal.play = function (length) { console.log(`${this.name} is playing.`) this.energy -= length }  构造函数 function Animal (name, energy) { let animal = {} animal.name = name animal.energy = energy animal.eat = function (amount) { console."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2017-12-21T07:14:14&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-12-21T07:14:14&#43;08:00">
   
 
   
 
-  <title>Mysql Tuning on Query | NgAPP</title>
+  
+
+  <title>Nodejs对象创建方式 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -385,7 +387,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Mysql Tuning on Query</h1>
+  <h1 itemprop="name">Nodejs对象创建方式</h1>
 
   
 
@@ -394,8 +396,8 @@
 
 
 
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -408,7 +410,7 @@
     
       
     
-    <time>Apr 28, 2013</time>
+    <time>Dec 21, 2017</time>
   </span>
   
 
@@ -417,7 +419,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -432,35 +434,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mysql%20Tuning%20on%20Query&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f"
+         href="https://twitter.com/intent/tweet?text=Nodejs%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-prototype%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-prototype%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f&amp;title=Mysql%20Tuning%20on%20Query"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-prototype%2f&amp;title=Nodejs%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f&amp;title=Mysql%20Tuning%20on%20Query"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-prototype%2f&amp;title=Nodejs%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mysql%20Tuning%20on%20Query&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f">
+         href="mailto:?subject=Nodejs%e5%af%b9%e8%b1%a1%e5%88%9b%e5%bb%ba%e6%96%b9%e5%bc%8f&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-prototype%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -498,10 +500,202 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code>innodb-memcached-multiple-get-range-query
+      
+
+<p>对象创建有如下几种方式</p>
+
+<h2 id="使用">使用{}</h2>
+
+<pre><code>let animal = {}
+animal.name = 'Leo'
+animal.energy = 10
+
+animal.eat = function (amount) {
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+animal.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+}
+
+animal.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
 </code></pre>
 
-<p>native partitioning in-place APIs</p>
+<h2 id="构造函数">构造函数</h2>
+
+<pre><code>function Animal (name, energy) {
+  let animal = {}
+  animal.name = name
+  animal.energy = energy
+
+  animal.eat = function (amount) {
+    console.log(`${this.name} is eating.`)
+    this.energy += amount
+  }
+
+  animal.sleep = function (length) {
+    console.log(`${this.name} is sleeping.`)
+    this.energy += length
+  }
+
+  animal.play = function (length) {
+    console.log(`${this.name} is playing.`)
+    this.energy -= length
+  }
+
+  return animal
+}
+
+const leo = Animal('Leo', 7)
+const snoop = Animal('Snoop', 10)
+</code></pre>
+
+<h3 id="缺点">缺点</h3>
+
+<ul>
+<li>对象方法重复占用内存空间</li>
+</ul>
+
+<h2 id="方法共享">方法共享</h2>
+
+<pre><code>const animalMethods = {
+  eat(amount) {
+    console.log(`${this.name} is eating.`)
+    this.energy += amount
+  },
+  sleep(length) {
+    console.log(`${this.name} is sleeping.`)
+    this.energy += length
+  },
+  play(length) {
+    console.log(`${this.name} is playing.`)
+    this.energy -= length
+  }
+}
+
+function Animal (name, energy) {
+  let animal = {}
+  animal.name = name
+  animal.energy = energy
+  animal.eat = animalMethods.eat
+  animal.sleep = animalMethods.sleep
+  animal.play = animalMethods.play
+
+  return animal
+}
+
+const leo = Animal('Leo', 7)
+const snoop = Animal('Snoop', 10)
+</code></pre>
+
+<h2 id="object-create">Object.create</h2>
+
+<p>Object.create allows you to create an object which will delegate to another</p>
+
+<p>object on failed lookups. Put differently, Object.create allows you to create</p>
+
+<p>an object and whenever there’s a failed property lookup on that object, it can</p>
+
+<p>consult another object to see if that other object has the property</p>
+
+<pre><code>const parent = {
+  name: 'Stacey',
+  age: 35,
+  heritage: 'Irish'
+}
+
+const child = Object.create(parent)
+child.name = 'Ryan'
+child.age = 7
+
+console.log(child.name) // Ryan
+console.log(child.age) // 7
+console.log(child.heritage) // Irish
+</code></pre>
+
+<h2 id="object-create并方法共享">Object.create并方法共享</h2>
+
+<pre><code>const animalMethods = {
+  eat(amount) {
+    console.log(`${this.name} is eating.`)
+    this.energy += amount
+  },
+  sleep(length) {
+    console.log(`${this.name} is sleeping.`)
+    this.energy += length
+  },
+  play(length) {
+    console.log(`${this.name} is playing.`)
+    this.energy -= length
+  }
+}
+
+function Animal (name, energy) {
+  let animal = Object.create(animalMethods)
+  animal.name = name
+  animal.energy = energy
+
+  return animal
+}
+
+const leo = Animal('Leo', 7)
+const snoop = Animal('Snoop', 10)
+
+leo.eat(10)
+snoop.play(5)
+
+</code></pre>
+
+<h3 id="缺点-1">缺点</h3>
+
+<ul>
+<li>要单独管理方法对象</li>
+</ul>
+
+<h2 id="prototype">prototype</h2>
+
+<p>every function in JavaScript has a prototype property that references an object</p>
+
+<pre><code>function doThing () {}
+console.log(doThing.prototype) // {}
+</code></pre>
+
+<pre><code>function Animal (name, energy) {
+  let animal = Object.create(Animal.prototype)
+  animal.name = name
+  animal.energy = energy
+
+  return animal
+}
+
+Animal.prototype.eat = function (amount) {
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+Animal.prototype.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+}
+
+Animal.prototype.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
+const leo = Animal('Leo', 7)
+const snoop = Animal('Snoop', 10)
+
+leo.eat(10)
+snoop.play(5)
+
+</code></pre>
 
     </div>
 
@@ -510,9 +704,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/node/">NODE</a>
   
 </div>
 
@@ -542,15 +734,7 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
-          
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
-          
-          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
-          
-          <li><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></li>
+          <li><a href="/post/nodejs-notes/">Nodejs Notes</a></li>
           
         </ul>
       </div>
