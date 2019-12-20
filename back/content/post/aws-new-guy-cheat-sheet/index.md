@@ -77,3 +77,8 @@ images = ["http://brendan-quinn.xyz/css/images/banners/responsive-images-landsca
 - [安装AWS SDK](/post/use-public-cloud-for-free/#install_aws_sdk)
 
 - [配置AWS访问权限](/post/use-public-cloud-for-free/#install_aws_sdk)
+
+
+## EC2
+
+- [启动并外挂硬盘](https://github.com/wubigo/iaas/tree/master/aws)

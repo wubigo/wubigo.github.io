@@ -23,11 +23,11 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
-  "WEB应用架构",
-  "函数计算",
-  "微服务编排",
+  "应用架构",
+  "分布式计算",
+  "应用系统集成",
   "AT2C",
-  "IaaS"
+  "IaaS/PaaS"
 ]
 
 # Organizational groups that you belong to (for People widget)
