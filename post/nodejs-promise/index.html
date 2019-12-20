@@ -28,12 +28,14 @@
   
     
   
-  <meta name="description" content="Improve docker container detection and resource configuration usage
-https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
-https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
+  <meta name="description" content="状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
+ Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
+API参考
+  执行函数  Executor Functions are Parameter for Promise Constructor which holds Resolve and Reject Callbacks. It is executed immediately by the Promise implementation which provides the resolve and reject functions.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/dockering-java-8/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/nodejs-promise/">
 
   
 
@@ -122,7 +124,7 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/dockering-java-8/">
+  <link rel="canonical" href="https://wubigo.com/post/nodejs-promise/">
 
   
   
@@ -137,23 +139,25 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/dockering-java-8/">
-  <meta property="og:title" content="Dockering Java 8 | NgAPP">
-  <meta property="og:description" content="Improve docker container detection and resource configuration usage
-https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
-https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/nodejs-promise/">
+  <meta property="og:title" content="Nodejs异步通信之Promise | NgAPP">
+  <meta property="og:description" content="状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
+ Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
+API参考
+  执行函数  Executor Functions are Parameter for Promise Constructor which holds Resolve and Reject Callbacks. It is executed immediately by the Promise implementation which provides the resolve and reject functions."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-11-05T09:33:48&#43;08:00">
+  <meta property="article:published_time" content="2017-12-21T07:35:31&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-11-05T09:33:48&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-12-21T07:35:31&#43;08:00">
   
 
   
 
-  <title>Dockering Java 8 | NgAPP</title>
+  
+
+  <title>Nodejs异步通信之Promise | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -389,7 +393,7 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Dockering Java 8</h1>
+  <h1 itemprop="name">Nodejs异步通信之Promise</h1>
 
   
 
@@ -398,8 +402,8 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
 
 
 
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -412,7 +416,7 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
     
       
     
-    <time>Nov 5, 2018</time>
+    <time>Dec 21, 2017</time>
   </span>
   
 
@@ -436,35 +440,35 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Dockering%20Java%208&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f"
+         href="https://twitter.com/intent/tweet?text=Nodejs%e5%bc%82%e6%ad%a5%e9%80%9a%e4%bf%a1%e4%b9%8bPromise&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-promise%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-promise%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f&amp;title=Dockering%20Java%208"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-promise%2f&amp;title=Nodejs%e5%bc%82%e6%ad%a5%e9%80%9a%e4%bf%a1%e4%b9%8bPromise"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f&amp;title=Dockering%20Java%208"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-promise%2f&amp;title=Nodejs%e5%bc%82%e6%ad%a5%e9%80%9a%e4%bf%a1%e4%b9%8bPromise"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Dockering%20Java%208&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdockering-java-8%2f">
+         href="mailto:?subject=Nodejs%e5%bc%82%e6%ad%a5%e9%80%9a%e4%bf%a1%e4%b9%8bPromise&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fnodejs-promise%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -502,11 +506,77 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p><strong>Improve docker container detection and resource configuration usage</strong></p>
+      
 
-<p><a href="https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54" target="_blank">https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54</a></p>
+<h2 id="状态">状态</h2>
 
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
+<p>Promise有三种状态</p>
+
+<ul>
+<li>pending: Initial Case where promise instantiated.</li>
+<li>fulfilled: Success Case which means promise resolved.</li>
+<li>rejected: Failure Case which means promise rejected.</li>
+</ul>
+
+<h2 id="方法">方法</h2>
+
+<p>Promise有六个方法：</p>
+
+<ul>
+<li>Promise.all([promise1, promise2, …]);</li>
+<li>Promise.race([promise1, promise2, …]);</li>
+<li>Promise.reject(value);</li>
+<li>Promise.resolve(value);</li>
+<li>Promise.catch(onRejection);</li>
+
+<li><p>Promise.then(onFulFillment, onRejection);</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#" target="_blank">API参考</a></p></li>
+</ul>
+
+<h2 id="执行函数">执行函数</h2>
+
+<ul>
+<li>Executor Functions are Parameter for Promise Constructor which holds Resolve and Reject Callbacks.</li>
+<li>It is executed immediately by the Promise implementation which provides the resolve and reject functions.</li>
+<li>It’s Triggered before the Promise constructor even returns the created object.</li>
+<li>The Resolve and Reject functions are bound to the promise to fulfill or reject.</li>
+<li>It’s expected to initiate some asynchronous work and then, once that completes, call either the resolve or reject.</li>
+</ul>
+
+<h2 id="可以被覆盖的方法">可以被覆盖的方法</h2>
+
+<ul>
+<li>Promise.prototype.catch();</li>
+<li>Promise.prototype.then();</li>
+</ul>
+
+<h2 id="错误处理">错误处理</h2>
+
+<p>Promise的两种错误处理方式：</p>
+
+<ul>
+<li>then方法的第二个参数onRejection回调</li>
+<li>catch</li>
+</ul>
+
+<pre><code>'use strict';
+// First Approach
+yourPromise.catch(function (error) {
+ // Your Error Callback
+});
+// Second Approach
+yourPromise.then(undefined, function (error) {
+ // Your Error Callback
+});
+</code></pre>
+
+<p>错误检测：根据catch或onRejection定义的顺序被触发</p>
+
+<pre><code>'use strict';
+Promise.catch(onRejected);
+Promise.then(onFulfilled, onRejected);
+</code></pre>
 
     </div>
 
@@ -515,9 +585,7 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
-  
-  <a class="badge badge-light" href="/tags/java/">JAVA</a>
+  <a class="badge badge-light" href="/tags/node/">NODE</a>
   
 </div>
 
@@ -547,15 +615,9 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html"><met
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></li>
+          <li><a href="/post/nodejs-prototype/">Nodejs对象创建方式</a></li>
           
-          <li><a href="/post/groovy-notes/">Groovy Notes</a></li>
-          
-          <li><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></li>
-          
-          <li><a href="/post/lang-java-spring-cloud/">Lang Java Spring Cloud</a></li>
-          
-          <li><a href="/post/lang-java-spring-boot-v2/">Lang Java Spring Boot V2</a></li>
+          <li><a href="/post/nodejs-notes/">Nodejs Notes</a></li>
           
         </ul>
       </div>

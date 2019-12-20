@@ -438,6 +438,19 @@ JavaScript. How does the browser read that?
   </div>
   
   <div>
+    <h2><a href="/post/nodejs-promise/">Nodejs异步通信之Promise</a></h2>
+    <div class="article-style">
+      
+      状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
+ Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
+API参考
+  执行函数  Executor Functions are Parameter for Promise Constructor which holds Resolve and Reject Callbacks. It is executed immediately by the Promise implementation which provides the resolve and reject functions.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/nodejs-prototype/">Nodejs对象创建方式</a></h2>
     <div class="article-style">
       
