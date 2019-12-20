@@ -1891,6 +1891,95 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 
 
 
+<meta content="2016-12-20 15:09:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-20 15:09:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 20, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-dynamodb-notes/" itemprop="url">Aws Dynamodb Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="query">QUERY</h2>
+
+<pre><code>aws dynamodb scan --table-name &quot;orders&quot;
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="datePublished">
 <meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="dateModified">
 
@@ -1939,7 +2028,7 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-new-guy-cheat-sheet/" itemprop="url">羊毛党秘籍之公有云(新手篇)</a>
+    <a href="/post/aws-new-guy-cheat-sheet/" itemprop="url">公有云羊毛党使用秘籍(新手篇)</a>
   </h3>
 
   
@@ -2147,89 +2236,6 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 Protected Branches By default, protected branches are designed to:
  prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
 In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/redis-with-spring-boot-v2/" itemprop="url">Redis With Spring Boot V2</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    LETTUCE VS JEDIS While Jedis is easy to use and supports a vast number of Redis features, it is not thread safe and needs connection pooling to work in a multi-threaded environment. Connection pooling comes at the cost of a physical connection per Jedis instance which increases the number of Redis connections.
-Lettuce, on the other hand, is built on netty (https://netty.io/) and connection instances can be shared across multiple threads.
   </div>
   
 

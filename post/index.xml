@@ -1956,7 +1956,16 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
     </item>
     
     <item>
-      <title>羊毛党秘籍之公有云(新手篇)</title>
+      <title>Aws Dynamodb Notes</title>
+      <link>https://wubigo.com/post/aws-dynamodb-notes/</link>
+      <pubDate>Tue, 20 Dec 2016 15:09:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-dynamodb-notes/</guid>
+      <description> QUERY aws dynamodb scan --table-name &amp;quot;orders&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>公有云羊毛党使用秘籍(新手篇)</title>
       <link>https://wubigo.com/post/aws-new-guy-cheat-sheet/</link>
       <pubDate>Tue, 20 Dec 2016 06:31:28 +0800</pubDate>
       
@@ -2080,6 +2089,16 @@ K8S简介 K8S是自动化部署和监控容器的容器编排和管理工具。�
 K8S解决的网络问题：
  容器间通信问题： 由POD和localhost通信解决
  POD间通信问题： 由CNI解决 POD和服务的通信问题： 由SERVICE解决 外部系统和SERVICE的通信问题： 由SERVICE解决  </description>
+    </item>
+    
+    <item>
+      <title>Aws Iam Notes</title>
+      <link>https://wubigo.com/post/aws-iam-notes/</link>
+      <pubDate>Sat, 20 Feb 2016 14:30:23 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-notes/</guid>
+      <description>REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &amp;quot;log-writer&amp;quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.</description>
     </item>
     
     <item>

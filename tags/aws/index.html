@@ -500,7 +500,16 @@ month
   </div>
   
   <div>
-    <h2><a href="/post/aws-new-guy-cheat-sheet/">羊毛党秘籍之公有云(新手篇)</a></h2>
+    <h2><a href="/post/aws-dynamodb-notes/">Aws Dynamodb Notes</a></h2>
+    <div class="article-style">
+      
+       QUERY aws dynamodb scan --table-name &quot;orders&quot;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-new-guy-cheat-sheet/">公有云羊毛党使用秘籍(新手篇)</a></h2>
     <div class="article-style">
       
       本文所说的新手是指还在12个月免费期内的用户
@@ -521,6 +530,16 @@ month
  使用user_data初始化包括安装常用软件包，自动外挂硬盘等
  使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
   上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-iam-notes/">Aws Iam Notes</a></h2>
+    <div class="article-style">
+      
+      REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.
       
     </div>
   </div>

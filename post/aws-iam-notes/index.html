@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="install client pip install shadowsocks  client.json
-{ &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7&#43;，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
-listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.">
+  <meta name="description" content="REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/shadowsocks-ubuntu-client/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-iam-notes/">
 
   
 
@@ -122,7 +121,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/shadowsocks-ubuntu-client/">
+  <link rel="canonical" href="https://wubigo.com/post/aws-iam-notes/">
 
   
   
@@ -137,23 +136,22 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/shadowsocks-ubuntu-client/">
-  <meta property="og:title" content="Shadowsocks Ubuntu Client | NgAPP">
-  <meta property="og:description" content="install client pip install shadowsocks  client.json
-{ &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7&#43;，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
-listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/aws-iam-notes/">
+  <meta property="og:title" content="Aws Iam Notes | NgAPP">
+  <meta property="og:description" content="REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2016-02-20T14:30:23&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2016-02-20T14:30:23&#43;08:00">
   
 
   
 
-  <title>Shadowsocks Ubuntu Client | NgAPP</title>
+  
+
+  <title>Aws Iam Notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -389,7 +387,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Shadowsocks Ubuntu Client</h1>
+  <h1 itemprop="name">Aws Iam Notes</h1>
 
   
 
@@ -398,8 +396,8 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 
 
 
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2016-02-20 14:30:23 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-20 14:30:23 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -412,7 +410,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
     
       
     
-    <time>Apr 28, 2018</time>
+    <time>Feb 20, 2016</time>
   </span>
   
 
@@ -436,35 +434,35 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Shadowsocks%20Ubuntu%20Client&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fshadowsocks-ubuntu-client%2f"
+         href="https://twitter.com/intent/tweet?text=Aws%20Iam%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-iam-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fshadowsocks-ubuntu-client%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-iam-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fshadowsocks-ubuntu-client%2f&amp;title=Shadowsocks%20Ubuntu%20Client"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-iam-notes%2f&amp;title=Aws%20Iam%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fshadowsocks-ubuntu-client%2f&amp;title=Shadowsocks%20Ubuntu%20Client"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-iam-notes%2f&amp;title=Aws%20Iam%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Shadowsocks%20Ubuntu%20Client&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fshadowsocks-ubuntu-client%2f">
+         href="mailto:?subject=Aws%20Iam%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-iam-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -504,52 +502,31 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="install-client">install client</h1>
+<h2 id="remove-role">REMOVE ROLE</h2>
 
-<pre><code>pip install shadowsocks
+<p>delete policy before delete role</p>
+
+<pre><code>aws iam list-roles
+
+aws iam list-role-policies --role-name api-executor
+
+aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot;
+
+aws iam delete-role --role-name pizza-api-executor
 </code></pre>
 
-<p><code>client.json</code></p>
+<h2 id="add-role-policy">ADD ROLE POLICY</h2>
 
-<pre><code>{
-&quot;server&quot;:&quot;server-ip&quot;,
-&quot;server_port&quot;:8000,
-&quot;local_port&quot;:3050,
-&quot;password&quot;:&quot;your-password&quot;,
-&quot;timeout&quot;:600,
-&quot;method&quot;:&quot;aes-256-cfb&quot;
-}                   
+<pre><code>aws iam put-role-policy \
+--role-name pizza-api-executor \
+--policy-name PizzaApiDynamoDB \
+--policy-document file://./roles/dynamodb.json
 </code></pre>
 
-<pre><code>{
-    &quot;server&quot;:&quot;your_server_ip&quot;,      #ss服务器IP
-    &quot;server_port&quot;:your_server_port, #端口
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;,   #本地ip
-    &quot;local_port&quot;:1080,              #本地端口
-    &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码
-    &quot;timeout&quot;:300,                  #等待超时
-    &quot;method&quot;:&quot;rc4-md5&quot;,             #加密方式
-    &quot;fast_open&quot;: false,             # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可
-    &quot;workers&quot;: 1                    # 工作线程数
-}
-
-</code></pre>
-
-<pre><code>sudo apt-get install privoxy
-</code></pre>
-
-<p><code>/etc/privoxy/config</code></p>
-
-<pre><code>listen-address  127.0.0.1:8118
-
-forward-socks5   /               127.0.0.1:1080 .
-</code></pre>
-
-<pre><code>systemctl restart privoxy.service
-</code></pre>
-
-<pre><code>curl -x 127.0.0.1:1080  www.google.com
-</code></pre>
+<p>You need to provide a path to dynamodb.json with the file:// prefix.
+If you are providing an absolute path, keep in mind that you will have three
+slashes after file:. The first two are for file://, and the third one is from the
+absolute path, because it starts with a slash.</p>
 
     </div>
 
@@ -558,9 +535,9 @@ forward-socks5   /               127.0.0.1:1080 .
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
   
-  <a class="badge badge-light" href="/tags/vpn/">VPN</a>
+  <a class="badge badge-light" href="/tags/iam/">IAM</a>
   
 </div>
 
@@ -584,24 +561,6 @@ forward-socks5   /               127.0.0.1:1080 .
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/spring-oauth2/">Spring Oauth2</a></li>
-          
-          <li><a href="/post/cassandra/">Cassandra</a></li>
-          
-          <li><a href="/post/gitlab-notes/">Gitlab Notes</a></li>
-          
-          <li><a href="/post/kafka-vs-rabbit/">Kafka vs Rabbit</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
-          
-        </ul>
-      </div>
       
     
 

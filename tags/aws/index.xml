@@ -112,7 +112,16 @@ month
     </item>
     
     <item>
-      <title>羊毛党秘籍之公有云(新手篇)</title>
+      <title>Aws Dynamodb Notes</title>
+      <link>https://wubigo.com/post/aws-dynamodb-notes/</link>
+      <pubDate>Tue, 20 Dec 2016 15:09:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-dynamodb-notes/</guid>
+      <description> QUERY aws dynamodb scan --table-name &amp;quot;orders&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>公有云羊毛党使用秘籍(新手篇)</title>
       <link>https://wubigo.com/post/aws-new-guy-cheat-sheet/</link>
       <pubDate>Tue, 20 Dec 2016 06:31:28 +0800</pubDate>
       
@@ -135,6 +144,16 @@ month
  使用user_data初始化包括安装常用软件包，自动外挂硬盘等
  使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
   上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)</description>
+    </item>
+    
+    <item>
+      <title>Aws Iam Notes</title>
+      <link>https://wubigo.com/post/aws-iam-notes/</link>
+      <pubDate>Sat, 20 Feb 2016 14:30:23 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-notes/</guid>
+      <description>REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &amp;quot;log-writer&amp;quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.</description>
     </item>
     
   </channel>
