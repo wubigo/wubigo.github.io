@@ -28,13 +28,27 @@
   
     
   
-  <meta name="description" content="push to a mirror repository push to github at same time when a commit is pushed to gitlab
-Protected Branches By default, protected branches are designed to:
- prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
-In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.">
+  <meta name="description" content="本文所说的新手是指还在12个月免费期内的用户
+只要有一张信用卡，就可以注册一个AWS账号。
+对于AWS新注册账号，有12个月的免费使用额度
+具体额度如下：
+服务
+   服务 额度 当月使用统计     服务器 750小时 t2.micro    硬盘 30GB    硬盘快照 1GB    网盘 5G    数据库 25G    函数计算 1百万次调用     下图我这个月的使用额度
+从上面的图可以看出，AWS免费额度里面比较鸡肋的是
+网盘快照的额度太少，走常规的操作系统镜像备份是要
+花钱的，因为一个最小的ubuntu实例镜像就是8G，
+如何做到保存自己的最新工作成果，而又不用掏钱买快照
+的存储费用呢？
+解决办法如下：
+ 创建EC2
+ 创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2
+ 在外挂的硬盘里面保存自己的操作数据
+ 使用user_data初始化包括安装常用软件包，自动外挂硬盘等
+ 使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
+  上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/gitlab-notes/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-new-guy-cheat-sheet/">
 
   
 
@@ -123,7 +137,7 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/gitlab-notes/">
+  <link rel="canonical" href="https://wubigo.com/post/aws-new-guy-cheat-sheet/">
 
   
   
@@ -138,24 +152,38 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/gitlab-notes/">
-  <meta property="og:title" content="Gitlab Notes | NgAPP">
-  <meta property="og:description" content="push to a mirror repository push to github at same time when a commit is pushed to gitlab
-Protected Branches By default, protected branches are designed to:
- prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
-In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/aws-new-guy-cheat-sheet/">
+  <meta property="og:title" content="羊毛党秘籍之公有云(新手篇) | NgAPP">
+  <meta property="og:description" content="本文所说的新手是指还在12个月免费期内的用户
+只要有一张信用卡，就可以注册一个AWS账号。
+对于AWS新注册账号，有12个月的免费使用额度
+具体额度如下：
+服务
+   服务 额度 当月使用统计     服务器 750小时 t2.micro    硬盘 30GB    硬盘快照 1GB    网盘 5G    数据库 25G    函数计算 1百万次调用     下图我这个月的使用额度
+从上面的图可以看出，AWS免费额度里面比较鸡肋的是
+网盘快照的额度太少，走常规的操作系统镜像备份是要
+花钱的，因为一个最小的ubuntu实例镜像就是8G，
+如何做到保存自己的最新工作成果，而又不用掏钱买快照
+的存储费用呢？
+解决办法如下：
+ 创建EC2
+ 创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2
+ 在外挂的硬盘里面保存自己的操作数据
+ 使用user_data初始化包括安装常用软件包，自动外挂硬盘等
+ 使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
+  上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2016-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2016-12-20T06:31:28&#43;08:00">
   
-  <meta property="article:modified_time" content="2016-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2016-12-20T06:31:28&#43;08:00">
   
 
   
 
-  <title>Gitlab Notes | NgAPP</title>
+  
+
+  <title>羊毛党秘籍之公有云(新手篇) | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -391,7 +419,7 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Gitlab Notes</h1>
+  <h1 itemprop="name">羊毛党秘籍之公有云(新手篇)</h1>
 
   
 
@@ -400,8 +428,8 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
 
 
 
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -414,7 +442,7 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
     
       
     
-    <time>Apr 28, 2016</time>
+    <time>Dec 20, 2016</time>
   </span>
   
 
@@ -423,7 +451,7 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    1 min read
   </span>
   
 
@@ -438,35 +466,35 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Gitlab%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgitlab-notes%2f"
+         href="https://twitter.com/intent/tweet?text=%e7%be%8a%e6%af%9b%e5%85%9a%e7%a7%98%e7%b1%8d%e4%b9%8b%e5%85%ac%e6%9c%89%e4%ba%91%28%e6%96%b0%e6%89%8b%e7%af%87%29&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-new-guy-cheat-sheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fgitlab-notes%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-new-guy-cheat-sheet%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgitlab-notes%2f&amp;title=Gitlab%20Notes"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-new-guy-cheat-sheet%2f&amp;title=%e7%be%8a%e6%af%9b%e5%85%9a%e7%a7%98%e7%b1%8d%e4%b9%8b%e5%85%ac%e6%9c%89%e4%ba%91%28%e6%96%b0%e6%89%8b%e7%af%87%29"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fgitlab-notes%2f&amp;title=Gitlab%20Notes"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-new-guy-cheat-sheet%2f&amp;title=%e7%be%8a%e6%af%9b%e5%85%9a%e7%a7%98%e7%b1%8d%e4%b9%8b%e5%85%ac%e6%9c%89%e4%ba%91%28%e6%96%b0%e6%89%8b%e7%af%87%29"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Gitlab%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fgitlab-notes%2f">
+         href="mailto:?subject=%e7%be%8a%e6%af%9b%e5%85%9a%e7%a7%98%e7%b1%8d%e4%b9%8b%e5%85%ac%e6%9c%89%e4%ba%91%28%e6%96%b0%e6%89%8b%e7%af%87%29&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-new-guy-cheat-sheet%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -506,410 +534,105 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="push-to-a-mirror-repository">push  to a mirror repository</h1>
+<p><strong>本文所说的新手是指还在12个月免费期内的用户</strong></p>
 
-<p>push to github at same time when a commit is pushed to gitlab</p>
+<p>只要有一张信用卡，就可以注册一个AWS账号。</p>
 
-<h1 id="protected-branches">Protected Branches</h1>
+<p>对于AWS新注册账号，有12个月的免费使用额度</p>
 
-<p>By default, protected branches are designed to:</p>
+<p>具体额度如下：</p>
+
+<p>服务</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">服务</th>
+<th align="left">额度</th>
+<th align="left">当月使用统计</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">服务器</td>
+<td align="left">750小时 t2.micro</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">硬盘</td>
+<td align="left">30GB</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">硬盘快照</td>
+<td align="left">1GB</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">网盘</td>
+<td align="left">5G</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">数据库</td>
+<td align="left">25G</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">函数计算</td>
+<td align="left">1百万次调用</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<p>下图我这个月的使用额度</p>
+
+<p><img src="/img/post/aws-free-usage.png" alt="" /></p>
+
+<p>从上面的图可以看出，AWS免费额度里面比较鸡肋的是</p>
+
+<p>网盘快照的额度太少，走常规的操作系统镜像备份是要</p>
+
+<p>花钱的，因为一个最小的ubuntu实例镜像就是8G，</p>
+
+<p>如何做到保存自己的最新工作成果，而又不用掏钱买快照</p>
+
+<p>的存储费用呢？</p>
+
+<p>解决办法如下：</p>
 
 <ul>
-<li>prevent their creation, if not already created, from everybody except Maintainers</li>
-<li>prevent pushes from everybody except Maintainers</li>
-<li>prevent anyone from force pushing to the branch</li>
-<li>prevent anyone from deleting the branch</li>
+<li><p>创建EC2</p></li>
+
+<li><p>创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2</p></li>
+
+<li><p>在外挂的硬盘里面保存自己的操作数据</p></li>
+
+<li><p>使用user_data初始化包括安装常用软件包，自动外挂硬盘等</p></li>
+
+<li><p>使用完EC2销毁即可(卸载外挂硬盘<strong>千万不要销毁外挂的硬盘</strong>)</p></li>
 </ul>
 
-<h1 id="project-members-permissions">Project members permissions</h1>
+<p>上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)</p>
 
-<p>NOTE:</p>
+<p>进行自动化管理。</p>
 
-<p><strong>In GitLab 11.0, the Master role was renamed to Maintainer</strong>
-The following table depicts the various user permission levels in a project.</p>
+<p>下面以terraform为例介绍操作步骤：</p>
 
-<p>Action
-Guest
-Reporter
-Developer
-Maintainer
-Owner</p>
+<h2 id="前提">前提</h2>
 
-<p>Create new issue
-✓
-✓
-✓
-✓
-✓</p>
+<ul>
+<li><p><a href="/post/use-public-cloud-for-free/#install_aws_sdk">安装AWS SDK</a></p></li>
 
-<p>Create confidential issue
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>View confidential issues
-(✓)
-✓
-✓
-✓
-✓</p>
-
-<p>Leave comments
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>See related issues
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>See a list of jobs
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>See a job log
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>Download and browse job artifacts
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>View wiki pages
-✓
-✓
-✓
-✓
-✓</p>
-
-<p>Pull project code</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Download project</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Assign issues</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Assign merge requests</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Label issues and merge requests</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Create code snippets</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Manage issue tracker</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Manage labels</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>See a commit status</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>See a container registry</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>See environments</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>See a list of merge requests</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Manage related issues [STARTER]</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Lock issue discussions</p>
-
-<p>✓
-✓
-✓
-✓</p>
-
-<p>Lock merge request discussions</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Create new environments</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Stop environments</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Manage/Accept merge requests</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Create new merge request</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Create new branches</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Push to non-protected branches</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Force push to non-protected branches</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Remove non-protected branches</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Add tags</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Write a wiki</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Cancel and retry jobs</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Create or update commit status</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Update a container registry</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Remove a container registry image</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Create/edit/delete project milestones</p>
-
-<p>✓
-✓
-✓</p>
-
-<p>Use environment terminals</p>
-
-<p>✓
-✓</p>
-
-<p>Add new team members</p>
-
-<p>✓
-✓</p>
-
-<p>Push to protected branches</p>
-
-<p>✓
-✓</p>
-
-<p>Enable/disable branch protection</p>
-
-<p>✓
-✓</p>
-
-<p>Turn on/off protected branch push for devs</p>
-
-<p>✓
-✓</p>
-
-<p>Enable/disable tag protections</p>
-
-<p>✓
-✓</p>
-
-<p>Rewrite/remove Git tags</p>
-
-<p>✓
-✓</p>
-
-<p>Edit project</p>
-
-<p>✓
-✓</p>
-
-<p>Add deploy keys to project</p>
-
-<p>✓
-✓</p>
-
-<p>Configure project hooks</p>
-
-<p>✓
-✓</p>
-
-<p>Manage Runners</p>
-
-<p>✓
-✓</p>
-
-<p>Manage job triggers</p>
-
-<p>✓
-✓</p>
-
-<p>Manage variables</p>
-
-<p>✓
-✓</p>
-
-<p>Manage GitLab Pages</p>
-
-<p>✓
-✓</p>
-
-<p>Manage GitLab Pages domains and certificates</p>
-
-<p>✓
-✓</p>
-
-<p>Remove GitLab Pages</p>
-
-<p>✓</p>
-
-<p>Manage clusters</p>
-
-<p>✓
-✓</p>
-
-<p>Edit comments (posted by any user)</p>
-
-<p>✓
-✓</p>
-
-<p>Switch visibility level</p>
-
-<p>✓</p>
-
-<p>Transfer project to another namespace</p>
-
-<p>✓</p>
-
-<p>Remove project</p>
-
-<p>✓</p>
-
-<p>Delete issues</p>
-
-<p>✓</p>
-
-<p>Remove pages</p>
-
-<p>✓</p>
-
-<p>Force push to protected branches</p>
-
-<p>Remove protected branches</p>
-
-<p>View project Audit Events</p>
-
-<p>✓
-✓</p>
-
-<p>Project features permissions</p>
+<li><p><a href="/post/use-public-cloud-for-free/#install_aws_sdk">配置AWS访问权限</a></p></li>
+</ul>
 
     </div>
 
@@ -918,9 +641,7 @@ Owner</p>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/git/">GIT</a>
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
   
 </div>
 
@@ -944,24 +665,6 @@ Owner</p>
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
-          
-          <li><a href="/post/kafka-vs-rabbit/">Kafka vs Rabbit</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
-          
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
-          
-        </ul>
-      </div>
       
     
 

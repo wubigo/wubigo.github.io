@@ -1891,6 +1891,105 @@ dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap
 
 
 
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 20, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-new-guy-cheat-sheet/" itemprop="url">羊毛党秘籍之公有云(新手篇)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    本文所说的新手是指还在12个月免费期内的用户
+只要有一张信用卡，就可以注册一个AWS账号。
+对于AWS新注册账号，有12个月的免费使用额度
+具体额度如下：
+服务
+   服务 额度 当月使用统计     服务器 750小时 t2.micro    硬盘 30GB    硬盘快照 1GB    网盘 5G    数据库 25G    函数计算 1百万次调用     下图我这个月的使用额度
+从上面的图可以看出，AWS免费额度里面比较鸡肋的是
+网盘快照的额度太少，走常规的操作系统镜像备份是要
+花钱的，因为一个最小的ubuntu实例镜像就是8G，
+如何做到保存自己的最新工作成果，而又不用掏钱买快照
+的存储费用呢？
+解决办法如下：
+ 创建EC2
+ 创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2
+ 在外挂的硬盘里面保存自己的操作数据
+ 使用user_data初始化包括安装常用软件包，自动外挂硬盘等
+ 使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
+  上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2016-11-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2016-11-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2126,92 +2225,6 @@ In GitLab 11.0, the Master role was renamed to Maintainer The following table de
   <div class="article-style" itemprop="articleBody">
     LETTUCE VS JEDIS While Jedis is easy to use and supports a vast number of Redis features, it is not thread safe and needs connection pooling to work in a multi-threaded environment. Connection pooling comes at the cost of a physical connection per Jedis instance which increases the number of Redis connections.
 Lettuce, on the other hand, is built on netty (https://netty.io/) and connection instances can be shared across multiple threads.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 17, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-logging-efk/" itemprop="url">K8s日志EFK</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
-kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
- Creating the StatefulSet  elasticsearch_statefulset.yaml
-apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
   </div>
   
 
