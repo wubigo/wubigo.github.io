@@ -19,6 +19,10 @@ categories = []
   focal_point = ""
 +++
 
+## 与回调函数的区别
+
+- 不用写错误条件`if (err) return callback(err)`
+- Promise能被作为对象返回并被后期调用
 
 
 ## 状态
