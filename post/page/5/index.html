@@ -1868,6 +1868,90 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
 
 
 
+<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 21, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/nodejs-xpath/" itemprop="url">Nodejs Xpath名字空间</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    如果xml文件带有名字空间，XPATH支持
+还不够完善。下面介绍两种可以工作的方式
+namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
 
@@ -2109,93 +2193,6 @@ unpredictable workloads.</p>
 <pre><code>ISBN-10: 1617293822
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-kubectl-cheatsheet/">
-      <img src="/post/k8s-kubectl-cheatsheet/featured_huf8e7e12eacdf7076511c216a8e20ed40_335574_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-kubectl-cheatsheet/" itemprop="url">kubectl cheat sheet</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
   </div>
   
 

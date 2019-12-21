@@ -438,6 +438,17 @@ JavaScript. How does the browser read that?
   </div>
   
   <div>
+    <h2><a href="/post/nodejs-xpath/">Nodejs Xpath名字空间</a></h2>
+    <div class="article-style">
+      
+      如果xml文件带有名字空间，XPATH支持
+还不够完善。下面介绍两种可以工作的方式
+namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/nodejs-promise/">Nodejs异步通信之Promise</a></h2>
     <div class="article-style">
       
