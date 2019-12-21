@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="状态 Promise有三种状态
+  <meta name="description" content="与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
  Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
 API参考
@@ -141,7 +141,7 @@ API参考
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/nodejs-promise/">
   <meta property="og:title" content="Nodejs异步通信之Promise | NgAPP">
-  <meta property="og:description" content="状态 Promise有三种状态
+  <meta property="og:description" content="与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
  Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
 API参考
@@ -507,6 +507,13 @@ API参考
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h2 id="与回调函数的区别">与回调函数的区别</h2>
+
+<ul>
+<li>不用写错误条件<code>if (err) return callback(err)</code></li>
+<li>Promise能被作为对象返回并被后期调用</li>
+</ul>
 
 <h2 id="状态">状态</h2>
 

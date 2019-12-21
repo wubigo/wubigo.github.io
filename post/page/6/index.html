@@ -827,7 +827,7 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 
   
   <div class="article-style" itemprop="articleBody">
-    状态 Promise有三种状态
+    与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.  方法 Promise有六个方法：
  Promise.all([promise1, promise2, …]); Promise.race([promise1, promise2, …]); Promise.reject(value); Promise.resolve(value); Promise.catch(onRejection); Promise.then(onFulFillment, onRejection);
 API参考
