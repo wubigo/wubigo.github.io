@@ -171,3 +171,8 @@ is handled by two known concepts: callbacks and promises.
         Promises are just pretty wrappers around callbacks. In real-world situations, you
         wrap a promise around a certain action or operation. A promise can have two possible
         outcomes: it can be resolved (fulfilled) or rejected (unfulfilled).
+
+
+##  enable "TypeScript and JavaScript Language Features" extension in VS Code
+
+Go to extensions and search `@builtin typescript` to find the extension
