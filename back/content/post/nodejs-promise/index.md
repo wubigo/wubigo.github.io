@@ -24,6 +24,36 @@ categories = []
 - 不用写错误条件`if (err) return callback(err)`
 - Promise能被作为对象返回并被后期调用
 
+- 回调
+
+```
+function successCallback(result) {
+  console.log("Audio file ready at URL: " + result);
+}
+
+function failureCallback(error) {
+  console.error("Error generating audio file: " + error);
+}
+
+createAudioFileAsync(audioSettings, successCallback, failureCallback);
+
+```
+
+- promise
+
+```
+const promise = createAudioFileAsync(audioSettings); 
+promise.then(successCallback, failureCallback);
+```
+
+or
+
+```
+createAudioFileAsync(audioSettings).then(successCallback, failureCallback);
+```
+
+
+
 
 ## 状态
 
