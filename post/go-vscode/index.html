@@ -28,12 +28,10 @@
   
     
   
-  <meta name="description" content=" http://localhost:8080/oauth/token
-curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
-access protected resource ">
+  <meta name="description" content=" go version go version go version go1.13.5 windows/amd64  vs proxy 手工安装插件 go和git 代理配置 set http_proxy=http://127.0.0.1:4910 git config --global http.proxy https://127.0.0.1:4910 git config --global http.sslverify &quot;false&quot;  安装插件 go get -v github.com/go-delve/delve/cmd/dlv go get -v github.com/ramya-rao-a/go-outline  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/spring-oauth2/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/go-vscode/">
 
   
 
@@ -122,7 +120,7 @@ access protected resource ">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/spring-oauth2/">
+  <link rel="canonical" href="https://wubigo.com/post/go-vscode/">
 
   
   
@@ -137,23 +135,21 @@ access protected resource ">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/spring-oauth2/">
-  <meta property="og:title" content="Spring Oauth2 | NgAPP">
-  <meta property="og:description" content=" http://localhost:8080/oauth/token
-curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
-access protected resource "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/go-vscode/">
+  <meta property="og:title" content="Go Vscode环境配置 | NgAPP">
+  <meta property="og:description" content=" go version go version go version go1.13.5 windows/amd64  vs proxy 手工安装插件 go和git 代理配置 set http_proxy=http://127.0.0.1:4910 git config --global http.proxy https://127.0.0.1:4910 git config --global http.sslverify &quot;false&quot;  安装插件 go get -v github.com/go-delve/delve/cmd/dlv go get -v github.com/ramya-rao-a/go-outline  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2017-12-22T15:29:31&#43;08:00">
   
-  <meta property="article:modified_time" content="2017-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-12-22T15:29:31&#43;08:00">
   
 
   
 
-  <title>Spring Oauth2 | NgAPP</title>
+  
+
+  <title>Go Vscode环境配置 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -389,7 +385,7 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Spring Oauth2</h1>
+  <h1 itemprop="name">Go Vscode环境配置</h1>
 
   
 
@@ -398,8 +394,8 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
 
 
 
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -412,7 +408,7 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
     
       
     
-    <time>Apr 28, 2017</time>
+    <time>Dec 22, 2017</time>
   </span>
   
 
@@ -436,35 +432,35 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Spring%20Oauth2&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fspring-oauth2%2f"
+         href="https://twitter.com/intent/tweet?text=Go%20Vscode%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgo-vscode%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fspring-oauth2%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fgo-vscode%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fspring-oauth2%2f&amp;title=Spring%20Oauth2"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fgo-vscode%2f&amp;title=Go%20Vscode%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fspring-oauth2%2f&amp;title=Spring%20Oauth2"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fgo-vscode%2f&amp;title=Go%20Vscode%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Spring%20Oauth2&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fspring-oauth2%2f">
+         href="mailto:?subject=Go%20Vscode%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fgo-vscode%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -504,17 +500,32 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
     <div class="article-style" itemprop="articleBody">
       
 
-<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+<h2 id="go-version">go version</h2>
 
-<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+<pre><code>go version
+go version go1.13.5 windows/amd64
+</code></pre>
 
-<p><img src="./basic-auth.png" alt="" /></p>
+<h2 id="vs-proxy">vs proxy</h2>
 
-<p><img src="./post-form.png" alt="" /></p>
+<p><img src="/img/post/vscode-proxy.png" alt="" /></p>
 
-<h1 id="access-protected-resource">access protected resource</h1>
+<h2 id="手工安装插件">手工安装插件</h2>
 
-<p><img src="./res.png" alt="" /></p>
+<h3 id="go和git-代理配置">go和git 代理配置</h3>
+
+<pre><code>set http_proxy=http://127.0.0.1:4910
+git config --global http.proxy https://127.0.0.1:4910
+git config --global http.sslverify &quot;false&quot;
+
+</code></pre>
+
+<h3 id="安装插件">安装插件</h3>
+
+<pre><code>go get -v github.com/go-delve/delve/cmd/dlv
+go get -v github.com/ramya-rao-a/go-outline
+
+</code></pre>
 
     </div>
 
@@ -523,9 +534,7 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/go/">GO</a>
   
 </div>
 
@@ -555,15 +564,9 @@ access protected resource "><meta property="og:image" content="https://wubigo.co
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
+          <li><a href="/post/lang-go-module/">Go Module</a></li>
           
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
-          
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
-          
-          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
+          <li><a href="/post/lang-go-notes/">GO NOTES</a></li>
           
         </ul>
       </div>
