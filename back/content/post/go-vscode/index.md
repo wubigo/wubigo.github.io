@@ -53,3 +53,13 @@ go get -v github.com/go-delve/delve/cmd/dlv
 go get -v github.com/ramya-rao-a/go-outline
 
 ```
+
+
+## FAQ
+
+
+- vscode go build __debug_bin: Access is denied
+
+    add *__debug_bin to `.gitignore`
+    
+     
