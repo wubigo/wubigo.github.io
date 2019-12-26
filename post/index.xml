@@ -445,6 +445,16 @@ curl -IL http://wubigo.com/post
     </item>
     
     <item>
+      <title>Aws S3 Data Lake</title>
+      <link>https://wubigo.com/post/aws-s3-data-lake/</link>
+      <pubDate>Wed, 26 Dec 2018 08:20:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-data-lake/</guid>
+      <description>https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23
+https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc</description>
+    </item>
+    
+    <item>
       <title>函数计算Nodejs实例</title>
       <link>https://wubigo.com/post/serverless-nodejs/</link>
       <pubDate>Sat, 15 Dec 2018 22:54:39 +0800</pubDate>
@@ -1347,6 +1357,17 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.</description>
 Deep Learning with Python https://www.manning.com/books/deep-learning-with-python
 How to Win Friends and Influence People https://www.amazon.com/How-Friends-Influence-People-Chinese
 Books I read this year https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017</description>
+    </item>
+    
+    <item>
+      <title>Aws S3 Web Hosting</title>
+      <link>https://wubigo.com/post/aws-s3-web-hosting/</link>
+      <pubDate>Tue, 26 Dec 2017 17:13:28 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-web-hosting/</guid>
+      <description> 创建BUCKET 使用两种方式之一创建BUCKET
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
     </item>
     
     <item>

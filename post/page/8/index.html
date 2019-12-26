@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-02T17:45:14&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-04T08:06:21&#43;08:00">
   
 
   
@@ -397,6 +397,175 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/git-forkpull-model/" itemprop="url">分叉拉取模式(fork and pull model)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    GITHUB两种主要的pull request的开发模式
+分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
+在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
+ https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
+ GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
+ 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin https://github.com/Fuang/wubigo.github.io.git (fetch) origin https://github.com/Fuang/wubigo.github.io.git (push) upstream git@github.com:wubigo/wubigo.github.io.git (fetch) upstream git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-computing-why-how/" itemprop="url">无服务器计算环境OPENFAAS搭建</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备  创建角色和授权  kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories  开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2049,171 +2218,6 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
 <pre><code>./launcher rebuild app
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-12-30-ghostnotes/" itemprop="url">ghost notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Adding swap memory If your system has less than 1GB memory, you may run into errors. To overcome this, configure a larger amount of swap memory:
-dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap echo '/var/swap swap swap default 0 0' &gt;&gt; /etc/fstab  default-setting /var/www/ghost/versions/1.18.2/core/server/data/schema/default-settings.json  blog mail configuration using Amazon SES Ghost is a blogging platform written in nodejs. Edit the config.js file at the ghost root directory
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-12-30-softwareleadweekly/" itemprop="url">software lead weekly</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    good practise There are several common things and These all take practice. 1. Organization skills/project management skills: ability to pull together internal/external resources, ability to create clear plans, ability to build relationships with other teams to make cross-team collaboration easier 2. Communication skills: ability to deescalate and mediate conflicts fairly, ability to give both positive and negative feedback regularly, ability to create psychological safety, ability to deliver bad news while maintaining psychological safety, ability to run efficient meetings, ability to make unpopular decisions while still commanding the team&rsquo;s respect, ability to engage with different personality types and communication styles 3.
   </div>
   
 

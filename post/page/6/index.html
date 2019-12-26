@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-11T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-01-30T11:43:11&#43;08:00">
   
 
   
@@ -397,6 +397,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-architectures/" itemprop="url">书籍推荐:无服务器架构及应用案例详解</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank">Serverless Architectures</a></p>
+
+<p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank"><img src="./serverless.jpg" alt="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" /></a></p>
+
+<pre><code>ISBN-10: 1617293822
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -832,6 +920,141 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 <h1 id="books-i-read-this-year">Books I read this year</h1>
 
 <p><a href="https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017" target="_blank">https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="创建bucket">创建BUCKET</h2>
+
+<p>使用两种方式之一创建BUCKET</p>
+
+<ul>
+<li>terraform</li>
+</ul>
+
+<pre><code>git clone https://github.com/wubigo/iaas
+
+cd s3
+
+terraform apply
+
+</code></pre>
+
+<ul>
+<li>awscli</li>
+</ul>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre>
+
+<h3 id="确认配置">确认配置</h3>
+
+<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
+{
+    &quot;IndexDocument&quot;: {
+        &quot;Suffix&quot;: &quot;index.html&quot;
+    },
+    &quot;ErrorDocument&quot;: {
+        &quot;Key&quot;: &quot;404.html&quot;
+    }
+}
+
+</code></pre>
+
+<h2 id="配置dns-c记录">配置DNS C记录</h2>
+
+<p>查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+
+<p><img src="/img/post/s3-web.png" alt="" /></p>
+
+<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+</code></pre>
+
+<h2 id="上传站点内容">上传站点内容</h2>
+
+<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
+</code></pre>
 
   </div>
   
@@ -2093,189 +2316,6 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-05-03-atomnote/" itemprop="url">atom note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="proxy-config-for-windows">proxy config for Windows</h1>
-
-<pre><code>   ~/.atom/.apmrc
-   https-proxy = http://192.168.0.119:3128/
-   http-proxy = http://192.168.0.119:3128/
-</code></pre>
-
-<h1 id="set-up-use-atom-as-a-markdown-editor">Set Up &amp; Use Atom as a Markdown Editor</h1>
-
-<p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-istio-discovery-proxy/">
-      <img src="/post/k8s-istio-discovery-proxy/featured_hu9eb2fa38cf3057f002d1fb2a9e3892ce_333237_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-istio-discovery-proxy/" itemprop="url">K8s Istio Pilot as envoy control place</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    # side car proxy
- 方法1  Namespace labels
-kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
   </div>
   
 

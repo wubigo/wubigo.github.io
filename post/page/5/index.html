@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-01T17:20:32&#43;08:00">
+  <meta property="og:updated_time" content="2018-04-02T11:16:05&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-envoy-example/" itemprop="url">K8s Envoy Example</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2104,94 +2187,6 @@ unpredictable workloads.</p>
 <h1 id="understanding-dynamic-routing-between-capsules">Understanding Dynamic Routing between Capsules</h1>
 
 <p><a href="https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/" target="_blank">https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-architectures/" itemprop="url">书籍推荐:无服务器架构及应用案例详解</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank">Serverless Architectures</a></p>
-
-<p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank"><img src="./serverless.jpg" alt="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" /></a></p>
-
-<pre><code>ISBN-10: 1617293822
-</code></pre>
 
   </div>
   
