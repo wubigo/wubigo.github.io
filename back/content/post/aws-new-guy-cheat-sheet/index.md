@@ -96,6 +96,15 @@ images = ["http://brendan-quinn.xyz/css/images/banners/responsive-images-landsca
 AWS提供500M的镜像存储空间，可以把自己的数据保存到容器镜像
 
 
+### EC2带宽费用
+
+EIP双向收费，策略是使用S3+VPC中转
+
+```
+IPv4: Data transferred “in” to and “out” from public or Elastic IPv4 address is charged at $0.01/GB in each direction.
+IPv6: Data transferred “in” to and “out” from an IPv6 address in a different VPC is charged at $0.01/GB in each direction.
+```
+
 ## 搭建S3 web站点
 
 [web hosting](/post/aws-s3-web-hosting/)
