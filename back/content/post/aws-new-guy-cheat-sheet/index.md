@@ -94,3 +94,8 @@ images = ["http://brendan-quinn.xyz/css/images/banners/responsive-images-landsca
 ### 使用容器镜像
 
 AWS提供500M的镜像存储空间，可以把自己的数据保存到容器镜像
+
+
+## 搭建S3 web站点
+
+[web hosting](/post/aws-s3-web-hosting/)
