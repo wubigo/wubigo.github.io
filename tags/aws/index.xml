@@ -37,6 +37,15 @@
     </item>
     
     <item>
+      <title>Aws S3 Access Point</title>
+      <link>https://wubigo.com/post/aws-s3-access-point/</link>
+      <pubDate>Wed, 04 Dec 2019 22:20:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-access-point/</guid>
+      <description>aws sts get-caller-identity aws s3control list-access-points --account-id 46569194568 aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo aws s3control get-access-point --account-id &amp;quot;46569194568&amp;quot; --name my-access-point { &amp;quot;Name&amp;quot;: &amp;quot;my-access-point&amp;quot;, &amp;quot;PublicAccessBlockConfiguration&amp;quot;: { &amp;quot;IgnorePublicAcls&amp;quot;: true, &amp;quot;BlockPublicPolicy&amp;quot;: true, &amp;quot;BlockPublicAcls&amp;quot;: true, &amp;quot;RestrictPublicBuckets&amp;quot;: true }, &amp;quot;CreationDate&amp;quot;: &amp;quot;2019-12-04T14:24:38Z&amp;quot;, &amp;quot;Bucket&amp;quot;: &amp;quot;wubigo&amp;quot;, &amp;quot;NetworkOrigin&amp;quot;: &amp;quot;Internet&amp;quot; }  </description>
+    </item>
+    
+    <item>
       <title>免费使用公有云服务</title>
       <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
       <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
@@ -80,7 +89,7 @@ https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f1
       
       <guid>https://wubigo.com/post/serverless-nodejs/</guid>
       <description>restore snapshot shell snapshot.sh
-!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-02 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
     </item>
     
     <item>
@@ -103,7 +112,7 @@ resource &amp;quot;aws_iam_role_policy&amp;quot; &amp;quot;s3_policy&amp;quot; {
       
       <guid>https://wubigo.com/post/aws-s3-web-hosting/</guid>
       <description> 创建BUCKET 使用两种方式之一创建BUCKET
- terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
     </item>
     

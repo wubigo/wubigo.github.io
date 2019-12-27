@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-04T08:06:21&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-04T16:38:38&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-mesh-istio/" itemprop="url">K8S微服务治理</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6  安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2115,108 +2197,6 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
 <h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
 
 <p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="discourse-setup">discourse-setup</h1>
-
-<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
-
-<pre><code>$cp samples/standalone.yml containers/app.yml
-</code></pre>
-
-<p>Discourse app.yml AWS setup example</p>
-
-<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
-
-<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
-
-<p>fix these settings after bootstrapping, edit the /containers/app.yml
-  then rebuild to take effect</p>
-
-<pre><code>./launcher rebuild app
-</code></pre>
 
   </div>
   

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-04T11:13:20&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-17T10:25:07&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-logging/" itemprop="url">K8s Logging</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1333,7 +1417,7 @@ curl -IL http://wubigo.com/post
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -1359,7 +1443,7 @@ curl -IL http://wubigo.com/post
   
   <div class="article-style" itemprop="articleBody">
     restore snapshot shell snapshot.sh
-!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-02 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
   </div>
   
 
@@ -2190,121 +2274,6 @@ all-namespaces don&rsquo;t include kube-system</p>
   <div class="article-style" itemprop="articleBody">
     generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = '0.0.0.0' c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
 Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-22 09:17:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-22 09:17:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 22, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/computing-in-function-way/" itemprop="url">函数计算之道</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="函数计算概论">函数计算概论</h2>
-
-<p>函数计算就是事件驱动架构(EDA），目前函数计算支持的事件类型列表</p>
-
-<p><a href="/tags/serverless/">函数计算事件列表</a></p>
-
-<h2 id="计费模式">计费模式</h2>
-
-<ul>
-<li><p>请求数</p></li>
-
-<li><p>执行时间</p></li>
-
-<li><p>内存分配</p></li>
-</ul>
-
-<h2 id="优劣势分析">优劣势分析</h2>
-
-<ul>
-<li><p>真正做到谁开发谁运维(who code it who run it)</p></li>
-
-<li><p>不需要提前做计算容量规划，服务器配置，负责均衡，扩容</p></li>
-</ul>
-
-<h2 id="代表性产品">代表性产品</h2>
-
-<ul>
-<li>DB: Aurora
-
-<br /></li>
-</ul>
-
   </div>
   
 

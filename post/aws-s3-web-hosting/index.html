@@ -29,7 +29,7 @@
     
   
   <meta name="description" content=" 创建BUCKET 使用两种方式之一创建BUCKET
- terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  ">
 
   
@@ -140,7 +140,7 @@ CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站�
   <meta property="og:url" content="https://wubigo.com/post/aws-s3-web-hosting/">
   <meta property="og:title" content="Aws S3 Web Hosting | NgAPP">
   <meta property="og:description" content=" 创建BUCKET 使用两种方式之一创建BUCKET
- terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -544,7 +544,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <h2 id="配置dns-c记录">配置DNS C记录</h2>
 
-<p>查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 

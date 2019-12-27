@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-12-26T08:20:37&#43;08:00">
+  <meta property="og:updated_time" content="2019-12-04T22:20:38&#43;08:00">
   
 
   
@@ -400,6 +400,15 @@
   
   
   <div>
+    <h2><a href="/post/aws-s3-access-point/">Aws S3 Access Point</a></h2>
+    <div class="article-style">
+      
+      aws sts get-caller-identity aws s3control list-access-points --account-id 46569194568 aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point { &quot;Name&quot;: &quot;my-access-point&quot;, &quot;PublicAccessBlockConfiguration&quot;: { &quot;IgnorePublicAcls&quot;: true, &quot;BlockPublicPolicy&quot;: true, &quot;BlockPublicAcls&quot;: true, &quot;RestrictPublicBuckets&quot;: true }, &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;, &quot;Bucket&quot;: &quot;wubigo&quot;, &quot;NetworkOrigin&quot;: &quot;Internet&quot; }  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/aws-s3-data-lake/">Aws S3 Data Lake</a></h2>
     <div class="article-style">
       
@@ -414,7 +423,7 @@ https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f1
     <div class="article-style">
       
        创建BUCKET 使用两种方式之一创建BUCKET
- terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  
       
     </div>

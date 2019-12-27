@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-30T11:43:11&#43;08:00">
+  <meta property="og:updated_time" content="2018-02-02T00:00:00&#43;00:00">
   
 
   
@@ -397,6 +397,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-02-02-dynamicroutingbetweencapsules/" itemprop="url">Understanding Dynamic Routing between Capsules</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="understanding-dynamic-routing-between-capsules">Understanding Dynamic Routing between Capsules</h1>
+
+<p><a href="https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/" target="_blank">https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1044,7 +1131,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <h2 id="配置dns-c记录">配置DNS C记录</h2>
 
-<p>查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 
@@ -2231,91 +2318,6 @@ provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 13, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
-Dockerfile
-FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
-apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
   </div>
   
 

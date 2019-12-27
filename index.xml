@@ -96,6 +96,36 @@
     </item>
     
     <item>
+      <title>Aws S3 Access Point</title>
+      <link>https://wubigo.com/post/aws-s3-access-point/</link>
+      <pubDate>Wed, 04 Dec 2019 22:20:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-access-point/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;aws sts get-caller-identity
+
+aws s3control list-access-points --account-id 46569194568
+
+aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
+
+aws s3control get-access-point --account-id &amp;quot;46569194568&amp;quot; --name my-access-point
+{
+    &amp;quot;Name&amp;quot;: &amp;quot;my-access-point&amp;quot;,
+    &amp;quot;PublicAccessBlockConfiguration&amp;quot;: {
+        &amp;quot;IgnorePublicAcls&amp;quot;: true,
+        &amp;quot;BlockPublicPolicy&amp;quot;: true,
+        &amp;quot;BlockPublicAcls&amp;quot;: true,
+        &amp;quot;RestrictPublicBuckets&amp;quot;: true
+    },
+    &amp;quot;CreationDate&amp;quot;: &amp;quot;2019-12-04T14:24:38Z&amp;quot;,
+    &amp;quot;Bucket&amp;quot;: &amp;quot;wubigo&amp;quot;,
+    &amp;quot;NetworkOrigin&amp;quot;: &amp;quot;Internet&amp;quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>JAVA这两年</title>
       <link>https://wubigo.com/post/java-last-2-years/</link>
       <pubDate>Tue, 29 Oct 2019 10:17:03 +0800</pubDate>
@@ -1072,40 +1102,6 @@ Default output format [None]:
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Again Uncheck &amp;ldquo;Automatic metric&amp;rdquo;, and fill in a number in the &amp;ldquo;Interface metric&amp;rdquo; box. It needs to be larger than 1 but smaller than the number  above (15).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Windows Application Information Service</title>
-      <link>https://wubigo.com/post/windows-application-information-service/</link>
-      <pubDate>Mon, 06 May 2019 11:51:54 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/windows-application-information-service/</guid>
-      <description>&lt;p&gt;AppInfo 启动类型必须是自动或手动，&lt;/p&gt;
-
-&lt;p&gt;否则，msinstaller， services.msc， regedit&lt;/p&gt;
-
-&lt;p&gt;等都会报错：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;The Service command cannot be started,
-either because it is disabled or because
-it has no enabled devices associated with it
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;AppInfo 
-
-svchost.exe 
-
-Facilitates the running of interactive applications
- with additional administrative privileges. 
-
-Users will be unable to launch applications with the
- additional administrative privileges they may require
- to perform desired user tasks.  These tools include regedit.
-
-Although safe to disable, this is not recommended since
- you need to boot into safe mode to enable again.
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
