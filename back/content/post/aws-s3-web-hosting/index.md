@@ -60,7 +60,7 @@ aws s3api get-bucket-website --bucket s.wubigo.com
 
 ##  配置DNS C记录
 
-查看S3 http endpint: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 
 ![](/img/post/s3-web.png)
 

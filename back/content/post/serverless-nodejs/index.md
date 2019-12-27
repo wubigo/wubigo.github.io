@@ -72,7 +72,7 @@ claudia -v
 5.11.0
 
 
-cd chapter-02
+cd chapter-03
 
 npm install
 
@@ -98,6 +98,18 @@ saving configuration
   }
 }
 
+```
+
+
+## IAM policy to that allows Lambda function to communicate with database 
+
+
+```
+
+aws iam put-role-policy \
+> --role-name pizza-api-executor \
+> --policy-name PizzaApiDynamoDB \
+> --policy-document file://./roles/dynamodb.json
 
 ```
 
