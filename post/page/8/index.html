@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-04T16:38:38&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-11T22:35:16&#43;08:00">
   
 
   
@@ -397,6 +397,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/reinstall-a-running-linux-system-via-ssh/" itemprop="url">通过SSH远程修复linux</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>tl;dr</p>
+
+<pre><code>uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso
+sudo mount -t tmpfs  tmpfs /takeover/
+sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd
+cp -rf /mnt/cd/* /takeover/
+curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &gt; busybox
+chmod u+x /takeover/busybox
+git clone https://github.com/marcan/takeover.sh.git
+gcc takeover.sh/fakeinit.c -o ./fakeinit
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1222,6 +1315,90 @@ http://ruby.taobao.org/
 
 
 
+<meta content="2017-02-28 16:26:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-28 16:26:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-secondary-network-interface/" itemprop="url">Aws EC2 多网卡配置</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    We can no longer assign a public IP address to your instance
+The auto-assign public IP address feature for this instance is disabled because you specified multiple network interfaces. Public IPs can only be assigned to instances with one network interface. To re-enable the auto-assign public IP address feature, please specify only the eth0 network interface.
+ ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="dateModified">
 
@@ -2000,204 +2177,6 @@ Once you run multiple backend processes on a server: A Redis daemon (on that ser
   
   <div class="article-style" itemprop="articleBody">
     Early neural networks Although the core ideas of neural networks were investigated in toy forms as early as the 1950s, the approach took decades to really get started. For a long time, the missing piece was a lack of an efficient way to train large neural networks. This changed in the mid-1980s, as multiple people independently rediscovered the &ldquo;backpropagation&rdquo; algorithm, a way to train chains of parametric operations using gradient descent optimization (later in the book, we will go on to precisely define these concepts), and started applying it to neural networks.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-02-03-numpynotes/" itemprop="url">numpy notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="along-an-axis">along an axis</h1>
-
-<p>Axes are defined for arrays with more than one dimension. A 2-dimensional
-array has two corresponding axes: the first running vertically downwards
-across rows (axis 0), and the second running horizontally across columns (axis 1)</p>
-
-<pre><code>&gt;&gt;&gt;print np.arange(12)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
-
-<p>[]()</p>
-
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
-
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
-
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
-
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
-
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
-
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
-
   </div>
   
 

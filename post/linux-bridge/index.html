@@ -28,13 +28,11 @@
   
     
   
-  <meta name="description" content="设计目标  存取（入库和分析）高效
- 节省存储空间
-  评估单台设备基于采集评率的每年存储成本
-http://mysql.rjweb.org/doc.php/datawarehouse">
+  <meta name="description" content="Some things worth noting in br_add_if:
+ Only ethernet like devices can be added to bridge, as bridge is a layer 2 device. Bridges cannot be added to a bridge. New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)  https://goyalankit.com/blog/linux-bridge">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/data-lake/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-bridge/">
 
   
 
@@ -123,7 +121,7 @@ http://mysql.rjweb.org/doc.php/datawarehouse">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/data-lake/">
+  <link rel="canonical" href="https://wubigo.com/post/linux-bridge/">
 
   
   
@@ -138,24 +136,22 @@ http://mysql.rjweb.org/doc.php/datawarehouse">
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/data-lake/">
-  <meta property="og:title" content="Data Lake | NgAPP">
-  <meta property="og:description" content="设计目标  存取（入库和分析）高效
- 节省存储空间
-  评估单台设备基于采集评率的每年存储成本
-http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/linux-bridge/">
+  <meta property="og:title" content="Linux Bridge | NgAPP">
+  <meta property="og:description" content="Some things worth noting in br_add_if:
+ Only ethernet like devices can be added to bridge, as bridge is a layer 2 device. Bridges cannot be added to a bridge. New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)  https://goyalankit.com/blog/linux-bridge"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2017-07-28T08:36:18&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-07-28T08:36:18&#43;08:00">
   
 
   
 
-  <title>Data Lake | NgAPP</title>
+  
+
+  <title>Linux Bridge | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -391,7 +387,7 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Data Lake</h1>
+  <h1 itemprop="name">Linux Bridge</h1>
 
   
 
@@ -400,8 +396,8 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
 
 
 
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -414,7 +410,7 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
     
       
     
-    <time>Apr 28, 2018</time>
+    <time>Jul 28, 2017</time>
   </span>
   
 
@@ -438,35 +434,35 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Data%20Lake&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdata-lake%2f"
+         href="https://twitter.com/intent/tweet?text=Linux%20Bridge&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-bridge%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdata-lake%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flinux-bridge%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdata-lake%2f&amp;title=Data%20Lake"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flinux-bridge%2f&amp;title=Linux%20Bridge"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdata-lake%2f&amp;title=Data%20Lake"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flinux-bridge%2f&amp;title=Linux%20Bridge"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Data%20Lake&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdata-lake%2f">
+         href="mailto:?subject=Linux%20Bridge&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flinux-bridge%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -504,19 +500,15 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<h1 id="设计目标">设计目标</h1>
+      <p>Some things worth noting in br_add_if:</p>
 
 <ul>
-<li><p>存取（入库和分析）高效</p></li>
-
-<li><p>节省存储空间</p></li>
+<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
+<li>Bridges cannot be added to a bridge.</li>
+<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
 </ul>
 
-<p>评估单台设备基于采集评率的每年存储成本</p>
-
-<p><a href="http://mysql.rjweb.org/doc.php/datawarehouse" target="_blank">http://mysql.rjweb.org/doc.php/datawarehouse</a></p>
+<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
 
     </div>
 
@@ -525,9 +517,9 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/datalake/">DATALAKE</a>
+  <a class="badge badge-light" href="/tags/sdn/">SDN</a>
   
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/nfv/">NFV</a>
   
 </div>
 
@@ -557,15 +549,7 @@ http://mysql.rjweb.org/doc.php/datawarehouse"><meta property="og:image" content=
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/spring-oauth2/">Spring Oauth2</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
-          
-          <li><a href="/post/redis-install-ubuntu/">Redis Install Ubuntu</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
+          <li><a href="/post/aws-ec2-secondary-network-interface/">Aws EC2 多网卡配置</a></li>
           
         </ul>
       </div>

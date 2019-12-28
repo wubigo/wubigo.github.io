@@ -530,6 +530,17 @@ month
   </div>
   
   <div>
+    <h2><a href="/post/aws-ec2-secondary-network-interface/">Aws EC2 多网卡配置</a></h2>
+    <div class="article-style">
+      
+      We can no longer assign a public IP address to your instance
+The auto-assign public IP address feature for this instance is disabled because you specified multiple network interfaces. Public IPs can only be assigned to instances with one network interface. To re-enable the auto-assign public IP address feature, please specify only the eth0 network interface.
+ ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/aws-dynamodb-notes/">Aws Dynamodb Notes</a></h2>
     <div class="article-style">
       

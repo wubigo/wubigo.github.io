@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SDN on NgAPP</title>
+    <link>https://wubigo.com/tags/sdn/</link>
+    <description>Recent content in SDN on NgAPP</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jul 2017 08:36:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/sdn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Bridge</title>
+      <link>https://wubigo.com/post/linux-bridge/</link>
+      <pubDate>Fri, 28 Jul 2017 08:36:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-bridge/</guid>
+      <description>Some things worth noting in br_add_if:
+ Only ethernet like devices can be added to bridge, as bridge is a layer 2 device. Bridges cannot be added to a bridge. New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)  https://goyalankit.com/blog/linux-bridge</description>
+    </item>
+    
+    <item>
+      <title>Aws EC2 多网卡配置</title>
+      <link>https://wubigo.com/post/aws-ec2-secondary-network-interface/</link>
+      <pubDate>Tue, 28 Feb 2017 16:26:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-ec2-secondary-network-interface/</guid>
+      <description>We can no longer assign a public IP address to your instance
+The auto-assign public IP address feature for this instance is disabled because you specified multiple network interfaces. Public IPs can only be assigned to instances with one network interface. To re-enable the auto-assign public IP address feature, please specify only the eth0 network interface.
+ ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.</description>
+    </item>
+    
+  </channel>
+</rss>
