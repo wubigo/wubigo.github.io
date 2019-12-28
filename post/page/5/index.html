@@ -1602,6 +1602,99 @@ godep restore ./...
 
 
 
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-macvaln/" itemprop="url">Aws EC2 MACVLAN</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
+
+<p>through bridges or macvlan. Dedicating a network interface to a</p>
+
+<p>container makes it directly unreachable from the host.</p>
+
+<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
+
+
+docker run -d --network pub_net --ip 172.30.80.10 busybox
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="dateModified">
 
@@ -2084,105 +2177,6 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     如果xml文件带有名字空间，XPATH支持
 还不够完善。下面介绍两种可以工作的方式
 namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 14, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-database/" itemprop="url">数据库无服务器架构</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="问题">问题</h2>
-
-<p>长链接</p>
-
-<p>通过连接池和数据库保持长链接</p>
-
-<blockquote>
-<p>Amazon Aurora Serverless is an on-demand, auto-scaling configuration for
-Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions),
-where the database will automatically start up, shut down, and scale
-capacity up or down based on your application&rsquo;s needs. It enables you
-to run your database in the cloud without managing any database instances.
-It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
-unpredictable workloads.</p>
-</blockquote>
-
   </div>
   
 

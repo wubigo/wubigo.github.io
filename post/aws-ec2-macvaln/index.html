@@ -28,11 +28,13 @@
   
     
   
-  <meta name="description" content="install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
-supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.">
+  <meta name="description" content="Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
+through bridges or macvlan. Dedicating a network interface to a
+container makes it directly unreachable from the host.
+docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/redis-install-ubuntu/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-ec2-macvaln/">
 
   
 
@@ -121,7 +123,7 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/redis-install-ubuntu/">
+  <link rel="canonical" href="https://wubigo.com/post/aws-ec2-macvaln/">
 
   
   
@@ -136,22 +138,24 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/redis-install-ubuntu/">
-  <meta property="og:title" content="Redis Install Ubuntu | NgAPP">
-  <meta property="og:description" content="install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
-supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/aws-ec2-macvaln/">
+  <meta property="og:title" content="Aws EC2 MACVLAN | NgAPP">
+  <meta property="og:description" content="Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
+through bridges or macvlan. Dedicating a network interface to a
+container makes it directly unreachable from the host.
+docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2018-02-28T16:56:16&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-02-28T16:56:16&#43;08:00">
   
 
   
 
-  <title>Redis Install Ubuntu | NgAPP</title>
+  
+
+  <title>Aws EC2 MACVLAN | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -387,7 +391,7 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Redis Install Ubuntu</h1>
+  <h1 itemprop="name">Aws EC2 MACVLAN</h1>
 
   
 
@@ -396,8 +400,8 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
 
 
 
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -410,7 +414,7 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
     
       
     
-    <time>Apr 28, 2013</time>
+    <time>Feb 28, 2018</time>
   </span>
   
 
@@ -434,35 +438,35 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Redis%20Install%20Ubuntu&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fredis-install-ubuntu%2f"
+         href="https://twitter.com/intent/tweet?text=Aws%20EC2%20MACVLAN&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fredis-install-ubuntu%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fredis-install-ubuntu%2f&amp;title=Redis%20Install%20Ubuntu"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f&amp;title=Aws%20EC2%20MACVLAN"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fredis-install-ubuntu%2f&amp;title=Redis%20Install%20Ubuntu"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f&amp;title=Aws%20EC2%20MACVLAN"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Redis%20Install%20Ubuntu&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fredis-install-ubuntu%2f">
+         href="mailto:?subject=Aws%20EC2%20MACVLAN&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -500,55 +504,17 @@ supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
 
-<h1 id="install">install</h1>
+<p>through bridges or macvlan. Dedicating a network interface to a</p>
 
-<pre><code>curl -O http://download.redis.io/redis-stable.tar.gz
-tar xzvf redis-stable.tar.gz
-cd redis-stable
-make
-make test
-sudo make install
+<p>container makes it directly unreachable from the host.</p>
 
+<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
+
+
+docker run -d --network pub_net --ip 172.30.80.10 busybox
 </code></pre>
-
-<h1 id="config">config</h1>
-
-<pre><code>sudo mkdir /etc/redis
-sudo cp redis-stable/redis.conf /etc/redis
-sudo adduser --system --group --no-create-home redis
-sudo mkdir /var/lib/redis
-sudo chown redis:redis /var/lib/redis
-sudo chmod 770 /var/lib/redis
-</code></pre>
-
-<p><code>/etc/redis/redis.conf</code></p>
-
-<pre><code>supervised systemd
-dir /var/lib/redis
-# bind localhost
-</code></pre>
-
-<h1 id="start">start</h1>
-
-<pre><code>redis-server /etc/redis/redis.conf
-</code></pre>
-
-<h1 id="shutdown">shutdown</h1>
-
-<pre><code>redis-cli shutdown
-
-redis-cli
-127.0.0.1:6379&gt; shutdown
-</code></pre>
-
-<h1 id="run-in-docker">run in docker</h1>
-
-<pre><code>docker run --name redis -network host -v /var/lib/redis:/data  /etc/redis/redis.conf:/etc/redis/redis.conf -d redis:5.0-alpine3.9  redis-server /etc/redis/redis.conf --appendonly yes
-</code></pre>
-
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04</a></p>
 
     </div>
 
@@ -557,9 +523,9 @@ redis-cli
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/redis/">REDIS</a>
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
   
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/sdn/">SDN</a>
   
 </div>
 
@@ -589,15 +555,15 @@ redis-cli
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
+          <li><a href="/post/aws-ec2-secondary-network-interface/">Aws EC2 多网卡配置</a></li>
           
-          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
+          <li><a href="/post/aws-s3-web-hosting/">Aws S3 Web Hosting</a></li>
           
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
+          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
           
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
+          <li><a href="/post/linux-bridge/">Linux Bridge</a></li>
           
-          <li><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></li>
+          <li><a href="/post/aws-dynamodb-notes/">Aws Dynamodb Notes</a></li>
           
         </ul>
       </div>

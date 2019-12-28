@@ -106,6 +106,18 @@ resource &amp;quot;aws_iam_role_policy&amp;quot; &amp;quot;s3_policy&amp;quot; {
     </item>
     
     <item>
+      <title>Aws EC2 MACVLAN</title>
+      <link>https://wubigo.com/post/aws-ec2-macvaln/</link>
+      <pubDate>Wed, 28 Feb 2018 16:56:16 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-ec2-macvaln/</guid>
+      <description>Amazon EC2 networking doesn&amp;rsquo;t allow to use private ips in the containers
+through bridges or macvlan. Dedicating a network interface to a
+container makes it directly unreachable from the host.
+docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  </description>
+    </item>
+    
+    <item>
       <title>Aws S3 Web Hosting</title>
       <link>https://wubigo.com/post/aws-s3-web-hosting/</link>
       <pubDate>Tue, 26 Dec 2017 17:13:28 +0800</pubDate>

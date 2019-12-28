@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-07-28T08:36:18&#43;08:00">
+  <meta property="og:updated_time" content="2018-02-28T16:56:16&#43;08:00">
   
 
   
@@ -398,6 +398,18 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/aws-ec2-macvaln/">Aws EC2 MACVLAN</a></h2>
+    <div class="article-style">
+      
+      Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
+through bridges or macvlan. Dedicating a network interface to a
+container makes it directly unreachable from the host.
+docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/linux-bridge/">Linux Bridge</a></h2>
