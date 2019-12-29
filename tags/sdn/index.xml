@@ -44,5 +44,15 @@ The auto-assign public IP address feature for this instance is disabled because 
  ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.</description>
     </item>
     
+    <item>
+      <title>Kernel Bypass Networking</title>
+      <link>https://wubigo.com/post/kernel-bypass-networking/</link>
+      <pubDate>Thu, 29 Dec 2016 10:15:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kernel-bypass-networking/</guid>
+      <description>RDMA (Remote Direct Memory Access), TOE (TCP Offload Engine), and OpenOnload. More recently, DPDK (Data Plane Development Kit) has been used in some applications to bypass the kernel, and then there are new emerging initiatives such as FD.io (Fast Data Input Output) based on VPP (Vector Packet Processing). More will likely emerge in the future.
+Technologies like RDMA and TOE create a parallel stack in the kernel and solve the first problem (namely, the &amp;ldquo;kernel is too slow&amp;rdquo;) while OpenOnload, DPDK and FD.</description>
+    </item>
+    
   </channel>
 </rss>

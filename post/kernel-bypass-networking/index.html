@@ -28,13 +28,11 @@
   
     
   
-  <meta name="description" content="Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
-through bridges or macvlan. Dedicating a network interface to a
-container makes it directly unreachable from the host.
-docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  ">
+  <meta name="description" content="RDMA (Remote Direct Memory Access), TOE (TCP Offload Engine), and OpenOnload. More recently, DPDK (Data Plane Development Kit) has been used in some applications to bypass the kernel, and then there are new emerging initiatives such as FD.io (Fast Data Input Output) based on VPP (Vector Packet Processing). More will likely emerge in the future.
+Technologies like RDMA and TOE create a parallel stack in the kernel and solve the first problem (namely, the &ldquo;kernel is too slow&rdquo;) while OpenOnload, DPDK and FD.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-ec2-macvaln/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/kernel-bypass-networking/">
 
   
 
@@ -123,7 +121,7 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-ec2-macvaln/">
+  <link rel="canonical" href="https://wubigo.com/post/kernel-bypass-networking/">
 
   
   
@@ -138,24 +136,22 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/aws-ec2-macvaln/">
-  <meta property="og:title" content="Aws EC2 MACVLAN | NgAPP">
-  <meta property="og:description" content="Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
-through bridges or macvlan. Dedicating a network interface to a
-container makes it directly unreachable from the host.
-docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/kernel-bypass-networking/">
+  <meta property="og:title" content="Kernel Bypass Networking | NgAPP">
+  <meta property="og:description" content="RDMA (Remote Direct Memory Access), TOE (TCP Offload Engine), and OpenOnload. More recently, DPDK (Data Plane Development Kit) has been used in some applications to bypass the kernel, and then there are new emerging initiatives such as FD.io (Fast Data Input Output) based on VPP (Vector Packet Processing). More will likely emerge in the future.
+Technologies like RDMA and TOE create a parallel stack in the kernel and solve the first problem (namely, the &ldquo;kernel is too slow&rdquo;) while OpenOnload, DPDK and FD."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-02-28T16:56:16&#43;08:00">
+  <meta property="article:published_time" content="2016-12-29T10:15:59&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-02-28T16:56:16&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2016-12-29T10:15:59&#43;08:00">
   
 
   
 
-  <title>Aws EC2 MACVLAN | NgAPP</title>
+  
+
+  <title>Kernel Bypass Networking | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -391,7 +387,7 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Aws EC2 MACVLAN</h1>
+  <h1 itemprop="name">Kernel Bypass Networking</h1>
 
   
 
@@ -400,8 +396,8 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
 
 
 
-<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
+<meta content="2016-12-29 10:15:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-29 10:15:59 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -414,7 +410,7 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
     
       
     
-    <time>Feb 28, 2018</time>
+    <time>Dec 29, 2016</time>
   </span>
   
 
@@ -438,35 +434,35 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Aws%20EC2%20MACVLAN&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f"
+         href="https://twitter.com/intent/tweet?text=Kernel%20Bypass%20Networking&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fkernel-bypass-networking%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fkernel-bypass-networking%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f&amp;title=Aws%20EC2%20MACVLAN"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fkernel-bypass-networking%2f&amp;title=Kernel%20Bypass%20Networking"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f&amp;title=Aws%20EC2%20MACVLAN"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fkernel-bypass-networking%2f&amp;title=Kernel%20Bypass%20Networking"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Aws%20EC2%20MACVLAN&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-ec2-macvaln%2f">
+         href="mailto:?subject=Kernel%20Bypass%20Networking&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fkernel-bypass-networking%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -504,17 +500,11 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
+      <p>RDMA (Remote Direct Memory Access), TOE (TCP Offload Engine), and OpenOnload. More recently, DPDK (Data Plane Development Kit) has been used in some applications to bypass the kernel, and then there are new emerging initiatives such as FD.io (Fast Data Input Output) based on VPP (Vector Packet Processing). More will likely emerge in the future.</p>
 
-<p>through bridges or macvlan. Dedicating a network interface to a</p>
+<p>Technologies like RDMA and TOE create a parallel stack in the kernel and solve the first problem (namely, the &ldquo;kernel is too slow&rdquo;) while OpenOnload, DPDK and FD.io (based on VPP) move networking into Linux user space to address both speed and technology plug-in requirements. When technologies are built in the Linux user space, the need for changes to the kernel is avoided, eliminating the extra effort required to convince the Linux kernel community about the usefulness of the bypass technologies and their adoption via upstreaming into the Linux kernel.</p>
 
-<p>container makes it directly unreachable from the host.</p>
-
-<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
-
-
-docker run -d --network pub_net --ip 172.30.80.10 busybox
-</code></pre>
+<p><img src="/img/post/Kernel-Bypass-Networking.png" alt="" /></p>
 
     </div>
 
@@ -523,9 +513,9 @@ docker run -d --network pub_net --ip 172.30.80.10 busybox
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/aws/">AWS</a>
-  
   <a class="badge badge-light" href="/tags/sdn/">SDN</a>
+  
+  <a class="badge badge-light" href="/tags/nfv/">NFV</a>
   
 </div>
 
@@ -549,24 +539,6 @@ docker run -d --network pub_net --ip 172.30.80.10 busybox
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/aws-ec2-secondary-network-interface/">Aws EC2 多网卡配置</a></li>
-          
-          <li><a href="/post/aws-s3-web-hosting/">Aws S3 Web Hosting</a></li>
-          
-          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
-          
-          <li><a href="/post/linux-bridge/">Linux Bridge</a></li>
-          
-          <li><a href="/post/kernel-bypass-networking/">Kernel Bypass Networking</a></li>
-          
-        </ul>
-      </div>
       
     
 
