@@ -77,3 +77,8 @@ EOF
 
 systemctl restart networking
 ```
+
+
+## 访问互联网
+
+必须分配并关联EIP
