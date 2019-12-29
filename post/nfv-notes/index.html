@@ -28,10 +28,17 @@
   
     
   
-  <meta name="description" content="innodb-memcached-multiple-get-range-query  native partitioning in-place APIs">
+  <meta name="description" content="数据中心网络虚拟化——NVo3技术端到端隧道 NVo3（Network Virtualization over Layer 3），是IETF 2014年十月份提出的数据中心虚拟化技术框架。
+NVo3基于IP/MPLS作为传输网，在其上通过隧道连接的方式，构建大规模的二层租户网络。NVo3的技术模型如下所示，
+PE设备称为NVE（Network Virtualization Element），VN Context作为Tag标识租户网络，P设备即为普通的IP/MPLS路由器。
+NVo3在设计之初，VxLAN与SDN的联合部署已经成为了数据中心的大趋势，因此NVo3的模型中专门画出了
+NVA(Network Virtualization Authority）作为NVE设备的控制器负责隧道建立、地址学习等控制逻辑
+VxLAN（Virtual eXtensible LAN，RFC 7348） Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限制，允许通过现有的IP网络进行隧道的传输。
+别看VxLAN名字听起来和VLAN挺像，但是两者技术上可没什么必然联系。VxLAN是一种MACinUDP的隧道.
+NvGRE NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-tuning-on-query/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/nfv-notes/">
 
   
 
@@ -120,7 +127,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/mysql-tuning-on-query/">
+  <link rel="canonical" href="https://wubigo.com/post/nfv-notes/">
 
   
   
@@ -135,21 +142,28 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/mysql-tuning-on-query/">
-  <meta property="og:title" content="Mysql Tuning on Query | NgAPP">
-  <meta property="og:description" content="innodb-memcached-multiple-get-range-query  native partitioning in-place APIs"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/nfv-notes/">
+  <meta property="og:title" content="NFV Notes | NgAPP">
+  <meta property="og:description" content="数据中心网络虚拟化——NVo3技术端到端隧道 NVo3（Network Virtualization over Layer 3），是IETF 2014年十月份提出的数据中心虚拟化技术框架。
+NVo3基于IP/MPLS作为传输网，在其上通过隧道连接的方式，构建大规模的二层租户网络。NVo3的技术模型如下所示，
+PE设备称为NVE（Network Virtualization Element），VN Context作为Tag标识租户网络，P设备即为普通的IP/MPLS路由器。
+NVo3在设计之初，VxLAN与SDN的联合部署已经成为了数据中心的大趋势，因此NVo3的模型中专门画出了
+NVA(Network Virtualization Authority）作为NVE设备的控制器负责隧道建立、地址学习等控制逻辑
+VxLAN（Virtual eXtensible LAN，RFC 7348） Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限制，允许通过现有的IP网络进行隧道的传输。
+别看VxLAN名字听起来和VLAN挺像，但是两者技术上可没什么必然联系。VxLAN是一种MACinUDP的隧道.
+NvGRE NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-04-28T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2017-12-29T12:31:08&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-04-28T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-12-29T12:31:08&#43;08:00">
   
 
   
 
-  <title>Mysql Tuning on Query | NgAPP</title>
+  
+
+  <title>NFV Notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -385,7 +399,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Mysql Tuning on Query</h1>
+  <h1 itemprop="name">NFV Notes</h1>
 
   
 
@@ -394,8 +408,8 @@
 
 
 
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -408,7 +422,7 @@
     
       
     
-    <time>Apr 28, 2013</time>
+    <time>Dec 29, 2017</time>
   </span>
   
 
@@ -432,35 +446,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mysql%20Tuning%20on%20Query&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f"
+         href="https://twitter.com/intent/tweet?text=NFV%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnfv-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fnfv-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f&amp;title=Mysql%20Tuning%20on%20Query"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnfv-notes%2f&amp;title=NFV%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f&amp;title=Mysql%20Tuning%20on%20Query"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fnfv-notes%2f&amp;title=NFV%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mysql%20Tuning%20on%20Query&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-tuning-on-query%2f">
+         href="mailto:?subject=NFV%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fnfv-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -498,10 +512,29 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code>innodb-memcached-multiple-get-range-query
-</code></pre>
+      
 
-<p>native partitioning in-place APIs</p>
+<h2 id="数据中心网络虚拟化-nvo3技术端到端隧道">数据中心网络虚拟化——NVo3技术端到端隧道</h2>
+
+<p>NVo3（Network Virtualization over Layer 3），是IETF 2014年十月份提出的数据中心虚拟化技术框架。</p>
+
+<p>NVo3基于IP/MPLS作为传输网，在其上通过隧道连接的方式，构建大规模的二层租户网络。NVo3的技术模型如下所示，</p>
+
+<p>PE设备称为NVE（Network Virtualization Element），VN Context作为Tag标识租户网络，P设备即为普通的IP/MPLS路由器。</p>
+
+<p>NVo3在设计之初，VxLAN与SDN的联合部署已经成为了数据中心的大趋势，因此NVo3的模型中专门画出了</p>
+
+<p>NVA(Network Virtualization Authority）作为NVE设备的控制器负责隧道建立、地址学习等控制逻辑</p>
+
+<h3 id="vxlan-virtual-extensible-lan-rfc-7348">VxLAN（Virtual eXtensible LAN，RFC 7348）</h3>
+
+<p>Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限制，允许通过现有的IP网络进行隧道的传输。</p>
+
+<p>别看VxLAN名字听起来和VLAN挺像，但是两者技术上可没什么必然联系。VxLAN是一种MACinUDP的隧道.</p>
+
+<h3 id="nvgre">NvGRE</h3>
+
+<p>NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6</p>
 
     </div>
 
@@ -510,9 +543,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  <a class="badge badge-light" href="/tags/nfv/">NFV</a>
   
 </div>
 
@@ -542,15 +573,9 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
+          <li><a href="/post/linux-bridge/">Linux Bridge</a></li>
           
-          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
-          
-          <li><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></li>
-          
-          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
-          
-          <li><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></li>
+          <li><a href="/post/kernel-bypass-networking/">Kernel Bypass Networking</a></li>
           
         </ul>
       </div>
