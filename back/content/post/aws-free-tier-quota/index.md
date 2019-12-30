@@ -39,7 +39,7 @@ categories = []
 
     1百万请求/月
 
-    3百万秒计算时间/月
+    400,000 GB-seconds of compute time per month
 
 - Step
 
@@ -63,3 +63,22 @@ month
 - Glacier
 
     10GB
+
+### Cognito
+
+50,000 MAUs for users who sign in directly to Cognito User Pools
+
+
+## 12月内免费服务项目
+
+### SQS
+
+每月15 GB of data transfer out
+
+All customers can make 1 million Amazon SQS requests for free each month
+
+### SNS
+
+first million push notifications (publishes and deliveries) are free every month
+
+new AWS customers will receive free 15 GB of data transfer out each month

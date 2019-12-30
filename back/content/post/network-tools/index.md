@@ -1,11 +1,11 @@
 +++
-title = "Tcpdump Windows"
-date = 2018-04-24T19:24:49+08:00
+title = "常用的网络工具"
+date = 2018-03-31T06:29:12+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["TCP", "NETWORK", "WIN"]
+tags = ["NETWORK", "LINUX"]
 categories = []
 
 # Featured image
@@ -20,29 +20,29 @@ categories = []
 +++
 
 
-# install winpcap and windump
+## 常用命令
 
-https://www.winpcap.org
-
-
+[常用命令](/post/2010-01-22-computer-networking/)
 
 
-# list all interfaces
+## bandwidth utilization tool
+
 
 ```
-windump -D
-```
-
-# dump on interface
-
-```
-windump -i 1 -n dst host 172.17.17.6
-```
+wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz |  tar xvz -C ~/bin/
 
 
-# See entire packet payload using tcpdump
+bandwhich
+```
 
-```
-windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
-```
+## TCP
+
+[tcpdump-windows](/post/tcpdump-windows)
+
+[TCP DUMP](/post/linux-notes/#TCP-DUMP)
+
+
+
+
+
 
