@@ -460,6 +460,27 @@ CNI 网桥
   </div>
   
   <div>
+    <h2><a href="/post/tcpdump-windows/">Tcpdump Windows</a></h2>
+    <div class="article-style">
+      
+       install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/network-tools/">常用的网络工具</a></h2>
+    <div class="article-style">
+      
+      常用命令 常用命令
+bandwidth utilization tool wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar xvz -C ~/bin/ bandwhich  TCP tcpdump-windows
+TCP DUMP
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></h2>
     <div class="article-style">
       

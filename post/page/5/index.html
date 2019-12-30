@@ -754,6 +754,107 @@ apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: port
 
 
 
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/network-tools/" itemprop="url">常用的网络工具</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="常用命令">常用命令</h2>
+
+<p><a href="/post/2010-01-22-computer-networking/">常用命令</a></p>
+
+<h2 id="bandwidth-utilization-tool">bandwidth utilization tool</h2>
+
+<pre><code>wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz |  tar xvz -C ~/bin/
+
+
+bandwhich
+</code></pre>
+
+<h2 id="tcp">TCP</h2>
+
+<p><a href="/post/tcpdump-windows">tcpdump-windows</a></p>
+
+<p><a href="/post/linux-notes/#TCP-DUMP">TCP DUMP</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
 
@@ -2093,90 +2194,6 @@ docker run -d --network pub_net --ip 172.30.80.10 busybox
   <div class="article-style" itemprop="articleBody">
     PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
 Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 21, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-xpath/" itemprop="url">Nodejs Xpath名字空间</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    如果xml文件带有名字空间，XPATH支持
-还不够完善。下面介绍两种可以工作的方式
-namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
   </div>
   
 
