@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-09-29T15:26:01&#43;08:00">
+  <meta property="og:updated_time" content="2017-11-23T20:52:46&#43;08:00">
   
 
   
@@ -397,6 +397,197 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-apigateway-notes/" itemprop="url">Aws Apigateway Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="create-rest-api-resource">create rest api resource</h2>
+
+<pre><code>awslocal apigateway create-rest-api --name 'My First API' --description 'This is my first API'
+</code></pre>
+
+<pre><code>awslocal apigateway get-rest-apis                                         {
+    &quot;items&quot;: [
+        {
+            &quot;createdDate&quot;: 1574513755,
+            &quot;id&quot;: &quot;tjc336382o&quot;,
+            &quot;name&quot;: &quot;hello_api2&quot;
+        },
+        {
+            &quot;description&quot;: &quot;This is my first API&quot;,
+            &quot;createdDate&quot;: 1574513755,
+            &quot;id&quot;: &quot;foyylqv018&quot;,
+            &quot;name&quot;: &quot;My First API&quot;
+        }
+    ]
+}
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/terraform-notes/" itemprop="url">Terraform Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2078,175 +2269,6 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 他们身上的精华可以吸取，糟点可以避开，那你的装备才会越来越多，在升职加薪的路上一路打怪冲关。
 这年头流行让别人给自己「赋能」，现代管理学之父彼得·德鲁克比我们早数十年就看到上司的这个「功能」。他说：
  Making the strength of the boss productive is a key to the subordinate’s own effectiveness.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-22 15:09:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-22 15:09:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 22, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-go-module/" itemprop="url">Go Module</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Modules  A module is a collection of related Go packages that are versioned together as a single unit.
-Modules record precise dependency requirements and create reproducible builds.
- go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 18, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-helm-setup/" itemprop="url">K8s Helm Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
- Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
- Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
   </div>
   
 
