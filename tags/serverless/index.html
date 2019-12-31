@@ -443,19 +443,6 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
   </div>
   
   <div>
-    <h2><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></h2>
-    <div class="article-style">
-      
-      serveless backend Lambda allows to trigger execution of code
-in response to events in AWS, enabling
-serverless backend solutions.
-The Lambda Function itself includes source code
-and runtime configuration.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="/post/computing-in-function-way/">函数计算之道</a></h2>
     <div class="article-style">
       
@@ -515,6 +502,28 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; +
       
       install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></h2>
+    <div class="article-style">
+      
+      事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+对象并发送给函数代码。
+事件的结构和内容由事件源决定
+权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+API和资源(函数或函数层）访问权限。
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+lambda也通过执行角色请求对事件源的读取权限。
+serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code
+and runtime configuration.
       
     </div>
   </div>

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-22T09:17:32&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-22T00:00:00&#43;00:00">
   
 
   
@@ -397,121 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-22 09:17:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-22 09:17:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 22, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/computing-in-function-way/" itemprop="url">函数计算之道</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="函数计算概论">函数计算概论</h2>
-
-<p>函数计算就是事件驱动架构(EDA），目前函数计算支持的事件类型列表</p>
-
-<p><a href="/tags/serverless/">函数计算事件列表</a></p>
-
-<h2 id="计费模式">计费模式</h2>
-
-<ul>
-<li><p>请求数</p></li>
-
-<li><p>执行时间</p></li>
-
-<li><p>内存分配</p></li>
-</ul>
-
-<h2 id="优劣势分析">优劣势分析</h2>
-
-<ul>
-<li><p>真正做到谁开发谁运维(who code it who run it)</p></li>
-
-<li><p>不需要提前做计算容量规划，服务器配置，负责均衡，扩容</p></li>
-</ul>
-
-<h2 id="代表性产品">代表性产品</h2>
-
-<ul>
-<li>DB: Aurora
-
-<br /></li>
-</ul>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1438,6 +1323,123 @@ ip -s link show eth0  stop irqbalance for home user
  Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
 https://httpstatuses.com/
 The main choice is do you want to treat the HTTP status code as part of your REST API or not.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-10-24 09:46:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-10-24 09:46:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-lambda-notes/" itemprop="url">Aws Lambda Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="事件">事件</h2>
+
+<p>事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为</p>
+
+<p>对象并发送给函数代码。</p>
+
+<p>事件的结构和内容由事件源决定</p>
+
+<h2 id="权限">权限</h2>
+
+<p>通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda</p>
+
+<p>API和资源(函数或函数层）访问权限。</p>
+
+<p>权限策略也可以授权给资源本身，让资源或服务访问lambda。</p>
+
+<p>每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数</p>
+
+<p>本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。</p>
+
+<p>lambda也通过执行角色请求对事件源的读取权限。</p>
+
+<h2 id="serveless-backend">serveless backend</h2>
+
+<p>Lambda allows  to trigger execution of code</p>
+
+<p>in response to events in AWS, enabling</p>
+
+<p>serverless backend solutions.</p>
+
+<p>The Lambda Function itself includes source code</p>
+
+<p>and runtime configuration.</p>
+
   </div>
   
 
