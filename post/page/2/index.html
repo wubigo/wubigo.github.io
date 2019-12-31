@@ -1330,7 +1330,7 @@ curl -IL http://wubigo.com/post
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -1350,12 +1350,24 @@ curl -IL http://wubigo.com/post
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-lambda-dynamodb/" itemprop="url">Lambda订阅SNS通知(上)</a>
+    <a href="/post/aws-lambda-dynamodb/" itemprop="url">Lambda订阅SNS通知(下)</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <pre><code>
+    
+
+<h2 id="创建函数">创建函数</h2>
+
+<ul>
+<li>分配角色</li>
+</ul>
+
+<pre><code>zip function.zip index.js
+
+aws lambda create-function --function-name sns-db-function \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \
+--role arn:aws:iam::465691908928:role/fn-case-role
 </code></pre>
 
   </div>

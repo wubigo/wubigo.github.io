@@ -461,10 +461,10 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   </div>
   
   <div>
-    <h2><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(上)</a></h2>
+    <h2><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></h2>
     <div class="article-style">
       
-        
+       创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  
       
     </div>
   </div>

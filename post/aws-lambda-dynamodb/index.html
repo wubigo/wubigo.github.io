@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="  ">
+  <meta name="description" content=" 创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-dynamodb/">
@@ -136,8 +136,8 @@
   
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/aws-lambda-dynamodb/">
-  <meta property="og:title" content="Lambda订阅SNS通知(上) | NgAPP">
-  <meta property="og:description" content="  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:title" content="Lambda订阅SNS通知(下) | NgAPP">
+  <meta property="og:description" content=" 创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-12-31T14:44:32&#43;08:00">
@@ -149,7 +149,7 @@
 
   
 
-  <title>Lambda订阅SNS通知(上) | NgAPP</title>
+  <title>Lambda订阅SNS通知(下) | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -385,7 +385,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Lambda订阅SNS通知(上)</h1>
+  <h1 itemprop="name">Lambda订阅SNS通知(下)</h1>
 
   
 
@@ -417,7 +417,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -432,7 +432,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8a%29&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f"
+         href="https://twitter.com/intent/tweet?text=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8b%29&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -446,21 +446,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8a%29"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8b%29"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8a%29"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8b%29"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8a%29&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f">
+         href="mailto:?subject=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5%28%e4%b8%8b%29&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-dynamodb%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -498,7 +498,19 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code>
+      
+
+<h2 id="创建函数">创建函数</h2>
+
+<ul>
+<li>分配角色</li>
+</ul>
+
+<pre><code>zip function.zip index.js
+
+aws lambda create-function --function-name sns-db-function \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \
+--role arn:aws:iam::465691908928:role/fn-case-role
 </code></pre>
 
     </div>
