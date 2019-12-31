@@ -31,17 +31,18 @@
   <meta name="description" content="事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
 对象并发送给函数代码。
 事件的结构和内容由事件源决定
-权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
 API和资源(函数或函数层）访问权限。
 权限策略也可以授权给资源本身，让资源或服务访问lambda。
 每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
 本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
 lambda也通过执行角色请求对事件源的读取权限。
-serveless backend Lambda allows to trigger execution of code
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &gt; --principal sns.amazonaws.com --output text {&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}  serveless backend Lambda allows to trigger execution of code
 in response to events in AWS, enabling
 serverless backend solutions.
-The Lambda Function itself includes source code
-and runtime configuration.">
+The Lambda Function itself includes source code">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-notes/">
@@ -153,17 +154,18 @@ and runtime configuration.">
   <meta property="og:description" content="事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
 对象并发送给函数代码。
 事件的结构和内容由事件源决定
-权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
 API和资源(函数或函数层）访问权限。
 权限策略也可以授权给资源本身，让资源或服务访问lambda。
 每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
 本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
 lambda也通过执行角色请求对事件源的读取权限。
-serveless backend Lambda allows to trigger execution of code
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &gt; --principal sns.amazonaws.com --output text {&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}  serveless backend Lambda allows to trigger execution of code
 in response to events in AWS, enabling
 serverless backend solutions.
-The Lambda Function itself includes source code
-and runtime configuration."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+The Lambda Function itself includes source code"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-10-24T09:46:24&#43;08:00">
@@ -534,6 +536,14 @@ and runtime configuration."><meta property="og:image" content="https://wubigo.co
 
 <p>事件的结构和内容由事件源决定</p>
 
+<p>支持事件源的服务</p>
+
+<ul>
+<li>Kinesis</li>
+<li>DynamoDB</li>
+<li>Simple Queue Service</li>
+</ul>
+
 <h2 id="权限">权限</h2>
 
 <p>通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda</p>
@@ -547,6 +557,25 @@ and runtime configuration."><meta property="og:image" content="https://wubigo.co
 <p>本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。</p>
 
 <p>lambda也通过执行角色请求对事件源的读取权限。</p>
+
+<h2 id="资源">资源</h2>
+
+<ul>
+<li>函数</li>
+<li>版本</li>
+<li>别名</li>
+<li>层级</li>
+</ul>
+
+<p>举例：授权SNS 调用 my-function</p>
+
+<pre><code>aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \
+&gt; --principal sns.amazonaws.com --output text
+
+
+{&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}
+
+</code></pre>
 
 <h2 id="serveless-backend">serveless backend</h2>
 

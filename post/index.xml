@@ -454,6 +454,15 @@ curl -IL http://wubigo.com/post
     </item>
     
     <item>
+      <title>Lambda订阅SNS通知</title>
+      <link>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</link>
+      <pubDate>Mon, 31 Dec 2018 11:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</guid>
+      <description>发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &amp;quot;ingestionTime&amp;quot;: 1577764111252, &amp;quot;timestamp&amp;quot;: 1577764096184, &amp;quot;message&amp;quot;: &amp;quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&amp;quot;Records\&amp;quot;: [\n {\n \&amp;quot;EventSource\&amp;quot;: \&amp;quot;aws:sns\&amp;quot;,\n \&amp;quot;EventVersion\&amp;quot;: \&amp;quot;1.0\&amp;quot;,\n \&amp;quot;EventSubscriptionArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&amp;quot;,\n \&amp;quot;Sns\&amp;quot;: {\n \&amp;quot;Type\&amp;quot;: \&amp;quot;Notification\&amp;quot;,\n \&amp;quot;MessageId\&amp;quot;: \&amp;quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&amp;quot;,\n \&amp;quot;TopicArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&amp;quot;,\n \&amp;quot;Subject\&amp;quot;: null,\n \&amp;quot;Message\&amp;quot;: \&amp;quot;MESSAGE_TEXT\&amp;quot;,\n \&amp;quot;Timestamp\&amp;quot;: \&amp;quot;2019-12-31T03:48:15.624Z\&amp;quot;,\n \&amp;quot;SignatureVersion\&amp;quot;: \&amp;quot;1\&amp;quot;,\n \&amp;quot;Signature\&amp;quot;: \&amp;quot;UYKR86o1NPa3xh8LQ6gM8eDxm6l/TY3YHU9Ez5m8Ve8eCHa5e4Xp6+PT/01mjyXGWNHjhcPVYg9esiRLzljcYm26VDODhlTe8q9h20h43azYbMM8CjtK+GhuxDPFoSG/N2FuwnKRZK9JWw+QbG2OD09vy6k5g7EX2BcEGR+A0LGQ0EXvVm9j3fvC2P2yiLCRwZPulsgqMEJeR9rZiBfUnsnhY+oCnTk7OcBhkMQ9LQctFbFXdrG7BQOkqJgN0pJa9f8kwF48lG6eCAZinxNRQ7DoR0pg608XWjbMZF6uu1ttmU1iPNjYwnH0B9HIgK9E0Rs0s819jKqCaHqXW5KjUg==\&amp;quot;,\n \&amp;quot;SigningCertUrl\&amp;quot;: \&amp;quot;https://sns.</description>
+    </item>
+    
+    <item>
       <title>Aws S3 Data Lake</title>
       <link>https://wubigo.com/post/aws-s3-data-lake/</link>
       <pubDate>Wed, 26 Dec 2018 08:20:37 +0800</pubDate>
@@ -709,17 +718,18 @@ The main choice is do you want to treat the HTTP status code as part of your RES
       <description>事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
 对象并发送给函数代码。
 事件的结构和内容由事件源决定
-权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
 API和资源(函数或函数层）访问权限。
 权限策略也可以授权给资源本身，让资源或服务访问lambda。
 每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
 本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
 lambda也通过执行角色请求对事件源的读取权限。
-serveless backend Lambda allows to trigger execution of code
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &amp;gt; --principal sns.amazonaws.com --output text {&amp;quot;Sid&amp;quot;:&amp;quot;sns&amp;quot;,&amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;,&amp;quot;Principal&amp;quot;:{&amp;quot;Service&amp;quot;:&amp;quot;sns.amazonaws.com&amp;quot;},&amp;quot;Action&amp;quot;:&amp;quot;lambda:InvokeFunction&amp;quot;,&amp;quot;Resource&amp;quot;:&amp;quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&amp;quot;}  serveless backend Lambda allows to trigger execution of code
 in response to events in AWS, enabling
 serverless backend solutions.
-The Lambda Function itself includes source code
-and runtime configuration.</description>
+The Lambda Function itself includes source code</description>
     </item>
     
     <item>

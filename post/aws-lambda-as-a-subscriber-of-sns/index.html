@@ -28,28 +28,10 @@
   
     
   
-  <meta name="description" content="[TOC]
-AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云&#43;公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).">
+  <meta name="description" content="发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.624Z\&quot;,\n \&quot;SignatureVersion\&quot;: \&quot;1\&quot;,\n \&quot;Signature\&quot;: \&quot;UYKR86o1NPa3xh8LQ6gM8eDxm6l/TY3YHU9Ez5m8Ve8eCHa5e4Xp6&#43;PT/01mjyXGWNHjhcPVYg9esiRLzljcYm26VDODhlTe8q9h20h43azYbMM8CjtK&#43;GhuxDPFoSG/N2FuwnKRZK9JWw&#43;QbG2OD09vy6k5g7EX2BcEGR&#43;A0LGQ0EXvVm9j3fvC2P2yiLCRwZPulsgqMEJeR9rZiBfUnsnhY&#43;oCnTk7OcBhkMQ9LQctFbFXdrG7BQOkqJgN0pJa9f8kwF48lG6eCAZinxNRQ7DoR0pg608XWjbMZF6uu1ttmU1iPNjYwnH0B9HIgK9E0Rs0s819jKqCaHqXW5KjUg==\&quot;,\n \&quot;SigningCertUrl\&quot;: \&quot;https://sns.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/use-public-cloud-for-free/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/">
 
   
 
@@ -138,7 +120,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/use-public-cloud-for-free/">
+  <link rel="canonical" href="https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/">
 
   
   
@@ -153,39 +135,21 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/use-public-cloud-for-free/">
-  <meta property="og:title" content="免费使用公有云服务 | NgAPP">
-  <meta property="og:description" content="[TOC]
-AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云&#43;公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575)."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/">
+  <meta property="og:title" content="Lambda订阅SNS通知 | NgAPP">
+  <meta property="og:description" content="发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.624Z\&quot;,\n \&quot;SignatureVersion\&quot;: \&quot;1\&quot;,\n \&quot;Signature\&quot;: \&quot;UYKR86o1NPa3xh8LQ6gM8eDxm6l/TY3YHU9Ez5m8Ve8eCHa5e4Xp6&#43;PT/01mjyXGWNHjhcPVYg9esiRLzljcYm26VDODhlTe8q9h20h43azYbMM8CjtK&#43;GhuxDPFoSG/N2FuwnKRZK9JWw&#43;QbG2OD09vy6k5g7EX2BcEGR&#43;A0LGQ0EXvVm9j3fvC2P2yiLCRwZPulsgqMEJeR9rZiBfUnsnhY&#43;oCnTk7OcBhkMQ9LQctFbFXdrG7BQOkqJgN0pJa9f8kwF48lG6eCAZinxNRQ7DoR0pg608XWjbMZF6uu1ttmU1iPNjYwnH0B9HIgK9E0Rs0s819jKqCaHqXW5KjUg==\&quot;,\n \&quot;SigningCertUrl\&quot;: \&quot;https://sns."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-12T07:46:24&#43;08:00">
+  <meta property="article:published_time" content="2018-12-31T11:04:37&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-09-12T07:46:24&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-12-31T11:04:37&#43;08:00">
   
 
   
 
-  <title>免费使用公有云服务 | NgAPP</title>
+  
+
+  <title>Lambda订阅SNS通知 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -421,7 +385,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">免费使用公有云服务</h1>
+  <h1 itemprop="name">Lambda订阅SNS通知</h1>
 
   
 
@@ -430,8 +394,8 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 
 
 
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -444,7 +408,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
     
       
     
-    <time>Sep 12, 2019</time>
+    <time>Dec 31, 2018</time>
   </span>
   
 
@@ -453,7 +417,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
@@ -468,35 +432,35 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e5%85%8d%e8%b4%b9%e4%bd%bf%e7%94%a8%e5%85%ac%e6%9c%89%e4%ba%91%e6%9c%8d%e5%8a%a1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fuse-public-cloud-for-free%2f"
+         href="https://twitter.com/intent/tweet?text=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-as-a-subscriber-of-sns%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fuse-public-cloud-for-free%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-as-a-subscriber-of-sns%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fuse-public-cloud-for-free%2f&amp;title=%e5%85%8d%e8%b4%b9%e4%bd%bf%e7%94%a8%e5%85%ac%e6%9c%89%e4%ba%91%e6%9c%8d%e5%8a%a1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-as-a-subscriber-of-sns%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fuse-public-cloud-for-free%2f&amp;title=%e5%85%8d%e8%b4%b9%e4%bd%bf%e7%94%a8%e5%85%ac%e6%9c%89%e4%ba%91%e6%9c%8d%e5%8a%a1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-as-a-subscriber-of-sns%2f&amp;title=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e5%85%8d%e8%b4%b9%e4%bd%bf%e7%94%a8%e5%85%ac%e6%9c%89%e4%ba%91%e6%9c%8d%e5%8a%a1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fuse-public-cloud-for-free%2f">
+         href="mailto:?subject=Lambda%e8%ae%a2%e9%98%85SNS%e9%80%9a%e7%9f%a5&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-lambda-as-a-subscriber-of-sns%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -536,194 +500,34 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
     <div class="article-style" itemprop="articleBody">
       
 
-<p>[TOC]</p>
+<h2 id="发布测试消息到sns">发布测试消息到SNS</h2>
 
-<p><img src="./localstack.png" alt="" /></p>
+<pre><code>git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js
 
-<p>AWS领先的设计理念和强大的技术生态</p>
+node sns_publishtotopic.js
 
-<p>使你身陷其中，学习你要用它，开发你要</p>
-
-<p>用它，上线还要用它。 一年下来项目还没有</p>
-
-<p>正式商用，已经有十几万的研发费用。</p>
-
-<p>今天向你推荐 localstack（与openstack啥关系？私有云+公有云），</p>
-
-<p>让你使用AWS免费，至少在项目POC或开发测试阶段免费。</p>
-
-<p>有了它， 你不用再焦急的等待老板审批公有云的</p>
-
-<p>计算，存储，数据库资源开发申请。</p>
-
-<p>是不是这个项目听起来很激动？</p>
-
-<!--
-最近正在了解微服务编排相关技术规范，看看AWS Step Functions
-
-如何设计的，localstack正好排上用场
--->
-
-<p>那如何使用localstack呢？</p>
-
-<h1 id="安装localstack">安装localstack</h1>
-
-<p>localstack是一个非常活跃的正在快速成长中的项目，</p>
-
-<p>建议通过源代码安装</p>
-
-<ul>
-<li>下载源代码</li>
-</ul>
-
-<pre><code>git clone git@github.com:localstack/localstack.git
-git fetch --all
-git checkout tags/v0.10.3 -b v0.10.3
-
+Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic
+MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73
 </code></pre>
 
-<ul>
-<li>启用需要使用的AWS服务</li>
-</ul>
+<h2 id="根据messageid查看函数执行结果">根据MessageID查看函数执行结果</h2>
 
-<p>修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。</p>
+<pre><code>aws logs describe-log-groups --query logGroups[*].logGroupName
+aws logs describe-log-streams --log-group-name '/aws/lambda/my-function' --query logStreams[*].logStreamName
 
-<p>注意服务的名字必须来自<a href="https://docs.aws.amazon.com/cli/latest/reference/#available-services" target="_blank">服务名字列表</a>， 否则不识别</p>
-
-<p>启用服务就是修改下边的配置文件</p>
-
-<p><code>localstack\docker-compose.yml</code></p>
-
-<pre><code> SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}
-
- DATA_DIR=${DATA_DIR-/tmp/localstack/data }
+aws logs get-log-events --log-group-name '/aws/lambda/my-function' --log-stream-name '2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c'
 
 
- volumes:
-      - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;
-</code></pre>
 
-<p><strong>make sure driver D is shared in docker desktop daemon</strong></p>
-
-<pre><code>docker-compose up
-
-
-localstack_1  | Starting mock S3 (http port 4572)...
-localstack_1  | Starting mock SNS (http port 4575)...
-localstack_1  | Starting mock IAM (http port 4593)...
-localstack_1  | Starting mock API Gateway (http port 4567)...
-localstack_1  | Starting mock DynamoDB (http port 4569)...
-localstack_1  | Starting mock Lambda service (http port 4574)...
-localstack_1  | Starting mock CloudWatch Logs (http port 4586)...
-localstack_1  | Starting mock StepFunctions (http port 4585)...
-
-</code></pre>
-
-<p>系统消息显示需要的服务/端口已经启动。</p>
-
-<p>到目前为至，localstack已经安装完毕。</p>
-
-<h1 id="记录并保存localstack的操作数据">记录并保存localstack的操作数据</h1>
-
-<p>if volumes in  docker settings</p>
-
-<p>Localstack is recording all API calls in JSON file.</p>
-
-<p>When the container restarts, it will re-apply these calls -</p>
-
-<p>this is how we are able to keep our data between restarts</p>
-
-<p><code>docker-compose.yml</code></p>
-
-<pre><code>- DATA_DIR=/tmp/localstack/data
-</code></pre>
-
-<p>下边，我们来验证公有云服务是否可用。</p>
-
-<h2 id="安装aws客户端-a-name-install-aws-sdk-a">安装AWS客户端<a name="install_aws_sdk"></a></h2>
-
-<ul>
-<li>安装到虚拟环境</li>
-</ul>
-
-<pre><code>(venv) d:\code\venv&gt;pip install awscli
-
-</code></pre>
-
-<p>可以安装到系统环境</p>
-
-<ul>
-<li>配置AWS CLI</li>
-</ul>
-
-<pre><code>(venv) d:\code\venv&gt;aws configure
-
-AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: fake-key
-Default region name [local]: local
-Default output format [None]:
-
-</code></pre>
-
-<h1 id="验证服务编排">验证服务编排</h1>
-
-<ul>
-<li>试用stepfunctions服务</li>
-</ul>
-
-<p>上面显示stepfunctions服务在4585端口，下面的端口要和</p>
-
-<p>配置保持一致</p>
-
-<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 list-activities
-
-</code></pre>
-
-<ul>
-<li>创建一个HelloWorld工作流</li>
-</ul>
-
-<pre><code>
-(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &quot;{\&quot;Comment\&quot;: \&quot;A Hello World example of the Amazon States Language using a Pass state\&quot;,\&quot;StartAt\&quot;: \&quot;HelloWorld\&quot;,\&quot;States\&quot;: {\&quot;HelloWorld\&quot;: {\&quot;Type\&quot;: \&quot;Pass\&quot;,\&quot;End\&quot;: true}}}&quot; --name &quot;HelloWorld&quot; --role-arn &quot;arn:aws:iam::012345678901:role/DummyRole&quot;
-
-</code></pre>
-
-<ul>
-<li>显示创建的工作流</li>
-</ul>
-
-<pre><code>(venv) d:\code\venv&gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
-{
-    &quot;stateMachines&quot;: [
         {
-            &quot;creationDate&quot;: 1568199315.809,
-            &quot;stateMachineArn&quot;: &quot;arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld&quot;,
-            &quot;name&quot;: &quot;HelloWorld&quot;
+            &quot;ingestionTime&quot;: 1577764111252,
+            &quot;timestamp&quot;: 1577764096184,
+            &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n  \&quot;Records\&quot;: [\n    {\n      \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n      \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n      \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n      \&quot;Sns\&quot;: {\n        \&quot;Type\&quot;: \&quot;Notification\&quot;,\n        \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n        \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n        \&quot;Subject\&quot;: null,\n        \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n        \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.624Z\&quot;,\n        \&quot;SignatureVersion\&quot;: \&quot;1\&quot;,\n        \&quot;Signature\&quot;: \&quot;UYKR86o1NPa3xh8LQ6gM8eDxm6l/TY3YHU9Ez5m8Ve8eCHa5e4Xp6+PT/01mjyXGWNHjhcPVYg9esiRLzljcYm26VDODhlTe8q9h20h43azYbMM8CjtK+GhuxDPFoSG/N2FuwnKRZK9JWw+QbG2OD09vy6k5g7EX2BcEGR+A0LGQ0EXvVm9j3fvC2P2yiLCRwZPulsgqMEJeR9rZiBfUnsnhY+oCnTk7OcBhkMQ9LQctFbFXdrG7BQOkqJgN0pJa9f8kwF48lG6eCAZinxNRQ7DoR0pg608XWjbMZF6uu1ttmU1iPNjYwnH0B9HIgK9E0Rs0s819jKqCaHqXW5KjUg==\&quot;,\n        \&quot;SigningCertUrl\&quot;: \&quot;https://sns.ap-northeast-1.amazonaws.com/SimpleNotificationService-6aad65c2f9911b05cd53efda11f913f9.pem\&quot;,\n        \&quot;UnsubscribeUrl\&quot;: \&quot;https://sns.ap-northeast-1.amazonaws.com/?Action=Unsubscribe&amp;SubscriptionArn=arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n        \&quot;MessageAttributes\&quot;: {}\n      }\n    }\n  ]\n}&quot;
         }
-    ]
-}
+
 
 
 </code></pre>
-
-<p>工作流已经创建，你可以启动工作流，</p>
-
-<p>添加Lambda，部署微服务，添加微服务到到工作流，</p>
-
-<p>所有公有云的计算，存储，API调用，上行宽带费用</p>
-
-<p>通过使用localstack一切免费。</p>
-
-<p>赶快加入项目，贡献你的力量</p>
-
-<p><a href="https://localstack.cloud/" target="_blank">https://localstack.cloud/</a></p>
-
-<h1 id="参考">参考</h1>
-
-<ul>
-<li><a href="https://hub.docker.com/r/amazon/aws-stepfunctions-local" target="_blank">https://hub.docker.com/r/amazon/aws-stepfunctions-local</a></li>
-<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank">https://docs.aws.amazon.com/lambda/latest/dg/limits.html</a></li>
-</ul>
 
     </div>
 
@@ -732,13 +536,15 @@ Default output format [None]:
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/iaas/">IAAS</a>
-  
-  <a class="badge badge-light" href="/tags/cloud/">CLOUD</a>
-  
-  <a class="badge badge-light" href="/tags/localstack/">LOCALSTACK</a>
-  
   <a class="badge badge-light" href="/tags/aws/">AWS</a>
+  
+  <a class="badge badge-light" href="/tags/lambda/">LAMBDA</a>
+  
+  <a class="badge badge-light" href="/tags/sns/">SNS</a>
+  
+  <a class="badge badge-light" href="/tags/sls/">SLS</a>
+  
+  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
   
 </div>
 
@@ -768,15 +574,15 @@ Default output format [None]:
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
-          
           <li><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></li>
           
-          <li><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知</a></li>
+          <li><a href="/post/aws-iam-policy/">Aws IAM Policy</a></li>
+          
+          <li><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></li>
           
           <li><a href="/post/aws-s3-data-lake/">Aws S3 Data Lake</a></li>
           
-          <li><a href="/post/aws-iam-policy/">Aws IAM Policy</a></li>
+          <li><a href="/post/lambda-apigateway/">函数＋网关</a></li>
           
         </ul>
       </div>
