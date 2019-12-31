@@ -651,6 +651,16 @@ outcomes: it can be resolved (fulfilled) or rejected (unfulfilled).
 
 <p>Go to extensions and search <code>@builtin typescript</code> to find the extension</p>
 
+<h2 id="uuid">uuid</h2>
+
+<p>The fastest possible way to create random 32-char string in Node</p>
+
+<p>is by using native crypto module(no external dependency is needed):</p>
+
+<pre><code>const randomBytes = require('crypto').randomBytes;
+const uuid = randomBytes(16).toString(&quot;hex&quot;);
+</code></pre>
+
     </div>
 
     
