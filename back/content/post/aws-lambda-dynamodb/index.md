@@ -1,5 +1,5 @@
 +++
-title = "Lambda订阅SNS通知(上)"
+title = "Lambda订阅SNS通知(下)"
 date = 2018-12-31T14:44:32+08:00
 draft = false
 
@@ -19,7 +19,17 @@ categories = []
   focal_point = ""
 +++
 
+## 创建函数
+
+
+- 分配角色
+
 
 ```
+zip function.zip index.js
 
+aws lambda create-function --function-name sns-db-function \
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \
+--role arn:aws:iam::465691908928:role/fn-case-role
 ```
+
