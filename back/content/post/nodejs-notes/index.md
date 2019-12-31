@@ -176,3 +176,16 @@ is handled by two known concepts: callbacks and promises.
 ##  enable "TypeScript and JavaScript Language Features" extension in VS Code
 
 Go to extensions and search `@builtin typescript` to find the extension
+
+
+
+## uuid
+
+The fastest possible way to create random 32-char string in Node 
+
+is by using native crypto module(no external dependency is needed):
+
+```
+const randomBytes = require('crypto').randomBytes;
+const uuid = randomBytes(16).toString("hex");
+```
