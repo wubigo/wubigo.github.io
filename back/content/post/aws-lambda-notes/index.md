@@ -1,11 +1,11 @@
 +++
 title = "Aws Lambda Notes"
-date = 2018-11-24T09:46:24+08:00
+date = 2018-10-24T09:46:24+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["SERVERLESS","LOCALSTACK"]
+tags = ["SERVERLESS","LOCALSTACK", "LAMBDA"]
 categories = []
 
 # Featured image
@@ -18,6 +18,29 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+
+## 事件
+
+事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+
+对象并发送给函数代码。 
+
+事件的结构和内容由事件源决定
+
+## 权限
+
+通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+
+API和资源(函数或函数层）访问权限。
+
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+
+lambda也通过执行角色请求对事件源的读取权限。
 
 ## serveless backend
 
