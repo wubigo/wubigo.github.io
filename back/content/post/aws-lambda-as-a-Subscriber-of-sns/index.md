@@ -34,8 +34,7 @@ MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73
 
 ## 根据MessageID查看函数执行结果
 
-
-
+The $ in [$LATEST] needs to be escaped...[\$LATEST].
 
 ```
 aws logs describe-log-groups --query logGroups[*].logGroupName
