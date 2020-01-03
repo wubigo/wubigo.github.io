@@ -23,7 +23,8 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
-  "应用架构",
+  "WEB架构",
+  "NFV",
   "分布式计算",
   "应用系统集成",
   "AT2C",
