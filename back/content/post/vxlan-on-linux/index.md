@@ -20,7 +20,7 @@ categories = []
 +++
 
 
-## 端到端VXLAN
+## 端到端VXLAN(unicast)
 
 
 
@@ -48,6 +48,13 @@ default via 10.12.0.1 dev eth0
 10.12.0.0/21 dev eth0  proto kernel  scope link  src 10.12.2.95
 192.168.8.0/24 dev vxlan0  proto kernel  scope link  src 192.168.8.101
 
+
+bridge fdb | grep vxlan0
+
+ip neigh
 ```
+
+## 多播vxlan(multicast)
+
 
 
