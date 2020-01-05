@@ -39,6 +39,32 @@ https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decisio
     </item>
     
     <item>
+      <title>Vpn With Wireguard</title>
+      <link>https://wubigo.com/post/vpn-with-wireguard/</link>
+      <pubDate>Tue, 02 Jan 2018 12:34:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-with-wireguard/</guid>
+      <description>sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard wg genkey  /etc/wireguard/wg0.conf
+[Interface] PrivateKey = SEd9KTOqekPvpxgfYB3e8f38Z8T4PX0J1DQlSRC3InQ= Address = 10.12.4.0/21 ListenPort = 51820 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] # My laptop (this is just a comment, change it to identify the device) PublicKey = YQ3MK8oGH62d5jb/mfPVVNP955SO3lcmMOnfQ71r4mo= AllowedIPs = 10.</description>
+    </item>
+    
+    <item>
+      <title>Vpn Setup</title>
+      <link>https://wubigo.com/post/vpn-setup/</link>
+      <pubDate>Tue, 02 Jan 2018 06:34:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-setup/</guid>
+      <description>https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.
+ wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.188.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 15318 (15K) [text/plain] Saving to: ‘vpnsetup.</description>
+    </item>
+    
+    <item>
       <title>Linux Bridge</title>
       <link>https://wubigo.com/post/linux-bridge/</link>
       <pubDate>Fri, 28 Jul 2017 08:36:18 +0800</pubDate>

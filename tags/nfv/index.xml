@@ -6,10 +6,37 @@
     <description>Recent content in NFV on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jan 2018 09:32:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Feb 2019 16:45:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/nfv/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VPN</title>
+      <link>https://wubigo.com/project/vpn/</link>
+      <pubDate>Sat, 23 Feb 2019 16:45:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/project/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vxlan on Linux</title>
+      <link>https://wubigo.com/post/vxlan-on-linux/</link>
+      <pubDate>Thu, 03 Jan 2019 11:31:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vxlan-on-linux/</guid>
+      <description> 端到端VXLAN(unicast) ip a ip link add vxlan0 type vxlan \ id 42 \ dstport 4789 \ remote 10.12.0.172 \ local 10.12.2.95 \ dev eth0 ip -d link show dev vxlan0 ip addr add 192.168.8.101/24 dev vxlan0 ip link set vxlan0 up ip r default via 10.12.0.1 dev eth0 10.12.0.0/21 dev eth0 proto kernel scope link src 10.12.2.95 192.168.8.0/24 dev vxlan0 proto kernel scope link src 192.168.8.101 bridge fdb | grep vxlan0 ip neigh  多播vxlan(multicast) </description>
+    </item>
+    
+    <item>
+      <title>Wireguard开发参考</title>
+      <link>https://wubigo.com/post/wireguard-dev-guide/</link>
+      <pubDate>Thu, 03 Jan 2019 06:53:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireguard-dev-guide/</guid>
+      <description>git clone https://git.zx2c4.com/wireguard-go  </description>
+    </item>
     
     <item>
       <title>SR-IOV vs DPDK/VPP for NFV</title>
@@ -24,6 +51,32 @@ both hardware based e.g.SR-IOV, RDT, QAT, VMDq, VTD
 and software based e.g. DPDK, Fd.io/VPP, OVS etc and give
 hands on lab experience
 https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decision-can-impact-performance/</description>
+    </item>
+    
+    <item>
+      <title>Vpn With Wireguard</title>
+      <link>https://wubigo.com/post/vpn-with-wireguard/</link>
+      <pubDate>Tue, 02 Jan 2018 12:34:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-with-wireguard/</guid>
+      <description>sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard wg genkey  /etc/wireguard/wg0.conf
+[Interface] PrivateKey = SEd9KTOqekPvpxgfYB3e8f38Z8T4PX0J1DQlSRC3InQ= Address = 10.12.4.0/21 ListenPort = 51820 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] # My laptop (this is just a comment, change it to identify the device) PublicKey = YQ3MK8oGH62d5jb/mfPVVNP955SO3lcmMOnfQ71r4mo= AllowedIPs = 10.</description>
+    </item>
+    
+    <item>
+      <title>Vpn Setup</title>
+      <link>https://wubigo.com/post/vpn-setup/</link>
+      <pubDate>Tue, 02 Jan 2018 06:34:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-setup/</guid>
+      <description>https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.
+ wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.188.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 15318 (15K) [text/plain] Saving to: ‘vpnsetup.</description>
     </item>
     
     <item>

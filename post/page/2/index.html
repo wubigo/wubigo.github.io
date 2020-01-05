@@ -1307,6 +1307,207 @@ curl -IL http://wubigo.com/post
 
 
 
+<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vxlan-on-linux/" itemprop="url">Vxlan on Linux</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="端到端vxlan-unicast">端到端VXLAN(unicast)</h2>
+
+<pre><code>ip a
+
+ip link add vxlan0 type vxlan \
+    id 42 \
+    dstport 4789 \
+    remote 10.12.0.172 \
+    local 10.12.2.95 \
+    dev eth0
+
+
+ip -d link show dev vxlan0
+
+
+
+ip addr add 192.168.8.101/24 dev vxlan0
+ip link set vxlan0 up
+
+
+ip r
+default via 10.12.0.1 dev eth0
+10.12.0.0/21 dev eth0  proto kernel  scope link  src 10.12.2.95
+192.168.8.0/24 dev vxlan0  proto kernel  scope link  src 192.168.8.101
+
+
+bridge fdb | grep vxlan0
+
+ip neigh
+</code></pre>
+
+<h2 id="多播vxlan-multicast">多播vxlan(multicast)</h2>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wireguard-dev-guide/" itemprop="url">Wireguard开发参考</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>git clone https://git.zx2c4.com/wireguard-go
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-12-31 14:44:32 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-12-31 14:44:32 &#43;0800 CST" itemprop="dateModified">
 
@@ -2086,190 +2287,6 @@ policy document format across many services to control authorization
 to resources and API actions
 terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
 resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-apigateway/" itemprop="url">函数＋网关</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
-'use strict' exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '&lt;p&gt;Hello world!&lt;/p&gt;' } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
-resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
-snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
-
-<pre><code>$snap start microK8S
-$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
-
-
-</code></pre>
-
-<p>for resource under namespace kube-system
-all-namespaces don&rsquo;t include kube-system</p>
-
-<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
-
-</code></pre>
-
-<p><a href="https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf" target="_blank">https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</a></p>
-
   </div>
   
 

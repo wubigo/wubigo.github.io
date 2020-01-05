@@ -63,6 +63,24 @@ CNI 网桥
     </item>
     
     <item>
+      <title>Vxlan on Linux</title>
+      <link>https://wubigo.com/post/vxlan-on-linux/</link>
+      <pubDate>Thu, 03 Jan 2019 11:31:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vxlan-on-linux/</guid>
+      <description> 端到端VXLAN(unicast) ip a ip link add vxlan0 type vxlan \ id 42 \ dstport 4789 \ remote 10.12.0.172 \ local 10.12.2.95 \ dev eth0 ip -d link show dev vxlan0 ip addr add 192.168.8.101/24 dev vxlan0 ip link set vxlan0 up ip r default via 10.12.0.1 dev eth0 10.12.0.0/21 dev eth0 proto kernel scope link src 10.12.2.95 192.168.8.0/24 dev vxlan0 proto kernel scope link src 192.168.8.101 bridge fdb | grep vxlan0 ip neigh  多播vxlan(multicast) </description>
+    </item>
+    
+    <item>
+      <title>Wireguard开发参考</title>
+      <link>https://wubigo.com/post/wireguard-dev-guide/</link>
+      <pubDate>Thu, 03 Jan 2019 06:53:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireguard-dev-guide/</guid>
+      <description>git clone https://git.zx2c4.com/wireguard-go  </description>
+    </item>
+    
+    <item>
       <title>K8s CNI之Calico实现</title>
       <link>https://wubigo.com/post/k8s_cni_calico/</link>
       <pubDate>Tue, 26 Jun 2018 11:10:47 +0800</pubDate>

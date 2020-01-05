@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2019-02-23T16:45:49&#43;08:00">
   
 
   
@@ -400,12 +400,54 @@
   
   
   <div>
+    <h2><a href="/project/vpn/">VPN</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/wireguard-dev-guide/">Wireguard开发参考</a></h2>
+    <div class="article-style">
+      
+      git clone https://git.zx2c4.com/wireguard-go  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/shadowsocks-ubuntu-client/">Shadowsocks Ubuntu Client</a></h2>
     <div class="article-style">
       
       install client pip install shadowsocks  client.json
 { &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
 listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vpn-with-wireguard/">Vpn With Wireguard</a></h2>
+    <div class="article-style">
+      
+      sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard wg genkey  /etc/wireguard/wg0.conf
+[Interface] PrivateKey = SEd9KTOqekPvpxgfYB3e8f38Z8T4PX0J1DQlSRC3InQ= Address = 10.12.4.0/21 ListenPort = 51820 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] # My laptop (this is just a comment, change it to identify the device) PublicKey = YQ3MK8oGH62d5jb/mfPVVNP955SO3lcmMOnfQ71r4mo= AllowedIPs = 10.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vpn-setup/">Vpn Setup</a></h2>
+    <div class="article-style">
+      
+      https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.
+ wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.188.133|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 15318 (15K) [text/plain] Saving to: ‘vpnsetup.
       
     </div>
   </div>

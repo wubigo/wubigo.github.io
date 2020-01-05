@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-09-03T09:03:37&#43;08:00">
+  <meta property="og:updated_time" content="2018-09-26T17:14:12&#43;08:00">
   
 
   
@@ -397,6 +397,189 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-win10-volume/" itemprop="url">WIN用户使用Docker卷</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>在windows，启动卷必须线启用共享驱动</p>
+
+<h1 id="启用共享驱动">启用共享驱动</h1>
+
+<pre><code>1: Open &quot;Settings&quot; in Docker Desktop -&gt; 
+   &quot;Shared Drives&quot; -&gt; 
+   &quot;Reset Credentials&quot; -&gt; 
+   select drive &quot;D&quot; -&gt; &quot;Apply&quot;
+</code></pre>
+
+<h1 id="检查测试卷">检查测试卷</h1>
+
+<pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-step-function-with-local-lambda/" itemprop="url">基于local stack的Step Function本地化开发</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装AWS CLI  (venv) d:\code\venv&gt;pip install awscli pip install awscli-local  awslocal = aws &ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI  (venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:  命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI  (venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1072,7 +1255,7 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
   <div class="article-style" itemprop="articleBody">
     
 
-<h2 id="无服务器架构应用场景">无服务器架构应用场景</h2>
+<h2 id="典型无服务器架构应用场景">典型无服务器架构应用场景</h2>
 
 <ul>
 <li><p>应用后台</p></li>
@@ -1083,9 +1266,15 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
 
 <li><p>遗留应用API代理</p></li>
 
-<li><p>调动服务</p></li>
+<li><p>调度服务</p></li>
 
 <li><p>RPA</p></li>
+</ul>
+
+<h2 id="最新实现参考">最新实现参考</h2>
+
+<ul>
+<li><a href="https://github.com/0x4447/0x4447_product_s3_email" target="_blank">基于S3和SES邮件服务器</a></li>
 </ul>
 
   </div>
@@ -1994,215 +2183,6 @@ Customer User: customer@thingsboard.org / customer
   
   <div class="article-style" itemprop="articleBody">
     CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-24 19:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-24 19:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/tcpdump-windows/" itemprop="url">Tcpdump Windows</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="install-winpcap-and-windump">install winpcap and windump</h1>
-
-<p><a href="https://www.winpcap.org" target="_blank">https://www.winpcap.org</a></p>
-
-<h1 id="list-all-interfaces">list all interfaces</h1>
-
-<pre><code>windump -D
-</code></pre>
-
-<h1 id="dump-on-interface">dump on interface</h1>
-
-<pre><code>windump -i 1 -n dst host 172.17.17.6
-</code></pre>
-
-<h1 id="see-entire-packet-payload-using-tcpdump">See entire packet payload using tcpdump</h1>
-
-<pre><code>windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 12, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-java-spring-cloud/" itemprop="url">Lang Java Spring Cloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="spring-cloud-greenwich-release">spring-cloud-greenwich-release</h1>
-
-<p>To get started with Maven with a BOM (dependency management only):</p>
-
-<pre><code>&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
-            &lt;version&gt;Greenwich.RELEASE&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-            &lt;scope&gt;import&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
-    &lt;/dependency&gt;    
-&lt;/dependencies&gt;
-
-</code></pre>
-
   </div>
   
 
