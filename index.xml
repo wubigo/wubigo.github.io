@@ -6,8 +6,49 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Dec 2019 11:37:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2019 06:33:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>函数计算VPC支持更新</title>
+      <link>https://wubigo.com/post/serverless-vpc/</link>
+      <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-vpc/</guid>
+      <description>
+
+&lt;h2 id=&#34;in-vpc&#34;&gt;IN VPC&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/lambda-vpc.png&#34; alt=&#34;&#34; /&gt;&lt;em&gt;更新前VPC&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/lambda-vpc-nat.png&#34; alt=&#34;&#34; /&gt;&lt;em&gt;更新后VPC&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created.&lt;/li&gt;
+&lt;li&gt;Network interfaces are shared across functions with the same security group:subnet combination&lt;/li&gt;
+&lt;li&gt;Function scaling is no longer bound to the number of network interfaces&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your Lambda functions still need the IAM permissions required to create and delete network interfaces in your VPC.&lt;/li&gt;
+&lt;li&gt;You still control the subnet and security group configurations of these network interfaces. You can continue to apply normal network security controls and follow best practices on VPC configuration.&lt;/li&gt;
+&lt;li&gt;You still have to use a NAT device(for example VPC NAT Gateway) to give a function internet access or use VPC endpoints to connect to services outside of your VPC.&lt;/li&gt;
+&lt;li&gt;Nothing changes about the types of resources that your functions can access inside of your VPCs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/&#34; target=&#34;_blank&#34;&gt;https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&#34; target=&#34;_blank&#34;&gt;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&#34; target=&#34;_blank&#34;&gt;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>AWS Re:Invent 2019主题汇总-P1</title>
@@ -63,6 +104,8 @@
 &lt;li&gt;&lt;p&gt;EKS正式支持FARGATE&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;RDS PROXY&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/serverless-vpc&#34;&gt;VPC支持更新&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;先锋基金it迁移架构图&#34;&gt;先锋基金IT迁移架构图&lt;/h2&gt;
@@ -1078,30 +1121,6 @@ Default output format [None]:
       
       <guid>https://wubigo.com/post/secucity-micro-segmentation/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.sdxcentral.com/networking/virtualization/definitions/how-does-micro-segmentation-help-security-explanation/&#34; target=&#34;_blank&#34;&gt;https://www.sdxcentral.com/networking/virtualization/definitions/how-does-micro-segmentation-help-security-explanation/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Wireless and Wired Connection Both at a Same Time in Windows</title>
-      <link>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</link>
-      <pubDate>Fri, 10 May 2019 16:57:56 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</guid>
-      <description>
-
-&lt;h1 id=&#34;give-the-wireless-network-higher-priority-than-the-wired&#34;&gt;give the wireless network higher priority than the wired&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;WIRELESS CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot;
-&amp;gt;  advanced TCP/IP setting &amp;gt; Automatic metric
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Uncheck it. That will enable a text box named &amp;ldquo;Interface metric&amp;rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot;
-&amp;gt;  advanced TCP/IP setting &amp;gt; Automatic metric
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Again Uncheck &amp;ldquo;Automatic metric&amp;rdquo;, and fill in a number in the &amp;ldquo;Interface metric&amp;rdquo; box. It needs to be larger than 1 but smaller than the number  above (15).&lt;/p&gt;
 </description>
     </item>
     

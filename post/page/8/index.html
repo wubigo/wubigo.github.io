@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-04-03T05:53:42&#43;08:00">
+  <meta property="og:updated_time" content="2017-04-28T17:08:07&#43;08:00">
   
 
   
@@ -397,6 +397,187 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+
+<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+
+<p><img src="./basic-auth.png" alt="" /></p>
+
+<p><img src="./post-form.png" alt="" /></p>
+
+<h1 id="access-protected-resource">access protected resource</h1>
+
+<p><img src="./res.png" alt="" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 25, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    提示： 以下操作是在VirtualBox虚机环境，并做如下配置
+ 网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
+ 多网卡  每块网卡都要做上述调整
+准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1962,206 +2143,6 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
     <a href="/post/docker_network_bridge/" itemprop="url">Docker_network_bridge</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 11:10:51 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network/" itemprop="url">Docker网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker默认的网络">docker默认的网络</h1>
-
-<p><a href="/post/docker_network_bridge/">桥接网络</a></p>
-
-<h1 id="docker网络macvlan">Docker网络macvlan</h1>
-
-<p><a href="/post/docker_network_macvlan/">网络macvlan</a></p>
-
-<h1 id="docker宿主网络">Docker宿主网络</h1>
-
-<p><a href="/post/docker-network-host/">宿主网络</a></p>
-
-<h1 id="docker覆盖网络">Docker覆盖网络</h1>
-
-<h1 id="宿主端口绑定">宿主端口绑定</h1>
-
-<p>绑定方式： -p</p>
-
-<p>绑定形式</p>
-
-<blockquote>
-<p>ip:hostPort:containerPort| ip::containerPort <br />
-  | hostPort:containerPort | containerPort</p>
-</blockquote>
-
-<p>containerPort必须指定</p>
-
-<pre><code>docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine
-</code></pre>
-
-<p>docker 会为端口绑定的容器自动启动docker-proxy进程</p>
-
-<pre><code>docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-03-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-03-02-s3withcustomdomainnameviahttps/" itemprop="url">S3 access with custom domain name via https</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Getting an SSL Certificate and CloudFront Create CloudFront Distribution Navigate to CloudFront in your AWS console and click &ldquo;Create Distribution&rdquo;. Click &ldquo;Get Started&rdquo; under the Web option (not the RTMP). You&rsquo;ll arrive on the Create Distribution page. Here you need to change three things: 1. Click inside the input field for &ldquo;Origin Domain Name&rdquo;. A list of your Amazon S3 buckets should pop up. Select the S3 bucket you want to use.
-  </div>
   
 
   

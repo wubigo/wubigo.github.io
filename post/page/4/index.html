@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-09-26T17:14:12&#43;08:00">
+  <meta property="og:updated_time" content="2018-09-29T09:39:28&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-29 09:39:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-lambda-with-localstack/" itemprop="url">基于Localstack的本地Lambda开发</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Create function index.js
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2101,88 +2184,6 @@ Customer User: customer@thingsboard.org / customer
 
 <p>login as tenant</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 25, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/web-vue/" itemprop="url">Web Vue</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.npmjs.org/  install vue-cli npm install -g @vue/cli  vue create my-project  OR
   </div>
   
 

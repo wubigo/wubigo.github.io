@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-12-22T15:29:31&#43;08:00">
+  <meta property="og:updated_time" content="2017-12-29T12:31:08&#43;08:00">
   
 
   
@@ -397,6 +397,246 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 29, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/nfv-notes/" itemprop="url">NFV Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="数据中心网络虚拟化-nvo3技术端到端隧道">数据中心网络虚拟化——NVo3技术端到端隧道</h2>
+
+<p>NVo3（Network Virtualization over Layer 3），是IETF 2014年十月份提出的数据中心虚拟化技术框架。</p>
+
+<p>NVo3基于IP/MPLS作为传输网，在其上通过隧道连接的方式，构建大规模的二层租户网络。NVo3的技术模型如下所示，</p>
+
+<p>PE设备称为NVE（Network Virtualization Element），VN Context作为Tag标识租户网络，P设备即为普通的IP/MPLS路由器。</p>
+
+<p>NVo3在设计之初，VxLAN与SDN的联合部署已经成为了数据中心的大趋势，因此NVo3的模型中专门画出了</p>
+
+<p>NVA(Network Virtualization Authority）作为NVE设备的控制器负责隧道建立、地址学习等控制逻辑</p>
+
+<h3 id="vxlan-virtual-extensible-lan-rfc-7348">VxLAN（Virtual eXtensible LAN，RFC 7348）</h3>
+
+<p>Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限制，允许通过现有的IP网络进行隧道的传输。</p>
+
+<p>别看VxLAN名字听起来和VLAN挺像，但是两者技术上可没什么必然联系。VxLAN是一种MACinUDP的隧道.</p>
+
+<h3 id="nvgre">NvGRE</h3>
+
+<p>NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="创建bucket">创建BUCKET</h2>
+
+<p>使用两种方式之一创建BUCKET</p>
+
+<ul>
+<li>terraform</li>
+</ul>
+
+<pre><code>git clone https://github.com/wubigo/iaas
+
+cd s3
+
+terraform apply
+
+</code></pre>
+
+<ul>
+<li>awscli</li>
+</ul>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre>
+
+<h3 id="确认配置">确认配置</h3>
+
+<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
+{
+    &quot;IndexDocument&quot;: {
+        &quot;Suffix&quot;: &quot;index.html&quot;
+    },
+    &quot;ErrorDocument&quot;: {
+        &quot;Key&quot;: &quot;404.html&quot;
+    }
+}
+
+</code></pre>
+
+<h2 id="配置dns-c记录">配置DNS C记录</h2>
+
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+
+<p><img src="/img/post/s3-web.png" alt="" /></p>
+
+<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+</code></pre>
+
+<h2 id="上传站点内容">上传站点内容</h2>
+
+<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2057,187 +2297,6 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   <div class="article-style" itemprop="articleBody">
     &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
 The Zuul proxy server is designed by default to work on the Spring products.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p><img src="./basic-auth.png" alt="" /></p>
-
-<p><img src="./post-form.png" alt="" /></p>
-
-<h1 id="access-protected-resource">access protected resource</h1>
-
-<p><img src="./res.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 25, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    提示： 以下操作是在VirtualBox虚机环境，并做如下配置
- 网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
- 多网卡  每块网卡都要做上述调整
-准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
   </div>
   
 

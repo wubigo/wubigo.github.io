@@ -28,27 +28,11 @@
   
     
   
-  <meta name="description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
- VPC支持更新
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate ">
+  <meta name="description" content="InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-high-performance/">
 
   
 
@@ -137,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="canonical" href="https://wubigo.com/post/mysql-high-performance/">
 
   
   
@@ -152,38 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/aws-reinvent-2019-keynote/">
-  <meta property="og:title" content="AWS Re:Invent 2019主题汇总-P1 | NgAPP">
-  <meta property="og:description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
- VPC支持更新
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/mysql-high-performance/">
+  <meta property="og:title" content="Mysql High Performance | NgAPP">
+  <meta property="og:description" content="InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-12-08T11:37:33&#43;08:00">
+  <meta property="article:published_time" content="2018-01-08T14:20:48&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-12-08T11:37:33&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-01-08T14:20:48&#43;08:00">
   
 
   
 
-  <title>AWS Re:Invent 2019主题汇总-P1 | NgAPP</title>
+  
+
+  <title>Mysql High Performance | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -419,7 +387,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">AWS Re:Invent 2019主题汇总-P1</h1>
+  <h1 itemprop="name">Mysql High Performance</h1>
 
   
 
@@ -428,8 +396,8 @@
 
 
 
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-01-08 14:20:48 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-08 14:20:48 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -442,7 +410,7 @@
     
       
     
-    <time>Dec 8, 2019</time>
+    <time>Jan 8, 2018</time>
   </span>
   
 
@@ -466,35 +434,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://twitter.com/intent/tweet?text=Mysql%20High%20Performance&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-high-performance%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-high-performance%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-high-performance%2f&amp;title=Mysql%20High%20Performance"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-high-performance%2f&amp;title=Mysql%20High%20Performance"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f">
+         href="mailto:?subject=Mysql%20High%20Performance&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-high-performance%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -534,63 +502,13 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="计算">计算</h2>
+<h2 id="innodb">InnoDB</h2>
 
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
+<p>MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB
+plugin. It’s much better than the older version of InnoDB.</p>
 
-<p>主要的新功能包括：</p>
-
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
-
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
-
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
-
-<h2 id="网络">网络</h2>
-
-<ul>
-<li><p>传输网关支持多播</p></li>
-
-<li><p>加速的网络到网络的VPN链接</p></li>
-</ul>
-
-<h2 id="存储和数据分析">存储和数据分析</h2>
-
-<ul>
-<li><p>S3 Access Points和数据湖</p></li>
-
-<li><p>ES搜索支持S3</p></li>
-
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
-
-<li><p>AQUA查询加速器</p></li>
-
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
-
-<li><p>托管的Cassandra服务</p></li>
-</ul>
-
-<h2 id="函数计算">函数计算</h2>
-
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
-
-<li><p>EKS正式支持FARGATE</p></li>
-
-<li><p>RDS PROXY</p></li>
-
-<li><p><a href="/post/serverless-vpc">VPC支持更新</a></p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
+<p>It now scales well to 24 CPU cores, and arguably up to 32 or
+even more cores depending on the scenario</p>
 
     </div>
 
@@ -599,9 +517,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/aws/">AWS</a>
-  
-  <a class="badge badge-light" href="/tags/cloud/">CLOUD</a>
+  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
   
 </div>
 
@@ -631,15 +547,15 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></li>
+          <li><a href="/post/spring-oauth2/">Spring Oauth2</a></li>
           
-          <li><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></li>
+          <li><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></li>
           
-          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
+          <li><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></li>
           
-          <li><a href="/post/aws-s3-access-point/">Aws S3 Access Point</a></li>
+          <li><a href="/post/redis-install-ubuntu/">Redis Install Ubuntu</a></li>
           
-          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          <li><a href="/post/mysql-slave/">Mysql Slave</a></li>
           
         </ul>
       </div>

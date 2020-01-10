@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-17T10:25:07&#43;08:00">
+  <meta property="og:updated_time" content="2019-03-18T14:49:10&#43;08:00">
   
 
   
@@ -397,6 +397,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-pod-command-override/" itemprop="url">K8s Pod Command Override</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2201,92 +2287,6 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
 
 <p><a href="https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838" target="_blank">https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-30 23:54:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-30 23:54:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-iam-policy/" itemprop="url">Aws IAM Policy</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    AWS leverages a standard JSON Identity and Access Management (IAM)
-policy document format across many services to control authorization
-to resources and API actions
-terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
-resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
   </div>
   
 

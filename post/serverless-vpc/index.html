@@ -28,27 +28,13 @@
   
     
   
-  <meta name="description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
- VPC支持更新
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate ">
+  <meta name="description" content="IN VPC 更新前VPC
+更新后VPC
+While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
+ Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/serverless-vpc/">
 
   
 
@@ -137,7 +123,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/aws-reinvent-2019-keynote/">
+  <link rel="canonical" href="https://wubigo.com/post/serverless-vpc/">
 
   
   
@@ -152,38 +138,24 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/aws-reinvent-2019-keynote/">
-  <meta property="og:title" content="AWS Re:Invent 2019主题汇总-P1 | NgAPP">
-  <meta property="og:description" content=" 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
-主要的新功能包括：
- 基于Nitro平台的针对HPC和机器学习的负载的实例
- 基于定制芯片Inferencia针对机器学习实例
- 标准实例支持100Gb网络带宽
-  网络  传输网关支持多播
- 加速的网络到网络的VPN链接
-  存储和数据分析  S3 Access Points和数据湖
- ES搜索支持S3
- 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
- AQUA查询加速器
- 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
- 托管的Cassandra服务
-  函数计算  Provisioned Concurrency for Lambda Functions
- EKS正式支持FARGATE
- RDS PROXY
- VPC支持更新
-  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/serverless-vpc/">
+  <meta property="og:title" content="函数计算VPC支持更新 | NgAPP">
+  <meta property="og:description" content="IN VPC 更新前VPC
+更新后VPC
+While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
+ Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-12-08T11:37:33&#43;08:00">
+  <meta property="article:published_time" content="2019-12-30T06:33:49&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-12-08T11:37:33&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2019-12-30T06:33:49&#43;08:00">
   
 
   
 
-  <title>AWS Re:Invent 2019主题汇总-P1 | NgAPP</title>
+  
+
+  <title>函数计算VPC支持更新 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -419,7 +391,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">AWS Re:Invent 2019主题汇总-P1</h1>
+  <h1 itemprop="name">函数计算VPC支持更新</h1>
 
   
 
@@ -428,8 +400,8 @@
 
 
 
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -442,7 +414,7 @@
     
       
     
-    <time>Dec 8, 2019</time>
+    <time>Dec 30, 2019</time>
   </span>
   
 
@@ -466,35 +438,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97VPC%e6%94%af%e6%8c%81%e6%9b%b4%e6%96%b0&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-vpc%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fserverless-vpc%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-vpc%2f&amp;title=%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97VPC%e6%94%af%e6%8c%81%e6%9b%b4%e6%96%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f&amp;title=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fserverless-vpc%2f&amp;title=%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97VPC%e6%94%af%e6%8c%81%e6%9b%b4%e6%96%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=AWS%20Re%3aInvent%202019%e4%b8%bb%e9%a2%98%e6%b1%87%e6%80%bb-P1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2faws-reinvent-2019-keynote%2f">
+         href="mailto:?subject=%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97VPC%e6%94%af%e6%8c%81%e6%9b%b4%e6%96%b0&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fserverless-vpc%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -534,63 +506,36 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="计算">计算</h2>
+<h2 id="in-vpc">IN VPC</h2>
 
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
+<p><img src="/img/post/lambda-vpc.png" alt="" /><em>更新前VPC</em></p>
 
-<p>主要的新功能包括：</p>
+<p><img src="/img/post/lambda-vpc-nat.png" alt="" /><em>更新后VPC</em></p>
 
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
-
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
-
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
-
-<h2 id="网络">网络</h2>
+<p>While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:</p>
 
 <ul>
-<li><p>传输网关支持多播</p></li>
-
-<li><p>加速的网络到网络的VPN链接</p></li>
+<li>Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created.</li>
+<li>Network interfaces are shared across functions with the same security group:subnet combination</li>
+<li>Function scaling is no longer bound to the number of network interfaces</li>
 </ul>
 
-<h2 id="存储和数据分析">存储和数据分析</h2>
+<p>While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.</p>
 
 <ul>
-<li><p>S3 Access Points和数据湖</p></li>
-
-<li><p>ES搜索支持S3</p></li>
-
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
-
-<li><p>AQUA查询加速器</p></li>
-
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
-
-<li><p>托管的Cassandra服务</p></li>
+<li>Your Lambda functions still need the IAM permissions required to create and delete network interfaces in your VPC.</li>
+<li>You still control the subnet and security group configurations of these network interfaces. You can continue to apply normal network security controls and follow best practices on VPC configuration.</li>
+<li>You still have to use a NAT device(for example VPC NAT Gateway) to give a function internet access or use VPC endpoints to connect to services outside of your VPC.</li>
+<li>Nothing changes about the types of resources that your functions can access inside of your VPCs.</li>
 </ul>
 
-<h2 id="函数计算">函数计算</h2>
+<h2 id="参考">参考</h2>
 
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
+<p><a href="https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/" target="_blank">https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/</a></p>
 
-<li><p>EKS正式支持FARGATE</p></li>
+<p><a href="https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c" target="_blank">https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c</a></p>
 
-<li><p>RDS PROXY</p></li>
-
-<li><p><a href="/post/serverless-vpc">VPC支持更新</a></p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
+<p><a href="https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/" target="_blank">https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/</a></p>
 
     </div>
 
@@ -599,9 +544,9 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/aws/">AWS</a>
+  <a class="badge badge-light" href="/tags/serverless/">SERVERLESS</a>
   
-  <a class="badge badge-light" href="/tags/cloud/">CLOUD</a>
+  <a class="badge badge-light" href="/tags/sls/">SLS</a>
   
 </div>
 
@@ -631,15 +576,15 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></li>
+          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          
+          <li><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></li>
           
           <li><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></li>
           
-          <li><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></li>
+          <li><a href="/post/lambda-provisioned-concurrency/">Lambda Provisioned Concurrency</a></li>
           
-          <li><a href="/post/aws-s3-access-point/">Aws S3 Access Point</a></li>
-          
-          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          <li><a href="/post/aws-iam-policy/">Aws IAM Policy</a></li>
           
         </ul>
       </div>
