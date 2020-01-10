@@ -60,6 +60,8 @@ categories = []
 
 - RDS PROXY
 
+- [VPC支持更新](/post/serverless-vpc)
+
 
 ## 先锋基金IT迁移架构图
 

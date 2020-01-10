@@ -81,3 +81,10 @@ categories = []
 ## 函数计算云服务
 
 ![](./step-cloud.png)
+
+## 函数计算重要开发项目库
+
+|   项目  |    平台 |  支持语言 |
+:---|:---|:---
+Zappa |  |python
+Serverless | AWS Lambda, Azure Functions, Google CloudFunctions |Node.js, Python, Java, Go, C#, Ruby, Swift, Kotlin, PHP, Scala|
