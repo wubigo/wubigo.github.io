@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,14 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content=" go doc https://golang.google.cn
+proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
+https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
+https://gocn.vip/article/1678
+配置代理  系统代理 GIT代理  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/go/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-proxy/">
 
   
 
@@ -114,15 +116,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/go/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/go/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/go/">
+  <link rel="canonical" href="https://wubigo.com/post/lang-go-proxy/">
 
   
   
@@ -137,19 +139,25 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/go/">
-  <meta property="og:title" content="GO | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/lang-go-proxy/">
+  <meta property="og:title" content="Go穿越Firewall | NgAPP">
+  <meta property="og:description" content=" go doc https://golang.google.cn
+proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
+https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
+https://gocn.vip/article/1678
+配置代理  系统代理 GIT代理  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-08-29T06:26:51&#43;08:00">
+  <meta property="article:published_time" content="2018-03-22T14:34:01&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-03-22T14:34:01&#43;08:00">
   
 
   
 
   
 
-  <title>GO | NgAPP</title>
+  <title>Go穿越Firewall | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -364,7 +372,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,82 +391,219 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Go穿越Firewall</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">GO</h1>
+
+
+
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Go%e7%a9%bf%e8%b6%8aFirewall&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f&amp;title=Go%e7%a9%bf%e8%b6%8aFirewall"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f&amp;title=Go%e7%a9%bf%e8%b6%8aFirewall"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Go%e7%a9%bf%e8%b6%8aFirewall&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lang-go-dep-manage/">Lang Go Dep Manage</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      glide To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lang-go-proxy/">Go穿越Firewall</a></h2>
-    <div class="article-style">
-      
-       go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
-https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
-https://gocn.vip/article/1678
-配置代理  系统代理 GIT代理  
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/go-vscode/">Go Vscode环境配置</a></h2>
-    <div class="article-style">
-      
-      go version go version go version go1.13.5 windows/amd64  vs proxy 根据code提示自动安装插件
-手工安装插件 go代理配置 set http_proxy=http://127.0.0.1:4910  git代理配置 git config --global http.proxy https://127.0.0.1:4910 git config --global http.sslverify &quot;false&quot;  手工安装插件 go get -u -v github.com/go-delve/delve/cmd/dlv go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/acroca/go-symbols go get -u -v github.com/mdempsky/gocode go get -u -v github.com/rogpeppe/godef go get -u -v golang.org/x/tools/cmd/godoc go get -u -v github.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lang-go-module/">Go Module</a></h2>
-    <div class="article-style">
-      
-      Modules  A module is a collection of related Go packages that are versioned together as a single unit.
-Modules record precise dependency requirements and create reproducible builds.
- go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lang-go-notes/">GO NOTES</a></h2>
-    <div class="article-style">
-      
-      Method&rsquo;s receiver  go don&rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find .
-      
-    </div>
-  </div>
-  
 
-  
+<h2 id="go-doc">go doc</h2>
 
+<p><a href="https://golang.google.cn" target="_blank">https://golang.google.cn</a></p>
+
+<h2 id="proxy">proxy</h2>
+
+<ul>
+<li>从 Github 的代码库 clone</li>
+</ul>
+
+<pre><code>go get -u github.com/golang/text
+mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
+
+go get -u github.com/golang/crypto
+mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
+</code></pre>
+
+<ul>
+<li>设置 GOPROXY 环境变量配置代理</li>
+</ul>
+
+<p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
+
+<p><a href="https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md" target="_blank">https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md</a></p>
+
+<p><a href="https://gocn.vip/article/1678" target="_blank">https://gocn.vip/article/1678</a></p>
+
+<h2 id="配置代理">配置代理</h2>
+
+<ul>
+<li><a href="/post/go-vscode#proxy">系统代理</a></li>
+<li><a href="/post/go-vscode#proxy">GIT代理</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/lang/">LANG</a>
+  
+  <a class="badge badge-light" href="/tags/go/">GO</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/lang-go-module/">Go Module</a></li>
+          
+          <li><a href="/post/lang-go-notes/">GO NOTES</a></li>
+          
+          <li><a href="/post/effective-coding/">Effective Coding</a></li>
+          
+          <li><a href="/post/go-vscode/">Go Vscode环境配置</a></li>
+          
+          <li><a href="/post/effective-coding-java/">Effective Coding Java</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -619,6 +766,4 @@ vendor package go help gopath find .
 
   </body>
 </html>
-
-
 
