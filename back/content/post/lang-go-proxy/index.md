@@ -20,11 +20,11 @@ categories = []
 +++
 
 
-# go doc
+## go doc
 
 https://golang.google.cn
 
-# proxy
+## proxy
 
 - 从 Github 的代码库 clone
 
@@ -45,3 +45,9 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
 https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
 
 https://gocn.vip/article/1678
+
+## 配置代理
+
+- [系统代理](/post/go-vscode#proxy)
+- [GIT代理](/post/go-vscode#proxy)
+
