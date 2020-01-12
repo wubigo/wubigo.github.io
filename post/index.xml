@@ -551,6 +551,15 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
     </item>
     
     <item>
+      <title>Minio源代码安装</title>
+      <link>https://wubigo.com/post/minio-install-from-source/</link>
+      <pubDate>Tue, 11 Dec 2018 15:46:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/minio-install-from-source/</guid>
+      <description>安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+    </item>
+    
+    <item>
       <title>JavaScript Arrow Functions</title>
       <link>https://wubigo.com/post/javascript-arrow-functions/</link>
       <pubDate>Tue, 04 Dec 2018 12:11:49 +0800</pubDate>
@@ -1419,6 +1428,20 @@ https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decisio
       
       <guid>https://wubigo.com/post/iot-notes/</guid>
       <description>The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together &amp;mdash; say a fleet of railcars &amp;mdash; are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT.</description>
+    </item>
+    
+    <item>
+      <title>Go语言第一个基于模块应用</title>
+      <link>https://wubigo.com/post/golang-first-app-as-module/</link>
+      <pubDate>Fri, 12 Jan 2018 07:42:41 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/golang-first-app-as-module/</guid>
+      <description>模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/google/go-cmp/cmp&amp;quot; ) func main() { fmt.Println(cmp.Diff(&amp;quot;Hello World&amp;quot;, &amp;quot;Hello Go&amp;quot;)) }  package main声明该模块是一个可执行程序而不是共享库
+编译测试 go install github.com/wubigo/API/go/hello  或者
+go install .  或者
+go install -n   检查go.mod  go.mod
+module github.com/wubigo/API/go/hello go 1.</description>
     </item>
     
     <item>

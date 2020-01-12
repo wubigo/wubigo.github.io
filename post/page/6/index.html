@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-02-28T15:22:27&#43;08:00">
+  <meta property="og:updated_time" content="2018-02-28T16:56:16&#43;08:00">
   
 
   
@@ -397,6 +397,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-macvaln/" itemprop="url">Aws EC2 MACVLAN</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
+
+<p>through bridges or macvlan. Dedicating a network interface to a</p>
+
+<p>container makes it directly unreachable from the host.</p>
+
+<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
+
+
+docker run -d --network pub_net --ip 172.30.80.10 busybox
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1391,6 +1484,93 @@ unpredictable workloads.</p>
 
 
 
+<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 12, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/golang-first-app-as-module/" itemprop="url">Go语言第一个基于模块应用</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
+package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
+编译测试 go install github.com/wubigo/API/go/hello  或者
+go install .  或者
+go install -n   检查go.mod  go.mod
+module github.com/wubigo/API/go/hello go 1.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-01-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1966,195 +2146,6 @@ Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology https://
 Announcing gRPC Support in NGINX https://www.nginx.com/blog/nginx-1-13-10-grpc/
 ACME v2 and Wildcard Certificate Support is Live https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live
 PIXAR’S 22 RULES OF STORYTELLING https://www.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-12-30-booksireadthisyear/" itemprop="url">Books I read this year</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="gone-with-the-wind">Gone with the Wind</h1>
-
-<p><a href="https://www.amazon.com/Gone-Wind-Margaret-Mitchell" target="_blank">https://www.amazon.com/Gone-Wind-Margaret-Mitchell</a></p>
-
-<h1 id="deep-learning-with-python">Deep Learning with Python</h1>
-
-<p><a href="https://www.manning.com/books/deep-learning-with-python" target="_blank">https://www.manning.com/books/deep-learning-with-python</a></p>
-
-<h1 id="how-to-win-friends-and-influence-people">How to Win Friends and Influence People</h1>
-
-<p><a href="https://www.amazon.com/How-Friends-Influence-People-Chinese" target="_blank">https://www.amazon.com/How-Friends-Influence-People-Chinese</a></p>
-
-<h1 id="books-i-read-this-year">Books I read this year</h1>
-
-<p><a href="https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017" target="_blank">https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-29 21:29:29 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-29 21:29:29 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 29, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-sr-iov/" itemprop="url">Aws SR IOV</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="enabling-enhanced-networking-on-ubuntu">Enabling Enhanced Networking on Ubuntu</h2>
-
-<pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade -y linux-aws
-</code></pre>
-
-<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide//sriov-networking.html#enhanced-networking-ubuntu" target="_blank">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide//sriov-networking.html#enhanced-networking-ubuntu</a></p>
-
   </div>
   
 

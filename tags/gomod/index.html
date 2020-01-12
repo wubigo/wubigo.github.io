@@ -33,7 +33,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/datalake/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/gomod/">
 
   
 
@@ -114,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/datalake/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/datalake/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/tags/gomod/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/tags/gomod/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/datalake/">
+  <link rel="canonical" href="https://wubigo.com/tags/gomod/">
 
   
   
@@ -137,19 +137,19 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/datalake/">
-  <meta property="og:title" content="DATAlAKE | NgAPP">
+  <meta property="og:url" content="https://wubigo.com/tags/gomod/">
+  <meta property="og:title" content="GOMOD | NgAPP">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-12-26T08:20:37&#43;08:00">
+  <meta property="og:updated_time" content="2018-01-12T07:42:41&#43;08:00">
   
 
   
 
   
 
-  <title>DATAlAKE | NgAPP</title>
+  <title>GOMOD | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -385,7 +385,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">DATAlAKE</h1>
+  <h1 itemprop="name">GOMOD</h1>
 
   
 
@@ -400,11 +400,15 @@
   
   
   <div>
-    <h2><a href="/post/aws-s3-data-lake/">Aws S3 Data Lake</a></h2>
+    <h2><a href="/post/golang-first-app-as-module/">Go语言第一个基于模块应用</a></h2>
     <div class="article-style">
       
-      https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23
-https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc
+      模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
+package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
+编译测试 go install github.com/wubigo/API/go/hello  或者
+go install .  或者
+go install -n   检查go.mod  go.mod
+module github.com/wubigo/API/go/hello go 1.
       
     </div>
   </div>
