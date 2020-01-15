@@ -37,6 +37,17 @@ A module is defined by a tree of Go source files with a go.mod file in the tree'
 go list -m all
 ```
 
+### 显示特定模块的所有版本标签 
+
+```
+go list -m -versions github.com/minio/cli
+```
+
+### 模块API说明书
+
+```
+go doc github.com/minio/cli
+```
 
 ## How to Use Modules
 
