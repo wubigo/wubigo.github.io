@@ -28,14 +28,10 @@
   
     
   
-  <meta name="description" content=" go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
-https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
-https://gocn.vip/article/1678
-配置代理  系统代理 GIT代理  ">
+  <meta name="description" content=" 依赖 go list -m all go list -m -versions github.com/minio/cli  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-proxy/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/minio-contribution-note/">
 
   
 
@@ -124,7 +120,7 @@ https://gocn.vip/article/1678
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/lang-go-proxy/">
+  <link rel="canonical" href="https://wubigo.com/post/minio-contribution-note/">
 
   
   
@@ -139,25 +135,21 @@ https://gocn.vip/article/1678
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/lang-go-proxy/">
-  <meta property="og:title" content="Go穿越Firewall | NgAPP">
-  <meta property="og:description" content=" go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
-https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
-https://gocn.vip/article/1678
-配置代理  系统代理 GIT代理  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/minio-contribution-note/">
+  <meta property="og:title" content="Minio开发笔记 | NgAPP">
+  <meta property="og:description" content=" 依赖 go list -m all go list -m -versions github.com/minio/cli  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-03-22T14:34:01&#43;08:00">
+  <meta property="article:published_time" content="2018-01-16T07:10:20&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-03-22T14:34:01&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-01-16T07:10:20&#43;08:00">
   
 
   
 
-  <title>Go穿越Firewall | NgAPP</title>
+  
+
+  <title>Minio开发笔记 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -393,7 +385,7 @@ https://gocn.vip/article/1678
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Go穿越Firewall</h1>
+  <h1 itemprop="name">Minio开发笔记</h1>
 
   
 
@@ -402,8 +394,8 @@ https://gocn.vip/article/1678
 
 
 
-<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-22 14:34:01 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -416,7 +408,7 @@ https://gocn.vip/article/1678
     
       
     
-    <time>Mar 22, 2018</time>
+    <time>Jan 16, 2018</time>
   </span>
   
 
@@ -440,35 +432,35 @@ https://gocn.vip/article/1678
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Go%e7%a9%bf%e8%b6%8aFirewall&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f"
+         href="https://twitter.com/intent/tweet?text=Minio%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fminio-contribution-note%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fminio-contribution-note%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f&amp;title=Go%e7%a9%bf%e8%b6%8aFirewall"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fminio-contribution-note%2f&amp;title=Minio%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f&amp;title=Go%e7%a9%bf%e8%b6%8aFirewall"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fminio-contribution-note%2f&amp;title=Minio%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Go%e7%a9%bf%e8%b6%8aFirewall&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flang-go-proxy%2f">
+         href="mailto:?subject=Minio%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fminio-contribution-note%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -508,39 +500,11 @@ https://gocn.vip/article/1678
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="go-doc">go doc</h2>
+<h2 id="依赖">依赖</h2>
 
-<p><a href="https://golang.google.cn" target="_blank">https://golang.google.cn</a></p>
-
-<h2 id="proxy">proxy</h2>
-
-<ul>
-<li>从 Github 的代码库 clone</li>
-</ul>
-
-<pre><code>go get -u github.com/golang/text
-mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
-
-go get -u github.com/golang/crypto
-mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
+<pre><code>go list -m all
+go list -m -versions github.com/minio/cli
 </code></pre>
-
-<ul>
-<li>设置 GOPROXY 环境变量配置代理</li>
-</ul>
-
-<p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
-
-<p><a href="https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md" target="_blank">https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md</a></p>
-
-<p><a href="https://gocn.vip/article/1678" target="_blank">https://gocn.vip/article/1678</a></p>
-
-<h2 id="配置代理">配置代理</h2>
-
-<ul>
-<li><a href="/post/go-vscode#proxy">系统代理</a></li>
-<li><a href="/post/go-vscode#proxy">GIT代理</a></li>
-</ul>
 
     </div>
 
@@ -549,7 +513,9 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/lang/">LANG</a>
+  <a class="badge badge-light" href="/tags/minio/">MINIO</a>
+  
+  <a class="badge badge-light" href="/tags/storage/">STORAGE</a>
   
   <a class="badge badge-light" href="/tags/go/">GO</a>
   
@@ -581,15 +547,13 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
         <h3>Related</h3>
         <ul>
           
+          <li><a href="/post/golang-first-app-as-module/">Go语言第一个基于模块应用</a></li>
+          
+          <li><a href="/post/go-vscode/">Go Vscode环境配置</a></li>
+          
           <li><a href="/post/lang-go-module/">Go Module</a></li>
           
           <li><a href="/post/lang-go-notes/">GO NOTES</a></li>
-          
-          <li><a href="/post/effective-coding/">Effective Coding</a></li>
-          
-          <li><a href="/post/minio-contribution-note/">Minio开发笔记</a></li>
-          
-          <li><a href="/post/golang-first-app-as-module/">Go语言第一个基于模块应用</a></li>
           
         </ul>
       </div>

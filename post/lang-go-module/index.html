@@ -31,7 +31,7 @@
   <meta name="description" content="模块 A module is a collection of related Go packages that are versioned together as a single unit.
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
-显示当前的模块和依赖 go list -m all  How to Use Modules  How to Install and Activate Module Support  Install the latest Go 1.">
+显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-module/">
@@ -143,7 +143,7 @@ Modules record precise dependency requirements and create reproducible builds.
   <meta property="og:description" content="模块 A module is a collection of related Go packages that are versioned together as a single unit.
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
-显示当前的模块和依赖 go list -m all  How to Use Modules  How to Install and Activate Module Support  Install the latest Go 1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-22T15:09:20&#43;08:00">
@@ -521,6 +521,16 @@ Modules record precise dependency requirements and create reproducible builds.
 <h2 id="显示当前的模块和依赖">显示当前的模块和依赖</h2>
 
 <pre><code>go list -m all
+</code></pre>
+
+<h3 id="显示特定模块的所有版本标签">显示特定模块的所有版本标签</h3>
+
+<pre><code>go list -m -versions github.com/minio/cli
+</code></pre>
+
+<h3 id="模块api说明书">模块API说明书</h3>
+
+<pre><code>go doc github.com/minio/cli
 </code></pre>
 
 <h2 id="how-to-use-modules">How to Use Modules</h2>

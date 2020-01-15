@@ -431,6 +431,15 @@ https://gocn.vip/article/1678
   </div>
   
   <div>
+    <h2><a href="/post/minio-contribution-note/">Minio开发笔记</a></h2>
+    <div class="article-style">
+      
+       依赖 go list -m all go list -m -versions github.com/minio/cli  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/golang-first-app-as-module/">Go语言第一个基于模块应用</a></h2>
     <div class="article-style">
       
@@ -461,7 +470,7 @@ module github.com/wubigo/API/go/hello go 1.
       模块 A module is a collection of related Go packages that are versioned together as a single unit.
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
-显示当前的模块和依赖 go list -m all  How to Use Modules  How to Install and Activate Module Support  Install the latest Go 1.
+显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github.
       
     </div>
   </div>
