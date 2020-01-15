@@ -20,7 +20,7 @@ categories = []
 +++
 
 
-- Modules
+## 模块
 
 A module is a collection of related Go packages that are versioned together as a single unit.
 
@@ -30,10 +30,15 @@ Modules record precise dependency requirements and create reproducible builds.
 
 A module is defined by a tree of Go source files with a go.mod file in the tree's root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
 
+## 显示当前的模块和依赖
 
 
+```
+go list -m all
+```
 
-# How to Use Modules
+
+## How to Use Modules
 
 - How to Install and Activate Module Support
   + Install the latest Go 1.11 release.
@@ -44,5 +49,7 @@ A module is defined by a tree of Go source files with a go.mod file in the tree'
     Invoke the go command with GO111MODULE=on environment variable set.
 
 
+
+https://blog.golang.org/using-go-modules
 
 https://semver.org/
