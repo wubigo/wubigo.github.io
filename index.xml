@@ -1115,12 +1115,25 @@ Default output format [None]:
     </item>
     
     <item>
-      <title>Secucity Micro Segmentation</title>
-      <link>https://wubigo.com/post/secucity-micro-segmentation/</link>
-      <pubDate>Sun, 26 May 2019 17:26:24 +0800</pubDate>
+      <title>Minio配置为B2存储网关</title>
+      <link>https://wubigo.com/post/minio-as-a-gateway-to-b2/</link>
+      <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/secucity-micro-segmentation/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.sdxcentral.com/networking/virtualization/definitions/how-does-micro-segmentation-help-security-explanation/&#34; target=&#34;_blank&#34;&gt;https://www.sdxcentral.com/networking/virtualization/definitions/how-does-micro-segmentation-help-security-explanation/&lt;/a&gt;&lt;/p&gt;
+      <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
+      <description>
+
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/minio-gateway-b2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载B2 TLS安全证书&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt
+
+mv b2.crt .minio/certs/CAs/
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

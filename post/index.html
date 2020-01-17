@@ -1840,6 +1840,102 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 
 
 
+<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/minio-as-a-gateway-to-b2/" itemprop="url">Minio配置为B2存储网关</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="配置">配置</h2>
+
+<p><img src="/img/post/minio-gateway-b2.png" alt="" /></p>
+
+<ul>
+<li>下载B2 TLS安全证书</li>
+</ul>
+
+<pre><code>openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt
+
+mv b2.crt .minio/certs/CAs/
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-05-26 17:26:24 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-05-26 17:26:24 &#43;0800 CST" itemprop="dateModified">
 
@@ -2254,102 +2350,6 @@ sudo mv google-chrome.list.save google-chrome.list
 apt update
 apt install google-chrome-stable
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-app-development-toolbox/">
-      <img src="/post/k8s-app-development-toolbox/featured_hu47d231d63492733826f3a040baad0438_760864_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-app-development-toolbox/" itemprop="url">K8s高效应用开发工具集</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="本地流线型开发">本地流线型开发</h1>
-
-<p><a href="/post/k8s-development-streamline/">本地流线型开发</a></p>
-
-<h1 id="集成开发-测试部署">集成开发，测试部署</h1>
-
-<p><a href="/post/k8s-ide-tool">IDE</a></p>
 
   </div>
   

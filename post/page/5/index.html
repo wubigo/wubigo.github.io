@@ -465,6 +465,93 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/spring-actuator/" itemprop="url">Spring Actuator</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    setup  &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  enable web client all endpoints are exposed to JMX and WEB clents
+By default, all endpoints except for shutdown are enabled.
+ enable all endpoings
+ enable all endpoints accessed by web
+  management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/thingboard/" itemprop="url">Thingboard</a>
   </h3>
 
@@ -2185,88 +2272,6 @@ godep restore ./...
 
 <h1 id="集群内开发">集群内开发</h1>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-03-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-03-02-filegatewayforhybridarchitectures/" itemprop="url">File Gateway for Hybrid Architectures; Overview and Best Practices</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Organizations are looking for ways to reduce their physical data center footprints, particularly for secondary workloads such as backups, files, or on-demand workloads. However, bridging data between private data centers and the public cloud comes with a unique set of challenges. Traditional data center services rely on low-latency network attached storage (NAS) and storage area network (SAN) protocols to access storage locally. Cloud-native applications are generally optimized for API access to data in scalable and durable cloud object storage, such as Amazon Simple Storage Service (Amazon S3).
   </div>
   
 
