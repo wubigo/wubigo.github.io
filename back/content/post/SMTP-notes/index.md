@@ -1,11 +1,11 @@
 +++
-title = "Minio配置为B2存储网关"
-date = 2019-06-17T11:26:14+08:00
+title = "企业IT云服务之邮件收发"
+date = 2018-01-17T21:48:53+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["STORAGE", "SDS", "MINIO"]
+tags = ["SMTP","POP3"]
 categories = []
 
 # Featured image
@@ -19,24 +19,18 @@ categories = []
   focal_point = ""
 +++
 
+## 邮枪Concept plan(免费用户并增加一张信用卡)额度介绍
 
-## 配置
-
-
-![](/img/post/minio-gateway-b2.png)
-
-
-- 下载B2 TLS安全证书
-
-```
-openssl s_client -showcerts -connect api.backblazeb2.com:443 > b2.crt
-
-mv b2.crt .minio/certs/CAs/
-
-set MINIO_ACCESS_KEY=B2_keyID
-set MINIO_SECRET_KEY=B2_applicationKey
-minio gateway b2
-```
+- 每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封
+- 接收邮件免费
+- 支持一千个定制域名
+- 可以向任何邮箱地址发送而不用授权
 
 
+## 创建发送账号
 
+![](/img/post/smtp-user.png)
+
+## 接收邮件
+
+![](/img/post/pop3-forward.png)
