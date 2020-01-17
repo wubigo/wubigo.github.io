@@ -1133,6 +1133,10 @@ Default output format [None]:
 &lt;pre&gt;&lt;code&gt;openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt
 
 mv b2.crt .minio/certs/CAs/
+
+set MINIO_ACCESS_KEY=B2_keyID
+set MINIO_SECRET_KEY=B2_applicationKey
+minio gateway b2
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

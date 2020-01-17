@@ -403,7 +403,7 @@
     <h2><a href="/post/minio-as-a-gateway-to-b2/">Minio配置为B2存储网关</a></h2>
     <div class="article-style">
       
-       配置  下载B2 TLS安全证书  openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt mv b2.crt .minio/certs/CAs/  
+       配置  下载B2 TLS安全证书  openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2  
       
     </div>
   </div>

@@ -1566,6 +1566,106 @@ unpredictable workloads.</p>
 
 
 
+<meta content="2018-01-17 21:48:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-17 21:48:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 17, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/smtp-notes/" itemprop="url">企业IT云服务之邮件收发</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="邮枪concept-plan-免费用户并增加一张信用卡-额度介绍">邮枪Concept plan(免费用户并增加一张信用卡)额度介绍</h2>
+
+<ul>
+<li>每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封</li>
+<li>接收邮件免费</li>
+<li>支持一千个定制域名</li>
+<li>可以向任何邮箱地址发送而不用授权</li>
+</ul>
+
+<h2 id="创建发送账号">创建发送账号</h2>
+
+<p><img src="/img/post/smtp-user.png" alt="" /></p>
+
+<h2 id="接收邮件">接收邮件</h2>
+
+<p><img src="/img/post/pop3-forward.png" alt="" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="dateModified">
 
@@ -2052,93 +2152,6 @@ even more cores depending on the scenario</p>
   <div class="article-style" itemprop="articleBody">
     sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard wg genkey  /etc/wireguard/wg0.conf
 [Interface] PrivateKey = SEd9KTOqekPvpxgfYB3e8f38Z8T4PX0J1DQlSRC3InQ= Address = 10.12.4.0/21 ListenPort = 51820 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] # My laptop (this is just a comment, change it to identify the device) PublicKey = YQ3MK8oGH62d5jb/mfPVVNP955SO3lcmMOnfQ71r4mo= AllowedIPs = 10.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-01-02-deathofmicroservicemadness/" itemprop="url">Death of Microservice Madness</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="death-of-microservice-madness">Death of Microservice Madness</h1>
-
-<p><a href="http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/" target="_blank">http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/</a></p>
-
   </div>
   
 

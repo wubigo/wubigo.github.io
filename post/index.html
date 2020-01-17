@@ -1901,6 +1901,10 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 <pre><code>openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt
 
 mv b2.crt .minio/certs/CAs/
+
+set MINIO_ACCESS_KEY=B2_keyID
+set MINIO_SECRET_KEY=B2_applicationKey
+minio gateway b2
 </code></pre>
 
   </div>
