@@ -1,11 +1,11 @@
 +++
-title = "企业IT云服务之邮件收发"
+title = "创业公司IT云服务系列之数据存储"
 date = 2018-01-17T21:48:53+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["SMTP","POP3"]
+tags = ["SDS","STORAGE", "S3", "创业公司IT云服务"]
 categories = []
 
 # Featured image
