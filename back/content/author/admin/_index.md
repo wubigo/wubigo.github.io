@@ -49,12 +49,13 @@ user_groups = ["Researchers", "Visitors"]
 [[social]]
   icon = "envelope"
   icon_pack = "fas"
-  link = "#contact"  # For a direct email link, use "mailto:test@example.org".
+  #link = "#contact"  # For a direct email link, use "mailto:test@example.org".
+  link = "mailto:fn@wubigo.com"
 
-[[social]]
-  icon = "twitter"
-  icon_pack = "fab"
-  link = "https://twitter.com/wubigo"
+#[[social]]
+#  icon = "twitter"
+#  icon_pack = "fab"
+#  link = "https://twitter.com/wubigo"
 
 [[social]]
   icon = "github"
