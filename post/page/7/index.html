@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-11T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-01-12T07:42:41&#43;08:00">
   
 
   
@@ -397,6 +397,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 12, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/golang-first-app-as-module/" itemprop="url">Go语言第一个基于模块应用</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
+package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
+编译测试 go install github.com/wubigo/API/go/hello  或者
+go install .  或者
+go install -n   检查go.mod  go.mod
+module github.com/wubigo/API/go/hello go 1.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2152,91 +2239,6 @@ month
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/terraform-notes/" itemprop="url">Terraform Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
-[default] output = json region = local  ~/.aws/credentials
-[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
-provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
   </div>
   
 
