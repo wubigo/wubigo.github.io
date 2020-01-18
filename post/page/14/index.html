@@ -445,6 +445,91 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/piwik/" itemprop="url"></a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Configuring Piwik accessed via an Nginx reverse proxy public Nginx server configured as
+location ^~ /piwik/ { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Host $host; proxy_pass http://192.168.79.4/piwik/; }  config.ini.php config on piwi nginx site
+[General] proxy_client_headers[] = &quot;HTTP_X_FORWARDED_FOR&quot; proxy_client_headers[] = &quot;X-Real-IP&quot; proxy_host_headers[] = &quot;HTTP_X_FORWARDED_HOST&quot; proxy_ips[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;&lt;public-domain-server&gt;&quot;  Configure GeoIP (PECL) With Piwik check php version
+curl http://localhost/info.php PHP Version 7.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="" itemprop="datePublished">
+<meta content="" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 0001</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
     2 min read
   </span>
   
