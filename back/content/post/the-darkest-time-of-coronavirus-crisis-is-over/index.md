@@ -19,6 +19,8 @@ categories = []
   focal_point = ""
 +++
 
+![](/img/post/coronavirus-crisis-is-over.jpg)
+
 在快过年的前几天，一直在关注新冠肺炎扩散态势。
 
 在腊月28的那天晚上没有睡好觉，隔一会就关注一下7*24消息播报，
