@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-11-23T20:52:46&#43;08:00">
+  <meta property="og:updated_time" content="2017-11-30T17:51:29&#43;08:00">
   
 
   
@@ -397,6 +397,103 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-free-tier-quota/" itemprop="url">AWS云服务免费额度列表</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2136,90 +2233,6 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
 <pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-kubelet/" itemprop="url">K8s Kubelet</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    PodUID kubectl get pod &lt;PID_NAME&gt; -o=jsonpath='{.metadata.uid}'  POD on disk /var/lib/kubelet/pods/&lt;PodUID&gt;/
-/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
-ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.
   </div>
   
 
