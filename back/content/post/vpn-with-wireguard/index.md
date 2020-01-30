@@ -37,7 +37,7 @@ sudo apt-get install wireguard
 - 创建key
 
 ```
-wg genkey
+wg genkey | tee privatekey | wg pubkey > publickey
 ```
 
 - 配置 
