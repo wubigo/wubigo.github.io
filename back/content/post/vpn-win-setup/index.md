@@ -1,5 +1,5 @@
 +++
-title = "Vpn Setup"
+title = "Vpn客户端设置参考"
 date = 2018-01-02T06:34:20+08:00
 draft = false
 
@@ -18,6 +18,18 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+
+## 安装
+
+https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
+
+
+## 配置
+
+![](/img/post/wireguard-win.png)
+
+
 
 
 
