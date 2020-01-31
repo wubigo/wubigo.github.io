@@ -29,6 +29,10 @@ https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
 
 ![](/img/post/wireguard-win.png)
 
+- 更改公钥
+
+- Endpoint所在的vpn服务器地址 
+
 
 
 

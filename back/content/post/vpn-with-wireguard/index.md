@@ -24,7 +24,7 @@ categories = []
 ```
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt-get update
-sudo apt-get install wireguard
+sudo apt-get install wireguard -y
 
 ```
 
@@ -66,8 +66,8 @@ ip a
 
 ```
 [Interface]
-PrivateKey = SEd9KTOqekPvpxgfYB3e8f38Z8T4PX0J1DQlSRC3InQ=
-Address = 10.12.4.0/21
+PrivateKey = AKUINjvxFqVLMiJc7qX95bEyiRlqnAWFHpy3hLeCI1s=
+Address = 10.12.4.1/24
 ListenPort = 51820
 
 
@@ -79,8 +79,9 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC
 
 [Peer]
 # My laptop (this is just a comment, change it to identify the device)
-PublicKey = YQ3MK8oGH62d5jb/mfPVVNP955SO3lcmMOnfQ71r4mo=
-AllowedIPs = 10.12.4.0/32
+PublicKey = k2XMyPcLbPcNhJ5ThKrwbzNPMw6h1JKkDOcw1rqstF4=
+AllowedIPs = 10.12.4.0/24
+
 ```
 
 - 启动
@@ -95,6 +96,13 @@ sudo wg-quick up wg0
 sudo wg
 ```
 
+
+- 启动主机路由
+
+```
+sudo sysctl -p
+net.ipv4.ip_forward = 1
+```
 
 ## 客户端
 
