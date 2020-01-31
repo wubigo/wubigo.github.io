@@ -107,3 +107,6 @@ net.ipv4.ip_forward = 1
 ## 客户端
 
 [Vpn客户端设置参考](/post/vpn-win-setup/)
+
+
+PS: [Wireguard在前几天被合并到LINUX的内核代码](https://www.linux.com/news/wireguard-to-be-merged-with-linux-net-next-tree-and-will-be-available-by-default-in-linux/)

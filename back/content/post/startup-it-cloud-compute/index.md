@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["EC2","SERVERLESS", "创业公司IT云服务"]
+tags = ["EC2","SERVERLESS", "IT云服务"]
 categories = []
 
 # Featured image
