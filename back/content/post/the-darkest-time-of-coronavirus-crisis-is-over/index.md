@@ -107,7 +107,7 @@ categories = []
 人祸何时能够有一个了结？
 
 
-## 武汉宣布封城
+## 武汉宣布封城(腊月28)
 
 ![](/img/post/coronavirus-crisis-is-over.jpg)
 
