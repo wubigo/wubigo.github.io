@@ -1,5 +1,5 @@
 +++
-title = "我所了解的新冠肺炎"
+title = "我所了解的新冠肺炎--人祸猛与天灾"
 date = 2020-01-26T06:15:20+08:00
 draft = false
 
@@ -18,6 +18,12 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+17年前中国人民战胜非典肺炎， 而如今面对另一场比非典肺炎
+
+致命性低的新冠肺炎，预估我们能很快结束这场战役。
+
+然而
 
 >呼吁全体中国公民团结起来，拯救我们那些奋斗在一线的医务工作
 
