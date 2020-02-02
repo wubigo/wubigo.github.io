@@ -19,6 +19,8 @@ categories = []
   focal_point = ""
 +++
 
+![](/img/post/Chinese-Programming-Language.jpeg)
+
 17年前中国人民战胜非典肺炎， 而如今面对另一场比非典肺炎
 
 致命性低的新冠肺炎，预估我们能很快结束这场战役。
