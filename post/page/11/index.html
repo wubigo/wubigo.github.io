@@ -994,6 +994,89 @@ aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam d
 
 
 
+<meta content="2016-02-06 07:39:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-06 07:39:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 6, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-vpc-notes/" itemprop="url">Aws VPC 基础</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    public subnet A public subnet is a subnet that&rsquo;s associated with a route table that has a route to an Internet gateway
+Internet Gateway An Internet Gateway is a logical connection between an Amazon VPC and the Internet. It is nota physical device. Only one can be associated with each VPC. It does not limit the bandwidth of Internet connectivity. (The only limitation on bandwidth is the size of the Amazon EC2 instance, and it applies to all traffic &ndash; internal to the VPC and out to the Internet.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="datePublished">
 <meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="dateModified">
 
@@ -2083,102 +2166,6 @@ mysql utf8 For the recent version of MySQL,
 default-character-set = utf8 causes a problem. It&rsquo;s deprecated I think.
 As Justin Ball says in &ldquo;Upgrade to MySQL 5.5.12 and now MySQL won’t start, you should:
 Remove that directive and you should be good. Then your configuration file (&lsquo;/etc/my.cnf&rsquo; for example) should look like that: [mysqld] collation-server = utf8_unicode_ci init-connect=&lsquo;SET NAMES utf8&rsquo; character-set-server = utf8 Restart MySQL.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
-The advantages of serving content from such a sub-domain, however, are that
-The sub-domain can be a cookie-less domain
-If you use your cookies correctly (ie.
   </div>
   
 
