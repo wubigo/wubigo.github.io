@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content=" NAT GATEWAY ">
+  <meta name="description" content="NAT GATEWAY 数据备份S3 Infrequent Access Tier, All Storage / Month $0.0125 per GB
+ Archive 50 TB into Amazon S3  If you perform a one-time migration of 50 TB of 16 MB files into Amazon S3 in US East (Ohio), it costs you the following to use DataSync: (50 TB copied into S3 * 1024 GB * $0.0125/GB) &#43; (1 S3 LIST request * $0.005 / 1000) &#43; (50 TB / 16 MB S3 PUT requests * $0.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-billing-notes/">
@@ -137,7 +138,8 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/aws-billing-notes/">
   <meta property="og:title" content="Aws Billing Notes | NgAPP">
-  <meta property="og:description" content=" NAT GATEWAY "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="NAT GATEWAY 数据备份S3 Infrequent Access Tier, All Storage / Month $0.0125 per GB
+ Archive 50 TB into Amazon S3  If you perform a one-time migration of 50 TB of 16 MB files into Amazon S3 in US East (Ohio), it costs you the following to use DataSync: (50 TB copied into S3 * 1024 GB * $0.0125/GB) &#43; (1 S3 LIST request * $0.005 / 1000) &#43; (50 TB / 16 MB S3 PUT requests * $0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2016-02-06T22:24:48&#43;08:00">
@@ -503,6 +505,33 @@
 <h2 id="nat-gateway">NAT GATEWAY</h2>
 
 <p><img src="/img/post/aws-billing.png" alt="" /></p>
+
+<h2 id="数据备份s3">数据备份S3</h2>
+
+<p><strong>Infrequent Access Tier, All Storage / Month   $0.0125 per GB</strong></p>
+
+<ul>
+<li>Archive 50 TB into Amazon S3</li>
+</ul>
+
+<p>If you perform a one-time migration of 50 TB of 16 MB files into Amazon S3 in US East (Ohio), it costs you the following to use DataSync:
+(50 TB copied into S3 * 1024 GB * $0.0125/GB) + (1 S3 LIST request * $0.005 / 1000) + (50 TB / 16 MB S3 PUT requests * $0.005 / 1000)
+= $640 + $0 + $16.38
+= $656.38</p>
+
+<p>Total data copied by AWS DataSync per month: 20000 TB x 1024 GB in a TB = 20480000 GB
+Pricing calculations</p>
+
+<p>20,480,000 GB x 0.0125 USD = 256,000.00 USD</p>
+
+<p>AWS DataSync Pricing (monthly): 256,000.00 USD
+AWS DataSync Pricing (yearly): 256,000.00 * 12 = 3,072,000 USD</p>
+
+<h2 id="数据存储s3">数据存储S3</h2>
+
+<p><strong>Frequent Access Tier, Over 500 TB / Month $0.021 per GB</strong></p>
+
+<p>20,480,000 GB x 0.021 USD = 512,000.00 USD  +  READ REQUEST * $0.005 / 1000</p>
 
     </div>
 
