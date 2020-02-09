@@ -28,9 +28,8 @@
   
     
   
-  <meta name="description" content="public subnet A public subnet is a subnet that&rsquo;s associated with a route table that has a route to an Internet gateway
-if your subnet is not associated to a specific route table, then by default it’s going to the main route table
-Internet Gateway An Internet Gateway is a logical connection between an Amazon VPC and the Internet. It is nota physical device. Only one can be associated with each VPC.">
+  <meta name="description" content="An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
+public subnet A public subnet is a subnet that&rsquo;s associated with a route table that has a route to an Internet gateway">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-vpc-notes/">
@@ -139,9 +138,8 @@ Internet Gateway An Internet Gateway is a logical connection between an Amazon V
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/aws-vpc-notes/">
   <meta property="og:title" content="Aws VPC 基础 | NgAPP">
-  <meta property="og:description" content="public subnet A public subnet is a subnet that&rsquo;s associated with a route table that has a route to an Internet gateway
-if your subnet is not associated to a specific route table, then by default it’s going to the main route table
-Internet Gateway An Internet Gateway is a logical connection between an Amazon VPC and the Internet. It is nota physical device. Only one can be associated with each VPC."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
+public subnet A public subnet is a subnet that&rsquo;s associated with a route table that has a route to an Internet gateway"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2016-02-06T07:39:39&#43;08:00">
@@ -421,7 +419,7 @@ Internet Gateway An Internet Gateway is a logical connection between an Amazon V
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -504,6 +502,8 @@ Internet Gateway An Internet Gateway is a logical connection between an Amazon V
     <div class="article-style" itemprop="articleBody">
       
 
+<p>An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.</p>
+
 <h2 id="public-subnet">public subnet</h2>
 
 <hr />
@@ -556,6 +556,20 @@ However:</p>
 
 <p>Security Groups cannot be associated with a NAT Gateway
 You&rsquo;ll need one in each AZ since they only operate in a single AZ</p>
+
+<h2 id="route-table">Route table</h2>
+
+<hr />
+
+<p>Every VPC is attached to an implicit router. This router is not visible to the user and is fully managed and scaled by AWS. What is visible is the route table associated with each subnet, which is used by the VPC router to determine the allowed routes for outbound network traffic leaving a subnet.</p>
+
+<p>every route table contains a default local route to facilitate communication between instances in the same VPC, even across subnets. This intra-VPC local route is implied and cannot be changed.</p>
+
+<p>In the case of the main route table that is associated with a default subnet, there will also be a route out to the Internet via the default gateway for the VPC.</p>
+
+<p>every subnet must be associated with a route table. If the association is not explicitly defined, then a subnet will be implicitly associated with the main route table.</p>
+
+<p>and as such each subnet can route to each other. The fact that the subnets are in different AZs is irrelevant.</p>
 
 <h2 id="vpc-endpoints">VPC Endpoints</h2>
 
