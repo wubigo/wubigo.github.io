@@ -19,6 +19,10 @@ categories = []
   focal_point = ""
 +++
 
+
+An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
+
+
 ## public subnet
 
 ---
@@ -74,6 +78,21 @@ However:
 
 Security Groups cannot be associated with a NAT Gateway
 You'll need one in each AZ since they only operate in a single AZ
+
+
+## Route table
+
+---
+
+Every VPC is attached to an implicit router. This router is not visible to the user and is fully managed and scaled by AWS. What is visible is the route table associated with each subnet, which is used by the VPC router to determine the allowed routes for outbound network traffic leaving a subnet.
+
+every route table contains a default local route to facilitate communication between instances in the same VPC, even across subnets. This intra-VPC local route is implied and cannot be changed.
+
+In the case of the main route table that is associated with a default subnet, there will also be a route out to the Internet via the default gateway for the VPC.
+
+every subnet must be associated with a route table. If the association is not explicitly defined, then a subnet will be implicitly associated with the main route table.
+
+and as such each subnet can route to each other. The fact that the subnets are in different AZs is irrelevant.
 
 ## VPC Endpoints
 
