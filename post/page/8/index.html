@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-11-30T17:51:29&#43;08:00">
+  <meta property="og:updated_time" content="2017-12-02T00:00:00&#43;00:00">
   
 
   
@@ -397,6 +397,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-12-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-12-02-machinelearning101slidedeck/" itemprop="url">Machine Learning 101 slidedeck</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="machine-learning-101-slidedeck">Machine Learning 101 slidedeck</h1>
+
+<p><a href="https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90" target="_blank">https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2134,105 +2221,6 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
 Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
  A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-alpine/" itemprop="url">Docker Alpine</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="set-date">set date</h1>
-
-<pre><code>FROM alpine:3.8
-RUN apk add --no-cache tzdata &amp;&amp; rm -rf /var/cache/apk/*
-ENV TZ Asia/Shanghai
-RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
-</code></pre>
-
-<pre><code>docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash
-</code></pre>
-
-<p>创建<code>/etc/localtime</code></p>
-
-<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre>
-
   </div>
   
 

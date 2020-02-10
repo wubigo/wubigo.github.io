@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="JavaScript Arrow Functions https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html">
+  <meta name="description" content="Single File Components single-file components with a .vue extension is build by tools
+such as Webpack or Browserify
+CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/javascript-arrow-functions/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/js-vue/">
 
   
 
@@ -120,7 +122,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/javascript-arrow-functions/">
+  <link rel="canonical" href="https://wubigo.com/post/js-vue/">
 
   
   
@@ -135,21 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/javascript-arrow-functions/">
-  <meta property="og:title" content="JavaScript Arrow Functions | NgAPP">
-  <meta property="og:description" content="JavaScript Arrow Functions https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/js-vue/">
+  <meta property="og:title" content="Vue notes | NgAPP">
+  <meta property="og:description" content="Single File Components single-file components with a .vue extension is build by tools
+such as Webpack or Browserify
+CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-12-04T12:11:49&#43;08:00">
+  <meta property="article:published_time" content="2018-04-25T12:02:41&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-12-04T12:11:49&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-04-25T12:02:41&#43;08:00">
   
 
   
 
-  <title>JavaScript Arrow Functions | NgAPP</title>
+  
+
+  <title>Vue notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -385,7 +389,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">JavaScript Arrow Functions</h1>
+  <h1 itemprop="name">Vue notes</h1>
 
   
 
@@ -394,8 +398,8 @@
 
 
 
-<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -408,7 +412,7 @@
     
       
     
-    <time>Dec 4, 2018</time>
+    <time>Apr 25, 2018</time>
   </span>
   
 
@@ -432,35 +436,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=JavaScript%20Arrow%20Functions&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjavascript-arrow-functions%2f"
+         href="https://twitter.com/intent/tweet?text=Vue%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjs-vue%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fjavascript-arrow-functions%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fjs-vue%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjavascript-arrow-functions%2f&amp;title=JavaScript%20Arrow%20Functions"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjs-vue%2f&amp;title=Vue%20notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fjavascript-arrow-functions%2f&amp;title=JavaScript%20Arrow%20Functions"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fjs-vue%2f&amp;title=Vue%20notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=JavaScript%20Arrow%20Functions&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fjavascript-arrow-functions%2f">
+         href="mailto:?subject=Vue%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fjs-vue%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -500,9 +504,50 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="javascript-arrow-functions">JavaScript Arrow Functions</h2>
+<h2 id="single-file-components">Single File Components</h2>
 
-<p><a href="https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html" target="_blank">https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html</a></p>
+<p>single-file components with a .vue extension is build by tools</p>
+
+<p>such as Webpack or Browserify</p>
+
+<h1 id="core">CORE</h1>
+
+<ul>
+<li>Virtual DOM</li>
+<li>Component-based UI</li>
+<li>Focus on the view library—separate concerns for routing, state management</li>
+<li>Official component library for building mobile apps</li>
+</ul>
+
+<pre><code>D:\code\API\web&gt;npm config list
+; cli configs
+metrics-registry = &quot;https://registry.npmjs.org/&quot;
+scope = &quot;&quot;
+user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;
+</code></pre>
+
+<pre><code>npm config set registry &lt;registry url&gt;
+</code></pre>
+
+<ul>
+<li>install with another registry</li>
+</ul>
+
+<pre><code>npm install --registry=https://registry.npmjs.org/ 
+</code></pre>
+
+<h1 id="install-vue-cli">install vue-cli</h1>
+
+<pre><code>npm install -g @vue/cli
+</code></pre>
+
+<pre><code>vue create my-project
+</code></pre>
+
+<p>OR</p>
+
+<pre><code>vue ui
+</code></pre>
 
     </div>
 
@@ -511,11 +556,11 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/function/">FUNCTION</a>
-  
-  <a class="badge badge-light" href="/tags/fp/">FP</a>
+  <a class="badge badge-light" href="/tags/web/">WEB</a>
   
   <a class="badge badge-light" href="/tags/js/">JS</a>
+  
+  <a class="badge badge-light" href="/tags/vue/">VUE</a>
   
 </div>
 
@@ -545,11 +590,11 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/gatsby-notes/">Gatsby Notes</a></li>
-          
-          <li><a href="/post/js-vue/">Vue notes</a></li>
-          
           <li><a href="/post/js-vue-cli-note/">Web vue-cli Note</a></li>
+          
+          <li><a href="/post/linux-chrome/">Linux Chrome</a></li>
+          
+          <li><a href="/post/startup-it-cloud-hosting/">创业公司IT云服务系列之内容托管服务</a></li>
           
           <li><a href="/post/nodejs-notes/">Nodejs Notes</a></li>
           
