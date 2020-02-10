@@ -1,11 +1,11 @@
 +++
-title = "Web Vue"
+title = "Vue notes"
 date = 2018-04-25T12:02:41+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["WEB", "JS"]
+tags = ["WEB", "JS", "VUE"]
 categories = []
 
 # Featured image
@@ -19,6 +19,11 @@ categories = []
   focal_point = ""
 +++
 
+## Single File Components
+
+single-file components with a .vue extension is build by tools 
+
+such as Webpack or Browserify
 
 # CORE
 
