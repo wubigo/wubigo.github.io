@@ -19,6 +19,31 @@ categories = []
   focal_point = ""
 +++
 
+## webpack-simple
+
+Webpack is a module bundler for Javascript applications,
+
+it starts at the entrypoint and then build a dependency 
+
+graph of the whole application, pulling those dependencies 
+
+into one or more bundles that can be included in application.
+
+It supports multiple different file types through loaders,
+
+loaders will take files that have no concept of modules (e.g. css)
+
+and process them in a way that allows them to participate
+
+in the overall dependency graph that webpack is building.
+
+
+```
+npm install -g @vue/cli-init
+vue init webpack-simple webpack-simple-app
+```
+
+
 ## Inspect Webpack Config Without Ejecting
 
 ```
