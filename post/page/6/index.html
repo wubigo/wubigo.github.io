@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-03-07T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-03-20T18:47:37&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-openshift/" itemprop="url">K8s Openshift</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2127,106 +2211,6 @@ and process them in a way that allows them to participate
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/startup-it-cloud-hosting/" itemprop="url">创业公司IT云服务系列之内容托管服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="邮枪concept-plan-免费用户并增加一张信用卡-额度介绍">邮枪Concept plan(免费用户并增加一张信用卡)额度介绍</h2>
-
-<ul>
-<li>每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封</li>
-<li>接收邮件免费</li>
-<li>支持一千个定制域名</li>
-<li>可以向任何邮箱地址发送而不用授权</li>
-</ul>
-
-<h2 id="创建发送账号">创建发送账号</h2>
-
-<p><img src="/img/post/smtp-user.png" alt="" /></p>
-
-<h2 id="接收邮件">接收邮件</h2>
-
-<p><img src="/img/post/pop3-forward.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-17 21:48:53 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-17 21:48:53 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 17, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/startup-it-cloud-storage/" itemprop="url">创业公司IT云服务系列之数据存储</a>
   </h3>
 
   
