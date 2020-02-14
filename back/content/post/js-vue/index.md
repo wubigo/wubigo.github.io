@@ -25,7 +25,7 @@ single-file components with a .vue extension is build by tools
 
 such as Webpack or Browserify
 
-# CORE
+## CORE
 
 - Virtual DOM
 - Component-based UI
@@ -53,7 +53,7 @@ npm install --registry=https://registry.npmjs.org/
 ```
 
 
-# install vue-cli
+## install vue-cli
 
 ```
 npm install -g @vue/cli
@@ -67,3 +67,14 @@ OR
 ```
 vue ui
 ```
+
+## Vue props
+
+Props are how the variables and other information pass around between different components. 
+
+- Props are passed down the component tree to descendents (not up)
+- Props are read-only and cannot be modified 
+
+Vue uses one way data flow, meaning that data can only flow from a parent into a child component. 
+
+And because that parent component "owns" that value it passed down, the child can't modify it
