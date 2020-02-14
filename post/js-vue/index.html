@@ -510,7 +510,7 @@ CORE  Virtual DOM Component-based UI Focus on the view library—separate concer
 
 <p>such as Webpack or Browserify</p>
 
-<h1 id="core">CORE</h1>
+<h2 id="core">CORE</h2>
 
 <ul>
 <li>Virtual DOM</li>
@@ -536,7 +536,7 @@ user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;
 <pre><code>npm install --registry=https://registry.npmjs.org/ 
 </code></pre>
 
-<h1 id="install-vue-cli">install vue-cli</h1>
+<h2 id="install-vue-cli">install vue-cli</h2>
 
 <pre><code>npm install -g @vue/cli
 </code></pre>
@@ -548,6 +548,19 @@ user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;
 
 <pre><code>vue ui
 </code></pre>
+
+<h2 id="vue-props">Vue props</h2>
+
+<p>Props are how the variables and other information pass around between different components.</p>
+
+<ul>
+<li>Props are passed down the component tree to descendents (not up)</li>
+<li>Props are read-only and cannot be modified</li>
+</ul>
+
+<p>Vue uses one way data flow, meaning that data can only flow from a parent into a child component.</p>
+
+<p>And because that parent component &ldquo;owns&rdquo; that value it passed down, the child can&rsquo;t modify it</p>
 
     </div>
 
