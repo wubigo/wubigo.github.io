@@ -30,7 +30,8 @@
   
   <meta name="description" content="Single File Components single-file components with a .vue extension is build by tools
 such as Webpack or Browserify
-CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry.">
+A single-file component consists of three parts:
+- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/js-vue/">
@@ -141,7 +142,8 @@ CORE  Virtual DOM Component-based UI Focus on the view library—separate concer
   <meta property="og:title" content="Vue notes | NgAPP">
   <meta property="og:description" content="Single File Components single-file components with a .vue extension is build by tools
 such as Webpack or Browserify
-CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.npmjs.org/&quot; scope = &quot;&quot; user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;  npm config set registry &lt;registry url&gt;   install with another registry  npm install --registry=https://registry."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+A single-file component consists of three parts:
+- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-04-25T12:02:41&#43;08:00">
@@ -421,7 +423,7 @@ CORE  Virtual DOM Component-based UI Focus on the view library—separate concer
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -510,6 +512,14 @@ CORE  Virtual DOM Component-based UI Focus on the view library—separate concer
 
 <p>such as Webpack or Browserify</p>
 
+<p>A single-file component consists of three parts:</p>
+
+<pre><code>- &lt;template&gt; which contains the component’s markup in plain HTML
+- &lt;script&gt; which exports the component object constructor that consists of all the JS logic within
+that component
+- &lt;style&gt; which contains all the component styles
+</code></pre>
+
 <h2 id="core">CORE</h2>
 
 <ul>
@@ -560,7 +570,29 @@ user-agent = &quot;npm/6.4.1 node/v10.15.3 win32 x64&quot;
 
 <p>Vue uses one way data flow, meaning that data can only flow from a parent into a child component.</p>
 
-<p>And because that parent component &ldquo;owns&rdquo; that value it passed down, the child can&rsquo;t modify it</p>
+<p>And because that parent component &ldquo;owns&rdquo; that value it passed down, the child can&rsquo;t modify it.</p>
+
+<p>For a child component to use the props provided to it, it needs to explictly declare the props it</p>
+
+<p>receives with the props option</p>
+
+<p>The v-bind directive is used to bind dynamic values (or objects) as props in a parent instance</p>
+
+<p>The v-bind directive can be shortened with the : symbol:</p>
+
+<pre><code>
+// the full syntax
+&lt;img v-bind:src=&quot;prop1&quot; /&gt;
+// the shorthand syntax
+&lt;img :src=&quot;prop1&quot; /&gt;
+
+
+// the full syntax
+&lt;span v-on:click=&quot;func1(prop1)&quot;&gt;&lt;/span&gt;
+// the shorthand syntax
+&lt;span @click=&quot;func1(prop1)&quot;&gt;&lt;/span&gt;
+
+</code></pre>
 
     </div>
 
