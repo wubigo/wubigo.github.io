@@ -28,6 +28,17 @@ categories = []
 
 - 股票市场的收益是不对称的：在任何一个特定的年份，大部分收益来自有限的几天。
 
+
+
+## ETF
+
+Finally, trading flexibility is a second double-edged sword. The ability to trade anytime and as much as you want are a benefit to busy investors and active traders, but that flexibility can entice some people to trade too much. High turnover of a portfolio increases its cost and reduces returns.
+
+https://www.fidelity.com/learning-center/investment-products/etf/drawbacks-of-etfs
+
+
+约翰博格做过一个统计，在1980-2010年ETF投资者的年化收益是7%，普通指数基金投资的年化收益是9%，相比而言ETF投资者的年化收益还低，给出的解释是ETF交易太方便，导致投资者管不住手频繁交易，频繁交易不仅造成大笔手续费的之处，同时还有很大的踏空风险
+
 ## 数据/融资融券
 
 |日期|       本日融资买入额|       本日融券余量金额 |     本日融资融券余额(元)  |     交易所
@@ -72,7 +83,7 @@ categories = []
 
 20200224| 证券买入 |512880 |证券ETF | |  |-3633.33 |  |.00 |.00
 20200225| 证券买入 |512880 |证券ETF | |  |-34088.71 |  |.00 |.00
-
+20200226| 证券买入 |512880 |证券ETF | |  |-3218.31 |  |.00 |.00
 
 
 
