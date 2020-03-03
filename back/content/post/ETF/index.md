@@ -86,11 +86,13 @@ https://www.fidelity.com/learning-center/investment-products/etf/drawbacks-of-et
 20200226| 证券买入 |512880 |证券ETF | |  |-3218.31 |  |.00 |.00
 
 
-
+28日中国平安在港股收市前集合竞价巨额成交959.5万手*86.65=8.3亿港币
 
 ## 大宗交易
 
 数据/大宗交易
+
+
 
 
 

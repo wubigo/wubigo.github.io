@@ -19,6 +19,21 @@ categories = []
   focal_point = ""
 +++
 
+## empty interface (interface{} is an empty interface)
+
+```
+An interface is two things:
+
+it is a set of methods,
+but it is also a type
+```
+
+The interface{} type, the empty interface is the interface that has no methods.
+
+Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically,all types satisfy the empty interface.
+
+That means that if you write a function that takes an interface{} value as a parameter, you can supply that function with any value.
+
 # Method's receiver
 
 - go don't user special name like( this or self ) for the receiver

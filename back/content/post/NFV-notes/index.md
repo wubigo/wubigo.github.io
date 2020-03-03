@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["NFV"]
+tags = ["NFV","SDN"]
 categories = []
 
 # Featured image
@@ -18,6 +18,10 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
+
+## VLAN
+
+VLAN（802.1Q）是一个局域网技术，能够将一个局域网的广播域隔离为多个广播域，常被用来实现一个站点内不同的部门间的隔离
 
 
 ## 数据中心网络虚拟化——NVo3技术端到端隧道
@@ -42,3 +46,7 @@ Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限
 ### NvGRE
 
 NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6
+
+
+https://www.sdnlab.com/nv-subject/
+
