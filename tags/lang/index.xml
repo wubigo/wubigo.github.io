@@ -83,9 +83,9 @@ Modules record precise dependency requirements and create reproducible builds.
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>Method&amp;rsquo;s receiver  go don&amp;rsquo;t user special name like( this or self ) for the receiver  func (p Point) MoveBy(factor float){ p.X += factor //-&amp;gt; this.X += factor }   Pointer receiver  project-layout Internal app/pkg Directory Clarification Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &amp;lsquo;/pkg&amp;rsquo; and the private shared code goes in /internal/pkg
-https://github.com/golang-standards/project-layout/issues/9
-vendor package go help gopath find .</description>
+      <description>empty interface (interface{} is an empty interface) An interface is two things: it is a set of methods, but it is also a type  The interface{} type, the empty interface is the interface that has no methods.
+Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically,all types satisfy the empty interface.
+That means that if you write a function that takes an interface{} value as a parameter, you can supply that function with any value.</description>
     </item>
     
     <item>
