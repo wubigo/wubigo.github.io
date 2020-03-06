@@ -19,6 +19,31 @@ categories = []
   focal_point = ""
 +++
 
+## How to check if a map contains a key
+
+```
+func TestMap(t *testing.T){
+	attended := map[string]string{
+		"Ann": "t",
+		"Joe": "r",
+
+	}
+
+	val, rem1 := attended["mm"]
+
+	fmt.Print(val, rem1)
+}
+
+```
+
+if statements in Go can include both a condition and an initialization statement. The example above uses both:
+
+initializes two variables - val will receive either the value of "foo" from the map or a "zero value" (in this case the empty string) and ok will receive a bool that will be set to true if "foo" was actually present in the map
+
+evaluates ok, which will be true if "foo" was in the map
+
+
+
 ## Constructors
 
 two accepted best practices:
