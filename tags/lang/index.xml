@@ -83,8 +83,8 @@ Modules record precise dependency requirements and create reproducible builds.
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &amp;quot;Ann&amp;quot;: &amp;quot;t&amp;quot;, &amp;quot;Joe&amp;quot;: &amp;quot;r&amp;quot;, } val, rem1 := attended[&amp;quot;mm&amp;quot;] fmt.Print(val, rem1) }  if statements in Go can include both a condition and an initialization statement. The example above uses both:
-initializes two variables - val will receive either the value of &amp;ldquo;foo&amp;rdquo; from the map or a &amp;ldquo;zero value&amp;rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &amp;ldquo;foo&amp;rdquo; was actually present in the map</description>
+      <description>How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &amp;quot;Ann&amp;quot;: &amp;quot;t&amp;quot;, &amp;quot;Joe&amp;quot;: &amp;quot;r&amp;quot;, } val, ok := attended[&amp;quot;mm&amp;quot;] fmt.Print(val, ok) }  if statements in Go can include both a condition and an initialization statement. The example above uses both:
+ initializes two variables - val will receive either the value of &amp;ldquo;foo&amp;rdquo; from the map or a &amp;ldquo;zero value&amp;rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &amp;ldquo;foo&amp;rdquo; was actually present in the map</description>
     </item>
     
     <item>
