@@ -940,8 +940,8 @@ logging driver To configure the Docker daemon to default to a specific logging d
 
   
   <div class="article-style" itemprop="articleBody">
-    Constructors two accepted best practices:
- Make the zero value of your struct a sensible default. (While this looks strange to most people coming from &ldquo;traditional&rdquo; oop it often works and is really convenient). Provide a function func New() YourTyp or if you have several such types in your package functions func NewYourType1() YourType1 and so on.  Document if a zero value of your type is usable or not (in which case it has to be set up by one of the New&hellip; functions
+    How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &quot;Ann&quot;: &quot;t&quot;, &quot;Joe&quot;: &quot;r&quot;, } val, rem1 := attended[&quot;mm&quot;] fmt.Print(val, rem1) }  if statements in Go can include both a condition and an initialization statement. The example above uses both:
+initializes two variables - val will receive either the value of &ldquo;foo&rdquo; from the map or a &ldquo;zero value&rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &ldquo;foo&rdquo; was actually present in the map
   </div>
   
 
