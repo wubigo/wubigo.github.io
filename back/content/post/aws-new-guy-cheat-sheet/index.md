@@ -108,3 +108,9 @@ IPv6: Data transferred “in” to and “out” from an IPv6 address in a diffe
 ## 搭建S3 web站点
 
 [web hosting](/post/aws-s3-web-hosting/)
+
+
+
+## SQS vs SNS vs kinesis
+
+https://medium.com/better-programming/moving-messages-in-aws-comparing-kinesis-sqs-and-sns-32cb5d2f89d5

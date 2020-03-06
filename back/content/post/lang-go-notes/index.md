@@ -19,6 +19,16 @@ categories = []
   focal_point = ""
 +++
 
+## Constructors
+
+two accepted best practices:
+
+- Make the zero value of your struct a sensible default. (While this looks strange to most people coming from "traditional" oop it often works and is really convenient).
+- Provide a function func New() YourTyp or if you have several such types in your package functions func NewYourType1() YourType1 and so on.
+
+Document if a zero value of your type is usable or not (in which case it has to be set up by one of the New... functions
+
+
 ## empty interface (interface{} is an empty interface)
 
 ```
