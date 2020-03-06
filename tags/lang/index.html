@@ -469,9 +469,8 @@ Modules record precise dependency requirements and create reproducible builds.
     <h2><a href="/post/lang-go-notes/">GO NOTES</a></h2>
     <div class="article-style">
       
-      empty interface (interface{} is an empty interface) An interface is two things: it is a set of methods, but it is also a type  The interface{} type, the empty interface is the interface that has no methods.
-Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically,all types satisfy the empty interface.
-That means that if you write a function that takes an interface{} value as a parameter, you can supply that function with any value.
+      Constructors two accepted best practices:
+ Make the zero value of your struct a sensible default. (While this looks strange to most people coming from &ldquo;traditional&rdquo; oop it often works and is really convenient). Provide a function func New() YourTyp or if you have several such types in your package functions func NewYourType1() YourType1 and so on.  Document if a zero value of your type is usable or not (in which case it has to be set up by one of the New&hellip; functions
       
     </div>
   </div>
