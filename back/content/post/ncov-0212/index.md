@@ -1,7 +1,7 @@
 +++
 title = "攻克武汉病毒, 中国没有旁观者"
 date = 2020-02-12T17:43:33+08:00
-draft = false
+draft = true
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.

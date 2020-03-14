@@ -124,3 +124,11 @@ https://www.fidelity.com/learning-center/investment-products/etf/drawbacks-of-et
 
 
 
+## 笔记
+
+20200313  对于合适的标的，在股市下跌的时候就果断买入，不要总是期待在跌停价下单。而且当时的仓位大概在7成, 我挂了好都跌停的买入单
+
+          但开盘集合竞价没有跌停就卖出新华保险，开盘后下跌小幅反弹后就清仓了。 
+
+
+

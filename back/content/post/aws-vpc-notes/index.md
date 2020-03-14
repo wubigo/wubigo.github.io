@@ -22,6 +22,11 @@ categories = []
 
 An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
 
+##  security group
+
+- security group as the source for a rule
+
+When you specify a security group as the source for a rule, traffic is allowed from the network interfaces that are associated with the source security group for the specified protocol and port. Adding a security group as a source does not add rules from the source security group
 
 ## public subnet
 
