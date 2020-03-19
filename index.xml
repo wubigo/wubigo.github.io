@@ -6,8 +6,34 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Dec 2019 06:33:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2020 16:28:19 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>UAA Shiro Notes</title>
+      <link>https://wubigo.com/post/uaa-shiro-notes/</link>
+      <pubDate>Thu, 19 Mar 2020 16:28:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/uaa-shiro-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;requiresuser-annotation&#34;&gt;RequiresUser annotation&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Requires the current Subject to be an application user for the annotated class/instance/method to be
+accessed or invoked. This is less restrictive than the RequiresAuthentication annotation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Shiro defines a &amp;ldquo;user&amp;rdquo; as a Subject that is either &amp;ldquo;remembered&amp;rdquo; or authenticated:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;An authenticated user is a Subject that has successfully logged in (proven their identity) during their current session.&lt;/li&gt;
+&lt;li&gt;A remembered user is any Subject that has proven their identity at least once, although not necessarily during their current session, and asked the system to remember them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note however that when a new session is created for the corresponding user, that user&amp;rsquo;s identity would be remembered, but they are NOT considered authenticated&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>函数计算VPC支持更新</title>
@@ -1111,33 +1137,6 @@ Default output format [None]:
 &lt;li&gt;&lt;a href=&#34;https://hub.docker.com/r/amazon/aws-stepfunctions-local&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/amazon/aws-stepfunctions-local&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&#34; target=&#34;_blank&#34;&gt;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Minio配置为B2存储网关</title>
-      <link>https://wubigo.com/post/minio-as-a-gateway-to-b2/</link>
-      <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
-      <description>
-
-&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/minio-gateway-b2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;下载B2 TLS安全证书&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt
-
-mv b2.crt .minio/certs/CAs/
-
-set MINIO_ACCESS_KEY=B2_keyID
-set MINIO_SECRET_KEY=B2_applicationKey
-minio gateway b2
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
+  <meta property="og:updated_time" content="2020-03-19T16:28:19&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-03-19 16:28:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-03-19 16:28:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 19, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/uaa-shiro-notes/" itemprop="url">UAA Shiro Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    RequiresUser annotation  Requires the current Subject to be an application user for the annotated class/instance/method to be accessed or invoked. This is less restrictive than the RequiresAuthentication annotation.
+ Shiro defines a &ldquo;user&rdquo; as a Subject that is either &ldquo;remembered&rdquo; or authenticated:
+ An authenticated user is a Subject that has successfully logged in (proven their identity) during their current session. A remembered user is any Subject that has proven their identity at least once, although not necessarily during their current session, and asked the system to remember them.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2247,114 +2331,6 @@ The Service command cannot be started, either because it is disabled or because 
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
  头  { &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }   负载  { &quot;id&quot;: 123, &quot;name&quot;: &quot;hi tico&quot;, &quot;is_admin&quot;: true, &quot;expire&quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) + &quot;.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-python3.5-remove/" itemprop="url">Linux删除Python3.5</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>之前一直用pycharm,今天把code升级到1.3.2的时候，
-突然提示我安装python扩展，决定试试。
-结果发现python的解释器设置有问题，
-总是设置为系统的解释器，
-而虚拟环境的解释器不起作用。</p>
-
-<pre><code>apt remove --purge python3.5
-reboot
-</code></pre>
-
-<p>结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
-造成了很大的麻烦。</p>
-
-<p>Ctrl+Alt+F1进入虚拟控制台登录</p>
-
-<pre><code>apt install python3.5
-apt install ubuntu-desktop
-</code></pre>
-
-<p>重新安装chrome和virtualbox</p>
-
-<pre><code>cd /etc/apt/sources.list.d
-sudo mv google-chrome.list.save google-chrome.list
-apt update
-apt install google-chrome-stable
-</code></pre>
-
   </div>
   
 
