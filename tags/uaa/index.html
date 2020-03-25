@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-03-19T16:28:19&#43;08:00">
+  <meta property="og:updated_time" content="2019-04-28T17:08:07&#43;08:00">
   
 
   
@@ -400,17 +400,6 @@
   
   
   <div>
-    <h2><a href="/post/uaa-shiro-notes/">UAA Shiro Notes</a></h2>
-    <div class="article-style">
-      
-      RequiresUser annotation  Requires the current Subject to be an application user for the annotated class/instance/method to be accessed or invoked. This is less restrictive than the RequiresAuthentication annotation.
- Shiro defines a &ldquo;user&rdquo; as a Subject that is either &ldquo;remembered&rdquo; or authenticated:
- An authenticated user is a Subject that has successfully logged in (proven their identity) during their current session. A remembered user is any Subject that has proven their identity at least once, although not necessarily during their current session, and asked the system to remember them.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="/post/microservices-authentication-and-authorization/">微服务认证和授权（MAA）指南</a></h2>
     <div class="article-style">
       
@@ -422,6 +411,17 @@
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
  头  { &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }   负载  { &quot;id&quot;: 123, &quot;name&quot;: &quot;hi tico&quot;, &quot;is_admin&quot;: true, &quot;expire&quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) + &quot;.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/uaa-shiro-notes/">UAA Shiro Notes</a></h2>
+    <div class="article-style">
+      
+      RequiresUser annotation  Requires the current Subject to be an application user for the annotated class/instance/method to be accessed or invoked. This is less restrictive than the RequiresAuthentication annotation.
+ Shiro defines a &ldquo;user&rdquo; as a Subject that is either &ldquo;remembered&rdquo; or authenticated:
+ An authenticated user is a Subject that has successfully logged in (proven their identity) during their current session. A remembered user is any Subject that has proven their identity at least once, although not necessarily during their current session, and asked the system to remember them.
       
     </div>
   </div>
