@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -406,10 +406,7 @@
       介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
       
     </div>
   </div>
@@ -575,7 +572,7 @@ sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

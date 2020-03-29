@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
+  <meta property="og:updated_time" content="2016-04-13T09:23:00&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 13, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-dockerfile-entrypoint/" itemprop="url">Docker Dockerfile ENTRYPOINT</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Dockerfile ENTRYPOINT有两种形式
+ exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1733,10 +1816,10 @@ docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f37
 <h1 id="dig-the-custom-domain-to-confirm-dns-setup">dig the custom domain to confirm DNS setup</h1>
 
 <pre><code>$dig +noall +answer wubigo.com
-wubigo.com.		285	IN	A	185.199.110.153
-wubigo.com.		285	IN	A	185.199.108.153
-wubigo.com.		285	IN	A	185.199.111.153
-wubigo.com.		285	IN	A	185.199.109.153
+wubigo.com.     285 IN  A   185.199.110.153
+wubigo.com.     285 IN  A   185.199.108.153
+wubigo.com.     285 IN  A   185.199.111.153
+wubigo.com.     285 IN  A   185.199.109.153
 
 </code></pre>
 
@@ -2085,90 +2168,6 @@ ubuntu@ip-192-168-133-137:/etc/nginx$ nginx -V nginx version: nginx/1.12.1 built
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-03-11 10:18:35 &#43;0800 CST" itemprop="datePublished">
-<meta content="2015-03-11 10:18:35 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 11, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/data-warehouse/" itemprop="url">数据仓库</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    cloud data management https://dataschool.com/data-governance
-三层数据仓库架构 Generally a data warehouses adopts a three-tier architecture. Following are the three tiers of the data warehouse architecture.
- Bottom Tier − The bottom tier of the architecture is the data warehouse database server. It is the relational database system. We use the back end tools and utilities to feed data into the bottom tier. These back end tools and utilities perform the Extract, Clean, Load, and refresh functions.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2342,7 +2341,7 @@ ubuntu@ip-192-168-133-137:/etc/nginx$ nginx -V nginx version: nginx/1.12.1 built
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

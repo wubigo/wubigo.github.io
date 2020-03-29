@@ -17,8 +17,7 @@
       <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
       
       <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
-      <description> 配置  下载B2 TLS安全证书
-openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2   </description>
+      <description> 配置  下载B2 TLS安全证书  openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2  </description>
     </item>
     
     <item>
@@ -36,10 +35,7 @@ openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv 
       <pubDate>Tue, 11 Dec 2018 15:46:02 +0800</pubDate>
       
       <guid>https://wubigo.com/post/minio-install-from-source/</guid>
-      <description>安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+      <description>安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
     </item>
     
     <item>

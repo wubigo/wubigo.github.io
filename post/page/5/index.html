@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
+  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
   
 
   
@@ -465,6 +465,89 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
   </h3>
 
@@ -643,7 +726,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+  management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
   </div>
   
@@ -826,7 +909,7 @@ Customer User: customer@thingsboard.org / customer
     Single File Components single-file components with a .vue extension is build by tools
 such as Webpack or Browserify
 A single-file component consists of three parts:
-- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
+- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.
   </div>
   
 
@@ -1761,7 +1844,7 @@ Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
+  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
   </div>
   
 
@@ -2017,16 +2100,18 @@ dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
 <h2 id="proxy">proxy</h2>
 
 <ul>
-<li><p>从 Github 的代码库 clone</p>
+<li>从 Github 的代码库 clone</li>
+</ul>
 
 <pre><code>go get -u github.com/golang/text
 mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
 
 go get -u github.com/golang/crypto
 mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
-</code></pre></li>
+</code></pre>
 
-<li><p>设置 GOPROXY 环境变量配置代理</p></li>
+<ul>
+<li>设置 GOPROXY 环境变量配置代理</li>
 </ul>
 
 <p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
@@ -2126,90 +2211,6 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
     v3.11.0-&gt;k8s 1.11
 openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
 identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-03-07-connectingtosslservices/" itemprop="url">Connecting to SSL services</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JDK Version java -version openjdk version &quot;1.8.0_151&quot; OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12) OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)  Verify that the target server is configured to serve SSL https://www.ssllabs.com/ssltest/
-Connecting to SSL services https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html
-If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you are using Sun’s JDK, you need to install the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files. See the following links for more information:
   </div>
   
 
@@ -2392,7 +2393,7 @@ If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you ar
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NgAPP on NgAPP</title>
@@ -5,8 +6,38 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Dec 2019 06:33:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2020 02:27:21 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>广告拦截</title>
+      <link>https://wubigo.com/post/ad-blocking/</link>
+      <pubDate>Mon, 30 Mar 2020 02:27:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/ad-blocking/</guid>
+      <description>
+
+&lt;p&gt;上网，最让人无法忍受的是大量的广告影响自己的有限的注意力。&lt;/p&gt;
+
+&lt;p&gt;以前的做法是尽量避免浏览带有大量广告的网站。&lt;/p&gt;
+
+&lt;p&gt;今天介绍几款可以主动屏蔽商业广告的工具。&lt;/p&gt;
+
+&lt;h2 id=&#34;基于操作系统&#34;&gt;基于操作系统&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/pi-hole/pi-hole&#34; target=&#34;_blank&#34;&gt;https://github.com/pi-hole/pi-hole&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;基于浏览器&#34;&gt;基于浏览器&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Adblock Plus | The world&amp;rsquo;s # 1 free ad blocker&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/ad-blocking.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>函数计算VPC支持更新</title>
@@ -215,13 +246,16 @@ export PATH=$PATH:$GRAAL_HOME/bin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
+&lt;li&gt;检查&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;js --version
 GraalVM JavaScript (GraalVM CE Native 19.2.1)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装native-image&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;gu install native-image
 &lt;/code&gt;&lt;/pre&gt;
@@ -235,8 +269,7 @@ native-image             19.2.1              Native Image        github.com
 python                   19.2.1              Graal.Python        github.com
 R                        19.2.1              FastR               github.com
 ruby                     19.2.1              TruffleRuby         github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
 
@@ -246,11 +279,11 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
+&lt;li&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
 
@@ -262,7 +295,8 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
+&lt;li&gt;编译&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;javac HelloWorld.java
 native-image -cp . HelloWorld
@@ -285,14 +319,15 @@ Build on Server(pid: 20375, port: 45977)
 [helloworld:20375]        write:   1,153.04 ms
 [helloworld:20375]      [total]:  62,321.01 ms
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;./helloworld
 Hello World
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
 
@@ -502,20 +537,24 @@ Hello World
 &lt;h1 id=&#34;安装docker&#34;&gt;安装DOCKER&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/p&gt;
+&lt;li&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -d Ubuntu-16.04
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;安装docker&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装docker&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
 $ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
 $ sudo usermod -aG docker $USER
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;启动docker服务&lt;/p&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;启动docker服务&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;/usr/local/sbin/start_docker.sh&lt;/code&gt;&lt;/p&gt;
@@ -951,15 +990,17 @@ Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
 &lt;p&gt;建议通过源代码安装&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;下载源代码&lt;/p&gt;
+&lt;li&gt;下载源代码&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone git@github.com:localstack/localstack.git
 git fetch --all
 git checkout tags/v0.10.3 -b v0.10.3
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;启用需要使用的AWS服务&lt;/p&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;启用需要使用的AWS服务&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。&lt;/p&gt;
@@ -1019,17 +1060,18 @@ localstack_1  | Starting mock StepFunctions (http port 4585)...
 &lt;h2 id=&#34;安装aws客户端-a-name-install-aws-sdk-a&#34;&gt;安装AWS客户端&lt;a name=&#34;install_aws_sdk&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装到虚拟环境&lt;/p&gt;
+&lt;li&gt;安装到虚拟环境&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;pip install awscli
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;可以安装到系统环境&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;配置AWS CLI&lt;/p&gt;
+&lt;li&gt;配置AWS CLI&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws configure
 
@@ -1038,8 +1080,7 @@ AWS Secret Access Key [None]: fake-key
 Default region name [local]: local
 Default output format [None]:
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;验证服务编排&#34;&gt;验证服务编排&lt;/h1&gt;
 
@@ -1056,29 +1097,31 @@ Default output format [None]:
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;创建一个HelloWorld工作流&lt;/p&gt;
+&lt;li&gt;创建一个HelloWorld工作流&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;
 (venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &amp;quot;{\&amp;quot;Comment\&amp;quot;: \&amp;quot;A Hello World example of the Amazon States Language using a Pass state\&amp;quot;,\&amp;quot;StartAt\&amp;quot;: \&amp;quot;HelloWorld\&amp;quot;,\&amp;quot;States\&amp;quot;: {\&amp;quot;HelloWorld\&amp;quot;: {\&amp;quot;Type\&amp;quot;: \&amp;quot;Pass\&amp;quot;,\&amp;quot;End\&amp;quot;: true}}}&amp;quot; --name &amp;quot;HelloWorld&amp;quot; --role-arn &amp;quot;arn:aws:iam::012345678901:role/DummyRole&amp;quot;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;显示创建的工作流&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;显示创建的工作流&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
 {
-&amp;quot;stateMachines&amp;quot;: [
-    {
-        &amp;quot;creationDate&amp;quot;: 1568199315.809,
-        &amp;quot;stateMachineArn&amp;quot;: &amp;quot;arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld&amp;quot;,
-        &amp;quot;name&amp;quot;: &amp;quot;HelloWorld&amp;quot;
-    }
-]
+    &amp;quot;stateMachines&amp;quot;: [
+        {
+            &amp;quot;creationDate&amp;quot;: 1568199315.809,
+            &amp;quot;stateMachineArn&amp;quot;: &amp;quot;arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld&amp;quot;,
+            &amp;quot;name&amp;quot;: &amp;quot;HelloWorld&amp;quot;
+        }
+    ]
 }
 
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;工作流已经创建，你可以启动工作流，&lt;/p&gt;
 
@@ -1097,33 +1140,6 @@ Default output format [None]:
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://hub.docker.com/r/amazon/aws-stepfunctions-local&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/amazon/aws-stepfunctions-local&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&#34; target=&#34;_blank&#34;&gt;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Minio配置为B2存储网关</title>
-      <link>https://wubigo.com/post/minio-as-a-gateway-to-b2/</link>
-      <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
-      <description>
-
-&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/minio-gateway-b2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;下载B2 TLS安全证书&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt
-
-mv b2.crt .minio/certs/CAs/
-
-set MINIO_ACCESS_KEY=B2_keyID
-set MINIO_SECRET_KEY=B2_applicationKey
-minio gateway b2
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

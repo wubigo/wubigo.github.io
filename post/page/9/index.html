@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
+  <meta property="og:updated_time" content="2017-03-31T15:07:18&#43;08:00">
   
 
   
@@ -397,6 +397,105 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-alpine/" itemprop="url">Docker Alpine</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="set-date">set date</h1>
+
+<pre><code>FROM alpine:3.8
+RUN apk add --no-cache tzdata &amp;&amp; rm -rf /var/cache/apk/*
+ENV TZ Asia/Shanghai
+RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
+</code></pre>
+
+<pre><code>docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash
+</code></pre>
+
+<p>创建<code>/etc/localtime</code></p>
+
+<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -773,7 +872,7 @@ Modules record precise dependency requirements and create reproducible builds.
     Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
   </div>
   
 
@@ -940,9 +1039,7 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
   
   <div class="article-style" itemprop="articleBody">
     ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
-ForwardAgent yes  Enable ssh-agent on main device
-  .bashrc
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
 SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
   </div>
   
@@ -1289,9 +1386,7 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境
-git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
-git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID
+ 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin https://github.com/Fuang/wubigo.github.io.git (fetch) origin https://github.com/Fuang/wubigo.github.io.git (push) upstream git@github.com:wubigo/wubigo.github.io.git (fetch) upstream git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.
   </div>
   
 
@@ -1373,11 +1468,7 @@ git fetch upstream git checkout master git rebase upstream/master git push  查�
 
   
   <div class="article-style" itemprop="articleBody">
-    准备  创建角色和授权
-kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
+    准备  创建角色和授权  kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories  开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
   </div>
   
 
@@ -1818,10 +1909,7 @@ helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quo
     介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
   </div>
   
 
@@ -2101,91 +2189,6 @@ The auto-assign public IP address feature for this instance is disabled because 
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 25, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dns-config-for-github-pages/" itemprop="url">DNS配置Github Pages</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Namecheap不支持根域(apex doamin/naked domain/bare domain)的ALIAS记录
-在代码仓库的根目录创建CNAME文件 CNME文件包括根域域名
-tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条指向根域的A记录，一条指向子域的CNAME记录 AN A Record for @(apex doamin) and a cname record(Alias) for github 不要在github页使用通配符 dns 记录! 否则没有指定的子域将有被别人使用的风险
-确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Ubuntu &lt;&lt;&gt;&gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com.	IN	A www.wubigo.com.	1	IN	CNAME	wubigo.github.io. wubigo.github.io.	3462	IN	A	185.199.111.153 wubigo.github.io.	3462	IN	A	185.199.110.153 wubigo.github.io.	3462	IN	A	185.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2359,7 +2362,7 @@ tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条�
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -28,10 +28,7 @@
   
     
   
-  <meta name="description" content="安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.">
+  <meta name="description" content="安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/minio-install-from-source/">
@@ -140,10 +137,7 @@ go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $G
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/minio-install-from-source/">
   <meta property="og:title" content="Minio源代码安装 | NgAPP">
-  <meta property="og:description" content="安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-12-11T15:46:02&#43;08:00">
@@ -511,28 +505,32 @@ go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $G
 <h3 id="从最新源代码发布版安装">从最新源代码发布版安装</h3>
 
 <ul>
-<li><p>git设置代理</p>
+<li>git设置代理</li>
+</ul>
 
 <pre><code>[user]
-	email = hi@wubigo.com
-	name = bigo
+    email = hi@wubigo.com
+    name = bigo
 [http]
-	proxy = http://127.0.0.1:49210
-	sslverify = false
+    proxy = http://127.0.0.1:49210
+    sslverify = false
 
-</code></pre></li>
+</code></pre>
 
-<li><p>系统代理</p>
+<ul>
+<li>系统代理</li>
+</ul>
 
 <pre><code>set HTTP_PROXY=http://127.0.0.1:49210/
 set HTTPS_PROXY=http://127.0.0.1:49210/
-</code></pre></li>
+</code></pre>
 
-<li><p>安装</p>
+<ul>
+<li>安装</li>
+</ul>
 
 <pre><code>go get github.com/minio/minio
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h3 id="make">MAKE</h3>
 
@@ -797,7 +795,7 @@ GO111MODULE=on CGO_ENABLED=0 go test -tags kqueue ./... 1&gt;/dev/null
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

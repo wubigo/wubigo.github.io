@@ -46,10 +46,8 @@ https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f1
       
       <guid>https://wubigo.com/post/aws-s3-web-hosting/</guid>
       <description> 创建BUCKET 使用两种方式之一创建BUCKET
- terraform
-git clone https://github.com/wubigo/iaas cd s3 terraform apply  awscli
-aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json   确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
-CNAME Record	s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
     </item>
     
   </channel>

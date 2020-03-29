@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -664,12 +664,14 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
 <h1 id="安装">安装</h1>
 
 <ul>
-<li><p>启用代理envoy（pilot.sidecar=true）</p>
+<li>启用代理envoy（pilot.sidecar=true）</li>
+</ul>
 
 <pre><code>helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set sidecarInjectorWebhook.enabled=false --set pilot.sidecar=true
-</code></pre></li>
+</code></pre>
 
-<li><p>检查POD</p></li>
+<ul>
+<li>检查POD</li>
 </ul>
 
 <p>istio-pilot包含两个容器： discovery 和 istio-proxy</p>
@@ -680,7 +682,8 @@ istio-pilot-786dc4c88d-vnsr9   2/2     Running   0          15m
 </code></pre>
 
 <ul>
-<li><p>检查代理</p>
+<li>检查代理</li>
+</ul>
 
 <pre><code>kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c istio-proxy -- bash
 # cd /etc/istio/proxy/
@@ -689,33 +692,38 @@ envoy.yaml  envoy_pilot.yaml.tmpl  envoy_policy.yaml.tmpl  envoy_telemetry.yaml.
 
 
 # ps fax
-PID TTY      STAT   TIME COMMAND
-64 pts/2    Ss     0:00 bash
-74 pts/2    R+     0:00  \_ ps fax
-1 ?        Ssl    0:00 /usr/local/bin/pilot-agent proxy --serviceCluster istio-pilot --templateFile /etc/istio/proxy/envoy_pilot.yaml.tmpl --controlPlaneAuthPolicy NONE
-15 ?        Sl     0:14 /usr/local/bin/envoy -c /etc/istio/proxy/envoy.yaml --restart-epoch 0 --drain-time-s 2 --parent-shutdown-time-s 3 --service-cluster istio-pilot --service-node sidecar~10.2.12.70
-</code></pre></li>
+  PID TTY      STAT   TIME COMMAND
+   64 pts/2    Ss     0:00 bash
+   74 pts/2    R+     0:00  \_ ps fax
+    1 ?        Ssl    0:00 /usr/local/bin/pilot-agent proxy --serviceCluster istio-pilot --templateFile /etc/istio/proxy/envoy_pilot.yaml.tmpl --controlPlaneAuthPolicy NONE
+   15 ?        Sl     0:14 /usr/local/bin/envoy -c /etc/istio/proxy/envoy.yaml --restart-epoch 0 --drain-time-s 2 --parent-shutdown-time-s 3 --service-cluster istio-pilot --service-node sidecar~10.2.12.70
+</code></pre>
 
-<li><p>检查 discovery</p>
+<ul>
+<li>检查 discovery</li>
+</ul>
 
 <pre><code>kubectl exec -it -n istio-system istio-pilot-786dc4c88d-vnsr9 -c discovery -- bash
 # ls -l /etc/istio/config/
 total 0
 lrwxrwxrwx 1 root root 11 Mar 30 06:52 mesh -&gt; ..data/mesh
 # ps fax
-PID TTY      STAT   TIME COMMAND
-61 pts/0    Ss     0:00 bash
-71 pts/0    R+     0:00  \_ ps fax
-1 ?        Ssl    1:55 /usr/local/bin/pilot-discovery discovery
-</code></pre></li>
+  PID TTY      STAT   TIME COMMAND
+   61 pts/0    Ss     0:00 bash
+   71 pts/0    R+     0:00  \_ ps fax
+    1 ?        Ssl    1:55 /usr/local/bin/pilot-discovery discovery
+</code></pre>
 
-<li><p>检查日志</p>
+<ul>
+<li>检查日志</li>
+</ul>
 
 <pre><code>PodUID=${kubectl get pod -n istio-system istio-pilot-786dc4c88d-vnsr9 -o=jsonpath='{.metadata.uid}}'
 scp vm4:/var/log/pods/50f3507c-52b8-11e9-9372-08002775f493/istio-proxy/1.log ~./
-</code></pre></li>
+</code></pre>
 
-<li><p>检查proxy by adminPort</p></li>
+<ul>
+<li>检查proxy by adminPort</li>
 </ul>
 
 <p>进入容器查看</p>
@@ -831,11 +839,11 @@ ISTIO_PILOT_PORT_9093_TCP_PORT=9093
 </code></pre>
 
 <ul>
-<li><p>调试istio-discovery</p>
+<li>调试istio-discovery</li>
+</ul>
 
 <pre><code>kubectl get deployments  -n istio-system -o json &gt; istio.k8s.deployment.json
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p>discovery调试信息<strong>&ndash;log_output_level</strong></p>
 
@@ -873,7 +881,8 @@ root@istio-pilot-84678c759f-qjbf4:/# ps -fax
 </code></pre>
 
 <ul>
-<li><p>下载配置</p>
+<li>下载配置</li>
+</ul>
 
 <pre><code>kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:etc/istio/proxy/envoy.yaml ./ -c istio-proxy
 </code></pre>
@@ -884,15 +893,14 @@ kubectl cp istio-system/istio-pilot-b8d58697f-5nthh:/etc/istio/proxy/envoy.yaml 
 
 <pre><code>Adding Kubernetes registry adapter
 
-2019-04-03T06:43:56.839512Z	info	Primary Cluster name: Kubernetes
-2019-04-03T06:43:56.839600Z	info	Service controller watching namespace &quot;&quot; for service, endpoint, nodes and pods, refresh 60000000000
+2019-04-03T06:43:56.839512Z info    Primary Cluster name: Kubernetes
+2019-04-03T06:43:56.839600Z info    Service controller watching namespace &quot;&quot; for service, endpoint, nodes and pods, refresh 60000000000
 gc 4 @4.096s 4%: 0.043+22+4.4 ms clock, 0.087+1.2/6.0/13+8.9 ms cpu, 5-&gt;5-&gt;3 MB, 6 MB goal, 2 P
-2019-04-03T06:43:56.852472Z	debug	empty Webhook API endpoint.
-2019-04-03T06:43:56.875696Z	info	ads	Starting ADS server with throttle=25 burst=100
-2019-04-03T06:43:56.879233Z	info	Setting up event handlers
-2019-04-03T06:43:56.879495Z	info	Discovery service started at http=[::]:8080 grpc=[::]:15010
-</code></pre></li>
-</ul>
+2019-04-03T06:43:56.852472Z debug   empty Webhook API endpoint.
+2019-04-03T06:43:56.875696Z info    ads Starting ADS server with throttle=25 burst=100
+2019-04-03T06:43:56.879233Z info    Setting up event handlers
+2019-04-03T06:43:56.879495Z info    Discovery service started at http=[::]:8080 grpc=[::]:15010
+</code></pre>
 
     </div>
 
@@ -1111,7 +1119,7 @@ gc 4 @4.096s 4%: 0.043+22+4.4 ms clock, 0.087+1.2/6.0/13+8.9 ms cpu, 5-&gt;5-&gt
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {
