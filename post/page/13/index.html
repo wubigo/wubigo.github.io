@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-03-29T15:09:22&#43;08:00">
+  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
   
 
   
@@ -397,91 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql5.7/" itemprop="url">Mysql5.7</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    mysql install ubuntu 16.04 install mysql 5.7 at default
-sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
-mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
-[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2196,6 +2111,106 @@ Now we have the newest version of OpenSSH installed and patched with the improve
   <div class="article-style" itemprop="articleBody">
     push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
  #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk '{ print $1 }' | sed --expression=s'/K8S.gcr.io\///' | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &quot;registry.cn-beijing.aliyuncs.com&quot;| awk '{ print $1 }'| sed --expression=s'/registry.cn-beijing.aliyuncs.com\/co1\///' | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &quot;$VM&quot; ]; then VM = t1 echo &quot;VAR VM is not set&quot; exit fi tee daemon.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2011-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-01-01-dockerfile/" itemprop="url">Dockerfile</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="tiller-tag-tiller-version">tiller (tag=$(tiller version))</h1>
+
+<pre><code>FROM alpine:3.8
+RUN apk update &amp;&amp; apk add ca-certificates socat &amp;&amp; rm -rf /var/cache/apk/*
+ENV HOME /tmp
+COPY tiller /tiller
+EXPOSE 44134
+USER 65534
+ENTRYPOINT [&quot;/tiller&quot;]
+</code></pre>
+
+<blockquote>
+<p>docker push registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3</p>
+</blockquote>
+
+<h1 id="util">util</h1>
+
   </div>
   
 
