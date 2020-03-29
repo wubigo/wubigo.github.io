@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -28,7 +28,9 @@
   
     
   
-  <meta name="description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
+  <meta name="description" content="准备  初始化
+draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
+draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
  skip the push process entirely using the &ndash;skip-image-push flag">
 
   
@@ -138,7 +140,9 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/k8s-development-streamline/">
   <meta property="og:title" content="K8s Development Streamline with draft | NgAPP">
-  <meta property="og:description" content="准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
+  <meta property="og:description" content="准备  初始化
+draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
+draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
  skip the push process entirely using the &ndash;skip-image-push flag"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -505,8 +509,7 @@
 <h1 id="准备">准备</h1>
 
 <ul>
-<li>初始化</li>
-</ul>
+<li><p>初始化</p>
 
 <pre><code class="language-shell">draft init
 
@@ -522,14 +525,13 @@ Installed pack repository github.com/Azure/draft
 Installation of default pack repositories complete
 $DRAFT_HOME has been configured at /home/bigo/.draft.
 ...
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>设置docker镜像寄存器</li>
-</ul>
+<li><p>设置docker镜像寄存器</p>
 
 <pre><code>draft config set registry registry.cn-beijing.aliyuncs.com/k4s
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>or</p>
 
@@ -567,26 +569,24 @@ Inspect the logs with `draft logs 01D6QETAPPM7ZYAM7G733ZVMY7`
 <pre><code>draft logs 01D6QETAPPM7ZYAM7G733ZVMY7
 </code></pre></li>
 
-<li><p>检查软件列表</p></li>
-</ul>
+<li><p>检查软件列表</p>
 
 <pre><code>helm ls | grep go-web
 
 ...
-NAME         REVISION   UPDATED             STATUS      CHART                   APP VERSION NAMESPACE
-go-web       Sun Mar 24 17:01:54 2018     DEPLOYED  go-web-v0.1.0                       default 
+NAME         REVISION	UPDATED          	STATUS  	CHART                	APP VERSION	NAMESPACE
+go-web       Sun Mar 24 17:01:54 2018	  DEPLOYED	go-web-v0.1.0	           	        default 
 ...
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>检查PODS</li>
-</ul>
+<li><p>检查PODS</p>
 
 <pre><code>kubectl get pods | grep go-web
 
 NAME                     READY   STATUS    RESTARTS   AGE
 go-web-f94bd78d5-qcmq9   1/1     Running   0          5m38s
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="访问应用">访问应用</h1>
 
@@ -614,11 +614,11 @@ Connect to go-web:8080 on **localhost:34261**
 <li><pre><code>draft up
 </code></pre></li>
 
-<li><p>测试</p></li>
-</ul>
+<li><p>测试</p>
 
 <pre><code>draft connect
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="删除应用">删除应用</h1>
 
@@ -845,7 +845,7 @@ helm ls |grep go-web
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -28,7 +28,10 @@
   
     
   
-  <meta name="description" content="get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }   create s3 notification config  cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification.">
+  <meta name="description" content="get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }  create s3 notification config
+cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }  make notification effect">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/">
@@ -137,7 +140,10 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/">
   <meta property="og:title" content="基于local stack的本地S3对象创建通知 | NgAPP">
-  <meta property="og:description" content="get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }   create s3 notification config  cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }  create s3 notification config
+cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }  make notification effect"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-11-19T16:46:13&#43;08:00">
@@ -503,72 +509,62 @@
 <h1 id="get-s3-object-creation-notification">get s3 object creation notification</h1>
 
 <ul>
-<li>create queue</li>
-</ul>
+<li><p>create queue</p>
 
 <pre><code>awslocal s3 mb s3://localstack
 awslocal sqs create-queue --queue-name localstack
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>get  queue arn</li>
-</ul>
+<li><p>get  queue arn</p>
 
-<pre><code> awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All
+<pre><code>awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All
 {
-    &quot;Attributes&quot;: {
-        &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;,
-        &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;,
-        &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;,
-        &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;,
-        &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;,
-        &quot;DelaySeconds&quot;: &quot;0&quot;,
-        &quot;VisibilityTimeout&quot;: &quot;30&quot;,
-        &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;,
-        &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot;
-    }
+&quot;Attributes&quot;: {
+    &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;,
+    &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;,
+    &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;,
+    &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;,
+    &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;,
+    &quot;DelaySeconds&quot;: &quot;0&quot;,
+    &quot;VisibilityTimeout&quot;: &quot;30&quot;,
+    &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;,
+    &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot;
+}
 }
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>create  s3 notification config</li>
-</ul>
+<li><p>create  s3 notification config</p>
 
 <pre><code>cat notification.json
 {
-  &quot;QueueConfigurations&quot;: [
-    {
-      &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;,
-      &quot;Events&quot;: [
-          &quot;s3:ObjectCreated:*&quot;
-        ]
-    }
-  ]
+&quot;QueueConfigurations&quot;: [
+{
+  &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;,
+  &quot;Events&quot;: [
+      &quot;s3:ObjectCreated:*&quot;
+    ]
+}
+]
 }
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>make notification effect</li>
-</ul>
+<li><p>make notification effect</p>
 
 <pre><code>awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification.json
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>upload object to s3</li>
-</ul>
+<li><p>upload object to s3</p>
 
 <pre><code>awslocal s3 cp notification.json s3://localstack
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>get notification</li>
-</ul>
+<li><p>get notification</p>
 
 <pre><code>awslocal sqs receive-message --queue-url http://localhost:4576/queue/localstack
-</code></pre>
+</code></pre></li>
+</ul>
 
     </div>
 
@@ -789,7 +785,7 @@ awslocal sqs create-queue --queue-name localstack
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

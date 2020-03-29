@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-17T21:48:53&#43;08:00">
+  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
   
 
   
@@ -659,7 +659,8 @@ go list -m -versions github.com/minio/cli
 
   
   <div class="article-style" itemprop="articleBody">
-    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
+    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
+ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
 package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
@@ -1006,7 +1007,9 @@ even more cores depending on the scenario</p>
 
   
   <div class="article-style" itemprop="articleBody">
-    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key  wg genkey | tee privatekey | wg pubkey &gt; publickey   配置   ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
+    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
+wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
+ ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
   </div>
   
 
@@ -1663,8 +1666,7 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 <p>使用两种方式之一创建BUCKET</p>
 
 <ul>
-<li>terraform</li>
-</ul>
+<li><p>terraform</p>
 
 <pre><code>git clone https://github.com/wubigo/iaas
 
@@ -1672,15 +1674,14 @@ cd s3
 
 terraform apply
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>awscli</li>
-</ul>
+<li><p>awscli</p>
 
 <pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
 aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="确认配置">确认配置</h3>
 
@@ -1702,7 +1703,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 
-<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 </code></pre>
 
 <h2 id="上传站点内容">上传站点内容</h2>
@@ -1876,7 +1877,8 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
   <div class="article-style" itemprop="articleBody">
     与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
   </div>
@@ -2415,7 +2417,7 @@ Immutability is embraced in React and its ecosystem. That’s why const should b
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {
