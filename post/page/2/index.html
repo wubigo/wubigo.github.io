@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-03-30T02:27:21&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-04T13:31:38&#43;08:00">
   
 
   
@@ -397,6 +397,96 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2261,89 +2351,6 @@ aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe
 
 <p><a href="https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc" target="_blank">https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 15, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-nodejs/" itemprop="url">函数计算Nodejs实例</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    restore snapshot shell snapshot.sh
-!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
   </div>
   
 

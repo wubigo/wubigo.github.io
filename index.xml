@@ -5,8 +5,22 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2020 02:27:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2020 13:31:38 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>云管平台产品报告(2020)</title>
+      <link>https://wubigo.com/post/cmp-2020/</link>
+      <pubDate>Sat, 04 Apr 2020 13:31:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-2020/</guid>
+      <description>
+
+&lt;h2 id=&#34;总概&#34;&gt;总概&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/Gartner-Magic-Quadrant-for-Cloud-Management-Platforms-Chart-2020.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>广告拦截</title>
@@ -933,201 +947,6 @@ Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
         }
 
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>免费使用公有云服务</title>
-      <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
-      <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/use-public-cloud-for-free/</guid>
-      <description>
-
-&lt;p&gt;[TOC]&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;./localstack.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;AWS领先的设计理念和强大的技术生态&lt;/p&gt;
-
-&lt;p&gt;使你身陷其中，学习你要用它，开发你要&lt;/p&gt;
-
-&lt;p&gt;用它，上线还要用它。 一年下来项目还没有&lt;/p&gt;
-
-&lt;p&gt;正式商用，已经有十几万的研发费用。&lt;/p&gt;
-
-&lt;p&gt;今天向你推荐 localstack（与openstack啥关系？私有云+公有云），&lt;/p&gt;
-
-&lt;p&gt;让你使用AWS免费，至少在项目POC或开发测试阶段免费。&lt;/p&gt;
-
-&lt;p&gt;有了它， 你不用再焦急的等待老板审批公有云的&lt;/p&gt;
-
-&lt;p&gt;计算，存储，数据库资源开发申请。&lt;/p&gt;
-
-&lt;p&gt;是不是这个项目听起来很激动？&lt;/p&gt;
-
-&lt;!--
-最近正在了解微服务编排相关技术规范，看看AWS Step Functions
-
-如何设计的，localstack正好排上用场
---&gt;
-
-&lt;p&gt;那如何使用localstack呢？&lt;/p&gt;
-
-&lt;h1 id=&#34;安装localstack&#34;&gt;安装localstack&lt;/h1&gt;
-
-&lt;p&gt;localstack是一个非常活跃的正在快速成长中的项目，&lt;/p&gt;
-
-&lt;p&gt;建议通过源代码安装&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;下载源代码&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:localstack/localstack.git
-git fetch --all
-git checkout tags/v0.10.3 -b v0.10.3
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;启用需要使用的AWS服务&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。&lt;/p&gt;
-
-&lt;p&gt;注意服务的名字必须来自&lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/reference/#available-services&#34; target=&#34;_blank&#34;&gt;服务名字列表&lt;/a&gt;， 否则不识别&lt;/p&gt;
-
-&lt;p&gt;启用服务就是修改下边的配置文件&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;localstack\docker-compose.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}
-
- DATA_DIR=${DATA_DIR-/tmp/localstack/data }
-
-
- volumes:
-      - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;make sure driver D is shared in docker desktop daemon&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker-compose up
-
-
-localstack_1  | Starting mock S3 (http port 4572)...
-localstack_1  | Starting mock SNS (http port 4575)...
-localstack_1  | Starting mock IAM (http port 4593)...
-localstack_1  | Starting mock API Gateway (http port 4567)...
-localstack_1  | Starting mock DynamoDB (http port 4569)...
-localstack_1  | Starting mock Lambda service (http port 4574)...
-localstack_1  | Starting mock CloudWatch Logs (http port 4586)...
-localstack_1  | Starting mock StepFunctions (http port 4585)...
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;系统消息显示需要的服务/端口已经启动。&lt;/p&gt;
-
-&lt;p&gt;到目前为至，localstack已经安装完毕。&lt;/p&gt;
-
-&lt;h1 id=&#34;记录并保存localstack的操作数据&#34;&gt;记录并保存localstack的操作数据&lt;/h1&gt;
-
-&lt;p&gt;if volumes in  docker settings&lt;/p&gt;
-
-&lt;p&gt;Localstack is recording all API calls in JSON file.&lt;/p&gt;
-
-&lt;p&gt;When the container restarts, it will re-apply these calls -&lt;/p&gt;
-
-&lt;p&gt;this is how we are able to keep our data between restarts&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;docker-compose.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;- DATA_DIR=/tmp/localstack/data
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下边，我们来验证公有云服务是否可用。&lt;/p&gt;
-
-&lt;h2 id=&#34;安装aws客户端-a-name-install-aws-sdk-a&#34;&gt;安装AWS客户端&lt;a name=&#34;install_aws_sdk&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装到虚拟环境&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;pip install awscli
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;可以安装到系统环境&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;配置AWS CLI&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws configure
-
-AWS Access Key ID [None]: any-id-is-ok
-AWS Secret Access Key [None]: fake-key
-Default region name [local]: local
-Default output format [None]:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;验证服务编排&#34;&gt;验证服务编排&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;试用stepfunctions服务&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上面显示stepfunctions服务在4585端口，下面的端口要和&lt;/p&gt;
-
-&lt;p&gt;配置保持一致&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-activities
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;创建一个HelloWorld工作流&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &amp;quot;{\&amp;quot;Comment\&amp;quot;: \&amp;quot;A Hello World example of the Amazon States Language using a Pass state\&amp;quot;,\&amp;quot;StartAt\&amp;quot;: \&amp;quot;HelloWorld\&amp;quot;,\&amp;quot;States\&amp;quot;: {\&amp;quot;HelloWorld\&amp;quot;: {\&amp;quot;Type\&amp;quot;: \&amp;quot;Pass\&amp;quot;,\&amp;quot;End\&amp;quot;: true}}}&amp;quot; --name &amp;quot;HelloWorld&amp;quot; --role-arn &amp;quot;arn:aws:iam::012345678901:role/DummyRole&amp;quot;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;显示创建的工作流&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
-{
-&amp;quot;stateMachines&amp;quot;: [
-    {
-        &amp;quot;creationDate&amp;quot;: 1568199315.809,
-        &amp;quot;stateMachineArn&amp;quot;: &amp;quot;arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld&amp;quot;,
-        &amp;quot;name&amp;quot;: &amp;quot;HelloWorld&amp;quot;
-    }
-]
-}
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;工作流已经创建，你可以启动工作流，&lt;/p&gt;
-
-&lt;p&gt;添加Lambda，部署微服务，添加微服务到到工作流，&lt;/p&gt;
-
-&lt;p&gt;所有公有云的计算，存储，API调用，上行宽带费用&lt;/p&gt;
-
-&lt;p&gt;通过使用localstack一切免费。&lt;/p&gt;
-
-&lt;p&gt;赶快加入项目，贡献你的力量&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://localstack.cloud/&#34; target=&#34;_blank&#34;&gt;https://localstack.cloud/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hub.docker.com/r/amazon/aws-stepfunctions-local&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/amazon/aws-stepfunctions-local&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&#34; target=&#34;_blank&#34;&gt;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
