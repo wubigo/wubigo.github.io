@@ -1,5 +1,5 @@
 +++
-title = "WINS Turn Off Windows Activation"
+title = "购买笔记本电脑的正确打开姿势"
 date = 2020-04-04T07:23:27+08:00
 draft = false
 
@@ -19,8 +19,20 @@ categories = []
   focal_point = ""
 +++
 
+## 关闭网络连接
 
-## REF
+
+## 个性化设置
+
+- 性能模式
+
+- 任务栏
+
+- 通知
+
+- 文件夹
+
+## 关闭激活服务
 
 ---
 
@@ -31,4 +43,8 @@ https://www.wikihow.com/Turn-Off-Windows-Activation
 ### 关闭自动激活
 
 https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
+
+## 注意
+
+个性化设置必须在关闭激活服务之前完成
 
