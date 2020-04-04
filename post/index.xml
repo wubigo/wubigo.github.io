@@ -660,16 +660,6 @@ resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;example&amp;quot; { f
     </item>
     
     <item>
-      <title>entry into jupyter notebook</title>
-      <link>https://wubigo.com/post/2018-11-28-jupyternotebook/</link>
-      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2018-11-28-jupyternotebook/</guid>
-      <description>generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = &#39;0.0.0.0&#39; c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
-Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git</description>
-    </item>
-    
-    <item>
       <title>MicroK8S</title>
       <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
@@ -678,6 +668,16 @@ Sharing notebooks When people talk of sharing their notebooks, there are general
       <description>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current. snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
 $snap start microK8S $microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&amp;rsquo;t include kube-system
 $microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</description>
+    </item>
+    
+    <item>
+      <title>entry into jupyter notebook</title>
+      <link>https://wubigo.com/post/2018-11-28-jupyternotebook/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-28-jupyternotebook/</guid>
+      <description>generate configuration file $jupyter notebook --generate-config Writing default config to: /home/bigo/.jupyter/jupyter_notebook_config.py $ diff jupyter_notebook_config.py jupyter_notebook_config.py.bak c.NotebookApp.allow_remote_access = True c.NotebookApp.ip = &#39;0.0.0.0&#39; c.NotebookApp.open_browser = False  set or reset password $jupyter notebook password Enter password: Verify password: [NotebookPasswordApp] Wrote hashed password to /home/bigo/.jupyter/jupyter_notebook_config.json  then restart notebook server
+Sharing notebooks When people talk of sharing their notebooks, there are generally two paradigms they may be considering. Most often, individuals share the end-result of their work which means sharing non-interactive, pre-rendered versions of their notebooks; however, it is also possible to collaborate on notebooks with the aid version control systems such as Git</description>
     </item>
     
     <item>
@@ -1076,6 +1076,15 @@ http://mysql.rjweb.org/doc.php/datawarehouse</description>
     </item>
     
     <item>
+      <title>GRPC Load Balancing on Kubernetes Without Tears</title>
+      <link>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</guid>
+      <description>https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</description>
+    </item>
+    
+    <item>
       <title>Groovy Notes</title>
       <link>https://wubigo.com/post/groovy-notes/</link>
       <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
@@ -1085,15 +1094,6 @@ http://mysql.rjweb.org/doc.php/datawarehouse</description>
  Introduce new datatypes together with their operators and expressions.
   Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
 log = &#39;&#39; (1..10).each{ log += it } assert log == &#39;12345678910&#39; log = &#39;&#39; (1..10).each{ counter -&amp;gt; log += counter } assert log == &#39;12345678910&#39;  A second way of declaring a closure is to directly assign it to a variable:</description>
-    </item>
-    
-    <item>
-      <title>GRPC Load Balancing on Kubernetes Without Tears</title>
-      <link>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</link>
-      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</guid>
-      <description>https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</description>
     </item>
     
     <item>
@@ -2379,6 +2379,19 @@ Once you run multiple backend processes on a server: A Redis daemon (on that ser
     </item>
     
     <item>
+      <title>Hacknews favorites 2017</title>
+      <link>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</guid>
+      <description>The State Of Front-End Frameworks []()
+Let&amp;rsquo;s Encrypt now holds 35% of the market https://nettrack.info/ssl_certificate_issuers.html
+Code together in real time with Teletype for Atom https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html
+How Firefox Got Fast Again https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/
+Do you need a VPN https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</description>
+    </item>
+    
+    <item>
       <title>discourse notes</title>
       <link>https://wubigo.com/post/2017-01-01-discoursenotes/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
@@ -2390,19 +2403,6 @@ Discourse app.yml AWS setup
 how-to-specify-a-different-port-not-80-during-install
 fix these settings after bootstrapping, edit the /containers/app.yml then rebuild to take effect
 ./launcher rebuild app  </description>
-    </item>
-    
-    <item>
-      <title>Hacknews favorites 2017</title>
-      <link>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2017-01-01-hacknewsfavorites2017/</guid>
-      <description>The State Of Front-End Frameworks []()
-Let&amp;rsquo;s Encrypt now holds 35% of the market https://nettrack.info/ssl_certificate_issuers.html
-Code together in real time with Teletype for Atom https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html
-How Firefox Got Fast Again https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/
-Do you need a VPN https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</description>
     </item>
     
     <item>

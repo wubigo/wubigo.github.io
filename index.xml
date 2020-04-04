@@ -9,48 +9,1126 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Posts</title>
-      <link>https://wubigo.com/post/</link>
+      <title>广告拦截</title>
+      <link>https://wubigo.com/post/ad-blocking/</link>
       <pubDate>Mon, 30 Mar 2020 02:27:21 +0800</pubDate>
       
-      <guid>https://wubigo.com/post/</guid>
-      <description></description>
+      <guid>https://wubigo.com/post/ad-blocking/</guid>
+      <description>
+
+&lt;p&gt;上网，最让人无法忍受的是大量的广告影响自己的有限的注意力。&lt;/p&gt;
+
+&lt;p&gt;以前的做法是尽量避免浏览带有大量广告的网站。&lt;/p&gt;
+
+&lt;p&gt;今天介绍几款可以主动屏蔽商业广告的工具。&lt;/p&gt;
+
+&lt;h2 id=&#34;基于操作系统&#34;&gt;基于操作系统&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/pi-hole/pi-hole&#34; target=&#34;_blank&#34;&gt;https://github.com/pi-hole/pi-hole&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;基于浏览器&#34;&gt;基于浏览器&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Adblock Plus | The world&amp;rsquo;s # 1 free ad blocker&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/ad-blocking.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://wubigo.com/project/</link>
-      <pubDate>Sat, 23 Feb 2019 16:45:49 +0800</pubDate>
+      <title>函数计算VPC支持更新</title>
+      <link>https://wubigo.com/post/serverless-vpc/</link>
+      <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
       
-      <guid>https://wubigo.com/project/</guid>
-      <description></description>
+      <guid>https://wubigo.com/post/serverless-vpc/</guid>
+      <description>
+
+&lt;h2 id=&#34;in-vpc&#34;&gt;IN VPC&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/lambda-vpc.png&#34; alt=&#34;&#34; /&gt;&lt;em&gt;更新前VPC&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/lambda-vpc-nat.png&#34; alt=&#34;&#34; /&gt;&lt;em&gt;更新后VPC&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created.&lt;/li&gt;
+&lt;li&gt;Network interfaces are shared across functions with the same security group:subnet combination&lt;/li&gt;
+&lt;li&gt;Function scaling is no longer bound to the number of network interfaces&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your Lambda functions still need the IAM permissions required to create and delete network interfaces in your VPC.&lt;/li&gt;
+&lt;li&gt;You still control the subnet and security group configurations of these network interfaces. You can continue to apply normal network security controls and follow best practices on VPC configuration.&lt;/li&gt;
+&lt;li&gt;You still have to use a NAT device(for example VPC NAT Gateway) to give a function internet access or use VPC endpoints to connect to services outside of your VPC.&lt;/li&gt;
+&lt;li&gt;Nothing changes about the types of resources that your functions can access inside of your VPCs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/&#34; target=&#34;_blank&#34;&gt;https://lumigo.io/blog/to-vpc-or-not-to-vpc-in-aws-lambda/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&#34; target=&#34;_blank&#34;&gt;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&#34; target=&#34;_blank&#34;&gt;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Authors</title>
-      <link>https://wubigo.com/author/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>AWS Re:Invent 2019主题汇总-P1</title>
+      <link>https://wubigo.com/post/aws-reinvent-2019-keynote/</link>
+      <pubDate>Sun, 08 Dec 2019 11:37:33 +0800</pubDate>
       
-      <guid>https://wubigo.com/author/</guid>
-      <description></description>
+      <guid>https://wubigo.com/post/aws-reinvent-2019-keynote/</guid>
+      <description>
+
+&lt;h2 id=&#34;计算&#34;&gt;计算&lt;/h2&gt;
+
+&lt;p&gt;尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，&lt;/p&gt;
+
+&lt;p&gt;主要的新功能包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基于Nitro平台的针对HPC和机器学习的负载的实例&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;基于定制芯片Inferencia针对机器学习实例&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标准实例支持100Gb网络带宽&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;网络&#34;&gt;网络&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;传输网关支持多播&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;加速的网络到网络的VPN链接&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;存储和数据分析&#34;&gt;存储和数据分析&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;S3 Access Points和数据湖&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ES搜索支持S3&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AQUA查询加速器&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;托管的Cassandra服务&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;函数计算&#34;&gt;函数计算&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/lambda-provisioned-concurrency/&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EKS正式支持FARGATE&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;RDS PROXY&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/serverless-vpc&#34;&gt;VPC支持更新&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;先锋基金it迁移架构图&#34;&gt;先锋基金IT迁移架构图&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;./varguard-stage-0.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)&lt;/em&gt;
+&lt;img src=&#34;./varguard-stage-1.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;数据仓库和PaaS迁移到AWS&lt;/em&gt;
+&lt;img src=&#34;./varguard-stage-2.png&#34; alt=&#34;第二阶段&#34; /&gt;&lt;em&gt;PaaS实施基于EDA架构的改造&lt;/em&gt;
+&lt;img src=&#34;./varguard-stage-3.png&#34; alt=&#34;第三阶段&#34; /&gt;&lt;em&gt;PaaS迁移到Fargate&lt;/em&gt;
+&lt;img src=&#34;./varguard-result.png&#34; alt=&#34;结果&#34; /&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Publications</title>
-      <link>https://wubigo.com/publication/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Lambda Provisioned Concurrency</title>
+      <link>https://wubigo.com/post/lambda-provisioned-concurrency/</link>
+      <pubDate>Sun, 08 Dec 2019 11:01:06 +0800</pubDate>
       
-      <guid>https://wubigo.com/publication/</guid>
-      <description></description>
+      <guid>https://wubigo.com/post/lambda-provisioned-concurrency/</guid>
+      <description>
+
+&lt;h2 id=&#34;provisioned-concurrency-for-lambda-functions&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/h2&gt;
+
+&lt;p&gt;To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.&lt;/p&gt;
+
+&lt;p&gt;This is a feature that keeps functions initialized and hyper-ready to respond in double-digit milliseconds. This addition is helpful for implementing interactive services, such as web and mobile backends, latency-sensitive microservices, or synchronous APIs.&lt;/p&gt;
+
+&lt;p&gt;On enabling Provisioned Concurrency for a function, the Lambda service will initialize the requested number of execution environments so they can be ready to respond to invocations.&lt;/p&gt;
+
+&lt;p&gt;To know more Provisioned Concurrency in detail, read the &lt;a href=&#34;https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/&#34; target=&#34;_blank&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Recent &amp; Upcoming Talks</title>
-      <link>https://wubigo.com/talk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Aws S3 Access Point</title>
+      <link>https://wubigo.com/post/aws-s3-access-point/</link>
+      <pubDate>Wed, 04 Dec 2019 22:20:38 +0800</pubDate>
       
-      <guid>https://wubigo.com/talk/</guid>
-      <description></description>
+      <guid>https://wubigo.com/post/aws-s3-access-point/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;aws sts get-caller-identity
+
+aws s3control list-access-points --account-id 46569194568
+
+aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
+
+aws s3control get-access-point --account-id &amp;quot;46569194568&amp;quot; --name my-access-point
+{
+    &amp;quot;Name&amp;quot;: &amp;quot;my-access-point&amp;quot;,
+    &amp;quot;PublicAccessBlockConfiguration&amp;quot;: {
+        &amp;quot;IgnorePublicAcls&amp;quot;: true,
+        &amp;quot;BlockPublicPolicy&amp;quot;: true,
+        &amp;quot;BlockPublicAcls&amp;quot;: true,
+        &amp;quot;RestrictPublicBuckets&amp;quot;: true
+    },
+    &amp;quot;CreationDate&amp;quot;: &amp;quot;2019-12-04T14:24:38Z&amp;quot;,
+    &amp;quot;Bucket&amp;quot;: &amp;quot;wubigo&amp;quot;,
+    &amp;quot;NetworkOrigin&amp;quot;: &amp;quot;Internet&amp;quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JAVA这两年</title>
+      <link>https://wubigo.com/post/java-last-2-years/</link>
+      <pubDate>Tue, 29 Oct 2019 10:17:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-last-2-years/</guid>
+      <description>
+
+&lt;p&gt;JAVA 这两年最重要的项目就是GRAAL的正式版发布。&lt;/p&gt;
+
+&lt;p&gt;GRAAL能做什么？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;启动时间小于100ms， 像C, GO, ERLANG一样的执行速度&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更低的内存占用：只占用传统的JVM应用20%的内存&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;听起来是不是该项目为函数计算做准备的？&lt;/p&gt;
+
+&lt;p&gt;是，但不完全是。&lt;/p&gt;
+
+&lt;p&gt;GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JavaScrip&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Ruby&lt;/li&gt;
+&lt;li&gt;R&lt;/li&gt;
+&lt;li&gt;JVM 语言（Java, Scala, Groovy, Kotlin, Clojure）&lt;/li&gt;
+&lt;li&gt;LLVM语言 (C , C++)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;而且不同语言之间零成本互相调用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz
+
+tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz
+export PATH=$PATH:$GRAAL_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;js --version
+GraalVM JavaScript (GraalVM CE Native 19.2.1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gu install native-image
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;gu available
+Downloading: Component catalog from www.graalvm.org
+ComponentId              Version             Component name      Origin
+--------------------------------------------------------------------------------
+llvm-toolchain           19.2.1              LLVM.org toolchain  github.com
+native-image             19.2.1              Native Image        github.com
+python                   19.2.1              Graal.Python        github.com
+R                        19.2.1              FastR               github.com
+ruby                     19.2.1              TruffleRuby         github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;polyglot --jvm --shell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class HelloWorld {
+   public static void main(String... args) {
+      System.out.println(&amp;quot;Hello World&amp;quot;);
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;javac HelloWorld.java
+native-image -cp . HelloWorld
+
+Build on Server(pid: 20375, port: 45977)
+[helloworld:20375]    classlist:     199.03 ms
+[helloworld:20375]        (cap):   1,866.60 ms
+[helloworld:20375]        setup:   5,938.57 ms
+[helloworld:20375]   (typeflow):  17,532.76 ms
+[helloworld:20375]    (objects):   8,477.10 ms
+[helloworld:20375]   (features):   2,365.65 ms
+[helloworld:20375]     analysis:  28,469.52 ms
+[helloworld:20375]     (clinit):     861.90 ms
+[helloworld:20375]     universe:   2,785.89 ms
+[helloworld:20375]      (parse):   9,430.36 ms
+[helloworld:20375]     (inline):   1,623.19 ms
+[helloworld:20375]    (compile):  11,158.60 ms
+[helloworld:20375]      compile:  22,588.75 ms
+[helloworld:20375]        image:     687.25 ms
+[helloworld:20375]        write:   1,153.04 ms
+[helloworld:20375]      [total]:  62,321.01 ms
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./helloworld
+Hello World
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
+
+&lt;h1 id=&#34;微服务&#34;&gt;微服务&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sparkjava.com/&#34; target=&#34;_blank&#34;&gt;http://sparkjava.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://quarkus.io/get-started/&#34; target=&#34;_blank&#34;&gt;https://quarkus.io/get-started/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&#34; target=&#34;_blank&#34;&gt;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&#34; target=&#34;_blank&#34;&gt;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>开源的工作流引擎技术演进历史</title>
+      <link>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</link>
+      <pubDate>Sun, 27 Oct 2019 11:26:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</guid>
+      <description>
+
+&lt;h1 id=&#34;第一代&#34;&gt;第一代&lt;/h1&gt;
+
+&lt;p&gt;2003年， jBPM 1.0发布。&lt;/p&gt;
+
+&lt;p&gt;运行环境：J2EE&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)&lt;/p&gt;
+
+&lt;p&gt;当时的主流的技术： applets, Swing桌面和EJB&lt;/p&gt;
+
+&lt;h1 id=&#34;第二代&#34;&gt;第二代&lt;/h1&gt;
+
+&lt;p&gt;2004年，jBPM 2.0发布&lt;/p&gt;
+
+&lt;p&gt;同时jBPM加入JBoss基金会.&lt;/p&gt;
+
+&lt;p&gt;运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器&lt;/p&gt;
+
+&lt;h1 id=&#34;第三代&#34;&gt;第三代&lt;/h1&gt;
+
+&lt;p&gt;2005年, jBPM 3.0发布，支持BPEL&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：过程虚拟机&lt;/p&gt;
+
+&lt;p&gt;架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通&lt;/p&gt;
+
+&lt;p&gt;过JAVA实现状态机，而且支持建模&lt;/p&gt;
+
+&lt;p&gt;HIBERNETE作为持久机制并同时提供会话对象的概念，&lt;/p&gt;
+
+&lt;p&gt;工作流引擎所有的相关性交互都纳入&lt;a href=&#34;https://docs.jboss.org/jbpm/v3.2/javadoc-jpdl/org/jbpm/JbpmContext.html&#34; target=&#34;_blank&#34;&gt;contextual block&lt;/a&gt;范畴&lt;/p&gt;
+
+&lt;p&gt;这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础&lt;/p&gt;
+
+&lt;h1 id=&#34;第四代&#34;&gt;第四代&lt;/h1&gt;
+
+&lt;p&gt;2009年， jBPM 4.0 alpha版发布.&lt;/p&gt;
+
+&lt;p&gt;过程虚拟机成功工作流引擎的核心。&lt;/p&gt;
+
+&lt;p&gt;过程定义语言：BPMN, jPDL 和 BPEL&lt;/p&gt;
+
+&lt;p&gt;因为团队人员离开并启动Activiti，正式版没能发布。&lt;/p&gt;
+
+&lt;p&gt;主要改进：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无状态的服务API&lt;/li&gt;
+&lt;li&gt;运行时和历史数据的分离： 保证运行时持久的性能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;第五代&#34;&gt;第五代&lt;/h1&gt;
+
+&lt;p&gt;2010年, Activiti 1发布&lt;/p&gt;
+
+&lt;p&gt;改变：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;版权从LGPL转到APACHE.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;过程定义语言：BPMN(唯一)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;从性能和扩展性加强PVM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;多租户支持&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;轻量级架构&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;第六代&#34;&gt;第六代&lt;/h1&gt;
+
+&lt;p&gt;2017年，flowable 6.0发布。&lt;/p&gt;
+
+&lt;p&gt;改变：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据远完全抽象：支持NoSQL&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CMMN支持&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数式工作流&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>心理学家：21世纪最重要的工作技能</title>
+      <link>https://wubigo.com/post/no.-1-work-skill-of-the-future/</link>
+      <pubDate>Sat, 12 Oct 2019 16:19:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/no.-1-work-skill-of-the-future/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./orca.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;心理学家：21世纪最重要的工作技能&lt;/p&gt;
+
+&lt;p&gt;专注是21世纪最重要的工作技能，&lt;/p&gt;
+
+&lt;p&gt;可是很多人没有意识到这一点。&lt;/p&gt;
+
+&lt;p&gt;1971年的时候心理学家&lt;a href=&#34;https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/5625/dessein_rational.pdf&#34; target=&#34;_blank&#34;&gt;西蒙&lt;/a&gt;就说过：“大量的信息&lt;/p&gt;
+
+&lt;p&gt;意味着另一种东西变得很稀缺：注意力”。 几十年之前这是个事实，&lt;/p&gt;
+
+&lt;p&gt;在21世纪，注意力变的更加珍贵。&lt;/p&gt;
+
+&lt;p&gt;工作环境正在发生快速的变化，在不远的将来，&lt;/p&gt;
+
+&lt;p&gt;在这个世界只存在两种人：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;一种注意力被别人完全控制和操纵的人&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;一种注意力不可被打扰的人&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;研究人员告诉我们专注和注意力人们创新发展的原材料&lt;/p&gt;
+
+&lt;p&gt;下面是一些常见的工作干扰：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;聊天群&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;会议&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;电话&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;邮件&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;同事&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>函数计算颠覆对象执行环境(像S3对象存储一样)</title>
+      <link>https://wubigo.com/post/function-computing-rise-like-s3/</link>
+      <pubDate>Fri, 11 Oct 2019 17:39:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/function-computing-rise-like-s3/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./uaa-serverless.png&#34; alt=&#34;uaa-on-serverless&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>
+
+&lt;p&gt;在windows中使用docker有多种方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;docker WIN10 desktop&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;WSL&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文主要介绍在WSL中使用docker&lt;/p&gt;
+
+&lt;h1 id=&#34;前提条件&#34;&gt;前提条件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows 10 Version 1803以上(支持cgroups)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Docker 17.09&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;安装wsl&#34;&gt;安装WSL&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34; target=&#34;_blank&#34;&gt;install WSL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装ubuntu-for-wsl-16-0-4-lts&#34;&gt;安装Ubuntu for WSL 16.0.4 LTS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-manual&#34; target=&#34;_blank&#34;&gt;install ubuntu in WSL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;安装docker&#34;&gt;安装DOCKER&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -d Ubuntu-16.04
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装docker&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
+$ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
+$ sudo usermod -aG docker $USER
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;启动docker服务&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/usr/local/sbin/start_docker.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+sudo cgroupfs-mount
+sudo service docker start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;在系统启动的时候运行docker服务&#34;&gt;在系统启动的时候运行docker服务&lt;/h1&gt;
+
+&lt;p&gt;在&lt;strong&gt;控制面版\管理工具\计划任务&lt;/strong&gt;创建任务&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./task-trigger.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./action.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;操作的参数如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-c &amp;quot;sudo /bin/sh /usr/local/sbin/start_docker.sh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;备份wsl&#34;&gt;备份WSL&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;在备份前保存并关闭所有的WSL进程，否则正在运行的进程被强行关闭&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -l
+c:\&amp;gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;REF&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa&#34; target=&#34;_blank&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>虚拟机 -&gt; 容器 -&gt; 函数计算</title>
+      <link>https://wubigo.com/post/from-vm-to-container-to-serverless/</link>
+      <pubDate>Thu, 26 Sep 2019 07:48:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/from-vm-to-container-to-serverless/</guid>
+      <description>
+
+&lt;p&gt;昨天看到AWS &lt;a href=&#34;https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/&#34; target=&#34;_blank&#34;&gt;STEP FUNCTIONS支持嵌套的工作流&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，&lt;/p&gt;
+
+&lt;p&gt;后来工作流服务就没有大的工作，SWF框架的核心开发者一部分&lt;/p&gt;
+
+&lt;p&gt;离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS&lt;/p&gt;
+
+&lt;p&gt;支持工作流，看来这个千亿规模的市场又快被颠覆了。&lt;/p&gt;
+
+&lt;p&gt;20多年来，工作流都是超大型企业的配置专利，而STEP function的推出&lt;/p&gt;
+
+&lt;p&gt;可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。&lt;/p&gt;
+
+&lt;p&gt;回顾一下自己的工作历史：&lt;/p&gt;
+
+&lt;p&gt;从以前的数据中心服务器SA(2006), 到虚拟主机ESX，&lt;/p&gt;
+
+&lt;p&gt;再到OPENSTACK(2010)搭建混合云，&lt;/p&gt;
+
+&lt;p&gt;然后利用K8S(2014)搭建PaaS，现在SERVERLESS,&lt;/p&gt;
+
+&lt;p&gt;计算架构正在发生快速的演进。本文梳理了算力演进历史和未来&lt;/p&gt;
+
+&lt;p&gt;内容&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;从虚拟主机到容器&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;从容器到unikernel&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数计算的蓬勃发展&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;什么是虚拟计算&#34;&gt;什么是虚拟计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./virtulization.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;hypervisor分类&#34;&gt;hypervisor分类&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-1 裸机&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;KVM, QEMU, VMWare, Virtualbox&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-2 托管&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;XenServer， Hyper-v， KVM, ESX, Xen&lt;/p&gt;
+
+&lt;h1 id=&#34;虚拟机的问题&#34;&gt;虚拟机的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;贵&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;操作慢&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.&lt;/p&gt;
+
+&lt;p&gt;启动，备份非常不便。&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算&#34;&gt;容器计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./container.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;|虚拟机|            容器
+|:&amp;mdash;|:&amp;mdash;|:&amp;mdash;|
+构件|  完整的操作系统和应用|  微内核和应用
+虚拟技术|  硬件虚拟化|  操作系统虚拟化&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./c-vs-v.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算带来什么好处&#34;&gt;容器计算带来什么好处&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器镜像小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;alpine的容量是2M&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器占用的硬件资源更少&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台PC可以启动上百个容器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器启动快&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般几毫秒可以启动&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器不用备份&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器创建只需要一个Dockerfile，容器镜像是只读镜像&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器和微服务器架构，DevOps, CI/CD天然融合&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;容器存在的问题&#34;&gt;容器存在的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安全&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器共享操作系统内核，具体较低的隔离级别，&lt;/p&gt;
+
+&lt;p&gt;如果内核出问题，其他的容器也会处于风险之中&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网络&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如何在足够的隔离级别和复杂的高效网络连接权衡&lt;/p&gt;
+
+&lt;h1 id=&#34;容器编排&#34;&gt;容器编排&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;K8S&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EKS&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SWARM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MARATHON&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MAGNM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;FLEET&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用户轻松在计算集群里面部署，管理，扩展基于容器的应用而&lt;/p&gt;
+
+&lt;p&gt;不用关心容器和服务器的绑定，系统扩容等问题&lt;/p&gt;
+
+&lt;h1 id=&#34;容器网络&#34;&gt;容器网络&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DOCKER规范，libnetwork实现&lt;/p&gt;
+
+&lt;p&gt;内置的驱动包括none, host, bridge , overlay, MACvlan&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker network ls
+ NAME                 DRIVER              SCOPE
+68343147e103        bridge               bridge              local
+5d7df1d8f633        docker_default       bridge              local
+d3990aab14a9        host                 host                local
+fe4ec77439f4        none                 null                local
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./CNM.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;COREOS规范，被K8S, MESOS, CLOUD Foundry采用&lt;/p&gt;
+
+&lt;p&gt;json格式的网络模式定义&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./cni.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker的核心组件&#34;&gt;docker的核心组件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;LXC&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AUFS&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;docker的优势&#34;&gt;DOCKER的优势&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;镜像不可修改&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;部署没有第三方依赖&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;注册器简单且容易扩展&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;容易回滚&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对DOCKER的误解：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果学习了docker就不必学其他的系统知识了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;每个容器只能有一个进程&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用容器了就不必使用其他的配置管理工具了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;必须使用容器才能达到高效敏捷和一致性状态优势&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;open-containers-initiative&#34;&gt;Open Containers Initiative&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./oci.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;unikernel&#34;&gt;UniKernel&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./UniKernel.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;函数计算的兴起&#34;&gt;函数计算的兴起&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;No server is easier to manage than no-server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;背景：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前端技术演进&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;强大的原生客户/移动客户端让开发者通过调用各种云服务&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;编写大规模互联网应用，替换传统的后台服务&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTTP/S应用接口及基于token的安全认证成为工业标准&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;后台的定制化开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基于云服务器定制开发&lt;/p&gt;
+
+&lt;h1 id=&#34;serverless-vs-paas&#34;&gt;ServerLess  VS  PaaS&lt;/h1&gt;
+
+&lt;p&gt;PasS可能是ServerLess的一个迭代&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./serverless.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./article.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;虚拟机是一种更成熟的技术，更安全&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;容器虚拟化是一个更适合微服务器架构的方案&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;虚拟机和容器并不是互斥而是互补&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数计算是一下个&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Step Functions 常见问题</title>
+      <link>https://wubigo.com/post/step-functions/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/step-functions/</guid>
+      <description>
+
+&lt;h1 id=&#34;aws-step-functions-vs&#34;&gt;AWS Step Functions   VS&lt;/h1&gt;
+
+&lt;p&gt;Adds Support for Nested Workflows&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>宽带服务</title>
+      <link>https://wubigo.com/post/start-your-own-isp/</link>
+      <pubDate>Mon, 16 Sep 2019 09:39:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/start-your-own-isp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=20726906&#34; target=&#34;_blank&#34;&gt;https://news.ycombinator.com/item?id=20726906&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=17067144&#34; target=&#34;_blank&#34;&gt;ISP Starter Kit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.wispa.org/Resources/HOW-TO-START-A-WISP&#34; target=&#34;_blank&#34;&gt;http://www.wispa.org/Resources/HOW-TO-START-A-WISP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;wireless fiber&lt;/p&gt;
+
+&lt;p&gt;5G mobile broadband&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&#34; target=&#34;_blank&#34;&gt;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&#34; target=&#34;_blank&#34;&gt;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker Proxy for daemon and client</title>
+      <link>https://wubigo.com/post/docker-proxy/</link>
+      <pubDate>Fri, 13 Sep 2019 07:07:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-proxy/</guid>
+      <description>
+
+&lt;h1 id=&#34;docker-deamon-proxy&#34;&gt;DOCKER DEAMON PROXY&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;systemd level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/systemd/system/docker.service.d/https-proxy.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Service]
+Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;service level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/default/docker&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;daemon level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/docker/daemon&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker-client-proxy&#34;&gt;DOCKER CLIENT PROXY&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;~/.docker/config.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;       &amp;quot;proxies&amp;quot;:{
+                &amp;quot;default&amp;quot;:{}
+        }
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>免费使用公有云服务</title>
+      <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
+      <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/use-public-cloud-for-free/</guid>
+      <description>
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./localstack.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;AWS领先的设计理念和强大的技术生态&lt;/p&gt;
+
+&lt;p&gt;使你身陷其中，学习你要用它，开发你要&lt;/p&gt;
+
+&lt;p&gt;用它，上线还要用它。 一年下来项目还没有&lt;/p&gt;
+
+&lt;p&gt;正式商用，已经有十几万的研发费用。&lt;/p&gt;
+
+&lt;p&gt;今天向你推荐 localstack（与openstack啥关系？私有云+公有云），&lt;/p&gt;
+
+&lt;p&gt;让你使用AWS免费，至少在项目POC或开发测试阶段免费。&lt;/p&gt;
+
+&lt;p&gt;有了它， 你不用再焦急的等待老板审批公有云的&lt;/p&gt;
+
+&lt;p&gt;计算，存储，数据库资源开发申请。&lt;/p&gt;
+
+&lt;p&gt;是不是这个项目听起来很激动？&lt;/p&gt;
+
+&lt;!--
+最近正在了解微服务编排相关技术规范，看看AWS Step Functions
+
+如何设计的，localstack正好排上用场
+--&gt;
+
+&lt;p&gt;那如何使用localstack呢？&lt;/p&gt;
+
+&lt;h1 id=&#34;安装localstack&#34;&gt;安装localstack&lt;/h1&gt;
+
+&lt;p&gt;localstack是一个非常活跃的正在快速成长中的项目，&lt;/p&gt;
+
+&lt;p&gt;建议通过源代码安装&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;下载源代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:localstack/localstack.git
+git fetch --all
+git checkout tags/v0.10.3 -b v0.10.3
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;启用需要使用的AWS服务&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。&lt;/p&gt;
+
+&lt;p&gt;注意服务的名字必须来自&lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/reference/#available-services&#34; target=&#34;_blank&#34;&gt;服务名字列表&lt;/a&gt;， 否则不识别&lt;/p&gt;
+
+&lt;p&gt;启用服务就是修改下边的配置文件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;localstack\docker-compose.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns}
+
+ DATA_DIR=${DATA_DIR-/tmp/localstack/data }
+
+
+ volumes:
+      - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;make sure driver D is shared in docker desktop daemon&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up
+
+
+localstack_1  | Starting mock S3 (http port 4572)...
+localstack_1  | Starting mock SNS (http port 4575)...
+localstack_1  | Starting mock IAM (http port 4593)...
+localstack_1  | Starting mock API Gateway (http port 4567)...
+localstack_1  | Starting mock DynamoDB (http port 4569)...
+localstack_1  | Starting mock Lambda service (http port 4574)...
+localstack_1  | Starting mock CloudWatch Logs (http port 4586)...
+localstack_1  | Starting mock StepFunctions (http port 4585)...
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;系统消息显示需要的服务/端口已经启动。&lt;/p&gt;
+
+&lt;p&gt;到目前为至，localstack已经安装完毕。&lt;/p&gt;
+
+&lt;h1 id=&#34;记录并保存localstack的操作数据&#34;&gt;记录并保存localstack的操作数据&lt;/h1&gt;
+
+&lt;p&gt;if volumes in  docker settings&lt;/p&gt;
+
+&lt;p&gt;Localstack is recording all API calls in JSON file.&lt;/p&gt;
+
+&lt;p&gt;When the container restarts, it will re-apply these calls -&lt;/p&gt;
+
+&lt;p&gt;this is how we are able to keep our data between restarts&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;docker-compose.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- DATA_DIR=/tmp/localstack/data
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下边，我们来验证公有云服务是否可用。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装aws客户端-a-name-install-aws-sdk-a&#34;&gt;安装AWS客户端&lt;a name=&#34;install_aws_sdk&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装到虚拟环境&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;pip install awscli
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可以安装到系统环境&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;配置AWS CLI&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws configure
+
+AWS Access Key ID [None]: any-id-is-ok
+AWS Secret Access Key [None]: fake-key
+Default region name [local]: local
+Default output format [None]:
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;验证服务编排&#34;&gt;验证服务编排&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;试用stepfunctions服务&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面显示stepfunctions服务在4585端口，下面的端口要和&lt;/p&gt;
+
+&lt;p&gt;配置保持一致&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-activities
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建一个HelloWorld工作流&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 create-state-machine --definition &amp;quot;{\&amp;quot;Comment\&amp;quot;: \&amp;quot;A Hello World example of the Amazon States Language using a Pass state\&amp;quot;,\&amp;quot;StartAt\&amp;quot;: \&amp;quot;HelloWorld\&amp;quot;,\&amp;quot;States\&amp;quot;: {\&amp;quot;HelloWorld\&amp;quot;: {\&amp;quot;Type\&amp;quot;: \&amp;quot;Pass\&amp;quot;,\&amp;quot;End\&amp;quot;: true}}}&amp;quot; --name &amp;quot;HelloWorld&amp;quot; --role-arn &amp;quot;arn:aws:iam::012345678901:role/DummyRole&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;显示创建的工作流&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(venv) d:\code\venv&amp;gt;aws stepfunctions --endpoint-url http://localhost:4585 list-state-machines
+{
+&amp;quot;stateMachines&amp;quot;: [
+    {
+        &amp;quot;creationDate&amp;quot;: 1568199315.809,
+        &amp;quot;stateMachineArn&amp;quot;: &amp;quot;arn:aws:states:us-east-1:123456789012:stateMachine:HelloWorld&amp;quot;,
+        &amp;quot;name&amp;quot;: &amp;quot;HelloWorld&amp;quot;
+    }
+]
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;工作流已经创建，你可以启动工作流，&lt;/p&gt;
+
+&lt;p&gt;添加Lambda，部署微服务，添加微服务到到工作流，&lt;/p&gt;
+
+&lt;p&gt;所有公有云的计算，存储，API调用，上行宽带费用&lt;/p&gt;
+
+&lt;p&gt;通过使用localstack一切免费。&lt;/p&gt;
+
+&lt;p&gt;赶快加入项目，贡献你的力量&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://localstack.cloud/&#34; target=&#34;_blank&#34;&gt;https://localstack.cloud/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hub.docker.com/r/amazon/aws-stepfunctions-local&#34; target=&#34;_blank&#34;&gt;https://hub.docker.com/r/amazon/aws-stepfunctions-local&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&#34; target=&#34;_blank&#34;&gt;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>
