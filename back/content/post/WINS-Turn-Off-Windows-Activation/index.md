@@ -1,6 +1,6 @@
 +++
 title = "购买笔记本电脑的正确打开姿势"
-date = 2020-04-04T07:23:27+08:00
+date = 2016-04-04T07:23:27+08:00
 draft = false
 
 # Tags and categories
@@ -48,3 +48,4 @@ https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
 
 个性化设置必须在关闭激活服务之前完成
 
+![](/img/post/win-activation.png)

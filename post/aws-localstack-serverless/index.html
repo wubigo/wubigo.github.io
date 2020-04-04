@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+  <meta name="description" content="install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources">
 
   
@@ -138,7 +139,8 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/aws-localstack-serverless/">
   <meta property="og:title" content="基于Localstack的Serverless框架本地集成 | NgAPP">
-  <meta property="og:description" content="install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+  <meta property="og:description" content="install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -512,8 +514,7 @@ npm install serverless-localstack
 </code></pre>
 
 <ul>
-<li>check serverless version</li>
-</ul>
+<li><p>check serverless version</p>
 
 <pre><code>serverless -v
 
@@ -522,7 +523,8 @@ Plugin: 3.2.3
 SDK: 2.2.1
 Components Core: 1.1.2
 Components CLI: 1.4.0
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="create-serverless-function">create serverless function</h1>
 
@@ -671,18 +673,16 @@ ServiceEndpoint: https://gnz8rtc0xd.execute-api.us-east-1.amazonaws.com/local
 <h1 id="test-function">test function</h1>
 
 <ul>
-<li>with serverless</li>
-</ul>
+<li><p>with serverless</p>
 
 <pre><code>serverless invoke local -f hello -l
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>with curl</li>
-</ul>
+<li><p>with curl</p>
 
 <pre><code>curl http://localhost:4567/restapis/gnz8rtc0xd/local/_user_request_/ping
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="deploy-function-to-localstack">deploy function to localstack</h1>
 
@@ -934,7 +934,7 @@ ServiceEndpoint: https://gnz8rtc0xd.execute-api.us-east-1.amazonaws.com/local
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

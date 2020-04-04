@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-04T07:23:27&#43;08:00">
+  <meta property="og:updated_time" content="2020-03-30T02:27:21&#43;08:00">
   
 
   
@@ -397,119 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-04-04 07:23:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-04-04 07:23:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 4, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/wins-turn-off-windows-activation/" itemprop="url">购买笔记本电脑的正确打开姿势</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="关闭网络连接">关闭网络连接</h2>
-
-<h2 id="个性化设置">个性化设置</h2>
-
-<ul>
-<li><p>性能模式</p></li>
-
-<li><p>任务栏</p></li>
-
-<li><p>通知</p></li>
-
-<li><p>文件夹</p></li>
-</ul>
-
-<h2 id="关闭激活服务">关闭激活服务</h2>
-
-<hr />
-
-<h3 id="禁用激活服务">禁用激活服务</h3>
-
-<p><a href="https://www.wikihow.com/Turn-Off-Windows-Activation" target="_blank">https://www.wikihow.com/Turn-Off-Windows-Activation</a></p>
-
-<h3 id="关闭自动激活">关闭自动激活</h3>
-
-<p><a href="https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/" target="_blank">https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/</a></p>
-
-<h2 id="注意">注意</h2>
-
-<p>个性化设置必须在关闭激活服务之前完成</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1110,7 +997,9 @@ GRAAL能做什么？
 是，但不完全是。
 GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
  JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
-安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查  js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)   安装native-image  gu install native-image  gu available Downloading: Component catalog from www.
+安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
+js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
+gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
   </div>
   
 
@@ -1516,7 +1405,9 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
  Docker 17.09
   安装WSL install WSL
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)  c:\&gt;wsl -d Ubuntu-16.04   安装docker  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
+c:\&gt;wsl -d Ubuntu-16.04  安装docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.
   </div>
   
 
@@ -2017,7 +1908,9 @@ AWS领先的设计理念和强大的技术生态
 那如何使用localstack呢？
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
- 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
@@ -2111,8 +2004,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 <p><img src="/img/post/minio-gateway-b2.png" alt="" /></p>
 
 <ul>
-<li>下载B2 TLS安全证书</li>
-</ul>
+<li><p>下载B2 TLS安全证书</p>
 
 <pre><code>openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt
 
@@ -2121,7 +2013,8 @@ mv b2.crt .minio/certs/CAs/
 set MINIO_ACCESS_KEY=B2_keyID
 set MINIO_SECRET_KEY=B2_applicationKey
 minio gateway b2
-</code></pre>
+</code></pre></li>
+</ul>
 
   </div>
   
@@ -2373,7 +2266,97 @@ WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&qu
     AppInfo 启动类型必须是自动或手动，
 否则，msinstaller， services.msc， regedit
 等都会报错：
-The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo svchost.exe Facilitates the running of interactive applications with additional administrative privileges. Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
   </div>
   
 
@@ -2554,7 +2537,7 @@ The Service command cannot be started, either because it is disabled or because 
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.">
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/aws-lambda-with-localstack/">
@@ -139,7 +140,8 @@ exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT
   <meta property="og:url" content="https://wubigo.com/post/aws-lambda-with-localstack/">
   <meta property="og:title" content="基于Localstack的本地Lambda开发 | NgAPP">
   <meta property="og:description" content="Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; &#43; JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; &#43; JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ&#43;tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-09-29T09:39:28&#43;08:00">
@@ -514,8 +516,7 @@ exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT
 </code></pre>
 
 <ul>
-<li>打包</li>
-</ul>
+<li><p>打包</p>
 
 <pre><code>zip function.zip index.js
 </code></pre>
@@ -523,48 +524,45 @@ exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT
 <pre><code>aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574
 </code></pre>
 
-<pre><code> aws lambda get-function --function-name my-function  --endpoint-url=http://localhost:4574
+<pre><code>aws lambda get-function --function-name my-function  --endpoint-url=http://localhost:4574
 {
-    &quot;Code&quot;: {
-        &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot;
+&quot;Code&quot;: {
+    &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot;
+},
+&quot;Configuration&quot;: {
+    &quot;TracingConfig&quot;: {
+        &quot;Mode&quot;: &quot;PassThrough&quot;
     },
-    &quot;Configuration&quot;: {
-        &quot;TracingConfig&quot;: {
-            &quot;Mode&quot;: &quot;PassThrough&quot;
-        },
-        &quot;Version&quot;: &quot;$LATEST&quot;,
-        &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;,
-        &quot;FunctionName&quot;: &quot;my-function&quot;,
-        &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.752+0000&quot;,
-        &quot;RevisionId&quot;: &quot;c79398c9-556b-4ed1-ad72-91332dd1f6e0&quot;,
-        &quot;CodeSize&quot;: 322,
-        &quot;FunctionArn&quot;: &quot;arn:aws:lambda:us-east-1:000000000000:function:my-function&quot;,
-        &quot;Handler&quot;: &quot;index.handler&quot;,
-        &quot;Role&quot;: &quot;arn:aws:iam::123456789012:role/lambda-cli-role&quot;,
-        &quot;Timeout&quot;: 3,
-        &quot;Runtime&quot;: &quot;nodejs10.x&quot;,
-        &quot;Description&quot;: &quot;&quot;
-    }
+    &quot;Version&quot;: &quot;$LATEST&quot;,
+    &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;,
+    &quot;FunctionName&quot;: &quot;my-function&quot;,
+    &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.752+0000&quot;,
+    &quot;RevisionId&quot;: &quot;c79398c9-556b-4ed1-ad72-91332dd1f6e0&quot;,
+    &quot;CodeSize&quot;: 322,
+    &quot;FunctionArn&quot;: &quot;arn:aws:lambda:us-east-1:000000000000:function:my-function&quot;,
+    &quot;Handler&quot;: &quot;index.handler&quot;,
+    &quot;Role&quot;: &quot;arn:aws:iam::123456789012:role/lambda-cli-role&quot;,
+    &quot;Timeout&quot;: 3,
+    &quot;Runtime&quot;: &quot;nodejs10.x&quot;,
+    &quot;Description&quot;: &quot;&quot;
+}
 }
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>验证调用</li>
-</ul>
+<li><p>验证调用</p>
 
 <pre><code>(venv) $aws lambda list-functions --endpoint-url=http://localhost:4574
 
 
 (venv) $aws lambda invoke --function-name my-function out --log-type Tail --endpoint-url=http://localhost:4574
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>清理</li>
-</ul>
+<li><p>清理</p>
 
 <pre><code>aws lambda delete-function --function-name my-function --endpoint-url=http://localhost:4574
-</code></pre>
+</code></pre></li>
+</ul>
 
     </div>
 
@@ -785,7 +783,7 @@ exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

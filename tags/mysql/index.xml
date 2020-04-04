@@ -113,7 +113,8 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39
       
       <guid>https://wubigo.com/post/mysql5.7/</guid>
       <description>mysql install ubuntu 16.04 install mysql 5.7 at default
-sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection  mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;  SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;   SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
 [mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.</description>
     </item>
     
@@ -123,7 +124,8 @@ sudo apt-get update sudo apt-get install mysql-server   Enable root remote conne
       <pubDate>Fri, 22 Mar 2013 17:08:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-partition/</guid>
-      <description> whether MySQL Server supports partitioning  mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition  </description>
+      <description> whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition   </description>
     </item>
     
     <item>

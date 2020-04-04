@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -31,7 +31,8 @@
   <meta name="description" content="避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.">
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/helm-without-tiller/">
@@ -143,7 +144,8 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
   <meta property="og:description" content="避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-04T21:02:56&#43;08:00">
@@ -528,27 +530,28 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
 <ul>
 <li>获取模板</li>
 <li>使用配置修改模板</li>
-<li>生产yaml文件</li>
-</ul>
+
+<li><p>生产yaml文件</p>
 
 <pre><code>git clone https://github.com/istio/istio.git
 cd istio
 git checkout 1.0.6 -b 1.0.6
 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \
-  --set security.enabled=false \
-  --set ingress.enabled=false \
-  --set gateways.istio-ingressgateway.enabled=false \
-  --set gateways.istio-egressgateway.enabled=false \
-  --set galley.enabled=false \
-  --set sidecarInjectorWebhook.enabled=false \
-  --set mixer.enabled=false \
-  --set prometheus.enabled=false \
-  --set global.proxy.envoyStatsd.enabled=false \
-  --set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml
+--set security.enabled=false \
+--set ingress.enabled=false \
+--set gateways.istio-ingressgateway.enabled=false \
+--set gateways.istio-egressgateway.enabled=false \
+--set galley.enabled=false \
+--set sidecarInjectorWebhook.enabled=false \
+--set mixer.enabled=false \
+--set prometheus.enabled=false \
+--set global.proxy.envoyStatsd.enabled=false \
+--set pilot.sidecar=false &gt; $HOME/istio-minimal.yaml
 
 kubectl create namespace istio-system
 kubectl apply -f $HOME/istio-minimal.yaml
-</code></pre>
+</code></pre></li>
+</ul>
 
     </div>
 
@@ -769,7 +772,7 @@ kubectl apply -f $HOME/istio-minimal.yaml
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

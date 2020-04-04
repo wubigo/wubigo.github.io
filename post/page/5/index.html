@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2020-03-30T02:27:21&#43;08:00">
   
 
   
@@ -465,12 +465,15 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/flink-cluster/" itemprop="url">Flink Cluster</a>
+    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    execution environment Creates an execution environment that represents the context in which the program is currently executed. If the program is invoked standalone, this method returns a local execution environment. If the program is invoked from within the command line client to be submitted to a cluster, this method returns the execution environment of this cluster.  REST instead of akka in 1.5 changing the client to communicate via REST instead of akka.
+    Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 
@@ -554,91 +557,6 @@
   <div class="article-style" itemprop="articleBody">
     <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Allow more ways of creating objects using literals
- Introduce new datatypes together with their operators and expressions.
-  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
-log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 
@@ -808,7 +726,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-  management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
   </div>
   
@@ -991,7 +909,7 @@ Customer User: customer@thingsboard.org / customer
     Single File Components single-file components with a .vue extension is build by tools
 such as Webpack or Browserify
 A single-file component consists of three parts:
-- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&gt;npm config list ; cli configs metrics-registry = &quot;https://registry.
+- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
   </div>
   
 
@@ -1926,7 +1844,7 @@ Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
   </div>
   
 
@@ -2182,18 +2100,16 @@ enter password to unlock your keyring  方法1（可靠）
 <h2 id="proxy">proxy</h2>
 
 <ul>
-<li>从 Github 的代码库 clone</li>
-</ul>
+<li><p>从 Github 的代码库 clone</p>
 
 <pre><code>go get -u github.com/golang/text
 mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
 
 go get -u github.com/golang/crypto
 mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>设置 GOPROXY 环境变量配置代理</li>
+<li><p>设置 GOPROXY 环境变量配置代理</p></li>
 </ul>
 
 <p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
@@ -2209,6 +2125,90 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
 <li><a href="/post/go-vscode#proxy">GIT代理</a></li>
 </ul>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-openshift/" itemprop="url">K8s Openshift</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
   </div>
   
 
@@ -2391,7 +2391,7 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

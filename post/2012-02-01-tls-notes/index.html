@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -623,17 +623,16 @@ ca.pem
 <pre><code>cfssl print-defaults csr &gt; server.json
 </code></pre>
 
-<p>Most important values for server certificate are Common Name (CN) and hosts. substitute them accordingly:</p></li>
-</ul>
+<p>Most important values for server certificate are Common Name (CN) and hosts. substitute them accordingly:</p>
 
 <pre><code>...
-    &quot;CN&quot;: &quot;server&quot;,
-    &quot;hosts&quot;: [
-        &quot;192.168.1.6&quot;,
-        &quot;wubigo.com&quot;,
-        &quot;localhost&quot;,
-        &quot;127.0.0.1&quot;
-    ],
+&quot;CN&quot;: &quot;server&quot;,
+&quot;hosts&quot;: [
+    &quot;192.168.1.6&quot;,
+    &quot;wubigo.com&quot;,
+    &quot;localhost&quot;,
+    &quot;127.0.0.1&quot;
+],
 ...
 </code></pre>
 
@@ -649,6 +648,7 @@ ca.pem
 server.csr
 server.pem
 </code></pre></li>
+</ul></li>
 
 <li><p>Generate peer certificate</p></li>
 </ul>
@@ -897,7 +897,7 @@ client.pem
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

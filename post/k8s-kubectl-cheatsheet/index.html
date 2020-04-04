@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -685,17 +685,17 @@ kubectl create -f rolebinding-bigo-access.yaml
 <h1 id="user-group-role-rolebind-rbac">USER, GROUP, ROLE , ROLEBIND, RBAC</h1>
 
 <ul>
-<li>list all users
-```
-kubectl config view
-&hellip;
-users:</li>
-<li>name: kubernetes-admin
+<li><p>list all users</p>
+
+<pre><code>kubectl config view
+...
+users:
+- name: kubernetes-admin
 user:
 client-certificate-data: REDACTED
 client-key-data: REDACTED
-&hellip;
-```</li>
+...
+</code></pre></li>
 </ul>
 
 <h1 id="enable-helm-in-cluster">Enable Helm in cluster</h1>
@@ -712,74 +712,63 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
 </code></pre>
 
-<p>or
-```
-cat tiller-clusterrolebinding.yaml
+<p>or</p>
+
+<pre><code>cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
 name: tiller-clusterrolebinding
-subjects:</p></li>
-
-<li><p>kind: ServiceAccount
+subjects:
+- kind: ServiceAccount
 name: tiller
 namespace: kube-system
 roleRef:
 kind: ClusterRole
 name: cluster-admin
-apiGroup: &ldquo;&rdquo;</p></li>
-</ul>
+apiGroup: &quot;&quot;
 
-<p>docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3</p>
+docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3
 
-<p>kubectl create -f tiller-clusterrolebinding.yaml</p>
-
-<h1 id="update-the-existing-tiller-deploy-deployment-with-the-service-account">Update the existing tiller-deploy deployment with the Service Account</h1>
-
-<p>helm init &ndash;service-account tiller &ndash;upgrade</p>
-
-<pre><code>
-
-
+kubectl create -f tiller-clusterrolebinding.yaml
+# Update the existing tiller-deploy deployment with the Service Account
+helm init --service-account tiller --upgrade
 </code></pre>
 
-<p>helm install &ndash;name prometheus stable/prometheus</p>
+<pre><code>helm install --name prometheus stable/prometheus
 
-<p>helm install &ndash;name prometheus1  stable/prometheus &ndash;set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,</p>
-
-<pre><code>
-    alertmanager:
-      enabled: false
-      name: p-alertmanager
-    
-    server:
-      name: prometheus880
+helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,
 </code></pre>
 
-<h1 id="pvc-using-local-pv">PVC using local PV</h1>
+<p>alertmanager:
+  enabled: false
+  name: p-alertmanager</p>
 
-<ul>
-<li>create PVC</li>
+<p>server:
+  name: prometheus880</p>
+
+<pre><code>
+# PVC using local PV
+- create PVC
+
+</code></pre></li>
 </ul>
 
-<pre><code>cat storage-class-hdd.yaml 
+<p>cat storage-class-hdd.yaml
 apiVersion: storage.K8S.io/v1
 kind: StorageClass
 metadata:
  name: local-hdd
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: WaitForFirstConsumer</p>
+
+<pre><code>&gt;kubectl apply -f  storage-class-hdd.yaml
+
+- create local PV
+
 </code></pre>
 
-<blockquote>
-<p>kubectl apply -f  storage-class-hdd.yaml</p>
-</blockquote>
-
-<ul>
-<li>create local PV</li>
-</ul>
-
-<pre><code>cat local_volume.yaml
+<p>cat local_volume.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -801,31 +790,31 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - bigo-vm4
+          - bigo-vm4</p>
+
+<pre><code>
+&gt;kubectl apply -f local_volume.yaml
+
+PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
+
+PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+
+When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
+
+
+# Port Forwarding a local port to a port on K8S
 </code></pre>
 
-<blockquote>
-<p>kubectl apply -f local_volume.yaml</p>
-</blockquote>
-
-<p>PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.</p>
-
-<p>PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.</p>
-
-<p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
-
-<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on K8S</h1>
-
-<pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
+<p>kubectl port-forward <podname> 9090:9090
 or
-kubectl port-forward pods/&lt;podname&gt; 9090:9090
+kubectl port-forward pods/<podname> 9090:9090
 or
 kubectl port-forward deployment/prometheus  9090:9090
 or
 kubectl port-forward svc/prometheus  9090:9090
 or
 kubectl port-forward rs/prometheus  9090:9090
-</code></pre>
+```</p>
 
     </div>
 
@@ -1044,7 +1033,7 @@ kubectl port-forward rs/prometheus  9090:9090
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

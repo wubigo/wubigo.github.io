@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -543,11 +543,11 @@ sudo kubeadm init phase certs etcd-healthcheck-client --config=/tmp/${HOST0}/kub
 sudo kubeadm init phase certs apiserver-etcd-client --config=/tmp/${HOST0}/kubeadmcfg.yaml
 </code></pre></li>
 
-<li><p>Create the static pod manifests</p></li>
-</ul>
+<li><p>Create the static pod manifests</p>
 
 <pre><code>kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><code>/etc/kubernetes/manifests</code></p>
 
@@ -619,11 +619,10 @@ status: {}
 </code></pre>
 
 <ul>
-<li>ensure the etcd pod is running</li>
-</ul>
+<li><p>ensure the etcd pod is running</p>
 
 <pre><code>journalctl -xeu kubelet
- remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image service failed: rpc error: code = Unknown desc = Error response fro
+remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image service failed: rpc error: code = Unknown desc = Error response fro
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537292    4221 kuberuntime_image.go:51] Pull image &quot;k8s.gcr.io/etcd:3.2.24&quot; failed: rpc error: code = Unknown desc = Error response from daemon: Get 
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537393    4221 kuberuntime_manager.go:749] container start failed: ErrImagePull: rpc error: code = Unknown desc = Error response from daemon: Get htt
 3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537469    4221 pod_workers.go:190] Error syncing pod 30ecbbae123bb7b8baaa2f08cb762164 (&quot;etcd-bigo-vm2_kube-system(30ecbbae123bb7b8baaa2f08cb762164)&quot;)
@@ -631,11 +630,9 @@ status: {}
 
 <pre><code>docker pull mirrorgooglecontainers/etcd:3.2.24
 docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Check the cluster health</li>
-</ul>
+<li><p>Check the cluster health</p>
 
 <pre><code>docker run --rm -it \
 --net host \
@@ -644,19 +641,20 @@ docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 --key-file /etc/kubernetes/pki/etcd/peer.key \
 --ca-file /etc/kubernetes/pki/etcd/ca.crt \
 --endpoints https://${HOST0}:2379 cluster-health
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="set-up-the-first-control-plane-node">Set up the first control plane node</h1>
 
 <ul>
-<li>Copy the following files from any node from the etcd cluster</li>
-</ul>
+<li><p>Copy the following files from any node from the etcd cluster</p>
 
 <pre><code>export CONTROL_PLANE=&quot;192.168.1.9&quot;
 scp /etc/kubernetes/pki/etcd/ca.crt &quot;${CONTROL_PLANE}&quot;:
 scp /etc/kubernetes/pki/apiserver-etcd-client.crt &quot;${CONTROL_PLANE}&quot;:
 scp /etc/kubernetes/pki/apiserver-etcd-client.key &quot;${CONTROL_PLANE}&quot;:
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><code>kubeadm-config.yaml</code></p>
 
@@ -923,7 +921,7 @@ sed -i -e &quot;s/# etcd-key: null/etcd-key: $KEY/g&quot; calico.yaml
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-02-28T15:22:10&#43;08:00">
+  <meta property="og:updated_time" content="2020-03-30T02:27:21&#43;08:00">
   
 
   
@@ -422,84 +422,6 @@
 
 
 
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-28 15:22:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/effective-coding-python/" itemprop="url">Effective Coding Python</a>
-  </h3>
-
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-02-25 12:51:44 &#43;0800 CST" itemprop="dateModified">
 
@@ -551,7 +473,7 @@
     Namecheap不支持根域(apex doamin/naked domain/bare domain)的ALIAS记录
 在代码仓库的根目录创建CNAME文件 CNME文件包括根域域名
 tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条指向根域的A记录，一条指向子域的CNAME记录 AN A Record for @(apex doamin) and a cname record(Alias) for github 不要在github页使用通配符 dns 记录! 否则没有指定的子域将有被别人使用的风险
-确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Ubuntu &lt;&lt;&gt;&gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com. IN A www.wubigo.com. 1 IN CNAME wubigo.github.io. wubigo.github.io. 3462 IN A 185.199.111.153 wubigo.github.io. 3462 IN A 185.199.110.153 wubigo.github.io. 3462 IN A 185.
+确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Ubuntu &lt;&lt;&gt;&gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com.	IN	A www.wubigo.com.	1	IN	CNAME	wubigo.github.io. wubigo.github.io.	3462	IN	A	185.199.111.153 wubigo.github.io.	3462	IN	A	185.199.110.153 wubigo.github.io.	3462	IN	A	185.
   </div>
   
 
@@ -660,11 +582,11 @@ tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条�
 <p><a href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc--using-local-pv" target="_blank">https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv</a></p>
 
 <ul>
-<li>install</li>
-</ul>
+<li><p>install</p>
 
 <pre><code>helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false
-</code></pre>
+</code></pre></li>
+</ul>
 
   </div>
   
@@ -1370,32 +1292,31 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
+    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
+<h1 id="discourse-setup">discourse-setup</h1>
 
-<p>[]()</p>
+<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
 
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
+<pre><code>$cp samples/standalone.yml containers/app.yml
+</code></pre>
 
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
+<p>Discourse app.yml AWS setup example</p>
 
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
+<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
 
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
+<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
 
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
+<p>fix these settings after bootstrapping, edit the /containers/app.yml
+  then rebuild to take effect</p>
 
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
+<pre><code>./launcher rebuild app
+</code></pre>
 
   </div>
   
@@ -1473,31 +1394,32 @@ across rows (axis 0), and the second running horizontally across columns (axis 1
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
+    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="discourse-setup">discourse-setup</h1>
+<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
 
-<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
+<p>[]()</p>
 
-<pre><code>$cp samples/standalone.yml containers/app.yml
-</code></pre>
+<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
 
-<p>Discourse app.yml AWS setup example</p>
+<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
 
-<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
+<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
 
-<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
+<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
 
-<p>fix these settings after bootstrapping, edit the /containers/app.yml
-  then rebuild to take effect</p>
+<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
 
-<pre><code>./launcher rebuild app
-</code></pre>
+<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
+
+<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
+
+<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
 
   </div>
   
@@ -2217,6 +2139,93 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
 
     
   
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-17 14:12:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 17, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-logging-efk/" itemprop="url">K8s日志EFK</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
+kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
 
   
 <nav>
@@ -2390,7 +2399,7 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

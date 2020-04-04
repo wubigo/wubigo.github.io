@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -30,7 +30,8 @@
   
   <meta name="description" content="与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; &#43; result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; &#43; error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; &#43; result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; &#43; error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.">
 
@@ -143,7 +144,8 @@ createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状
   <meta property="og:title" content="Nodejs异步通信之Promise | NgAPP">
   <meta property="og:description" content="与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; &#43; result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; &#43; error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; &#43; result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; &#43; error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -515,28 +517,26 @@ createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状
 
 <li><p>Promise能被作为对象返回并被后期调用</p></li>
 
-<li><p>回调</p></li>
-</ul>
+<li><p>回调</p>
 
 <pre><code>function successCallback(result) {
-  console.log(&quot;Audio file ready at URL: &quot; + result);
+console.log(&quot;Audio file ready at URL: &quot; + result);
 }
 
 function failureCallback(error) {
-  console.error(&quot;Error generating audio file: &quot; + error);
+console.error(&quot;Error generating audio file: &quot; + error);
 }
 
 createAudioFileAsync(audioSettings, successCallback, failureCallback);
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>promise</li>
-</ul>
+<li><p>promise</p>
 
 <pre><code>const promise = createAudioFileAsync(audioSettings); 
 promise.then(successCallback, failureCallback);
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>or</p>
 
@@ -592,19 +592,20 @@ promise.then(successCallback, failureCallback);
 
 <ul>
 <li>then方法的第二个参数onRejection回调</li>
-<li>catch</li>
-</ul>
+
+<li><p>catch</p>
 
 <pre><code>'use strict';
 // First Approach
 yourPromise.catch(function (error) {
- // Your Error Callback
+// Your Error Callback
 });
 // Second Approach
 yourPromise.then(undefined, function (error) {
- // Your Error Callback
+// Your Error Callback
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>错误检测：根据catch或onRejection定义的顺序被触发</p>
 
@@ -824,7 +825,7 @@ Promise.then(onFulfilled, onRejected);
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

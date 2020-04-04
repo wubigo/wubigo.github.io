@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -424,7 +424,8 @@ While Hyperplane still uses a cross account network interface, it provides the f
     <h2><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></h2>
     <div class="article-style">
       
-       创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  
+       创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   
       
     </div>
   </div>
@@ -502,7 +503,10 @@ resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &
     <h2><a href="/post/aws-get-sqs-notification-on-s3-object-creation/">基于local stack的本地S3对象创建通知</a></h2>
     <div class="article-style">
       
-      get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }   create s3 notification config  cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification.
+      get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }  create s3 notification config
+cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }  make notification effect
       
     </div>
   </div>
@@ -531,7 +535,8 @@ import json def my_handler(event, context): print(&quot;Received event: &quot; +
     <h2><a href="/post/aws-localstack-serverless/">基于Localstack的Serverless框架本地集成</a></h2>
     <div class="article-style">
       
-      install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+      install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources
       
     </div>
@@ -574,7 +579,8 @@ The Lambda Function itself includes source code
     <div class="article-style">
       
       Create function index.js
-exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
       
     </div>
   </div>
@@ -583,10 +589,13 @@ exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT
     <h2><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></h2>
     <div class="article-style">
       
-      安装AWS CLI  (venv) d:\code\venv&gt;pip install awscli pip install awscli-local  awslocal = aws &ndash;endpoint-url=http://localhost:
+      安装AWS CLI
+(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
 可以安装到系统环境
- 配置AWS CLI  (venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:  命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI  (venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+ 配置AWS CLI
+(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
+(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
       
     </div>
   </div>
@@ -803,7 +812,7 @@ AWSTemplateFormatVersion: '2010-09-09' Description: Simple CloudFormation Test T
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

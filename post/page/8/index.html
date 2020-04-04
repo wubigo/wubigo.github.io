@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-12-03T08:39:52&#43;08:00">
+  <meta property="og:updated_time" content="2020-03-30T02:27:21&#43;08:00">
   
 
   
@@ -397,92 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-03 08:39:52 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-03 08:39:52 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-notes/" itemprop="url">Nodejs Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  declare variables ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will
-rarely find var anymore.
-A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,
-modified)
-Immutability is embraced in React and its ecosystem. That’s why const should be your default
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1968,7 +1882,8 @@ The Zuul proxy server is designed by default to work on the Spring products.
     提示： 以下操作是在VirtualBox虚机环境，并做如下配置
  网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
  多网卡  每块网卡都要做上述调整
-准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+准备  安装util-linux
+sudo apt install util-linux   /etc/network/interface
 cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
   </div>
   
@@ -2232,6 +2147,90 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
 
     
   
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-dns/" itemprop="url">K8s DNS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
+Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
+ A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
 
   
 <nav>
@@ -2405,7 +2404,7 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {
