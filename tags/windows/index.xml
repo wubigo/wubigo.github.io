@@ -6,10 +6,30 @@
     <description>Recent content in WINDOWS on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 May 2019 16:57:56 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 14:21:19 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
+c:\&amp;gt;wsl -d Ubuntu-16.04  安装docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.</description>
+    </item>
     
     <item>
       <title>Wireless and Wired Connection Both at a Same Time in Windows</title>
@@ -31,6 +51,44 @@ WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Prope
 否则，msinstaller， services.msc， regedit
 等都会报错：
 The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
+    </item>
+    
+    <item>
+      <title>WIN用户使用Docker卷</title>
+      <link>https://wubigo.com/post/docker-win10-volume/</link>
+      <pubDate>Wed, 26 Sep 2018 17:14:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-win10-volume/</guid>
+      <description> 在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &amp;quot;Settings&amp;quot; in Docker Desktop -&amp;gt; &amp;quot;Shared Drives&amp;quot; -&amp;gt; &amp;quot;Reset Credentials&amp;quot; -&amp;gt; select drive &amp;quot;D&amp;quot; -&amp;gt; &amp;quot;Apply&amp;quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  </description>
+    </item>
+    
+    <item>
+      <title>Docker Windows7 Docker Toolbox</title>
+      <link>https://wubigo.com/post/docker-windows7-docker-toolbox/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-windows7-docker-toolbox/</guid>
+      <description> docker proxy run cmd as administrator cmd&amp;gt;cd $GIT_HOME cmd&amp;gt;echo &amp;gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  </description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Windows</title>
+      <link>https://wubigo.com/post/tcpdump-windows/</link>
+      <pubDate>Tue, 24 Apr 2018 19:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/tcpdump-windows/</guid>
+      <description> install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  </description>
+    </item>
+    
+    <item>
+      <title>Win10 Customize</title>
+      <link>https://wubigo.com/post/win10-customize/</link>
+      <pubDate>Fri, 29 Sep 2017 15:26:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/win10-customize/</guid>
+      <description>disable Taskbar thumbnail preview on Windows https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10</description>
     </item>
     
     <item>

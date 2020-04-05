@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-10T16:57:56&#43;08:00">
+  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
   
 
   
@@ -400,6 +400,26 @@
   
   
   <div>
+    <h2><a href="/post/docker-within-wsl/">在WSL中使用Docker</a></h2>
+    <div class="article-style">
+      
+      在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
+c:\&gt;wsl -d Ubuntu-16.04  安装docker
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/">Wireless and Wired Connection Both at a Same Time in Windows</a></h2>
     <div class="article-style">
       
@@ -417,6 +437,44 @@ WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&qu
 否则，msinstaller， services.msc， regedit
 等都会报错：
 The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></h2>
+    <div class="article-style">
+      
+       在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &quot;Settings&quot; in Docker Desktop -&gt; &quot;Shared Drives&quot; -&gt; &quot;Reset Credentials&quot; -&gt; select drive &quot;D&quot; -&gt; &quot;Apply&quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></h2>
+    <div class="article-style">
+      
+       docker proxy run cmd as administrator cmd&gt;cd $GIT_HOME cmd&gt;echo &gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/tcpdump-windows/">Tcpdump Windows</a></h2>
+    <div class="article-style">
+      
+       install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/win10-customize/">Win10 Customize</a></h2>
+    <div class="article-style">
+      
+      disable Taskbar thumbnail preview on Windows https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10
       
     </div>
   </div>
