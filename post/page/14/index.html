@@ -1222,18 +1222,24 @@ The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliab
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="turn-on-ie-proxy">turn on IE proxy</h1>
+<h2 id="turn-on-ie-proxy">turn on IE proxy</h2>
 
 <pre><code>@ECHO OFF
 ECHO Turn on proxy! please wait...
 REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
 </code></pre>
 
-<h1 id="turn-off-ie-proxy">turn off IE proxy</h1>
+<h2 id="turn-off-ie-proxy">turn off IE proxy</h2>
 
 <pre><code>@ECHO OFF
 ECHO Turn off IE Proxy! please wait...
 REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
+</code></pre>
+
+<h2 id="禁止用户修改密码">禁止用户修改密码</h2>
+
+<pre><code>net users
+net user user_cmp /PasswordChg:No
 </code></pre>
 
   </div>

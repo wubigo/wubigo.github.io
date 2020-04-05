@@ -842,6 +842,12 @@ apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube
 
 <p><img src="/img/post/win-activation.png" alt="" /></p>
 
+<h2 id="禁止用户修改密码">禁止用户修改密码</h2>
+
+<pre><code>net users
+net user user_cmp /PasswordChg:No
+</code></pre>
+
   </div>
   
 
