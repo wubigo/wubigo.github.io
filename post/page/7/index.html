@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-05T18:30:06&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-06T06:40:42&#43;08:00">
   
 
   
@@ -397,6 +397,119 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-vpc-connection/" itemprop="url">Aws VPC之间或VPC与私有网络之间的连接方式汇总</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="vpc之间的连接方式">VPC之间的连接方式</h2>
+
+<ul>
+<li><p>专线</p></li>
+
+<li><p>VPN托管服务</p></li>
+
+<li><p>VPN Peering</p></li>
+
+<li><p>自建或第三方VPN</p></li>
+
+<li><p>PrivateLink</p></li>
+</ul>
+
+<h2 id="vpc与私有网络之间的连接方式">VPC与私有网络之间的连接方式</h2>
+
+<ul>
+<li><p>VPN托管服务</p></li>
+
+<li><p>专线</p></li>
+
+<li><p>专线+VPN</p></li>
+
+<li><p>自建或第三方VPN</p></li>
+
+<li><p>Transit VPC</p></li>
+
+<li><p>VPN Hub</p></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2181,89 +2294,6 @@ function successCallback(result) { console.log(&quot;Audio file ready at URL: &q
 const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 21, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-prototype/" itemprop="url">Nodejs对象创建方式</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    对象创建有如下几种方式
-使用{} let animal = {} animal.name = 'Leo' animal.energy = 10 animal.eat = function (amount) { console.log(`${this.name} is eating.`) this.energy += amount } animal.sleep = function (length) { console.log(`${this.name} is sleeping.`) this.energy += length } animal.play = function (length) { console.log(`${this.name} is playing.`) this.energy -= length }  构造函数 function Animal (name, energy) { let animal = {} animal.name = name animal.energy = energy animal.eat = function (amount) { console.
   </div>
   
 

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-05T18:30:06&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-06T06:40:42&#43;08:00">
   
 
   
@@ -397,6 +397,95 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-07-linuxperformancetuning/" itemprop="url">Linux performance</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
+Interrupt Coalescence ubuntu 16 default
+Interrupt Coalescence (IC)
+$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
+$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
+use Jumbo frames
+ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
+ip -s link show eth0  stop irqbalance for home user
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2188,101 +2277,6 @@ Resources:
 
 
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/data-lake/" itemprop="url">Data Lake</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="设计目标">设计目标</h1>
-
-<ul>
-<li><p>存取（入库和分析）高效</p></li>
-
-<li><p>节省存储空间</p></li>
-</ul>
-
-<p>评估单台设备基于采集评率的每年存储成本</p>
-
-<p><a href="http://mysql.rjweb.org/doc.php/datawarehouse" target="_blank">http://mysql.rjweb.org/doc.php/datawarehouse</a></p>
 
   </div>
   
