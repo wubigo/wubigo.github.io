@@ -1,7 +1,7 @@
 +++
 title = "Docker Windows7 Docker Toolbox"
 date = 2018-04-28T17:08:07+08:00
-tags = ["WIN", "DOCKER"]
+tags = ["WINDOWS", "DOCKER"]
 draft = false
 
 # Tags and categories
