@@ -64,4 +64,9 @@ categories = []
 - 对openstack，paas，k8s，工作流，监控，cognito/okta等其中一项和多项有3年以上开发经验
 
 
+## 下一步
+
+请发专业简历到fn@wubigo.com
+
+
 
