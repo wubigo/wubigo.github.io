@@ -422,6 +422,89 @@
 
 
 
+<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 1, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2011-02-01-etcd-notes/" itemprop="url">ETCD notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Verify etcd CA data sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text ... X509v3 extensions: X509v3 Key Usage: critical Digital Signature, Key Encipherment X509v3 Extended Key Usage: TLS Web Server Authentication, TLS Web Client Authentication X509v3 Subject Alternative Name: DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1 ...   server.crt is signed for DNS names [bigo-vm3 localhost] and IPs [192.168.1.11 127.0.0.1 ::1]
+ etcd config $kubeadm init phase etcd local -v 4 [etcd] wrote Static Pod manifest for a local etcd member to &quot;/etc/kubernetes/manifests/etcd.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2011-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2011-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
