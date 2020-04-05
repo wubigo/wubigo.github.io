@@ -75,6 +75,6 @@ categories = []
 ## 下一步
 
 [投递专业简历](mailto:fn@wubigo.com)
-
+![](/img/post/you-are-wanted.jpg)
 
 
