@@ -67,6 +67,63 @@
     </item>
     
     <item>
+      <title>Jobs</title>
+      <link>https://wubigo.com/project/product-director/</link>
+      <pubDate>Sun, 29 Mar 2020 09:53:34 +0800</pubDate>
+      
+      <guid>https://wubigo.com/project/product-director/</guid>
+      <description>
+
+&lt;h2 id=&#34;招募&#34;&gt;招募&lt;/h2&gt;
+
+&lt;h3 id=&#34;公司背景&#34;&gt;公司背景&lt;/h3&gt;
+
+&lt;p&gt;15年的IT服务交付能力，尤其在数据安全，身份认证，安全领域和大型金融机构保持良好的业务关系&lt;/p&gt;
+
+&lt;h3 id=&#34;项目简介&#34;&gt;项目简介&lt;/h3&gt;
+
+&lt;p&gt;超大型数据中心（一期规模6k节点，项目开发团队30人）IT基础架构，应用系统优化项目和业务中台建设&lt;/p&gt;
+
+&lt;h3 id=&#34;产品总管&#34;&gt;产品总管&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;工作职责&#34;&gt;工作职责:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;根据公司发展战略及业务特点，对云管系统方向产品进行顶层设计，打造具有行业核心竞争力产品；&lt;/li&gt;
+&lt;li&gt;制定产品发展路线图及产品开发及优化计划；把控产品架构设计的灵活性、复用性和拓展性，提供前瞻性产品解决方案。&lt;/li&gt;
+&lt;li&gt;具备良好的业务思维和的商业敏感度，能够把握产品在IT资源服务管理中的核心价值，与横向团队深入协同合作；
+
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;任职资格&#34;&gt;任职资格:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3年及以上互联网或数据中心行业应用管理软件产品开发经验&lt;/li&gt;
+&lt;li&gt;具备优秀沟通能力和领导能力，充分了解客户需求&lt;/li&gt;
+&lt;li&gt;具备优秀的逻辑思考能力、分析问题和解决问题的能力&lt;/li&gt;
+&lt;li&gt;对云计算和云服务行业有深刻理解优先&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;架构师1名-开发工程师6名&#34;&gt;架构师1名/开发工程师6名&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;候选人要求&#34;&gt;候选人要求：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;业务导向，技术领先&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;有创业激情，乐观，自信&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对openstack，paas，k8s，工作流，监控，cognito/okta等其中一项和多项有3年以上开发经验&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>函数计算VPC支持更新</title>
       <link>https://wubigo.com/post/serverless-vpc/</link>
       <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
@@ -914,53 +971,6 @@ fe4ec77439f4        none                 null                local
 &lt;p&gt;&lt;a href=&#34;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&#34; target=&#34;_blank&#34;&gt;https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&#34; target=&#34;_blank&#34;&gt;https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Docker Proxy for daemon and client</title>
-      <link>https://wubigo.com/post/docker-proxy/</link>
-      <pubDate>Fri, 13 Sep 2019 07:07:56 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/docker-proxy/</guid>
-      <description>
-
-&lt;h1 id=&#34;docker-deamon-proxy&#34;&gt;DOCKER DEAMON PROXY&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;systemd level&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/systemd/system/docker.service.d/https-proxy.conf&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[Service]
-Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;service level&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/default/docker&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;daemon level&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/docker/daemon&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;docker-client-proxy&#34;&gt;DOCKER CLIENT PROXY&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;~/.docker/config.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;       &amp;quot;proxies&amp;quot;:{
-                &amp;quot;default&amp;quot;:{}
-        }
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
