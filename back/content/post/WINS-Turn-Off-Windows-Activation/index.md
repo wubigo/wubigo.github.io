@@ -49,3 +49,10 @@ https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
 个性化设置必须在关闭激活服务之前完成
 
 ![](/img/post/win-activation.png)
+
+## 禁止用户修改密码
+
+```
+net users
+net user user_cmp /PasswordChg:No
+```
