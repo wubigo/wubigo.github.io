@@ -19,6 +19,26 @@ categories = []
   focal_point = ""
 +++
 
+## 典型使用场景
+
+- 单一公开子网
+
+![](/img/post/vpc-public-subnet.png)
+
+- 公开子网和私有子网
+
+![](/img/post/vpc-pub-private-subnet.png)
+
+- 企业数据中心+公开子网
+
+![](/img/post/vpc-vpn.png)
+
+- 企业数据中心
+
+![](/img/post/vpc-private-vpn.png)
+
+
+## 公网网关
 
 An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
 
