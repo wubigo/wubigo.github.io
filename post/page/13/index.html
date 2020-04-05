@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-04T13:31:38&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-05T18:30:06&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/redis-install-ubuntu/" itemprop="url">Redis Install Ubuntu</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2117,88 +2200,6 @@ Now we have the newest version of OpenSSH installed and patched with the improve
 <p><code>部分源代码</code>
 <img src="./met-source.png" alt="source code" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    18 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
   </div>
   
 
