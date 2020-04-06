@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------&#43;----------&#43;----------&#43;-------------&#43;-------------&#43;----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin &#43; | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/sql/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/postgres-notes/">
 
   
 
@@ -114,15 +112,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/sql/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/sql/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/sql/">
+  <link rel="canonical" href="https://wubigo.com/post/postgres-notes/">
 
   
   
@@ -137,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/sql/">
-  <meta property="og:title" content="SQL | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/postgres-notes/">
+  <meta property="og:title" content="Postgres Notes | NgAPP">
+  <meta property="og:description" content="INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------&#43;----------&#43;----------&#43;-------------&#43;-------------&#43;----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin &#43; | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-02-14T02:16:59&#43;08:00">
+  <meta property="article:published_time" content="2013-04-06T15:46:07&#43;08:00">
+  
+  <meta property="article:modified_time" content="2013-04-06T15:46:07&#43;08:00">
   
 
   
 
   
 
-  <title>SQL | NgAPP</title>
+  <title>Postgres Notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -364,7 +364,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,49 +383,191 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Postgres Notes</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">SQL</h1>
+
+
+
+<meta content="2013-04-06 15:46:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-06 15:46:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 6, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Postgres%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fpostgres-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fpostgres-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fpostgres-notes%2f&amp;title=Postgres%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fpostgres-notes%2f&amp;title=Postgres%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Postgres%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fpostgres-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/serverless-database/">数据库无服务器架构</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-       问题 长链接
-通过连接池和数据库保持长链接
- Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions), where the database will automatically start up, shut down, and scale capacity up or down based on your application&rsquo;s needs. It enables you to run your database in the cloud without managing any database instances. It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or unpredictable workloads.
- 
-      
+
+<h2 id="install">INSTALL</h2>
+
+<pre><code>sudo apt-get install -y postgresql-client
+psql --version  
+</code></pre>
+
+<h2 id="test">TEST</h2>
+
+<pre><code>psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres
+
+postgres=&gt; \list
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
+-----------+----------+----------+-------------+-------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ rdsadmin  | rdsadmin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin
+ template0 | rdsadmin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin          +
+           |          |          |             |             | rdsadmin=CTc/rdsadmin
+ template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+
+</code></pre>
+
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/postgres-notes/">Postgres Notes</a></h2>
-    <div class="article-style">
-      
-      INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin + | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.
-      
-    </div>
-  </div>
-  
 
-  
+    
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/db/">DB</a>
+  
+  <a class="badge badge-light" href="/tags/sql/">SQL</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -596,6 +740,4 @@
     </script>
   </body>
 </html>
-
-
 
