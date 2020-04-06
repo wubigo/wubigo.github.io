@@ -46,3 +46,11 @@ postgres=> \list
 (4 rows)
 
 ```
+
+
+## SSH tunnelling to an RDS instance
+
+```
+ssh -L 5432:mydb.myrdsinstance.eu-west-1.rds.amazonaws.com:5432 aws
+```
+
