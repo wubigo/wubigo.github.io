@@ -104,6 +104,12 @@ sudo sysctl -p
 net.ipv4.ip_forward = 1
 ```
 
+## stop
+
+```
+sudo wg-quick down wg0
+```
+
 ## 客户端
 
 [Vpn客户端设置参考](/post/vpn-win-setup/)
