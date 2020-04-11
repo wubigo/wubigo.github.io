@@ -6,10 +6,23 @@
     <description>Recent content in WINDOWS on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 14:21:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 19:42:44 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Windows Update Corruption</title>
+      <link>https://wubigo.com/post/windows-update-corruption/</link>
+      <pubDate>Fri, 10 Apr 2020 19:42:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/windows-update-corruption/</guid>
+      <description>4月8号的更新，出现了如下问题
+https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing
+通过卸载更新把更新删除后，系统恢复正常
+删除本地下载的更新文件 https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/
+C:\Windows\SoftwareDistribution\Download</description>
+    </item>
     
     <item>
       <title>在WSL中使用Docker</title>
@@ -105,6 +118,16 @@ list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.1
 关闭自动激活 https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
 注意 个性化设置必须在关闭激活服务之前完成
 禁止用户修改密码 net users net user user_cmp /PasswordChg:No  </description>
+    </item>
+    
+    <item>
+      <title>windows notes</title>
+      <link>https://wubigo.com/post/2010-01-03-windows-note/</link>
+      <pubDate>Sat, 10 Apr 2010 19:42:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2010-01-03-windows-note/</guid>
+      <description> 常用工具  cport  https://www.nirsoft.net/utils/cports.html
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user user_cmp /PasswordChg:No  </description>
     </item>
     
   </channel>

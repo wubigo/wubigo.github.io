@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-10T19:42:44&#43;08:00">
   
 
   
@@ -400,6 +400,19 @@
   
   
   <div>
+    <h2><a href="/post/windows-update-corruption/">Windows Update Corruption</a></h2>
+    <div class="article-style">
+      
+      4月8号的更新，出现了如下问题
+https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing
+通过卸载更新把更新删除后，系统恢复正常
+删除本地下载的更新文件 https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/
+C:\Windows\SoftwareDistribution\Download
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/docker-within-wsl/">在WSL中使用Docker</a></h2>
     <div class="article-style">
       
@@ -491,6 +504,16 @@ list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.1
 关闭自动激活 https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
 注意 个性化设置必须在关闭激活服务之前完成
 禁止用户修改密码 net users net user user_cmp /PasswordChg:No  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/2010-01-03-windows-note/">windows notes</a></h2>
+    <div class="article-style">
+      
+       常用工具  cport  https://www.nirsoft.net/utils/cports.html
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user user_cmp /PasswordChg:No  
       
     </div>
   </div>
