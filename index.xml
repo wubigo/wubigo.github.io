@@ -5,17 +5,8 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2020 20:24:22 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 19:42:44 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>CMP Vcommander Notes</title>
-      <link>https://wubigo.com/post/cmp-vcommander-notes/</link>
-      <pubDate>Mon, 13 Apr 2020 20:24:22 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/cmp-vcommander-notes/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Windows Update Corruption</title>
@@ -689,6 +680,277 @@ c:\&amp;gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 &lt;p&gt;REF&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa&#34; target=&#34;_blank&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>虚拟机 -&gt; 容器 -&gt; 函数计算</title>
+      <link>https://wubigo.com/post/from-vm-to-container-to-serverless/</link>
+      <pubDate>Thu, 26 Sep 2019 07:48:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/from-vm-to-container-to-serverless/</guid>
+      <description>
+
+&lt;p&gt;昨天看到AWS &lt;a href=&#34;https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/&#34; target=&#34;_blank&#34;&gt;STEP FUNCTIONS支持嵌套的工作流&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，&lt;/p&gt;
+
+&lt;p&gt;后来工作流服务就没有大的工作，SWF框架的核心开发者一部分&lt;/p&gt;
+
+&lt;p&gt;离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS&lt;/p&gt;
+
+&lt;p&gt;支持工作流，看来这个千亿规模的市场又快被颠覆了。&lt;/p&gt;
+
+&lt;p&gt;20多年来，工作流都是超大型企业的配置专利，而STEP function的推出&lt;/p&gt;
+
+&lt;p&gt;可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。&lt;/p&gt;
+
+&lt;p&gt;回顾一下自己的工作历史：&lt;/p&gt;
+
+&lt;p&gt;从以前的数据中心服务器SA(2006), 到虚拟主机ESX，&lt;/p&gt;
+
+&lt;p&gt;再到OPENSTACK(2010)搭建混合云，&lt;/p&gt;
+
+&lt;p&gt;然后利用K8S(2014)搭建PaaS，现在SERVERLESS,&lt;/p&gt;
+
+&lt;p&gt;计算架构正在发生快速的演进。本文梳理了算力演进历史和未来&lt;/p&gt;
+
+&lt;p&gt;内容&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;从虚拟主机到容器&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;从容器到unikernel&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数计算的蓬勃发展&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;什么是虚拟计算&#34;&gt;什么是虚拟计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./virtulization.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;hypervisor分类&#34;&gt;hypervisor分类&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-1 裸机&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;KVM, QEMU, VMWare, Virtualbox&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Type-2 托管&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;XenServer， Hyper-v， KVM, ESX, Xen&lt;/p&gt;
+
+&lt;h1 id=&#34;虚拟机的问题&#34;&gt;虚拟机的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;贵&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;操作慢&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.&lt;/p&gt;
+
+&lt;p&gt;启动，备份非常不便。&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算&#34;&gt;容器计算&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./container.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;|虚拟机|            容器
+|:&amp;mdash;|:&amp;mdash;|:&amp;mdash;|
+构件|  完整的操作系统和应用|  微内核和应用
+虚拟技术|  硬件虚拟化|  操作系统虚拟化&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./c-vs-v.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;容器计算带来什么好处&#34;&gt;容器计算带来什么好处&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器镜像小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;alpine的容量是2M&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器占用的硬件资源更少&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一台PC可以启动上百个容器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器启动快&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般几毫秒可以启动&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器不用备份&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器创建只需要一个Dockerfile，容器镜像是只读镜像&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容器和微服务器架构，DevOps, CI/CD天然融合&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;容器存在的问题&#34;&gt;容器存在的问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安全&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;容器共享操作系统内核，具体较低的隔离级别，&lt;/p&gt;
+
+&lt;p&gt;如果内核出问题，其他的容器也会处于风险之中&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网络&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如何在足够的隔离级别和复杂的高效网络连接权衡&lt;/p&gt;
+
+&lt;h1 id=&#34;容器编排&#34;&gt;容器编排&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;K8S&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EKS&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SWARM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MARATHON&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MAGNM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;FLEET&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用户轻松在计算集群里面部署，管理，扩展基于容器的应用而&lt;/p&gt;
+
+&lt;p&gt;不用关心容器和服务器的绑定，系统扩容等问题&lt;/p&gt;
+
+&lt;h1 id=&#34;容器网络&#34;&gt;容器网络&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DOCKER规范，libnetwork实现&lt;/p&gt;
+
+&lt;p&gt;内置的驱动包括none, host, bridge , overlay, MACvlan&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker network ls
+ NAME                 DRIVER              SCOPE
+68343147e103        bridge               bridge              local
+5d7df1d8f633        docker_default       bridge              local
+d3990aab14a9        host                 host                local
+fe4ec77439f4        none                 null                local
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./CNM.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;COREOS规范，被K8S, MESOS, CLOUD Foundry采用&lt;/p&gt;
+
+&lt;p&gt;json格式的网络模式定义&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./cni.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker的核心组件&#34;&gt;docker的核心组件&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;LXC&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AUFS&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;docker的优势&#34;&gt;DOCKER的优势&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;镜像不可修改&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;部署没有第三方依赖&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;注册器简单且容易扩展&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;容易回滚&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对DOCKER的误解：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果学习了docker就不必学其他的系统知识了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;每个容器只能有一个进程&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用容器了就不必使用其他的配置管理工具了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;必须使用容器才能达到高效敏捷和一致性状态优势&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;open-containers-initiative&#34;&gt;Open Containers Initiative&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./oci.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;unikernel&#34;&gt;UniKernel&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./UniKernel.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;函数计算的兴起&#34;&gt;函数计算的兴起&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;No server is easier to manage than no-server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;背景：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前端技术演进&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;强大的原生客户/移动客户端让开发者通过调用各种云服务&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;编写大规模互联网应用，替换传统的后台服务&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTTP/S应用接口及基于token的安全认证成为工业标准&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;后台的定制化开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基于云服务器定制开发&lt;/p&gt;
+
+&lt;h1 id=&#34;serverless-vs-paas&#34;&gt;ServerLess  VS  PaaS&lt;/h1&gt;
+
+&lt;p&gt;PasS可能是ServerLess的一个迭代&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./serverless.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./article.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;虚拟机是一种更成熟的技术，更安全&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;容器虚拟化是一个更适合微服务器架构的方案&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;虚拟机和容器并不是互斥而是互补&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数计算是一下个&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

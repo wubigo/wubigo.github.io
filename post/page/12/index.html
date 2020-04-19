@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-13T20:24:22&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-10T19:42:44&#43;08:00">
   
 
   
@@ -397,84 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 5, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/software-development-teams/" itemprop="url">Software Development Teams</a>
-  </h3>
-
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2303,6 +2225,117 @@ advertised.listeners=PLAINTEXT://172.16.16.5:9092 ############################# 
 </tr>
 </tbody>
 </table>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/maven-mirror/" itemprop="url">Maven Mirror</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><code>settings.xml</code></p>
+
+<pre><code>&lt;mirror&gt;
+        &lt;id&gt;alimaven&lt;/id&gt;
+        &lt;name&gt;aliyun maven&lt;/name&gt;
+        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+    &lt;mirror&gt;
+        &lt;id&gt;central&lt;/id&gt;
+        &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
+        &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+    &lt;mirror&gt;
+        &lt;id&gt;repo2&lt;/id&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+        &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
+        &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;
+    &lt;/mirror&gt;
+
+    &lt;!-- 中央仓库在中国的镜像 --&gt;
+    &lt;mirror&gt;
+        &lt;id&gt;maven.net.cn&lt;/id&gt;
+        &lt;name&gt;oneof the central mirrors in china&lt;/name&gt;
+        &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+</code></pre>
 
   </div>
   

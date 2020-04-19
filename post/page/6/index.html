@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-13T20:24:22&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-10T19:42:44&#43;08:00">
   
 
   
@@ -397,97 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-chrome/" itemprop="url">Linux Chrome</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
- 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
-.config/google-chrome/Default/Preferences
-sed -i '/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
-Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
- 方法2（不可靠）  Type in address bar (Crtl+L).
-chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
-enter password to unlock your keyring  方法1（可靠）
- set password-store to basic
-dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2213,6 +2122,104 @@ and process them in a way that allows them to participate
 
 <pre><code>ISBN-10: 1617293822
 </code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-30 09:32:11 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-30 09:32:11 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/sr-iov-vs-dpdk/" itemprop="url">SR-IOV vs DPDK/VPP for NFV</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Linux Bridge supported GRE Tunnels, but not the newer and more scalable VXLAN model
+<a href="https://vincent.bernat.ch/en/blog/2017-vxlan-linux" target="_blank">https://vincent.bernat.ch/en/blog/2017-vxlan-linux</a></p>
+
+<p><img src="/img/post/sr-iov.png" alt="" /></p>
+
+<p>This post will talk</p>
+
+<p>about the various building blocks available to speed up packet processing</p>
+
+<p>both hardware based e.g.SR-IOV, RDT, QAT, VMDq, VTD</p>
+
+<p>and software based e.g. DPDK, Fd.io/VPP, OVS etc and give</p>
+
+<p>hands on lab experience</p>
+
+<p><a href="https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decision-can-impact-performance/" target="_blank">https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decision-can-impact-performance/</a></p>
 
   </div>
   
