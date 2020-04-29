@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-16T07:25:19&#43;08:00">
+  <meta property="og:updated_time" content="2018-11-15T15:39:37&#43;08:00">
   
 
   
@@ -397,89 +397,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-16 07:25:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-serverless-localstack-examples/" itemprop="url">基于Localstack的函数计算开发应用列表</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
-import json def my_handler(event, context): print(&quot;Received event: &quot; + json.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2221,6 +2138,91 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
   <div class="article-style" itemprop="articleBody">
     Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
 kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2019-01-01-sevenlevelcommunication/" itemprop="url">7 level communication</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>The most important conversation you ever have is the one with yourself</p>
+
+<p><img src="/img/post/7level-communication.jpg" alt="7 lvevel communication" /></p>
+
   </div>
   
 
