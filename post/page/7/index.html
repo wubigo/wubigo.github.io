@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2018-01-30T11:43:11&#43;08:00">
   
 
   
@@ -397,6 +397,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-architectures/" itemprop="url">书籍推荐:无服务器架构及应用案例详解</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank">Serverless Architectures</a></p>
+
+<p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank"><img src="./serverless.jpg" alt="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" /></a></p>
+
+<pre><code>ISBN-10: 1617293822
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1252,8 +1340,7 @@ go list -m -versions github.com/minio/cli
 
   
   <div class="article-style" itemprop="articleBody">
-    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
+    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
 package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
@@ -1600,9 +1687,7 @@ even more cores depending on the scenario</p>
 
   
   <div class="article-style" itemprop="articleBody">
-    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
- ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
+    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key  wg genkey | tee privatekey | wg pubkey &gt; publickey   配置   ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
   </div>
   
 
@@ -2180,139 +2265,6 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 26, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="创建bucket">创建BUCKET</h2>
-
-<p>使用两种方式之一创建BUCKET</p>
-
-<ul>
-<li><p>terraform</p>
-
-<pre><code>git clone https://github.com/wubigo/iaas
-
-cd s3
-
-terraform apply
-
-</code></pre></li>
-
-<li><p>awscli</p>
-
-<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
-aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
-</code></pre></li>
-</ul>
-
-<h3 id="确认配置">确认配置</h3>
-
-<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
-{
-    &quot;IndexDocument&quot;: {
-        &quot;Suffix&quot;: &quot;index.html&quot;
-    },
-    &quot;ErrorDocument&quot;: {
-        &quot;Key&quot;: &quot;404.html&quot;
-    }
-}
-
-</code></pre>
-
-<h2 id="配置dns-c记录">配置DNS C记录</h2>
-
-<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
-
-<p><img src="/img/post/s3-web.png" alt="" /></p>
-
-<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
-</code></pre>
-
-<h2 id="上传站点内容">上传站点内容</h2>
-
-<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2486,7 +2438,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

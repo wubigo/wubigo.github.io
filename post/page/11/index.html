@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2016-12-29T10:15:59&#43;08:00">
   
 
   
@@ -397,6 +397,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-12-29 10:15:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-29 10:15:59 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 29, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/kernel-bypass-networking/" itemprop="url">Kernel Bypass Networking</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    RDMA (Remote Direct Memory Access), TOE (TCP Offload Engine), and OpenOnload. More recently, DPDK (Data Plane Development Kit) has been used in some applications to bypass the kernel, and then there are new emerging initiatives such as FD.io (Fast Data Input Output) based on VPP (Vector Packet Processing). More will likely emerge in the future.
+Technologies like RDMA and TOE create a parallel stack in the kernel and solve the first problem (namely, the &ldquo;kernel is too slow&rdquo;) while OpenOnload, DPDK and FD.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -932,8 +1015,7 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
   
   <div class="article-style" itemprop="articleBody">
     namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
-kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.
@@ -2154,91 +2236,6 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 25, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-notes/" itemprop="url">Docker Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Multi-stage builds in Docker only support for Doceker version &gt; 17.05
-https://blog.alexellis.io/mutli-stage-docker-builds/
-FROM golang:1.10 as builder # build env and make target FROM alpine:latest WORKDIR /root/ COPY --from=builder ./  busybox nslookup busybox:latest has bug on nslookup
-docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618 docker run -dit --name nginx --network test nginx:alpine 7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b $ docker run -it --rm --network test busybox:1.28 nslookup nginx Server: 127.0.0.11 Address 1: 127.0.0.11 Name: nginx Address 1: 172.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2412,7 +2409,7 @@ docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f37
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

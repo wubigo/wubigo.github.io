@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -31,7 +31,7 @@
   <meta name="description" content="Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}&#39;  or">
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}&#39;  or ``` cat tiller-clusterrolebinding.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-helm-setup/">
@@ -143,7 +143,7 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
   <meta property="og:description" content="Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}&#39;  or"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}&#39;  or ``` cat tiller-clusterrolebinding."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-18T17:12:39&#43;08:00">
@@ -520,29 +520,32 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
 </code></pre>
 
-<p>or</p>
-
-<pre><code>cat tiller-clusterrolebinding.yaml
+<p>or
+```
+cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
 name: tiller-clusterrolebinding
-subjects:
-- kind: ServiceAccount
+subjects:</p></li>
+
+<li><p>kind: ServiceAccount
 name: tiller
 namespace: kube-system
 roleRef:
 kind: ClusterRole
 name: cluster-admin
-apiGroup: &quot;&quot;
-
-docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3
-
-kubectl create -f tiller-clusterrolebinding.yaml
-# Update the existing tiller-deploy deployment with the Service Account
-helm init --service-account tiller --upgrade
-</code></pre></li>
+apiGroup: &ldquo;&rdquo;</p></li>
 </ul>
+
+<p>docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3</p>
+
+<p>kubectl create -f tiller-clusterrolebinding.yaml</p>
+
+<h1 id="update-the-existing-tiller-deploy-deployment-with-the-service-account">Update the existing tiller-deploy deployment with the Service Account</h1>
+
+<p>helm init &ndash;service-account tiller &ndash;upgrade
+```</p>
 
     </div>
 
@@ -761,7 +764,7 @@ helm init --service-account tiller --upgrade
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

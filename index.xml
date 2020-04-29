@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NgAPP on NgAPP</title>
@@ -5,8 +6,18 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 14:15:21 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 21:22:53 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GRPC vs REST</title>
+      <link>https://wubigo.com/post/grpc-vs-rest/</link>
+      <pubDate>Wed, 29 Apr 2020 21:22:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-vs-rest/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/&#34; target=&#34;_blank&#34;&gt;https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>高效程序员的7个习惯</title>
@@ -386,13 +397,16 @@ export PATH=$PATH:$GRAAL_HOME/bin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
+&lt;li&gt;检查&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;js --version
 GraalVM JavaScript (GraalVM CE Native 19.2.1)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装native-image&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;gu install native-image
 &lt;/code&gt;&lt;/pre&gt;
@@ -406,8 +420,7 @@ native-image             19.2.1              Native Image        github.com
 python                   19.2.1              Graal.Python        github.com
 R                        19.2.1              FastR               github.com
 ruby                     19.2.1              TruffleRuby         github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
 
@@ -417,11 +430,11 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
+&lt;li&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
 
@@ -433,7 +446,8 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
+&lt;li&gt;编译&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;javac HelloWorld.java
 native-image -cp . HelloWorld
@@ -456,14 +470,15 @@ Build on Server(pid: 20375, port: 45977)
 [helloworld:20375]        write:   1,153.04 ms
 [helloworld:20375]      [total]:  62,321.01 ms
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;./helloworld
 Hello World
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
 
@@ -631,95 +646,6 @@ Hello World
       
       <guid>https://wubigo.com/post/function-computing-rise-like-s3/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;./uaa-serverless.png&#34; alt=&#34;uaa-on-serverless&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>在WSL中使用Docker</title>
-      <link>https://wubigo.com/post/docker-within-wsl/</link>
-      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
-      <description>
-
-&lt;p&gt;在windows中使用docker有多种方式：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;docker WIN10 desktop&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;WSL&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;本文主要介绍在WSL中使用docker&lt;/p&gt;
-
-&lt;h1 id=&#34;前提条件&#34;&gt;前提条件&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Windows 10 Version 1803以上(支持cgroups)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Docker 17.09&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;安装wsl&#34;&gt;安装WSL&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34; target=&#34;_blank&#34;&gt;install WSL&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;安装ubuntu-for-wsl-16-0-4-lts&#34;&gt;安装Ubuntu for WSL 16.0.4 LTS&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-manual&#34; target=&#34;_blank&#34;&gt;install ubuntu in WSL&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;安装docker&#34;&gt;安装DOCKER&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -d Ubuntu-16.04
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;安装docker&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
-$ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
-$ sudo usermod -aG docker $USER
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;启动docker服务&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;/usr/local/sbin/start_docker.sh&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
-sudo cgroupfs-mount
-sudo service docker start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;在系统启动的时候运行docker服务&#34;&gt;在系统启动的时候运行docker服务&lt;/h1&gt;
-
-&lt;p&gt;在&lt;strong&gt;控制面版\管理工具\计划任务&lt;/strong&gt;创建任务&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;./task-trigger.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;./action.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;操作的参数如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-c &amp;quot;sudo /bin/sh /usr/local/sbin/start_docker.sh&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;备份wsl&#34;&gt;备份WSL&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;在备份前保存并关闭所有的WSL进程，否则正在运行的进程被强行关闭&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -l
-c:\&amp;gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;REF&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa&#34; target=&#34;_blank&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

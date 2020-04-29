@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -614,7 +614,7 @@ docker exec -it envoy bash
 <h1 id="监听器">监听器</h1>
 
 <ul>
-<li><p>监听过滤器（内置）</p>
+<li>监听过滤器（内置）<br />
 
 <ul>
 <li>envoy.client_ssl_auth</li>
@@ -645,15 +645,14 @@ docker exec -it envoy bash
 <li>envoy.mongo_proxy</li>
 <li>envoy.ratelimit</li>
 <li>envoy.redis_proxy</li>
-
-<li><p>envoy.tcp_proxy</p>
-
-<pre><code>route_config:
-virtual_hosts:
-domains: -&gt; matched against the http requests Host header
-</code></pre></li>
+<li>envoy.tcp_proxy</li>
 </ul></li>
 </ul>
+
+<pre><code>route_config:
+   virtual_hosts:
+       domains: -&gt; matched against the http requests Host header
+</code></pre>
 
 <p>config envoy by following its api
 <strong>api document is automatically generated from protocol buffers</strong></p>
@@ -670,12 +669,14 @@ domains: -&gt; matched against the http requests Host header
 
 <li><p>endpoints[EDS]</p></li>
 
-<li><p>v1</p>
+<li><p>v1</p></li>
+</ul>
 
 <pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
-</code></pre></li>
+</code></pre>
 
-<li><p>v2</p></li>
+<ul>
+<li>v2</li>
 </ul>
 
 <p>Health Discovery Service (HDS)</p>
@@ -694,15 +695,14 @@ domains: -&gt; matched against the http requests Host header
 <li>STRICT_DNS</li>
 <li>LOGICAL_DNS<br /></li>
 <li>EDS    ⁣</li>
-
-<li><p>ORIGINAL_DST</p>
-
-<pre><code>clusters:
-- name: service_backend
-type: []
-</code></pre></li>
+<li>ORIGINAL_DST</li>
 </ul></li>
 </ul>
+
+<pre><code>  clusters:
+  - name: service_backend
+    type: []
+</code></pre>
 
 <p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
 
@@ -1006,7 +1006,7 @@ envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

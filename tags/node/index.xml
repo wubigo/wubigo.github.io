@@ -68,8 +68,7 @@ namespace for XML documents http.get(&amp;quot;https://wubigo.com/en/sitemap.xml
       <guid>https://wubigo.com/post/nodejs-promise/</guid>
       <description>与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-function successCallback(result) { console.log(&amp;quot;Audio file ready at URL: &amp;quot; + result); } function failureCallback(error) { console.error(&amp;quot;Error generating audio file: &amp;quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
-const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+  function successCallback(result) { console.log(&amp;quot;Audio file ready at URL: &amp;quot; + result); } function failureCallback(error) { console.error(&amp;quot;Error generating audio file: &amp;quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.</description>
     </item>

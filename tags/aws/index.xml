@@ -65,9 +65,7 @@ AWS领先的设计理念和强大的技术生态
 那如何使用localstack呢？
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
- 下载源代码
-git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
-  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+ 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
@@ -81,8 +79,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
       <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
-      <description> 创建函数  分配角色
-zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+      <description> 创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  </description>
     </item>
     
     <item>
@@ -176,10 +173,8 @@ docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -
       
       <guid>https://wubigo.com/post/aws-s3-web-hosting/</guid>
       <description> 创建BUCKET 使用两种方式之一创建BUCKET
- terraform
-git clone https://github.com/wubigo/iaas cd s3 terraform apply  awscli
-aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json   确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
-CNAME Record	s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
     </item>
     
     <item>

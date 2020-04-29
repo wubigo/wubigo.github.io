@@ -6,10 +6,19 @@
     <description>Recent content in Posts on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 14:15:21 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 21:22:53 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GRPC vs REST</title>
+      <link>https://wubigo.com/post/grpc-vs-rest/</link>
+      <pubDate>Wed, 29 Apr 2020 21:22:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-vs-rest/</guid>
+      <description>https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/</description>
+    </item>
     
     <item>
       <title>高效程序员的7个习惯</title>
@@ -155,9 +164,7 @@ GRAAL能做什么？
 是，但不完全是。
 GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
  JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
-安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
-js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
-gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.</description>
+安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查  js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)   安装native-image  gu install native-image  gu available Downloading: Component catalog from www.</description>
     </item>
     
     <item>
@@ -248,9 +255,7 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
  Docker 17.09
   安装WSL install WSL
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&amp;gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.</description>
+安装DOCKER  启动ubuntu in WSL(以管理员身份运行)  c:\&amp;gt;wsl -d Ubuntu-16.04   安装docker  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.</description>
     </item>
     
     <item>
@@ -340,9 +345,7 @@ AWS领先的设计理念和强大的技术生态
 那如何使用localstack呢？
 安装localstack localstack是一个非常活跃的正在快速成长中的项目，
 建议通过源代码安装
- 下载源代码
-git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
-  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+ 下载源代码  git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3   启用需要使用的AWS服务  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
 注意服务的名字必须来自服务名字列表， 否则不识别
 启用服务就是修改下边的配置文件
 localstack\docker-compose.yml
@@ -356,8 +359,7 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
       <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
       
       <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
-      <description> 配置  下载B2 TLS安全证书
-openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2   </description>
+      <description> 配置  下载B2 TLS安全证书  openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2  </description>
     </item>
     
     <item>
@@ -388,7 +390,7 @@ WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Prope
       <description>AppInfo 启动类型必须是自动或手动，
 否则，msinstaller， services.msc， regedit
 等都会报错：
-The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo svchost.exe Facilitates the running of interactive applications with additional administrative privileges. Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
     </item>
     
     <item>
@@ -404,8 +406,7 @@ The Service command cannot be started, either because it is disabled or because 
 实现方式：
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
- 头
-{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
+ 头  { &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }   负载  { &amp;quot;id&amp;quot;: 123, &amp;quot;name&amp;quot;: &amp;quot;hi tico&amp;quot;, &amp;quot;is_admin&amp;quot;: true, &amp;quot;expire&amp;quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) + &amp;quot;.</description>
     </item>
     
     <item>
@@ -518,7 +519,11 @@ CNI 网桥
       <pubDate>Fri, 22 Feb 2019 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/blog_on_hugo/</guid>
-      <description>Decide to gave hugo a shot after many years of being jekyll</description>
+      <description>setup for gitlab tee .gitlab-ci.yml &amp;lt;&amp;lt; EOF image: monachus/hugo variables: GIT_SUBMODULE_STRATEGY: recursive pages: script: - hugo artifacts: paths: - public only: - master EOF git init echo &amp;quot;/public&amp;quot; &amp;gt;&amp;gt; .gitignore  post  hugo new post//index.md
+ deploy  hugo publish the public to web server
+ Configuration Lookup Order confit/_default/
+ ./config.toml ./config.yaml ./config.json  confit/_default/config.toml
+ hugo build destination  publishDir   Number of items per page in paginated lists  paginate = 20   taxonomies</description>
     </item>
     
     <item>
@@ -539,9 +544,7 @@ CNI 网桥
       <description>version notes
 some only works on 1.13
 kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
- get all Pending pods
-kubectl get pods --field-selector=status.phase=Pending  images list
-kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &amp;quot;enp0s3&amp;quot; I0217 07:28:13.</description>
+ get all Pending pods  kubectl get pods --field-selector=status.phase=Pending   images list  kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.</description>
     </item>
     
     <item>
@@ -562,10 +565,8 @@ curl -IL http://wubigo.com/post
       
       <guid>https://wubigo.com/post/minio-client/</guid>
       <description>安装mc https://dl.min.io/client/mc/release/windows-amd64/mc.exe
-mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2
-mc cp -r . b2/wubigo/   安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
-# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2
-s3cmd sync . s3://wubigo/   总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍</description>
+mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2  mc cp -r . b2/wubigo/  安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
+# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2  s3cmd sync . s3://wubigo/  总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍</description>
     </item>
     
     <item>
@@ -602,8 +603,7 @@ s3cmd sync . s3://wubigo/   总结 在不进行任何优化的情况下，s3cmd�
       <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
-      <description> 创建函数  分配角色
-zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+      <description> 创建函数  分配角色  zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role  </description>
     </item>
     
     <item>
@@ -669,10 +669,7 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
       <pubDate>Tue, 11 Dec 2018 15:46:02 +0800</pubDate>
       
       <guid>https://wubigo.com/post/minio-install-from-source/</guid>
-      <description>安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+      <description>安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
     </item>
     
     <item>
@@ -782,10 +779,7 @@ Why Use CNI Kubernetes default networking provider, kubenet, is a simple network
       <pubDate>Mon, 19 Nov 2018 16:46:13 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</guid>
-      <description>get s3 object creation notification  create queue
-awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
-awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }  create s3 notification config
-cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }  make notification effect</description>
+      <description>get s3 object creation notification  create queue  awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack   get queue arn   awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }   create s3 notification config  cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }   make notification effect  awslocal s3api put-bucket-notification-configuration --bucket localstack --notification-configuration file://notification.</description>
     </item>
     
     <item>
@@ -814,8 +808,7 @@ import json def my_handler(event, context): print(&amp;quot;Received event: &amp
       <pubDate>Thu, 15 Nov 2018 15:39:37 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-localstack-serverless/</guid>
-      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
-serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version  serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0  create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
 functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources</description>
     </item>
     
@@ -828,7 +821,7 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
       <description>Note:
  Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
  Bazel 0.19.0 doesn&amp;rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
-$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot; --sandbox_debug &amp;gt; build.</description>
+  $bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot; --sandbox_debug &amp;gt; build.</description>
     </item>
     
     <item>
@@ -841,7 +834,7 @@ $bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxx
 Interrupt Coalescence ubuntu 16 default
 Interrupt Coalescence (IC)
 $ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
+$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate: on RX: on TX: on  network Tuning the network adapter (NIC)
 use Jumbo frames
 ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
 ip -s link show eth0  stop irqbalance for home user</description>
@@ -974,8 +967,7 @@ Instagram的时候，Instagram总共只有13名员工，包括非工程技术
       
       <guid>https://wubigo.com/post/aws-lambda-with-localstack/</guid>
       <description>Create function index.js
-exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
-zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
+exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包  zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574   aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
     </item>
     
     <item>
@@ -994,13 +986,10 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
       <pubDate>Wed, 26 Sep 2018 14:43:54 +0800</pubDate>
       
       <guid>https://wubigo.com/post/aws-step-function-with-local-lambda/</guid>
-      <description>安装AWS CLI
-(venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local   awslocal = aws &amp;ndash;endpoint-url=http://localhost:
+      <description>安装AWS CLI  (venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local  awslocal = aws &amp;ndash;endpoint-url=http://localhost:
 可以安装到系统环境
- 配置AWS CLI
-(venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
-(venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
+ 配置AWS CLI  (venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:  命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI  (venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
     </item>
     
     <item>
@@ -1053,8 +1042,7 @@ JavaScript. How does the browser read that?</description>
       <description>避开Tiller使用Helm部署K8S应用
 Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
  部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
-独立使用helm  获取模板 使用配置修改模板 生产yaml文件
-git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件  git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
     </item>
     
     <item>
@@ -1178,7 +1166,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+  management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
     </item>
     
@@ -1200,7 +1188,7 @@ WebApplicationType  spring: main: web-application-type: reactive   NONE  The app
       <description>Single File Components single-file components with a .vue extension is build by tools
 such as Webpack or Browserify
 A single-file component consists of three parts:
-- &amp;lt;template&amp;gt; which contains the component’s markup in plain HTML - &amp;lt;script&amp;gt; which exports the component object constructor that consists of all the JS logic within that component - &amp;lt;style&amp;gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps</description>
+- &amp;lt;template&amp;gt; which contains the component’s markup in plain HTML - &amp;lt;script&amp;gt; which exports the component object constructor that consists of all the JS logic within that component - &amp;lt;style&amp;gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps  D:\code\API\web&amp;gt;npm config list ; cli configs metrics-registry = &amp;quot;https://registry.</description>
     </item>
     
     <item>
@@ -1312,7 +1300,7 @@ Chrome Didn&amp;rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
+  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
     </item>
     
     <item>
@@ -1341,9 +1329,7 @@ dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
       
       <guid>https://wubigo.com/post/lang-go-proxy/</guid>
       <description> go doc https://golang.google.cn
-proxy  从 Github 的代码库 clone
-go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto  设置 GOPROXY 环境变量配置代理
-  例如：GOPROXY=https://goproxy.io
+proxy  从 Github 的代码库 clone  go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto   设置 GOPROXY 环境变量配置代理  例如：GOPROXY=https://goproxy.io
 https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
 https://gocn.vip/article/1678
 配置代理  系统代理 GIT代理  </description>
@@ -1479,9 +1465,7 @@ https://songlh.github.io/paper/go-study.pdf</description>
       <pubDate>Sat, 24 Feb 2018 07:30:53 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-development-streamline/</guid>
-      <description>准备  初始化
-draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
-draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+      <description>准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &amp;ndash;skip-image-push flag</description>
     </item>
     
@@ -1648,8 +1632,7 @@ https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decisio
       <pubDate>Fri, 12 Jan 2018 07:42:41 +0800</pubDate>
       
       <guid>https://wubigo.com/post/golang-first-app-as-module/</guid>
-      <description>模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
+      <description>模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/google/go-cmp/cmp&amp;quot; ) func main() { fmt.Println(cmp.Diff(&amp;quot;Hello World&amp;quot;, &amp;quot;Hello Go&amp;quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
@@ -1691,9 +1674,7 @@ It now scales well to 24 CPU cores, and arguably up to 32 or even more cores dep
       <pubDate>Tue, 02 Jan 2018 12:34:32 +0800</pubDate>
       
       <guid>https://wubigo.com/post/vpn-with-wireguard/</guid>
-      <description>安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &amp;gt; publickey  配置
- ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.</description>
+      <description>安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key  wg genkey | tee privatekey | wg pubkey &amp;gt; publickey   配置   ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.</description>
     </item>
     
     <item>
@@ -1786,10 +1767,8 @@ https://www.sdnlab.com/nv-subject/</description>
       
       <guid>https://wubigo.com/post/aws-s3-web-hosting/</guid>
       <description> 创建BUCKET 使用两种方式之一创建BUCKET
- terraform
-git clone https://github.com/wubigo/iaas cd s3 terraform apply  awscli
-aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json   确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
-CNAME Record	s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
+ terraform  git clone https://github.com/wubigo/iaas cd s3 terraform apply   awscli  aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json  确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &amp;quot;IndexDocument&amp;quot;: { &amp;quot;Suffix&amp;quot;: &amp;quot;index.html&amp;quot; }, &amp;quot;ErrorDocument&amp;quot;: { &amp;quot;Key&amp;quot;: &amp;quot;404.html&amp;quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+CNAME Record s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  </description>
     </item>
     
     <item>
@@ -1810,8 +1789,7 @@ CNAME Record	s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站�
       <guid>https://wubigo.com/post/nodejs-promise/</guid>
       <description>与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-function successCallback(result) { console.log(&amp;quot;Audio file ready at URL: &amp;quot; + result); } function failureCallback(error) { console.error(&amp;quot;Error generating audio file: &amp;quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
-const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+  function successCallback(result) { console.log(&amp;quot;Audio file ready at URL: &amp;quot; + result); } function failureCallback(error) { console.error(&amp;quot;Error generating audio file: &amp;quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.</description>
     </item>
@@ -2029,8 +2007,7 @@ access protected resource </description>
       <description>提示： 以下操作是在VirtualBox虚机环境，并做如下配置
  网络  下拉高级设置，在&amp;rdquo;Adapter Type&amp;rdquo;选择PCnet-FAST III&amp;rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&amp;rdquo;Promiscuous Mode&amp;rdquo;必须设置为&amp;rdquo;Allow All&amp;rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
  多网卡  每块网卡都要做上述调整
-准备  安装util-linux
-sudo apt install util-linux   /etc/network/interface
+准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
 cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.</description>
     </item>
     
@@ -2183,7 +2160,7 @@ Modules record precise dependency requirements and create reproducible builds.
       <description>Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or</description>
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or ``` cat tiller-clusterrolebinding.</description>
     </item>
     
     <item>
@@ -2204,9 +2181,7 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
       
       <guid>https://wubigo.com/post/linux-ssh/</guid>
       <description>ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
-ForwardAgent yes  Enable ssh-agent on main device
-  .bashrc
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
 SSH_ENV=&amp;quot;$HOME/.ssh/environment&amp;quot; function start_agent { echo &amp;quot;Initialising new SSH agent...&amp;quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &amp;gt; &amp;quot;${SSH_ENV}&amp;quot; echo succeeded chmod 600 &amp;quot;${SSH_ENV}&amp;quot; . &amp;quot;${SSH_ENV}&amp;quot; &amp;gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &amp;quot;${SSH_ENV}&amp;quot; ]; then .</description>
     </item>
     
@@ -2251,9 +2226,7 @@ uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescu
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境
-git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
-git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID</description>
+ 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin https://github.com/Fuang/wubigo.github.io.git (fetch) origin https://github.com/Fuang/wubigo.github.io.git (push) upstream git@github.com:wubigo/wubigo.github.io.git (fetch) upstream git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.</description>
     </item>
     
     <item>
@@ -2262,11 +2235,7 @@ git fetch upstream git checkout master git rebase upstream/master git push  查�
       <pubDate>Fri, 03 Mar 2017 08:45:55 +0800</pubDate>
       
       <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
-      <description>准备  创建角色和授权
-kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+      <description>准备  创建角色和授权  kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories  开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
     </item>
     
     <item>
@@ -2322,10 +2291,7 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 
       <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
  好处
  现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核  uname -r 4.15.0-45-generic   加载macvlan模块  sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...   配置网卡为混杂模式     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
     </item>
     
     <item>
@@ -2367,7 +2333,7 @@ The auto-assign public IP address feature for this instance is disabled because 
       <description>Namecheap不支持根域(apex doamin/naked domain/bare domain)的ALIAS记录
 在代码仓库的根目录创建CNAME文件 CNME文件包括根域域名
 tee CNAME &amp;lt;&amp;lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条指向根域的A记录，一条指向子域的CNAME记录 AN A Record for @(apex doamin) and a cname record(Alias) for github 不要在github页使用通配符 dns 记录! 否则没有指定的子域将有被别人使用的风险
-确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.3-P4-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com.	IN	A www.wubigo.com.	1	IN	CNAME	wubigo.github.io. wubigo.github.io.	3462	IN	A	185.199.111.153 wubigo.github.io.	3462	IN	A	185.199.110.153 wubigo.github.io.	3462	IN	A	185.</description>
+确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.3-P4-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com. IN A www.wubigo.com. 1 IN CNAME wubigo.github.io. wubigo.github.io. 3462 IN A 185.199.111.153 wubigo.github.io. 3462 IN A 185.199.110.153 wubigo.github.io. 3462 IN A 185.</description>
     </item>
     
     <item>
@@ -2377,8 +2343,7 @@ tee CNAME &amp;lt;&amp;lt; EOF wubigo.com EOF  在DNS控制台创建域名记录
       
       <guid>https://wubigo.com/post/k8s-monitor/</guid>
       <description> setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&amp;ndash;using-local-pv
- install
-helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false   </description>
+ install  helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false  </description>
     </item>
     
     <item>
@@ -2585,8 +2550,7 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
       
       <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
       <description>namespace  kube-logging.yaml
-kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
-kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service  kubectl create -f kube-logging.yaml  elasticsearch_svc.yaml
 kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
  Creating the StatefulSet  elasticsearch_statefulset.yaml
 apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
@@ -2717,7 +2681,10 @@ aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam d
       <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
       
       <guid>https://wubigo.com/post/k8s-local-development-setup/</guid>
-      <description>Setup a local development environment from source code with kubeadm</description>
+      <description>更新到最新正式发布版V1.13.3
+Main external dependencies  go docker cri cni  external-dependencies
+KUBEADM IS CURRENTLY IN BETA
+kubeadm maturity build k8s  docker v17.03  sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7 docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7 docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 docker pull mirrorgooglecontainers/etcd-amd64:3.2.18 docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.</description>
     </item>
     
     <item>
@@ -2768,7 +2735,7 @@ docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f37
       <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2015-08-03-github-notes/</guid>
-      <description>Configuring A records with DNS provider @ 185.199.108.153 @ 185.199.109.153 @ 185.199.110.153 @ 185.199.111.153  dig the custom domain to confirm DNS setup $dig +noall +answer wubigo.com wubigo.com.	285	IN	A	185.199.110.153 wubigo.com.	285	IN	A	185.199.108.153 wubigo.com.	285	IN	A	185.199.111.153 wubigo.com.	285	IN	A	185.199.109.153  https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</description>
+      <description>Configuring A records with DNS provider @ 185.199.108.153 @ 185.199.109.153 @ 185.199.110.153 @ 185.199.111.153  dig the custom domain to confirm DNS setup $dig +noall +answer wubigo.com wubigo.com. 285 IN A 185.199.110.153 wubigo.com. 285 IN A 185.199.108.153 wubigo.com. 285 IN A 185.199.111.153 wubigo.com. 285 IN A 185.199.109.153  https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</description>
     </item>
     
     <item>
@@ -3022,8 +2989,7 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39
       
       <guid>https://wubigo.com/post/mysql5.7/</guid>
       <description>mysql install ubuntu 16.04 install mysql 5.7 at default
-sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
-mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;   SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection  mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;  SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
 [mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.</description>
     </item>
     
@@ -3042,8 +3008,7 @@ mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39
       <pubDate>Fri, 22 Mar 2013 17:08:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-partition/</guid>
-      <description> whether MySQL Server supports partitioning
-mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition   </description>
+      <description> whether MySQL Server supports partitioning  mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition  </description>
     </item>
     
     <item>
@@ -3124,8 +3089,7 @@ A typical mysqldump command to move data from an external database to an Amazon 
       
       <guid>https://wubigo.com/post/linux-notes/</guid>
       <description>iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
- dmidecode
-sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw</description>
+ dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.</description>
     </item>
     
     <item>

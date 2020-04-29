@@ -6,10 +6,19 @@
     <description>Recent content in MICROSERVICE on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Apr 2019 17:08:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 21:22:53 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/microservice/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GRPC vs REST</title>
+      <link>https://wubigo.com/post/grpc-vs-rest/</link>
+      <pubDate>Wed, 29 Apr 2020 21:22:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-vs-rest/</guid>
+      <description>https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/</description>
+    </item>
     
     <item>
       <title>微服务认证和授权（MAA）指南</title>
@@ -24,8 +33,7 @@
 实现方式：
  Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
 JWT: 头，负载和签名
- 头
-{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
+ 头  { &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }   负载  { &amp;quot;id&amp;quot;: 123, &amp;quot;name&amp;quot;: &amp;quot;hi tico&amp;quot;, &amp;quot;is_admin&amp;quot;: true, &amp;quot;expire&amp;quot;: 1558213420 }   签名  HMACSHA256( base64UrlEncode(header) + &amp;quot;.</description>
     </item>
     
     <item>
@@ -38,7 +46,7 @@ JWT: 头，负载和签名
 By default, all endpoints except for shutdown are enabled.
  enable all endpoings
  enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+  management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;  https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
     </item>
     

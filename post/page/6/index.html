@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2018-03-31T06:29:12&#43;08:00">
   
 
   
@@ -422,6 +422,107 @@
 
 
 
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/network-tools/" itemprop="url">常用的网络工具</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="常用命令">常用命令</h2>
+
+<p><a href="/post/2010-01-22-computer-networking/">常用命令</a></p>
+
+<h2 id="bandwidth-utilization-tool">bandwidth utilization tool</h2>
+
+<pre><code>wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz |  tar xvz -C ~/bin/
+
+
+bandwhich
+</code></pre>
+
+<h2 id="tcp">TCP</h2>
+
+<p><a href="/post/tcpdump-windows">tcpdump-windows</a></p>
+
+<p><a href="/post/linux-notes/#TCP-DUMP">TCP DUMP</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
 
@@ -479,7 +580,7 @@ Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
 chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
-dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
+  dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
   </div>
   
 
@@ -735,16 +836,18 @@ dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
 <h2 id="proxy">proxy</h2>
 
 <ul>
-<li><p>从 Github 的代码库 clone</p>
+<li>从 Github 的代码库 clone</li>
+</ul>
 
 <pre><code>go get -u github.com/golang/text
 mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text
 
 go get -u github.com/golang/crypto
 mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
-</code></pre></li>
+</code></pre>
 
-<li><p>设置 GOPROXY 环境变量配置代理</p></li>
+<ul>
+<li>设置 GOPROXY 环境变量配置代理</li>
 </ul>
 
 <p>例如：GOPROXY=<a href="https://goproxy.io" target="_blank">https://goproxy.io</a></p>
@@ -1681,9 +1784,7 @@ docker run -d --network pub_net --ip 172.30.80.10 busybox
 
   
   <div class="article-style" itemprop="articleBody">
-    准备  初始化
-draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
-draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+    准备  初始化  draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...   设置docker镜像寄存器  draft config set registry registry.cn-beijing.aliyuncs.com/k4s  or
  skip the push process entirely using the &ndash;skip-image-push flag
   </div>
   
@@ -2135,94 +2236,6 @@ and process them in a way that allows them to participate
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-architectures/" itemprop="url">书籍推荐:无服务器架构及应用案例详解</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank">Serverless Architectures</a></p>
-
-<p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank"><img src="./serverless.jpg" alt="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" /></a></p>
-
-<pre><code>ISBN-10: 1617293822
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2396,7 +2409,7 @@ and process them in a way that allows them to participate
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {
