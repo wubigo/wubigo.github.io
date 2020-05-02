@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -525,26 +525,26 @@
 
 <p><code>~/.docker/config.json</code></p>
 
-<pre><code>&quot;auths&quot;: {      
-        &quot;registry.cn-hangzhou.aliyuncs.com&quot;: {
-            &quot;auth&quot;: &quot;d3ViaWdvOjEyMzEyMwo=&quot;
-        }
-    },
-    &quot;HttpHeaders&quot;: {
-        &quot;User-Agent&quot;: &quot;Docker-Client/17.03.3-ce (linux)&quot;
-    }
+<pre><code>&quot;auths&quot;: {		
+		&quot;registry.cn-hangzhou.aliyuncs.com&quot;: {
+			&quot;auth&quot;: &quot;d3ViaWdvOjEyMzEyMwo=&quot;
+		}
+	},
+	&quot;HttpHeaders&quot;: {
+		&quot;User-Agent&quot;: &quot;Docker-Client/17.03.3-ce (linux)&quot;
+	}
 </code></pre>
 
 <ul>
-<li>convert the base64-encoded auth data to a readable format</li>
-</ul>
+<li><p>convert the base64-encoded auth data to a readable format</p>
 
 <pre><code>echo &quot;d3ViaWdvOjEyMzEyMwo=&quot; | base64 --decode 
 </code></pre>
 
 <pre><code>nodes=$(kubectl get nodes -o jsonpath='{range.items[*].metadata}{.name} {end}')
 for n in $nodes; do scp ~/.docker/config.json root@$n:/var/lib/kubelet/config.json; done
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/" target="_blank">https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/</a></p>
 
@@ -767,7 +767,7 @@ for n in $nodes; do scp ~/.docker/config.json root@$n:/var/lib/kubelet/config.js
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

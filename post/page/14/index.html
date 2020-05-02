@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2012-04-22T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 3, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2206,99 +2288,6 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2306,6 +2295,8 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
     
     <li class="page-item"><a class="page-link" href="/post/page/13/">&laquo;</a></li>
     
+    
+    <li class="page-item"><a class="page-link" href="/post/page/15/">&raquo;</a></li>
     
   </ul>
 </nav>
@@ -2470,7 +2461,7 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

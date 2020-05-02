@@ -18,7 +18,9 @@
       
       <guid>https://wubigo.com/post/linux-ssh/</guid>
       <description>ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
+ForwardAgent yes  Enable ssh-agent on main device
+  .bashrc
 SSH_ENV=&amp;quot;$HOME/.ssh/environment&amp;quot; function start_agent { echo &amp;quot;Initialising new SSH agent...&amp;quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &amp;gt; &amp;quot;${SSH_ENV}&amp;quot; echo succeeded chmod 600 &amp;quot;${SSH_ENV}&amp;quot; . &amp;quot;${SSH_ENV}&amp;quot; &amp;gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &amp;quot;${SSH_ENV}&amp;quot; ]; then .</description>
     </item>
     

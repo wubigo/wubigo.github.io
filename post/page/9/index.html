@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-04-28T17:08:07&#43;08:00">
+  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
   
 
   
@@ -465,6 +465,89 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/spring-gateway/" itemprop="url">Spring Gateway</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
   </h3>
 
@@ -568,7 +651,8 @@
     提示： 以下操作是在VirtualBox虚机环境，并做如下配置
  网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
  多网卡  每块网卡都要做上述调整
-准备  安装util-linux  sudo apt install util-linux  /etc/network/interface
+准备  安装util-linux
+sudo apt install util-linux   /etc/network/interface
 cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
   </div>
   
@@ -1536,7 +1620,7 @@ Modules record precise dependency requirements and create reproducible builds.
     Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
  Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
  Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or ``` cat tiller-clusterrolebinding.
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or
   </div>
   
 
@@ -1703,7 +1787,9 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
   
   <div class="article-style" itemprop="articleBody">
     ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config  ForwardAgent yes   Enable ssh-agent on main device  .bashrc
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
+ForwardAgent yes  Enable ssh-agent on main device
+  .bashrc
 SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
   </div>
   
@@ -2050,7 +2136,9 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
 在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
  https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
  GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境  git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin https://github.com/Fuang/wubigo.github.io.git (fetch) origin https://github.com/Fuang/wubigo.github.io.git (push) upstream git@github.com:wubigo/wubigo.github.io.git (fetch) upstream git@github.com:wubigo/wubigo.github.io.git (push)   同步本地代码到upstream  git fetch upstream git checkout master git rebase upstream/master git push   查看各个分支的最新提交ID  git branch -av * master a3b4a2b Update 2016-02-03-k8s local development setup.
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID
   </div>
   
 
@@ -2132,86 +2220,12 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
 
   
   <div class="article-style" itemprop="articleBody">
-    准备  创建角色和授权  kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories  开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
+    准备  创建角色和授权
+kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
   </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
-  </h3>
-
   
 
   
@@ -2393,7 +2407,7 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {
