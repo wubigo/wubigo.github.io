@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NgAPP on NgAPP</title>
@@ -386,13 +387,16 @@ export PATH=$PATH:$GRAAL_HOME/bin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
+&lt;li&gt;检查&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;js --version
 GraalVM JavaScript (GraalVM CE Native 19.2.1)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装native-image&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;gu install native-image
 &lt;/code&gt;&lt;/pre&gt;
@@ -406,8 +410,7 @@ native-image             19.2.1              Native Image        github.com
 python                   19.2.1              Graal.Python        github.com
 R                        19.2.1              FastR               github.com
 ruby                     19.2.1              TruffleRuby         github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
 
@@ -417,11 +420,11 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
+&lt;li&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
 
@@ -433,7 +436,8 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
+&lt;li&gt;编译&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;javac HelloWorld.java
 native-image -cp . HelloWorld
@@ -456,14 +460,15 @@ Build on Server(pid: 20375, port: 45977)
 [helloworld:20375]        write:   1,153.04 ms
 [helloworld:20375]      [total]:  62,321.01 ms
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;./helloworld
 Hello World
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
 
@@ -673,20 +678,24 @@ Hello World
 &lt;h1 id=&#34;安装docker&#34;&gt;安装DOCKER&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/p&gt;
+&lt;li&gt;启动ubuntu in WSL(以管理员身份运行)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;c:\&amp;gt;wsl -d Ubuntu-16.04
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;安装docker&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装docker&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;pre&gt;&lt;code&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot;
 $ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
 $ sudo usermod -aG docker $USER
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;li&gt;&lt;p&gt;启动docker服务&lt;/p&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;启动docker服务&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;/usr/local/sbin/start_docker.sh&lt;/code&gt;&lt;/p&gt;

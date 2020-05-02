@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2017-12-26T17:13:28&#43;08:00">
   
 
   
@@ -477,7 +477,12 @@
 <p>使用两种方式之一创建BUCKET</p>
 
 <ul>
+<<<<<<< HEAD
 <li><p>terraform</p>
+=======
+<li>terraform</li>
+</ul>
+>>>>>>> da4527a1a591f7d6f098a40720cac123604a5d48
 
 <pre><code>git clone https://github.com/wubigo/iaas
 
@@ -485,6 +490,7 @@ cd s3
 
 terraform apply
 
+<<<<<<< HEAD
 </code></pre></li>
 
 <li><p>awscli</p>
@@ -493,6 +499,17 @@ terraform apply
 aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 </code></pre></li>
 </ul>
+=======
+</code></pre>
+
+<ul>
+<li>awscli</li>
+</ul>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre>
+>>>>>>> da4527a1a591f7d6f098a40720cac123604a5d48
 
 <h3 id="确认配置">确认配置</h3>
 
@@ -514,7 +531,11 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 
+<<<<<<< HEAD
 <pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+=======
+<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+>>>>>>> da4527a1a591f7d6f098a40720cac123604a5d48
 </code></pre>
 
 <h2 id="上传站点内容">上传站点内容</h2>
@@ -688,8 +709,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
   <div class="article-style" itemprop="articleBody">
     与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
-const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
   </div>
@@ -2455,7 +2475,7 @@ The Zuul proxy server is designed by default to work on the Spring products.
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

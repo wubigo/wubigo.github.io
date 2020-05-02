@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -508,8 +508,7 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELEC
     <div class="article-style">
       
       mysql install ubuntu 16.04 install mysql 5.7 at default
-sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
-mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection  mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;  SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
 [mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
       
     </div>
@@ -519,8 +518,7 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
     <h2><a href="/post/mysql-partition/">Mysql Partition</a></h2>
     <div class="article-style">
       
-       whether MySQL Server supports partitioning
-mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition   
+       whether MySQL Server supports partitioning  mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition  
       
     </div>
   </div>
@@ -739,7 +737,7 @@ cat big_csv.csv | shuf | head -n 50 &gt; sample_csv.csv
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

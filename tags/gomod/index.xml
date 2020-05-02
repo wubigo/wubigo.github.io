@@ -17,8 +17,7 @@
       <pubDate>Fri, 12 Jan 2018 07:42:41 +0800</pubDate>
       
       <guid>https://wubigo.com/post/golang-first-app-as-module/</guid>
-      <description>模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
+      <description>模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/google/go-cmp/cmp&amp;quot; ) func main() { fmt.Println(cmp.Diff(&amp;quot;Hello World&amp;quot;, &amp;quot;Hello Go&amp;quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
