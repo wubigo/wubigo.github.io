@@ -422,6 +422,139 @@
 
 
 
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="创建bucket">创建BUCKET</h2>
+
+<p>使用两种方式之一创建BUCKET</p>
+
+<ul>
+<li><p>terraform</p>
+
+<pre><code>git clone https://github.com/wubigo/iaas
+
+cd s3
+
+terraform apply
+
+</code></pre></li>
+
+<li><p>awscli</p>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre></li>
+</ul>
+
+<h3 id="确认配置">确认配置</h3>
+
+<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
+{
+    &quot;IndexDocument&quot;: {
+        &quot;Suffix&quot;: &quot;index.html&quot;
+    },
+    &quot;ErrorDocument&quot;: {
+        &quot;Key&quot;: &quot;404.html&quot;
+    }
+}
+
+</code></pre>
+
+<h2 id="配置dns-c记录">配置DNS C记录</h2>
+
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+
+<p><img src="/img/post/s3-web.png" alt="" /></p>
+
+<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+</code></pre>
+
+<h2 id="上传站点内容">上传站点内容</h2>
+
+<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="dateModified">
 
@@ -2140,101 +2273,6 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   <div class="article-style" itemprop="articleBody">
     &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
 The Zuul proxy server is designed by default to work on the Spring products.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p><img src="./basic-auth.png" alt="" /></p>
-
-<p><img src="./post-form.png" alt="" /></p>
-
-<h1 id="access-protected-resource">access protected resource</h1>
-
-<p><img src="./res.png" alt="" /></p>
-
   </div>
   
 
