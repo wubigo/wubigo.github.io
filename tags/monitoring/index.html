@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -31,7 +33,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/monitoring/">
 
   
 
@@ -112,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/tags/monitoring/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/tags/monitoring/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/">
+  <link rel="canonical" href="https://wubigo.com/tags/monitoring/">
 
   
   
@@ -135,19 +137,19 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | NgAPP">
+  <meta property="og:url" content="https://wubigo.com/tags/monitoring/">
+  <meta property="og:title" content="MONITORING | NgAPP">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2018-05-05T06:46:41&#43;08:00">
   
 
   
 
   
 
-  <title>Posts | NgAPP</title>
+  <title>MONITORING | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -383,7 +385,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Posts</h1>
+  <h1 itemprop="name">MONITORING</h1>
 
   
 
@@ -393,200 +395,21 @@
 
 
 <div class="universal-wrapper">
-
   
 
   
   
-    
+  <div>
+    <h2><a href="/post/netdata-notes/">Netdata notes</a></h2>
+    <div class="article-style">
       
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
+      INSTALL bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.conf OK [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# mv /etc/netdata/netdata.conf.new /etc/netdata/netdata.conf OK OK New configuration saved for you to edit at /etc/netdata/netdata.conf [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/netdata.conf OK --- Check KSM (kernel memory deduper) --- Memory de-duplication instructions You have kernel memory de-duper (called Kernel Same-page Merging, or KSM) available, but it is not currently enabled.
       
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/psql/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
-In a terminal, type:
-sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
+    </div>
   </div>
   
 
   
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/14/">&laquo;</a></li>
-    
-    
-  </ul>
-</nav>
-
-
 
 </div>
 <div class="container">
@@ -761,4 +584,6 @@ sudo -u postgres psql postgres this connects as a role with same name as the loc
     </script>
   </body>
 </html>
+
+
 

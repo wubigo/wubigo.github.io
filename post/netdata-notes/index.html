@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="INSTALL bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command &#39;systemctl start netdata&#39; [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.conf OK [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# mv /etc/netdata/netdata.conf.new /etc/netdata/netdata.conf OK OK New configuration saved for you to edit at /etc/netdata/netdata.conf [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/netdata.conf OK --- Check KSM (kernel memory deduper) --- Memory de-duplication instructions You have kernel memory de-duper (called Kernel Same-page Merging, or KSM) available, but it is not currently enabled.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/netdata-notes/">
 
   
 
@@ -112,15 +112,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/">
+  <link rel="canonical" href="https://wubigo.com/post/netdata-notes/">
 
   
   
@@ -135,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/netdata-notes/">
+  <meta property="og:title" content="Netdata notes | NgAPP">
+  <meta property="og:description" content="INSTALL bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command &#39;systemctl start netdata&#39; [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.conf OK [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# mv /etc/netdata/netdata.conf.new /etc/netdata/netdata.conf OK OK New configuration saved for you to edit at /etc/netdata/netdata.conf [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/netdata.conf OK --- Check KSM (kernel memory deduper) --- Memory de-duplication instructions You have kernel memory de-duper (called Kernel Same-page Merging, or KSM) available, but it is not currently enabled."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="article:published_time" content="2018-05-05T06:46:41&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-05-05T06:46:41&#43;08:00">
   
 
   
 
   
 
-  <title>Posts | NgAPP</title>
+  <title>Netdata notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -362,7 +364,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -380,50 +384,18 @@
   
   
   
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Posts</h1>
+<div class="article-container pt-3">
+  <h1 itemprop="name">Netdata notes</h1>
 
   
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
   
     
 
 
 
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -436,7 +408,7 @@
     
       
     
-    <time>Jan 1, 0001</time>
+    <time>May 5, 2018</time>
   </span>
   
 
@@ -455,140 +427,205 @@
   
 
   
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/psql/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
-In a terminal, type:
-sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
-  </div>
-  
-
-  
-
-</div>
-
     
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/14/">&laquo;</a></li>
-    
-    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Netdata%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnetdata-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fnetdata-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnetdata-notes%2f&amp;title=Netdata%20notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fnetdata-notes%2f&amp;title=Netdata%20notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Netdata%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fnetdata-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
 
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="install">INSTALL</h2>
+
+<pre><code>bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry
+
+
+
+Attempting another netdata start using command 'systemctl start netdata'
+[/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata
+ OK
+
+ OK  netdata started!
+
+Downloading default configuration from netdata...
+[/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.conf
+ OK
+
+[/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# mv /etc/netdata/netdata.conf.new /etc/netdata/netdata.conf
+ OK
+
+ OK  New configuration saved for you to edit at /etc/netdata/netdata.conf
+
+[/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/netdata.conf
+ OK
+
+ --- Check KSM (kernel memory deduper) ---
+
+Memory de-duplication instructions
+
+You have kernel memory de-duper (called Kernel Same-page Merging,
+or KSM) available, but it is not currently enabled.
+
+To enable it run:
+
+    echo 1 &gt;/sys/kernel/mm/ksm/run
+    echo 1000 &gt;/sys/kernel/mm/ksm/sleep_millisecs
+
+If you enable it, you will save 40-60% of netdata memory.
+
+ --- Check version.txt ---
+ --- Check apps.plugin ---
+ --- Copy uninstaller ---
+ --- Basic netdata instructions ---
+
+netdata by default listens on all IPs on port 19999,
+so you can access it with:
+
+  http://this.machine.ip:19999/
+
+To stop netdata run:
+
+
+
+To start netdata run:
+
+  systemctl start netdata
+
+Uninstall script copied to: /usr/libexec/netdata/netdata-uninstaller.sh
+
+ --- Installing (but not enabling) the netdata updater tool ---
+Update script is located at /usr/libexec/netdata/netdata-updater.sh
+
+ --- Check if we must enable/disable the netdata updater tool ---
+Adding to cron
+Auto-updating has been enabled. Updater script linked to: /etc/cron.daily/netdata-updater
+
+netdata-updater.sh works from cron. It will trigger an email from cron
+only if it fails (it should not print anything when it can update netdata).
+
+ --- Wrap up environment set up ---
+Preparing .environment file
+[/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/.environment
+ OK
+
+Setting netdata.tarball.checksum to 'new_installation'
+
+
+
+</code></pre>
+
+<h2 id="uninstall">uninstall</h2>
+
+<pre><code>sudo /usr/libexec/netdata/netdata-uninstaller.sh --yes
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/monitoring/">MONITORING</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

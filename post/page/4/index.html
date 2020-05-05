@@ -2177,8 +2177,8 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
 
 
 
-<meta content="2018-05-02 18:43:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-02 18:43:38 &#43;0800 CST" itemprop="dateModified">
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -2191,7 +2191,7 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
     
       
     
-    <time>May 2, 2018</time>
+    <time>May 5, 2018</time>
   </span>
   
 
@@ -2200,7 +2200,7 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -2220,35 +2220,12 @@ kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip:
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/iot-building-blocks/" itemprop="url">物联网核心构件</a>
+    <a href="/post/netdata-notes/" itemprop="url">Netdata notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="物联网架构">物联网架构</h2>
-
-<p>An IoT Architecture consists of the following:
-- Peripherals, which we call “things”.
-- Sensors attached to these things to gauge and transmit their data and information.
-- Network connection through which data is transmitted (wireless or wired).
-- Remote Cloud to which data is transmitted by the system.</p>
-
-<h2 id="物联网核心构件">物联网核心构件</h2>
-
-<h3 id="sensors">Sensors</h3>
-
-<h3 id="microcontrollers">Microcontrollers</h3>
-
-<h3 id="gateways">Gateways</h3>
-
-<h3 id="applications">Applications</h3>
-
-<h2 id="物联网分层架构">物联网分层架构</h2>
-
-<p><img src="/img/post/IoT-arch.jpg" alt="" /></p>
-
+    INSTALL bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.conf OK [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# mv /etc/netdata/netdata.conf.new /etc/netdata/netdata.conf OK OK New configuration saved for you to edit at /etc/netdata/netdata.conf [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# chmod 0644 /etc/netdata/netdata.conf OK --- Check KSM (kernel memory deduper) --- Memory de-duplication instructions You have kernel memory de-duper (called Kernel Same-page Merging, or KSM) available, but it is not currently enabled.
   </div>
   
 
