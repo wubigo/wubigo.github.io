@@ -24,5 +24,15 @@ Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admi
 git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
     </item>
     
+    <item>
+      <title>Monitoring notes</title>
+      <link>https://wubigo.com/post/monitoring/</link>
+      <pubDate>Sun, 20 May 2018 17:23:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/monitoring/</guid>
+      <description>Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
+Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.</description>
+    </item>
+    
   </channel>
 </rss>

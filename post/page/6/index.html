@@ -422,6 +422,89 @@
 
 
 
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-envoy-example/" itemprop="url">K8s Envoy Example</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
 
@@ -2120,105 +2203,6 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     如果xml文件带有名字空间，XPATH支持
 还不够完善。下面介绍两种可以工作的方式
 namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 14, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-database/" itemprop="url">数据库无服务器架构</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="问题">问题</h2>
-
-<p>长链接</p>
-
-<p>通过连接池和数据库保持长链接</p>
-
-<blockquote>
-<p>Amazon Aurora Serverless is an on-demand, auto-scaling configuration for
-Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions),
-where the database will automatically start up, shut down, and scale
-capacity up or down based on your application&rsquo;s needs. It enables you
-to run your database in the cloud without managing any database instances.
-It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
-unpredictable workloads.</p>
-</blockquote>
-
   </div>
   
 

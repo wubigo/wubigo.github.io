@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
+Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/monitoring/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/monitoring/">
 
   
 
@@ -114,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/monitoring/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/monitoring/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/monitoring/">
+  <link rel="canonical" href="https://wubigo.com/post/monitoring/">
 
   
   
@@ -137,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/monitoring/">
-  <meta property="og:title" content="MONITORING | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/monitoring/">
+  <meta property="og:title" content="Monitoring notes | NgAPP">
+  <meta property="og:description" content="Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
+Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-20T17:23:01&#43;08:00">
+  <meta property="article:published_time" content="2018-05-20T17:23:01&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-05-20T17:23:01&#43;08:00">
   
 
   
 
   
 
-  <title>MONITORING | NgAPP</title>
+  <title>Monitoring notes | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -364,7 +366,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,49 +385,189 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Monitoring notes</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">MONITORING</h1>
+
+
+
+<meta content="2018-05-20 17:23:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-20 17:23:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Monitoring%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmonitoring%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmonitoring%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmonitoring%2f&amp;title=Monitoring%20notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmonitoring%2f&amp;title=Monitoring%20notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Monitoring%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmonitoring%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/monitoring/">Monitoring notes</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
-Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.
-      
+
+<h2 id="container">Container</h2>
+
+<p>When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully</p>
+
+<h2 id="graphite">Graphite</h2>
+
+<p>Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline. Once collected, Graphite has a built-in UI with which to visualize data.</p>
+
+<p>Prometheus, on the other hand, is a complete monitoring solution, which includes built-in collection, along with storage, visualization, and exporting.</p>
+
+<p>If you want a clustered solution that can hold historical data of any sort long term, Graphite may be a better choice due to its simplicity and long history of doing exactly that. Graphite also has rollup of data built in. Similarly, Graphite may be preferred if your existing infrastructure already uses collection tools like fluentd, collectd, or statd, because Graphite supports them.</p>
+
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/netdata-notes/">Netdata notes</a></h2>
-    <div class="article-style">
-      
-      INSTALL  docker
-docker run -d --name=netdata \ -p 19999:19999 \ -v /etc/passwd:/host/etc/passwd:ro \ -v /etc/group:/host/etc/group:ro \ -v /proc:/host/proc:ro \ -v /sys:/host/sys:ro \ -v /etc/os-release:/host/etc/os-release:ro \ --cap-add SYS_PTRACE \ --security-opt apparmor=unconfined \ netdata/netdata  script
-bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.
-      
-    </div>
-  </div>
-  
 
-  
+    
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/monitoring/">MONITORING</a>
+  
+  <a class="badge badge-light" href="/tags/devops/">DEVOPS</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/netdata-notes/">Netdata notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -596,6 +740,4 @@ bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disabl
     </script>
   </body>
 </html>
-
-
 
