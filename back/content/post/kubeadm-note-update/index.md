@@ -21,6 +21,16 @@ categories = []
 
 ## 准备
 
+---
+
+- install docker
+
+```
+sudo apt install docker-ce=17.12.1~ce-0~ubuntu
+```
+
+[config docker daemon](/post/docker-proxy/)
+
 
 - iptables
 
@@ -70,4 +80,16 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
+
+- disable 
+
+```
+sudo swapoff -a
+```
+
+## 安装
+
+---
+
+
 

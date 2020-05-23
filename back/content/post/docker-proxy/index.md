@@ -30,6 +30,12 @@ categories = []
 Environment="HTTPS_PROXY=http://192.168.1.1:8080/"
 ```
 
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
 - service level
 
 `/etc/default/docker`
