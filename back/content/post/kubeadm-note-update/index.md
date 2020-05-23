@@ -56,7 +56,7 @@ sudo usermod -aG docker bigo
 
 - setup proxy
 
-
+[proxy](/post/ubuntu-vpn-client/)
 
 
 - install kubeadm
