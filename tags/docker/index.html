@@ -422,7 +422,7 @@
     <div class="article-style">
       
        DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
+[Service] Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
 export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
 DOCKER CLIENT PROXY ~/.docker/config.json
  &quot;proxies&quot;:{ &quot;default&quot;:{} }  

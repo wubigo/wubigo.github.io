@@ -29,7 +29,7 @@
     
   
   <meta name="description" content=" DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
+[Service] Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
 export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
 DOCKER CLIENT PROXY ~/.docker/config.json
  &quot;proxies&quot;:{ &quot;default&quot;:{} }  ">
@@ -142,7 +142,7 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   <meta property="og:url" content="https://wubigo.com/post/docker-proxy/">
   <meta property="og:title" content="Docker Proxy for daemon and client | NgAPP">
   <meta property="og:description" content=" DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
+[Service] Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
 export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
 DOCKER CLIENT PROXY ~/.docker/config.json
  &quot;proxies&quot;:{ &quot;default&quot;:{} }  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -517,7 +517,7 @@ DOCKER CLIENT PROXY ~/.docker/config.json
 <p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
 
 <pre><code>[Service]
-Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;
+Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
 </code></pre>
 
 <pre><code>sudo systemctl daemon-reload

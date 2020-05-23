@@ -2367,7 +2367,7 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
 <p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
 
 <pre><code>[Service]
-Environment=&quot;HTTPS_PROXY=http://192.168.1.1:8080/&quot;
+Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
 </code></pre>
 
 <pre><code>sudo systemctl daemon-reload
