@@ -403,7 +403,8 @@
     <h2><a href="/post/kubeadm-note-update/">Kubeadm Note Update</a></h2>
     <div class="article-style">
       
-      准备  iptables  cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system   install container runtime  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=18.
+      准备  install docker  sudo apt install docker-ce=17.12.1~ce-0~ubuntu  config docker daemon
+ iptables  cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system   install container runtime  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=18.
       
     </div>
   </div>

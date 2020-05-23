@@ -36,7 +36,7 @@
       
       <guid>https://wubigo.com/post/docker-proxy/</guid>
       <description> DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;   service level  /etc/default/docker
+[Service] Environment=&amp;quot;HTTPS_PROXY=http://192.168.1.1:8080/&amp;quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
 export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;   daemon level  /etc/docker/daemon
 DOCKER CLIENT PROXY ~/.docker/config.json
  &amp;quot;proxies&amp;quot;:{ &amp;quot;default&amp;quot;:{} }  </description>
