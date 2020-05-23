@@ -27,7 +27,7 @@ categories = []
 
 ```
 [Service]
-Environment="HTTPS_PROXY=http://192.168.1.1:8080/"
+Environment="http_proxy=http://127.0.0.1:8123" "https_proxy=https://127.0.0.1:8123" "NO_PROXY=registry-1.docker.io"
 ```
 
 
