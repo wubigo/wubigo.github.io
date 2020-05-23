@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -28,8 +28,7 @@
   
     
   
-  <meta name="description" content="模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
+  <meta name="description" content="模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
 package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
@@ -143,8 +142,7 @@ module github.com/wubigo/API/go/hello go 1.">
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/golang-first-app-as-module/">
   <meta property="og:title" content="Go语言第一个基于模块应用 | NgAPP">
-  <meta property="og:description" content="模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
+  <meta property="og:description" content="模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod  ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13  创建程序 hello.go
 package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
 编译测试 go install github.com/wubigo/API/go/hello  或者
 go install .  或者
@@ -522,7 +520,8 @@ go mod init github.com/wubigo/API/go/hello
 </code></pre>
 
 <ul>
-<li><p>检查<code>go.mod</code></p>
+<li>检查<code>go.mod</code></li>
+</ul>
 
 <pre><code>ll
 go.mod
@@ -534,8 +533,7 @@ module github.com/wubigo/API/go/hello
 
 go 1.13
 
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h2 id="创建程序">创建程序</h2>
 
@@ -586,13 +584,15 @@ require github.com/google/go-cmp v0.4.0
 </code></pre>
 
 <ul>
-<li><p>检查程序</p>
+<li>检查程序</li>
+</ul>
 
 <pre><code>ll $$GOPATH/bin
 hello
-</code></pre></li>
+</code></pre>
 
-<li><p>测试</p></li>
+<ul>
+<li>测试</li>
 </ul>
 
 <h2 id="清理">清理</h2>
@@ -823,7 +823,7 @@ git commit -m &quot;application managed by module&quot;
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

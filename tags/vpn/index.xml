@@ -66,9 +66,7 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
       <pubDate>Tue, 02 Jan 2018 12:34:32 +0800</pubDate>
       
       <guid>https://wubigo.com/post/vpn-with-wireguard/</guid>
-      <description>安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &amp;gt; publickey  配置
- ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.</description>
+      <description>安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key  wg genkey | tee privatekey | wg pubkey &amp;gt; publickey   配置   ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.</description>
     </item>
     
     <item>
@@ -88,6 +86,17 @@ https://www.tinc-vpn.org/
 https://github.com/isystem-io/wireguard-aws
 Download and install the TunSafe, which is a Wireguard client for Windows.
  wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Vpn Client</title>
+      <link>https://wubigo.com/post/ubuntu-vpn-client/</link>
+      <pubDate>Mon, 23 May 2016 08:31:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/ubuntu-vpn-client/</guid>
+      <description>安装客户端 sudo apt-get install m2crypto pip install shadowsocks  /etc/shadowsocks.json
+{ &amp;quot;server&amp;quot;:&amp;quot;4.1.33.104&amp;quot;, &amp;quot;server_port&amp;quot;:8388, &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, &amp;quot;local_port&amp;quot;:1080, &amp;quot;password&amp;quot;:&amp;quot;&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; }  sslocal -c /etc/shadowsocks.json # To run in the background sudo sslocal -c /etc/shadowsocks.json -d start  配置代理 sudo apt-get install polipo  /etc/polipo/config
+logSyslog = true logFile = /var/log/polipo/polipo.log logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &amp;quot;0.0.0.0&amp;quot; socksParentProxy = &amp;quot;127.0.0.1:1080&amp;quot; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32  sudo service polipo stop sudo service polipo start export http_proxy=http://127.</description>
     </item>
     
   </channel>

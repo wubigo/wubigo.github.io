@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -554,16 +554,17 @@ systemctl show --property=Environment docker
 
 <ul>
 <li>delete volumes</li>
-
-<li><pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)
+<li>
+<code>
+$ docker volume rm $(docker volume ls -qf dangling=true)
 $ docker volume ls -qf dangling=true | xargs -r docker volume rm
-</code></pre>
+</code></li>
+</ul>
 
 <pre><code>docker rmi $(docker images --filter &quot;dangling=true&quot; -q --no-trunc)
 docker rmi $(docker images | grep &quot;none&quot; | awk '/ / { print $3 }')
 docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p><strong>Caution</strong></p>
 
@@ -573,13 +574,15 @@ docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
 <h1 id="ubuntu-docker-post-installation-steps">ubuntu docker Post-installation steps</h1>
 
 <ul>
-<li><p>check to docker log for warning</p>
+<li>check to docker log for warning</li>
+</ul>
 
 <pre><code>journalctl -xu docker
 journalctl -xu docker.service
-</code></pre></li>
+</code></pre>
 
-<li><p>check-config</p></li>
+<ul>
+<li>check-config</li>
 </ul>
 
 <blockquote>
@@ -624,13 +627,15 @@ sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev et
 <h1 id="容器间通信">容器间通信</h1>
 
 <ul>
-<li><p>icc
-inter-container communication</p>
+<li>icc
+inter-container communication</li>
+</ul>
 
 <pre><code>docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.168.200.0/24 -o &quot;com.docker.network.bridge.enable_icc&quot;=&quot;false&quot; no-icc-network
-</code></pre></li>
+</code></pre>
 
-<li><p>enable_ip_masquerade</p></li>
+<ul>
+<li>enable_ip_masquerade</li>
 </ul>
 
 <p>是否允许NAT使用宿主的IP掩蔽来自容器访问宿主外的网络包的SOURCE IP</p>
@@ -653,13 +658,13 @@ inter-container communication</p>
 </code></pre>
 
 <ul>
-<li><p>移动数据</p>
+<li>移动数据</li>
+</ul>
 
 <pre><code>systemctl stop docker
 mv /var/lib/docker/* /mnt/docker/
 systemctl start docker
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="定位容器的veth接口">定位容器的VETH接口</h1>
 
@@ -879,7 +884,7 @@ sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -625,32 +625,34 @@ kubectl run -it --image busybox  test --restart=Never --rm  nslookup kubernetes.
 <p>步骤</p>
 
 <ul>
-<li><p>创建服务</p>
+<li>创建服务</li>
+</ul>
 
 <pre><code>kind: Service
 apiVersion: v1
 metadata:
-name: ext-db
+  name: ext-db
 spec:
-ports:
-- protocol: TCP
-port: 80
-targetPort: 3316
-</code></pre></li>
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3316
+</code></pre>
 
-<li><p>手动创建一个端点</p>
+<ul>
+<li>手动创建一个端点</li>
+</ul>
 
 <pre><code>kind: Endpoints
 apiVersion: v1
 metadata:
-name: my-service
+  name: my-service
 subsets:
-- addresses:
-  - ip: 10.8.0.2
-ports:
-  - port: 3316
-</code></pre></li>
-</ul>
+  - addresses:
+      - ip: 10.8.0.2
+    ports:
+      - port: 3316
+</code></pre>
 
 <h1 id="kube-proxy-mode">kube-proxy  mode</h1>
 
@@ -728,11 +730,11 @@ subjects:
 </code></pre>
 
 <ul>
-<li><p>login with Bearer Token</p>
+<li>login with Bearer Token</li>
+</ul>
 
 <pre><code>kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="multi-tenant-k8s-clusters-at-network-level">multi-tenant K8S clusters at network-level:</h1>
 
@@ -971,7 +973,7 @@ subjects:
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

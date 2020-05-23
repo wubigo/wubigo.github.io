@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2018-01-01T00:00:00&#43;00:00">
   
 
   
@@ -397,6 +397,95 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-01-01-hacknewsfavorites2018/" itemprop="url">Hacknews favorites 2018</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Hijack of Amazon’s domain service used to reroute web traffic for two hours https://doublepulsar.com/hijack-of-amazons-internet-domain-service-used-to-reroute-web-traffic-for-two-hours-unnoticed-3a6f0dda6a6f
+Socioeconomic group classification based on user features http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf
+The long, tortuous and fascinating process of creating a Chinese font (qz.com) https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/
+Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service https://blog.cloudflare.com/announcing-1111/
+Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html
+Announcing gRPC Support in NGINX https://www.nginx.com/blog/nginx-1-13-10-grpc/
+ACME v2 and Wildcard Certificate Support is Live https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live
+PIXAR’S 22 RULES OF STORYTELLING https://www.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -777,7 +866,8 @@
 <p>使用两种方式之一创建BUCKET</p>
 
 <ul>
-<li><p>terraform</p>
+<li>terraform</li>
+</ul>
 
 <pre><code>git clone https://github.com/wubigo/iaas
 
@@ -785,14 +875,15 @@ cd s3
 
 terraform apply
 
-</code></pre></li>
+</code></pre>
 
-<li><p>awscli</p>
+<ul>
+<li>awscli</li>
+</ul>
 
 <pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
 aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h3 id="确认配置">确认配置</h3>
 
@@ -814,7 +905,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 
-<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 </code></pre>
 
 <h2 id="上传站点内容">上传站点内容</h2>
@@ -988,8 +1079,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
   <div class="article-style" itemprop="articleBody">
     与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
-const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
   </div>
@@ -2229,100 +2319,6 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-05-03-atomnote/" itemprop="url">atom note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="proxy-config-for-windows">proxy config for Windows</h1>
-
-<pre><code>   ~/.atom/.apmrc
-   https-proxy = http://192.168.0.119:3128/
-   http-proxy = http://192.168.0.119:3128/
-</code></pre>
-
-<h1 id="set-up-use-atom-as-a-markdown-editor">Set Up &amp; Use Atom as a Markdown Editor</h1>
-
-<p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2496,7 +2492,7 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

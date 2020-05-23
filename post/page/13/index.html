@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-04-19T14:15:21&#43;08:00">
+  <meta property="og:updated_time" content="2014-02-03T00:00:00&#43;00:00">
   
 
   
@@ -397,6 +397,191 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-02-03-aws-notes/" itemprop="url">aws FAQ</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="steps-to-make-ec2-access-from-outside">steps to make ec2 access from outside</h1>
+
+<ol>
+<li>create vpc</li>
+<li>create  internet gateway</li>
+<li>add route to the gateway into the routetable</li>
+</ol>
+
+<h1 id="requesttimetooskewed-error-with-s3-upload">RequestTimeTooSkewed error with S3 upload</h1>
+
+<p><a href="https://github.com/aws/aws-sdk-js/issues/399" target="_blank">https://github.com/aws/aws-sdk-js/issues/399</a>
+<a href="https://aws.amazon.com/blogs/developer/clock-skew-correction/" target="_blank">https://aws.amazon.com/blogs/developer/clock-skew-correction/</a></p>
+
+<h1 id="cloudfront-set-origin-custom-headers">cloudfront set Origin Custom Headers</h1>
+
+<p><a href="https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/" target="_blank">https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-03-arangodb/" itemprop="url">arrangodb note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    1: ArangoDB automatically indexes the _key attribute in each collection. There is no need to index this attribute separately. Please note that a document&rsquo;s _id attribute is derived from the _key attribute, and is thus implicitly indexed, too.
+2: Creating a database
+We don’t want to mess with any existing data, so let’s start by creating a new database called “mydb”:
+db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database created&rsquo;), err =&gt; console.error(&lsquo;Failed to create database:&lsquo;, err) );
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1588,8 +1773,7 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELEC
   
   <div class="article-style" itemprop="articleBody">
     mysql install ubuntu 16.04 install mysql 5.7 at default
-sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
-mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection  mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;  SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
 [mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
   </div>
   
@@ -1755,11 +1939,11 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
   
   <div class="article-style" itemprop="articleBody">
     <ul>
-<li><p>whether MySQL Server supports partitioning</p>
+<li>whether MySQL Server supports partitioning</li>
+</ul>
 
 <pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
-</code></pre></li>
-</ul>
+</code></pre>
 
   </div>
   
@@ -2132,178 +2316,6 @@ GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
 
     
   
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
-$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
-$virtualenv -p /home/whg/python2.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="b-树-vs-lsm树">B+树 vs. LSM树</h1>
-
-<p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
-NoSQL使用LSM树</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
 
   
 <nav>
@@ -2477,7 +2489,7 @@ NoSQL使用LSM树</p>
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

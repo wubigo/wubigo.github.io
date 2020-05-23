@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -403,8 +403,7 @@
     <h2><a href="/post/minio-as-a-gateway-to-b2/">Minio配置为B2存储网关</a></h2>
     <div class="article-style">
       
-       配置  下载B2 TLS安全证书
-openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2   
+       配置  下载B2 TLS安全证书  openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2  
       
     </div>
   </div>
@@ -420,10 +419,7 @@ openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt mv b2.c
     <h2><a href="/post/minio-install-from-source/">Minio源代码安装</a></h2>
     <div class="article-style">
       
-      安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
+      安装两种方式 从最新源代码发布版安装  git设置代理  [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false   系统代理  set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/   安装  go get github.com/minio/minio  MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
       
     </div>
   </div>
@@ -617,7 +613,7 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

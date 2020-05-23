@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -506,20 +506,20 @@
 // Consistentcy is important for the convergence as different resource types
 // from the snapshot may be delivered to the proxy in arbitrary order.
 type Snapshot struct {
-	// Endpoints are items in the EDS response payload.
-	Endpoints Resources
+    // Endpoints are items in the EDS response payload.
+    Endpoints Resources
 
-	// Clusters are items in the CDS response payload.
-	Clusters Resources
+    // Clusters are items in the CDS response payload.
+    Clusters Resources
 
-	// Routes are items in the RDS response payload.
-	Routes Resources
+    // Routes are items in the RDS response payload.
+    Routes Resources
 
-	// Listeners are items in the LDS response payload.
-	Listeners Resources
+    // Listeners are items in the LDS response payload.
+    Listeners Resources
 
-	// Secrets are items in the SDS response payload.
-	Secrets Resources
+    // Secrets are items in the SDS response payload.
+    Secrets Resources
 }
 
 </code></pre>
@@ -543,7 +543,7 @@ docker build -t bigo/envoy-test:v1 .
 
 <pre><code>docker run -it --rm -e &quot;XDS=ads&quot; bigo/envoy-test:v1  -debug
 docker run -it --rm -e &quot;XDS=xds&quot; bigo/envoy-test:v1 -debug
-docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug	
+docker run -it --rm -e &quot;XDS=rest&quot; bigo/envoy-test:v1 -debug 
 </code></pre>
 
 <h1 id="test-xds-with-tls-in-docker">TEST XDS with tls in docker</h1>
@@ -871,7 +871,7 @@ LDS or CDS configured in dynamic_resources.</p>
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {

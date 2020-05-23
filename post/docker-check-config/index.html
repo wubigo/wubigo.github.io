@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.54.0" />
 
   
 
@@ -507,22 +507,22 @@ EXITCODE=0
 # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in
 
 possibleConfigs=(
-	'/proc/config.gz'
-	&quot;/boot/config-$(uname -r)&quot;
-	&quot;/usr/src/linux-$(uname -r)/.config&quot;
-	'/usr/src/linux/.config'
+    '/proc/config.gz'
+    &quot;/boot/config-$(uname -r)&quot;
+    &quot;/usr/src/linux-$(uname -r)/.config&quot;
+    '/usr/src/linux/.config'
 )
 
 if [ $# -gt 0 ]; then
-	CONFIG=&quot;$1&quot;
+    CONFIG=&quot;$1&quot;
 else
-	: ${CONFIG:=&quot;${possibleConfigs[0]}&quot;}
+    : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;}
 fi
 
 if ! command -v zgrep &amp;&gt; /dev/null; then
-	zgrep() {
-		zcat &quot;$2&quot; | grep &quot;$1&quot;
-	}
+    zgrep() {
+        zcat &quot;$2&quot; | grep &quot;$1&quot;
+    }
 fi
 
 kernelVersion=&quot;$(uname -r)&quot;
@@ -531,121 +531,121 @@ kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot;
 kernelMinor=&quot;${kernelMinor%%.*}&quot;
 
 is_set() {
-	zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null
+    zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null
 }
 is_set_in_kernel() {
-	zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null
+    zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null
 }
 is_set_as_module() {
-	zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null
+    zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null
 }
 
 color() {
-	local codes=()
-	if [ &quot;$1&quot; = 'bold' ]; then
-		codes=( &quot;${codes[@]}&quot; '1' )
-		shift
-	fi
-	if [ &quot;$#&quot; -gt 0 ]; then
-		local code=
-		case &quot;$1&quot; in
-			# see https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-			black) code=30 ;;
-			red) code=31 ;;
-			green) code=32 ;;
-			yellow) code=33 ;;
-			blue) code=34 ;;
-			magenta) code=35 ;;
-			cyan) code=36 ;;
-			white) code=37 ;;
-		esac
-		if [ &quot;$code&quot; ]; then
-			codes=( &quot;${codes[@]}&quot; &quot;$code&quot; )
-		fi
-	fi
-	local IFS=';'
-	echo -en '\033['&quot;${codes[*]}&quot;'m'
+    local codes=()
+    if [ &quot;$1&quot; = 'bold' ]; then
+        codes=( &quot;${codes[@]}&quot; '1' )
+        shift
+    fi
+    if [ &quot;$#&quot; -gt 0 ]; then
+        local code=
+        case &quot;$1&quot; in
+            # see https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+            black) code=30 ;;
+            red) code=31 ;;
+            green) code=32 ;;
+            yellow) code=33 ;;
+            blue) code=34 ;;
+            magenta) code=35 ;;
+            cyan) code=36 ;;
+            white) code=37 ;;
+        esac
+        if [ &quot;$code&quot; ]; then
+            codes=( &quot;${codes[@]}&quot; &quot;$code&quot; )
+        fi
+    fi
+    local IFS=';'
+    echo -en '\033['&quot;${codes[*]}&quot;'m'
 }
 wrap_color() {
-	text=&quot;$1&quot;
-	shift
-	color &quot;$@&quot;
-	echo -n &quot;$text&quot;
-	color reset
-	echo
+    text=&quot;$1&quot;
+    shift
+    color &quot;$@&quot;
+    echo -n &quot;$text&quot;
+    color reset
+    echo
 }
 
 wrap_good() {
-	echo &quot;$(wrap_color &quot;$1&quot; white): $(wrap_color &quot;$2&quot; green)&quot;
+    echo &quot;$(wrap_color &quot;$1&quot; white): $(wrap_color &quot;$2&quot; green)&quot;
 }
 wrap_bad() {
-	echo &quot;$(wrap_color &quot;$1&quot; bold): $(wrap_color &quot;$2&quot; bold red)&quot;
+    echo &quot;$(wrap_color &quot;$1&quot; bold): $(wrap_color &quot;$2&quot; bold red)&quot;
 }
 wrap_warning() {
-	wrap_color &gt;&amp;2 &quot;$*&quot; red
+    wrap_color &gt;&amp;2 &quot;$*&quot; red
 }
 
 check_flag() {
-	if is_set_in_kernel &quot;$1&quot;; then
-		wrap_good &quot;CONFIG_$1&quot; 'enabled'
-	elif is_set_as_module &quot;$1&quot;; then
-		wrap_good &quot;CONFIG_$1&quot; 'enabled (as module)'
-	else
-		wrap_bad &quot;CONFIG_$1&quot; 'missing'
-		EXITCODE=1
-	fi
+    if is_set_in_kernel &quot;$1&quot;; then
+        wrap_good &quot;CONFIG_$1&quot; 'enabled'
+    elif is_set_as_module &quot;$1&quot;; then
+        wrap_good &quot;CONFIG_$1&quot; 'enabled (as module)'
+    else
+        wrap_bad &quot;CONFIG_$1&quot; 'missing'
+        EXITCODE=1
+    fi
 }
 
 check_flags() {
-	for flag in &quot;$@&quot;; do
-		echo -n &quot;- &quot;; check_flag &quot;$flag&quot;
-	done
+    for flag in &quot;$@&quot;; do
+        echo -n &quot;- &quot;; check_flag &quot;$flag&quot;
+    done
 }
 
 check_command() {
-	if command -v &quot;$1&quot; &gt;/dev/null 2&gt;&amp;1; then
-		wrap_good &quot;$1 command&quot; 'available'
-	else
-		wrap_bad &quot;$1 command&quot; 'missing'
-		EXITCODE=1
-	fi
+    if command -v &quot;$1&quot; &gt;/dev/null 2&gt;&amp;1; then
+        wrap_good &quot;$1 command&quot; 'available'
+    else
+        wrap_bad &quot;$1 command&quot; 'missing'
+        EXITCODE=1
+    fi
 }
 
 check_device() {
-	if [ -c &quot;$1&quot; ]; then
-		wrap_good &quot;$1&quot; 'present'
-	else
-		wrap_bad &quot;$1&quot; 'missing'
-		EXITCODE=1
-	fi
+    if [ -c &quot;$1&quot; ]; then
+        wrap_good &quot;$1&quot; 'present'
+    else
+        wrap_bad &quot;$1&quot; 'missing'
+        EXITCODE=1
+    fi
 }
 
 check_distro_userns() {
-	source /etc/os-release 2&gt;/dev/null || /bin/true
-	if [[ &quot;${ID}&quot; =~ ^(centos|rhel)$ &amp;&amp; &quot;${VERSION_ID}&quot; =~ ^7 ]]; then
-		# this is a CentOS7 or RHEL7 system
-		grep -q &quot;user_namespace.enable=1&quot; /proc/cmdline || {
-			# no user namespace support enabled
-			wrap_bad &quot;  (RHEL7/CentOS7&quot; &quot;User namespaces disabled; add 'user_namespace.enable=1' to boot command line)&quot;
-			EXITCODE=1
-		}
-	fi
+    source /etc/os-release 2&gt;/dev/null || /bin/true
+    if [[ &quot;${ID}&quot; =~ ^(centos|rhel)$ &amp;&amp; &quot;${VERSION_ID}&quot; =~ ^7 ]]; then
+        # this is a CentOS7 or RHEL7 system
+        grep -q &quot;user_namespace.enable=1&quot; /proc/cmdline || {
+            # no user namespace support enabled
+            wrap_bad &quot;  (RHEL7/CentOS7&quot; &quot;User namespaces disabled; add 'user_namespace.enable=1' to boot command line)&quot;
+            EXITCODE=1
+        }
+    fi
 }
 
 if [ ! -e &quot;$CONFIG&quot; ]; then
-	wrap_warning &quot;warning: $CONFIG does not exist, searching other paths for kernel config ...&quot;
-	for tryConfig in &quot;${possibleConfigs[@]}&quot;; do
-		if [ -e &quot;$tryConfig&quot; ]; then
-			CONFIG=&quot;$tryConfig&quot;
-			break
-		fi
-	done
-	if [ ! -e &quot;$CONFIG&quot; ]; then
-		wrap_warning &quot;error: cannot find kernel config&quot;
-		wrap_warning &quot;  try running this script again, specifying the kernel config:&quot;
-		wrap_warning &quot;    CONFIG=/path/to/kernel/.config $0 or $0 /path/to/kernel/.config&quot;
-		exit 1
-	fi
+    wrap_warning &quot;warning: $CONFIG does not exist, searching other paths for kernel config ...&quot;
+    for tryConfig in &quot;${possibleConfigs[@]}&quot;; do
+        if [ -e &quot;$tryConfig&quot; ]; then
+            CONFIG=&quot;$tryConfig&quot;
+            break
+        fi
+    done
+    if [ ! -e &quot;$CONFIG&quot; ]; then
+        wrap_warning &quot;error: cannot find kernel config&quot;
+        wrap_warning &quot;  try running this script again, specifying the kernel config:&quot;
+        wrap_warning &quot;    CONFIG=/path/to/kernel/.config $0 or $0 /path/to/kernel/.config&quot;
+        exit 1
+    fi
 fi
 
 wrap_color &quot;info: reading kernel config from $CONFIG ...&quot; white
@@ -657,46 +657,46 @@ echo -n '- '
 cgroupSubsystemDir=&quot;$(awk '/[, ](cpu|cpuacct|cpuset|devices|freezer|memory)[, ]/ &amp;&amp; $3 == &quot;cgroup&quot; { print $2 }' /proc/mounts | head -n1)&quot;
 cgroupDir=&quot;$(dirname &quot;$cgroupSubsystemDir&quot;)&quot;
 if [ -d &quot;$cgroupDir/cpu&quot; -o -d &quot;$cgroupDir/cpuacct&quot; -o -d &quot;$cgroupDir/cpuset&quot; -o -d &quot;$cgroupDir/devices&quot; -o -d &quot;$cgroupDir/freezer&quot; -o -d &quot;$cgroupDir/memory&quot; ]; then
-	echo &quot;$(wrap_good 'cgroup hierarchy' 'properly mounted') [$cgroupDir]&quot;
+    echo &quot;$(wrap_good 'cgroup hierarchy' 'properly mounted') [$cgroupDir]&quot;
 else
-	if [ &quot;$cgroupSubsystemDir&quot; ]; then
-		echo &quot;$(wrap_bad 'cgroup hierarchy' 'single mountpoint!') [$cgroupSubsystemDir]&quot;
-	else
-		echo &quot;$(wrap_bad 'cgroup hierarchy' 'nonexistent??')&quot;
-	fi
-	EXITCODE=1
-	echo &quot;    $(wrap_color '(see https://github.com/tianon/cgroupfs-mount)' yellow)&quot;
+    if [ &quot;$cgroupSubsystemDir&quot; ]; then
+        echo &quot;$(wrap_bad 'cgroup hierarchy' 'single mountpoint!') [$cgroupSubsystemDir]&quot;
+    else
+        echo &quot;$(wrap_bad 'cgroup hierarchy' 'nonexistent??')&quot;
+    fi
+    EXITCODE=1
+    echo &quot;    $(wrap_color '(see https://github.com/tianon/cgroupfs-mount)' yellow)&quot;
 fi
 
 if [ &quot;$(cat /sys/module/apparmor/parameters/enabled 2&gt;/dev/null)&quot; = 'Y' ]; then
-	echo -n '- '
-	if command -v apparmor_parser &amp;&gt; /dev/null; then
-		echo &quot;$(wrap_good 'apparmor' 'enabled and tools installed')&quot;
-	else
-		echo &quot;$(wrap_bad 'apparmor' 'enabled, but apparmor_parser missing')&quot;
-		echo -n '    '
-		if command -v apt-get &amp;&gt; /dev/null; then
-			echo &quot;$(wrap_color '(use &quot;apt-get install apparmor&quot; to fix this)')&quot;
-		elif command -v yum &amp;&gt; /dev/null; then
-			echo &quot;$(wrap_color '(your best bet is &quot;yum install apparmor-parser&quot;)')&quot;
-		else
-			echo &quot;$(wrap_color '(look for an &quot;apparmor&quot; package for your distribution)')&quot;
-		fi
-		EXITCODE=1
-	fi
+    echo -n '- '
+    if command -v apparmor_parser &amp;&gt; /dev/null; then
+        echo &quot;$(wrap_good 'apparmor' 'enabled and tools installed')&quot;
+    else
+        echo &quot;$(wrap_bad 'apparmor' 'enabled, but apparmor_parser missing')&quot;
+        echo -n '    '
+        if command -v apt-get &amp;&gt; /dev/null; then
+            echo &quot;$(wrap_color '(use &quot;apt-get install apparmor&quot; to fix this)')&quot;
+        elif command -v yum &amp;&gt; /dev/null; then
+            echo &quot;$(wrap_color '(your best bet is &quot;yum install apparmor-parser&quot;)')&quot;
+        else
+            echo &quot;$(wrap_color '(look for an &quot;apparmor&quot; package for your distribution)')&quot;
+        fi
+        EXITCODE=1
+    fi
 fi
 
 flags=(
-	NAMESPACES {NET,PID,IPC,UTS}_NS
-	CGROUPS CGROUP_CPUACCT CGROUP_DEVICE CGROUP_FREEZER CGROUP_SCHED CPUSETS MEMCG
-	KEYS
-	VETH BRIDGE BRIDGE_NETFILTER
-	NF_NAT_IPV4 IP_NF_FILTER IP_NF_TARGET_MASQUERADE
-	NETFILTER_XT_MATCH_{ADDRTYPE,CONNTRACK,IPVS}
-	IP_NF_NAT NF_NAT NF_NAT_NEEDED
+    NAMESPACES {NET,PID,IPC,UTS}_NS
+    CGROUPS CGROUP_CPUACCT CGROUP_DEVICE CGROUP_FREEZER CGROUP_SCHED CPUSETS MEMCG
+    KEYS
+    VETH BRIDGE BRIDGE_NETFILTER
+    NF_NAT_IPV4 IP_NF_FILTER IP_NF_TARGET_MASQUERADE
+    NETFILTER_XT_MATCH_{ADDRTYPE,CONNTRACK,IPVS}
+    IP_NF_NAT NF_NAT NF_NAT_NEEDED
 
-	# required for bind-mounting /dev/mqueue into containers
-	POSIX_MQUEUE
+    # required for bind-mounting /dev/mqueue into containers
+    POSIX_MQUEUE
 )
 check_flags &quot;${flags[@]}&quot;
 if [ &quot;$kernelMajor&quot; -lt 4 ] || [ &quot;$kernelMajor&quot; -eq 4 -a &quot;$kernelMinor&quot; -lt 8 ]; then
@@ -707,87 +707,87 @@ echo
 
 echo 'Optional Features:'
 {
-	check_flags USER_NS
-	check_distro_userns
+    check_flags USER_NS
+    check_distro_userns
 }
 {
-	check_flags SECCOMP
+    check_flags SECCOMP
 }
 {
-	check_flags CGROUP_PIDS
+    check_flags CGROUP_PIDS
 }
 {
-	CODE=${EXITCODE}
-	check_flags MEMCG_SWAP MEMCG_SWAP_ENABLED
-	if [ -e /sys/fs/cgroup/memory/memory.memsw.limit_in_bytes ]; then
-		echo &quot;    $(wrap_color '(cgroup swap accounting is currently enabled)' bold black)&quot;
-		EXITCODE=${CODE}
-	elif is_set MEMCG_SWAP &amp;&amp; ! is_set MEMCG_SWAP_ENABLED; then
-		echo &quot;    $(wrap_color '(cgroup swap accounting is currently not enabled, you can enable it by setting boot option &quot;swapaccount=1&quot;)' bold black)&quot;
-	fi
+    CODE=${EXITCODE}
+    check_flags MEMCG_SWAP MEMCG_SWAP_ENABLED
+    if [ -e /sys/fs/cgroup/memory/memory.memsw.limit_in_bytes ]; then
+        echo &quot;    $(wrap_color '(cgroup swap accounting is currently enabled)' bold black)&quot;
+        EXITCODE=${CODE}
+    elif is_set MEMCG_SWAP &amp;&amp; ! is_set MEMCG_SWAP_ENABLED; then
+        echo &quot;    $(wrap_color '(cgroup swap accounting is currently not enabled, you can enable it by setting boot option &quot;swapaccount=1&quot;)' bold black)&quot;
+    fi
 }
 {
-	if is_set LEGACY_VSYSCALL_NATIVE; then
-		echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NATIVE&quot; 'enabled'
-		echo &quot;    $(wrap_color '(dangerous, provides an ASLR-bypassing target with usable ROP gadgets.)' bold black)&quot;
-	elif is_set LEGACY_VSYSCALL_EMULATE; then
-		echo -n &quot;- &quot;; wrap_good &quot;CONFIG_LEGACY_VSYSCALL_EMULATE&quot; 'enabled'
-	elif is_set LEGACY_VSYSCALL_NONE; then
-		echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NONE&quot; 'enabled'
-		echo &quot;    $(wrap_color '(containers using eglibc &lt;= 2.13 will not work. Switch to' bold black)&quot;
-		echo &quot;    $(wrap_color ' &quot;CONFIG_VSYSCALL_[NATIVE|EMULATE]&quot; or use &quot;vsyscall=[native|emulate]&quot;' bold black)&quot;
-		echo &quot;    $(wrap_color ' on kernel command line. Note that this will disable ASLR for the,' bold black)&quot;
-		echo &quot;    $(wrap_color ' VDSO which may assist in exploiting security vulnerabilities.)' bold black)&quot;
-	# else Older kernels (prior to 3dc33bd30f3e, released in v4.40-rc1) do
-	#      not have these LEGACY_VSYSCALL options and are effectively
-	#      LEGACY_VSYSCALL_EMULATE. Even older kernels are presumably
-	#      effectively LEGACY_VSYSCALL_NATIVE.
-	fi
+    if is_set LEGACY_VSYSCALL_NATIVE; then
+        echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NATIVE&quot; 'enabled'
+        echo &quot;    $(wrap_color '(dangerous, provides an ASLR-bypassing target with usable ROP gadgets.)' bold black)&quot;
+    elif is_set LEGACY_VSYSCALL_EMULATE; then
+        echo -n &quot;- &quot;; wrap_good &quot;CONFIG_LEGACY_VSYSCALL_EMULATE&quot; 'enabled'
+    elif is_set LEGACY_VSYSCALL_NONE; then
+        echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NONE&quot; 'enabled'
+        echo &quot;    $(wrap_color '(containers using eglibc &lt;= 2.13 will not work. Switch to' bold black)&quot;
+        echo &quot;    $(wrap_color ' &quot;CONFIG_VSYSCALL_[NATIVE|EMULATE]&quot; or use &quot;vsyscall=[native|emulate]&quot;' bold black)&quot;
+        echo &quot;    $(wrap_color ' on kernel command line. Note that this will disable ASLR for the,' bold black)&quot;
+        echo &quot;    $(wrap_color ' VDSO which may assist in exploiting security vulnerabilities.)' bold black)&quot;
+    # else Older kernels (prior to 3dc33bd30f3e, released in v4.40-rc1) do
+    #      not have these LEGACY_VSYSCALL options and are effectively
+    #      LEGACY_VSYSCALL_EMULATE. Even older kernels are presumably
+    #      effectively LEGACY_VSYSCALL_NATIVE.
+    fi
 }
 
 if [ &quot;$kernelMajor&quot; -lt 4 ] || [ &quot;$kernelMajor&quot; -eq 4 -a &quot;$kernelMinor&quot; -le 5 ]; then
-	check_flags MEMCG_KMEM
+    check_flags MEMCG_KMEM
 fi
 
 if [ &quot;$kernelMajor&quot; -lt 3 ] || [ &quot;$kernelMajor&quot; -eq 3 -a &quot;$kernelMinor&quot; -le 18 ]; then
-	check_flags RESOURCE_COUNTERS
+    check_flags RESOURCE_COUNTERS
 fi
 
 if [ &quot;$kernelMajor&quot; -lt 3 ] || [ &quot;$kernelMajor&quot; -eq 3 -a &quot;$kernelMinor&quot; -le 13 ]; then
-	netprio=NETPRIO_CGROUP
+    netprio=NETPRIO_CGROUP
 else
-	netprio=CGROUP_NET_PRIO
+    netprio=CGROUP_NET_PRIO
 fi
 
 flags=(
-	BLK_CGROUP BLK_DEV_THROTTLING IOSCHED_CFQ CFQ_GROUP_IOSCHED
-	CGROUP_PERF
-	CGROUP_HUGETLB
-	NET_CLS_CGROUP $netprio
-	CFS_BANDWIDTH FAIR_GROUP_SCHED RT_GROUP_SCHED
-	IP_NF_TARGET_REDIRECT
-	IP_VS
-	IP_VS_NFCT
-	IP_VS_PROTO_TCP
-	IP_VS_PROTO_UDP
- 	IP_VS_RR
+    BLK_CGROUP BLK_DEV_THROTTLING IOSCHED_CFQ CFQ_GROUP_IOSCHED
+    CGROUP_PERF
+    CGROUP_HUGETLB
+    NET_CLS_CGROUP $netprio
+    CFS_BANDWIDTH FAIR_GROUP_SCHED RT_GROUP_SCHED
+    IP_NF_TARGET_REDIRECT
+    IP_VS
+    IP_VS_NFCT
+    IP_VS_PROTO_TCP
+    IP_VS_PROTO_UDP
+    IP_VS_RR
 )
 check_flags &quot;${flags[@]}&quot;
 
 if ! is_set EXT4_USE_FOR_EXT2; then
-	check_flags EXT3_FS EXT3_FS_XATTR EXT3_FS_POSIX_ACL EXT3_FS_SECURITY
-	if ! is_set EXT3_FS || ! is_set EXT3_FS_XATTR || ! is_set EXT3_FS_POSIX_ACL || ! is_set EXT3_FS_SECURITY; then
-		echo &quot;    $(wrap_color '(enable these ext3 configs if you are using ext3 as backing filesystem)' bold black)&quot;
-	fi
+    check_flags EXT3_FS EXT3_FS_XATTR EXT3_FS_POSIX_ACL EXT3_FS_SECURITY
+    if ! is_set EXT3_FS || ! is_set EXT3_FS_XATTR || ! is_set EXT3_FS_POSIX_ACL || ! is_set EXT3_FS_SECURITY; then
+        echo &quot;    $(wrap_color '(enable these ext3 configs if you are using ext3 as backing filesystem)' bold black)&quot;
+    fi
 fi
 
 check_flags EXT4_FS EXT4_FS_POSIX_ACL EXT4_FS_SECURITY
 if ! is_set EXT4_FS || ! is_set EXT4_FS_POSIX_ACL || ! is_set EXT4_FS_SECURITY; then
-	if is_set EXT4_USE_FOR_EXT2; then
-		echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext3 or ext4 as backing filesystem' bold black)&quot;
-	else
-		echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext4 as backing filesystem' bold black)&quot;
-	fi
+    if is_set EXT4_USE_FOR_EXT2; then
+        echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext3 or ext4 as backing filesystem' bold black)&quot;
+    else
+        echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext4 as backing filesystem' bold black)&quot;
+    fi
 fi
 
 echo '- Network Drivers:'
@@ -812,7 +812,7 @@ echo '- Storage Drivers:'
 echo '  - &quot;'$(wrap_color 'aufs' blue)'&quot;:'
 check_flags AUFS_FS | sed 's/^/    /'
 if ! is_set AUFS_FS &amp;&amp; grep -q aufs /proc/filesystems; then
-	echo &quot;      $(wrap_color '(note that some kernels include AUFS patches but not the AUFS_FS flag)' bold black)&quot;
+    echo &quot;      $(wrap_color '(note that some kernels include AUFS patches but not the AUFS_FS flag)' bold black)&quot;
 fi
 [ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
 EXITCODE=0
@@ -847,13 +847,13 @@ echo
 
 check_limit_over()
 {
-	if [ $(cat &quot;$1&quot;) -le &quot;$2&quot; ]; then
-		wrap_bad &quot;- $1&quot; &quot;$(cat $1)&quot;
-		wrap_color &quot;    This should be set to at least $2, for example set: sysctl -w kernel/keys/root_maxkeys=1000000&quot; bold black
-		EXITCODE=1
-	else
-		wrap_good &quot;- $1&quot; &quot;$(cat $1)&quot;
-	fi
+    if [ $(cat &quot;$1&quot;) -le &quot;$2&quot; ]; then
+        wrap_bad &quot;- $1&quot; &quot;$(cat $1)&quot;
+        wrap_color &quot;    This should be set to at least $2, for example set: sysctl -w kernel/keys/root_maxkeys=1000000&quot; bold black
+        EXITCODE=1
+    else
+        wrap_good &quot;- $1&quot; &quot;$(cat $1)&quot;
+    fi
 }
 
 echo 'Limits:'
@@ -1078,7 +1078,7 @@ exit $EXITCODE
     
     
     
-    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
 
     <script>
       (function() {
