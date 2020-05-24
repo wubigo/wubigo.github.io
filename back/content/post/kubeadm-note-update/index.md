@@ -23,15 +23,6 @@ categories = []
 
 ---
 
-- install docker
-
-```
-sudo apt install docker-ce=17.12.1~ce-0~ubuntu
-```
-
-[config docker daemon](/post/docker-proxy/)
-
-
 - iptables
 
 ```
@@ -60,14 +51,14 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 apt-cache madison docker-ce
-sudo apt-get install docker-ce=18.06.3~ce~3-0~ubuntu
+sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu
 sudo usermod -aG docker bigo
 ```
 
 - setup proxy
 
 [proxy](/post/ubuntu-vpn-client/)
-
+[config docker daemon](/post/docker-proxy/)
 
 - install kubeadm
 
@@ -81,7 +72,7 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-- disable 
+- SWAPOFF
 
 ```
 sudo swapoff -a
