@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NgAPP on NgAPP</title>
@@ -22,17 +21,7 @@
 &lt;hr /&gt;
 
 &lt;ul&gt;
-&lt;li&gt;install docker&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt install docker-ce=17.12.1~ce-0~ubuntu
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/docker-proxy/&#34;&gt;config docker daemon&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;iptables&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;iptables&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt;EOF | sudo tee /etc/modules
 br_netfilter
@@ -47,32 +36,29 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sudo sysctl --system
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;install container runtime&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;install container runtime&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
-   &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&amp;quot;
+&amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) \
+stable&amp;quot;
 sudo apt-get update
 apt-cache madison docker-ce
-sudo apt-get install docker-ce=18.06.3~ce~3-0~ubuntu
+sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu
 sudo usermod -aG docker bigo
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;setup proxy&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;setup proxy&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/ubuntu-vpn-client/&#34;&gt;proxy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/ubuntu-vpn-client/&#34;&gt;proxy&lt;/a&gt;
+&lt;a href=&#34;https://wubigo.com/post/docker-proxy/&#34;&gt;config docker daemon&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;install kubeadm&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;install kubeadm&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat &amp;lt;&amp;lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
@@ -81,14 +67,13 @@ EOF
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;disable&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;SWAPOFF&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo swapoff -a
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 
@@ -474,16 +459,13 @@ export PATH=$PATH:$GRAAL_HOME/bin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;检查&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;js --version
 GraalVM JavaScript (GraalVM CE Native 19.2.1)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;安装native-image&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;gu install native-image
 &lt;/code&gt;&lt;/pre&gt;
@@ -497,7 +479,8 @@ native-image             19.2.1              Native Image        github.com
 python                   19.2.1              Graal.Python        github.com
 R                        19.2.1              FastR               github.com
 ruby                     19.2.1              TruffleRuby         github.com
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
 
@@ -507,11 +490,11 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
 
@@ -523,8 +506,7 @@ ruby                     19.2.1              TruffleRuby         github.com
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;编译&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;javac HelloWorld.java
 native-image -cp . HelloWorld
@@ -547,15 +529,14 @@ Build on Server(pid: 20375, port: 45977)
 [helloworld:20375]        write:   1,153.04 ms
 [helloworld:20375]      [total]:  62,321.01 ms
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;ul&gt;
-&lt;li&gt;执行&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;./helloworld
 Hello World
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
 

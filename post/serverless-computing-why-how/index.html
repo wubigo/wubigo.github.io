@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -28,7 +28,11 @@
   
     
   
-  <meta name="description" content="准备  创建角色和授权  kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories  开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台">
+  <meta name="description" content="准备  创建角色和授权
+kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/serverless-computing-why-how/">
@@ -137,7 +141,11 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/serverless-computing-why-how/">
   <meta property="og:title" content="无服务器计算环境OPENFAAS搭建 | NgAPP">
-  <meta property="og:description" content="准备  创建角色和授权  kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;   分别为FAAS核心服务和函数创建名字空间  kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml   创建凭证  # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;   在本地helm仓库增加openfaas  helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories  开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="准备  创建角色和授权
+kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-03-03T08:45:55&#43;08:00">
@@ -503,24 +511,19 @@
 <h1 id="准备">准备</h1>
 
 <ul>
-<li>创建角色和授权</li>
-</ul>
+<li><p>创建角色和授权</p>
 
 <pre><code>kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \
-  --clusterrole=cluster-admin \
-  --user=&quot;cluster-admin-faas&quot;
-</code></pre>
+--clusterrole=cluster-admin \
+--user=&quot;cluster-admin-faas&quot;
+</code></pre></li>
 
-<ul>
-<li>分别为FAAS核心服务和函数创建名字空间</li>
-</ul>
+<li><p>分别为FAAS核心服务和函数创建名字空间</p>
 
 <pre><code>kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>创建凭证</li>
-</ul>
+<li><p>创建凭证</p>
 
 <pre><code># generate a random password
 PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
@@ -528,15 +531,14 @@ PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
 kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-user=admin \
 --from-literal=basic-auth-password=&quot;$PASSWORD&quot;
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>在本地helm仓库增加openfaas</li>
-</ul>
+<li><p>在本地helm仓库增加openfaas</p>
 
 <pre><code>helm repo add openfaas https://openfaas.github.io/faas-netes/
 &quot;openfaas&quot; has been added to your repositories
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="开始安装">开始安装</h1>
 
@@ -563,21 +565,21 @@ PASSWD=$(echo '$PASSWD' | base64 --decode)
 <h1 id="验证安装结果">验证安装结果</h1>
 
 <ul>
-<li>通过浏览器访问openfaas</li>
-</ul>
+<li><p>通过浏览器访问openfaas</p>
 
 <pre><code>curl http://&lt;pod-node-ip&gt;:31112
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>输入上面的用户名和密码进入openfaas控制台</p>
 
 <ul>
-<li>安装openfaas客户端</li>
-</ul>
+<li><p>安装openfaas客户端</p>
 
 <pre><code>curl -sSL https://cli.openfaas.com | sh
 echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="removing-the-openfaas">Removing the OpenFaaS</h1>
 
@@ -789,7 +791,7 @@ kubectl delete namespace/openfaas-fn
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

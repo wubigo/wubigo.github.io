@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
- dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0.">
+ dmidecode
+sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/linux-notes/">
@@ -139,7 +140,8 @@
   <meta property="og:url" content="https://wubigo.com/post/linux-notes/">
   <meta property="og:title" content="linux note | NgAPP">
   <meta property="og:description" content="iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
- dmidecode  sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown   lshw   sudo lshw -class memory memory:0 description: System Memory physical id: 3c slot: System board or motherboard *-bank:0 description: DIMM DDR3 Synchronous [empty] vendor: JEDEC ID: physical id: 0 slot: XMM1 *-bank:1 description: DIMM DDR3 Synchronous 1333 MHz (0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+ dmidecode
+sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2012-06-03T19:39:03&#43;08:00">
@@ -535,8 +537,7 @@
 <p>ram speed and type</p>
 
 <ul>
-<li>dmidecode</li>
-</ul>
+<li><p>dmidecode</p>
 
 <pre><code>sudo dmidecode --type memory
 
@@ -546,77 +547,75 @@ SMBIOS 2.6 present.
 
 Handle 0x003E, DMI type 17, 28 bytes
 Memory Device
-    Array Handle: 0x003C
-    Error Information Handle: Not Provided
-    Total Width: Unknown
-    Data Width: Unknown
-    Size: No Module Installed
-    Form Factor: DIMM
-    Set: 1
-    Locator: XMM1
-    Bank Locator: Not Specified
-    Type: DDR3
-    Type Detail: Synchronous
-    Speed: Unknown
-    Manufacturer: JEDEC ID:
-    Serial Number:  
-    Asset Tag: Not Specified
-    Part Number:  
-    Rank: Unknown
+	Array Handle: 0x003C
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: 1
+	Locator: XMM1
+	Bank Locator: Not Specified
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: Unknown
+	Manufacturer: JEDEC ID:
+	Serial Number:  
+	Asset Tag: Not Specified
+	Part Number:  
+	Rank: Unknown
 
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>lshw
-<br /></li>
-</ul>
+<li><p>lshw</p>
 
 <pre><code>sudo lshw -class memory
 
 
 memory:0
-       description: System Memory
-       physical id: 3c
-       slot: System board or motherboard
-     *-bank:0
-          description: DIMM DDR3 Synchronous [empty]
-          vendor: JEDEC ID:
-          physical id: 0
-          slot: XMM1
-     *-bank:1
-          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
-          product: M378B5273DH0-CH9
-          vendor: JEDEC ID:80 CE
-          physical id: 1
-          serial: D3894765
-          slot: XMM2
-          size: 4GiB
-          width: 64 bits
-          clock: 1333MHz (0.8ns)
-     *-bank:2
-          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
-          product: M378B5273DH0-CH9
-          vendor: JEDEC ID:80 CE
-          physical id: 2
-          serial: D4894765
-          slot: XMM3
-          size: 4GiB
-          width: 64 bits
-          clock: 1333MHz (0.8ns)
-     *-bank:3
-          description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
-          product: 8JTF12864AZ-1G4G1
-          vendor: JEDEC ID:80 2C
-          physical id: 3
-          serial: 07572436
-          slot: XMM4
-          size: 1GiB
-          width: 64 bits
-          clock: 1333MHz (0.8ns)
+   description: System Memory
+   physical id: 3c
+   slot: System board or motherboard
+ *-bank:0
+      description: DIMM DDR3 Synchronous [empty]
+      vendor: JEDEC ID:
+      physical id: 0
+      slot: XMM1
+ *-bank:1
+      description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+      product: M378B5273DH0-CH9
+      vendor: JEDEC ID:80 CE
+      physical id: 1
+      serial: D3894765
+      slot: XMM2
+      size: 4GiB
+      width: 64 bits
+      clock: 1333MHz (0.8ns)
+ *-bank:2
+      description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+      product: M378B5273DH0-CH9
+      vendor: JEDEC ID:80 CE
+      physical id: 2
+      serial: D4894765
+      slot: XMM3
+      size: 4GiB
+      width: 64 bits
+      clock: 1333MHz (0.8ns)
+ *-bank:3
+      description: DIMM DDR3 Synchronous 1333 MHz (0.8 ns)
+      product: 8JTF12864AZ-1G4G1
+      vendor: JEDEC ID:80 2C
+      physical id: 3
+      serial: 07572436
+      slot: XMM4
+      size: 1GiB
+      width: 64 bits
+      clock: 1333MHz (0.8ns)
 
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>2R*8 代表双面，每面（RANK）8个芯片颗粒</p>
 
@@ -629,14 +628,12 @@ uget-gtk
 <h1 id="enables-forwarding-of-the-authentication-agent-connection">Enables forwarding of the authentication agent connection</h1>
 
 <ul>
-<li>client config <code>.ssh/config</code></li>
-</ul>
+<li><p>client config <code>.ssh/config</code></p>
 
 <pre><code>ForwardAgent  yes
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Enable ssh-agent on main device</li>
+<li><p>Enable ssh-agent on main device</p></li>
 </ul>
 
 <p><code>.bashrc</code></p>
@@ -680,11 +677,11 @@ fi
 </code></pre>
 
 <ul>
-<li>seahorse</li>
-</ul>
+<li><p>seahorse</p>
 
 <pre><code>seahorse
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>选择login，右键删除</p>
 
@@ -703,13 +700,14 @@ sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
 
 <ul>
 <li>在命令终端窗口首选项里设置快捷键复制 -&gt; Ctrl-C</li>
-<li>设置终端驱动快捷键</li>
-</ul>
+
+<li><p>设置终端驱动快捷键</p>
 
 <pre><code>stty -a
 stty intr \^k
 stty -a
-</code></pre>
+</code></pre></li>
+</ul>
 
 <blockquote>
 <p>Ctrl-K to interrupt current command</p>
@@ -807,26 +805,22 @@ Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to 
 <h1 id="docker-to-reclaim-disk-space">docker to reclaim disk space</h1>
 
 <ul>
-<li>remove untagged images</li>
-</ul>
+<li><p>remove untagged images</p>
 
 <pre><code>docker images --no-trunc | grep '&lt;none&gt;' | awk '{ print $3 }' | xargs -r docker rmi
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Clean up dead and exited containers(use the -v flag to remove the volumes along the container)</li>
-</ul>
+<li><p>Clean up dead and exited containers(use the -v flag to remove the volumes along the container)</p>
 
 <pre><code>docker ps --filter status=dead --filter status=exited -aq \
-  | xargs docker rm -v
-</code></pre>
+| xargs docker rm -v
+</code></pre></li>
 
-<ul>
-<li>docker volume cleanup</li>
-</ul>
+<li><p>docker volume cleanup</p>
 
 <pre><code>docker volume ls -qf dangling=true | xargs -r docker volume rm
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h1 id="ipvs">IPVS</h1>
 
@@ -1106,7 +1100,7 @@ Removed symlink /etc/systemd/system/ghost_54-169-190-39.service.
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

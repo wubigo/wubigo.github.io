@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -29,8 +29,10 @@
     
   
   <meta name="description" content="安装mc https://dl.min.io/client/mc/release/windows-amd64/mc.exe
-mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2  mc cp -r . b2/wubigo/  安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
-# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf&#43;tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2  s3cmd sync . s3://wubigo/  总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍">
+mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2
+mc cp -r . b2/wubigo/   安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
+# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf&#43;tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2
+s3cmd sync . s3://wubigo/   总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/minio-client/">
@@ -140,8 +142,10 @@ mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本�
   <meta property="og:url" content="https://wubigo.com/post/minio-client/">
   <meta property="og:title" content="Minio Client | NgAPP">
   <meta property="og:description" content="安装mc https://dl.min.io/client/mc/release/windows-amd64/mc.exe
-mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2  mc cp -r . b2/wubigo/  安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
-# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf&#43;tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2  s3cmd sync . s3://wubigo/  总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本地文件同步到b2
+mc cp -r . b2/wubigo/   安装S3CMD https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz sudo python setup.py install  ~/.s3cfg
+# Setup endpoint host_base = http://192.168.1.3:9000 host_bucket = http://192.168.1.3:9000 bucket_location = us-east-1 use_https = True # Setup access keys access_key = Q3AM3UQ867SPQQA43P2F secret_key = zuf&#43;tfteSlswRu7BJ86wekitnifILbZam1KYY3TG # Enable S3 v4 signature APIs signature_v2 = False   同步本地文件到B2
+s3cmd sync . s3://wubigo/   总结 在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-01-18T13:55:14&#43;08:00">
@@ -513,11 +517,11 @@ mc config host add b2 http://192.168.1.3:9000 B2_keyID B2_applicationKey   本�
 </code></pre>
 
 <ul>
-<li>本地文件同步到b2</li>
-</ul>
+<li><p>本地文件同步到b2</p>
 
 <pre><code>mc cp -r . b2/wubigo/
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="安装s3cmd">安装S3CMD</h2>
 
@@ -544,11 +548,11 @@ signature_v2 = False
 </code></pre>
 
 <ul>
-<li>同步本地文件到B2</li>
-</ul>
+<li><p>同步本地文件到B2</p>
 
 <pre><code>s3cmd sync . s3://wubigo/
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="总结">总结</h2>
 
@@ -773,7 +777,7 @@ signature_v2 = False
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {

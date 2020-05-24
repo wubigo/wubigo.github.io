@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.0.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.56.3" />
 
   
 
@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2020-05-23T06:32:11&#43;08:00">
   
 
   
@@ -866,8 +866,7 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 <p>使用两种方式之一创建BUCKET</p>
 
 <ul>
-<li>terraform</li>
-</ul>
+<li><p>terraform</p>
 
 <pre><code>git clone https://github.com/wubigo/iaas
 
@@ -875,15 +874,14 @@ cd s3
 
 terraform apply
 
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>awscli</li>
-</ul>
+<li><p>awscli</p>
 
 <pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
 aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="确认配置">确认配置</h3>
 
@@ -905,7 +903,7 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
 
 <p><img src="/img/post/s3-web.png" alt="" /></p>
 
-<pre><code>CNAME Record        s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
 </code></pre>
 
 <h2 id="上传站点内容">上传站点内容</h2>
@@ -1079,7 +1077,8 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
   <div class="article-style" itemprop="articleBody">
     与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
  回调
-  function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);   promise  const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);  or
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
  pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
   </div>
@@ -2492,7 +2491,7 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     
     
     
-    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
 
     <script>
       (function() {
