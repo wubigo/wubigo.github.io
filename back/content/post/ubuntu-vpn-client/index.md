@@ -96,8 +96,13 @@ Acquire::http::Proxy "http://127.0.0.1:8123";
 Acquire::https::Proxy "https://127.0.0.1:8123";
 ```
 
+[config docker daemon](/post/docker-proxy/)
+
 ## 测试
 
 ```
 curl www.google.com
+git clone golang.org/x/lint/golint
+docker pull k8s.gcr.io/kube-apiserver:v1.15.10
+apt update
 ```
