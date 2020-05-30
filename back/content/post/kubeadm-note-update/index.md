@@ -55,10 +55,9 @@ sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu
 sudo usermod -aG docker bigo
 ```
 
-- setup proxy
+- setup vpn and proxy
 
-[proxy](/post/ubuntu-vpn-client/)
-[config docker daemon](/post/docker-proxy/)
+[VPN and proxy](/post/ubuntu-vpn-client/)
 
 - install kubeadm
 
