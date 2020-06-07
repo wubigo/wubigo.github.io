@@ -21,16 +21,5 @@
 Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.</description>
     </item>
     
-    <item>
-      <title>Netdata notes</title>
-      <link>https://wubigo.com/post/netdata-notes/</link>
-      <pubDate>Sat, 05 May 2018 06:46:41 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/netdata-notes/</guid>
-      <description>INSTALL  docker
-docker run -d --name=netdata \ -p 19999:19999 \ -v /etc/passwd:/host/etc/passwd:ro \ -v /etc/group:/host/etc/group:ro \ -v /proc:/host/proc:ro \ -v /sys:/host/sys:ro \ -v /etc/os-release:/host/etc/os-release:ro \ --cap-add SYS_PTRACE \ --security-opt apparmor=unconfined \ netdata/netdata  script
-bash &amp;lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command &#39;systemctl start netdata&#39; [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.</description>
-    </item>
-    
   </channel>
 </rss>
