@@ -31,3 +31,17 @@ Prometheus, on the other hand, is a complete monitoring solution, which includes
 
 
 If you want a clustered solution that can hold historical data of any sort long term, Graphite may be a better choice due to its simplicity and long history of doing exactly that. Graphite also has rollup of data built in. Similarly, Graphite may be preferred if your existing infrastructure already uses collection tools like fluentd, collectd, or statd, because Graphite supports them.
+
+## metric vs log
+
+subsystems in your applications, making it easier to determine what exactly is causing
+a slowdown. Logs could not record that many fields, but once you know which sub‐
+system is to blame, logs can help you figure out which exact user requests are
+involved.
+This is where the tradeoff between logs and metrics becomes most apparent. Metrics
+allow you to collect information about events from all over your process, but with
+generally no more than one or two fields of context with bounded cardinality. Logs
+allow you to collect information about all of one type of event, but can only track a
+hundred fields of context with unbounded cardinality. This notion of cardinality and
+the limits it places on metrics is important to understand, and I will come back to it
+in later chapters.
