@@ -32,6 +32,32 @@ interpreted but in real life it’s path relative package’s vendor directory o
 
 src
 
+- 定制的包名
+
+```
+# github.com/mlowicki/main.go
+package main
+import (
+    "fmt"
+    "github.com/mlowicki/b"
+)
+func main() {
+    fmt.Println(c.B)
+}
+# github.com/mlowicki/b/b.go
+package c
+var B = "b"
+```
+
+- 初始化
+
+```
+import _ "math"
+```
+
+doesn’t require to use package math in importing file but init function(s) from imported package will be executed anyway (package and it dependencies will be initialized). It’s useful if we’re interested only in bootstrapping work done by imported package but we don’t reference any exported identifiers from it.
+
+
 
 ## How to check if a map contains a key
 
