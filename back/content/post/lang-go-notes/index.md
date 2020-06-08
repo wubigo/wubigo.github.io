@@ -19,6 +19,20 @@ categories = []
   focal_point = ""
 +++
 
+## import
+
+```
+ImportDeclaration = "import" ImportSpec
+ImportSpec        = [ "." | "_" | Identifier ] ImportPath
+```
+
+According to language spec it depends on the implementation how import path (string) is
+
+interpreted but in real life it’s path relative package’s vendor directory or `go env GOPATH`/
+
+src
+
+
 ## How to check if a map contains a key
 
 ```
