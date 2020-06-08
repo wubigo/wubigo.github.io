@@ -35,6 +35,13 @@ go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
+- 重置goproxy
+
+```
+go env -w GOPROXY
+```
+
+
 
 ## go doc
 
