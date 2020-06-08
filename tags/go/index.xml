@@ -38,7 +38,8 @@ go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $G
       <pubDate>Thu, 22 Mar 2018 14:34:01 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-proxy/</guid>
-      <description> go doc https://golang.google.cn
+      <description> go模块代理 https://github.com/goproxy/goproxy.cn
+$go version go version go1.13.12 linux/amd64  go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn,direct  go doc https://golang.google.cn
 proxy  从 Github 的代码库 clone
 go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto  设置 GOPROXY 环境变量配置代理
   例如：GOPROXY=https://goproxy.io
