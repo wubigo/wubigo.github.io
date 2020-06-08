@@ -28,8 +28,10 @@
   
     
   
-  <meta name="description" content="How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &quot;Ann&quot;: &quot;t&quot;, &quot;Joe&quot;: &quot;r&quot;, } val, ok := attended[&quot;mm&quot;] fmt.Print(val, ok) }  if statements in Go can include both a condition and an initialization statement. The example above uses both:
- initializes two variables - val will receive either the value of &ldquo;foo&rdquo; from the map or a &ldquo;zero value&rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &ldquo;foo&rdquo; was actually present in the map">
+  <meta name="description" content="import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how import path (string) is
+interpreted but in real life it’s path relative package’s vendor directory or go env GOPATH/
+src
+How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &quot;Ann&quot;: &quot;t&quot;, &quot;Joe&quot;: &quot;r&quot;, } val, ok := attended[&quot;mm&quot;] fmt.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-notes/">
@@ -138,8 +140,10 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
   <meta property="og:title" content="GO NOTES | NgAPP">
-  <meta property="og:description" content="How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &quot;Ann&quot;: &quot;t&quot;, &quot;Joe&quot;: &quot;r&quot;, } val, ok := attended[&quot;mm&quot;] fmt.Print(val, ok) }  if statements in Go can include both a condition and an initialization statement. The example above uses both:
- initializes two variables - val will receive either the value of &ldquo;foo&rdquo; from the map or a &ldquo;zero value&rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &ldquo;foo&rdquo; was actually present in the map"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how import path (string) is
+interpreted but in real life it’s path relative package’s vendor directory or go env GOPATH/
+src
+How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &quot;Ann&quot;: &quot;t&quot;, &quot;Joe&quot;: &quot;r&quot;, } val, ok := attended[&quot;mm&quot;] fmt."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-02-11T20:24:49&#43;08:00">
@@ -501,6 +505,18 @@
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h2 id="import">import</h2>
+
+<pre><code>ImportDeclaration = &quot;import&quot; ImportSpec
+ImportSpec        = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath
+</code></pre>
+
+<p>According to language spec it depends on the implementation how import path (string) is</p>
+
+<p>interpreted but in real life it’s path relative package’s vendor directory or <code>go env GOPATH</code>/</p>
+
+<p>src</p>
 
 <h2 id="how-to-check-if-a-map-contains-a-key">How to check if a map contains a key</h2>
 
