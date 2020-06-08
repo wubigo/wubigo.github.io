@@ -20,6 +20,22 @@ categories = []
 +++
 
 
+## go模块代理
+
+https://github.com/goproxy/goproxy.cn
+
+
+```
+$go version
+go version go1.13.12 linux/amd64
+```
+
+```
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct
+```
+
+
 ## go doc
 
 https://golang.google.cn
