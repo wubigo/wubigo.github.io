@@ -104,7 +104,8 @@ Modules record precise dependency requirements and create reproducible builds.
       <description>import ImportDeclaration = &amp;quot;import&amp;quot; ImportSpec ImportSpec = [ &amp;quot;.&amp;quot; | &amp;quot;_&amp;quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how import path (string) is
 interpreted but in real life it’s path relative package’s vendor directory or go env GOPATH/
 src
-How to check if a map contains a key func TestMap(t *testing.T){ attended := map[string]string{ &amp;quot;Ann&amp;quot;: &amp;quot;t&amp;quot;, &amp;quot;Joe&amp;quot;: &amp;quot;r&amp;quot;, } val, ok := attended[&amp;quot;mm&amp;quot;] fmt.</description>
+ 定制的包名
+# github.com/mlowicki/main.go package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mlowicki/b&amp;quot; ) func main() { fmt.Println(c.B) } # github.com/mlowicki/b/b.go package c var B = &amp;quot;b&amp;quot;  初始化</description>
     </item>
     
   </channel>
