@@ -26,11 +26,11 @@ ImportDeclaration = "import" ImportSpec
 ImportSpec        = [ "." | "_" | Identifier ] ImportPath
 ```
 
-According to language spec it depends on the implementation how import path (string) is
+According to language spec it depends on the implementation how 
 
-interpreted but in real life it’s path relative package’s vendor directory or `go env GOPATH`/
+import path (string) is   interpreted but in real life it’s path 
 
-src
+relative package’s vendor directory or `go env GOPATH`/src
 
 - 定制的包名
 
