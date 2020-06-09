@@ -1833,9 +1833,9 @@ logging driver To configure the Docker daemon to default to a specific logging d
 
   
   <div class="article-style" itemprop="articleBody">
-    import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how import path (string) is
-interpreted but in real life it’s path relative package’s vendor directory or go env GOPATH/
-src
+    import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
+import path (string) is interpreted but in real life it’s path
+relative package’s vendor directory or go env GOPATH/src
  定制的包名
 # github.com/mlowicki/main.go package main import ( &quot;fmt&quot; &quot;github.com/mlowicki/b&quot; ) func main() { fmt.Println(c.B) } # github.com/mlowicki/b/b.go package c var B = &quot;b&quot;  初始化
   </div>
