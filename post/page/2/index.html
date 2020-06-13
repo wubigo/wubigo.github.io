@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-05-23T06:32:11&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-13T17:03:30&#43;08:00">
   
 
   
@@ -397,6 +397,130 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 13, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-proxy/" itemprop="url">Docker Proxy for daemon and client</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
+
+<ul>
+<li>systemd level</li>
+</ul>
+
+<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
+
+<pre><code>[Service]
+Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
+</code></pre>
+
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+
+<ul>
+<li>service level</li>
+</ul>
+
+<p><code>/etc/default/docker</code></p>
+
+<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
+</code></pre>
+
+<ul>
+<li>daemon level</li>
+</ul>
+
+<p><code>/etc/docker/daemon</code></p>
+
+<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
+
+<p><code>~/.docker/config.json</code></p>
+
+<pre><code>       &quot;proxies&quot;:{
+                &quot;default&quot;:{}
+        }
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2241,101 +2365,6 @@ signature_v2 = False
 <h2 id="总结">总结</h2>
 
 <p>在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-18 08:14:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-18 08:14:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 18, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/domain-nameserver-notes/" itemprop="url">域名名字服务器配置</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="检查域名使用的名字服务器">检查域名使用的名字服务器</h2>
-
-<p><a href="https://lookup.icann.org/" target="_blank">https://lookup.icann.org/</a></p>
-
-<p><img src="/img/post/dns-nameserver.png" alt="" /></p>
-
-<h2 id="更改名字服务器">更改名字服务器</h2>
-
-<p>更改名字服务器需通过域名注册服务商进行更改</p>
-
-<p><img src="/img/post/custom-dns.png" alt="" /></p>
 
   </div>
   

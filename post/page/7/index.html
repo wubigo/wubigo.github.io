@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-05-23T06:32:11&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-13T17:03:30&#43;08:00">
   
 
   
@@ -397,6 +397,174 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-24 07:30:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-24 07:30:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-development-streamline/" itemprop="url">K8s Development Streamline with draft</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备  初始化
+draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
+draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+ skip the push process entirely using the &ndash;skip-image-push flag
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2049,185 +2217,6 @@ even more cores depending on the scenario</p>
     安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
 wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
  ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-01-02-deathofmicroservicemadness/" itemprop="url">Death of Microservice Madness</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="death-of-microservice-madness">Death of Microservice Madness</h1>
-
-<p><a href="http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/" target="_blank">http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    12 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vpn-win-setup/" itemprop="url">Vpn客户端设置参考</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
-配置  更改公钥
- Endpoint所在的vpn服务器地址
-  https://github.com/Nyr/openvpn-install
-https://github.com/hwdsl2/setup-ipsec-vpn
-https://wireguard.isystem.io/
-https://github.com/meshbird/meshbird
-https://www.tinc-vpn.org/
-https://github.com/isystem-io/wireguard-aws
-Download and install the TunSafe, which is a Wireguard client for Windows.
- wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.
   </div>
   
 

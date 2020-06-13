@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,13 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content=" keystone \etc\yunion\keystone.conf
+ 初始化
+auto_sync_table: true   自动创建表，创建完后关闭
+ kubectl describe cm -n onecloud default-keystone  ">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/cmp-onecloud-source-code-dev-note/">
 
   
 
@@ -116,15 +115,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/cmp-onecloud-source-code-dev-note/">
 
   
   
@@ -139,19 +138,24 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/cmp-onecloud-source-code-dev-note/">
+  <meta property="og:title" content="Onecloud Source Code Dev Note | NgAPP">
+  <meta property="og:description" content=" keystone \etc\yunion\keystone.conf
+ 初始化
+auto_sync_table: true   自动创建表，创建完后关闭
+ kubectl describe cm -n onecloud default-keystone  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-05-23T06:32:11&#43;08:00">
+  <meta property="article:published_time" content="2018-06-10T11:13:09&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-06-10T11:13:09&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | NgAPP</title>
+  <title>Onecloud Source Code Dev Note | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -352,22 +356,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -382,7 +370,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -399,179 +389,181 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Onecloud Source Code Dev Note</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/stream/">STREAM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vue/">VUE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/tcp/">TCP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/graph/">GRAPH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/servicemesh/">SERVICEMESH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ide/">IDE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sdn/">SDN</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/csi/">CSI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/xml/">XML</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/eda/">EDA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sql/">SQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vpc/">VPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ec2/">EC2</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/hosting/">HOSTING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/it%E4%BA%91%E6%9C%8D%E5%8A%A1/">IT云服务</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/pop3/">POP3</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/smtp/">SMTP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/gomod/">GOMOD</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ea/">EA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/togaf/">ToGAF</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/4/">&laquo;</a></li>
+  <span class="article-date">
     
     
-    <li class="page-item"><a class="page-link" href="/tags/page/6/">&raquo;</a></li>
+      
     
+    <time>Jun 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Onecloud%20Source%20Code%20Dev%20Note&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fcmp-onecloud-source-code-dev-note%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fcmp-onecloud-source-code-dev-note%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fcmp-onecloud-source-code-dev-note%2f&amp;title=Onecloud%20Source%20Code%20Dev%20Note"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fcmp-onecloud-source-code-dev-note%2f&amp;title=Onecloud%20Source%20Code%20Dev%20Note"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Onecloud%20Source%20Code%20Dev%20Note&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fcmp-onecloud-source-code-dev-note%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="keystone">keystone</h2>
+
+<p><code>\etc\yunion\keystone.conf</code></p>
+
+<ul>
+<li><p>初始化</p>
+
+<pre><code>auto_sync_table: true
+</code></pre></li>
+</ul>
+
+<p>自动创建表，创建完后关闭</p>
+
+<pre><code> kubectl describe cm -n onecloud default-keystone
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/cmp/">CMP</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -744,6 +736,4 @@
     </script>
   </body>
 </html>
-
-
 

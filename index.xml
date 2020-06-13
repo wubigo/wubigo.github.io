@@ -5,8 +5,40 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 May 2020 06:32:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 17:03:30 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Centos Notes</title>
+      <link>https://wubigo.com/post/centos-notes/</link>
+      <pubDate>Sat, 13 Jun 2020 17:03:30 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/centos-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;删除mariadb&#34;&gt;删除MariaDB&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -qa | grep mariadb
+sudo yum remove -y mariadb mariadb-server
+rpm -qa | grep mariadb
+yum remove -y mariadb-libs-5.5.65-1.el7.x86_64
+
+rm -rf /var/log/mariadb
+rm -f /var/log/mariadb/mariadb.log.rpmsave
+rm -rf /var/lib/mysql
+rm -rf /usr/lib64/mysql
+rm -rf /usr/share/mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;install&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install MariaDB-server
+sudo systemctl start mariadb.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Kubeadm Note Update</title>
@@ -77,6 +109,22 @@ sudo apt-mark hold kubelet kubeadm kubectl
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 
 &lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/gotok8s/gotok8s.git
+cd gotok8s
+KUBERNETES_RELEASE_VERSION=&amp;quot;$(curl -sSL https://dl.k8s.io/release/stable.txt)&amp;quot;
+kubeadm config images list
+kubeadm config images pull --config init.yml
+sudo kubeadm init --config init.yml
+
+kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;pod-network-cidr should not overlap with your local netowrk&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     
@@ -693,16 +741,6 @@ Hello World
 
 &lt;li&gt;&lt;p&gt;同事&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>函数计算颠覆对象执行环境(像S3对象存储一样)</title>
-      <link>https://wubigo.com/post/function-computing-rise-like-s3/</link>
-      <pubDate>Fri, 11 Oct 2019 17:39:50 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/function-computing-rise-like-s3/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;./uaa-serverless.png&#34; alt=&#34;uaa-on-serverless&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
