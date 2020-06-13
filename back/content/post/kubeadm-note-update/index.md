@@ -81,5 +81,20 @@ sudo swapoff -a
 
 ---
 
+```
+git clone https://github.com/gotok8s/gotok8s.git
+cd gotok8s
+KUBERNETES_RELEASE_VERSION="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
+kubeadm config images list
+kubeadm config images pull --config init.yml
+sudo kubeadm init --config init.yml
+
+kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
+
+
+```
+
+> pod-network-cidr should not overlap with your local netowrk
+
 
 
