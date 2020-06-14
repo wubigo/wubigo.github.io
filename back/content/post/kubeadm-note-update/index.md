@@ -106,6 +106,9 @@ sudo kubeadm init --config kubeadm.init.yml
 kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
 
 kubectl delete pod -n kube-system coredns-
+
+kubeadm token list
+
 ```
 
 > pod-network-cidr should not overlap with your local netowrk
