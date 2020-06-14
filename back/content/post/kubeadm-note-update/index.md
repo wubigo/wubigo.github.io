@@ -128,6 +128,22 @@ linux/amd64, go1.11.4, 6b56a9c
 
 https://coredns.io/plugins/loop#troubleshooting
 
+方法一：
+
+```
+kubectl edit -n kube-system cm kubelet-config-1.15
+
+resolvConf: /opt/etc/resolv.conf
+```
+
+
+方法二：
+
+
+https://tecadmin.net/disable-local-dns-caching-ubuntu/
+
+
+方法三：
 
 ```
 kubectl edit -n kube-system cm coredns
@@ -135,5 +151,8 @@ kubectl edit -n kube-system cm coredns
 forward . /etc/resolv.conf  -> forward . 192.168.137.180
 ```
 
+- 系统重启后k8s没有自动启动
+
+在/etc/fstab永久关闭swap
 
 
