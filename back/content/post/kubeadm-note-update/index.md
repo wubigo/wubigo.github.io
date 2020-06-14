@@ -67,7 +67,8 @@ cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-cache madison kubectl
+sudo apt-get install -y kubelet=1.15.12-00 kubeadm=1.15.12-00 kubectl=1.15.12-00
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
@@ -81,17 +82,30 @@ sudo swapoff -a
 
 ---
 
+`kubeadm.init.yml`
+
 ```
-git clone https://github.com/gotok8s/gotok8s.git
-cd gotok8s
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+clusterName: kubernetes
+imageRepository: mirrorgooglecontainers
+kubernetesVersion: v1.15.12
+networking:
+  podSubnet: 10.244.0.0/16
+```
+
+
+
+```
+
 KUBERNETES_RELEASE_VERSION="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
 kubeadm config images list
-kubeadm config images pull --config init.yml
-sudo kubeadm init --config init.yml
+kubeadm config images pull --config kubeadm.init.yml
+sudo kubeadm init --config kubeadm.init.yml  
 
 kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
 
-
+kubectl delete pod -n kube-system coredns-
 ```
 
 > pod-network-cidr should not overlap with your local netowrk
