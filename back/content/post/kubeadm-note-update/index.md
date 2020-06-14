@@ -111,4 +111,29 @@ kubectl delete pod -n kube-system coredns-
 > pod-network-cidr should not overlap with your local netowrk
 
 
+## troubleshooting
+
+- Loop (127.0.0.1:46732 -> :53) detected for zone
+
+```
+kubectl logs -n kube-system coredns-94d74667-9t778
+
+2020-06-14T09:20:33.480Z [INFO] CoreDNS-1.3.1
+2020-06-14T09:20:33.480Z [INFO] linux/amd64, go1.11.4, 6b56a9c
+CoreDNS-1.3.1
+linux/amd64, go1.11.4, 6b56a9c
+2020-06-14T09:20:33.480Z [INFO] plugin/reload: Running configuration MD5 = 5d5369fbc12f985709b924e721217843
+2020-06-14T09:20:33.481Z [FATAL] plugin/loop: Loop (127.0.0.1:46732 -> :53) detected for zone ".", see https://coredns.io/plugins/loop#troubleshooting. Query: "HINFO 5542328687544567010.7848882517153318095."
+```
+
+https://coredns.io/plugins/loop#troubleshooting
+
+
+```
+kubectl edit -n kube-system cm coredns
+
+forward . /etc/resolv.conf  -> forward . 192.168.137.180
+```
+
+
 
