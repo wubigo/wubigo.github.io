@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-06-13T17:03:30&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-14T08:14:18&#43;08:00">
   
 
   
@@ -397,6 +397,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vmware-vm-static-ip/" itemprop="url">分配Vmware虚机静态IP</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="虚机网卡地址">虚机网卡地址</h2>
+
+<p><img src="/img/post/vmare-static-ip.png" alt="" /></p>
+
+<h2 id="配置静态ip">配置静态IP</h2>
+
+<p><code>C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf</code></p>
+
+<pre><code>host VMnet8 {
+    hardware ethernet 00:0C:29:23:AV:67;
+    fixed-address 192.168.137.170;
+}
+</code></pre>
+
+<h2 id="重启vmware-dhcp服务">重启VMWARE DHCP服务</h2>
+
+<pre><code>net stop vmnetdhcp
+net start vmnetdhcp
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2289,101 +2392,6 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
 <h1 id="aws-step-functions-vs">AWS Step Functions   VS</h1>
 
 <p>Adds Support for Nested Workflows</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 16, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/start-your-own-isp/" itemprop="url">宽带服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://news.ycombinator.com/item?id=20726906" target="_blank">https://news.ycombinator.com/item?id=20726906</a></p>
-
-<p><a href="https://news.ycombinator.com/item?id=17067144" target="_blank">ISP Starter Kit</a></p>
-
-<p><a href="http://www.wispa.org/Resources/HOW-TO-START-A-WISP" target="_blank">http://www.wispa.org/Resources/HOW-TO-START-A-WISP</a></p>
-
-<p>wireless fiber</p>
-
-<p>5G mobile broadband</p>
-
-<p><a href="https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution" target="_blank">https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution</a></p>
-
-<p><a href="https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml" target="_blank">https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</a></p>
 
   </div>
   

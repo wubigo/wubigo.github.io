@@ -5,8 +5,38 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2020 17:03:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 08:14:18 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>分配Vmware虚机静态IP</title>
+      <link>https://wubigo.com/post/vmware-vm-static-ip/</link>
+      <pubDate>Sun, 14 Jun 2020 08:14:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vmware-vm-static-ip/</guid>
+      <description>
+
+&lt;h2 id=&#34;虚机网卡地址&#34;&gt;虚机网卡地址&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/vmare-static-ip.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;配置静态ip&#34;&gt;配置静态IP&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;host VMnet8 {
+    hardware ethernet 00:0C:29:23:AV:67;
+    fixed-address 192.168.137.170;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;重启vmware-dhcp服务&#34;&gt;重启VMWARE DHCP服务&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;net stop vmnetdhcp
+net start vmnetdhcp
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Centos Notes</title>
@@ -692,54 +722,6 @@ Hello World
 &lt;li&gt;&lt;p&gt;CMMN支持&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;函数式工作流&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>心理学家：21世纪最重要的工作技能</title>
-      <link>https://wubigo.com/post/no.-1-work-skill-of-the-future/</link>
-      <pubDate>Sat, 12 Oct 2019 16:19:59 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/no.-1-work-skill-of-the-future/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;./orca.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;心理学家：21世纪最重要的工作技能&lt;/p&gt;
-
-&lt;p&gt;专注是21世纪最重要的工作技能，&lt;/p&gt;
-
-&lt;p&gt;可是很多人没有意识到这一点。&lt;/p&gt;
-
-&lt;p&gt;1971年的时候心理学家&lt;a href=&#34;https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/5625/dessein_rational.pdf&#34; target=&#34;_blank&#34;&gt;西蒙&lt;/a&gt;就说过：“大量的信息&lt;/p&gt;
-
-&lt;p&gt;意味着另一种东西变得很稀缺：注意力”。 几十年之前这是个事实，&lt;/p&gt;
-
-&lt;p&gt;在21世纪，注意力变的更加珍贵。&lt;/p&gt;
-
-&lt;p&gt;工作环境正在发生快速的变化，在不远的将来，&lt;/p&gt;
-
-&lt;p&gt;在这个世界只存在两种人：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;一种注意力被别人完全控制和操纵的人&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;一种注意力不可被打扰的人&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;研究人员告诉我们专注和注意力人们创新发展的原材料&lt;/p&gt;
-
-&lt;p&gt;下面是一些常见的工作干扰：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;聊天群&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;会议&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;电话&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;邮件&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;同事&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
