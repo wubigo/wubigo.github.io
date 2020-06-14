@@ -88,7 +88,7 @@ sudo swapoff -a
 apiVersion: kubeadm.k8s.io/v1beta2
 kind: ClusterConfiguration
 clusterName: kubernetes
-imageRepository: mirrorgooglecontainers
+imageRepository: registry.aliyuncs.com/google_containers
 kubernetesVersion: v1.15.12
 networking:
   podSubnet: 10.244.0.0/16
