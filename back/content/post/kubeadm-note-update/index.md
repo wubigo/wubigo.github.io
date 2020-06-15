@@ -102,7 +102,8 @@ KUBERNETES_RELEASE_VERSION="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
 kubeadm config images list
 kubeadm config images pull --config kubeadm.init.yml
 sudo kubeadm init --config kubeadm.init.yml  
-
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
 
 kubectl delete pod -n kube-system coredns-
