@@ -20,6 +20,21 @@ categories = []
 +++
 
 
+## DHCP
+
+`/etc/sysconfig/network-scripts/ifcfg-enp0s3`
+
+```
+DEVICE=enp0s3
+BOOTPROTO=dhcp
+ONBOOT=yes
+```
+
+```
+systemctl restart network
+```
+
+
 ## 删除MariaDB
 
 ```
@@ -41,3 +56,18 @@ rm -rf /usr/share/mysql
 sudo yum install MariaDB-server
 sudo systemctl start mariadb.service
 ```
+
+
+## 安装polipo
+
+
+```
+git clone https://github.com/jech/polipo.git
+cd polipo
+git checkout polipo-1.1.1
+yum groupinstall 'Development Tools'
+yum install texinfo
+make all
+su -c 'make install'
+```
+
