@@ -46,6 +46,18 @@ net start vmnetdhcp
       <guid>https://wubigo.com/post/centos-notes/</guid>
       <description>
 
+&lt;h2 id=&#34;dhcp&#34;&gt;DHCP&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/sysconfig/network-scripts/ifcfg-enp0s3&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DEVICE=enp0s3
+BOOTPROTO=dhcp
+ONBOOT=yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl restart network
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;删除mariadb&#34;&gt;删除MariaDB&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;rpm -qa | grep mariadb
@@ -67,6 +79,17 @@ rm -rf /usr/share/mysql
 sudo systemctl start mariadb.service
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;安装polipo&#34;&gt;安装polipo&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/jech/polipo.git
+cd polipo
+git checkout polipo-1.1.1
+yum groupinstall &#39;Development Tools&#39;
+yum install texinfo
+make all
+su -c &#39;make install&#39;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
