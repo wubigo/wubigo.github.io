@@ -5,8 +5,24 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jun 2020 08:14:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 05:36:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Webauthn note2</title>
+      <link>https://wubigo.com/post/webauthn-fido/</link>
+      <pubDate>Tue, 16 Jun 2020 05:36:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/webauthn-fido/</guid>
+      <description>
+
+&lt;h2 id=&#34;fido&#34;&gt;FIDO&lt;/h2&gt;
+
+&lt;p&gt;Fast Identity Online (FIDO)&lt;/p&gt;
+
+&lt;p&gt;WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>分配Vmware虚机静态IP</title>
@@ -708,101 +724,6 @@ Hello World
 &lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&#34; target=&#34;_blank&#34;&gt;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>开源的工作流引擎技术演进历史</title>
-      <link>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</link>
-      <pubDate>Sun, 27 Oct 2019 11:26:02 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/digital-evolution-of-open-source-business-process-management/</guid>
-      <description>
-
-&lt;h1 id=&#34;第一代&#34;&gt;第一代&lt;/h1&gt;
-
-&lt;p&gt;2003年， jBPM 1.0发布。&lt;/p&gt;
-
-&lt;p&gt;运行环境：J2EE&lt;/p&gt;
-
-&lt;p&gt;过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)&lt;/p&gt;
-
-&lt;p&gt;当时的主流的技术： applets, Swing桌面和EJB&lt;/p&gt;
-
-&lt;h1 id=&#34;第二代&#34;&gt;第二代&lt;/h1&gt;
-
-&lt;p&gt;2004年，jBPM 2.0发布&lt;/p&gt;
-
-&lt;p&gt;同时jBPM加入JBoss基金会.&lt;/p&gt;
-
-&lt;p&gt;运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器&lt;/p&gt;
-
-&lt;h1 id=&#34;第三代&#34;&gt;第三代&lt;/h1&gt;
-
-&lt;p&gt;2005年, jBPM 3.0发布，支持BPEL&lt;/p&gt;
-
-&lt;p&gt;过程定义语言：过程虚拟机&lt;/p&gt;
-
-&lt;p&gt;架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通&lt;/p&gt;
-
-&lt;p&gt;过JAVA实现状态机，而且支持建模&lt;/p&gt;
-
-&lt;p&gt;HIBERNETE作为持久机制并同时提供会话对象的概念，&lt;/p&gt;
-
-&lt;p&gt;工作流引擎所有的相关性交互都纳入&lt;a href=&#34;https://docs.jboss.org/jbpm/v3.2/javadoc-jpdl/org/jbpm/JbpmContext.html&#34; target=&#34;_blank&#34;&gt;contextual block&lt;/a&gt;范畴&lt;/p&gt;
-
-&lt;p&gt;这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础&lt;/p&gt;
-
-&lt;h1 id=&#34;第四代&#34;&gt;第四代&lt;/h1&gt;
-
-&lt;p&gt;2009年， jBPM 4.0 alpha版发布.&lt;/p&gt;
-
-&lt;p&gt;过程虚拟机成功工作流引擎的核心。&lt;/p&gt;
-
-&lt;p&gt;过程定义语言：BPMN, jPDL 和 BPEL&lt;/p&gt;
-
-&lt;p&gt;因为团队人员离开并启动Activiti，正式版没能发布。&lt;/p&gt;
-
-&lt;p&gt;主要改进：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;无状态的服务API&lt;/li&gt;
-&lt;li&gt;运行时和历史数据的分离： 保证运行时持久的性能&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;第五代&#34;&gt;第五代&lt;/h1&gt;
-
-&lt;p&gt;2010年, Activiti 1发布&lt;/p&gt;
-
-&lt;p&gt;改变：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;版权从LGPL转到APACHE.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;过程定义语言：BPMN(唯一)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;从性能和扩展性加强PVM&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;多租户支持&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;轻量级架构&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;第六代&#34;&gt;第六代&lt;/h1&gt;
-
-&lt;p&gt;2017年，flowable 6.0发布。&lt;/p&gt;
-
-&lt;p&gt;改变：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;数据远完全抽象：支持NoSQL&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;CMMN支持&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;函数式工作流&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
