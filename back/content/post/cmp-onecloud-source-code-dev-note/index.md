@@ -21,6 +21,11 @@ categories = []
 
 ## keystone
 
+
+```
+git clone https://github.com/yunionio/onecloud.git --branch=v3.1.8
+```
+
 `\etc\yunion\keystone.conf`
 
 - 初始化

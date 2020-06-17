@@ -1,5 +1,5 @@
 +++
-title = "Webauthn note2"
+title = "Webauthn notes"
 date = 2020-06-16T05:36:49+08:00
 draft = false
 
