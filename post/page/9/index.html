@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-06-16T05:36:49&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-16T13:20:58&#43;08:00">
   
 
   
@@ -397,6 +397,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 29, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/win10-customize/" itemprop="url">Win10 Customize</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="disable-taskbar-thumbnail-preview-on-windows">disable Taskbar thumbnail preview on Windows</h1>
+
+<p><a href="https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10" target="_blank">https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2223,91 +2310,6 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
 显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 18, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-helm-setup/" itemprop="url">K8s Helm Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
- Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
- Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or
   </div>
   
 

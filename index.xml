@@ -5,11 +5,65 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 05:36:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 13:20:58 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Webauthn note2</title>
+      <title>通过lynx浏览黑客新网</title>
+      <link>https://wubigo.com/post/lynx-ycombinator/</link>
+      <pubDate>Tue, 16 Jun 2020 13:20:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lynx-ycombinator/</guid>
+      <description>&lt;p&gt;最近黑客新网也被墙了，WTF&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lynx https://news.ycombinator.com/news
+
+1.
+
+   Generics and Compile-Time in Rust (pingcap.com)
+   107 points by Bella-Xiang 4 hours ago | hide | 17 comments
+   2.
+
+   Adobe to remove Flash Player from web site after December 2020 (adobe.com)
+   740 points by michaelhoffman 14 hours ago | hide | 412 comments
+   3.
+
+   How many of you know that the team is working on something that no-one wants? (iism.org)
+   255 points by kiyanwang 8 hours ago | hide | 136 comments
+   4.
+
+   Recently minted database technologies that I find intriguing (lucperkins.dev)
+   331 points by biggestlou 9 hours ago | hide | 107 comments
+   5.
+
+   AWS’s Share of Amazon’s Profit (tbray.org)
+   154 points by nurbel 8 hours ago | hide | 82 comments
+   6.
+
+   Model S Long Range Plus: Building the First 400-Mile Electric Vehicle (tesla.com)
+   181 points by Reedx 5 hours ago | hide | 196 comments
+   7.
+
+   Feynman Lectures on the Strong Interactions (columbia.edu)
+   5 points by chmaynard 1 hour ago | hide | discuss
+   8.
+
+   Basics of Pneumatic Logic (hydraulicspneumatics.com)
+   54 points by Koshkin 5 hours ago | hide | 13 comments
+   9.
+
+-- press space for next page --
+  Arrow keys: Up and Down to move.  Right to follow a link; Left to go back.
+ H)elp O)ptions P)rint G)o M)ain screen Q)uit /=search [delete]=history list
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Webauthn notes</title>
       <link>https://wubigo.com/post/webauthn-fido/</link>
       <pubDate>Tue, 16 Jun 2020 05:36:49 +0800</pubDate>
       
@@ -581,149 +635,6 @@ aws s3control get-access-point --account-id &amp;quot;46569194568&amp;quot; --na
 }
 
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>JAVA这两年</title>
-      <link>https://wubigo.com/post/java-last-2-years/</link>
-      <pubDate>Tue, 29 Oct 2019 10:17:03 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/java-last-2-years/</guid>
-      <description>
-
-&lt;p&gt;JAVA 这两年最重要的项目就是GRAAL的正式版发布。&lt;/p&gt;
-
-&lt;p&gt;GRAAL能做什么？&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;启动时间小于100ms， 像C, GO, ERLANG一样的执行速度&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;更低的内存占用：只占用传统的JVM应用20%的内存&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;听起来是不是该项目为函数计算做准备的？&lt;/p&gt;
-
-&lt;p&gt;是，但不完全是。&lt;/p&gt;
-
-&lt;p&gt;GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;JavaScrip&lt;/li&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;Ruby&lt;/li&gt;
-&lt;li&gt;R&lt;/li&gt;
-&lt;li&gt;JVM 语言（Java, Scala, Groovy, Kotlin, Clojure）&lt;/li&gt;
-&lt;li&gt;LLVM语言 (C , C++)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;而且不同语言之间零成本互相调用&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz
-
-tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz
-export PATH=$PATH:$GRAAL_HOME/bin
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;检查&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;js --version
-GraalVM JavaScript (GraalVM CE Native 19.2.1)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;安装native-image&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gu install native-image
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;gu available
-Downloading: Component catalog from www.graalvm.org
-ComponentId              Version             Component name      Origin
---------------------------------------------------------------------------------
-llvm-toolchain           19.2.1              LLVM.org toolchain  github.com
-native-image             19.2.1              Native Image        github.com
-python                   19.2.1              Graal.Python        github.com
-R                        19.2.1              FastR               github.com
-ruby                     19.2.1              TruffleRuby         github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;使用polyglot-shell&#34;&gt;使用Polyglot Shell&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;polyglot --jvm --shell
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;创建java编写的可执行二进制文件&#34;&gt;创建JAVA编写的可执行二进制文件&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装glibc-devel, zlib-devel (头文件C库 and zlib) 和 gcc&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install libz-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class HelloWorld {
-   public static void main(String... args) {
-      System.out.println(&amp;quot;Hello World&amp;quot;);
-   }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;编译&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;javac HelloWorld.java
-native-image -cp . HelloWorld
-
-Build on Server(pid: 20375, port: 45977)
-[helloworld:20375]    classlist:     199.03 ms
-[helloworld:20375]        (cap):   1,866.60 ms
-[helloworld:20375]        setup:   5,938.57 ms
-[helloworld:20375]   (typeflow):  17,532.76 ms
-[helloworld:20375]    (objects):   8,477.10 ms
-[helloworld:20375]   (features):   2,365.65 ms
-[helloworld:20375]     analysis:  28,469.52 ms
-[helloworld:20375]     (clinit):     861.90 ms
-[helloworld:20375]     universe:   2,785.89 ms
-[helloworld:20375]      (parse):   9,430.36 ms
-[helloworld:20375]     (inline):   1,623.19 ms
-[helloworld:20375]    (compile):  11,158.60 ms
-[helloworld:20375]      compile:  22,588.75 ms
-[helloworld:20375]        image:     687.25 ms
-[helloworld:20375]        write:   1,153.04 ms
-[helloworld:20375]      [total]:  62,321.01 ms
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;执行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;./helloworld
-Hello World
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;部署到容器&#34;&gt;部署到容器&lt;/h1&gt;
-
-&lt;h1 id=&#34;微服务&#34;&gt;微服务&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://sparkjava.com/&#34; target=&#34;_blank&#34;&gt;http://sparkjava.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://quarkus.io/get-started/&#34; target=&#34;_blank&#34;&gt;https://quarkus.io/get-started/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&#34; target=&#34;_blank&#34;&gt;https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&#34; target=&#34;_blank&#34;&gt;https://royvanrijn.com/blog/2018/09/part-2-native-microservice-in-graalvm/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

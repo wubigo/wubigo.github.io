@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-06-16T05:36:49&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-16T13:20:58&#43;08:00">
   
 
   
@@ -397,6 +397,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lang-go-notes/" itemprop="url">GO NOTES</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
+import path (string) is interpreted but in real life it’s path
+relative package’s vendor directory or go env GOPATH/src
+ 定制的包名
+# github.com/mlowicki/main.go package main import ( &quot;fmt&quot; &quot;github.com/mlowicki/b&quot; ) func main() { fmt.Println(c.B) } # github.com/mlowicki/b/b.go package c var B = &quot;b&quot;  初始化
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2112,90 +2198,6 @@ net user user_cmp /PasswordChg:No
   
   <div class="article-style" itemprop="articleBody">
     log-based vs memory-based broker “Thus, in situations where messages may be expensive to process and you want to parallelize processing on a message-by-message basis, and where message ordering is not so important, the JMS/AMQP style of message broker is preferable. On the other hand, in situations with high message throughput, where each message is fast to process and where message ordering is important, the log-based approach works very well.”
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-03-19 16:28:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-03-19 16:28:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 19, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/uaa-shiro-notes/" itemprop="url">UAA Shiro Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    RequiresUser annotation  Requires the current Subject to be an application user for the annotated class/instance/method to be accessed or invoked. This is less restrictive than the RequiresAuthentication annotation.
- Shiro defines a &ldquo;user&rdquo; as a Subject that is either &ldquo;remembered&rdquo; or authenticated:
- An authenticated user is a Subject that has successfully logged in (proven their identity) during their current session. A remembered user is any Subject that has proven their identity at least once, although not necessarily during their current session, and asked the system to remember them.
   </div>
   
 
