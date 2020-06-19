@@ -29,6 +29,8 @@ pip install ansible
 
 [OCADM](https://github.com/yunionio/ocadm)创建K8S的前提条件是kebelet正常工作
 
+[安装kubelet](https://wubigo.com/post/kubeadm-note-update/)
+
 ## OCBOOT
 
 ```

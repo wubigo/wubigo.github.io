@@ -125,7 +125,7 @@ auto_sync_table: true
 
 
 ```
- kubectl describe cm -n onecloud default-keystone
+kubectl describe cm -n onecloud default-keystone
 ```
 
 ## 本地开发测试
