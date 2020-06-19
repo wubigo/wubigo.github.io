@@ -557,15 +557,19 @@ primary_master_node:
 
 <h2 id="说明">说明</h2>
 
-<p>operator 本身是由ocadm 的工具安装的，</p>
-
-<p>代码在：<a href="https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go" target="_blank">https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go</a></p>
+<ul>
+<li>operator 本身是由ocadm 的工具安装的</li>
+</ul>
 
 <p>ocadm init 命令就会安装 operator</p>
 
-<p><a href="https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74" target="_blank">https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74</a></p>
+<p><a href="https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go" target="_blank">代码</a></p>
 
-<p>ansible任务&rdquo;Use ocadm init first master node&rdquo; 部署 k8s 集群，并安装对应的 operator 等插件</p>
+<ul>
+<li>ocboot安装k8s</li>
+</ul>
+
+<p>ansible任务<a href="https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74" target="_blank">&ldquo;Use ocadm init first master node&rdquo;</a> 部署 k8s 集群，并安装对应的 operator 等插件</p>
 
     </div>
 
