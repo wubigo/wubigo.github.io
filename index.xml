@@ -5,8 +5,67 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 13:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 21:42:01 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>从源代码构建Onecloud</title>
+      <link>https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/</link>
+      <pubDate>Fri, 19 Jun 2020 21:42:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/</guid>
+      <description>
+
+&lt;h2 id=&#34;安装ansible&#34;&gt;安装ansible&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install ansible
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ocboot&#34;&gt;OCBOOT&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/yunionio/ocboot.git
+cd ocboot
+./run.py ./config-allinone.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;allinone.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mariadb_node:
+  use_local: true
+  hostname: 192.168.137.190
+  user: root
+  db_user: root
+  db_password: qwe123
+primary_master_node:
+#master_node:
+  use_local: true
+  hostname: 192.168.137.190
+  user: root
+  db_host: 192.168.137.190
+  db_user: root
+  db_password: qwe123
+  onecloud_user: demo
+  onecloud_user_password: demo@123
+  controlplane_host: 192.168.137.190
+  controlplane_port: &amp;quot;6443&amp;quot;
+  as_host: true
+  registry_mirrors:
+  - https://lje6zxpk.mirror.aliyuncs.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ocboot -&amp;gt; ocadm -&amp;gt; 部署k8s 和 onecloud-operator&lt;/p&gt;
+
+&lt;h2 id=&#34;faq&#34;&gt;FAQ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ocadm需要kubelet预先安装好&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>通过lynx浏览黑客新网</title>
@@ -605,36 +664,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 &lt;p&gt;On enabling Provisioned Concurrency for a function, the Lambda service will initialize the requested number of execution environments so they can be ready to respond to invocations.&lt;/p&gt;
 
 &lt;p&gt;To know more Provisioned Concurrency in detail, read the &lt;a href=&#34;https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/&#34; target=&#34;_blank&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Aws S3 Access Point</title>
-      <link>https://wubigo.com/post/aws-s3-access-point/</link>
-      <pubDate>Wed, 04 Dec 2019 22:20:38 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/aws-s3-access-point/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;aws sts get-caller-identity
-
-aws s3control list-access-points --account-id 46569194568
-
-aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
-
-aws s3control get-access-point --account-id &amp;quot;46569194568&amp;quot; --name my-access-point
-{
-    &amp;quot;Name&amp;quot;: &amp;quot;my-access-point&amp;quot;,
-    &amp;quot;PublicAccessBlockConfiguration&amp;quot;: {
-        &amp;quot;IgnorePublicAcls&amp;quot;: true,
-        &amp;quot;BlockPublicPolicy&amp;quot;: true,
-        &amp;quot;BlockPublicAcls&amp;quot;: true,
-        &amp;quot;RestrictPublicBuckets&amp;quot;: true
-    },
-    &amp;quot;CreationDate&amp;quot;: &amp;quot;2019-12-04T14:24:38Z&amp;quot;,
-    &amp;quot;Bucket&amp;quot;: &amp;quot;wubigo&amp;quot;,
-    &amp;quot;NetworkOrigin&amp;quot;: &amp;quot;Internet&amp;quot;
-}
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
