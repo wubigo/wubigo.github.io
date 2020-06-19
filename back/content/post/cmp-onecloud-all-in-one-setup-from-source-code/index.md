@@ -25,6 +25,10 @@ categories = []
 pip install ansible
 ```
 
+## 安装kubelet
+
+[OCADM](https://github.com/yunionio/ocadm)创建K8S的前提条件是kebelet正常工作
+
 ## OCBOOT
 
 ```
@@ -64,9 +68,19 @@ ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_
 
 ```
 
-ocboot -> ocadm -> 部署k8s 和 onecloud-operator
+ocboot -> ocadm -> 部署k8s 和 [onecloud-operator](https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md)
 
 
-## FAQ
 
-- ocadm需要kubelet预先安装好
+## 说明
+
+operator 本身是由ocadm 的工具安装的，
+
+代码在：https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go
+
+ocadm init 命令就会安装 operator
+
+
+https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74
+
+ansible任务"Use ocadm init first master node" 部署 k8s 集群，并安装对应的 operator 等插件
