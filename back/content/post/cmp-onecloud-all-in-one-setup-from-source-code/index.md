@@ -76,13 +76,12 @@ ocboot -> ocadm -> 部署k8s 和 [onecloud-operator](https://github.com/yunionio
 
 ## 说明
 
-operator 本身是由ocadm 的工具安装的，
-
-代码在：https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go
+- operator 本身是由ocadm 的工具安装的
 
 ocadm init 命令就会安装 operator
 
+[代码](https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go)
 
-https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74
+- ocboot安装k8s
 
-ansible任务"Use ocadm init first master node" 部署 k8s 集群，并安装对应的 operator 等插件
+ansible任务["Use ocadm init first master node"](https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74) 部署 k8s 集群，并安装对应的 operator 等插件
