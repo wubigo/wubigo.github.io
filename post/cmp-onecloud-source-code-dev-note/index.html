@@ -417,7 +417,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    3 min read
   </span>
   
 
@@ -604,40 +604,9 @@ climc user-update --password demo123 demo
 <pre><code> kubectl describe cm -n onecloud default-keystone
 </code></pre>
 
-<h2 id="搭建">搭建</h2>
+<h2 id="本地开发测试">本地开发测试</h2>
 
-<pre><code>git clone https://github.com/yunionio/ocboot.git
-cd ocboot
-</code></pre>
-
-<p><code>allinone.yml</code></p>
-
-<pre><code>mariadb_node:
-  use_local: true
-  hostname: 192.168.137.190
-  user: root
-  db_user: root
-  db_password: qwe123
-primary_master_node:
-#master_node:
-  use_local: true
-  hostname: 192.168.137.190
-  user: root
-  db_host: 192.168.137.190
-  db_user: root
-  db_password: qwe123
-  onecloud_user: demo
-  onecloud_user_password: demo@123
-  controlplane_host: 192.168.137.190
-  controlplane_port: &quot;6443&quot;
-  as_host: true
-  registry_mirrors:
-  - https://lje6zxpk.mirror.aliyuncs.com
-</code></pre>
-
-<pre><code>ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv
-
-</code></pre>
+<p><a href="https://docs.yunion.io/docs/contribute/contrib/#本地开发调试" target="_blank">https://docs.yunion.io/docs/contribute/contrib/#本地开发调试</a></p>
 
     </div>
 

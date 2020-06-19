@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="安装ansible pip install ansible  OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
+  <meta name="description" content="安装ansible pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
 mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv  ocboot -&gt; ocadm -&gt; 部署k8s 和 onecloud-operator">
 
   
@@ -138,7 +139,8 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
   <meta property="og:title" content="从源代码构建Onecloud | NgAPP">
-  <meta property="og:description" content="安装ansible pip install ansible  OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
+  <meta property="og:description" content="安装ansible pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
 mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv  ocboot -&gt; ocadm -&gt; 部署k8s 和 onecloud-operator"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -507,6 +509,10 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
 <pre><code>pip install ansible
 </code></pre>
 
+<h2 id="安装kubelet">安装kubelet</h2>
+
+<p><a href="https://github.com/yunionio/ocadm" target="_blank">OCADM</a>创建K8S的前提条件是kebelet正常工作</p>
+
 <h2 id="ocboot">OCBOOT</h2>
 
 <pre><code>git clone https://github.com/yunionio/ocboot.git
@@ -543,13 +549,19 @@ primary_master_node:
 
 </code></pre>
 
-<p>ocboot -&gt; ocadm -&gt; 部署k8s 和 onecloud-operator</p>
+<p>ocboot -&gt; ocadm -&gt; 部署k8s 和 <a href="https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md" target="_blank">onecloud-operator</a></p>
 
-<h2 id="faq">FAQ</h2>
+<h2 id="说明">说明</h2>
 
-<ul>
-<li>ocadm需要kubelet预先安装好</li>
-</ul>
+<p>operator 本身是由ocadm 的工具安装的，</p>
+
+<p>代码在：<a href="https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go" target="_blank">https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go</a></p>
+
+<p>ocadm init 命令就会安装 operator</p>
+
+<p><a href="https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74" target="_blank">https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74</a></p>
+
+<p>ansible任务&rdquo;Use ocadm init first master node&rdquo; 部署 k8s 集群，并安装对应的 operator 等插件</p>
 
     </div>
 

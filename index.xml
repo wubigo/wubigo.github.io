@@ -21,6 +21,10 @@
 &lt;pre&gt;&lt;code&gt;pip install ansible
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;安装kubelet&#34;&gt;安装kubelet&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/yunionio/ocadm&#34; target=&#34;_blank&#34;&gt;OCADM&lt;/a&gt;创建K8S的前提条件是kebelet正常工作&lt;/p&gt;
+
 &lt;h2 id=&#34;ocboot&#34;&gt;OCBOOT&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/yunionio/ocboot.git
@@ -57,13 +61,19 @@ primary_master_node:
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;ocboot -&amp;gt; ocadm -&amp;gt; 部署k8s 和 onecloud-operator&lt;/p&gt;
+&lt;p&gt;ocboot -&amp;gt; ocadm -&amp;gt; 部署k8s 和 &lt;a href=&#34;https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md&#34; target=&#34;_blank&#34;&gt;onecloud-operator&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;faq&#34;&gt;FAQ&lt;/h2&gt;
+&lt;h2 id=&#34;说明&#34;&gt;说明&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;ocadm需要kubelet预先安装好&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;operator 本身是由ocadm 的工具安装的，&lt;/p&gt;
+
+&lt;p&gt;代码在：&lt;a href=&#34;https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go&#34; target=&#34;_blank&#34;&gt;https://github.com/yunionio/ocadm/blob/master/pkg/phases/addons/onecloudoperator/template.go&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ocadm init 命令就会安装 operator&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74&#34; target=&#34;_blank&#34;&gt;https://github.com/yunionio/ocboot/blob/cc8d3dd2ca5700f146646b9f2083958f600395ec/onecloud/roles/primary-master-node/tasks/main.yml#L74&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ansible任务&amp;rdquo;Use ocadm init first master node&amp;rdquo; 部署 k8s 集群，并安装对应的 operator 等插件&lt;/p&gt;
 </description>
     </item>
     
