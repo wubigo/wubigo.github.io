@@ -72,6 +72,37 @@ export OS_ENDPOINT_TYPE=publicURL
 +----------------------------------+------------------+------------------+
 ***  Total: 28 Pages: 1 Limit: 30 Offset: 0 Page: 1  ***
 
+
+
+climc user-list  ----system --limit 50
++----------------------------------+-----------------+-----------+---------+-------------------+-------------------+------------+
+|                ID                |      Name       | Domain_Id | Enabled | is_system_account | allow_web_console | enable_mfa |
++----------------------------------+-----------------+-----------+---------+-------------------
+| 785bed264dd743ae8195a6b04251c091 | autoupdate      | default   | true    | true              | true              | true       |
+| 4d2f62971c484785813a646d7c359ce3 | webconsole      | default   | true    | true              | true              | true       |
+| 2bdab8e377e043fd83ba0e6609a4e171 | devtooladmin    | default   | true    | true              | true              | true       |
+| 782c97e3f957473884911e5de6133f68 | kubeserver      | default   | true    | true              | true              | true       |
+| da0cd74578ef4a2d8977fb2b2d42fffa | cloudeventadmin | default   | true    | true              | true              | true       |
+| 5cdd64e1a5d0406784f0b9cd3c8e8810 | monitoradmin    | default   | true    | true              | true              | true       |
+| 2f7b52ef757c4e91867c8142ea929e69 | cloudnetadmin   | default   | true    | true              | true              | true       |
+| a052a6ef82864cbf8ed3b93b41fb5f61 | loggeradmin     | default   | true    | true              | true              | true       |
+| b60f1f9e647549f288f88cabc46d22e9 | notify          | default   | true    | true              | true              | true       |
+| e26576d1d6b944eb8b49f0f5fa51d8d1 | yunionconf      | default   | true    | true              | true              | true       |
+| 07e79ecc86de401f8d044852ffeb78ea | s3gatewayadm    | default   | true    | true              | true              | true       |
+| 05d3dce5930a423d89c0d7949d7f47d1 | hostadmin       | default   | true    | true              | true              | true       |
+| f43807f7d2d14f4386a54969882da1b9 | baremetal       | default   | true    | true              | true              | true       |
+| 78baf2c80c6e43d78de3154b807036f8 | vpcagentadmin   | default   | true    | true              | true              | true       |
+| 31d80c3b895d42f78742992c5a979bc4 | esxiagent       | default   | true    | true              | true              | true       |
+| 92f048c9992d49c68c1fa74c464bf392 | meterdocker     | default   | true    | true              | true              | true       |
+| 74fbc304ab9b4b8a8ac61f68f5d3207d | yunionapi       | default   | true    | true              | true              | true       |
+| 942ad02a2bd64fae82f6c60a7b436bf8 | ansibleadmin    | default   | true    | true              | true              | true       |
+| 6f35945d01614e2381909b9f1f106966 | yunionagent     | default   | true    | true              | true              | true       |
+| f11f9af9a9e5429c83becc7e8f18a174 | glance          | default   | true    | true              | true              | true       |
+| 6e112d6d6453411f850c5dc6bcd0ab9f | regionadmin     | default   | true    | true              | true              | true       |
+| 7d3ede40910a4ab9812b7f8d5a9ddd6d | sysadmin        | default   | true    | true              | false             | false      |
++----------------------------------+-----------------+-----------+---------+-------------------+-------------------+------------+
+
+climc user-update --password demo123 demo
 ```
 
 
