@@ -20,7 +20,9 @@ categories = []
 +++
 
 
-## DHCP
+## 自动启动网卡
+
+CENTOS安装完后，网卡默认没有激活，无法分配IP地址
 
 `/etc/sysconfig/network-scripts/ifcfg-enp0s3`
 
