@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="安装ansible pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+  <meta name="description" content="安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv TASK [primary-master-node : Update onecloud user demo password to demo@123]  ocboot -&gt; ocadm -&gt; 部署k8s 和 onecloud-operator">
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
@@ -140,10 +140,10 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
   <meta property="og:title" content="从源代码构建Onecloud | NgAPP">
-  <meta property="og:description" content="安装ansible pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+  <meta property="og:description" content="安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv TASK [primary-master-node : Update onecloud user demo password to demo@123]  ocboot -&gt; ocadm -&gt; 部署k8s 和 onecloud-operator"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-06-19T21:42:01&#43;08:00">
@@ -508,7 +508,9 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
 
 <h2 id="安装ansible">安装ansible</h2>
 
-<pre><code>pip install ansible
+<pre><code>sudo yum install epel-release
+sudo yum install python-pip
+pip install ansible
 </code></pre>
 
 <h2 id="安装kubelet">安装kubelet</h2>

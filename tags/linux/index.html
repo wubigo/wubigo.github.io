@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-24T14:04:09&#43;08:00">
+  <meta property="og:updated_time" content="2020-06-13T17:03:30&#43;08:00">
   
 
   
@@ -398,6 +398,18 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/centos-notes/">Centos Notes</a></h2>
+    <div class="article-style">
+      
+       自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
+DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network  删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
+sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.com/jech/polipo.git cd polipo git checkout polipo-1.1.1 yum groupinstall 'Development Tools' yum install texinfo make all su -c 'make install'  
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/linux-python3.5-remove/">Linux删除Python3.5</a></h2>
