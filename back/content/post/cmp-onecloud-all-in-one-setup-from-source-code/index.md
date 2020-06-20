@@ -22,6 +22,8 @@ categories = []
 ## 安装ansible
 
 ```
+sudo yum install epel-release
+sudo yum install python-pip
 pip install ansible
 ```
 
