@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content=" DHCP /etc/sysconfig/network-scripts/ifcfg-enp0s3
+  <meta name="description" content=" 自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
 DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network  删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
 sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.com/jech/polipo.git cd polipo git checkout polipo-1.1.1 yum groupinstall &#39;Development Tools&#39; yum install texinfo make all su -c &#39;make install&#39;  ">
 
@@ -139,7 +140,8 @@ sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装pol
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/centos-notes/">
   <meta property="og:title" content="Centos Notes | NgAPP">
-  <meta property="og:description" content=" DHCP /etc/sysconfig/network-scripts/ifcfg-enp0s3
+  <meta property="og:description" content=" 自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
 DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network  删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
 sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.com/jech/polipo.git cd polipo git checkout polipo-1.1.1 yum groupinstall &#39;Development Tools&#39; yum install texinfo make all su -c &#39;make install&#39;  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -504,7 +506,9 @@ sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装pol
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="dhcp">DHCP</h2>
+<h2 id="自动启动网卡">自动启动网卡</h2>
+
+<p>CENTOS安装完后，网卡默认没有激活，无法分配IP地址</p>
 
 <p><code>/etc/sysconfig/network-scripts/ifcfg-enp0s3</code></p>
 
