@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+  <meta name="description" content="系统设置 /etc/ yum.conf
+obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.">
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
@@ -140,10 +142,12 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
   <meta property="og:title" content="从源代码构建Onecloud | NgAPP">
-  <meta property="og:description" content="安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+  <meta property="og:description" content="系统设置 /etc/ yum.conf
+obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-06-19T21:42:01&#43;08:00">
@@ -506,6 +510,15 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
     <div class="article-style" itemprop="articleBody">
       
 
+<h2 id="系统设置">系统设置</h2>
+
+<p><code>/etc/ yum.conf</code></p>
+
+<pre><code>obsoletes=0
+</code></pre>
+
+<p>避免通过k8s的镜像安装1.15.8报错</p>
+
 <h2 id="安装ansible">安装ansible</h2>
 
 <pre><code>sudo yum install epel-release
@@ -513,7 +526,7 @@ sudo yum install python-pip
 pip install ansible
 </code></pre>
 
-<h2 id="安装kubelet">安装kubelet</h2>
+<h2 id="安装kubelet-可选">安装kubelet（可选）</h2>
 
 <p><a href="https://github.com/yunionio/ocadm" target="_blank">OCADM</a>创建K8S的前提条件是kebelet正常工作</p>
 

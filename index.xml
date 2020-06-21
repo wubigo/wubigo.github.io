@@ -16,6 +16,15 @@
       <guid>https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/</guid>
       <description>
 
+&lt;h2 id=&#34;系统设置&#34;&gt;系统设置&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/ yum.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obsoletes=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;避免通过k8s的镜像安装1.15.8报错&lt;/p&gt;
+
 &lt;h2 id=&#34;安装ansible&#34;&gt;安装ansible&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo yum install epel-release
@@ -23,7 +32,7 @@ sudo yum install python-pip
 pip install ansible
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;安装kubelet&#34;&gt;安装kubelet&lt;/h2&gt;
+&lt;h2 id=&#34;安装kubelet-可选&#34;&gt;安装kubelet（可选）&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/yunionio/ocadm&#34; target=&#34;_blank&#34;&gt;OCADM&lt;/a&gt;创建K8S的前提条件是kebelet正常工作&lt;/p&gt;
 
@@ -561,6 +570,12 @@ yum groupinstall &#39;Development Tools&#39;
 yum install texinfo
 make all
 su -c &#39;make install&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;包管理&#34;&gt;包管理&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;yum repolist
+yum repo-pkgs kubernetes list
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

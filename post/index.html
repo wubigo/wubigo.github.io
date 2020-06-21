@@ -470,10 +470,12 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet OCADM创建K8S的前提条件是kebelet正常工作
+    系统设置 /etc/ yum.conf
+obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.mirror.aliyuncs.com  ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
   </div>
   
 
@@ -877,6 +879,12 @@ yum groupinstall 'Development Tools'
 yum install texinfo
 make all
 su -c 'make install'
+</code></pre>
+
+<h2 id="包管理">包管理</h2>
+
+<pre><code>yum repolist
+yum repo-pkgs kubernetes list
 </code></pre>
 
   </div>
