@@ -27,7 +27,7 @@ categories = []
 obsoletes=0
 ```
 
-避免通过k8s的镜像安装1.15.8报错
+obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
 
 
 ## 安装ansible
