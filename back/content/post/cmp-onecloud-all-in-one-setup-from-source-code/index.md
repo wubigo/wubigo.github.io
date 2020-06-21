@@ -19,6 +19,17 @@ categories = []
   focal_point = ""
 +++
 
+## 系统设置
+
+`/etc/ yum.conf`
+
+```
+obsoletes=0
+```
+
+避免通过k8s的镜像安装1.15.8报错
+
+
 ## 安装ansible
 
 ```
@@ -27,7 +38,7 @@ sudo yum install python-pip
 pip install ansible
 ```
 
-## 安装kubelet
+## 安装kubelet（可选）
 
 [OCADM](https://github.com/yunionio/ocadm)创建K8S的前提条件是kebelet正常工作
 

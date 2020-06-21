@@ -73,3 +73,9 @@ make all
 su -c 'make install'
 ```
 
+## 包管理
+
+```
+yum repolist
+yum repo-pkgs kubernetes list
+```
