@@ -404,7 +404,7 @@
     <div class="article-style">
       
       系统设置 /etc/ yum.conf
-obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
 安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml

@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="系统设置 /etc/ yum.conf
-obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
 安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
@@ -143,7 +143,7 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
   <meta property="og:url" content="https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/">
   <meta property="og:title" content="从源代码构建Onecloud | NgAPP">
   <meta property="og:description" content="系统设置 /etc/ yum.conf
-obsoletes=0  避免通过k8s的镜像安装1.15.8报错
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
 安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
 安装kubelet
 OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
@@ -517,7 +517,7 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
 <pre><code>obsoletes=0
 </code></pre>
 
-<p>避免通过k8s的镜像安装1.15.8报错</p>
+<p>obsoletes=1: 安装k8s 1.15.8会报一个依赖错误</p>
 
 <h2 id="安装ansible">安装ansible</h2>
 
