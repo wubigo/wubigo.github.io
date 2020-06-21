@@ -76,6 +76,7 @@ su -c 'make install'
 ## 包管理
 
 ```
+yum list available
 yum repolist
 yum repo-pkgs kubernetes list
 ```
