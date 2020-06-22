@@ -128,6 +128,36 @@ auto_sync_table: true
 kubectl describe cm -n onecloud default-keystone
 ```
 
+
+## climc
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${fileDirname}/../cmd/climc/main.go",
+            "env": {"OS_AUTH_URL": "https://192.168.137.176:30500/v3",
+                    "OS_USERNAME": "sysadmin",
+                    "OS_PASSWORD": "tNZKXrk3SggGBtm9",
+                    "OS_PROJECT_NAME": "system",
+                    
+                   },
+            "args": []
+        }
+    ]
+}
+
+```
+
 ## 本地开发测试
 
 https://docs.yunion.io/docs/contribute/contrib/#本地开发调试

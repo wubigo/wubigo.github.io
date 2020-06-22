@@ -21,7 +21,7 @@ categories = []
 
 ## 系统设置
 
-`/etc/ yum.conf`
+`/etc/yum.conf`
 
 ```
 obsoletes=0
