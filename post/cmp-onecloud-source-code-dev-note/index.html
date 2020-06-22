@@ -417,7 +417,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -602,6 +602,34 @@ climc user-update --password demo123 demo
 <p>自动创建表，创建完后关闭</p>
 
 <pre><code>kubectl describe cm -n onecloud default-keystone
+</code></pre>
+
+<h2 id="climc-1">climc</h2>
+
+<pre><code>{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+
+        {
+            &quot;name&quot;: &quot;Launch&quot;,
+            &quot;type&quot;: &quot;go&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;mode&quot;: &quot;auto&quot;,
+            &quot;program&quot;: &quot;${fileDirname}/../cmd/climc/main.go&quot;,
+            &quot;env&quot;: {&quot;OS_AUTH_URL&quot;: &quot;https://192.168.137.176:30500/v3&quot;,
+                    &quot;OS_USERNAME&quot;: &quot;sysadmin&quot;,
+                    &quot;OS_PASSWORD&quot;: &quot;tNZKXrk3SggGBtm9&quot;,
+                    &quot;OS_PROJECT_NAME&quot;: &quot;system&quot;,
+                    
+                   },
+            &quot;args&quot;: []
+        }
+    ]
+}
+
 </code></pre>
 
 <h2 id="本地开发测试">本地开发测试</h2>
