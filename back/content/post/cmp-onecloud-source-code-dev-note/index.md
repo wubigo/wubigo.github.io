@@ -149,8 +149,10 @@ kubectl describe cm -n onecloud default-keystone
                     "OS_USERNAME": "sysadmin",
                     "OS_PASSWORD": "tNZKXrk3SggGBtm9",
                     "OS_PROJECT_NAME": "system",
-                    
-                   },
+                    "YUNION_CERT_FILE": "/etc/yunion/pki/service.crt",
+                    "YUNION_KEY_FILE": "/etc/yunion/pki/service.key",
+                    "YUNION_INSECURE": "true",
+                    },
             "args": []
         }
     ]
