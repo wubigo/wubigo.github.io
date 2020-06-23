@@ -101,11 +101,10 @@ Modules record precise dependency requirements and create reproducible builds.
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>import ImportDeclaration = &amp;quot;import&amp;quot; ImportSpec ImportSpec = [ &amp;quot;.&amp;quot; | &amp;quot;_&amp;quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
+      <description>blank identifier To ignore one of the values, assign it to the blank identifier :
+links, _ := findLinks(url) // errors ignored for _, url := range os.Args[1:] {  import ImportDeclaration = &amp;quot;import&amp;quot; ImportSpec ImportSpec = [ &amp;quot;.&amp;quot; | &amp;quot;_&amp;quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
 import path (string) is interpreted but in real life it’s path
-relative package’s vendor directory or go env GOPATH/src
- 定制的包名
-# github.com/mlowicki/main.go package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/mlowicki/b&amp;quot; ) func main() { fmt.Println(c.B) } # github.com/mlowicki/b/b.go package c var B = &amp;quot;b&amp;quot;  初始化</description>
+relative package’s vendor directory or go env GOPATH/src</description>
     </item>
     
   </channel>
