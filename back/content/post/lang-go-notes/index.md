@@ -19,6 +19,18 @@ categories = []
   focal_point = ""
 +++
 
+## blank identifier
+
+To ignore one of the values, assign it to the blank identifier :
+
+```
+links, _ := findLinks(url) // errors ignored
+
+
+for _, url := range os.Args[1:] {
+```
+
+
 ## import
 
 ```

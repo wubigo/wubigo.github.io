@@ -78,6 +78,20 @@ primary_master_node:
   - https://lje6zxpk.mirror.aliyuncs.com
 ```
 
+## HOST
+
+```
+kubectl logs  -n onecloud default-host-4fgxx > /tmp/host.log
+
+cat /var/lib/dhclient/dhclient-b17b6243-80ba-4e51-bb07-753bfb756270-ens33.lease
+```
+
+
+
+
+
+##  OCBOOT 
+
 ```
 ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_generated.hosts /root/ocboot/onecloud/zz_generated.site.yml -vv
 
