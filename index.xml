@@ -5,8 +5,39 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2020 21:42:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2020 08:57:36 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Yr on GitHub Sponsors</title>
+      <link>https://wubigo.com/post/i-just-hit-100k-yr-on-github-sponsors/</link>
+      <pubDate>Wed, 24 Jun 2020 08:57:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/i-just-hit-100k-yr-on-github-sponsors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cmp Onecloud Web</title>
+      <link>https://wubigo.com/post/cmp-onecloud-web/</link>
+      <pubDate>Tue, 23 Jun 2020 10:11:45 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-web/</guid>
+      <description>
+
+&lt;h2 id=&#34;setup-source-code&#34;&gt;setup source code&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;C:\code\dashboard&amp;gt;.\node_modules\.bin\eslint --init
+? How would you like to use ESLint? To check syntax and find problems
+? What type of modules does your project use? JavaScript modules (import/export)
+? Which framework does your project use? Vue.js
+? Does your project use TypeScript? No
+? Where does your code run? Browser
+? What format do you want your config file to be in? JSON
+The config that you&#39;ve selected requires the following dependencies:
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>从源代码构建Onecloud</title>
@@ -87,6 +118,12 @@ TASK [primary-master-node : Update onecloud user demo password to demo@123]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;ocboot -&amp;gt; ocadm -&amp;gt; 部署k8s 和 &lt;a href=&#34;https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md&#34; target=&#34;_blank&#34;&gt;onecloud-operator&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;disable-host-agent&#34;&gt;disable host-agent&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;ocadm node disable-host-agent
+ocadm baremetal disable
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;说明&#34;&gt;说明&lt;/h2&gt;
 
@@ -944,94 +981,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 &lt;p&gt;&lt;a href=&#34;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&#34; target=&#34;_blank&#34;&gt;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&#34; target=&#34;_blank&#34;&gt;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AWS Re:Invent 2019主题汇总-P1</title>
-      <link>https://wubigo.com/post/aws-reinvent-2019-keynote/</link>
-      <pubDate>Sun, 08 Dec 2019 11:37:33 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/aws-reinvent-2019-keynote/</guid>
-      <description>
-
-&lt;h2 id=&#34;计算&#34;&gt;计算&lt;/h2&gt;
-
-&lt;p&gt;尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，&lt;/p&gt;
-
-&lt;p&gt;主要的新功能包括：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;基于Nitro平台的针对HPC和机器学习的负载的实例&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;基于定制芯片Inferencia针对机器学习实例&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;标准实例支持100Gb网络带宽&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;网络&#34;&gt;网络&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;传输网关支持多播&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;加速的网络到网络的VPN链接&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;存储和数据分析&#34;&gt;存储和数据分析&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;S3 Access Points和数据湖&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ES搜索支持S3&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;AQUA查询加速器&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;托管的Cassandra服务&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;函数计算&#34;&gt;函数计算&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/lambda-provisioned-concurrency/&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;EKS正式支持FARGATE&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;RDS PROXY&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/serverless-vpc&#34;&gt;VPC支持更新&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;先锋基金it迁移架构图&#34;&gt;先锋基金IT迁移架构图&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;./varguard-stage-0.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-1.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;数据仓库和PaaS迁移到AWS&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-2.png&#34; alt=&#34;第二阶段&#34; /&gt;&lt;em&gt;PaaS实施基于EDA架构的改造&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-3.png&#34; alt=&#34;第三阶段&#34; /&gt;&lt;em&gt;PaaS迁移到Fargate&lt;/em&gt;
-&lt;img src=&#34;./varguard-result.png&#34; alt=&#34;结果&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lambda Provisioned Concurrency</title>
-      <link>https://wubigo.com/post/lambda-provisioned-concurrency/</link>
-      <pubDate>Sun, 08 Dec 2019 11:01:06 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lambda-provisioned-concurrency/</guid>
-      <description>
-
-&lt;h2 id=&#34;provisioned-concurrency-for-lambda-functions&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/h2&gt;
-
-&lt;p&gt;To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.&lt;/p&gt;
-
-&lt;p&gt;This is a feature that keeps functions initialized and hyper-ready to respond in double-digit milliseconds. This addition is helpful for implementing interactive services, such as web and mobile backends, latency-sensitive microservices, or synchronous APIs.&lt;/p&gt;
-
-&lt;p&gt;On enabling Provisioned Concurrency for a function, the Lambda service will initialize the requested number of execution environments so they can be ready to respond to invocations.&lt;/p&gt;
-
-&lt;p&gt;To know more Provisioned Concurrency in detail, read the &lt;a href=&#34;https://aws.amazon.com/blogs/aws/new-provisioned-concurrency-for-lambda-functions/&#34; target=&#34;_blank&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
