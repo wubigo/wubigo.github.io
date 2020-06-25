@@ -103,6 +103,12 @@ TASK [primary-master-node : Update onecloud user demo password to demo@123]
 ocboot -> ocadm -> 部署k8s 和 [onecloud-operator](https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md)
 
 
+## disable host-agent
+
+```
+ocadm node disable-host-agent
+ocadm baremetal disable
+```
 
 ## 说明
 
