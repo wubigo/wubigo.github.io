@@ -9,7 +9,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Yr on GitHub Sponsors</title>
+      <title>I-Just-Hit-$100k-yr-On-GitHub-Sponsors</title>
       <link>https://wubigo.com/post/i-just-hit-100k-yr-on-github-sponsors/</link>
       <pubDate>Wed, 24 Jun 2020 08:57:36 +0800</pubDate>
       
@@ -115,9 +115,25 @@ cat /var/lib/dhclient/dhclient-b17b6243-80ba-4e51-bb07-753bfb756270-ens33.lease
 
 TASK [primary-master-node : Update onecloud user demo password to demo@123]
 
+
+[oc-upload-config] storing the configuration used in ConfigMap &amp;quot;ocadm-config&amp;quot; in the &amp;quot;kube-system&amp;quot; Namespace
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+[oc-addons] Applied addon: calico
+[oc-addons] Applied addon: local-path-provisioner
+[oc-addons] Applied addon: traefik
+[oc-addons] Applied addon: onecloud-operator
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;ocboot -&amp;gt; ocadm -&amp;gt; 部署k8s 和 &lt;a href=&#34;https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md&#34; target=&#34;_blank&#34;&gt;onecloud-operator&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ocadm的addon阶段里面定义了onecloud-operator&lt;/p&gt;
+
+&lt;p&gt;operator收到一个 OnecloudCluster 实例创建的请求，就开始搭建 onecloud 的 keystone、region、glance、web前端等各个服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl -n kube-system get cm ocadm-config -oyaml
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;disable-host-agent&#34;&gt;disable host-agent&lt;/h2&gt;
 

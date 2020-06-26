@@ -578,9 +578,25 @@ cat /var/lib/dhclient/dhclient-b17b6243-80ba-4e51-bb07-753bfb756270-ens33.lease
 
 TASK [primary-master-node : Update onecloud user demo password to demo@123]
 
+
+[oc-upload-config] storing the configuration used in ConfigMap &quot;ocadm-config&quot; in the &quot;kube-system&quot; Namespace
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+[oc-addons] Applied addon: calico
+[oc-addons] Applied addon: local-path-provisioner
+[oc-addons] Applied addon: traefik
+[oc-addons] Applied addon: onecloud-operator
+
 </code></pre>
 
 <p>ocboot -&gt; ocadm -&gt; 部署k8s 和 <a href="https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md" target="_blank">onecloud-operator</a></p>
+
+<p>ocadm的addon阶段里面定义了onecloud-operator</p>
+
+<p>operator收到一个 OnecloudCluster 实例创建的请求，就开始搭建 onecloud 的 keystone、region、glance、web前端等各个服务</p>
+
+<pre><code>kubectl -n kube-system get cm ocadm-config -oyaml
+</code></pre>
 
 <h2 id="disable-host-agent">disable host-agent</h2>
 
