@@ -98,9 +98,26 @@ ansible-playbook -e ANSIBLE_HOST_KEY_CHECKING=False -i /root/ocboot/onecloud/zz_
 
 TASK [primary-master-node : Update onecloud user demo password to demo@123]
 
+
+[oc-upload-config] storing the configuration used in ConfigMap "ocadm-config" in the "kube-system" Namespace
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+[oc-addons] Applied addon: calico
+[oc-addons] Applied addon: local-path-provisioner
+[oc-addons] Applied addon: traefik
+[oc-addons] Applied addon: onecloud-operator
+
 ```
 
 ocboot -> ocadm -> 部署k8s 和 [onecloud-operator](https://github.com/yunionio/onecloud-operator/blob/master/docs/intro.md)
+
+ocadm的addon阶段里面定义了onecloud-operator
+
+operator收到一个 OnecloudCluster 实例创建的请求，就开始搭建 onecloud 的 keystone、region、glance、web前端等各个服务
+
+```
+kubectl -n kube-system get cm ocadm-config -oyaml
+```
 
 
 ## disable host-agent
