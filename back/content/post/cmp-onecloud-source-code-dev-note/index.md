@@ -165,3 +165,27 @@ kubectl describe cm -n onecloud default-keystone
 ## 本地开发测试
 
 https://docs.yunion.io/docs/contribute/contrib/#本地开发调试
+
+
+## onecloud-operator
+
+`pkg/apis/onecloud/v1alpha1/register.go`
+
+```
+func init() {
+	localSchemeBuilder.Register(addKownTypes, addDefaultingFuncs)
+}
+```
+
+完成服务组件用户创建工作
+
+
+- 测试代码
+
+`onecloud-operator\pkg\util\k8s\marshal_test.go`
+
+
+```
+TestMarshalToYamlForCodecs
+```
+
