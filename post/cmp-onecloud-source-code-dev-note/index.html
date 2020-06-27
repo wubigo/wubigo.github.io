@@ -640,6 +640,26 @@ climc session-show
 
 <p><a href="https://docs.yunion.io/docs/contribute/contrib/#本地开发调试" target="_blank">https://docs.yunion.io/docs/contribute/contrib/#本地开发调试</a></p>
 
+<h2 id="onecloud-operator">onecloud-operator</h2>
+
+<p><code>pkg/apis/onecloud/v1alpha1/register.go</code></p>
+
+<pre><code>func init() {
+	localSchemeBuilder.Register(addKownTypes, addDefaultingFuncs)
+}
+</code></pre>
+
+<p>完成服务组件用户创建工作</p>
+
+<ul>
+<li>测试代码</li>
+</ul>
+
+<p><code>onecloud-operator\pkg\util\k8s\marshal_test.go</code></p>
+
+<pre><code>TestMarshalToYamlForCodecs
+</code></pre>
+
     </div>
 
     
