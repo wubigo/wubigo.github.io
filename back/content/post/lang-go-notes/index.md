@@ -414,3 +414,19 @@ spanner |	https://godoc.org/cloud.google.com/go/spanner
 bson |	https://godoc.org/labix.org/v2/mgo/bson
 gorm |	https://godoc.org/github.com/jinzhu/gorm
 yaml |	https://godoc.org/gopkg.in/yaml.v2
+
+
+## field tags
+
+
+A field tag is a string of metadata
+associated at compile time with the field of a struct:
+```
+Year int `json:"released"`
+Color bool `json:"color,omitempty"`
+```
+A field tag may be any literal string , but it is conventionally interpreted as a space-separated
+list of key:"value" pairs; since they contain double quotation marks, field tags are usually
+written with raw string literals. The json key control s the behavior of the encoding/json
+package, and other encoding/... packages follow this convention. The first part of the json
+field tag specifies an alternative JSON name for the Go field
