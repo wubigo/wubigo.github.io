@@ -119,6 +119,13 @@ operator收到一个 OnecloudCluster 实例创建的请求，就开始搭建 one
 kubectl -n kube-system get cm ocadm-config -oyaml
 ```
 
+## ISO安装
+
+`/opt/yunion/upgrade/config.yml`
+
+```
+cat /opt/yunion/upgrade/config.yml |grep db
+```
 
 ## disable host-agent
 
