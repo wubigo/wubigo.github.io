@@ -84,3 +84,10 @@ awslogs |	Writes log messages to Amazon CloudWatch Logs.
 
 - 方法2
   通过Dockerfile从镜像再建一个镜像，并重定义ENTRYPOINT
+
+
+## view real time logging of Docker containers
+
+```
+docker logs -f 
+```
