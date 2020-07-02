@@ -598,6 +598,13 @@ TASK [primary-master-node : Update onecloud user demo password to demo@123]
 <pre><code>kubectl -n kube-system get cm ocadm-config -oyaml
 </code></pre>
 
+<h2 id="iso安装">ISO安装</h2>
+
+<p><code>/opt/yunion/upgrade/config.yml</code></p>
+
+<pre><code>cat /opt/yunion/upgrade/config.yml |grep db
+</code></pre>
+
 <h2 id="disable-host-agent">disable host-agent</h2>
 
 <pre><code>ocadm node disable-host-agent

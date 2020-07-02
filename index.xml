@@ -5,8 +5,72 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2020 08:57:36 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 12:49:12 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cmp Onecloud Region Code</title>
+      <link>https://wubigo.com/post/cmp-onecloud-region-code/</link>
+      <pubDate>Tue, 30 Jun 2020 12:49:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-region-code/</guid>
+      <description>
+
+&lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;climc service-config-edit region2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;region.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;log_level: debug
+log_verbose_level: 10
+enable_host_health_check: false
+port: 30888
+port_v2: 30888
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;依赖的模块&#34;&gt;依赖的模块&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;HTTP web framework&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;github.com/gin-gonic/gin
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ORM&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/go-gorm/gorm
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;region-endpoint&#34;&gt;region endpoint&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;climc endpoint-show b0d33d8b370c42418cb3c6e51442c072
++--------------------+----------------------------------+
+|       Field        |              Value               |
++--------------------+----------------------------------+
+| can_delete         | false                            |
+| can_update         | true                             |
+| created_at         | 2020-06-23T03:03:20.000000Z      |
+| deleted            | false                            |
+| enabled            | true                             |
+| id                 | b0d33d8b370c42418cb3c6e51442c072 |
+| interface          | public                           |
+| is_emulated        | false                            |
+| name               | compute_v2-public                |
+| public_key_bit_len | 0                                |
+| region_id          | region0                          |
+| service_id         | fb54a285aa3e4c848298148596011aa1 |
+| service_name       | region2                          |
+| service_type       | compute_v2                       |
+| update_version     | 0                                |
+| updated_at         | 2020-06-23T03:03:20.000000Z      |
+| url                | https://10.8.3.247:30888         |
++--------------------+----------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>I-Just-Hit-$100k-yr-On-GitHub-Sponsors</title>
@@ -111,6 +175,13 @@ TASK [primary-master-node : Update onecloud user demo password to demo@123]
 &lt;p&gt;operator收到一个 OnecloudCluster 实例创建的请求，就开始搭建 onecloud 的 keystone、region、glance、web前端等各个服务&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl -n kube-system get cm ocadm-config -oyaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;iso安装&#34;&gt;ISO安装&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;/opt/yunion/upgrade/config.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /opt/yunion/upgrade/config.yml |grep db
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;disable-host-agent&#34;&gt;disable host-agent&lt;/h2&gt;
@@ -975,74 +1046,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 &lt;p&gt;&lt;a href=&#34;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&#34; target=&#34;_blank&#34;&gt;https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&#34; target=&#34;_blank&#34;&gt;https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AWS Re:Invent 2019主题汇总-P1</title>
-      <link>https://wubigo.com/post/aws-reinvent-2019-keynote/</link>
-      <pubDate>Sun, 08 Dec 2019 11:37:33 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/aws-reinvent-2019-keynote/</guid>
-      <description>
-
-&lt;h2 id=&#34;计算&#34;&gt;计算&lt;/h2&gt;
-
-&lt;p&gt;尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，&lt;/p&gt;
-
-&lt;p&gt;主要的新功能包括：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;基于Nitro平台的针对HPC和机器学习的负载的实例&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;基于定制芯片Inferencia针对机器学习实例&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;标准实例支持100Gb网络带宽&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;网络&#34;&gt;网络&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;传输网关支持多播&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;加速的网络到网络的VPN链接&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;存储和数据分析&#34;&gt;存储和数据分析&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;S3 Access Points和数据湖&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ES搜索支持S3&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;AQUA查询加速器&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;托管的Cassandra服务&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;函数计算&#34;&gt;函数计算&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/lambda-provisioned-concurrency/&#34;&gt;Provisioned Concurrency for Lambda Functions&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;EKS正式支持FARGATE&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;RDS PROXY&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/serverless-vpc&#34;&gt;VPC支持更新&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;先锋基金it迁移架构图&#34;&gt;先锋基金IT迁移架构图&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;./varguard-stage-0.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-1.png&#34; alt=&#34;第一阶段&#34; /&gt;&lt;em&gt;数据仓库和PaaS迁移到AWS&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-2.png&#34; alt=&#34;第二阶段&#34; /&gt;&lt;em&gt;PaaS实施基于EDA架构的改造&lt;/em&gt;
-&lt;img src=&#34;./varguard-stage-3.png&#34; alt=&#34;第三阶段&#34; /&gt;&lt;em&gt;PaaS迁移到Fargate&lt;/em&gt;
-&lt;img src=&#34;./varguard-result.png&#34; alt=&#34;结果&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
