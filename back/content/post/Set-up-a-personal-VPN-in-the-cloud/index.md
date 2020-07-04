@@ -1,5 +1,5 @@
 +++
-title = "一分钟搭建VPN云服务"
+title = "五分钟搭建VPN云服务"
 date = 2020-07-04T21:23:10+08:00
 draft = false
 
@@ -19,6 +19,33 @@ categories = []
   focal_point = ""
 +++
 
+## 在AWS免费申请一台免费云主机(可选)
+
+利用terraform创建一台云主机
+
+```
+git clone git@github.com:wubigo/iaas.git
+cd iaas\aws\ec2
+.\apply
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+Outputs:
+instance_id = i-069i247af71871dd9
+public_ip = 13.113.195.66
+
+
+ssh ubuntu@13.113.195.66
+
+ubuntu@ip-10-12-0-247:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04 LTS
+Release:        20.04
+Codename:       focal
+
+```
+
+也可以直接在web控制台根据向导创建
 
 ## setup server
 
@@ -56,6 +83,8 @@ ansible-playbook main.yml -e "provider=local
     "#        The CA key password is XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       #"
     "#      Shell access: ssh -F configs/<server_ip>/ssh_config <hostname>  #"
 ```
+
+在ansible运行过程中会提示让你输入云主机的公网IP或DNS主机名
 
 
 
