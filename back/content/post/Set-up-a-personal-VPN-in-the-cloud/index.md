@@ -1,5 +1,5 @@
 +++
-title = "Set Up a Personal VPN in the Cloud"
+title = "一分钟搭建VPN云服务"
 date = 2020-07-04T21:23:10+08:00
 draft = false
 
