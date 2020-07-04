@@ -81,3 +81,12 @@ climc endpoint-show b0d33d8b370c42418cb3c6e51442c072
 ```
 https://10.8.3.247:30888/stats
 ```
+
+## WEB CONTROLLER
+
+
+`pkg\appsrv\dispatcher\dispatcher.go`
+
+```
+AddModelDispatcher
+```

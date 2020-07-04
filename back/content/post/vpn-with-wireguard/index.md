@@ -38,6 +38,10 @@ sudo apt-get install wireguard -y
 
 ```
 wg genkey | tee privatekey | wg pubkey > publickey
+
+private_key=$(wg genkey)
+public_key=$(echo $private_key | wg pubkey)
+
 ```
 
 - 配置 
@@ -88,6 +92,19 @@ AllowedIPs = 10.12.4.0/24
 
 ```
 sudo wg-quick up wg0
+
+sudo wg show wg0 help
+
+sudo netstat -anp|grep 51820
+udp        0      0 0.0.0.0:51820           0.0.0.0:*                           -
+udp6       0      0 :::51820                :::* 
+```
+
+查看正在使用的密钥对
+
+```
+wg show wg0 dump
+
 ```
 
 - 显示公钥和vpn服务运行状态
@@ -116,3 +133,6 @@ sudo wg-quick down wg0
 
 
 PS: [Wireguard在前几天被合并到LINUX的内核代码](https://www.linux.com/news/wireguard-to-be-merged-with-linux-net-next-tree-and-will-be-available-by-default-in-linux/)
+
+
+https://www.linuxbabe.com/ubuntu/wireguard-vpn-server-ubuntu
