@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
+wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) public_key=$(echo $private_key | wg pubkey)  配置
  ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.">
 
   
@@ -140,7 +140,7 @@ wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
   <meta property="og:url" content="https://wubigo.com/post/vpn-with-wireguard/">
   <meta property="og:title" content="Vpn With Wireguard | NgAPP">
   <meta property="og:description" content="安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
+wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) public_key=$(echo $private_key | wg pubkey)  配置
  ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -421,7 +421,7 @@ wg genkey | tee privatekey | wg pubkey &gt; publickey  配置
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -524,6 +524,10 @@ sudo apt-get install wireguard -y
 <li><p>创建key</p>
 
 <pre><code>wg genkey | tee privatekey | wg pubkey &gt; publickey
+
+private_key=$(wg genkey)
+public_key=$(echo $private_key | wg pubkey)
+
 </code></pre></li>
 
 <li><p>配置</p>
@@ -571,8 +575,22 @@ AllowedIPs = 10.12.4.0/24
 <li><p>启动</p>
 
 <pre><code>sudo wg-quick up wg0
-</code></pre></li>
 
+sudo wg show wg0 help
+
+sudo netstat -anp|grep 51820
+udp        0      0 0.0.0.0:51820           0.0.0.0:*                           -
+udp6       0      0 :::51820                :::* 
+</code></pre></li>
+</ul>
+
+<p>查看正在使用的密钥对</p>
+
+<pre><code>wg show wg0 dump
+
+</code></pre>
+
+<ul>
 <li><p>显示公钥和vpn服务运行状态</p>
 
 <pre><code>sudo wg
@@ -595,6 +613,8 @@ net.ipv4.ip_forward = 1
 <p><a href="/post/vpn-win-setup/">Vpn客户端设置参考</a></p>
 
 <p>PS: <a href="https://www.linux.com/news/wireguard-to-be-merged-with-linux-net-next-tree-and-will-be-available-by-default-in-linux/" target="_blank">Wireguard在前几天被合并到LINUX的内核代码</a></p>
+
+<p><a href="https://www.linuxbabe.com/ubuntu/wireguard-vpn-server-ubuntu" target="_blank">https://www.linuxbabe.com/ubuntu/wireguard-vpn-server-ubuntu</a></p>
 
     </div>
 

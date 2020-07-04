@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="setup server git clone https://github.com/trailofbits/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&quot;$(command -v python3)&quot; .env &amp;&amp; source .env/bin/activate &amp;&amp; python3 -m pip install -U pip virtualenv &amp;&amp; python3 -m pip install -r requirements.txt ansible-playbook main.yml -e &quot;provider=local server_name=algo ondemand_cellular=false ondemand_wifi=false dns_adblocking=true ssh_tunneling=true store_pki=true region=ams3 do_token=token&quot; &quot;# Congratulations! #&quot; &quot;# Your Algo server is running. #&quot; &quot;# Config files and certificates are in the ./configs/ directory. #&quot; &quot;# Go to https://whoer.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/cmp/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/">
 
   
 
@@ -114,15 +112,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/cmp/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/cmp/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/cmp/">
+  <link rel="canonical" href="https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/">
 
   
   
@@ -137,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/cmp/">
-  <meta property="og:title" content="CMP | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/">
+  <meta property="og:title" content="Set Up a Personal VPN in the Cloud | NgAPP">
+  <meta property="og:description" content="setup server git clone https://github.com/trailofbits/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&quot;$(command -v python3)&quot; .env &amp;&amp; source .env/bin/activate &amp;&amp; python3 -m pip install -U pip virtualenv &amp;&amp; python3 -m pip install -r requirements.txt ansible-playbook main.yml -e &quot;provider=local server_name=algo ondemand_cellular=false ondemand_wifi=false dns_adblocking=true ssh_tunneling=true store_pki=true region=ams3 do_token=token&quot; &quot;# Congratulations! #&quot; &quot;# Your Algo server is running. #&quot; &quot;# Config files and certificates are in the ./configs/ directory. #&quot; &quot;# Go to https://whoer."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-03T05:27:46&#43;08:00">
+  <meta property="article:published_time" content="2020-07-04T21:23:10&#43;08:00">
+  
+  <meta property="article:modified_time" content="2020-07-04T21:23:10&#43;08:00">
   
 
   
 
   
 
-  <title>CMP | NgAPP</title>
+  <title>Set Up a Personal VPN in the Cloud | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -364,7 +364,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,72 +383,235 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Set Up a Personal VPN in the Cloud</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">CMP</h1>
+
+
+
+<meta content="2020-07-04 21:23:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-04 21:23:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 4, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Set%20Up%20a%20Personal%20VPN%20in%20the%20Cloud&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fset-up-a-personal-vpn-in-the-cloud%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fset-up-a-personal-vpn-in-the-cloud%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fset-up-a-personal-vpn-in-the-cloud%2f&amp;title=Set%20Up%20a%20Personal%20VPN%20in%20the%20Cloud"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fset-up-a-personal-vpn-in-the-cloud%2f&amp;title=Set%20Up%20a%20Personal%20VPN%20in%20the%20Cloud"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Set%20Up%20a%20Personal%20VPN%20in%20the%20Cloud&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fset-up-a-personal-vpn-in-the-cloud%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/multi-cloud-serverless-platform/">Multi Cloud Serverless Platform</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      The size of the market for multiparty, multicloud data and code aggregation is enormous and only grows larger as companies capture every last bit of data. Vendia’s serverless-based technology offers benefits such as ease of experimentation, no operational heavy lifting and a pay-as-you-go pricing model, making it both very consumable and highly disruptive
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/cmp-onecloud-region-code/">Cmp Onecloud Region Code</a></h2>
-    <div class="article-style">
-      
-      config climc service-config-edit region2  region.conf
-log_level: debug log_verbose_level: 10 enable_host_health_check: false port: 30888 port_v2: 30888  依赖的模块  HTTP web framework
-github.com/gin-gonic/gin  ORM
-https://github.com/go-gorm/gorm   region endpoint climc endpoint-show b0d33d8b370c42418cb3c6e51442c072 +--------------------+----------------------------------+ | Field | Value | +--------------------+----------------------------------+ | can_delete | false | | can_update | true | | created_at | 2020-06-23T03:03:20.000000Z | | deleted | false | | enabled | true | | id | b0d33d8b370c42418cb3c6e51442c072 | | interface | public | | is_emulated | false | | name | compute_v2-public | | public_key_bit_len | 0 | | region_id | region0 | | service_id | fb54a285aa3e4c848298148596011aa1 | | service_name | region2 | | service_type | compute_v2 | | update_version | 0 | | updated_at | 2020-06-23T03:03:20.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/">从源代码构建Onecloud</a></h2>
-    <div class="article-style">
-      
-      系统设置 /etc/yum.conf
-obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
-安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
-安装kubelet
-OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/cmp-onecloud-source-code-dev-note/">Onecloud Source Code Dev Note</a></h2>
-    <div class="article-style">
-      
-      climc export KUBECONFIG=/etc/kubernetes/admin.conf source &lt;(kubectl completion bash) source &lt;(ocadm cluster rcadmin) ocadm cluster rcadmin export OS_AUTH_URL=https://10.8.3.231:30500/v3 export OS_USERNAME=sysadmin export OS_PASSWORD=kHJ8RUv9ZnXM8dB3 export OS_PROJECT_NAME=system export YUNION_INSECURE=true export OS_REGION_NAME=region0 export OS_ENDPOINT_TYPE=publicURL climc service-list --limit 30 +----------------------------------+------------------+------------------+ | ID | Name | Type | +----------------------------------+------------------+------------------+ | e3542d1d411342128a27d768f0ee2355 | monitor | monitor | | 78d193ba157c4f5e894c6ba562a4bf46 | notify | notify | | 6d0f8ba57a2b4f95834aabf35b2b60ee | log | log | | 7b81c471a8174a7181e966e9c240031a | cloudevent | cloudevent | | 45a984fa8cde426a8aff471a5235c6fa | devtool | devtool | | 3b8a28d49abb43238d5d70743cc82073 | k8s | k8s | | aa92817f666b468f858e12e24543a50a | autoupdate | autoupdate | | 69c977c7a1d348738ebb4afa4004c1a0 | yunionconf | yunionconf | | 5aa6bef960c84fcd8b0befd9433eac13 | cloudnet | cloudnet | | 44540d5bee304eca8df2afa6db245c07 | baremetal | baremetal | | 757fc06c274d4898882c8454d21e9f38 | webconsole | webconsole | | 6a489082b899415a8ebb7ff36549372a | s3gateway | s3gateway | | 0433e9da686940428e270da2726d1999 | influxdb | influxdb | | 2ba92f93d97c423c898181ee01553bbf | host | host | | d1ac196db62c4dfb8ae89386fa9adbe4 | meter | meter | | 5f032e88f8c143178396de326e132880 | websocket | websocket | | 18f7844be9f343d48dccf09c0ccf2d22 | yunionapi | yunionapi | | 8286d967b6a543368a003af964ea7d8f | ansible | ansible | | 2598d51c504241cf87816946471918e5 | yunionagent | yunionagent | | a8bdb942b5d94ec7820908fca06024ed | glance | image | | 80f40414f0bb43d88f4d7d3c7c0c0102 | scheduler | scheduler | | e5ec699df47046cc8cfc886f6f1d43ef | region2 | compute_v2 | | c889bded7d1240088d4a6319a0ffc59d | keystone | identity | | 62be59b2ff3f433e8eef225558759dd9 | offlinecloudmeta | offlinecloudmeta | | 5e6c21fe140045538b6defbc51c4ac76 | torrent-tracker | torrent-tracker | | 59c52837183d4e6488baa87a17136c64 | cloudmeta | cloudmeta | | 57238806433146da81540364d4699e78 | common | common | | 0107fd19803c41c58eadfb5920908ab3 | external-service | external-service | +----------------------------------+------------------+------------------+ *** Total: 28 Pages: 1 Limit: 30 Offset: 0 Page: 1 *** climc user-list ----system --limit 50 +----------------------------------+-----------------+-----------+---------+-------------------+-------------------+------------+ | ID | Name | Domain_Id | Enabled | is_system_account | allow_web_console | enable_mfa | +----------------------------------+-----------------+-----------+---------+------------------- | 785bed264dd743ae8195a6b04251c091 | autoupdate | default | true | true | true | true | | 4d2f62971c484785813a646d7c359ce3 | webconsole | default | true | true | true | true | | 2bdab8e377e043fd83ba0e6609a4e171 | devtooladmin | default | true | true | true | true | | 782c97e3f957473884911e5de6133f68 | kubeserver | default | true | true | true | true | | da0cd74578ef4a2d8977fb2b2d42fffa | cloudeventadmin | default | true | true | true | true | | 5cdd64e1a5d0406784f0b9cd3c8e8810 | monitoradmin | default | true | true | true | true | | 2f7b52ef757c4e91867c8142ea929e69 | cloudnetadmin | default | true | true | true | true | | a052a6ef82864cbf8ed3b93b41fb5f61 | loggeradmin | default | true | true | true | true | | b60f1f9e647549f288f88cabc46d22e9 | notify | default | true | true | true | true | | e26576d1d6b944eb8b49f0f5fa51d8d1 | yunionconf | default | true | true | true | true | | 07e79ecc86de401f8d044852ffeb78ea | s3gatewayadm | default | true | true | true | true | | 05d3dce5930a423d89c0d7949d7f47d1 | hostadmin | default | true | true | true | true | | f43807f7d2d14f4386a54969882da1b9 | baremetal | default | true | true | true | true | | 78baf2c80c6e43d78de3154b807036f8 | vpcagentadmin | default | true | true | true | true | | 31d80c3b895d42f78742992c5a979bc4 | esxiagent | default | true | true | true | true | | 92f048c9992d49c68c1fa74c464bf392 | meterdocker | default | true | true | true | true | | 74fbc304ab9b4b8a8ac61f68f5d3207d | yunionapi | default | true | true | true | true | | 942ad02a2bd64fae82f6c60a7b436bf8 | ansibleadmin | default | true | true | true | true | | 6f35945d01614e2381909b9f1f106966 | yunionagent | default | true | true | true | true | | f11f9af9a9e5429c83becc7e8f18a174 | glance | default | true | true | true | true | | 6e112d6d6453411f850c5dc6bcd0ab9f | regionadmin | default | true | true | true | true | | 7d3ede40910a4ab9812b7f8d5a9ddd6d | sysadmin | default | true | true | false | false | +----------------------------------+-----------------+-----------+---------+-------------------+-------------------+------------+ climc user-update --password demo123 demo climc session-show  keystone git clone https://github.
-      
-    </div>
-  </div>
-  
 
-  
+<h2 id="setup-server">setup server</h2>
 
+<pre><code>git clone https://github.com/trailofbits/algo.git
+
+sudo apt install -y python3-virtualenv
+
+cd algo
+
+python3 -m virtualenv --python=&quot;$(command -v python3)&quot; .env &amp;&amp;
+  source .env/bin/activate &amp;&amp;
+  python3 -m pip install -U pip virtualenv &amp;&amp;
+  python3 -m pip install -r requirements.txt
+
+ansible-playbook main.yml -e &quot;provider=local
+                                server_name=algo
+                                ondemand_cellular=false
+                                ondemand_wifi=false
+                                dns_adblocking=true
+                                ssh_tunneling=true
+                                store_pki=true
+                                region=ams3
+                                do_token=token&quot;
+
+
+
+    &quot;#                          Congratulations!                            #&quot;
+    &quot;#                     Your Algo server is running.                     #&quot;
+    &quot;#    Config files and certificates are in the ./configs/ directory.    #&quot;
+    &quot;#              Go to https://whoer.net/ after connecting               #&quot;
+    &quot;#        and ensure that all your traffic passes through the VPN.      #&quot;
+    &quot;#                     Local DNS resolver 172.16.0.1                    #&quot;
+    &quot;#        The p12 and SSH keys password for new users is XXXXXXXX       #&quot;
+    &quot;#        The CA key password is XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       #&quot;
+    &quot;#      Shell access: ssh -F configs/&lt;server_ip&gt;/ssh_config &lt;hostname&gt;  #&quot;
+</code></pre>
+
+<h2 id="configure-the-vpn-clients">Configure the VPN Clients</h2>
+
+<p>Certificates and configuration files that users will need are placed in the configs directory. Make sure to secure these files since many contain private keys. All files are saved under a subdirectory named with the IP address of your new Algo VPN server.</p>
+
+<ul>
+<li>install wireguard on windows</li>
+</ul>
+
+<p><a href="https://f000.backblazeb2.com/file/wubigo/wireguard-amd64-0.1.1.msi" target="_blank">wireguard-amd64-0.1.1.msi</a></p>
+
+<ul>
+<li><p>import the conf file from /configs/algo/configs/localhost/wireguard/laptop.conf generated by ansible</p></li>
+
+<li><p>update dns to &lsquo;1.1.1.1&rsquo;  if the local dns doesn&rsquo;t work</p></li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/vpn/">VPN</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/project/vpn/">VPN</a></li>
+          
+          <li><a href="/post/wireguard-dev-guide/">Wireguard开发参考</a></li>
+          
+          <li><a href="/post/shadowsocks-ubuntu-client/">Shadowsocks Ubuntu Client</a></li>
+          
+          <li><a href="/post/aws-vpc-connection/">Aws VPC之间或VPC与私有网络之间的连接方式汇总</a></li>
+          
+          <li><a href="/post/vpn-with-wireguard/">Vpn With Wireguard</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -619,6 +784,4 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
     </script>
   </body>
 </html>
-
-
 
