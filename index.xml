@@ -9,12 +9,39 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>一分钟搭建VPN云服务</title>
+      <title>五分钟搭建VPN云服务</title>
       <link>https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/</link>
       <pubDate>Sat, 04 Jul 2020 21:23:10 +0800</pubDate>
       
       <guid>https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/</guid>
       <description>
+
+&lt;h2 id=&#34;在aws免费申请一台免费云主机-可选&#34;&gt;在AWS免费申请一台免费云主机(可选)&lt;/h2&gt;
+
+&lt;p&gt;利用terraform创建一台云主机&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:wubigo/iaas.git
+cd iaas\aws\ec2
+.\apply
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+Outputs:
+instance_id = i-069i247af71871dd9
+public_ip = 13.113.195.66
+
+
+ssh ubuntu@13.113.195.66
+
+ubuntu@ip-10-12-0-247:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04 LTS
+Release:        20.04
+Codename:       focal
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以直接在web控制台根据向导创建&lt;/p&gt;
 
 &lt;h2 id=&#34;setup-server&#34;&gt;setup server&lt;/h2&gt;
 
@@ -51,6 +78,8 @@ ansible-playbook main.yml -e &amp;quot;provider=local
     &amp;quot;#        The CA key password is XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       #&amp;quot;
     &amp;quot;#      Shell access: ssh -F configs/&amp;lt;server_ip&amp;gt;/ssh_config &amp;lt;hostname&amp;gt;  #&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在ansible运行过程中会提示让你输入云主机的公网IP或DNS主机名&lt;/p&gt;
 
 &lt;h2 id=&#34;configure-the-vpn-clients&#34;&gt;Configure the VPN Clients&lt;/h2&gt;
 
