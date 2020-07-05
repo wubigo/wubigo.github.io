@@ -47,7 +47,7 @@ Codename:       focal
 
 也可以直接在web控制台根据向导创建
 
-## setup server
+## 搭建VPN服务器
 
 ```
 git clone https://github.com/trailofbits/algo.git
@@ -88,11 +88,11 @@ ansible-playbook main.yml -e "provider=local
 
 
 
-## Configure the VPN Clients
+## 配置WINDOWS客户端
 
 Certificates and configuration files that users will need are placed in the configs directory. Make sure to secure these files since many contain private keys. All files are saved under a subdirectory named with the IP address of your new Algo VPN server.
 
-- install wireguard on windows 
+- 下载wireguard on windows 
 
 [wireguard-amd64-0.1.1.msi](https://f000.backblazeb2.com/file/wubigo/wireguard-amd64-0.1.1.msi)
 
