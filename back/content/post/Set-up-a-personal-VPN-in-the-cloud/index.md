@@ -100,3 +100,9 @@ Certificates and configuration files that users will need are placed in the conf
 
 - update dns to '1.1.1.1'  if the local dns doesn't work
 
+
+## 停止VPN服务
+
+```
+systemctl stop wg-quick@wg0
+```
