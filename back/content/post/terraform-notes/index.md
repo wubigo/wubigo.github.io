@@ -180,5 +180,14 @@ since terraform init cannot automatically download them
 
 ``` 
 ~/.terraform.d/plugin
+
+
+```
+
+
+## init
+
+```
+terraform init -input=false -plugin-dir=/usr/lib/custom-terraform-plugins/windows_amd64
 ```
 
