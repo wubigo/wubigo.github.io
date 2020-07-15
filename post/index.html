@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-04T21:23:10&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-14T19:44:56&#43;08:00">
   
 
   
@@ -397,6 +397,230 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/python3-notes/" itemprop="url">Python3 Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="windows-10">WINDOWS 10</h2>
+
+<pre><code>Python 3.6.8
+</code></pre>
+
+<pre><code>  File &quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&quot;, line 383, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+</code></pre>
+
+<pre><code>python -m pip uninstall pip
+python -m ensurepip
+python -m pip install -U pip
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serveless-python-zappy/" itemprop="url">Serveless Python Zappa</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="python3">python3</h2>
+
+<ul>
+<li>改变操作系统的地区为美国</li>
+</ul>
+
+<p>否则报UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode</p>
+
+<p><code>python-3.6.8-amd64</code></p>
+
+<pre><code>py -3.6 -m pip install virtualenv
+py -3.6 -m virtualenv venv3
+.\venv3\script\activate
+pip install zappa
+
+git clone https://github.com/Miserlou/Zappa.git
+cd zappy/example
+pip install flask
+zappa deploy dev_event
+</code></pre>
+
+<ul>
+<li><p>检查状态</p>
+
+<pre><code>zappa  status dev_api
+</code></pre></li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<ul>
+<li><p>IllegalLocationConstraintException</p>
+
+<pre><code>get this error if you're trying to create a bucket with a name that's already been taken
+
+</code></pre></li>
+</ul>
+
+<p><a href="https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception" target="_blank">https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception</a></p>
+
+<pre><code>--create-bucket-configuration LocationConstraint=eu-west-1
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2132,191 +2356,6 @@ While Hyperplane still uses a cross account network interface, it provides the f
 <img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
 <img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
 <img src="./varguard-result.png" alt="结果" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-08 11:01:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:01:06 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-provisioned-concurrency/" itemprop="url">Lambda Provisioned Concurrency</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 4, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-access-point/" itemprop="url">Aws S3 Access Point</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code>aws sts get-caller-identity
-
-aws s3control list-access-points --account-id 46569194568
-
-aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
-
-aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point
-{
-    &quot;Name&quot;: &quot;my-access-point&quot;,
-    &quot;PublicAccessBlockConfiguration&quot;: {
-        &quot;IgnorePublicAcls&quot;: true,
-        &quot;BlockPublicPolicy&quot;: true,
-        &quot;BlockPublicAcls&quot;: true,
-        &quot;RestrictPublicBuckets&quot;: true
-    },
-    &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;,
-    &quot;Bucket&quot;: &quot;wubigo&quot;,
-    &quot;NetworkOrigin&quot;: &quot;Internet&quot;
-}
-
-</code></pre>
 
   </div>
   

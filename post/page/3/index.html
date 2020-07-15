@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-04T21:23:10&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-14T19:44:56&#43;08:00">
   
 
   
@@ -397,6 +397,188 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-logging/" itemprop="url">K8s Logging</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-04 11:13:20 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-04 11:13:20 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-core-development/" itemprop="url">K8S CORE DEVELOPMENT</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<pre><code>git clone git@github.com:wubigo/kubernetes.git
+git remote add upstream https://github.com/kubernetes/kubernetes.git
+git fetch --all
+git checkout tags/v1.13.3 -b v1.13.3 
+git branch -av|grep 1.13
+* fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
+  remotes/origin/release-1.13         4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
+
+</code></pre>
+
+<h1 id="管理pod">管理POD</h1>
+
+<pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2130,210 +2312,6 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
 [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
 set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
 go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 4, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/javascript-arrow-functions/" itemprop="url">JavaScript Arrow Functions</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="javascript-arrow-functions">JavaScript Arrow Functions</h2>
-
-<p><a href="https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html" target="_blank">https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-01 08:01:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-01 08:01:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 1, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/microservice-security-aaa/" itemprop="url">微服务安全：认证，授权和审计(AAA)</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="微服务安全要点">微服务安全要点</h1>
-
-<ul>
-<li>通信链路加密</li>
-<li>灵活的服务访问控制，包括细粒度访问策略</li>
-<li>访问日志审计</li>
-<li>服务提供方可替代性(batteries included)和可集成性</li>
-</ul>
-
-<h1 id="基本概念">基本概念</h1>
-
-<ul>
-<li>安全标识</li>
-</ul>
-
-<p>在K8S，安全标识(service account)代表一个用户，一个服务或一组服务。</p>
-
-<ul>
-<li>安全命名</li>
-</ul>
-
-<p>安全命名定义可运行服务的安全标识</p>
-
-<h1 id="微服务认证">微服务认证</h1>
-
-<ul>
-<li>传输层认证</li>
-<li>终端用户认证</li>
-</ul>
-
-<p>每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。</p>
-
-<p><a href="https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838" target="_blank">https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</a></p>
-
   </div>
   
 

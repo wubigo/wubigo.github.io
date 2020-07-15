@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-04T21:23:10&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-14T19:44:56&#43;08:00">
   
 
   
@@ -397,6 +397,198 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-03-01-jekyll/" itemprop="url">jekyll notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="how-to-allow-unsafe-ports-in-chrome">How to allow unsafe ports in Chrome</h1>
+
+<p><a href="http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome" target="_blank">http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome</a></p>
+
+<h1 id="config">config</h1>
+
+<pre><code>$ cat _config.yml
+port: 6000
+</code></pre>
+
+<h1 id="build-for-production">build for production</h1>
+
+<pre><code>$rm site.tar (remove before build otherwise tar-self is repackaged too)
+$JEKYLL_ENV=production bundle exec jekyll build
+$tar zcvf site.tar _site/*
+</code></pre>
+
+<h1 id="replace-gem-source-mirror">replace gem source mirror</h1>
+
+<pre><code>gem sources --remove https://rubygems.org/
+gem sources -a http://ruby.taobao.org/
+gem sources -l
+http://ruby.taobao.org/
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-02-28 16:26:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-28 16:26:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-secondary-network-interface/" itemprop="url">Aws EC2 多网卡配置</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    We can no longer assign a public IP address to your instance
+The auto-assign public IP address feature for this instance is disabled because you specified multiple network interfaces. Public IPs can only be assigned to instances with one network interface. To re-enable the auto-assign public IP address feature, please specify only the eth0 network interface.
+ ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2042,175 +2234,6 @@ Technologies like RDMA and TOE create a parallel stack in the kernel and solve t
 
 <p><a href="https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/" target="_blank">https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-05-23 08:31:58 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-05-23 08:31:58 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 23, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/ubuntu-vpn-client/" itemprop="url">Ubuntu Vpn Client</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装客户端 sudo apt-get install m2crypto pip install shadowsocks  /etc/shadowsocks.json
-{ &quot;server&quot;:&quot;4.1.33.104&quot;, &quot;server_port&quot;:8388, &quot;local_address&quot;: &quot;127.0.0.1&quot;, &quot;local_port&quot;:1080, &quot;password&quot;:&quot;&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  sslocal -c /etc/shadowsocks.json # To run in the background sudo sslocal -c /etc/shadowsocks.json -d start  配置代理 sudo apt-get install polipo  /etc/polipo/config
-logSyslog = true logFile = /var/log/polipo/polipo.log logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &quot;0.0.0.0&quot; socksParentProxy = &quot;127.0.0.1:1080&quot; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32  sudo service polipo stop sudo service polipo start export http_proxy=http://127.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/gitlab-notes/" itemprop="url">Gitlab Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    push to a mirror repository push to github at same time when a commit is pushed to gitlab
-Protected Branches By default, protected branches are designed to:
- prevent their creation, if not already created, from everybody except Maintainers prevent pushes from everybody except Maintainers prevent anyone from force pushing to the branch prevent anyone from deleting the branch  Project members permissions NOTE:
-In GitLab 11.0, the Master role was renamed to Maintainer The following table depicts the various user permission levels in a project.
   </div>
   
 

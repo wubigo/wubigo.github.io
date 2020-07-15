@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-12-30T06:33:49&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-14T14:02:13&#43;08:00">
   
 
   
@@ -398,6 +398,20 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/serveless-python-zappy/">Serveless Python Zappa</a></h2>
+    <div class="article-style">
+      
+       python3  改变操作系统的地区为美国  否则报UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode
+python-3.6.8-amd64
+py -3.6 -m pip install virtualenv py -3.6 -m virtualenv venv3 .\venv3\script\activate pip install zappa git clone https://github.com/Miserlou/Zappa.git cd zappy/example pip install flask zappa deploy dev_event   检查状态
+zappa status dev_api   FAQ  IllegalLocationConstraintException
+get this error if you're trying to create a bucket with a name that's already been taken   https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception
+--create-bucket-configuration LocationConstraint=eu-west-1  
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/serverless-vpc/">函数计算VPC支持更新</a></h2>

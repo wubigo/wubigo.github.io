@@ -5,8 +5,86 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jul 2020 21:23:10 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 19:44:56 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python3 Notes</title>
+      <link>https://wubigo.com/post/python3-notes/</link>
+      <pubDate>Tue, 14 Jul 2020 19:44:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/python3-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;windows-10&#34;&gt;WINDOWS 10&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Python 3.6.8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;  File &amp;quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&amp;quot;, line 383, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;python -m pip uninstall pip
+python -m ensurepip
+python -m pip install -U pip
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serveless Python Zappa</title>
+      <link>https://wubigo.com/post/serveless-python-zappy/</link>
+      <pubDate>Tue, 14 Jul 2020 14:02:13 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serveless-python-zappy/</guid>
+      <description>
+
+&lt;h2 id=&#34;python3&#34;&gt;python3&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;改变操作系统的地区为美国&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;否则报UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;python-3.6.8-amd64&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;py -3.6 -m pip install virtualenv
+py -3.6 -m virtualenv venv3
+.\venv3\script\activate
+pip install zappa
+
+git clone https://github.com/Miserlou/Zappa.git
+cd zappy/example
+pip install flask
+zappa deploy dev_event
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;检查状态&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;zappa  status dev_api
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;faq&#34;&gt;FAQ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;IllegalLocationConstraintException&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;get this error if you&#39;re trying to create a bucket with a name that&#39;s already been taken
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--create-bucket-configuration LocationConstraint=eu-west-1
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>五分钟搭建VPN云服务</title>
@@ -1022,76 +1100,6 @@ forward . /etc/resolv.conf  -&amp;gt; forward . 192.168.137.180
       
       <guid>https://wubigo.com/post/no-code-for-backend/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>B2命令行工具</title>
-      <link>https://wubigo.com/post/b2-cmd-line-notes/</link>
-      <pubDate>Sun, 05 Apr 2020 18:30:06 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/b2-cmd-line-notes/</guid>
-      <description>
-
-&lt;p&gt;B2提供免费的10G存储空间, 而且不需要预先设置支付信息例如信用卡认证等。&lt;/p&gt;
-
-&lt;p&gt;而且文件上传下载快速&lt;/p&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install --upgrade b2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;b2 authorize-account [&amp;lt;applicationKeyId&amp;gt;] [&amp;lt;applicationKey&amp;gt;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/b2-key.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;上传&#34;&gt;上传&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;b2 upload-file cmp000 &amp;quot;Commander 8.1.0 Installer (x64).zip&amp;quot; cmp_commander_810_x86.zip
-
-Commander 8.1.0 Installer (x64).zip: 100%|███████████████████████████| 835M/835M [06:14&amp;lt;00:00, 2.23MB/s]
-URL by file name: https://f000.backblazeb2.com/file/cmp000/cmp_commander_810_x86.zip
-URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?fileId=4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051
-{
-  &amp;quot;action&amp;quot;: &amp;quot;upload&amp;quot;,
-  &amp;quot;fileId&amp;quot;: &amp;quot;4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051&amp;quot;,
-  &amp;quot;fileName&amp;quot;: &amp;quot;cmp_commander_810_x86.zip&amp;quot;,
-  &amp;quot;size&amp;quot;: 835119744,
-  &amp;quot;uploadTimestamp&amp;quot;: 1586082029000
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>云管平台(CMP)行业报告(2020)</title>
-      <link>https://wubigo.com/post/cmp-2020/</link>
-      <pubDate>Sat, 04 Apr 2020 13:31:38 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/cmp-2020/</guid>
-      <description>
-
-&lt;p&gt;云管平台赋能企业在多云环境下，对服务或资源自身和生命周期进行自动化的管理。&lt;/p&gt;
-
-&lt;p&gt;当前行业主要聚焦在可用行，成本管理，云安全。&lt;/p&gt;
-
-&lt;h2 id=&#34;平台支持要求&#34;&gt;平台支持要求&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;公有云&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;私有云(openstack/VMWARE/K8S)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;总概&#34;&gt;总概&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/Gartner-Magic-Quadrant-for-Cloud-Management-Platforms-Chart-2020.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/&#34; target=&#34;_blank&#34;&gt;https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/&lt;/a&gt;&lt;/p&gt;
-</description>
     </item>
     
   </channel>
