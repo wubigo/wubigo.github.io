@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,12 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="函数计算有很多使用场景，今天介绍定时任务调度
+例如每周六生成业务报表
+事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lambda-schedule-event/">
 
   
 
@@ -116,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/lambda-schedule-event/">
 
   
   
@@ -139,19 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/lambda-schedule-event/">
+  <meta property="og:title" content="Lambda之任务定时调度 | NgAPP">
+  <meta property="og:description" content="函数计算有很多使用场景，今天介绍定时任务调度
+例如每周六生成业务报表
+事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-15T19:23:47&#43;08:00">
+  <meta property="article:published_time" content="2020-07-15T19:23:47&#43;08:00">
+  
+  <meta property="article:modified_time" content="2020-07-15T19:23:47&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | NgAPP</title>
+  <title>Lambda之任务定时调度 | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -352,22 +354,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -382,7 +368,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -399,179 +387,207 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Lambda之任务定时调度</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/mysql/">MYSQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/shell/">SHELL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/spring/">SPRING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/stream/">STREAM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vue/">VUE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/tcp/">TCP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/graph/">GRAPH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/servicemesh/">SERVICEMESH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ide/">IDE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sdn/">SDN</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/csi/">CSI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/xml/">XML</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/eda/">EDA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sql/">SQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vpc/">VPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ec2/">EC2</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/hosting/">HOSTING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/it%E4%BA%91%E6%9C%8D%E5%8A%A1/">IT云服务</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/pop3/">POP3</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/smtp/">SMTP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/4/">&laquo;</a></li>
+  <span class="article-date">
     
     
-    <li class="page-item"><a class="page-link" href="/tags/page/6/">&raquo;</a></li>
+      
     
+    <time>Jul 15, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Lambda%e4%b9%8b%e4%bb%bb%e5%8a%a1%e5%ae%9a%e6%97%b6%e8%b0%83%e5%ba%a6&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-schedule-event%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flambda-schedule-event%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-schedule-event%2f&amp;title=Lambda%e4%b9%8b%e4%bb%bb%e5%8a%a1%e5%ae%9a%e6%97%b6%e8%b0%83%e5%ba%a6"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flambda-schedule-event%2f&amp;title=Lambda%e4%b9%8b%e4%bb%bb%e5%8a%a1%e5%ae%9a%e6%97%b6%e8%b0%83%e5%ba%a6"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Lambda%e4%b9%8b%e4%bb%bb%e5%8a%a1%e5%ae%9a%e6%97%b6%e8%b0%83%e5%ba%a6&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flambda-schedule-event%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>函数计算有很多使用场景，今天介绍定时任务调度</p>
+
+<p>例如每周六生成业务报表</p>
+
+<h2 id="事件类别">事件类别</h2>
+
+<ul>
+<li>资源生命周期事件</li>
+<li>HTTP请求</li>
+<li>消息队列</li>
+<li>调度</li>
+</ul>
+
+<h2 id="调度事件">调度事件</h2>
+
+<p>define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events</p>
+
+<h2 id="定义调度">定义调度</h2>
+
+<ul>
+<li>cron 表达式</li>
+<li>rate 表达式</li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/sls/">SLS</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/serveless-python-zappy/">Serveless Python Zappa</a></li>
+          
+          <li><a href="/post/serverless-vpc/">函数计算VPC支持更新</a></li>
+          
+          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          
+          <li><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></li>
+          
+          <li><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -744,6 +760,4 @@
     </script>
   </body>
 </html>
-
-
 

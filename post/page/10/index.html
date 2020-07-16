@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-14T19:44:56&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-15T19:23:47&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-03 05:53:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-03 05:53:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/rpc-grpc/" itemprop="url">RPC GRPC</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    the architecture of gRPC is layered: The lowest layer is the transport: gRPC uses HTTP/2 as its transport protocol. HTTP/2 provides the same basic semantics as HTTP 1.1 (the version with which nearly all developers are familiar), but aims to be more efficient and more secure. The new features in HTTP/2 that are most obvious at first glance are (1) that it can multiplex many parallel requests over the same network connection and (2) that it allows full-duplex bidirectional communication.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2088,94 +2170,6 @@ helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quo
   
   <div class="article-style" itemprop="articleBody">
     Getting an SSL Certificate and CloudFront Create CloudFront Distribution Navigate to CloudFront in your AWS console and click &ldquo;Create Distribution&rdquo;. Click &ldquo;Get Started&rdquo; under the Web option (not the RTMP). You&rsquo;ll arrive on the Create Distribution page. Here you need to change three things: 1. Click inside the input field for &ldquo;Origin Domain Name&rdquo;. A list of your Amazon S3 buckets should pop up. Select the S3 bucket you want to use.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-01 10:49:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-01 10:49:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker_network_macvlan/" itemprop="url">Docker网络macvlan</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
- 好处
- 现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
- 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
-uname -r 4.15.0-45-generic  加载macvlan模块
-sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
-     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
   </div>
   
 
