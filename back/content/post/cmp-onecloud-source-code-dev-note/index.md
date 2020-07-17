@@ -19,7 +19,55 @@ categories = []
   focal_point = ""
 +++
 
+
+##  operator
+
+```
+kubectl logs -n onecloud default-region- -c init
+```
+
+```
+kubectl edit deployments. -n onecloud onecloud-operator
+
+  containers:
+      - command:
+        - /bin/onecloud-controller-manager
+        - -sync-user
+
+
+```
+
+onecloud-operator，加上‘-sync-user' 会自动修改用户密码，
+然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
+
+## WEB
+
+前端代码是很多 git 仓库组成的，需要用 'yarn sync release/3.1' 统一切分支，
+
+依赖 bash 执行脚本
+
+```
+yarn sync release/3.1
+```
+
+```
+C:\code>node -v
+v10.21.0
+```
+
+```
+kubectl logs -f -n onecloud default-apigateway-
+```
+
+
+```
+kubectl get svc -n onecloud
+```
+
 ## climc
+
+
+
 
 ```
 export KUBECONFIG=/etc/kubernetes/admin.conf

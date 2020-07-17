@@ -78,6 +78,20 @@ primary_master_node:
   - https://lje6zxpk.mirror.aliyuncs.com
 ```
 
+-  安装制定版本
+
+```
+onecloud_version: v3.2.1
+```
+
+https://github.com/yunionio/ocboot/blob/master/onecloud/roles/common/tasks/main.yml
+
+```
+url: https://iso.yunion.cn/yumrepo-3.2/yunion.repo
+```
+
+
+
 ## HOST
 
 ```
