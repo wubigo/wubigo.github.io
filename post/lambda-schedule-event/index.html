@@ -421,7 +421,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -527,6 +527,32 @@
 <li>cron 表达式</li>
 <li>rate 表达式</li>
 </ul>
+
+<h2 id="函数调用网关接口类型">函数调用网关接口类型</h2>
+
+<ul>
+<li>HTTP API：A lightweight, low-latency RESTful API(Gateway version 2 API)</li>
+<li>REST API：A customizable, feature-rich RESTful API</li>
+<li>WebSocket API</li>
+</ul>
+
+<h3 id="http-api-features">HTTP API features</h3>
+
+<p>Automatic deployments – When you modify routes or integrations, changes deploy automatically to stages that have automatic deployment enabled.</p>
+
+<p>Default stage – You can create a default stage ($default) to serve requests at the root path of your API&rsquo;s URL. For named stages, you must include the stage name at the beginning of the path.</p>
+
+<p>CORS configuration – You can configure your API to add CORS headers to outgoing responses, instead of adding them manually in your function code.</p>
+
+<p>REST APIs are the classic RESTful APIs that API Gateway has supported since launch. REST APIs currently have more customization, integration, and management features.</p>
+
+<h3 id="rest-api-features">REST API features</h3>
+
+<p>Integration types – REST APIs support custom Lambda integrations. With a custom integration, you can send just the body of the request to the function, or apply a transform template to the request body before sending it to the function.</p>
+
+<p>Access control – REST APIs support more options for authentication and authorization.</p>
+
+<p>Monitoring and tracing – REST APIs support AWS X-Ray tracing and additional logging options.</p>
 
     </div>
 

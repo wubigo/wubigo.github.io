@@ -31,7 +31,7 @@
   <meta name="description" content="operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
 WEB 前端代码是很多 git 仓库组成的，需要用 &lsquo;yarn sync release/3.1&rsquo; 统一切分支，
 依赖 bash 执行脚本
-yarn sync release/3.1  C:\code&gt;node -v v10.21.0  kubectl logs -f -n onecloud default-apigateway-  kubectl get svc -n onecloud  climc export KUBECONFIG=/etc/kubernetes/admin.conf source &lt;(kubectl completion bash) source &lt;(ocadm cluster rcadmin) ocadm cluster rcadmin export OS_AUTH_URL=https://10.">
+yarn sync release/3.1  C:\code&gt;node -v v10.21.0  kubectl logs -f -n onecloud default-apigateway-  kubectl get svc -n onecloud  git clone https://github.com/yunionio/dashboard.git yarn setup:dev yarn install 修改 vue.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/cmp-onecloud-source-code-dev-note/">
@@ -143,7 +143,7 @@ yarn sync release/3.1  C:\code&gt;node -v v10.21.0  kubectl logs -f -n onecloud 
   <meta property="og:description" content="operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
 WEB 前端代码是很多 git 仓库组成的，需要用 &lsquo;yarn sync release/3.1&rsquo; 统一切分支，
 依赖 bash 执行脚本
-yarn sync release/3.1  C:\code&gt;node -v v10.21.0  kubectl logs -f -n onecloud default-apigateway-  kubectl get svc -n onecloud  climc export KUBECONFIG=/etc/kubernetes/admin.conf source &lt;(kubectl completion bash) source &lt;(ocadm cluster rcadmin) ocadm cluster rcadmin export OS_AUTH_URL=https://10."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+yarn sync release/3.1  C:\code&gt;node -v v10.21.0  kubectl logs -f -n onecloud default-apigateway-  kubectl get svc -n onecloud  git clone https://github.com/yunionio/dashboard.git yarn setup:dev yarn install 修改 vue."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-10T11:13:09&#43;08:00">
@@ -541,6 +541,14 @@ v10.21.0
 </code></pre>
 
 <pre><code>kubectl get svc -n onecloud
+</code></pre>
+
+<pre><code>git clone https://github.com/yunionio/dashboard.git
+yarn setup:dev
+yarn install
+修改 vue.config.js 里面api 后端 server 为: target: 'https://x.x.x.x:30300'
+然后切换分支使用：yarn sync release/3.1
+yarn run serve
 </code></pre>
 
 <h2 id="climc">climc</h2>
