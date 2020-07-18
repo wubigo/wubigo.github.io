@@ -39,3 +39,27 @@ define event rules that self-trigger regularly and configure a target action to 
 
 - cron 表达式
 - rate 表达式
+
+## 函数调用网关接口类型
+
+- HTTP API：A lightweight, low-latency RESTful API(Gateway version 2 API)
+- REST API：A customizable, feature-rich RESTful API
+- WebSocket API 
+
+### HTTP API features
+
+Automatic deployments – When you modify routes or integrations, changes deploy automatically to stages that have automatic deployment enabled.
+
+Default stage – You can create a default stage ($default) to serve requests at the root path of your API's URL. For named stages, you must include the stage name at the beginning of the path.
+
+CORS configuration – You can configure your API to add CORS headers to outgoing responses, instead of adding them manually in your function code.
+
+REST APIs are the classic RESTful APIs that API Gateway has supported since launch. REST APIs currently have more customization, integration, and management features.
+
+### REST API features
+
+Integration types – REST APIs support custom Lambda integrations. With a custom integration, you can send just the body of the request to the function, or apply a transform template to the request body before sending it to the function.
+
+Access control – REST APIs support more options for authentication and authorization.
+
+Monitoring and tracing – REST APIs support AWS X-Ray tracing and additional logging options.

@@ -64,6 +64,16 @@ kubectl logs -f -n onecloud default-apigateway-
 kubectl get svc -n onecloud
 ```
 
+
+```
+git clone https://github.com/yunionio/dashboard.git
+yarn setup:dev
+yarn install
+修改 vue.config.js 里面api 后端 server 为: target: 'https://x.x.x.x:30300'
+然后切换分支使用：yarn sync release/3.1
+yarn run serve
+```
+
 ## climc
 
 
