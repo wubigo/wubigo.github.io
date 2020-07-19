@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-15T19:23:47&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-18T20:34:43&#43;08:00">
   
 
   
@@ -397,6 +397,112 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-18 20:34:43 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-18 20:34:43 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 18, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-proxy-vs-lambda-integration/" itemprop="url">Lambda Proxy vs Lambda Integration</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Lambda Proxy vs Lambda Integration</p>
+
+<p><a href="https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway" target="_blank">https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway</a></p>
+
+<p><a href="https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/" target="_blank">https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/</a></p>
+
+<p><a href="https://www.baeldung.com/aws-lambda-api-gateway" target="_blank">https://www.baeldung.com/aws-lambda-api-gateway</a></p>
+
+<pre><code>git clone https://github.com/eugenp/tutorials.git
+cd tutorials/aws-lambda
+mvn clean package shade:shade
+aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
+</code></pre>
+
+<p>从S3上传文件到lambad</p>
+
+<ul>
+<li><p>handler</p>
+
+<pre><code>com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest
+</code></pre></li>
+</ul>
+
+<p><a href="https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89" target="_blank">https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2215,91 +2321,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 
 <p><img src="/img/post/ad-blocking.png" alt="" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-vpc/" itemprop="url">函数计算VPC支持更新</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    IN VPC 更新前VPC
-更新后VPC
-While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
- Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.
   </div>
   
 

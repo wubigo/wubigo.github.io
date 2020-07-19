@@ -5,8 +5,41 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jul 2020 19:23:47 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 20:34:43 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Lambda Proxy vs Lambda Integration</title>
+      <link>https://wubigo.com/post/lambda-proxy-vs-lambda-integration/</link>
+      <pubDate>Sat, 18 Jul 2020 20:34:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-proxy-vs-lambda-integration/</guid>
+      <description>&lt;p&gt;Lambda Proxy vs Lambda Integration&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway&#34; target=&#34;_blank&#34;&gt;https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/&#34; target=&#34;_blank&#34;&gt;https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.baeldung.com/aws-lambda-api-gateway&#34; target=&#34;_blank&#34;&gt;https://www.baeldung.com/aws-lambda-api-gateway&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/eugenp/tutorials.git
+cd tutorials/aws-lambda
+mvn clean package shade:shade
+aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从S3上传文件到lambad&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;handler&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89&#34; target=&#34;_blank&#34;&gt;https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Lambda之任务定时调度</title>
@@ -1140,28 +1173,6 @@ forward . /etc/resolv.conf  -&amp;gt; forward . 192.168.137.180
 &lt;h2 id=&#34;从运营的角度进行系统设计&#34;&gt;从运营的角度进行系统设计&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33&#34; target=&#34;_blank&#34;&gt;https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Windows Update Corruption</title>
-      <link>https://wubigo.com/post/windows-update-corruption/</link>
-      <pubDate>Fri, 10 Apr 2020 19:42:44 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/windows-update-corruption/</guid>
-      <description>
-
-&lt;p&gt;4月8号的更新，出现了如下问题&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing&#34; target=&#34;_blank&#34;&gt;https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;通过卸载更新把更新删除后，系统恢复正常&lt;/p&gt;
-
-&lt;h2 id=&#34;删除本地下载的更新文件&#34;&gt;删除本地下载的更新文件&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/&#34; target=&#34;_blank&#34;&gt;https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;C:\Windows\SoftwareDistribution\Download&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-15T19:23:47&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-18T20:34:43&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/iot-notes/" itemprop="url">IOT Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together &mdash; say a fleet of railcars &mdash; are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2207,93 +2289,6 @@ aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
   <div class="article-style" itemprop="articleBody">
     go version go version go version go1.13.5 windows/amd64  vs proxy 根据code提示自动安装插件
 手工安装插件 go代理配置 set http_proxy=http://127.0.0.1:4910  git代理配置 git config --global http.proxy https://127.0.0.1:4910 git config --global http.sslverify &quot;false&quot;  手工安装插件 go get -u -v github.com/go-delve/delve/cmd/dlv go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/acroca/go-symbols go get -u -v github.com/mdempsky/gocode go get -u -v github.com/rogpeppe/godef go get -u -v golang.org/x/tools/cmd/godoc go get -u -v github.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 21, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-promise/" itemprop="url">Nodejs异步通信之Promise</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
- 回调
-function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
-const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
-createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
- pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
   </div>
   
 

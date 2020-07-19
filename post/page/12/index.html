@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-15T19:23:47&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-18T20:34:43&#43;08:00">
   
 
   
@@ -397,6 +397,110 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-12-20 06:31:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 20, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/aws-new-guy-cheat-sheet/">
+      <img src="/post/aws-new-guy-cheat-sheet/featured_hueda806e5ad5e60655758000c93e0bc05_211039_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-new-guy-cheat-sheet/" itemprop="url">公有云羊毛党使用秘籍(新手篇)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    本文所说的新手是指还在12个月免费期内的用户
+只要有一张信用卡，就可以注册一个AWS账号。
+对于AWS新注册账号，有12个月的免费使用额度
+具体额度如下：
+服务
+   服务 额度 当月使用统计     服务器 750小时 t2.micro    硬盘 30GB    硬盘快照 1GB    网盘 5G    数据库 25G    函数计算 1百万次调用     下图我这个月的使用额度
+计算和存储 从上面的图可以看出，AWS免费额度里面比较鸡肋的是
+网盘快照的额度太少，走常规的操作系统镜像备份是要
+花钱的，因为一个最小的ubuntu实例镜像就是8G，
+如何做到保存自己的最新工作成果，而又额外使用快照从而
+节省存储费用呢？
+解决办法如下：
+硬盘外挂  创建EC2
+ 创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2
+ 在外挂的硬盘里面保存自己的操作数据
+ 使用user_data初始化包括安装常用软件包，自动外挂硬盘等
+ 使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
+  上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2122,84 +2226,6 @@ https://blog.alexellis.io/mutli-stage-docker-builds/
 FROM golang:1.10 as builder # build env and make target FROM alpine:latest WORKDIR /root/ COPY --from=builder ./  busybox nslookup busybox:latest has bug on nslookup
 docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618 docker run -dit --name nginx --network test nginx:alpine 7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b $ docker run -it --rm --network test busybox:1.28 nslookup nginx Server: 127.0.0.11 Address 1: 127.0.0.11 Name: nginx Address 1: 172.
   </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 5, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/software-development-teams/" itemprop="url">Software Development Teams</a>
-  </h3>
-
   
 
   
