@@ -20,18 +20,20 @@ categories = []
 +++
 
 
-Lambda Proxy vs Lambda Integration
+## Lambda Proxy vs Lambda Integration
 
 
 https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway
 
 
+### PYTHON
+
 https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/
 
-
-
+### JAVA
 
 https://www.baeldung.com/aws-lambda-api-gateway
+
 
 ```
 git clone https://github.com/eugenp/tutorials.git
@@ -48,6 +50,6 @@ aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
 com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest
 ```
 
-
+### NODEJS
 
 https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89
