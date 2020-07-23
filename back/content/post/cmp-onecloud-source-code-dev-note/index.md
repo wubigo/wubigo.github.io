@@ -19,6 +19,19 @@ categories = []
   focal_point = ""
 +++
 
+## 删除
+
+```
+systemctl list-unit-files --all | grep yunion
+systemctl disable yunion-executor
+systemctl disable yunion-registry
+systemctl disable kubelet
+rm -rf /opt/yunion
+systemctl disable libvirtd.service
+ip link set virbr0 down
+brctl delbr virbr0
+```
+
 
 ##  operator
 
