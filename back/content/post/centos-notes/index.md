@@ -36,6 +36,12 @@ ONBOOT=yes
 systemctl restart network
 ```
 
+- set the default route on interface
+
+```
+DEFROUTE="yes"
+```
+
 
 ## 删除MariaDB
 

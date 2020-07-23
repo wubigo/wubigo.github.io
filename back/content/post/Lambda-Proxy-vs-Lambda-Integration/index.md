@@ -34,7 +34,6 @@ https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/
 
 https://www.baeldung.com/aws-lambda-api-gateway
 
-
 ```
 git clone https://github.com/eugenp/tutorials.git
 cd tutorials/aws-lambda
