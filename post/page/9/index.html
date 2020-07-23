@@ -1114,34 +1114,8 @@ month
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="查看本月费用">查看本月费用</h2>
-
-<ul>
-<li><p>Linux</p>
-
-<pre><code>aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text
-</code></pre></li>
-</ul>
-
-<h2 id="steps-to-make-ec2-access-from-outside">steps to make ec2 access from outside</h2>
-
-<ol>
-<li>create vpc</li>
-<li>create  internet gateway</li>
-<li>add route to the gateway into the routetable</li>
-</ol>
-
-<h1 id="requesttimetooskewed-error-with-s3-upload">RequestTimeTooSkewed error with S3 upload</h1>
-
-<p><a href="https://github.com/aws/aws-sdk-js/issues/399" target="_blank">https://github.com/aws/aws-sdk-js/issues/399</a>
-<a href="https://aws.amazon.com/blogs/developer/clock-skew-correction/" target="_blank">https://aws.amazon.com/blogs/developer/clock-skew-correction/</a></p>
-
-<h1 id="cloudfront-set-origin-custom-headers">cloudfront set Origin Custom Headers</h1>
-
-<p><a href="https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/" target="_blank">https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/</a></p>
-
+    查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   steps to make ec2 access from outside  create vpc create internet gateway add route to the gateway into the routetable  RequestTimeTooSkewed error with S3 upload https://github.
   </div>
   
 
