@@ -422,6 +422,91 @@
 
 
 
+<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 25, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-notes/" itemprop="url">Docker Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Multi-stage builds in Docker only support for Doceker version &gt; 17.05
+https://blog.alexellis.io/mutli-stage-docker-builds/
+FROM golang:1.10 as builder # build env and make target FROM alpine:latest WORKDIR /root/ COPY --from=builder ./  busybox nslookup busybox:latest has bug on nslookup
+docker network create test 32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618 docker run -dit --name nginx --network test nginx:alpine 7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b $ docker run -it --rm --network test busybox:1.28 nslookup nginx Server: 127.0.0.11 Address 1: 127.0.0.11 Name: nginx Address 1: 172.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="datePublished">
 <meta content="2015-12-05 21:30:08 &#43;0800 CST" itemprop="dateModified">
 
@@ -1713,106 +1798,6 @@ If you use your cookies correctly (ie.
 <h1 id="java-基础">JAVA 基础</h1>
 
 <p><a href="post/2010-01-01-java-notes/" target="_blank">JAVA 基础</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2014-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 3, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2014-02-03-aws-notes/" itemprop="url">aws FAQ</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="steps-to-make-ec2-access-from-outside">steps to make ec2 access from outside</h1>
-
-<ol>
-<li>create vpc</li>
-<li>create  internet gateway</li>
-<li>add route to the gateway into the routetable</li>
-</ol>
-
-<h1 id="requesttimetooskewed-error-with-s3-upload">RequestTimeTooSkewed error with S3 upload</h1>
-
-<p><a href="https://github.com/aws/aws-sdk-js/issues/399" target="_blank">https://github.com/aws/aws-sdk-js/issues/399</a>
-<a href="https://aws.amazon.com/blogs/developer/clock-skew-correction/" target="_blank">https://aws.amazon.com/blogs/developer/clock-skew-correction/</a></p>
-
-<h1 id="cloudfront-set-origin-custom-headers">cloudfront set Origin Custom Headers</h1>
-
-<p><a href="https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/" target="_blank">https://w3guy.com/solution-font-origin-http-cdn-domain-blocked-loading-cors-policy/</a></p>
 
   </div>
   
