@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
-aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#39;&#43;%Y-%m-01&#39;),End=$(date -u &#43;&quot;%Y-%m-%d&quot; --date=&quot;&#43;1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   steps to make ec2 access from outside  create vpc create internet gateway add route to the gateway into the routetable  RequestTimeTooSkewed error with S3 upload https://github.">
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#39;&#43;%Y-%m-01&#39;),End=$(date -u &#43;&quot;%Y-%m-%d&quot; --date=&quot;&#43;1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2014-02-03-aws-notes/">
@@ -139,7 +139,7 @@ aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#
   <meta property="og:url" content="https://wubigo.com/post/2014-02-03-aws-notes/">
   <meta property="og:title" content="Aws Notes | NgAPP">
   <meta property="og:description" content="查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
-aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#39;&#43;%Y-%m-01&#39;),End=$(date -u &#43;&quot;%Y-%m-%d&quot; --date=&quot;&#43;1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   steps to make ec2 access from outside  create vpc create internet gateway add route to the gateway into the routetable  RequestTimeTooSkewed error with S3 upload https://github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#39;&#43;%Y-%m-01&#39;),End=$(date -u &#43;&quot;%Y-%m-%d&quot; --date=&quot;&#43;1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-11-23T20:52:46&#43;08:00">
@@ -515,6 +515,12 @@ aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; &#
 <pre><code>aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text
 </code></pre></li>
 </ul>
+
+<p><strong><em>注意：CE服务是按api调用次数收费</em></strong></p>
+
+<pre><code>AWS Cost Explorer USE1-APIRequest                                                $0.05
+$0.01 per API Request                      5.000 Request                         $0.05
+</code></pre>
 
 <h2 id="steps-to-make-ec2-access-from-outside">steps to make ec2 access from outside</h2>
 
