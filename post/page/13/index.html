@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-18T20:34:43&#43;08:00">
+  <meta property="og:updated_time" content="2020-07-26T07:39:23&#43;08:00">
   
 
   
@@ -397,6 +397,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2016-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 1, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2016-02-01-microservice-notes/" itemprop="url">microservice notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Microservices at Netflix Scale https://gotocon.com/dl/goto-amsterdam-2016/slides/RuslanMeshenberg_MicroservicesAtNetflixScaleFirstPrinciplesTradeoffsLessonsLearned.pdf
+securing microservice with UAA
+user accounting and authorizing service(UAA) Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
+JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2112,89 +2197,6 @@ db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database
 
 <p><a href="https://google.github.io/styleguide/javaguide.html" target="_blank">编码风格</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/kafka-config/" itemprop="url">Kafka Config</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    kafka broker connected remotely by ip config/server.properties
-advertised.listeners=PLAINTEXT://172.16.16.5:9092 ############################# Log Retention Policy ############################# # The following configurations control the disposal of log segments. The policy can # be set to delete segments after a period of time, or after a given size has accumulated. # A segment will be deleted whenever *either* of these criteria are met. Deletion always happens # from the end of the log. # The minimum age of a log file to be eligible for deletion due to age log.
   </div>
   
 
