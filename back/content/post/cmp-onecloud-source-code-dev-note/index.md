@@ -260,3 +260,15 @@ func init() {
 TestMarshalToYamlForCodecs
 ```
 
+## 服务暂停
+
+```
+kubectl scale --replicas=0 deployment -n onecloud onecloud-operator
+kubectl get deployments. -n onecloud | grep default | awk '{print $1}' | xargs kubectl delete deployments. -n onecloud
+```
+
+- 恢复
+
+```
+kubectl scale --replicas=1 deployment -n onecloud onecloud-operator
+```

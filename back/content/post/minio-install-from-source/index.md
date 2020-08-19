@@ -58,7 +58,7 @@ git clone https://github.com/minio/minio.git
 cd minio/
 git checkout RELEASE.2020-01-03T19-12-21Z
 make -n test
-
+go install -v
 
 
 mkdir -p /home/bigo/go/bin
