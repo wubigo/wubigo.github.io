@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-26T07:39:23&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-18T15:57:57&#43;08:00">
   
 
   
@@ -397,6 +397,222 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-04-05 18:30:06 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-05 18:30:06 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 5, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/b2-cmd-line-notes/" itemprop="url">B2命令行工具</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>B2提供免费的10G存储空间, 而且不需要预先设置支付信息例如信用卡认证等。</p>
+
+<p>而且文件上传下载快速</p>
+
+<h2 id="安装">安装</h2>
+
+<pre><code>pip install --upgrade b2
+</code></pre>
+
+<h2 id="配置">配置</h2>
+
+<pre><code>b2 authorize-account [&lt;applicationKeyId&gt;] [&lt;applicationKey&gt;]
+</code></pre>
+
+<p><img src="/img/post/b2-key.png" alt="" /></p>
+
+<h2 id="上传">上传</h2>
+
+<pre><code>b2 upload-file cmp000 &quot;Commander 8.1.0 Installer (x64).zip&quot; cmp_commander_810_x86.zip
+
+Commander 8.1.0 Installer (x64).zip: 100%|███████████████████████████| 835M/835M [06:14&lt;00:00, 2.23MB/s]
+URL by file name: https://f000.backblazeb2.com/file/cmp000/cmp_commander_810_x86.zip
+URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?fileId=4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051
+{
+  &quot;action&quot;: &quot;upload&quot;,
+  &quot;fileId&quot;: &quot;4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051&quot;,
+  &quot;fileName&quot;: &quot;cmp_commander_810_x86.zip&quot;,
+  &quot;size&quot;: 835119744,
+  &quot;uploadTimestamp&quot;: 1586082029000
+}
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-2020/" itemprop="url">云管平台(CMP)行业报告(2020)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>云管平台赋能企业在多云环境下，对服务或资源自身和生命周期进行自动化的管理。</p>
+
+<p>当前行业主要聚焦在可用行，成本管理，云安全。</p>
+
+<h2 id="平台支持要求">平台支持要求</h2>
+
+<ul>
+<li><p>公有云</p></li>
+
+<li><p>私有云(openstack/VMWARE/K8S)</p></li>
+</ul>
+
+<h2 id="总概">总概</h2>
+
+<p><img src="/img/post/Gartner-Magic-Quadrant-for-Cloud-Management-Platforms-Chart-2020.jpg" alt="" /></p>
+
+<p><a href="https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/" target="_blank">https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2186,181 +2402,6 @@ minio gateway b2
   <div class="article-style" itemprop="articleBody">
     give the wireless network higher priority than the wired WIRELESS CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Uncheck it. That will enable a text box named &ldquo;Interface metric&rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.
 WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Again Uncheck &ldquo;Automatic metric&rdquo;, and fill in a number in the &ldquo;Interface metric&rdquo; box.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 6, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/windows-application-information-service/" itemprop="url">Windows Application Information Service</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    AppInfo 启动类型必须是自动或手动，
-否则，msinstaller， services.msc， regedit
-等都会报错：
-The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    微服务认证和授权有很多方案，
-这里比较各种主流方案的优缺点，
-为你的业务系统选择MAA方案提供指南
-   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
-实现方式：
- Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
-JWT: 头，负载和签名
- 头
-{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
   </div>
   
 

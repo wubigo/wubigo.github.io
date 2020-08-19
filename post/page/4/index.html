@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-26T07:39:23&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-18T15:57:57&#43;08:00">
   
 
   
@@ -422,6 +422,176 @@
 
 
 
+<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-data-lake/" itemprop="url">Aws S3 Data Lake</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="s3-catalog.png" alt="" /></p>
+
+<p><a href="https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23" target="_blank">https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23</a></p>
+
+<p><a href="https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc" target="_blank">https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 15, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-nodejs/" itemprop="url">函数计算Nodejs实例</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="dateModified">
 
@@ -646,7 +816,7 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
     安装两种方式 从最新源代码发布版安装  git设置代理
 [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
 set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
   </div>
   
 
@@ -2006,177 +2176,6 @@ $ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	o
 use Jumbo frames
 ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
 ip -s link show eth0  stop irqbalance for home user
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dockering-java-8/" itemprop="url">Dockering Java 8</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><strong>Improve docker container detection and resource configuration usage</strong></p>
-
-<p><a href="https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54" target="_blank">https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54</a></p>
-
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-lambda-apigateway/" itemprop="url">Aws Lambda Apigateway</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code> awslocal lambda add-permission --function-name ServerlessExample --action lambda:InvokeFunction --statement-id sns-topic --principal apigateway.amazonaws.com --source-arn &quot;arn:aws:execute-api:us-east-1:123456789012:pmte6kdjb6/*/*&quot;
-</code></pre>
-
   </div>
   
 

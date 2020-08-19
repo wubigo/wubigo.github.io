@@ -6,10 +6,28 @@
     <description>Recent content in Posts on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2020 07:39:23 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 15:57:57 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cloud Native Data Center Network</title>
+      <link>https://wubigo.com/post/cloud-native-data-center-network/</link>
+      <pubDate>Tue, 18 Aug 2020 15:57:57 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cloud-native-data-center-network/</guid>
+      <description>Inline Versus Overlay Virtual Networks In the inline model, every hop between the source and destination is aware of the virtual network the packet belongs to and uses this information to do lookups in the forwarding table. In the overlay network model, only the edges of the network keep track of the virtual networks; the core of the network is unaware of virtual networks. VLAN and VRF are examples of the inline model of virtual networks, whereas MPLS, VXLAN, and other IP-based VPNs are examples of the overlay model.</description>
+    </item>
+    
+    <item>
+      <title>V8 Isolates</title>
+      <link>https://wubigo.com/post/v8-isolates/</link>
+      <pubDate>Wed, 29 Jul 2020 15:28:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/v8-isolates/</guid>
+      <description>Isolate represents an isolated instance of the V8 engine. V8 isolates have completely separate states. Objects from one isolate must not be used in other isolates. When V8 is initialized a default isolate is implicitly created and entered. The embedder can create additional isolates and use them in parallel in multiple threads. An isolate can be entered by at most one thread at any given time. The Locker/Unlocker API must be used to synchronize.</description>
+    </item>
     
     <item>
       <title>网关授权之函数实现</title>
@@ -838,7 +856,7 @@ PROS  Rich site interactions Fast rendering after the initial load Partial real-
       <description>安装两种方式 从最新源代码发布版安装  git设置代理
 [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
 set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
     </item>
     
     <item>

@@ -5,8 +5,36 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2020 07:39:23 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 15:57:57 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cloud Native Data Center Network</title>
+      <link>https://wubigo.com/post/cloud-native-data-center-network/</link>
+      <pubDate>Tue, 18 Aug 2020 15:57:57 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cloud-native-data-center-network/</guid>
+      <description>
+
+&lt;h2 id=&#34;inline-versus-overlay-virtual-networks&#34;&gt;Inline Versus Overlay Virtual Networks&lt;/h2&gt;
+
+&lt;p&gt;In the inline model, every hop between the source and destination is aware of the virtual network the packet belongs to and uses this information to do lookups in the forwarding table. In the overlay network model, only the edges of the network keep track of the virtual networks; the core of the network is unaware of virtual networks. VLAN and VRF are examples of the inline model of virtual networks, whereas MPLS, VXLAN, and other IP-based VPNs are examples of the overlay model. I’ve encountered customer deployments where 32 to 64 VRFs were used&lt;/p&gt;
+
+&lt;p&gt;The primary benefits of the inline model are transparency and reduced packet header overhead. However, requiring every node along the path be aware of virtual networks makes the model very unscalable and inefficient. It scales poorly because, as we get to the core of the network, the core devices must keep track of every single virtual network to forward packets properly. It is inefficient because any change to the virtual network affects every node in the network. The more moving parts there are, the more possibility there is of introducing an error and causing unexpected problems. Anybody who has deployed VLANs is well aware of these two problems. The same holds for VRFs, as well&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>V8 Isolates</title>
+      <link>https://wubigo.com/post/v8-isolates/</link>
+      <pubDate>Wed, 29 Jul 2020 15:28:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/v8-isolates/</guid>
+      <description>&lt;p&gt;Isolate represents an isolated instance of the V8 engine. V8 isolates have completely separate states. Objects from one isolate must not be used in other isolates. When V8 is initialized a default isolate is implicitly created and entered. The embedder can create additional isolates and use them in parallel in multiple threads. An isolate can be entered by at most one thread at any given time. The Locker/Unlocker API must be used to synchronize.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://v8docs.nodesource.com/node-0.8/d5/dda/classv8_1_1_isolate.html&#34; target=&#34;_blank&#34;&gt;https://v8docs.nodesource.com/node-0.8/d5/dda/classv8_1_1_isolate.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>网关授权之函数实现</title>
@@ -946,222 +974,6 @@ PLAY RECAP *********************************************************************
 &lt;pre&gt;&lt;code&gt;net stop vmnetdhcp
 net start vmnetdhcp
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Centos Notes</title>
-      <link>https://wubigo.com/post/centos-notes/</link>
-      <pubDate>Sat, 13 Jun 2020 17:03:30 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/centos-notes/</guid>
-      <description>
-
-&lt;h2 id=&#34;自动启动网卡&#34;&gt;自动启动网卡&lt;/h2&gt;
-
-&lt;p&gt;CENTOS安装完后，网卡默认没有激活，无法分配IP地址&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/sysconfig/network-scripts/ifcfg-enp0s3&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEVICE=enp0s3
-BOOTPROTO=dhcp
-ONBOOT=yes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;systemctl restart network
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;set the default route on interface&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEFROUTE=&amp;quot;yes&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;删除mariadb&#34;&gt;删除MariaDB&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;rpm -qa | grep mariadb
-sudo yum remove -y mariadb mariadb-server
-rpm -qa | grep mariadb
-yum remove -y mariadb-libs-5.5.65-1.el7.x86_64
-
-rm -rf /var/log/mariadb
-rm -f /var/log/mariadb/mariadb.log.rpmsave
-rm -rf /var/lib/mysql
-rm -rf /usr/lib64/mysql
-rm -rf /usr/share/mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;install&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo yum install MariaDB-server
-sudo systemctl start mariadb.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;安装polipo&#34;&gt;安装polipo&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/jech/polipo.git
-cd polipo
-git checkout polipo-1.1.1
-yum groupinstall &#39;Development Tools&#39;
-yum install texinfo
-make all
-su -c &#39;make install&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;包管理&#34;&gt;包管理&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;yum list available
-yum repolist
-yum repo-pkgs kubernetes list
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm Note Update</title>
-      <link>https://wubigo.com/post/kubeadm-note-update/</link>
-      <pubDate>Sat, 23 May 2020 06:32:11 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/kubeadm-note-update/</guid>
-      <description>
-
-&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;iptables&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt;EOF | sudo tee /etc/modules
-br_netfilter
-EOF
-sudo modprobe br_netfilter
-lsmod | grep br_netfilter
-
-
-cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-EOF
-sudo sysctl --system
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;install container runtime&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
-&amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-$(lsb_release -cs) \
-stable&amp;quot;
-sudo apt-get update
-apt-cache madison docker-ce
-sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu
-sudo usermod -aG docker bigo
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;setup vpn and proxy&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/ubuntu-vpn-client/&#34;&gt;VPN and proxy&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;install kubeadm&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-cat &amp;lt;&amp;lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
-sudo apt-get update
-sudo apt-cache madison kubectl
-sudo apt-get install -y kubelet=1.15.12-00 kubeadm=1.15.12-00 kubectl=1.15.12-00
-sudo apt-mark hold kubelet kubeadm kubectl
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;SWAPOFF&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo swapoff -a
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;code&gt;kubeadm.init.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: kubeadm.k8s.io/v1beta2
-kind: ClusterConfiguration
-clusterName: kubernetes
-imageRepository: registry.aliyuncs.com/google_containers
-kubernetesVersion: v1.15.12
-networking:
-  podSubnet: 10.244.0.0/16
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-KUBERNETES_RELEASE_VERSION=&amp;quot;$(curl -sSL https://dl.k8s.io/release/stable.txt)&amp;quot;
-kubeadm config images list
-kubeadm config images pull --config kubeadm.init.yml
-sudo kubeadm init --config kubeadm.init.yml  
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-kubectl taint nodes --all node-role.kubernetes.io/master-
-kubectl delete -f https://docs.projectcalico.org/manifests/calico.yaml
-
-kubectl delete pod -n kube-system coredns-
-
-kubeadm token list
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;pod-network-cidr should not overlap with your local netowrk&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;troubleshooting&#34;&gt;troubleshooting&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Loop (127.0.0.1:46732 -&amp;gt; :53) detected for zone&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl logs -n kube-system coredns-94d74667-9t778
-
-2020-06-14T09:20:33.480Z [INFO] CoreDNS-1.3.1
-2020-06-14T09:20:33.480Z [INFO] linux/amd64, go1.11.4, 6b56a9c
-CoreDNS-1.3.1
-linux/amd64, go1.11.4, 6b56a9c
-2020-06-14T09:20:33.480Z [INFO] plugin/reload: Running configuration MD5 = 5d5369fbc12f985709b924e721217843
-2020-06-14T09:20:33.481Z [FATAL] plugin/loop: Loop (127.0.0.1:46732 -&amp;gt; :53) detected for zone &amp;quot;.&amp;quot;, see https://coredns.io/plugins/loop#troubleshooting. Query: &amp;quot;HINFO 5542328687544567010.7848882517153318095.&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://coredns.io/plugins/loop#troubleshooting&#34; target=&#34;_blank&#34;&gt;https://coredns.io/plugins/loop#troubleshooting&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;方法一：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl edit -n kube-system cm kubelet-config-1.15
-
-resolvConf: /opt/etc/resolv.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;方法二：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://tecadmin.net/disable-local-dns-caching-ubuntu/&#34; target=&#34;_blank&#34;&gt;https://tecadmin.net/disable-local-dns-caching-ubuntu/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;方法三：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl edit -n kube-system cm coredns
-
-forward . /etc/resolv.conf  -&amp;gt; forward . 192.168.137.180
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;系统重启后k8s没有自动启动&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在/etc/fstab永久关闭swap&lt;/p&gt;
 </description>
     </item>
     

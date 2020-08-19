@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-07-26T07:39:23&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-18T15:57:57&#43;08:00">
   
 
   
@@ -397,6 +397,196 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2019-01-01-sevenlevelcommunication/" itemprop="url">7 level communication</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>The most important conversation you ever have is the one with yourself</p>
+
+<p><img src="/img/post/7level-communication.jpg" alt="7 lvevel communication" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-30 22:43:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-30 22:43:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-user-case/" itemprop="url">无服务器架构应用场景</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="典型无服务器架构应用场景">典型无服务器架构应用场景</h2>
+
+<ul>
+<li><p>应用后台</p></li>
+
+<li><p>数据处理</p></li>
+
+<li><p>实时分析</p></li>
+
+<li><p>遗留应用API代理</p></li>
+
+<li><p>调度服务</p></li>
+
+<li><p>RPA</p></li>
+</ul>
+
+<h2 id="最新实现参考">最新实现参考</h2>
+
+<ul>
+<li><a href="https://github.com/0x4447/0x4447_product_s3_email" target="_blank">基于S3和SES邮件服务器</a></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2042,189 +2232,6 @@ admin: access_log_path: /tmp/admin_access.log address: socket_address: { address
 StatefulSets are valuable for applications that require one or more of the following.
  Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
 apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/envoy-notes/" itemprop="url">Envoy NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/network-tools/" itemprop="url">常用的网络工具</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="常用命令">常用命令</h2>
-
-<p><a href="/post/2010-01-22-computer-networking/">常用命令</a></p>
-
-<h2 id="bandwidth-utilization-tool">bandwidth utilization tool</h2>
-
-<pre><code>wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz |  tar xvz -C ~/bin/
-
-
-bandwhich
-</code></pre>
-
-<h2 id="tcp">TCP</h2>
-
-<p><a href="/post/tcpdump-windows">tcpdump-windows</a></p>
-
-<p><a href="/post/linux-notes/#TCP-DUMP">TCP DUMP</a></p>
-
   </div>
   
 

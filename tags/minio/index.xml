@@ -43,7 +43,7 @@ s3cmd sync . s3://wubigo/   总结 在不进行任何优化的情况下，s3cmd�
       <description>安装两种方式 从最新源代码发布版安装  git设置代理
 [user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
 set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
     </item>
     
     <item>

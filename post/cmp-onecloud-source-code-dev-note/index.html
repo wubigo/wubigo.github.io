@@ -719,6 +719,19 @@ climc session-show
 <pre><code>TestMarshalToYamlForCodecs
 </code></pre>
 
+<h2 id="服务暂停">服务暂停</h2>
+
+<pre><code>kubectl scale --replicas=0 deployment -n onecloud onecloud-operator
+kubectl get deployments. -n onecloud | grep default | awk '{print $1}' | xargs kubectl delete deployments. -n onecloud
+</code></pre>
+
+<ul>
+<li><p>恢复</p>
+
+<pre><code>kubectl scale --replicas=1 deployment -n onecloud onecloud-operator
+</code></pre></li>
+</ul>
+
     </div>
 
     
