@@ -47,5 +47,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v Pr
 
 ```
 net users
-net user user_cmp /PasswordChg:No
+net user /add cmp cmp
+net user cmp /PasswordChg:No
+WMIC USERACCOUNT WHERE Name='cmp' SET PasswordExpires=FALSE
 ```
