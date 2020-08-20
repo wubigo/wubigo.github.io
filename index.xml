@@ -5,8 +5,31 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 15:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2020 15:25:18 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Nginx Root vs Alias</title>
+      <link>https://wubigo.com/post/nginx-root-vs-alias/</link>
+      <pubDate>Thu, 20 Aug 2020 15:25:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nginx-root-vs-alias/</guid>
+      <description>&lt;p&gt;There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.&lt;/p&gt;
+
+&lt;p&gt;In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location /beta {
+  root /var/www/html
+}
+
+location /beta {
+  alias /var/www/html/beta
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Cloud Native Data Center Network</title>
@@ -944,36 +967,6 @@ PLAY RECAP *********************************************************************
 &lt;p&gt;Fast Identity Online (FIDO)&lt;/p&gt;
 
 &lt;p&gt;WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>分配Vmware虚机静态IP</title>
-      <link>https://wubigo.com/post/vmware-vm-static-ip/</link>
-      <pubDate>Sun, 14 Jun 2020 08:14:18 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/vmware-vm-static-ip/</guid>
-      <description>
-
-&lt;h2 id=&#34;虚机网卡地址&#34;&gt;虚机网卡地址&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/vmare-static-ip.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;配置静态ip&#34;&gt;配置静态IP&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;host VMnet8 {
-    hardware ethernet 00:0C:29:23:AV:67;
-    fixed-address 192.168.137.170;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;重启vmware-dhcp服务&#34;&gt;重启VMWARE DHCP服务&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;net stop vmnetdhcp
-net start vmnetdhcp
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

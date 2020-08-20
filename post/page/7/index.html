@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-18T15:57:57&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-20T15:25:18&#43;08:00">
   
 
   
@@ -397,6 +397,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-service-headless/" itemprop="url">K8s Service Headless</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2153,94 +2238,6 @@ It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
 unpredictable workloads.</p>
 </blockquote>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-10 22:21:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-10 22:21:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 10, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    11 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/js-vue-cli-note/" itemprop="url">Web vue-cli Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    webpack-simple Webpack is a module bundler for Javascript applications,
-it starts at the entrypoint and then build a dependency
-graph of the whole application, pulling those dependencies
-into one or more bundles that can be included in application.
-It supports multiple different file types through loaders,
-loaders will take files that have no concept of modules (e.g. css)
-and process them in a way that allows them to participate
   </div>
   
 

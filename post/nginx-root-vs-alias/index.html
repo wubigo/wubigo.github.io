@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.
+In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/nginx-root-vs-alias/">
 
   
 
@@ -112,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/">
+  <link rel="canonical" href="https://wubigo.com/post/nginx-root-vs-alias/">
 
   
   
@@ -135,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/nginx-root-vs-alias/">
+  <meta property="og:title" content="Nginx Root vs Alias | NgAPP">
+  <meta property="og:description" content="There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.
+In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-20T15:25:18&#43;08:00">
+  <meta property="article:published_time" content="2020-08-20T15:25:18&#43;08:00">
+  
+  <meta property="article:modified_time" content="2020-08-20T15:25:18&#43;08:00">
   
 
   
 
   
 
-  <title>Posts | NgAPP</title>
+  <title>Nginx Root vs Alias | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -362,7 +366,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -380,50 +386,18 @@
   
   
   
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Posts</h1>
+<div class="article-container pt-3">
+  <h1 itemprop="name">Nginx Root vs Alias</h1>
 
   
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
   
     
 
 
 
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
+<meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -436,89 +410,7 @@
     
       
     
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/letsencrypt/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    certbot  Congratulations! Your certificate and chain have been saved at: /etc/letsencrypt/live/et.com/fullchain.pem Your key file has been saved at: /etc/letsencrypt/live/et.com/privkey.pem Your cert will expire on 2018-02-19. To obtain a new or tweaked version of this certificate in the future, simply run certbot again with the &ldquo;certonly&rdquo; option. To non-interactively renew all of your certificates, run &ldquo;certbot renew&rdquo;  If you like Certbot, please consider supporting our work by:   Donating to ISRG / Let&rsquo;s Encrypt: https://letsencrypt.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
+    <time>Aug 20, 2020</time>
   </span>
   
 
@@ -537,225 +429,152 @@
   
 
   
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/piwik/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Configuring Piwik accessed via an Nginx reverse proxy public Nginx server configured as
-location ^~ /piwik/ { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Host $host; proxy_pass http://192.168.79.4/piwik/; }  config.ini.php config on piwi nginx site
-[General] proxy_client_headers[] = &quot;HTTP_X_FORWARDED_FOR&quot; proxy_client_headers[] = &quot;X-Real-IP&quot; proxy_host_headers[] = &quot;HTTP_X_FORWARDED_HOST&quot; proxy_ips[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;&lt;public-domain-server&gt;&quot;  Configure GeoIP (PECL) With Piwik check php version
-curl http://localhost/info.php PHP Version 7.
-  </div>
-  
-
-  
-
-</div>
-
     
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/psql/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
-In a terminal, type:
-sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/15/">&laquo;</a></li>
-    
-    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Nginx%20Root%20vs%20Alias&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnginx-root-vs-alias%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fnginx-root-vs-alias%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fnginx-root-vs-alias%2f&amp;title=Nginx%20Root%20vs%20Alias"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fnginx-root-vs-alias%2f&amp;title=Nginx%20Root%20vs%20Alias"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Nginx%20Root%20vs%20Alias&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fnginx-root-vs-alias%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
 
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.</p>
+
+<p>In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias.</p>
+
+<pre><code>location /beta {
+  root /var/www/html
+}
+
+location /beta {
+  alias /var/www/html/beta
+}
+</code></pre>
+
+<p><a href="https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias" target="_blank">https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias</a></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/web/">WEB</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/lynx-ycombinator/">通过lynx浏览黑客新网</a></li>
+          
+          <li><a href="/post/2019-02-01-http3notes/">HTTP/3</a></li>
+          
+          <li><a href="/post/domain-nameserver-notes/">域名名字服务器配置</a></li>
+          
+          <li><a href="/post/thingboard/">Thingboard</a></li>
+          
+          <li><a href="/post/js-vue/">Vue notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

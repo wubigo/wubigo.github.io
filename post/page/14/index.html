@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-18T15:57:57&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-20T15:25:18&#43;08:00">
   
 
   
@@ -397,6 +397,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-03-arangodb/" itemprop="url">arrangodb note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    1: ArangoDB automatically indexes the _key attribute in each collection. There is no need to index this attribute separately. Please note that a document&rsquo;s _id attribute is derived from the _key attribute, and is thus implicitly indexed, too.
+2: Creating a database
+We don’t want to mess with any existing data, so let’s start by creating a new database called “mydb”:
+db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database created&rsquo;), err =&gt; console.error(&lsquo;Failed to create database:&lsquo;, err) );
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2207,94 +2292,6 @@ GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
     update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
 $sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
 $virtualenv -p /home/whg/python2.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="b-树-vs-lsm树">B+树 vs. LSM树</h1>
-
-<p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
-NoSQL使用LSM树</p>
-
   </div>
   
 
