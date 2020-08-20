@@ -3525,7 +3525,7 @@ Now we have the newest version of OpenSSH installed and patched with the improve
       
       <guid>https://wubigo.com/post/2010-01-03-windows-note/</guid>
       <description> 常用工具  cport  https://www.nirsoft.net/utils/cports.html
-turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user user_cmp /PasswordChg:No  </description>
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user /add cmp cmp net user cmp /PasswordChg:No WMIC USERACCOUNT WHERE Name=&#39;cmp&#39; SET PasswordExpires=FALSE  </description>
     </item>
     
     <item>

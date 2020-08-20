@@ -1697,7 +1697,9 @@ REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&q
 <h2 id="禁止用户修改密码">禁止用户修改密码</h2>
 
 <pre><code>net users
-net user user_cmp /PasswordChg:No
+net user /add cmp cmp
+net user cmp /PasswordChg:No
+WMIC USERACCOUNT WHERE Name='cmp' SET PasswordExpires=FALSE
 </code></pre>
 
   </div>

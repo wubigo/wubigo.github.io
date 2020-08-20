@@ -29,7 +29,7 @@
     
   
   <meta name="description" content=" 常用工具  cport  https://www.nirsoft.net/utils/cports.html
-turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user user_cmp /PasswordChg:No  ">
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user /add cmp cmp net user cmp /PasswordChg:No WMIC USERACCOUNT WHERE Name=&#39;cmp&#39; SET PasswordExpires=FALSE  ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2010-01-03-windows-note/">
@@ -139,7 +139,7 @@ turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU
   <meta property="og:url" content="https://wubigo.com/post/2010-01-03-windows-note/">
   <meta property="og:title" content="windows notes | NgAPP">
   <meta property="og:description" content=" 常用工具  cport  https://www.nirsoft.net/utils/cports.html
-turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user user_cmp /PasswordChg:No  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user /add cmp cmp net user cmp /PasswordChg:No WMIC USERACCOUNT WHERE Name=&#39;cmp&#39; SET PasswordExpires=FALSE  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2010-04-10T19:42:44&#43;08:00">
@@ -525,7 +525,9 @@ REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&q
 <h2 id="禁止用户修改密码">禁止用户修改密码</h2>
 
 <pre><code>net users
-net user user_cmp /PasswordChg:No
+net user /add cmp cmp
+net user cmp /PasswordChg:No
+WMIC USERACCOUNT WHERE Name='cmp' SET PasswordExpires=FALSE
 </code></pre>
 
     </div>
