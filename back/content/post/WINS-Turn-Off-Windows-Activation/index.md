@@ -56,3 +56,11 @@ https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
 net users
 net user user_cmp /PasswordChg:No
 ```
+
+## 关闭后台服务
+
+turn off the background app functionality
+
+```
+Start > Settings > Privacy > Background apps
+```
