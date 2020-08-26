@@ -1,6 +1,12 @@
 # setup 
 
 ```
+cmd\>hugo version
+Hugo Static Site Generator v0.56.3
+```
+
+
+```
  git clone https://github.com/sourcethemes/academic-kickstart.git 
  cd academic-kickstart
  git submodule update --init --recursive
