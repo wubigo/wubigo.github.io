@@ -19,6 +19,19 @@ categories = []
   focal_point = ""
 +++
 
+# 容器组件
+
+```
+$ ps fxa | grep docker
+ 1046 ?        Ssl   86:30 /usr/bin/dockerd -H fd://
+ 1129 ?        Ssl   61:37  \_ docker-containerd --config /var/run/docker/containerd/containerd.toml
+ 4370 ?        Sl     0:01  |   \_ docker-containerd-shim -namespace moby -workdir /var/lib/docker/containerd/daemon/io.containerd.runtime.v1.linux/moby/187543746f3caaac62254b8aee40a7c5c8060d54722fa631a7cdfadd0722c71a -address /var/run/docker/containerd/docker-containerd.sock -containerd-binary /usr/bin/docker-containerd -runtime-root /var/run/docker/runtime-runc
+ 4352 ?        Sl     0:00  \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 443 -container-ip 172.17.0.3 -container-port 443
+ 4364 ?        Sl     0:00  \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.3 -container-port 80
+ 3897 pts/1    S+     0:00              \_ grep --color=auto docker
+
+```
+
 # Multi-stage builds in Docker
 
 **only support for Doceker version > 17.05**
