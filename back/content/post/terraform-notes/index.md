@@ -180,10 +180,9 @@ since terraform init cannot automatically download them
 
 ``` 
 ~/.terraform.d/plugin
-
-
 ```
 
+https://stackoverflow.com/questions/50944395/use-pre-installed-terraform-plugins-instead-of-downloading-them-with-terraform-i/59015322#59015322
 
 ## init
 
