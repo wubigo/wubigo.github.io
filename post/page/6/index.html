@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-20T15:25:18&#43;08:00">
+  <meta property="og:updated_time" content="2020-08-31T12:41:39&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 5, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/netdata-notes/" itemprop="url">Netdata notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    INSTALL  docker
+docker run -d --name=netdata \ -p 19999:19999 \ -v /etc/passwd:/host/etc/passwd:ro \ -v /etc/group:/host/etc/group:ro \ -v /proc:/host/proc:ro \ -v /sys:/host/sys:ro \ -v /etc/os-release:/host/etc/os-release:ro \ --cap-add SYS_PTRACE \ --security-opt apparmor=unconfined \ netdata/netdata  script
+bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2169,89 +2253,6 @@ go get -u -v github.com/dgraph-io/dgo
   
   <div class="article-style" itemprop="articleBody">
     SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-02 11:16:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-envoy-example/" itemprop="url">K8s Envoy Example</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    envoy.yaml.tmpl
-admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&quot;*&quot;] routes: - match: { prefix: &quot;/&quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.
   </div>
   
 
