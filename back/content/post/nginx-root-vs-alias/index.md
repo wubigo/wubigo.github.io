@@ -29,6 +29,7 @@ In case of the root directive, full path is appended to the root including the l
 ```
 location /beta {
   root /var/www/html
+  
 }
 
 location /beta {
