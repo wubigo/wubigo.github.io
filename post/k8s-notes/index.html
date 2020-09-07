@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+  <meta name="description" content="swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.">
@@ -140,7 +141,8 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/k8s-notes/">
   <meta property="og:title" content="K8S notes | NgAPP">
-  <meta property="og:description" content="docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+  <meta property="og:description" content="swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -505,6 +507,13 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="swapoff">swapoff</h1>
+
+<p>kubelet服务不会正常启动，如果交换分区没有关闭</p>
+
+<pre><code>dpkg-query -L kubelet
+</code></pre>
 
 <h1 id="docker-entrypoint-vs-k8s-command">docker Entrypoint vs k8s command</h1>
 

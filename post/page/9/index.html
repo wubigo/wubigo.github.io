@@ -2299,7 +2299,8 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 
   
   <div class="article-style" itemprop="articleBody">
-    docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+    swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.

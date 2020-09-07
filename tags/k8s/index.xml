@@ -297,7 +297,8 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
-      <description>docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
+      <description>swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
