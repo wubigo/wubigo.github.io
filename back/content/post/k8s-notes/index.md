@@ -6,6 +6,14 @@ tags: ["K8S", "PAAS"]
 ---
 
 
+# swapoff
+
+kubelet服务不会正常启动，如果交换分区没有关闭
+
+```
+dpkg-query -L kubelet
+```
+
 # docker Entrypoint vs k8s command
 
 | |  docker | k8s
