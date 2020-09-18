@@ -5,6 +5,11 @@ date: 2017-07-13
 tags: ["K8S", "PAAS"]
 ---
 
+# join node
+
+```
+kubeadm token create --print-join-command
+```
 
 # swapoff
 

@@ -24,7 +24,7 @@ categories = []
 
 
 ```
-sudo apt install wireguard
+sudo apt install wireguard  wireguard-dkms -y
 wget algo/configs/localhost/wireguard/desktop.conf  /etc/wireguard/wg0.conf
 sudo wg-quick up wg0
 ```
