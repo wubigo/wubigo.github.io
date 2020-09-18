@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+  <meta name="description" content="join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
 dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
@@ -141,7 +141,7 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/k8s-notes/">
   <meta property="og:title" content="K8S notes | NgAPP">
-  <meta property="og:description" content="swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+  <meta property="og:description" content="join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
 dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
@@ -507,6 +507,11 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="join-node">join node</h1>
+
+<pre><code>kubeadm token create --print-join-command
+</code></pre>
 
 <h1 id="swapoff">swapoff</h1>
 

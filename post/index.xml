@@ -17,7 +17,7 @@
       <pubDate>Mon, 31 Aug 2020 12:41:39 +0800</pubDate>
       
       <guid>https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/</guid>
-      <description> 安装 sudo apt install wireguard wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo wg-quick up wg0  </description>
+      <description> 安装 sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo wg-quick up wg0  </description>
     </item>
     
     <item>
@@ -2229,7 +2229,7 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
-      <description>swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+      <description>join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
 dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml

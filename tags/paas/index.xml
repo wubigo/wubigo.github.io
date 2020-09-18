@@ -53,7 +53,7 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
-      <description>swapoff kubelet服务不会正常启动，如果交换分区没有关闭
+      <description>join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
 dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
