@@ -2133,7 +2133,9 @@ wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) p
 
   
   <div class="article-style" itemprop="articleBody">
-    安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
+    how-to-allow-local-network-when-using-wireguard-vpn-tunnel  允许非隧道流量
+Open the WireGaurd Windows client. In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel. Hit the Edit button. Uncheck Block untunneled traffic (kill-switch) option  增加本地的网络
+AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1   安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
 配置  更改公钥
  Endpoint所在的vpn服务器地址
   https://github.com/Nyr/openvpn-install
@@ -2143,7 +2145,6 @@ https://github.com/meshbird/meshbird
 https://www.tinc-vpn.org/
 https://github.com/isystem-io/wireguard-aws
 Download and install the TunSafe, which is a Wireguard client for Windows.
- wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh --2020-01-01 22:26:54-- https://git.io/vpnsetup Resolving git.io (git.io)... 54.165.216.26, 54.224.175.112, 34.227.147.55, ... Connecting to git.io (git.io)|54.165.216.26|:443... connected. HTTP request sent, awaiting response... 302 Found Location: https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh [following] --2020-01-01 22:26:55-- https://raw.githubusercontent.com/hwdsl2/setup-ipsec-vpn/master/vpnsetup.sh Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.188.133 Connecting to raw.
   </div>
   
 
