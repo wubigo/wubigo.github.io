@@ -19,6 +19,22 @@ categories = []
   focal_point = ""
 +++
 
+## how-to-allow-local-network-when-using-wireguard-vpn-tunnel
+
+- 允许非隧道流量
+
+```
+Open the WireGaurd Windows client.
+In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel.
+Hit the Edit button.
+Uncheck Block untunneled traffic (kill-switch) option
+```
+
+- 增加本地的网络
+
+```
+AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1
+```
 
 ## 安装
 
