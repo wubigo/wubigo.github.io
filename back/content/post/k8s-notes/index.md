@@ -5,6 +5,21 @@ date: 2017-07-13
 tags: ["K8S", "PAAS"]
 ---
 
+# kubeadm install mirror in china
+
+```
+apt-get update && apt-get install -y apt-transport-https
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF  
+apt-get update
+apt-cache madison kubeadm
+apt install kubeadm=1.18.3-00
+apt-get install -y kubelet kubeadm kubectl
+```
+
+
 # join node
 
 ```
