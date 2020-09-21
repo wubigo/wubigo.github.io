@@ -28,8 +28,8 @@
   
     
   
-  <meta name="description" content="kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.18.3-00 apt-get install -y kubelet kubeadm kubectl  join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
-dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd">
+  <meta name="description" content="create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-notes/">
@@ -138,8 +138,8 @@ dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/k8s-notes/">
   <meta property="og:title" content="K8S notes | NgAPP">
-  <meta property="og:description" content="kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.18.3-00 apt-get install -y kubelet kubeadm kubectl  join node kubeadm token create --print-join-command  swapoff kubelet服务不会正常启动，如果交换分区没有关闭
-dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default Entrypoint and Cmd"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-07-13T00:00:00&#43;00:00">
@@ -501,6 +501,18 @@ dpkg-query -L kubelet  docker Entrypoint vs k8s command     docker k8s     entry
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="create-a-regular-pod">create a regular pod</h1>
+
+<p>必须使用<strong>&ndash;restart=Never</strong></p>
+
+<pre><code>kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh
+</code></pre>
+
+<ul>
+<li>Never acts like a cronjob which is scheduled immediately.</li>
+<li>Always creates a deployment and the deployment monitors the pod and restarts in case of failure.</li>
+</ul>
 
 <h1 id="kubeadm-install-mirror-in-china">kubeadm install mirror in china</h1>
 
