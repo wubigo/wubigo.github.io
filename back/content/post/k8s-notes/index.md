@@ -5,6 +5,17 @@ date: 2017-07-13
 tags: ["K8S", "PAAS"]
 ---
 
+# create a regular pod
+
+必须使用**--restart=Never**
+
+```
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh
+```
+
+- Never acts like a cronjob which is scheduled immediately.
+- Always creates a deployment and the deployment monitors the pod and restarts in case of failure.
+
 # kubeadm install mirror in china
 
 ```
