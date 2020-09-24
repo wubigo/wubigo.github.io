@@ -19,6 +19,24 @@ categories = []
   focal_point = ""
 +++
 
+## PYTHON 镜像
+
+
+>ERROR: Could not install packages due to an EnvironmentError: 
+>HTTPSConnectionPool(host='files.pythonhosted.org', port=443)
+
+
+
+`$HOME/.config/pip/pip.conf` 
+
+```
+[global]
+
+trusted-host=mirrors.aliyun.com
+
+index-url=http://mirrors.aliyun.com/pypi/simple/
+```
+
 ## WINDOWS 10
 
 ```
