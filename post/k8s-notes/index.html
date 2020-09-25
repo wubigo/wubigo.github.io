@@ -28,8 +28,9 @@
   
     
   
-  <meta name="description" content="create a regular pod 必须使用&ndash;restart=Never
-kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.">
+  <meta name="description" content="节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-notes/">
@@ -138,8 +139,9 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/k8s-notes/">
   <meta property="og:title" content="K8S notes | NgAPP">
-  <meta property="og:description" content="create a regular pod 必须使用&ndash;restart=Never
-kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-07-13T00:00:00&#43;00:00">
@@ -501,6 +503,16 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="节点维护">节点维护</h1>
+
+<pre><code>kubectl drain &lt;node name&gt;
+</code></pre>
+
+<p>维护有DaemonSet-managed pod的节点</p>
+
+<pre><code>kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets
+</code></pre>
 
 <h1 id="create-a-regular-pod">create a regular pod</h1>
 

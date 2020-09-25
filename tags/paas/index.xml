@@ -53,8 +53,9 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
-      <description>create a regular pod 必须使用&amp;ndash;restart=Never
-kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &amp;lt;&amp;lt;EOF &amp;gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.</description>
+      <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
     </item>
     
     <item>

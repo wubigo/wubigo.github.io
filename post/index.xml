@@ -88,7 +88,9 @@ com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest   NODEJS https://it
       <pubDate>Tue, 14 Jul 2020 19:44:56 +0800</pubDate>
       
       <guid>https://wubigo.com/post/python3-notes/</guid>
-      <description> WINDOWS 10 Python 3.6.8   File &amp;quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&amp;quot;, line 383, in _get_launcher raise ValueError(msg) ValueError: Unable to find resource t64.exe in package pip._vendor.distlib  python -m pip uninstall pip python -m ensurepip python -m pip install -U pip  </description>
+      <description> PYTHON 镜像  ERROR: Could not install packages due to an EnvironmentError: HTTPSConnectionPool(host=&amp;lsquo;files.pythonhosted.org&amp;rsquo;, port=443)
+ $HOME/.config/pip/pip.conf
+[global] trusted-host=mirrors.aliyun.com index-url=http://mirrors.aliyun.com/pypi/simple/  WINDOWS 10 Python 3.6.8   File &amp;quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&amp;quot;, line 383, in _get_launcher raise ValueError(msg) ValueError: Unable to find resource t64.exe in package pip._vendor.distlib  python -m pip uninstall pip python -m ensurepip python -m pip install -U pip  </description>
     </item>
     
     <item>
@@ -2230,8 +2232,9 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
       <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
-      <description>create a regular pod 必须使用&amp;ndash;restart=Never
-kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &amp;lt;&amp;lt;EOF &amp;gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-cache madison kubeadm apt install kubeadm=1.</description>
+      <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
     </item>
     
     <item>

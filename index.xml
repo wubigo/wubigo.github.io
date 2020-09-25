@@ -200,6 +200,22 @@ aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
       <guid>https://wubigo.com/post/python3-notes/</guid>
       <description>
 
+&lt;h2 id=&#34;python-镜像&#34;&gt;PYTHON 镜像&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ERROR: Could not install packages due to an EnvironmentError:
+HTTPSConnectionPool(host=&amp;lsquo;files.pythonhosted.org&amp;rsquo;, port=443)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;$HOME/.config/pip/pip.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[global]
+
+trusted-host=mirrors.aliyun.com
+
+index-url=http://mirrors.aliyun.com/pypi/simple/
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;windows-10&#34;&gt;WINDOWS 10&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;Python 3.6.8
