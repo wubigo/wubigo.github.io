@@ -5,6 +5,18 @@ date: 2017-07-13
 tags: ["K8S", "PAAS"]
 ---
 
+# 节点维护
+
+```
+kubectl drain <node name>
+```
+
+维护有DaemonSet-managed pod的节点
+
+```
+kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
+```
+
 # create a regular pod
 
 必须使用**--restart=Never**
