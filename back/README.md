@@ -16,6 +16,12 @@ Hugo Static Site Generator v0.56.3
     
     >hugo server -D
 
+# 远程访问
+
+```
+hugo server -D --bind 0.0.0.0
+```
+
 #  Create a new post
 
     >hugo new post/<post-name>/index.md
