@@ -31,6 +31,7 @@ climc service-config-edit region2
 log_level: debug
 log_verbose_level: 10
 enable_host_health_check: false
+enable_ssl: false
 port: 30888
 port_v2: 30888
 ```
