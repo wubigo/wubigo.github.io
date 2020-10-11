@@ -28,10 +28,7 @@
   
     
   
-  <meta name="description" content="blank identifier To ignore one of the values, assign it to the blank identifier :
-links, _ := findLinks(url) // errors ignored for _, url := range os.Args[1:] {  import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
-import path (string) is interpreted but in real life it’s path
-relative package’s vendor directory or go env GOPATH/src">
+  <meta name="description" content="类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value. If x is assignable to T, a &gt;conversion is permitted but is usually redundant.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-notes/">
@@ -140,10 +137,7 @@ relative package’s vendor directory or go env GOPATH/src">
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
   <meta property="og:title" content="GO NOTES | NgAPP">
-  <meta property="og:description" content="blank identifier To ignore one of the values, assign it to the blank identifier :
-links, _ := findLinks(url) // errors ignored for _, url := range os.Args[1:] {  import ImportDeclaration = &quot;import&quot; ImportSpec ImportSpec = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath  According to language spec it depends on the implementation how
-import path (string) is interpreted but in real life it’s path
-relative package’s vendor directory or go env GOPATH/src"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value. If x is assignable to T, a &gt;conversion is permitted but is usually redundant."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-02-11T20:24:49&#43;08:00">
@@ -423,7 +417,7 @@ relative package’s vendor directory or go env GOPATH/src"><meta property="og:i
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    8 min read
+    9 min read
   </span>
   
 
@@ -505,6 +499,12 @@ relative package’s vendor directory or go env GOPATH/src"><meta property="og:i
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h2 id="类型转换操作">类型转换操作</h2>
+
+<blockquote>
+<p>For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value. If x is assignable to T, a &gt;conversion is permitted but is usually redundant.</p>
+</blockquote>
 
 <h2 id="blank-identifier">blank identifier</h2>
 
