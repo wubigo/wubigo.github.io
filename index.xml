@@ -379,6 +379,14 @@ ansible-playbook main.yml -e &amp;quot;provider=local
 
 &lt;pre&gt;&lt;code&gt;systemctl stop wg-quick@wg0
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;更新配置&#34;&gt;更新配置&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo rm -rf /etc/wireguard/*
+rm -rf configs/*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;请确保&lt;code&gt;etc/wireguard/*&lt;/code&gt;下的配置文件被成功删除&lt;/p&gt;
 </description>
     </item>
     
@@ -403,6 +411,11 @@ ansible-playbook main.yml -e &amp;quot;provider=local
 &lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;climc service-config-edit region2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl describe cm default-region -n onecloud
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;region.conf&lt;/code&gt;&lt;/p&gt;

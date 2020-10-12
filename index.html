@@ -1415,8 +1415,9 @@ git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete!
 
     
     <div class="article-style" itemprop="articleBody">
-      config climc service-config-edit region2  region.conf
-log_level: debug log_verbose_level: 10 enable_host_health_check: false …
+      config climc service-config-edit region2  or
+kubectl describe cm default-region -n onecloud  region.conf
+log_level: debug …
     </div>
     
 

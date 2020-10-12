@@ -590,6 +590,14 @@ ansible-playbook main.yml -e &quot;provider=local
 <pre><code>systemctl stop wg-quick@wg0
 </code></pre>
 
+<h2 id="更新配置">更新配置</h2>
+
+<pre><code>sudo rm -rf /etc/wireguard/*
+rm -rf configs/*
+</code></pre>
+
+<p>请确保<code>etc/wireguard/*</code>下的配置文件被成功删除</p>
+
     </div>
 
     
