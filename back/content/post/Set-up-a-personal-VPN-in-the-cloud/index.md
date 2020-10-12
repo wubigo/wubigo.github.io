@@ -106,3 +106,13 @@ Certificates and configuration files that users will need are placed in the conf
 ```
 systemctl stop wg-quick@wg0
 ```
+
+
+## 更新配置
+
+```
+sudo rm -rf /etc/wireguard/*
+rm -rf configs/*
+```
+
+请确保`etc/wireguard/*`下的配置文件被成功删除
