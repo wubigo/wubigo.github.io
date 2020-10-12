@@ -25,6 +25,12 @@ categories = []
 climc service-config-edit region2
 ```
 
+or 
+
+```
+kubectl describe cm default-region -n onecloud
+```
+
 `region.conf`
 
 ```
