@@ -24,11 +24,11 @@ categories = []
 kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
 sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
 
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
 
 
 
-kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \
-    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd
+kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
+    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
 ```
