@@ -5,8 +5,59 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 12:41:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 09:36:06 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>容器工具--Skafflod</title>
+      <link>https://wubigo.com/post/skafflod/</link>
+      <pubDate>Thu, 29 Oct 2020 09:36:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/skafflod/</guid>
+      <description>
+
+&lt;h2 id=&#34;安装kubectl&#34;&gt;安装kubectl&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+cat &amp;lt;&amp;lt;EOF &amp;gt;/etc/apt/sources.list.d/kubernetes.list
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF  
+apt-get update
+apt-get install -y kubectl=1.18.3-00
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Installing bash completion on Linux&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl completion bash &amp;gt; ~/.kube/kubectl.bash.inc
+printf &amp;quot;
+# Kubectl shell completion
+source &#39;$HOME/.kube/kubectl.bash.inc&#39;
+&amp;quot; &amp;gt;&amp;gt; $HOME/.bashrc
+source $HOME/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:GoogleCloudPlatform/microservices-demo.git 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /etc/docker/daemon.json
+
+{
+  &amp;quot;insecure-registries&amp;quot; : [&amp;quot;10.8.5.211&amp;quot;]
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;microservices-demo/src/shippingservice/Dockerfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;RUN go env -w GOPROXY=https://goproxy.cn,direct 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;skaffold run --default-repo=10.8.5.211/library
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Wireguad Vpn Client for Ubuntu</title>
@@ -942,60 +993,6 @@ META: ran handlers
 
 PLAY RECAP ****************************************************************************************************************************
 127.0.0.1                  : ok=61   changed=18   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
-
-
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>通过lynx浏览黑客新网</title>
-      <link>https://wubigo.com/post/lynx-ycombinator/</link>
-      <pubDate>Tue, 16 Jun 2020 13:20:58 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lynx-ycombinator/</guid>
-      <description>&lt;p&gt;最近黑客新网也被墙了，WTF&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lynx https://news.ycombinator.com/news
-
-1.
-
-   Generics and Compile-Time in Rust (pingcap.com)
-   107 points by Bella-Xiang 4 hours ago | hide | 17 comments
-   2.
-
-   Adobe to remove Flash Player from web site after December 2020 (adobe.com)
-   740 points by michaelhoffman 14 hours ago | hide | 412 comments
-   3.
-
-   How many of you know that the team is working on something that no-one wants? (iism.org)
-   255 points by kiyanwang 8 hours ago | hide | 136 comments
-   4.
-
-   Recently minted database technologies that I find intriguing (lucperkins.dev)
-   331 points by biggestlou 9 hours ago | hide | 107 comments
-   5.
-
-   AWS’s Share of Amazon’s Profit (tbray.org)
-   154 points by nurbel 8 hours ago | hide | 82 comments
-   6.
-
-   Model S Long Range Plus: Building the First 400-Mile Electric Vehicle (tesla.com)
-   181 points by Reedx 5 hours ago | hide | 196 comments
-   7.
-
-   Feynman Lectures on the Strong Interactions (columbia.edu)
-   5 points by chmaynard 1 hour ago | hide | discuss
-   8.
-
-   Basics of Pneumatic Logic (hydraulicspneumatics.com)
-   54 points by Koshkin 5 hours ago | hide | 13 comments
-   9.
-
--- press space for next page --
-  Arrow keys: Up and Down to move.  Right to follow a link; Left to go back.
- H)elp O)ptions P)rint G)o M)ain screen Q)uit /=search [delete]=history list
-
 
 
 &lt;/code&gt;&lt;/pre&gt;

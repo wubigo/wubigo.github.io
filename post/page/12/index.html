@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-31T12:41:39&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T09:36:06&#43;08:00">
   
 
   
@@ -397,6 +397,101 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-02-03-numpynotes/" itemprop="url">numpy notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="along-an-axis">along an axis</h1>
+
+<p>Axes are defined for arrays with more than one dimension. A 2-dimensional
+array has two corresponding axes: the first running vertically downwards
+across rows (axis 0), and the second running horizontally across columns (axis 1)</p>
+
+<pre><code>&gt;&gt;&gt;print np.arange(12)
+&gt;&gt;&gt;print np.arange(12).reshape(3, 4)
+&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
+&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2170,89 +2265,6 @@ net user user_cmp /PasswordChg:No
 <li>外部系统和SERVICE的通信问题： 由SERVICE解决</li>
 </ul>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-02-20 14:30:23 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-02-20 14:30:23 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 20, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-iam-notes/" itemprop="url">Aws Iam Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    REMOVE ROLE delete policy before delete role
-aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.
   </div>
   
 

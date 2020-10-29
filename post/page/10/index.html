@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-31T12:41:39&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T09:36:06&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 13, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2145,99 +2229,6 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Ini
     setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
 apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
 sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 11, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/reinstall-a-running-linux-system-via-ssh/" itemprop="url">通过SSH远程修复linux</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>tl;dr</p>
-
-<pre><code>uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso
-sudo mount -t tmpfs  tmpfs /takeover/
-sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd
-cp -rf /mnt/cd/* /takeover/
-curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &gt; busybox
-chmod u+x /takeover/busybox
-git clone https://github.com/marcan/takeover.sh.git
-gcc takeover.sh/fakeinit.c -o ./fakeinit
-</code></pre>
-
   </div>
   
 

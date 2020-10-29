@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-31T12:41:39&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T09:36:06&#43;08:00">
   
 
   
@@ -397,6 +397,119 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 19, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/7-habits-of-highly-effective-programmers/" itemprop="url">高效程序员的7个习惯</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>软件工程师为了找到工作，花费大量的时间在leetcode上刷题</p>
+
+<p>然后为面试制作一份完美的简历。</p>
+
+<p>一旦在创业公司或在FANG巨头中找到自己的心仪的工作，发现</p>
+
+<p>为了面试所做的技术准备在实际工作中根本排不上用场。</p>
+
+<p>下面我们来谈谈我们对于由TechLead首创的高效程序员的7个习惯</p>
+
+<p>的个人看法</p>
+
+<p><img src="/img/post/the-evolution-of-software-architecture.jpeg" alt="" /></p>
+
+<h2 id="学会阅读别人的代码">学会阅读别人的代码</h2>
+
+<h2 id="能快速识别出一个项目是否值得">能快速识别出一个项目是否值得</h2>
+
+<h2 id="避免不必要的会议">避免不必要的会议</h2>
+
+<h2 id="代码管理工具git">代码管理工具git</h2>
+
+<h2 id="书写简单的易维护的代码">书写简单的易维护的代码</h2>
+
+<h2 id="要事优先并学会拒绝">要事优先并学会拒绝</h2>
+
+<h2 id="从运营的角度进行系统设计">从运营的角度进行系统设计</h2>
+
+<p><a href="https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33" target="_blank">https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2309,106 +2422,6 @@ git clone git@github.com:localstack/localstack.git git fetch --all git checkout 
 localstack\docker-compose.yml
  SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
 docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 17, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-as-a-gateway-to-b2/" itemprop="url">Minio配置为B2存储网关</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="配置">配置</h2>
-
-<p><img src="/img/post/minio-gateway-b2.png" alt="" /></p>
-
-<ul>
-<li><p>下载B2 TLS安全证书</p>
-
-<pre><code>openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt
-
-mv b2.crt .minio/certs/CAs/
-
-set MINIO_ACCESS_KEY=B2_keyID
-set MINIO_SECRET_KEY=B2_applicationKey
-minio gateway b2
-</code></pre></li>
-</ul>
-
   </div>
   
 
