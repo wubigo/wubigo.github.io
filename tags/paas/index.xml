@@ -54,7 +54,7 @@ identityProviders: - name: my_allow_provider challenge: true login: true provide
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
       <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &amp;lt;node name&amp;gt;  create a regular pod 必须使用&amp;ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
     </item>
     
