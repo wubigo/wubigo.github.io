@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T16:38:33&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-01-05 10:46:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-01-05 10:46:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 5, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/http-session-management/" itemprop="url">HTTP Session Management</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    COOKIE &amp; HTTP SESSION H5 addition that adds a key/value store to browsers and cookies
+stateful session Some examples of scaling stateful sessions:
+Once you run multiple backend processes on a server: A Redis daemon (on that server) for session storage. Once you run on multiple servers: A dedicated server running Redis just for session storage. Once you run on multiple servers, in multiple clusters: Sticky sessions.  JWT session  Stateless JWT: A JWT token that contains the session data, encoded directly into the token.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2115,88 +2199,6 @@ net user user_cmp /PasswordChg:No
 
 <p><a href="https://www.thoughtworks.com/insights/blog/bff-soundcloud" target="_blank">https://www.thoughtworks.com/insights/blog/bff-soundcloud</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 25, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    7 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-check-config/" itemprop="url">Docker Check Config</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    #!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( '/proc/config.gz' &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; '/usr/src/linux/.config' ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = 'bold' ]; then codes=( &quot;${codes[@]}&quot; '1' ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en.
   </div>
   
 

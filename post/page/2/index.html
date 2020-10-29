@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T16:38:33&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
   
 
   
@@ -397,6 +397,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 13, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/centos-notes/" itemprop="url">Centos Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
+DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network   set the default route on interface
+DEFROUTE=&quot;yes&quot;   删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
+sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2279,130 +2365,6 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
 <p><a href="https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution" target="_blank">https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution</a></p>
 
 <p><a href="https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml" target="_blank">https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 13, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-proxy/" itemprop="url">Docker Proxy for daemon and client</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
-
-<ul>
-<li>systemd level</li>
-</ul>
-
-<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
-
-<pre><code>[Service]
-Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
-</code></pre>
-
-<pre><code>sudo systemctl daemon-reload
-sudo systemctl restart docker
-</code></pre>
-
-<ul>
-<li>service level</li>
-</ul>
-
-<p><code>/etc/default/docker</code></p>
-
-<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
-</code></pre>
-
-<ul>
-<li>daemon level</li>
-</ul>
-
-<p><code>/etc/docker/daemon</code></p>
-
-<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
-
-<p><code>~/.docker/config.json</code></p>
-
-<pre><code>       &quot;proxies&quot;:{
-                &quot;default&quot;:{}
-        }
-
-</code></pre>
 
   </div>
   

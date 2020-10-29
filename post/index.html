@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T16:38:33&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
   
 
   
@@ -422,6 +422,106 @@
 
 
 
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/ubuntu-dns-client/" itemprop="url">Ubuntu Dns Client</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services</p>
+
+<pre><code>sudo cat /run/resolvconf/resolv.conf
+sudo cat /run/dnsmasq/resolv.conf
+sudo cat /etc/systemd/resolved.conf
+</code></pre>
+
+<h2 id="disable-the-local-dns-cache">Disable the local DNS cache</h2>
+
+<p><code>/etc/NetworkManager/NetworkManager.conf</code></p>
+
+<pre><code>#dns=dnsmasq
+</code></pre>
+
+<pre><code>systemctl restart network-manager
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-10-29 16:38:33 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-10-29 16:38:33 &#43;0800 CST" itemprop="dateModified">
 
@@ -473,13 +573,13 @@
     <pre><code>kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
 sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
 
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
 
 
 
-kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \
-    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd
+kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
+    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
 </code></pre>
 
   </div>
@@ -2121,92 +2221,6 @@ lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pin
 net start vmnetdhcp
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 13, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/centos-notes/" itemprop="url">Centos Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
-/etc/sysconfig/network-scripts/ifcfg-enp0s3
-DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network   set the default route on interface
-DEFROUTE=&quot;yes&quot;   删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
-sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.
   </div>
   
 

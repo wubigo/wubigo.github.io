@@ -5,8 +5,35 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Oct 2020 16:38:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 21:59:14 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ubuntu Dns Client</title>
+      <link>https://wubigo.com/post/ubuntu-dns-client/</link>
+      <pubDate>Thu, 29 Oct 2020 21:59:14 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/ubuntu-dns-client/</guid>
+      <description>
+
+&lt;p&gt;Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo cat /run/resolvconf/resolv.conf
+sudo cat /run/dnsmasq/resolv.conf
+sudo cat /etc/systemd/resolved.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;disable-the-local-dns-cache&#34;&gt;Disable the local DNS cache&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/NetworkManager/NetworkManager.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#dns=dnsmasq
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl restart network-manager
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Setup K8s With Kubeadm</title>
@@ -17,13 +44,13 @@
       <description>&lt;pre&gt;&lt;code&gt;kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
 sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
 
-kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
 
 
 
-kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \
-    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd
+kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
+    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -549,15 +576,6 @@ port_v2: 30888
 &lt;pre&gt;&lt;code&gt;AddModelDispatcher
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>I-Just-Hit-$100k-yr-On-GitHub-Sponsors</title>
-      <link>https://wubigo.com/post/i-just-hit-100k-yr-on-github-sponsors/</link>
-      <pubDate>Wed, 24 Jun 2020 08:57:36 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/i-just-hit-100k-yr-on-github-sponsors/</guid>
-      <description></description>
     </item>
     
   </channel>
