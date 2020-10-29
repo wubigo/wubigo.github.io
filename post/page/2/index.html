@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T09:36:06&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T16:38:33&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-05-23 06:32:11 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-05-23 06:32:11 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 23, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/kubeadm-note-update/" itemprop="url">Kubeadm Note Update</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备  iptables
+cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system  install container runtime
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu sudo usermod -aG docker bigo  setup vpn and proxy
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2320,108 +2404,6 @@ sudo systemctl restart docker
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 12, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/use-public-cloud-for-free/" itemprop="url">免费使用公有云服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    [TOC]
-AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码
-git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
-  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
   </div>
   
 

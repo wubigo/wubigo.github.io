@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T09:36:06&#43;08:00">
+  <meta property="og:updated_time" content="2020-10-29T16:38:33&#43;08:00">
   
 
   
@@ -397,6 +397,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    12 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vpn-win-setup/" itemprop="url">Vpn客户端设置参考</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    how-to-allow-local-network-when-using-wireguard-vpn-tunnel  允许非隧道流量
+Open the WireGaurd Windows client. In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel. Hit the Edit button. Uncheck Block untunneled traffic (kill-switch) option  增加本地的网络
+AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1   安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
+配置  更改公钥
+ Endpoint所在的vpn服务器地址
+  https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2216,97 +2309,6 @@ provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Some things worth noting in br_add_if:</p>
-
-<ul>
-<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
-<li>Bridges cannot be added to a bridge.</li>
-<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
-</ul>
-
-<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
-
   </div>
   
 

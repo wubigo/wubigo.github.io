@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \ --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/404.html">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-setup-with-kubeadm/">
 
   
 
@@ -120,7 +120,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/404.html">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-setup-with-kubeadm/">
 
   
   
@@ -135,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/404.html">
-  <meta property="og:title" content="404 Page not found | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-setup-with-kubeadm/">
+  <meta property="og:title" content="Setup K8s With Kubeadm | NgAPP">
+  <meta property="og:description" content="kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \ --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2020-10-29T16:38:33&#43;08:00">
   
+  <meta property="article:modified_time" content="2020-10-29T16:38:33&#43;08:00">
+  
+
   
 
   
 
-  
-
-  <title>404 Page not found | NgAPP</title>
+  <title>Setup K8s With Kubeadm | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -361,62 +363,189 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Perhaps you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
-  
-  <h2>Posts</h2>
-  
-  <ul>
-    <li><a href="/post/k8s-setup-with-kubeadm/">Setup K8s With Kubeadm</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/skafflod/">容器工具--Skafflod</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/wireguard-vpn-client-for-ubuntu/">Wireguad Vpn Client for Ubuntu</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/nginx-root-vs-alias/">Nginx Root vs Alias</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/cloud-native-data-center-network/">Cloud Native Data Center Network</a></li>
-  </ul>
-  
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Setup K8s With Kubeadm</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2020-10-29 16:38:33 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-10-29 16:38:33 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
 
   
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2020</time>
+  </span>
   
-  <h2>Projects</h2>
+
   
-  <ul>
-    <li><a href="/project/vpn/">VPN</a></li>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Setup%20K8s%20With%20Kubeadm&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-setup-with-kubeadm%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-setup-with-kubeadm%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-setup-with-kubeadm%2f&amp;title=Setup%20K8s%20With%20Kubeadm"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-setup-with-kubeadm%2f&amp;title=Setup%20K8s%20With%20Kubeadm"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Setup%20K8s%20With%20Kubeadm&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-setup-with-kubeadm%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-  
-  <ul>
-    <li><a href="/project/noserver/">函数计算</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/sds/">大数据存储</a></li>
-  </ul>
-  
+</div>
+
+
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <pre><code>kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
+sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
+
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+
+
+
+
+kubeadm join 10.8.3.222:6443 --token awon9z.by860tstxwytcw8z \
+    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533c847ad032c5e77c6121eea6ae679ebd
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
