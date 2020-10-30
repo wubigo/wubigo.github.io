@@ -40,3 +40,9 @@ sudo cat /etc/systemd/resolved.conf
 ```
 systemctl restart network-manager
 ```
+
+
+
+```
+sudo systemctl disable dnsmasq
+```
