@@ -46,3 +46,7 @@ systemctl restart network-manager
 ```
 sudo systemctl disable dnsmasq
 ```
+
+
+
+https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/

@@ -68,6 +68,14 @@ cat /etc/docker/daemon.json
 RUN go env -w GOPROXY=https://goproxy.cn,direct 
 ```
 
+
+`microservices-demo/src/recommendationservice/Dockerfile`
+
+```
+ENV DISABLE_DEBUGGER=1
+ENV DISABLE_PROFILER=1
+```
+
 ## 
 
 ```
