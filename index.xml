@@ -74,6 +74,15 @@ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
     --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;检查dns-1&#34;&gt;检查DNS&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl run -it busybox --image=busybox --restart=Never -- sh
+If you don&#39;t see a command prompt, try pressing enter.
+/ # nslookup kubernetes
+Server:         10.96.0.10
+Address:        10.96.0.10:53
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -130,6 +139,9 @@ ENV DISABLE_PROFILER=1
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;skaffold run --default-repo=10.8.5.211/library
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl port-forward deployment/frontend 8080:8080
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
