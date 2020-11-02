@@ -81,3 +81,9 @@ ENV DISABLE_PROFILER=1
 ```
 skaffold run --default-repo=10.8.5.211/library
 ```
+
+
+
+```
+kubectl port-forward deployment/frontend 8080:8080
+```

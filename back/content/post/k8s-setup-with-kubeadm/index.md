@@ -50,3 +50,13 @@ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
     --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
 ```
+
+## 检查DNS
+
+```
+kubectl run -it busybox --image=busybox --restart=Never -- sh
+If you don't see a command prompt, try pressing enter.
+/ # nslookup kubernetes
+Server:         10.96.0.10
+Address:        10.96.0.10:53
+```
