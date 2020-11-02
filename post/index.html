@@ -470,28 +470,9 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<p>Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services</p>
-
-<pre><code>sudo cat /run/resolvconf/resolv.conf
-sudo cat /run/dnsmasq/resolv.conf
-sudo cat /etc/systemd/resolved.conf
-</code></pre>
-
-<h2 id="disable-the-local-dns-cache">Disable the local DNS cache</h2>
-
-<p><code>/etc/NetworkManager/NetworkManager.conf</code></p>
-
-<pre><code>#dns=dnsmasq
-</code></pre>
-
-<pre><code>systemctl restart network-manager
-</code></pre>
-
-<pre><code>sudo systemctl disable dnsmasq
-</code></pre>
-
+    Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
+sudo cat /run/resolvconf/resolv.conf sudo cat /run/dnsmasq/resolv.conf sudo cat /etc/systemd/resolved.conf  Disable the local DNS cache /etc/NetworkManager/NetworkManager.conf
+#dns=dnsmasq  systemctl restart network-manager  sudo systemctl disable dnsmasq  https://www.
   </div>
   
 
@@ -685,7 +666,8 @@ kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
   <div class="article-style" itemprop="articleBody">
     安装kubectl curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-get install -y kubectl=1.18.3-00   Installing bash completion on Linux
 kubectl completion bash &gt; ~/.kube/kubectl.bash.inc printf &quot; # Kubectl shell completion source '$HOME/.kube/kubectl.bash.inc' &quot; &gt;&gt; $HOME/.bashrc source $HOME/.bashrc   git clone git@github.com:GoogleCloudPlatform/microservices-demo.git  cat /etc/docker/daemon.json { &quot;insecure-registries&quot; : [&quot;10.8.5.211&quot;] }  microservices-demo/src/shippingservice/Dockerfile
-RUN go env -w GOPROXY=https://goproxy.cn,direct  skaffold run --default-repo=10.
+RUN go env -w GOPROXY=https://goproxy.cn,direct  microservices-demo/src/recommendationservice/Dockerfile
+ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10.
   </div>
   
 

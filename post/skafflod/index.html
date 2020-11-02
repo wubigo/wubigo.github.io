@@ -30,7 +30,8 @@
   
   <meta name="description" content="安装kubectl curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-get install -y kubectl=1.18.3-00   Installing bash completion on Linux
 kubectl completion bash &gt; ~/.kube/kubectl.bash.inc printf &quot; # Kubectl shell completion source &#39;$HOME/.kube/kubectl.bash.inc&#39; &quot; &gt;&gt; $HOME/.bashrc source $HOME/.bashrc   git clone git@github.com:GoogleCloudPlatform/microservices-demo.git  cat /etc/docker/daemon.json { &quot;insecure-registries&quot; : [&quot;10.8.5.211&quot;] }  microservices-demo/src/shippingservice/Dockerfile
-RUN go env -w GOPROXY=https://goproxy.cn,direct  skaffold run --default-repo=10.">
+RUN go env -w GOPROXY=https://goproxy.cn,direct  microservices-demo/src/recommendationservice/Dockerfile
+ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/skafflod/">
@@ -141,7 +142,8 @@ RUN go env -w GOPROXY=https://goproxy.cn,direct  skaffold run --default-repo=10.
   <meta property="og:title" content="容器工具--Skafflod | NgAPP">
   <meta property="og:description" content="安装kubectl curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main EOF apt-get update apt-get install -y kubectl=1.18.3-00   Installing bash completion on Linux
 kubectl completion bash &gt; ~/.kube/kubectl.bash.inc printf &quot; # Kubectl shell completion source &#39;$HOME/.kube/kubectl.bash.inc&#39; &quot; &gt;&gt; $HOME/.bashrc source $HOME/.bashrc   git clone git@github.com:GoogleCloudPlatform/microservices-demo.git  cat /etc/docker/daemon.json { &quot;insecure-registries&quot; : [&quot;10.8.5.211&quot;] }  microservices-demo/src/shippingservice/Dockerfile
-RUN go env -w GOPROXY=https://goproxy.cn,direct  skaffold run --default-repo=10."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+RUN go env -w GOPROXY=https://goproxy.cn,direct  microservices-demo/src/recommendationservice/Dockerfile
+ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-10-29T09:36:06&#43;08:00">
@@ -540,6 +542,12 @@ source $HOME/.bashrc
 <p><code>microservices-demo/src/shippingservice/Dockerfile</code></p>
 
 <pre><code>RUN go env -w GOPROXY=https://goproxy.cn,direct 
+</code></pre>
+
+<p><code>microservices-demo/src/recommendationservice/Dockerfile</code></p>
+
+<pre><code>ENV DISABLE_DEBUGGER=1
+ENV DISABLE_PROFILER=1
 </code></pre>
 
 <pre><code>skaffold run --default-repo=10.8.5.211/library

@@ -35,6 +35,8 @@ sudo cat /etc/systemd/resolved.conf
 
 &lt;pre&gt;&lt;code&gt;sudo systemctl disable dnsmasq
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&#34; target=&#34;_blank&#34;&gt;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -119,6 +121,12 @@ source $HOME/.bashrc
 &lt;p&gt;&lt;code&gt;microservices-demo/src/shippingservice/Dockerfile&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;RUN go env -w GOPROXY=https://goproxy.cn,direct 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;microservices-demo/src/recommendationservice/Dockerfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ENV DISABLE_DEBUGGER=1
+ENV DISABLE_PROFILER=1
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;skaffold run --default-repo=10.8.5.211/library
