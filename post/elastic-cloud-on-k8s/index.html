@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  单节点 apiVersion: elasticsearch.k8s.elastic.co/v1 kind: Elasticsearch metadata: name: quickstart spec: version: 7.9.3 nodeSets: - name: default count: 1 config: node.master: true node.data: true node.">
+  <meta name="description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV localPath.yaml
+apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;  单节点 apiVersion: elasticsearch.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/elastic-cloud-on-k8s/">
@@ -137,7 +138,8 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/elastic-cloud-on-k8s/">
   <meta property="og:title" content="ECK notes | NgAPP">
-  <meta property="og:description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  单节点 apiVersion: elasticsearch.k8s.elastic.co/v1 kind: Elasticsearch metadata: name: quickstart spec: version: 7.9.3 nodeSets: - name: default count: 1 config: node.master: true node.data: true node."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV localPath.yaml
+apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;  单节点 apiVersion: elasticsearch."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-11-02T18:03:25&#43;08:00">
@@ -511,6 +513,26 @@
 kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 </code></pre>
 
+<h2 id="创建pv">创建PV</h2>
+
+<p><code>localPath.yaml</code></p>
+
+<pre><code>apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: localPath
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: &quot;/mnt/data&quot;
+</code></pre>
+
 <h2 id="单节点">单节点</h2>
 
 <pre><code>apiVersion: elasticsearch.k8s.elastic.co/v1
@@ -527,6 +549,16 @@ spec:
       node.data: true
       node.ingest: true
       node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: localPath
 </code></pre>
 
     </div>

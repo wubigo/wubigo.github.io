@@ -710,7 +710,8 @@ client-key-data: REDACTED
 <pre><code>kubectl create serviceaccount tiller --namespace kube-system
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>or</p>
 
@@ -718,15 +719,15 @@ kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.K8S.io/v1beta1
 metadata:
-name: tiller-clusterrolebinding
+  name: tiller-clusterrolebinding
 subjects:
 - kind: ServiceAccount
-name: tiller
-namespace: kube-system
+  name: tiller
+  namespace: kube-system
 roleRef:
-kind: ClusterRole
-name: cluster-admin
-apiGroup: &quot;&quot;
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: &quot;&quot;
 
 docker pull registry.cn-beijing.aliyuncs.com/k4s/tiller:v2.12.3
 
@@ -740,81 +741,76 @@ helm init --service-account tiller --upgrade
 helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,
 </code></pre>
 
-<p>alertmanager:
-  enabled: false
-  name: p-alertmanager</p>
+<h1 id="pvc-using-local-pv">PVC using local PV</h1>
 
-<p>server:
-  name: prometheus880</p>
+<ul>
+<li><p>create PVC</p>
 
-<pre><code>
-# PVC using local PV
-- create PVC
-
-</code></pre></li>
-</ul>
-
-<p>cat storage-class-hdd.yaml
+<pre><code>cat storage-class-hdd.yaml 
 apiVersion: storage.K8S.io/v1
 kind: StorageClass
 metadata:
- name: local-hdd
+name: local-hdd
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer</p>
+volumeBindingMode: WaitForFirstConsumer
+</code></pre></li>
+</ul>
 
-<pre><code>&gt;kubectl apply -f  storage-class-hdd.yaml
+<blockquote>
+<p>kubectl apply -f  storage-class-hdd.yaml</p>
+</blockquote>
 
-- create local PV
+<ul>
+<li><p>create local PV</p>
 
-</code></pre>
-
-<p>cat local_volume.yaml
+<pre><code>cat local_volume.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-hdd
+name: local-hdd
 spec:
-  capacity:
-    storage: 8Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-hdd
-  local:
-    path: /mnt/pv/
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - bigo-vm4</p>
+capacity:
+storage: 8Gi
+volumeMode: Filesystem
+accessModes:
+- ReadWriteOnce
+persistentVolumeReclaimPolicy: Delete
+storageClassName: local-hdd
+local:
+path: /mnt/pv/
+nodeAffinity:
+required:
+  nodeSelectorTerms:
+  - matchExpressions:
+    - key: kubernetes.io/hostname
+      operator: In
+      values:
+      - bigo-vm4
+</code></pre></li>
+</ul>
 
-<pre><code>
-&gt;kubectl apply -f local_volume.yaml
+<blockquote>
+<p>kubectl apply -f local_volume.yaml</p>
+</blockquote>
 
-PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
+<p>PersistentVolume nodeAffinity is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.</p>
 
-PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+<p>PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.</p>
 
-When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
+<p>When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity</p>
 
+<h1 id="port-forwarding-a-local-port-to-a-port-on-k8s">Port Forwarding a local port to a port on K8S</h1>
 
-# Port Forwarding a local port to a port on K8S
-</code></pre>
-
-<p>kubectl port-forward <podname> 9090:9090
+<pre><code>kubectl port-forward &lt;podname&gt; 9090:9090
 or
-kubectl port-forward pods/<podname> 9090:9090
+kubectl port-forward pods/&lt;podname&gt; 9090:9090
 or
 kubectl port-forward deployment/prometheus  9090:9090
 or
 kubectl port-forward svc/prometheus  9090:9090
 or
 kubectl port-forward rs/prometheus  9090:9090
-```</p>
+</code></pre>
 
     </div>
 

@@ -27,6 +27,26 @@
 kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;创建pv&#34;&gt;创建PV&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;localPath.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: localPath
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: &amp;quot;/mnt/data&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;单节点&#34;&gt;单节点&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
@@ -43,6 +63,16 @@ spec:
       node.data: true
       node.ingest: true
       node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: localPath
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
