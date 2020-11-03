@@ -60,7 +60,8 @@ spec:
 
 - Local volume
 
-***Local volumes do not currently support dynamic provisioning***
+**Local volumes do not currently support dynamic provisioning**
+**创建目录/mnt/pv**
 
 `sc.yaml`
 
@@ -99,9 +100,6 @@ spec:
           values:
           - ssh
 ```
-
-创建目录/mnt/pv
-
 
 ## 单节点
 
