@@ -60,3 +60,51 @@ If you don't see a command prompt, try pressing enter.
 Server:         10.96.0.10
 Address:        10.96.0.10:53
 ```
+
+## 为calico的KDD安装calicoctl(POD)
+
+```
+kubectl apply -f https://docs.projectcalico.org/manifests/calicoctl.yaml
+alias calicoctl="kubectl exec -i -n kube-system calicoctl -- /calicoctl"
+calicoctl get node
+```
+
+
+**calicoctl node status用法提示**
+
+- calicoctl的版本必须和calico-node版本一致才能正常工作
+
+- 必须在calico-node所在的节点上运行在命令
+
+
+```
+bigo@bigo-s3:~$ export DATASTORE_TYPE=kubernetes
+bigo@bigo-s3:~$ export KUBECONFIG=~/.kube/config
+bigo@bigo-s3:~$ sudo ./calicoctl node status
+Calico process is running.
+
+IPv4 BGP status
++--------------+-------------------+-------+------------+-------------+
+| PEER ADDRESS |     PEER TYPE     | STATE |   SINCE    |    INFO     |
++--------------+-------------------+-------+------------+-------------+
+| 10.8.3.211   | node-to-node mesh | up    | 2020-10-30 | Established |
++--------------+-------------------+-------+------------+-------------+
+
+IPv6 BGP status
+No IPv6 peers found.
+
+bigo@bigo-s3:~$ sudo ./calicoctl version
+Client Version:    v3.11.3
+Git commit:        05f36cc8
+no etcd endpoints specified
+bigo@bigo-s3:~$ alias calicoctl="kubectl exec -i -n kube-system calicoctl -- /calicoctl"
+bigo@bigo-s3:~$ calicoctl version
+Client Version:    v3.16.4
+Git commit:        51418082
+Cluster Version:   v3.11.3
+Cluster Type:      k8s,bgp,kdd
+bigo@bigo-s3:~$ calicoctl node status
+Calico process is not running.
+command terminated with exit code 1
+
+```
