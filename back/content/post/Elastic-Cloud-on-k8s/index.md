@@ -34,6 +34,27 @@ kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml
 kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 ```
 
+## 创建PV
+
+`localPath.yaml`
+
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: localPath
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+```
+
 ## 单节点
 
 
@@ -52,5 +73,15 @@ spec:
       node.data: true
       node.ingest: true
       node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: localPath
 ```
 

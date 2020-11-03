@@ -94,12 +94,14 @@ users:
 - Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
 
 - Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
+
 ```
 kubectl create serviceaccount tiller --namespace kube-system
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ```
 or
+
 ```
 cat tiller-clusterrolebinding.yaml
 kind: ClusterRoleBinding
@@ -130,15 +132,9 @@ helm install --name prometheus stable/prometheus
 helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false,
 ```
 
-    alertmanager:
-	  enabled: false
-      name: p-alertmanager
-    
-	server:
-      name: prometheus880
-```
 
 # PVC using local PV
+
 - create PVC
 
 ```
@@ -150,6 +146,7 @@ metadata:
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ```
+
 >kubectl apply -f  storage-class-hdd.yaml
 
 - create local PV
