@@ -34,7 +34,10 @@ kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml
 kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 ```
 
-## 创建PV
+## 创建PV(两种方法任选其一)
+
+
+- hostPath
 
 `localPath.yaml`
 
@@ -54,6 +57,51 @@ spec:
   hostPath:
     path: "/mnt/data"
 ```
+
+- Local volume
+
+***Local volumes do not currently support dynamic provisioning***
+
+`sc.yaml`
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+
+`local-pv.yaml`
+
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-hdd
+spec:
+  capacity:
+    storage: 200Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-hdd
+  local:
+    path: /mnt/pv/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - ssh
+```
+
+创建目录/mnt/pv
+
 
 ## 单节点
 

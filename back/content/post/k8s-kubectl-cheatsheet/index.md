@@ -147,6 +147,13 @@ provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ```
 
+**v1.18.3**
+
+```
+apiVersion: storage.k8s.io/v1
+```
+
+
 >kubectl apply -f  storage-class-hdd.yaml
 
 - create local PV
@@ -184,6 +191,10 @@ PersistentVolume nodeAffinity is required when using local volumes. It enables t
 PersistentVolume volumeMode can now be set to “Block” (instead of the default value “Filesystem”) to expose the local volume as a raw block device. The volumeMode field requires BlockVolume Alpha feature gate to be enabled.
 
 When using local volumes, it is recommended to create a StorageClass with volumeBindingMode set to WaitForFirstConsumer. See the example. Delaying volume binding ensures that the PersistentVolumeClaim binding decision will also be evaluated with any other node constraints the Pod may have, such as node resource requirements, node selectors, Pod affinity, and Pod anti-affinity
+
+- 
+
+https://www.nebulaworks.com/blog/2019/08/27/leveraging-aws-ebs-for-kubernetes-persistent-volumes/
 
 
 # Port Forwarding a local port to a port on K8S
