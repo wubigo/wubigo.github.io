@@ -61,7 +61,7 @@ Server:         10.96.0.10
 Address:        10.96.0.10:53
 ```
 
-## 为calico的KDD安装calicoctl(POD)
+## 为calico的KDD安装calicoctl(calico/ctl:v3.11.3 POD)
 
 ```
 kubectl apply -f https://docs.projectcalico.org/manifests/calicoctl.yaml
@@ -108,3 +108,5 @@ Calico process is not running.
 command terminated with exit code 1
 
 ```
+
+https://docs.projectcalico.org/getting-started/clis/calicoctl/install
