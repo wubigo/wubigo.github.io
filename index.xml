@@ -27,7 +27,11 @@
 kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;创建pv&#34;&gt;创建PV&lt;/h2&gt;
+&lt;h2 id=&#34;创建pv-两种方法任选其一&#34;&gt;创建PV(两种方法任选其一)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;hostPath&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;code&gt;localPath.yaml&lt;/code&gt;&lt;/p&gt;
 
@@ -46,6 +50,50 @@ spec:
   hostPath:
     path: &amp;quot;/mnt/data&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Local volume&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Local volumes do not currently support dynamic provisioning&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sc.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;local-pv.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-hdd
+spec:
+  capacity:
+    storage: 200Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-hdd
+  local:
+    path: /mnt/pv/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - ssh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;创建目录/mnt/pv&lt;/p&gt;
 
 &lt;h2 id=&#34;单节点&#34;&gt;单节点&lt;/h2&gt;
 
