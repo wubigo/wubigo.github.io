@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
   
 
   
@@ -397,6 +397,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-19 16:46:13 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-11-19 16:46:13 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 19, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-get-sqs-notification-on-s3-object-creation/" itemprop="url">基于local stack的本地S3对象创建通知</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }  create s3 notification config
+cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }  make notification effect
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2141,89 +2226,6 @@ JavaScript. How does the browser read that?
 
 <p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 10, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cmp-onecloud-source-code-dev-note/" itemprop="url">Onecloud Source Code Dev Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    删除 systemctl list-unit-files --all | grep yunion systemctl disable yunion-executor systemctl disable yunion-registry systemctl disable kubelet rm -rf /opt/yunion systemctl disable libvirtd.service ip link set virbr0 down brctl delbr virbr0  operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
-WEB 前端代码是很多 git 仓库组成的，需要用 &lsquo;yarn sync release/3.
   </div>
   
 

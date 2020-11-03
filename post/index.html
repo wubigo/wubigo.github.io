@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 2, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/elastic-cloud-on-k8s/" itemprop="url">ECK notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  单节点 apiVersion: elasticsearch.k8s.elastic.co/v1 kind: Elasticsearch metadata: name: quickstart spec: version: 7.9.3 nodeSets: - name: default count: 1 config: node.master: true node.data: true node.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2092,109 +2174,6 @@ lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pin
 <p>Fast Identity Online (FIDO)</p>
 
 <p>WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 14, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vmware-vm-static-ip/" itemprop="url">分配Vmware虚机静态IP</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="虚机网卡地址">虚机网卡地址</h2>
-
-<p><img src="/img/post/vmare-static-ip.png" alt="" /></p>
-
-<h2 id="配置静态ip">配置静态IP</h2>
-
-<p><code>C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf</code></p>
-
-<pre><code>host VMnet8 {
-    hardware ethernet 00:0C:29:23:AV:67;
-    fixed-address 192.168.137.170;
-}
-</code></pre>
-
-<h2 id="重启vmware-dhcp服务">重启VMWARE DHCP服务</h2>
-
-<pre><code>net stop vmnetdhcp
-net start vmnetdhcp
-</code></pre>
 
   </div>
   

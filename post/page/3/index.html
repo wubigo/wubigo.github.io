@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-10-29T21:59:14&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
   
 
   
@@ -397,6 +397,101 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-16 09:39:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 16, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/start-your-own-isp/" itemprop="url">宽带服务</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><a href="https://news.ycombinator.com/item?id=20726906" target="_blank">https://news.ycombinator.com/item?id=20726906</a></p>
+
+<p><a href="https://news.ycombinator.com/item?id=17067144" target="_blank">ISP Starter Kit</a></p>
+
+<p><a href="http://www.wispa.org/Resources/HOW-TO-START-A-WISP" target="_blank">http://www.wispa.org/Resources/HOW-TO-START-A-WISP</a></p>
+
+<p>wireless fiber</p>
+
+<p>5G mobile broadband</p>
+
+<p><a href="https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution" target="_blank">https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution</a></p>
+
+<p><a href="https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml" target="_blank">https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2233,139 +2328,6 @@ kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Lo
     track http redirection  http://wubigo.com/post -&gt; http://wubigo.com/post/ -&gt; https://wubigo.com/post/
 curl -IL http://wubigo.com/post
  HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-18 13:55:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-18 13:55:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 18, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-client/" itemprop="url">Minio Client</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="安装mc">安装mc</h2>
-
-<p><a href="https://dl.min.io/client/mc/release/windows-amd64/mc.exe" target="_blank">https://dl.min.io/client/mc/release/windows-amd64/mc.exe</a></p>
-
-<pre><code>mc config host add b2 http://192.168.1.3:9000   B2_keyID B2_applicationKey
-
-</code></pre>
-
-<ul>
-<li><p>本地文件同步到b2</p>
-
-<pre><code>mc cp -r . b2/wubigo/
-</code></pre></li>
-</ul>
-
-<h2 id="安装s3cmd">安装S3CMD</h2>
-
-<pre><code>https://github.com/s3tools/s3cmd/releases/download/v2.0.2/s3cmd-2.0.2.tar.gz
-
-sudo python setup.py install
-
-</code></pre>
-
-<p><code>~/.s3cfg</code></p>
-
-<pre><code># Setup endpoint
-host_base = http://192.168.1.3:9000
-host_bucket = http://192.168.1.3:9000
-bucket_location = us-east-1
-use_https = True
-
-# Setup access keys
-access_key =  Q3AM3UQ867SPQQA43P2F
-secret_key = zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG
-
-# Enable S3 v4 signature APIs
-signature_v2 = False
-</code></pre>
-
-<ul>
-<li><p>同步本地文件到B2</p>
-
-<pre><code>s3cmd sync . s3://wubigo/
-</code></pre></li>
-</ul>
-
-<h2 id="总结">总结</h2>
-
-<p>在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍</p>
-
   </div>
   
 

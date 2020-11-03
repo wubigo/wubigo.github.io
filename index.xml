@@ -5,8 +5,47 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Oct 2020 21:59:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 18:03:25 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ECK notes</title>
+      <link>https://wubigo.com/post/elastic-cloud-on-k8s/</link>
+      <pubDate>Mon, 02 Nov 2020 18:03:25 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/elastic-cloud-on-k8s/</guid>
+      <description>
+
+&lt;h2 id=&#34;什么是eck&#34;&gt;什么是ECK&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-elasticsearch-crd&#34;&gt;install Elasticsearch CRD&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml
+kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;单节点&#34;&gt;单节点&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: quickstart
+spec:
+  version: 7.9.3
+  nodeSets:
+  - name: default
+    count: 1
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+      node.store.allow_mmap: false
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Ubuntu Dns Client</title>
@@ -535,86 +574,6 @@ rm -rf configs/*
       
       <guid>https://wubigo.com/post/multi-cloud-serverless-platform/</guid>
       <description>&lt;p&gt;The size of the market for multiparty, multicloud data and code aggregation is enormous and only grows larger as companies capture every last bit of data. Vendia’s serverless-based technology offers benefits such as ease of experimentation, no operational heavy lifting and a pay-as-you-go pricing model, making it both very consumable and highly disruptive&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Cmp Onecloud Region Code</title>
-      <link>https://wubigo.com/post/cmp-onecloud-region-code/</link>
-      <pubDate>Tue, 30 Jun 2020 12:49:12 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/cmp-onecloud-region-code/</guid>
-      <description>
-
-&lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;climc service-config-edit region2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl describe cm default-region -n onecloud
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;region.conf&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;log_level: debug
-log_verbose_level: 10
-enable_host_health_check: false
-enable_ssl: false
-port: 30888
-port_v2: 30888
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;依赖的模块&#34;&gt;依赖的模块&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;HTTP web framework&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;github.com/gin-gonic/gin
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ORM&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;https://github.com/go-gorm/gorm
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;region-endpoint&#34;&gt;region endpoint&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;climc endpoint-show b0d33d8b370c42418cb3c6e51442c072
-+--------------------+----------------------------------+
-|       Field        |              Value               |
-+--------------------+----------------------------------+
-| can_delete         | false                            |
-| can_update         | true                             |
-| created_at         | 2020-06-23T03:03:20.000000Z      |
-| deleted            | false                            |
-| enabled            | true                             |
-| id                 | b0d33d8b370c42418cb3c6e51442c072 |
-| interface          | public                           |
-| is_emulated        | false                            |
-| name               | compute_v2-public                |
-| public_key_bit_len | 0                                |
-| region_id          | region0                          |
-| service_id         | fb54a285aa3e4c848298148596011aa1 |
-| service_name       | region2                          |
-| service_type       | compute_v2                       |
-| update_version     | 0                                |
-| updated_at         | 2020-06-23T03:03:20.000000Z      |
-| url                | https://10.8.3.247:30888         |
-+--------------------+----------------------------------+
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;https://10.8.3.247:30888/stats
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;web-controller&#34;&gt;WEB CONTROLLER&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;pkg\appsrv\dispatcher\dispatcher.go&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;AddModelDispatcher
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
