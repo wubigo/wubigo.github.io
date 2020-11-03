@@ -471,7 +471,7 @@
   
   <div class="article-style" itemprop="articleBody">
     什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
-apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning
+apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv
   </div>
   
 
