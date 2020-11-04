@@ -601,6 +601,24 @@ ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
 <pre><code>kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 </code></pre>
 
+<h2 id="重新安装">重新安装</h2>
+
+<pre><code>kubeadm reset
+</code></pre>
+
+<ul>
+<li><p>刷新所有的链（-F），删除所有的非默认链（-X）</p>
+
+<pre><code>iptables -F
+iptables -X
+
+iptables -nvL
+</code></pre>
+
+<pre><code>kubeadm token create --print-join-command
+</code></pre></li>
+</ul>
+
     </div>
 
     
