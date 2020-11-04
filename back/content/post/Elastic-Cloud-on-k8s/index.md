@@ -208,3 +208,39 @@ curl -u "elastic:8FfgPZu0985bAm2x4243ncxJ" -k "https://10.101.24.19:9200"
 
 
 ```
+
+
+## 安装kibana
+
+`kibana.yml`
+
+```
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: quickstart
+spec:
+  version: 7.9.3
+  count: 1
+  elasticsearchRef:
+    name: quickstart
+    namespace: default
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+```
+
+```
+kubectl get svc
+NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)               AGE
+kubernetes                ClusterIP   10.96.0.1        <none>        443/TCP               10h
+quickstart-es-default     ClusterIP   None             <none>        9200/TCP              8h
+quickstart-es-http        ClusterIP   10.101.24.19     <none>        9200/TCP              8h
+quickstart-es-transport   ClusterIP   None             <none>        9300/TCP              8h
+quickstart-kb-http        ClusterIP   10.110.209.226   <none>        5601/TCP              15m
+
+
+kubectl port-forward service/quickstart-kb-http 5601
+```
+
