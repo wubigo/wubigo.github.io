@@ -6,10 +6,21 @@
     <description>Recent content in Posts on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Nov 2020 18:03:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 15:58:19 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Skywalking on K8s</title>
+      <link>https://wubigo.com/post/skywalking-on-k8s/</link>
+      <pubDate>Wed, 04 Nov 2020 15:58:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/skywalking-on-k8s/</guid>
+      <description>安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
+安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
+oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &amp;quot;elastic&amp;quot; #[optional] password: &amp;quot;8FfgPZu0985bAm2x4243ncxJ&amp;quot; # [optional]  helm install &amp;quot;${SKYWALKING_RELEASE_NAME}&amp;quot; skywalking -n &amp;quot;${SKYWALKING_RELEASE_NAMESPACE}&amp;quot; \ -f .</description>
+    </item>
     
     <item>
       <title>ECK notes</title>
@@ -18,7 +29,7 @@
       
       <guid>https://wubigo.com/post/elastic-cloud-on-k8s/</guid>
       <description>什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
-apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &amp;quot;/mnt/data&amp;quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv</description>
+apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &amp;quot;/mnt/data&amp;quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv</description>
     </item>
     
     <item>
@@ -2277,7 +2288,7 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
       
       <guid>https://wubigo.com/post/k8s-notes/</guid>
       <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &amp;lt;node name&amp;gt;  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &amp;lt;node name&amp;gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&amp;ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
     </item>
     

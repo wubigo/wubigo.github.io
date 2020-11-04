@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-04T15:58:19&#43;08:00">
   
 
   
@@ -397,6 +397,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-06-07 14:44:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-06-07 14:44:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 7, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/anycast-with-ipv4/" itemprop="url">泛播IPV4</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    What is anycast? Anycast, also known as IP anycast, is a networking technique that allows for multiple machines to share the same IP address. Based on the location of the user request, the routers send it to the machine in the network that is closest. This is beneficial since, among other things, it reduces latency and increases redundancy. If a particular data center were to go offline, an anycasted IP would choose the best path for users and automatically redirect them to the next closest data center.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2233,94 +2315,6 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
   
   <div class="article-style" itemprop="articleBody">
     INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin + | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <ul>
-<li><p>whether MySQL Server supports partitioning</p>
-
-<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
-</code></pre></li>
-</ul>
-
   </div>
   
 

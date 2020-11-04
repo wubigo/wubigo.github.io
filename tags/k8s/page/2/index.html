@@ -453,7 +453,7 @@ Local volumes can only be used as a statically created PersistentVolume. Dynamic
     <div class="article-style">
       
       节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt;  create a regular pod 必须使用&ndash;restart=Never
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.
       
     </div>

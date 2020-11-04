@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-04T15:58:19&#43;08:00">
   
 
   
@@ -397,6 +397,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <ul>
+<li><p>whether MySQL Server supports partitioning</p>
+
+<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
+</code></pre></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2122,119 +2210,6 @@ ENTRYPOINT [&quot;/tiller&quot;]
 </blockquote>
 
 <h1 id="util">util</h1>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-04-10 19:42:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-04-10 19:42:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 10, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="常用工具">常用工具</h2>
-
-<ul>
-<li>cport</li>
-</ul>
-
-<p><a href="https://www.nirsoft.net/utils/cports.html" target="_blank">https://www.nirsoft.net/utils/cports.html</a></p>
-
-<h2 id="turn-on-ie-proxy">turn on IE proxy</h2>
-
-<pre><code>@ECHO OFF
-ECHO Turn on proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
-</code></pre>
-
-<h2 id="turn-off-ie-proxy">turn off IE proxy</h2>
-
-<pre><code>@ECHO OFF
-ECHO Turn off IE Proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
-</code></pre>
-
-<h2 id="禁止用户修改密码">禁止用户修改密码</h2>
-
-<pre><code>net users
-net user /add cmp cmp
-net user cmp /PasswordChg:No
-WMIC USERACCOUNT WHERE Name='cmp' SET PasswordExpires=FALSE
-</code></pre>
 
   </div>
   

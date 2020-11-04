@@ -587,6 +587,20 @@ command terminated with exit code 1
 
 <p><a href="https://docs.projectcalico.org/getting-started/clis/calicoctl/install" target="_blank">https://docs.projectcalico.org/getting-started/clis/calicoctl/install</a></p>
 
+<h2 id="ubuntu-20">ubuntu 20</h2>
+
+<p>安装完后确保没有使用本地DNS缓存</p>
+
+<pre><code>unlink /etc/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
+</code></pre>
+
+<pre><code>[FATAL][1783] int_dataplane.go 1035: Kernel's RPF check is set to 'loose'.  This would allow endpoints to spoof their IP address.  Calico requires net.ipv4.conf.all.rp_filter to be set to 0 or 1. If you require loose RPF and you are not concerned about spoofing, this check can be disabled by setting the IgnoreLooseRPF configuration parameter to 'true'.
+</code></pre>
+
+<pre><code>kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
+</code></pre>
+
     </div>
 
     

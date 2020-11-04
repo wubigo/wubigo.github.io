@@ -5,8 +5,82 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Nov 2020 18:03:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 15:58:19 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Skywalking on K8s</title>
+      <link>https://wubigo.com/post/skywalking-on-k8s/</link>
+      <pubDate>Wed, 04 Nov 2020 15:58:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/skywalking-on-k8s/</guid>
+      <description>
+
+&lt;h2 id=&#34;安装eck-禁用tls&#34;&gt;安装ECK(禁用TLS)&lt;/h2&gt;
+
+&lt;p&gt;[](/post/elastic-cloud-on-k8s/)&lt;/p&gt;
+
+&lt;h2 id=&#34;安装helm3&#34;&gt;安装helm3&lt;/h2&gt;
+
+&lt;h2 id=&#34;安装skywalking8&#34;&gt;安装skywalking8&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:wubigo/skywalking-kubernetes.git
+cd skywalking-kubernetes/chart
+helm repo add elastic https://helm.elastic.co
+helm dep up skywalking
+export SKYWALKING_RELEASE_NAME=skywalking
+export SKYWALKING_RELEASE_NAMESPACE=default  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置ES&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;skywalking/values-my-es.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;oap:
+  image:
+    tag: 8.1.0-es7      # Set the right tag according to the existing Elasticsearch version
+  storageType: elasticsearch7
+
+ui:
+  image:
+    tag: 8.1.0
+
+elasticsearch:
+  enabled: false
+  config:               
+    host: 10.101.24.19
+    port:
+      http: 9200
+    user: &amp;quot;elastic&amp;quot;         #[optional]
+    password: &amp;quot;8FfgPZu0985bAm2x4243ncxJ&amp;quot;     # [optional]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;helm install &amp;quot;${SKYWALKING_RELEASE_NAME}&amp;quot; skywalking -n &amp;quot;${SKYWALKING_RELEASE_NAMESPACE}&amp;quot; \
+  -f ./skywalking/values-my-es.yaml
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;检查&#34;&gt;检查&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl get svc
+NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)               AGE
+kubernetes                ClusterIP   10.96.0.1        &amp;lt;none&amp;gt;        443/TCP               4h31m
+quickstart-es-default     ClusterIP   None             &amp;lt;none&amp;gt;        9200/TCP              123m
+quickstart-es-http        ClusterIP   10.101.24.19     &amp;lt;none&amp;gt;        9200/TCP              123m
+quickstart-es-transport   ClusterIP   None             &amp;lt;none&amp;gt;        9300/TCP              123m
+skywalking-oap            ClusterIP   10.105.155.189   &amp;lt;none&amp;gt;        12800/TCP,11800/TCP   8m4s
+skywalking-ui             ClusterIP   10.111.140.232   &amp;lt;none&amp;gt;        80/TCP                8m4s
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl port-forward service/skywalking-ui 8080:80
+
+curl http://localhost:8080
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>ECK notes</title>
@@ -38,11 +112,11 @@ kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 &lt;pre&gt;&lt;code&gt;apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: es-pv-volume
   labels:
     type: local
 spec:
-  storageClassName: localPath
+  storageClassName: local-hdd
   capacity:
     storage: 200Gi
   accessModes:
@@ -96,6 +170,8 @@ spec:
 
 &lt;h2 id=&#34;单节点&#34;&gt;单节点&lt;/h2&gt;
 
+&lt;p&gt;&lt;code&gt;es.yml&lt;/code&gt;&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
@@ -119,7 +195,42 @@ spec:
         resources:
           requests:
             storage: 100Gi
-        storageClassName: localPath
+        storageClassName: local-hdd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;禁用tls&#34;&gt;禁用TLS&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;es-no-tls.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: quickstart
+spec:
+  version: 7.9.3
+  nodeSets:
+  - name: default
+    count: 1
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+      node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: local-hdd
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl get elasticsearch
@@ -137,6 +248,17 @@ quickstart   green    1       7.9.3     Ready   50m
 &lt;li&gt;&lt;p&gt;密码&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl get secret quickstart-es-elastic-user -o go-template=&#39;{{.data.elastic | base64decode}}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl port-forward service/quickstart-es-http 9200
+
+
+curl -u &amp;quot;elastic:$PASSWORD&amp;quot; -k &amp;quot;https://localhost:9200&amp;quot;
+
+curl -u &amp;quot;elastic:8FfgPZu0985bAm2x4243ncxJ&amp;quot; -k &amp;quot;https://10.101.24.19:9200&amp;quot;
+
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -266,6 +388,20 @@ command terminated with exit code 1
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://docs.projectcalico.org/getting-started/clis/calicoctl/install&#34; target=&#34;_blank&#34;&gt;https://docs.projectcalico.org/getting-started/clis/calicoctl/install&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ubuntu-20&#34;&gt;ubuntu 20&lt;/h2&gt;
+
+&lt;p&gt;安装完后确保没有使用本地DNS缓存&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;unlink /etc/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;[FATAL][1783] int_dataplane.go 1035: Kernel&#39;s RPF check is set to &#39;loose&#39;.  This would allow endpoints to spoof their IP address.  Calico requires net.ipv4.conf.all.rp_filter to be set to 0 or 1. If you require loose RPF and you are not concerned about spoofing, this check can be disabled by setting the IgnoreLooseRPF configuration parameter to &#39;true&#39;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -708,16 +844,6 @@ rm -rf configs/*
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;请确保&lt;code&gt;etc/wireguard/*&lt;/code&gt;下的配置文件被成功删除&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Multi Cloud Serverless Platform</title>
-      <link>https://wubigo.com/post/multi-cloud-serverless-platform/</link>
-      <pubDate>Fri, 03 Jul 2020 05:27:46 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/multi-cloud-serverless-platform/</guid>
-      <description>&lt;p&gt;The size of the market for multiparty, multicloud data and code aggregation is enormous and only grows larger as companies capture every last bit of data. Vendia’s serverless-based technology offers benefits such as ease of experimentation, no operational heavy lifting and a pay-as-you-go pricing model, making it both very consumable and highly disruptive&lt;/p&gt;
 </description>
     </item>
     

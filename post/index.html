@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-11-02T18:03:25&#43;08:00">
+  <meta property="og:updated_time" content="2020-11-04T15:58:19&#43;08:00">
   
 
   
@@ -422,8 +422,8 @@
 
 
 
-<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="dateModified">
+<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -436,7 +436,7 @@
     
       
     
-    <time>Nov 2, 2020</time>
+    <time>Nov 4, 2020</time>
   </span>
   
 
@@ -465,13 +465,97 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/skywalking-on-k8s/" itemprop="url">Skywalking on K8s</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
+安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
+oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &quot;elastic&quot; #[optional] password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot; # [optional]  helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \ -f .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 2, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/elastic-cloud-on-k8s/" itemprop="url">ECK notes</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
-apiVersion: v1 kind: PersistentVolume metadata: name: task-pv-volume labels: type: local spec: storageClassName: localPath capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv
+apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv
   </div>
   
 
@@ -2087,95 +2171,6 @@ mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root
   <div class="article-style" itemprop="articleBody">
     最近黑客新网也被墙了，WTF
 lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pingcap.com) 107 points by Bella-Xiang 4 hours ago | hide | 17 comments 2. Adobe to remove Flash Player from web site after December 2020 (adobe.com) 740 points by michaelhoffman 14 hours ago | hide | 412 comments 3. How many of you know that the team is working on something that no-one wants? (iism.org) 255 points by kiyanwang 8 hours ago | hide | 136 comments 4.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-16 05:36:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-16 05:36:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 16, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/webauthn-fido/" itemprop="url">Webauthn notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="fido">FIDO</h2>
-
-<p>Fast Identity Online (FIDO)</p>
-
-<p>WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance</p>
-
   </div>
   
 

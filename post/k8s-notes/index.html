@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt;  create a regular pod 必须使用&ndash;restart=Never
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.">
 
   
@@ -140,7 +140,7 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
   <meta property="og:url" content="https://wubigo.com/post/k8s-notes/">
   <meta property="og:title" content="K8S notes | NgAPP">
   <meta property="og:description" content="节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt;  create a regular pod 必须使用&ndash;restart=Never
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -513,6 +513,8 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
 <pre><code>kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets
 kubectl delete node &lt;node name&gt;
+sudo iptables -F
+sudo iptables -S
 </code></pre>
 
 <h1 id="create-a-regular-pod">create a regular pod</h1>

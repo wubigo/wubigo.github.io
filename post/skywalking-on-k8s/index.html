@@ -28,11 +28,12 @@
   
     
   
-  <meta name="description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
-apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv">
+  <meta name="description" content="安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
+安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
+oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &quot;elastic&quot; #[optional] password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot; # [optional]  helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \ -f .">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/elastic-cloud-on-k8s/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/skywalking-on-k8s/">
 
   
 
@@ -121,7 +122,7 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/elastic-cloud-on-k8s/">
+  <link rel="canonical" href="https://wubigo.com/post/skywalking-on-k8s/">
 
   
   
@@ -136,22 +137,23 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/elastic-cloud-on-k8s/">
-  <meta property="og:title" content="ECK notes | NgAPP">
-  <meta property="og:description" content="什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
-apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/skywalking-on-k8s/">
+  <meta property="og:title" content="Skywalking on K8s | NgAPP">
+  <meta property="og:description" content="安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
+安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
+oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &quot;elastic&quot; #[optional] password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot; # [optional]  helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \ -f ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2020-11-02T18:03:25&#43;08:00">
+  <meta property="article:published_time" content="2020-11-04T15:58:19&#43;08:00">
   
-  <meta property="article:modified_time" content="2020-11-02T18:03:25&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2020-11-04T15:58:19&#43;08:00">
   
 
   
 
-  <title>ECK notes | NgAPP</title>
+  
+
+  <title>Skywalking on K8s | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -387,7 +389,7 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">ECK notes</h1>
+  <h1 itemprop="name">Skywalking on K8s</h1>
 
   
 
@@ -396,8 +398,8 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
 
 
 
-<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="dateModified">
+<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -410,7 +412,7 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
     
       
     
-    <time>Nov 2, 2020</time>
+    <time>Nov 4, 2020</time>
   </span>
   
 
@@ -419,7 +421,7 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
@@ -434,35 +436,35 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=ECK%20notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2felastic-cloud-on-k8s%2f"
+         href="https://twitter.com/intent/tweet?text=Skywalking%20on%20K8s&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fskywalking-on-k8s%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2felastic-cloud-on-k8s%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fskywalking-on-k8s%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2felastic-cloud-on-k8s%2f&amp;title=ECK%20notes"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fskywalking-on-k8s%2f&amp;title=Skywalking%20on%20K8s"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2felastic-cloud-on-k8s%2f&amp;title=ECK%20notes"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fskywalking-on-k8s%2f&amp;title=Skywalking%20on%20K8s"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=ECK%20notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2felastic-cloud-on-k8s%2f">
+         href="mailto:?subject=Skywalking%20on%20K8s&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fskywalking-on-k8s%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -502,177 +504,69 @@ apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type:
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="什么是eck">什么是ECK</h2>
+<h2 id="安装eck-禁用tls">安装ECK(禁用TLS)</h2>
 
-<pre><code>Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes
-</code></pre>
+<p>[](/post/elastic-cloud-on-k8s/)</p>
 
-<h2 id="install-elasticsearch-crd">install Elasticsearch CRD</h2>
+<h2 id="安装helm3">安装helm3</h2>
 
-<pre><code>kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml
-kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
-</code></pre>
+<h2 id="安装skywalking8">安装skywalking8</h2>
 
-<h2 id="创建pv-两种方法任选其一">创建PV(两种方法任选其一)</h2>
-
-<ul>
-<li>hostPath</li>
-</ul>
-
-<p><code>localPath.yaml</code></p>
-
-<pre><code>apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: es-pv-volume
-  labels:
-    type: local
-spec:
-  storageClassName: local-hdd
-  capacity:
-    storage: 200Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: &quot;/mnt/data&quot;
+<pre><code>git clone git@github.com:wubigo/skywalking-kubernetes.git
+cd skywalking-kubernetes/chart
+helm repo add elastic https://helm.elastic.co
+helm dep up skywalking
+export SKYWALKING_RELEASE_NAME=skywalking
+export SKYWALKING_RELEASE_NAMESPACE=default  
 </code></pre>
 
 <ul>
-<li>Local volume</li>
+<li>配置ES</li>
 </ul>
 
-<p><strong>Local volumes do not currently support dynamic provisioning</strong>
-<strong>创建目录/mnt/pv</strong></p>
+<p><code>skywalking/values-my-es.yaml</code></p>
 
-<p><code>sc.yaml</code></p>
+<pre><code>oap:
+  image:
+    tag: 8.1.0-es7      # Set the right tag according to the existing Elasticsearch version
+  storageType: elasticsearch7
 
-<pre><code>apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: local-storage
-provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+ui:
+  image:
+    tag: 8.1.0
+
+elasticsearch:
+  enabled: false
+  config:               
+    host: 10.101.24.19
+    port:
+      http: 9200
+    user: &quot;elastic&quot;         #[optional]
+    password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot;     # [optional]
 </code></pre>
 
-<p><code>local-pv.yaml</code></p>
-
-<pre><code>apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-hdd
-spec:
-  capacity:
-    storage: 200Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-hdd
-  local:
-    path: /mnt/pv/
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - ssh
-</code></pre>
-
-<h2 id="单节点">单节点</h2>
-
-<p><code>es.yml</code></p>
-
-<pre><code>apiVersion: elasticsearch.k8s.elastic.co/v1
-kind: Elasticsearch
-metadata:
-  name: quickstart
-spec:
-  version: 7.9.3
-  nodeSets:
-  - name: default
-    count: 1
-    config:
-      node.master: true
-      node.data: true
-      node.ingest: true
-      node.store.allow_mmap: false
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 100Gi
-        storageClassName: local-hdd
-</code></pre>
-
-<h2 id="禁用tls">禁用TLS</h2>
-
-<p><code>es-no-tls.yml</code></p>
-
-<pre><code>apiVersion: elasticsearch.k8s.elastic.co/v1
-kind: Elasticsearch
-metadata:
-  name: quickstart
-spec:
-  version: 7.9.3
-  nodeSets:
-  - name: default
-    count: 1
-    config:
-      node.master: true
-      node.data: true
-      node.ingest: true
-      node.store.allow_mmap: false
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 100Gi
-        storageClassName: local-hdd
-  http:
-    tls:
-      selfSignedCertificate:
-        disabled: true
-
-</code></pre>
-
-<pre><code>kubectl get elasticsearch
-NAME         HEALTH   NODES   VERSION   PHASE   AGE
-quickstart   green    1       7.9.3     Ready   50m
+<pre><code>helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \
+  -f ./skywalking/values-my-es.yaml
 
 </code></pre>
 
 <h2 id="检查">检查</h2>
 
-<pre><code>kubectl get service quickstart-es-http
+<pre><code>kubectl get svc
+NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)               AGE
+kubernetes                ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP               4h31m
+quickstart-es-default     ClusterIP   None             &lt;none&gt;        9200/TCP              123m
+quickstart-es-http        ClusterIP   10.101.24.19     &lt;none&gt;        9200/TCP              123m
+quickstart-es-transport   ClusterIP   None             &lt;none&gt;        9300/TCP              123m
+skywalking-oap            ClusterIP   10.105.155.189   &lt;none&gt;        12800/TCP,11800/TCP   8m4s
+skywalking-ui             ClusterIP   10.111.140.232   &lt;none&gt;        80/TCP                8m4s
+
 </code></pre>
 
-<ul>
-<li><p>密码</p>
+<pre><code>kubectl port-forward service/skywalking-ui 8080:80
 
-<pre><code>kubectl get secret quickstart-es-elastic-user -o go-template='{{.data.elastic | base64decode}}'
+curl http://localhost:8080
 </code></pre>
-
-<pre><code>kubectl port-forward service/quickstart-es-http 9200
-
-
-curl -u &quot;elastic:$PASSWORD&quot; -k &quot;https://localhost:9200&quot;
-
-curl -u &quot;elastic:8FfgPZu0985bAm2x4243ncxJ&quot; -k &quot;https://10.101.24.19:9200&quot;
-
-
-
-</code></pre></li>
-</ul>
 
     </div>
 
