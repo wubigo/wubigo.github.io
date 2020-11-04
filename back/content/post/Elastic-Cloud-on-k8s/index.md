@@ -45,11 +45,11 @@ kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: es-pv-volume
   labels:
     type: local
 spec:
-  storageClassName: localPath
+  storageClassName: local-hdd
   capacity:
     storage: 200Gi
   accessModes:
@@ -57,6 +57,9 @@ spec:
   hostPath:
     path: "/mnt/data"
 ```
+
+
+
 
 - Local volume
 
@@ -103,6 +106,7 @@ spec:
 
 ## 单节点
 
+`es.yml`
 
 ```
 apiVersion: elasticsearch.k8s.elastic.co/v1
@@ -128,9 +132,45 @@ spec:
         resources:
           requests:
             storage: 100Gi
-        storageClassName: localPath
+        storageClassName: local-hdd
 ```
 
+
+## 禁用TLS
+
+`es-no-tls.yml`
+
+```
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: quickstart
+spec:
+  version: 7.9.3
+  nodeSets:
+  - name: default
+    count: 1
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+      node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: local-hdd
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+
+```
 
 
 ```
@@ -153,4 +193,18 @@ kubectl get service quickstart-es-http
 
 ```
 kubectl get secret quickstart-es-elastic-user -o go-template='{{.data.elastic | base64decode}}'
+```
+
+
+
+```
+kubectl port-forward service/quickstart-es-http 9200
+
+
+curl -u "elastic:$PASSWORD" -k "https://localhost:9200"
+
+curl -u "elastic:8FfgPZu0985bAm2x4243ncxJ" -k "https://10.101.24.19:9200"
+
+
+
 ```
