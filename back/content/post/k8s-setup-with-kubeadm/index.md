@@ -74,13 +74,14 @@ calicoctl get node
 
 - calicoctl的版本必须和calico-node版本一致才能正常工作
 
-- 必须在calico-node所在的节点上运行在命令
+- 必须在calico-node所在的节点上运行该命令
 
 
 ```
-bigo@bigo-s3:~$ export DATASTORE_TYPE=kubernetes
-bigo@bigo-s3:~$ export KUBECONFIG=~/.kube/config
-bigo@bigo-s3:~$ sudo ./calicoctl node status
+curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.11.3/calicoctl
+export DATASTORE_TYPE=kubernetes
+export KUBECONFIG=~/.kube/config
+sudo ./calicoctl node status
 Calico process is running.
 
 IPv4 BGP status

@@ -20,6 +20,13 @@ categories = []
 +++
 
 
+# 容器网络
+
+容器网络方案 = 接入 + 流控 + 通道
+
+![](/img/container-netowork.png)
+
+
 
 
 # docker默认的网络

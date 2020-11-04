@@ -131,3 +131,26 @@ spec:
         storageClassName: localPath
 ```
 
+
+
+```
+kubectl get elasticsearch
+NAME         HEALTH   NODES   VERSION   PHASE   AGE
+quickstart   green    1       7.9.3     Ready   50m
+
+```
+
+
+## 检查
+
+
+```
+kubectl get service quickstart-es-http
+```
+
+
+- 密码
+
+```
+kubectl get secret quickstart-es-elastic-user -o go-template='{{.data.elastic | base64decode}}'
+```
