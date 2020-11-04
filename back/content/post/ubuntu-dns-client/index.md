@@ -1,5 +1,5 @@
 +++
-title = "Ubuntu Dns Client"
+title = "在Ubuntu上禁用DNS本地缓存 "
 date = 2020-10-29T21:59:14+08:00
 draft = false
 
