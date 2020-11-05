@@ -293,6 +293,224 @@ quickstart-kb-http        ClusterIP   10.110.209.226   &amp;lt;none&amp;gt;     
 
 kubectl port-forward service/quickstart-kb-http 5601
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;安装filebeat&#34;&gt;安装filebeat&lt;/h2&gt;
+
+&lt;p&gt;Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an&lt;/p&gt;
+
+&lt;p&gt;agent on your servers, Filebeat monitors the log files or locations that you specify,&lt;/p&gt;
+
+&lt;p&gt;collects log events, and forwards them either to Elasticsearch or Logstash for indexing.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -L -O https://raw.githubusercontent.com/elastic/beats/7.9/deploy/kubernetes/filebeat-kubernetes.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-config  
+  labels:
+    k8s-app: filebeat
+data:
+  filebeat.yml: |-
+    # filebeat.inputs:
+    # - type: container
+    #   paths:
+    #     - /var/log/containers/*.log
+    #   processors:
+    #     - add_kubernetes_metadata:
+    #         host: ${NODE_NAME}
+    #         matchers:
+    #         - logs_path:
+    #             logs_path: &amp;quot;/var/log/containers/&amp;quot;
+    filebeat.autodiscover:
+     providers:
+       - type: kubernetes
+         node: ${NODE_NAME}
+         hints.enabled: true
+         hints.default_config:
+           type: container
+           paths:
+             - /var/log/containers/*${data.kubernetes.container.id}.log
+    processors:
+      - add_cloud_metadata:
+      - add_host_metadata:
+      - add_locale: ~
+    cloud.id: ${ELASTIC_CLOUD_ID}
+    cloud.auth: ${ELASTIC_CLOUD_AUTH}
+    output.elasticsearch:
+      hosts: [&#39;http://${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}&#39;]
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+      ssl.enabled: false
+      ssl.certificate_authorities:
+      - /mnt/elastic/tls.crt
+    setup.dashboards.enabled: true
+    setup.kibana:
+      host: &amp;quot;http://${KIBANA_HOST}:5601&amp;quot;
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+      protocol: &amp;quot;http&amp;quot;
+      ssl.enabled: false
+    filebeat.config:
+      modules:
+        path: ${path.config}/modules.d/*.yml
+        reload.enabled: false
+    filebeat.modules:
+      - module: system
+        syslog:
+          enabled: true
+          var.paths: [&amp;quot;/var/log/messages&amp;quot;]
+          var.convert_timezone: true
+        auth:
+          enabled: true
+          var.paths: [&amp;quot;/var/log/secure&amp;quot;]
+          var.convert_timezone: true
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: filebeat
+  labels:
+    k8s-app: filebeat
+spec:
+  selector:
+    matchLabels:
+      k8s-app: filebeat
+  template:
+    metadata:
+      labels:
+        k8s-app: filebeat
+    spec:
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      serviceAccountName: filebeat
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: filebeat
+        image: docker.elastic.co/beats/filebeat:7.9.3
+        args: [
+          &amp;quot;-c&amp;quot;, &amp;quot;/etc/filebeat.yml&amp;quot;,
+          &amp;quot;-e&amp;quot;,
+        ]
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: quickstart-es-http
+        - name: ELASTICSEARCH_PORT
+          value: &amp;quot;9200&amp;quot;
+        - name: ELASTICSEARCH_USERNAME
+          value: elastic
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: elastic
+              name: quickstart-es-elastic-user
+        - name: KIBANA_HOST
+          value: quickstart-kb-http
+        - name: ELASTIC_CLOUD_ID
+          value:
+        - name: ELASTIC_CLOUD_AUTH
+          value:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        securityContext:
+          runAsUser: 0
+          # If using Red Hat OpenShift uncomment this:
+          #privileged: true
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - name: config
+          mountPath: /etc/filebeat.yml
+          readOnly: true
+          subPath: filebeat.yml
+        - name: data
+          mountPath: /usr/share/filebeat/data
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+        - name: varlog
+          mountPath: /var/log
+          readOnly: true
+        - name: es-certs
+          mountPath: /mnt/elastic/tls.crt
+          readOnly: true
+          subPath: tls.crt
+        - name: localtime
+          mountPath: /etc/localtime
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          defaultMode: 0600
+          name: filebeat-config
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+      - name: varlog
+        hostPath:
+          path: /var/log
+      # data folder stores a registry of read status for all files, so we don&#39;t send everything again on a Filebeat pod restart
+      - name: data
+        hostPath:
+          path: /var/lib/filebeat-data
+          type: DirectoryOrCreate
+      - name: es-certs
+        secret:
+          secretName: quickstart-es-http-certs-public
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+          type: File
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: filebeat
+subjects:
+- kind: ServiceAccount
+  name: filebeat
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: filebeat
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: filebeat
+  labels:
+    k8s-app: filebeat
+rules:
+- apiGroups: [&amp;quot;&amp;quot;] # &amp;quot;&amp;quot; indicates the core API group
+  resources:
+  - namespaces
+  - pods
+  verbs:
+  - get
+  - watch
+  - list
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: filebeat
+  labels:
+    k8s-app: filebeat
+---
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
