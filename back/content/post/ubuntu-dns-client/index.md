@@ -47,6 +47,18 @@ systemctl restart network-manager
 sudo systemctl disable dnsmasq
 ```
 
+## ubuntu 20.04
+
+```
+ls -l /etc/resolv.conf
+/etc/resolv.conf -> /run/systemd/resolve/stub-resolv.conf
+
+unlink /etc/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+```
+
 
 
 https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/
+
+
