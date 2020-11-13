@@ -55,6 +55,9 @@ ls -l /etc/resolv.conf
 
 unlink /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+
+sudo ip route del default  dev enp1s0
 ```
 
 
