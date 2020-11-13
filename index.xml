@@ -549,6 +549,9 @@ sudo cat /etc/systemd/resolved.conf
 
 unlink /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+
+sudo ip route del default  dev enp1s0
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&#34; target=&#34;_blank&#34;&gt;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&lt;/a&gt;&lt;/p&gt;
