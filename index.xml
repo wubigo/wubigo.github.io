@@ -542,6 +542,15 @@ sudo cat /etc/systemd/resolved.conf
 &lt;pre&gt;&lt;code&gt;sudo systemctl disable dnsmasq
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;ubuntu-20-04&#34;&gt;ubuntu 20.04&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;ls -l /etc/resolv.conf
+/etc/resolv.conf -&amp;gt; /run/systemd/resolve/stub-resolv.conf
+
+unlink /etc/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;a href=&#34;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&#34; target=&#34;_blank&#34;&gt;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
