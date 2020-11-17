@@ -526,6 +526,8 @@ sudo cat /etc/systemd/resolved.conf
 
 <h2 id="ubuntu-20-04">ubuntu 20.04</h2>
 
+<p>双网卡或局域网加无线网主机，路由指向通一个路由器</p>
+
 <pre><code>ls -l /etc/resolv.conf
 /etc/resolv.conf -&gt; /run/systemd/resolve/stub-resolv.conf
 
@@ -533,7 +535,7 @@ unlink /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 
-sudo ip route del default  dev enp1s0
+sudo ip route del default  dev wlp2s0
 </code></pre>
 
 <p><a href="https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/" target="_blank">https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/</a></p>
