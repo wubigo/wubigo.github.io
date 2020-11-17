@@ -49,6 +49,9 @@ sudo systemctl disable dnsmasq
 
 ## ubuntu 20.04
 
+
+双网卡或局域网加无线网主机，路由指向通一个路由器
+
 ```
 ls -l /etc/resolv.conf
 /etc/resolv.conf -> /run/systemd/resolve/stub-resolv.conf
@@ -57,7 +60,7 @@ unlink /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 
-sudo ip route del default  dev enp1s0
+sudo ip route del default  dev wlp2s0
 ```
 
 
