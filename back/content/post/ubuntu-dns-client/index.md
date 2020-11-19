@@ -68,3 +68,12 @@ sudo ip route del default  dev wlp2s0
 https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/
 
 
+## 更新IP地址
+
+
+To renew or release an IP address for the eth0 interface, enter:
+
+```
+sudo dhclient -r eth0
+sudo dhclient eth0
+```s
