@@ -35,6 +35,20 @@ nameserver 114.114.114.114
 
 [详细说明](/post/ubuntu-dns-client/)
 
+## Letting iptables see bridged traffic
+
+```
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sudo sysctl --system
+```
+
+## 安装kubeadm
+
+[kubeadm install mirror in china](/post/k8s-notes/)
+
 
 ## 安装
 
@@ -44,7 +58,7 @@ sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
 
 kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
-
+kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 
 
 kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
