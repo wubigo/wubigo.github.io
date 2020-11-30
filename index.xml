@@ -618,6 +618,19 @@ nameserver 114.114.114.114
 
 &lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/ubuntu-dns-client/&#34;&gt;详细说明&lt;/a&gt;&lt;/p&gt;
 
+&lt;h2 id=&#34;letting-iptables-see-bridged-traffic&#34;&gt;Letting iptables see bridged traffic&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sudo sysctl --system
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;安装kubeadm&#34;&gt;安装kubeadm&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-notes/&#34;&gt;kubeadm install mirror in china&lt;/a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
@@ -625,7 +638,7 @@ sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
 
 kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
-
+kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 
 
 kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
