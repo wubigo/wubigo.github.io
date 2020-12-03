@@ -43,3 +43,7 @@ Actually, in Elasticsearch, our data is stored and indexed in shards, while an i
 
 In a relational database, we usually store objects of the same class in the same table, because they share the same data structure. For the same reason, in Elasticsearch we use the same type for documents that represent the same class of thing, because they share the same data structure.
 Every type has its own mapping or schema definition, which defines the data structure for documents of that type, much like the columns in a database table. Documents of all types can be stored in the same index, but the mapping for the type tells Elasticsearch how the data in each document should be indexed
+
+
+An index is just a logical namespace that points to one or more physical shards.
+A shard is a low-level worker unit that holds just a slice of all the data in the index
