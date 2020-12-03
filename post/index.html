@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-11-24T09:26:24&#43;08:00">
+  <meta property="og:updated_time" content="2020-12-03T10:11:12&#43;08:00">
   
 
   
@@ -397,6 +397,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 3, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-deprecate-dockershim/" itemprop="url">Deprecate Dockershim</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2090,93 +2174,6 @@ https://github.com/go-gorm/gorm   region endpoint climc endpoint-show b0d33d8b37
     <a href="/post/i-just-hit-100k-yr-on-github-sponsors/" itemprop="url">I-Just-Hit-$100k-yr-On-GitHub-Sponsors</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 19, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    49 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/" itemprop="url">从源代码构建Onecloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    系统设置 /etc/yum.conf
-obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
-安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
-安装kubelet
-OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
-  </div>
   
 
   

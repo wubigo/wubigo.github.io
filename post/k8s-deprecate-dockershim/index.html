@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/404.html">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-deprecate-dockershim/">
 
   
 
@@ -120,7 +122,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/404.html">
+  <link rel="canonical" href="https://wubigo.com/post/k8s-deprecate-dockershim/">
 
   
   
@@ -135,19 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/404.html">
-  <meta property="og:title" content="404 Page not found | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-deprecate-dockershim/">
+  <meta property="og:title" content="Deprecate Dockershim | NgAPP">
+  <meta property="og:description" content="Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2020-12-03T10:11:12&#43;08:00">
   
+  <meta property="article:modified_time" content="2020-12-03T10:11:12&#43;08:00">
+  
+
   
 
   
 
-  
-
-  <title>404 Page not found | NgAPP</title>
+  <title>Deprecate Dockershim | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -361,62 +367,189 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Perhaps you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
-  
-  <h2>Posts</h2>
-  
-  <ul>
-    <li><a href="/post/k8s-deprecate-dockershim/">Deprecate Dockershim</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/elastic-search-notes/">Elastic Search Notes</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/skywalking-on-k8s/">Skywalking on K8s</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/elastic-cloud-on-k8s/">ECK notes</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/ubuntu-dns-client/">在Ubuntu上禁用DNS本地缓存 </a></li>
-  </ul>
-  
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Deprecate Dockershim</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
 
   
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 3, 2020</time>
+  </span>
   
-  <h2>Projects</h2>
+
   
-  <ul>
-    <li><a href="/project/vpn/">VPN</a></li>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Deprecate%20Dockershim&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-deprecate-dockershim%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-deprecate-dockershim%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-deprecate-dockershim%2f&amp;title=Deprecate%20Dockershim"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-deprecate-dockershim%2f&amp;title=Deprecate%20Dockershim"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Deprecate%20Dockershim&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-deprecate-dockershim%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-  
-  <ul>
-    <li><a href="/project/noserver/">函数计算</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/sds/">大数据存储</a></li>
-  </ul>
-  
+</div>
+
+
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.</p>
+
+<p>However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.</p>
+
+<p>Does that mean using docker as your runtime is deprecated? I don&rsquo;t think so. You just have to use docker via a CRI layer instead of via the in-process dockershim layer. Since there hasn&rsquo;t been a need until now for an out-of-process cri-&gt;docker-api translation layer, there isn&rsquo;t a well supported one I don&rsquo;t think, but now that they&rsquo;ve announced the intent to remove dockershim, I have no doubt that there will be a supported cri -&gt; docker layer before long.</p>
+
+<p>Maybe the docker project will add built-in support for exposing a CRI interface and save us an extra daemon (as containerd did).</p>
+
+<p>In short, the title&rsquo;s misleading from my understanding. The Kubelet is removing the special-cased dockershim, but k8s distributions that ship with docker as the runtime should be able to run a cri-&gt;docker layer to retain docker support.</p>
+
+<p>For more info on this, see the discussion on this pr: <a href="https://github.com/kubernetes/kubernetes/pull/94624" target="_blank">https://github.com/kubernetes/kubernetes/pull/94624</a></p>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2020 09:26:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Dec 2020 10:11:12 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deprecate Dockershim</title>
+      <link>https://wubigo.com/post/k8s-deprecate-dockershim/</link>
+      <pubDate>Thu, 03 Dec 2020 10:11:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-deprecate-dockershim/</guid>
+      <description>Kubernetes is removing the &amp;ldquo;dockershim&amp;rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?</description>
+    </item>
     
     <item>
       <title>Elastic Search Notes</title>

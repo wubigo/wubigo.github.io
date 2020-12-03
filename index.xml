@@ -5,8 +5,28 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2020 09:26:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Dec 2020 10:11:12 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deprecate Dockershim</title>
+      <link>https://wubigo.com/post/k8s-deprecate-dockershim/</link>
+      <pubDate>Thu, 03 Dec 2020 10:11:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-deprecate-dockershim/</guid>
+      <description>&lt;p&gt;Kubernetes is removing the &amp;ldquo;dockershim&amp;rdquo;, which is special in-process support the kubelet has for docker.&lt;/p&gt;
+
+&lt;p&gt;However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.&lt;/p&gt;
+
+&lt;p&gt;Does that mean using docker as your runtime is deprecated? I don&amp;rsquo;t think so. You just have to use docker via a CRI layer instead of via the in-process dockershim layer. Since there hasn&amp;rsquo;t been a need until now for an out-of-process cri-&amp;gt;docker-api translation layer, there isn&amp;rsquo;t a well supported one I don&amp;rsquo;t think, but now that they&amp;rsquo;ve announced the intent to remove dockershim, I have no doubt that there will be a supported cri -&amp;gt; docker layer before long.&lt;/p&gt;
+
+&lt;p&gt;Maybe the docker project will add built-in support for exposing a CRI interface and save us an extra daemon (as containerd did).&lt;/p&gt;
+
+&lt;p&gt;In short, the title&amp;rsquo;s misleading from my understanding. The Kubelet is removing the special-cased dockershim, but k8s distributions that ship with docker as the runtime should be able to run a cri-&amp;gt;docker layer to retain docker support.&lt;/p&gt;
+
+&lt;p&gt;For more info on this, see the discussion on this pr: &lt;a href=&#34;https://github.com/kubernetes/kubernetes/pull/94624&#34; target=&#34;_blank&#34;&gt;https://github.com/kubernetes/kubernetes/pull/94624&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Elastic Search Notes</title>
@@ -32,6 +52,9 @@ The unique identifier for the document”&lt;/p&gt;
 
 &lt;p&gt;In a relational database, we usually store objects of the same class in the same table, because they share the same data structure. For the same reason, in Elasticsearch we use the same type for documents that represent the same class of thing, because they share the same data structure.
 Every type has its own mapping or schema definition, which defines the data structure for documents of that type, much like the columns in a database table. Documents of all types can be stored in the same index, but the mapping for the type tells Elasticsearch how the data in each document should be indexed&lt;/p&gt;
+
+&lt;p&gt;An index is just a logical namespace that points to one or more physical shards.
+A shard is a low-level worker unit that holds just a slice of all the data in the index&lt;/p&gt;
 </description>
     </item>
     
@@ -1018,59 +1041,6 @@ ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
 &lt;pre&gt;&lt;code&gt;python -m pip uninstall pip
 python -m ensurepip
 python -m pip install -U pip
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Serveless Python Zappa</title>
-      <link>https://wubigo.com/post/serveless-python-zappy/</link>
-      <pubDate>Tue, 14 Jul 2020 14:02:13 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/serveless-python-zappy/</guid>
-      <description>
-
-&lt;h2 id=&#34;python3&#34;&gt;python3&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;改变操作系统的地区为美国&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;否则报UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;python-3.6.8-amd64&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;py -3.6 -m pip install virtualenv
-py -3.6 -m virtualenv venv3
-.\venv3\script\activate
-pip install zappa
-
-git clone https://github.com/Miserlou/Zappa.git
-cd zappy/example
-pip install flask
-zappa deploy dev_event
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;检查状态&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;zappa  status dev_api
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;faq&#34;&gt;FAQ&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;IllegalLocationConstraintException&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;get this error if you&#39;re trying to create a bucket with a name that&#39;s already been taken
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--create-bucket-configuration LocationConstraint=eu-west-1
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
