@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-08T14:21:19&#43;08:00">
+  <meta property="og:updated_time" content="2020-12-03T10:11:12&#43;08:00">
   
 
   
@@ -398,6 +398,17 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/k8s-deprecate-dockershim/">Deprecate Dockershim</a></h2>
+    <div class="article-style">
+      
+      Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/docker-within-wsl/">在WSL中使用Docker</a></h2>
