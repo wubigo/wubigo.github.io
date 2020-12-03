@@ -738,6 +738,17 @@ ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
 &lt;pre&gt;&lt;code&gt;kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;确保br_netfilter模块已经加载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lsmod | grep br_netfilter
+sudo modprobe br_netfilter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;启用IP转发&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sysctl -w net.ipv4.ip_forward = 1
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;重新安装&#34;&gt;重新安装&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;kubeadm reset
