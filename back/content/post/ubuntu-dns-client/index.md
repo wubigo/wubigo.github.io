@@ -76,4 +76,4 @@ To renew or release an IP address for the eth0 interface, enter:
 ```
 sudo dhclient -r eth0
 sudo dhclient eth0
-```s
+```
