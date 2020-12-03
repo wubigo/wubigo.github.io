@@ -146,6 +146,18 @@ ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
 kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
 ```
 
+确保br_netfilter模块已经加载
+
+```
+lsmod | grep br_netfilter
+sudo modprobe br_netfilter
+```
+
+启用IP转发
+
+```
+sysctl -w net.ipv4.ip_forward = 1
+```
 
 ## 重新安装
 
