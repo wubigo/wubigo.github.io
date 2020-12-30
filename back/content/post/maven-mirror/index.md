@@ -20,36 +20,17 @@ categories = []
   focal_point = ""
 +++
 
+阿里云Maven中央仓库为 阿里云云效 提供的公共代理仓库
 
+打开 maven 的配置文件（ windows 机器一般在 maven 安装目录的 conf/settings.xml ），
 
-`settings.xml`
-
+在<mirrors></mirrors>标签中添加 mirror 子节点:
 
 ```
 <mirror>
-        <id>alimaven</id>
-        <name>aliyun maven</name>
-        <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        <mirrorOf>central</mirrorOf>
-    </mirror>
-    <mirror>
-        <id>central</id>
-        <name>Maven Repository Switchboard</name>
-        <url>http://repo1.maven.org/maven2/</url>
-        <mirrorOf>central</mirrorOf>
-    </mirror>
-    <mirror>
-        <id>repo2</id>
-        <mirrorOf>central</mirrorOf>
-        <name>Human Readable Name for this Mirror.</name>
-        <url>http://repo2.maven.org/maven2/</url>
-    </mirror>
-
-    <!-- 中央仓库在中国的镜像 -->
-    <mirror>
-        <id>maven.net.cn</id>
-        <name>oneof the central mirrors in china</name>
-        <url>http://maven.net.cn/content/groups/public/</url>
-        <mirrorOf>central</mirrorOf>
-    </mirror>
+  <id>aliyunmaven</id>
+  <mirrorOf>*</mirrorOf>
+  <name>阿里云公共仓库</name>
+  <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
 ```
