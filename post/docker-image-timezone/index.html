@@ -28,14 +28,10 @@
   
     
   
-  <meta name="description" content=" DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
-export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
-DOCKER CLIENT PROXY ~/.docker/config.json
- &quot;proxies&quot;:{ &quot;default&quot;:{} }  ">
+  <meta name="description" content="FROM centos:7 RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk # 设置时区(日志、调用链) RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone ENV workdir /app/ ADD VERSION . WORKDIR ${workdir} # JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换 # 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。 CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-proxy/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-image-timezone/">
 
   
 
@@ -124,7 +120,7 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/docker-proxy/">
+  <link rel="canonical" href="https://wubigo.com/post/docker-image-timezone/">
 
   
   
@@ -139,25 +135,21 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/post/docker-proxy/">
-  <meta property="og:title" content="Docker Proxy for daemon and client | NgAPP">
-  <meta property="og:description" content=" DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
-[Service] Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
-export http_proxy=&quot;http://127.0.0.1:3128/&quot;   daemon level  /etc/docker/daemon
-DOCKER CLIENT PROXY ~/.docker/config.json
- &quot;proxies&quot;:{ &quot;default&quot;:{} }  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/docker-image-timezone/">
+  <meta property="og:title" content="Docker Image Timezone | NgAPP">
+  <meta property="og:description" content="FROM centos:7 RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk # 设置时区(日志、调用链) RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone ENV workdir /app/ ADD VERSION . WORKDIR ${workdir} # JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换 # 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。 CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-13T07:07:56&#43;08:00">
+  <meta property="article:published_time" content="2017-12-30T15:38:16&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-09-13T07:07:56&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2017-12-30T15:38:16&#43;08:00">
   
 
   
 
-  <title>Docker Proxy for daemon and client | NgAPP</title>
+  
+
+  <title>Docker Image Timezone | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -393,7 +385,7 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Docker Proxy for daemon and client</h1>
+  <h1 itemprop="name">Docker Image Timezone</h1>
 
   
 
@@ -402,8 +394,8 @@ DOCKER CLIENT PROXY ~/.docker/config.json
 
 
 
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -416,7 +408,7 @@ DOCKER CLIENT PROXY ~/.docker/config.json
     
       
     
-    <time>Sep 13, 2019</time>
+    <time>Dec 30, 2017</time>
   </span>
   
 
@@ -440,35 +432,35 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Docker%20Proxy%20for%20daemon%20and%20client&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-proxy%2f"
+         href="https://twitter.com/intent/tweet?text=Docker%20Image%20Timezone&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-image-timezone%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-proxy%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-image-timezone%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-proxy%2f&amp;title=Docker%20Proxy%20for%20daemon%20and%20client"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-image-timezone%2f&amp;title=Docker%20Image%20Timezone"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-proxy%2f&amp;title=Docker%20Proxy%20for%20daemon%20and%20client"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-image-timezone%2f&amp;title=Docker%20Image%20Timezone"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Docker%20Proxy%20for%20daemon%20and%20client&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-proxy%2f">
+         href="mailto:?subject=Docker%20Image%20Timezone&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-image-timezone%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -506,47 +498,19 @@ DOCKER CLIENT PROXY ~/.docker/config.json
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <pre><code>FROM centos:7
+RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf
+RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
+# 设置时区(日志、调用链)
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+ENV workdir /app/
+ADD VERSION .
 
-<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
-
-<ul>
-<li>systemd level</li>
-</ul>
-
-<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
-
-<pre><code>[Service]
-Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
-</code></pre>
-
-<pre><code>sudo systemctl daemon-reload
-sudo systemctl restart docker
-</code></pre>
-
-<ul>
-<li>service level</li>
-</ul>
-
-<p><code>/etc/default/docker</code></p>
-
-<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
-</code></pre>
-
-<ul>
-<li>daemon level</li>
-</ul>
-
-<p><code>/etc/docker/daemon</code></p>
-
-<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
-
-<p><code>~/.docker/config.json</code></p>
-
-<pre><code>       &quot;proxies&quot;:{
-                &quot;default&quot;:{}
-        }
-
+WORKDIR ${workdir}
+# JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换
+# 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
+CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]
 </code></pre>
 
     </div>
@@ -586,15 +550,15 @@ sudo systemctl restart docker
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/2018-11-22-cninetworkproviderforkubernetes/">Choosing a CNI Network Provider for Kubernetes</a></li>
+          <li><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></li>
           
-          <li><a href="/post/dockering-java-8/">Dockering Java 8</a></li>
+          <li><a href="/post/docker-alpine/">Docker Alpine</a></li>
           
-          <li><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></li>
+          <li><a href="/post/docker_network/">Docker网络</a></li>
           
-          <li><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></li>
+          <li><a href="/post/docker_network_macvlan/">Docker网络macvlan</a></li>
           
-          <li><a href="/post/docker-image-timezone/">Docker Image Timezone</a></li>
+          <li><a href="/post/docker-logging/">Docker日志</a></li>
           
         </ul>
       </div>

@@ -484,6 +484,15 @@ https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html
   </div>
   
   <div>
+    <h2><a href="/post/docker-image-timezone/">Docker Image Timezone</a></h2>
+    <div class="article-style">
+      
+      FROM centos:7 RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk # 设置时区(日志、调用链) RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone ENV workdir /app/ ADD VERSION . WORKDIR ${workdir} # JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换 # 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。 CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/connect-container-to-host-network/">容器多种方式链接宿主网络</a></h2>
     <div class="article-style">
       

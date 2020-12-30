@@ -1035,6 +1035,102 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.
 
 
 
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-image-timezone/" itemprop="url">Docker Image Timezone</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>FROM centos:7
+RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf
+RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
+# 设置时区(日志、调用链)
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+ENV workdir /app/
+ADD VERSION .
+
+WORKDIR ${workdir}
+# JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换
+# 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
+CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-12-30 14:47:49 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-12-30 14:47:49 &#43;0800 CST" itemprop="dateModified">
 
@@ -2153,112 +2249,6 @@ Immutability is embraced in React and its ecosystem. That’s why const should b
 month
  Glacier
 10GB
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-apigateway-notes/" itemprop="url">Aws Apigateway Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="create-rest-api-resource">create rest api resource</h2>
-
-<pre><code>awslocal apigateway create-rest-api --name 'My First API' --description 'This is my first API'
-</code></pre>
-
-<pre><code>awslocal apigateway get-rest-apis                                         {
-    &quot;items&quot;: [
-        {
-            &quot;createdDate&quot;: 1574513755,
-            &quot;id&quot;: &quot;tjc336382o&quot;,
-            &quot;name&quot;: &quot;hello_api2&quot;
-        },
-        {
-            &quot;description&quot;: &quot;This is my first API&quot;,
-            &quot;createdDate&quot;: 1574513755,
-            &quot;id&quot;: &quot;foyylqv018&quot;,
-            &quot;name&quot;: &quot;My First API&quot;
-        }
-    ]
-}
-
-</code></pre>
-
   </div>
   
 

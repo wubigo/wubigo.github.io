@@ -2079,6 +2079,15 @@ PIXAR’S 22 RULES OF STORYTELLING https://www.</description>
     </item>
     
     <item>
+      <title>Docker Image Timezone</title>
+      <link>https://wubigo.com/post/docker-image-timezone/</link>
+      <pubDate>Sat, 30 Dec 2017 15:38:16 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-image-timezone/</guid>
+      <description>FROM centos:7 RUN echo &amp;quot;ip_resolve=4&amp;quot; &amp;gt;&amp;gt; /etc/yum.conf RUN yum update -y &amp;amp;&amp;amp; yum install -y java-1.8.0-openjdk # 设置时区(日志、调用链) RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime RUN echo &amp;quot;Asia/Shanghai&amp;quot; &amp;gt; /etc/timezone ENV workdir /app/ ADD VERSION . WORKDIR ${workdir} # JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换 # 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。 CMD [&amp;quot;sh&amp;quot;, &amp;quot;-ec&amp;quot;, &amp;quot;exec java ${JAVA_OPTS} -jar ${jar}&amp;quot;]  </description>
+    </item>
+    
+    <item>
       <title>SaaS Notes</title>
       <link>https://wubigo.com/post/saas-notes/</link>
       <pubDate>Sat, 30 Dec 2017 14:47:49 +0800</pubDate>
