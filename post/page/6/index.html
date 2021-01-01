@@ -422,6 +422,104 @@
 
 
 
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 17:14:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-win10-volume/" itemprop="url">WIN用户使用Docker卷</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>在windows，启动卷必须线启用共享驱动</p>
+
+<h1 id="启用共享驱动">启用共享驱动</h1>
+
+<pre><code>1: Open &quot;Settings&quot; in Docker Desktop -&gt; 
+   &quot;Shared Drives&quot; -&gt; 
+   &quot;Reset Credentials&quot; -&gt; 
+   select drive &quot;D&quot; -&gt; &quot;Apply&quot;
+</code></pre>
+
+<h1 id="检查测试卷">检查测试卷</h1>
+
+<pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
 
@@ -2092,91 +2190,6 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   <div class="article-style" itemprop="articleBody">
     <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Allow more ways of creating objects using literals
- Introduce new datatypes together with their operators and expressions.
-  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
-log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 
