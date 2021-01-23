@@ -91,3 +91,17 @@ kubectl port-forward service/skywalking-ui 8080:80
 curl http://localhost:8080
 ```
 
+## 查询
+
+对于Trace 信息， 数据的采集与存储是一个典型的写多读少的业务场景。
+
+ElasticSearch 存储主要分为两大部分：服务/操作索引和 Span 索引。
+
+利用 ElasticSearch 会对数据进行分片，分 index 的存储，防止历史数据丢失，
+
+方便对历史问题进行回溯。对于超过 30 天的数据进行归档，转存到 ES 之外以备
+
+不时之需。ElasticSearch 只对相对较“热”的数据提供检索服务
+
+https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt
+
