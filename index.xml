@@ -5,8 +5,37 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2021 17:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 19:58:46 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>面部生物识别学习笔记</title>
+      <link>https://wubigo.com/post/face-detection-notes/</link>
+      <pubDate>Sat, 23 Jan 2021 19:58:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/face-detection-notes/</guid>
+      <description>
+
+&lt;p&gt;Once the face is detected, the AI then provides the information on&lt;/p&gt;
+
+&lt;p&gt;its size, pose, and location&lt;/p&gt;
+
+&lt;p&gt;The state-of-the-art face detection software uses pattern detection technology.&lt;/p&gt;
+
+&lt;p&gt;No personal data is collected, and no images are stored.&lt;/p&gt;
+
+&lt;h1 id=&#34;人脸检测基本方法&#34;&gt;人脸检测基本方法&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/face-detection-methods.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#Import Libraries
+#Import Classifier for Face and Eye Detection
+#Convert Image to Grayscale
+#Give coordinates to detect face and eyes location from ROI
+#Webcam setup for Face Detection
+#When everything is done, release the capture&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>时间的朋友-罗振宇(2020)</title>
@@ -1249,6 +1278,20 @@ skywalking-ui             ClusterIP   10.111.140.232   &amp;lt;none&amp;gt;     
 
 curl http://localhost:8080
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
+
+&lt;p&gt;对于Trace 信息， 数据的采集与存储是一个典型的写多读少的业务场景。&lt;/p&gt;
+
+&lt;p&gt;ElasticSearch 存储主要分为两大部分：服务/操作索引和 Span 索引。&lt;/p&gt;
+
+&lt;p&gt;利用 ElasticSearch 会对数据进行分片，分 index 的存储，防止历史数据丢失，&lt;/p&gt;
+
+&lt;p&gt;方便对历史问题进行回溯。对于超过 30 天的数据进行归档，转存到 ES 之外以备&lt;/p&gt;
+
+&lt;p&gt;不时之需。ElasticSearch 只对相对较“热”的数据提供检索服务&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&#34; target=&#34;_blank&#34;&gt;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -2020,20 +2063,6 @@ location /beta {
       <description>&lt;p&gt;Isolate represents an isolated instance of the V8 engine. V8 isolates have completely separate states. Objects from one isolate must not be used in other isolates. When V8 is initialized a default isolate is implicitly created and entered. The embedder can create additional isolates and use them in parallel in multiple threads. An isolate can be entered by at most one thread at any given time. The Locker/Unlocker API must be used to synchronize.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://v8docs.nodesource.com/node-0.8/d5/dda/classv8_1_1_isolate.html&#34; target=&#34;_blank&#34;&gt;https://v8docs.nodesource.com/node-0.8/d5/dda/classv8_1_1_isolate.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>网关授权之函数实现</title>
-      <link>https://wubigo.com/post/api-gateway-lambda-authorizer/</link>
-      <pubDate>Sun, 26 Jul 2020 07:39:23 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/api-gateway-lambda-authorizer/</guid>
-      <description>
-
-&lt;h2 id=&#34;setting-up-the-hosted-ui-with-the-amazon-cognito&#34;&gt;Setting Up the Hosted UI with the Amazon Cognito&lt;/h2&gt;
-
-&lt;p&gt;Unless required by your authorization flow, clear the option &lt;strong&gt;&lt;em&gt;Generate client secret&lt;/em&gt;&lt;/strong&gt;. The client secret is used by applications that have a server-side component that can secure the client secret&lt;/p&gt;
 </description>
     </item>
     

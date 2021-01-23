@@ -568,6 +568,20 @@ skywalking-ui             ClusterIP   10.111.140.232   &lt;none&gt;        80/TC
 curl http://localhost:8080
 </code></pre>
 
+<h2 id="查询">查询</h2>
+
+<p>对于Trace 信息， 数据的采集与存储是一个典型的写多读少的业务场景。</p>
+
+<p>ElasticSearch 存储主要分为两大部分：服务/操作索引和 Span 索引。</p>
+
+<p>利用 ElasticSearch 会对数据进行分片，分 index 的存储，防止历史数据丢失，</p>
+
+<p>方便对历史问题进行回溯。对于超过 30 天的数据进行归档，转存到 ES 之外以备</p>
+
+<p>不时之需。ElasticSearch 只对相对较“热”的数据提供检索服务</p>
+
+<p><a href="https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt" target="_blank">https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt</a></p>
+
     </div>
 
     
