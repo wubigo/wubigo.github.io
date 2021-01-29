@@ -47,3 +47,10 @@ Every type has its own mapping or schema definition, which defines the data stru
 
 An index is just a logical namespace that points to one or more physical shards.
 A shard is a low-level worker unit that holds just a slice of all the data in the index
+
+
+# reindex
+
+create a new index with the new settings and copy all of your documents 
+
+from the old index to the new index
