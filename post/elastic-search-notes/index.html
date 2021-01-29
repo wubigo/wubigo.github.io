@@ -508,7 +508,9 @@ Actually, in Elasticsearch, our data is stored and indexed in shards, while an i
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>“The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”</p>
+      
+
+<p>“The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”</p>
 
 <p>“Relational DB  ⇒ Databases ⇒ Tables ⇒ Rows      ⇒ Columns
 Elasticsearch  ⇒ Indices   ⇒ Types  ⇒ Documents ⇒ Fields”</p>
@@ -529,6 +531,12 @@ Every type has its own mapping or schema definition, which defines the data stru
 
 <p>An index is just a logical namespace that points to one or more physical shards.
 A shard is a low-level worker unit that holds just a slice of all the data in the index</p>
+
+<h1 id="reindex">reindex</h1>
+
+<p>create a new index with the new settings and copy all of your documents</p>
+
+<p>from the old index to the new index</p>
 
     </div>
 

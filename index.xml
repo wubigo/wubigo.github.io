@@ -1183,7 +1183,9 @@
       <pubDate>Tue, 24 Nov 2020 09:26:24 +0800</pubDate>
       
       <guid>https://wubigo.com/post/elastic-search-notes/</guid>
-      <description>&lt;p&gt;“The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”&lt;/p&gt;
+      <description>
+
+&lt;p&gt;“The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”&lt;/p&gt;
 
 &lt;p&gt;“Relational DB  ⇒ Databases ⇒ Tables ⇒ Rows      ⇒ Columns
 Elasticsearch  ⇒ Indices   ⇒ Types  ⇒ Documents ⇒ Fields”&lt;/p&gt;
@@ -1204,6 +1206,12 @@ Every type has its own mapping or schema definition, which defines the data stru
 
 &lt;p&gt;An index is just a logical namespace that points to one or more physical shards.
 A shard is a low-level worker unit that holds just a slice of all the data in the index&lt;/p&gt;
+
+&lt;h1 id=&#34;reindex&#34;&gt;reindex&lt;/h1&gt;
+
+&lt;p&gt;create a new index with the new settings and copy all of your documents&lt;/p&gt;
+
+&lt;p&gt;from the old index to the new index&lt;/p&gt;
 </description>
     </item>
     
