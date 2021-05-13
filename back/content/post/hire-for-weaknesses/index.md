@@ -1,5 +1,5 @@
 +++
-title = "Hire for Weaknesses"
+title = "招聘的出发点是补齐短板"
 date = 2021-05-13T16:13:30+08:00
 draft = false
 
