@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-01-23T19:58:46&#43;08:00">
+  <meta property="og:updated_time" content="2021-05-13T16:13:30&#43;08:00">
   
 
   
@@ -183,6 +183,7 @@
 </aside>
 
 
+  
 <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
   <div class="container">
 
@@ -397,6 +398,136 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-05-13 16:13:30 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-05-13 16:13:30 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 13, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/hire-for-weaknesses/" itemprop="url">Hire for Weaknesses</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>招聘的出发点是发现我们的弱点，而不是寻找天才。</p>
+
+<p>合理设计的招聘的流程是寻找到合适的人来补齐团队的短板，而不是最好的人。</p>
+
+<p>“我们寻找天才”，“候选人不到我们的标准”， 我们设计“公正”的测试去客观的评估求职者</p>
+
+<p>是否与我们认为的“优秀”匹配。</p>
+
+<table>
+<thead>
+<tr>
+<th>寻找天才</th>
+<th align="center">补齐短板</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>寻找最优秀的人</td>
+<td align="center">寻找能释放我们潜能的人</td>
+</tr>
+
+<tr>
+<td>能做我们正在做的人</td>
+<td align="center">能做我们做不到的人</td>
+</tr>
+
+<tr>
+<td>与我们认为的优秀匹配的人</td>
+<td align="center">拥有我们欠缺的能力的人</td>
+</tr>
+
+<tr>
+<td>统一的面试流程</td>
+<td align="center">团队挑选候选人</td>
+</tr>
+
+<tr>
+<td>给候选者打分</td>
+<td align="center">与候选者协作</td>
+</tr>
+
+<tr>
+<td>文化匹配</td>
+<td align="center">文化欠缺</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2136,132 +2267,6 @@ ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
 <pre><code>python -m pip uninstall pip
 python -m ensurepip
 python -m pip install -U pip
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 14, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serveless-python-zappy/" itemprop="url">Serveless Python Zappa</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="python3">python3</h2>
-
-<ul>
-<li>改变操作系统的地区为美国</li>
-</ul>
-
-<p>否则报UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode</p>
-
-<p><code>python-3.6.8-amd64</code></p>
-
-<pre><code>py -3.6 -m pip install virtualenv
-py -3.6 -m virtualenv venv3
-.\venv3\script\activate
-pip install zappa
-
-git clone https://github.com/Miserlou/Zappa.git
-cd zappy/example
-pip install flask
-zappa deploy dev_event
-</code></pre>
-
-<ul>
-<li><p>检查状态</p>
-
-<pre><code>zappa  status dev_api
-</code></pre></li>
-</ul>
-
-<h2 id="faq">FAQ</h2>
-
-<ul>
-<li><p>IllegalLocationConstraintException</p>
-
-<pre><code>get this error if you're trying to create a bucket with a name that's already been taken
-
-</code></pre></li>
-</ul>
-
-<p><a href="https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception" target="_blank">https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception</a></p>
-
-<pre><code>--create-bucket-configuration LocationConstraint=eu-west-1
 </code></pre>
 
   </div>
