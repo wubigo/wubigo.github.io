@@ -5,8 +5,34 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 16:13:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jun 2021 06:56:24 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Web性能优化指南</title>
+      <link>https://wubigo.com/post/high-performance-browser-networking/</link>
+      <pubDate>Sun, 06 Jun 2021 06:56:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/high-performance-browser-networking/</guid>
+      <description>
+
+&lt;h2 id=&#34;应用优化&#34;&gt;应用优化&lt;/h2&gt;
+
+&lt;p&gt;Eliminating unnecessary data transfers is, of course, the single best optimization—e.g.,
+eliminating unnecessary resources or ensuring that the minimum number of bits is
+transferred by applying the appropriate compression algorithm. Following that, locating
+the bits closer to the client, by geo-distributing servers around the world—e.g., using a
+CDN—will help reduce latency of network roundtrips and significantly improve TCP
+performance. Finally, where possible, existing TCP connections should be reused to
+minimize overhead imposed by slow-start and other congestion mechanisms&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;No bit is faster than one that is not sent; send fewer bits.&lt;/li&gt;
+&lt;li&gt;We can’t make the bits travel faster, but we can move the bits closer.&lt;/li&gt;
+&lt;li&gt;TCP connection reuse is critical to improve performance.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>招聘的出发点是补齐短板</title>
@@ -2100,22 +2126,6 @@ location /beta {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Cloud Native Data Center Network</title>
-      <link>https://wubigo.com/post/cloud-native-data-center-network/</link>
-      <pubDate>Tue, 18 Aug 2020 15:57:57 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/cloud-native-data-center-network/</guid>
-      <description>
-
-&lt;h2 id=&#34;inline-versus-overlay-virtual-networks&#34;&gt;Inline Versus Overlay Virtual Networks&lt;/h2&gt;
-
-&lt;p&gt;In the inline model, every hop between the source and destination is aware of the virtual network the packet belongs to and uses this information to do lookups in the forwarding table. In the overlay network model, only the edges of the network keep track of the virtual networks; the core of the network is unaware of virtual networks. VLAN and VRF are examples of the inline model of virtual networks, whereas MPLS, VXLAN, and other IP-based VPNs are examples of the overlay model. I’ve encountered customer deployments where 32 to 64 VRFs were used&lt;/p&gt;
-
-&lt;p&gt;The primary benefits of the inline model are transparency and reduced packet header overhead. However, requiring every node along the path be aware of virtual networks makes the model very unscalable and inefficient. It scales poorly because, as we get to the core of the network, the core devices must keep track of every single virtual network to forward packets properly. It is inefficient because any change to the virtual network affects every node in the network. The more moving parts there are, the more possibility there is of introducing an error and causing unexpected problems. Anybody who has deployed VLANs is well aware of these two problems. The same holds for VRFs, as well&lt;/p&gt;
 </description>
     </item>
     

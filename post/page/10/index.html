@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-05-13T16:13:30&#43;08:00">
+  <meta property="og:updated_time" content="2021-06-06T06:56:24&#43;08:00">
   
 
   
@@ -398,6 +398,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 21, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/nodejs-promise/" itemprop="url">Nodejs异步通信之Promise</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
+ 回调
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2148,93 +2235,6 @@ The Zuul proxy server is designed by default to work on the Spring products.
 
 <p><img src="./res.png" alt="" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 25, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    提示： 以下操作是在VirtualBox虚机环境，并做如下配置
- 网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
- 多网卡  每块网卡都要做上述调整
-准备  安装util-linux
-sudo apt install util-linux   /etc/network/interface
-cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
   </div>
   
 
