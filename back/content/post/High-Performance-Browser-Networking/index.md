@@ -46,3 +46,16 @@ minimize overhead imposed by slow-start and other congestion mechanisms
 • Compress transferred data.
 • Position servers closer to the user to reduce roundtrip times.
 • Reuse established TCP connections whenever possible.
+
+## UDP性能优化检查清单
+
+• Application must tolerate a wide range of Internet path conditions.
+• Application should control rate of transmission.
+• Application should perform congestion control over all traffic.
+• Application should use bandwidth similar to TCP.
+• Application should back off retransmission counters following loss.
+• Application should not send datagrams that exceed path MTU.
+• Application should handle datagram loss, duplication, and reordering.
+• Application should be robust to delivery delays up to 2 minutes.
+• Application should enable IPv4 UDP checksum, and must enable IPv6 checksum.
+• Application may use keepalives when needed (minimum interval 15 seconds).
