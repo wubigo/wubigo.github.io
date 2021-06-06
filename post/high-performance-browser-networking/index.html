@@ -517,6 +517,17 @@ minimize overhead imposed by slow-start and other congestion mechanisms</p>
 <li>TCP connection reuse is critical to improve performance.</li>
 </ul>
 
+<h2 id="tcp性能优化检查清单">TCP性能优化检查清单</h2>
+
+<p>• Upgrade server kernel to latest version (Linux: 3.2+).
+• Ensure that cwnd size is set to 10.
+• Disable slow-start after idle.
+• Ensure that window scaling is enabled.
+• Eliminate redundant data transfers.
+• Compress transferred data.
+• Position servers closer to the user to reduce roundtrip times.
+• Reuse established TCP connections whenever possible.</p>
+
     </div>
 
     
