@@ -541,6 +541,21 @@ minimize overhead imposed by slow-start and other congestion mechanisms</p>
 • Application should enable IPv4 UDP checksum, and must enable IPv6 checksum.
 • Application may use keepalives when needed (minimum interval 15 seconds).</p>
 
+<h2 id="tls性能优化检查清单">TLS性能优化检查清单</h2>
+
+<p>• Get best performance from TCP
+ • Upgrade TLS libraries to latest release, and (re)build servers against them.
+ • Enable and configure session caching and stateless resumption
+ • Monitor your session caching hit rates and adjust configuration accordingly.
+ • Terminate TLS sessions closer to the user to minimize roundtrip latencies.
+ • Configure your TLS record size to fit into a single TCP segment.
+ • Ensure that your certificate chain does not overflow the initial congestion window.
+ • Remove unnecessary certificates from your chain; minimize the depth.
+ • Disable TLS compression on your server.
+ • Configure SNI support on your server.
+ • Configure OCSP stapling on your server.
+ • Append HTTP Strict Transport Security header</p>
+
     </div>
 
     
