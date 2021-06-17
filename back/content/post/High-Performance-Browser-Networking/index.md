@@ -62,9 +62,9 @@ minimize overhead imposed by slow-start and other congestion mechanisms
 
 ## TLS性能优化检查清单
 
- • Get best performance from TCP
+ • Get best performance from TCP.
  • Upgrade TLS libraries to latest release, and (re)build servers against them.
- • Enable and configure session caching and stateless resumption
+ • Enable and configure session caching and stateless resumption.
  • Monitor your session caching hit rates and adjust configuration accordingly.
  • Terminate TLS sessions closer to the user to minimize roundtrip latencies.
  • Configure your TLS record size to fit into a single TCP segment.
@@ -73,4 +73,4 @@ minimize overhead imposed by slow-start and other congestion mechanisms
  • Disable TLS compression on your server.
  • Configure SNI support on your server.
  • Configure OCSP stapling on your server.
- • Append HTTP Strict Transport Security header
+ • Append HTTP Strict Transport Security header.
