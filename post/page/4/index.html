@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-06-06T06:56:24&#43;08:00">
+  <meta property="og:updated_time" content="2021-07-02T08:57:53&#43;08:00">
   
 
   
@@ -398,6 +398,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-pod-command-override/" itemprop="url">K8s Pod Command Override</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2228,91 +2314,6 @@ The initial HTML rendered by the server is a placeholder and
 the entire user interface and data rendered in the browser
 once all your scripts load.
 PROS  Rich site interactions Fast rendering after the initial load Partial real-time updates Cheaper to host &amp; scale  CONS  SEO and index issues Mostly initial bundle.js load duration Performance issues on old mobile devices/slow networks Social Media crawlers and sharing problems (SMO)  Server Side Rendering(SSR) Server rendering generates the full HTML for a page
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-install-from-source/" itemprop="url">Minio源代码安装</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
   </div>
   
 

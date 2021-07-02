@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-06-06T06:56:24&#43;08:00">
+  <meta property="og:updated_time" content="2021-07-02T08:57:53&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 15, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-schedule-event/" itemprop="url">Lambda之任务定时调度</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    函数计算有很多使用场景，今天介绍定时任务调度
+例如每周六生成业务报表
+事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2183,147 +2267,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 更新后VPC
 While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
  Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-reinvent-2019-keynote/" itemprop="url">AWS Re:Invent 2019主题汇总-P1</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="计算">计算</h2>
-
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
-
-<p>主要的新功能包括：</p>
-
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
-
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
-
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
-
-<h2 id="网络">网络</h2>
-
-<ul>
-<li><p>传输网关支持多播</p></li>
-
-<li><p>加速的网络到网络的VPN链接</p></li>
-</ul>
-
-<h2 id="存储和数据分析">存储和数据分析</h2>
-
-<ul>
-<li><p>S3 Access Points和数据湖</p></li>
-
-<li><p>ES搜索支持S3</p></li>
-
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
-
-<li><p>AQUA查询加速器</p></li>
-
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
-
-<li><p>托管的Cassandra服务</p></li>
-</ul>
-
-<h2 id="函数计算">函数计算</h2>
-
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
-
-<li><p>EKS正式支持FARGATE</p></li>
-
-<li><p>RDS PROXY</p></li>
-
-<li><p><a href="/post/serverless-vpc">VPC支持更新</a></p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
-
   </div>
   
 
