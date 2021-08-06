@@ -423,6 +423,114 @@
 
 
 
+<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 24, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-python3.5-remove/" itemprop="url">Linux删除Python3.5</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>之前一直用pycharm,今天把code升级到1.3.2的时候，
+突然提示我安装python扩展，决定试试。
+结果发现python的解释器设置有问题，
+总是设置为系统的解释器，
+而虚拟环境的解释器不起作用。</p>
+
+<pre><code>apt remove --purge python3.5
+reboot
+</code></pre>
+
+<p>结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
+造成了很大的麻烦。</p>
+
+<p>Ctrl+Alt+F1进入虚拟控制台登录</p>
+
+<pre><code>apt install python3.5
+apt install ubuntu-desktop
+</code></pre>
+
+<p>重新安装chrome和virtualbox</p>
+
+<pre><code>cd /etc/apt/sources.list.d
+sudo mv google-chrome.list.save google-chrome.list
+apt update
+apt install google-chrome-stable
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="dateModified">
 
@@ -2237,93 +2345,6 @@ aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe
   <div class="article-style" itemprop="articleBody">
     restore snapshot shell snapshot.sh
 !#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 13, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/gatsby-debug/" itemprop="url">Gatsby Debug</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Debugging the Build Process Gatsby’s build and develop steps run as a Node.js application
-which you can debug using standard tools for Node.js applications.
-Debugging with Node.js’ built-in console console.log(args)  VS Code Debugger (Auto-Config)  Preferences: Type node debug into the search bar. Make sure the Auto Attach option is set to on.
- launch.json
-  launch.json
-{ // Use IntelliSense to learn about possible attributes. // Hover to view descriptions of existing attributes.
   </div>
   
 

@@ -423,6 +423,117 @@
 
 
 
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-29 12:31:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 29, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/nfv-notes/" itemprop="url">NFV Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="vlan">VLAN</h2>
+
+<p>VLAN（802.1Q）是一个局域网技术，能够将一个局域网的广播域隔离为多个广播域，常被用来实现一个站点内不同的部门间的隔离</p>
+
+<h2 id="数据中心网络虚拟化-nvo3技术端到端隧道">数据中心网络虚拟化——NVo3技术端到端隧道</h2>
+
+<p>NVo3（Network Virtualization over Layer 3），是IETF 2014年十月份提出的数据中心虚拟化技术框架。</p>
+
+<p>NVo3基于IP/MPLS作为传输网，在其上通过隧道连接的方式，构建大规模的二层租户网络。NVo3的技术模型如下所示，</p>
+
+<p>PE设备称为NVE（Network Virtualization Element），VN Context作为Tag标识租户网络，P设备即为普通的IP/MPLS路由器。</p>
+
+<p>NVo3在设计之初，VxLAN与SDN的联合部署已经成为了数据中心的大趋势，因此NVo3的模型中专门画出了</p>
+
+<p>NVA(Network Virtualization Authority）作为NVE设备的控制器负责隧道建立、地址学习等控制逻辑</p>
+
+<h3 id="vxlan-virtual-extensible-lan-rfc-7348">VxLAN（Virtual eXtensible LAN，RFC 7348）</h3>
+
+<p>Vmware和Cisco联合提出的一种二层技术，突破了VLAN ID只有4k的限制，允许通过现有的IP网络进行隧道的传输。</p>
+
+<p>别看VxLAN名字听起来和VLAN挺像，但是两者技术上可没什么必然联系。VxLAN是一种MACinUDP的隧道.</p>
+
+<h3 id="nvgre">NvGRE</h3>
+
+<p>NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6</p>
+
+<p><a href="https://www.sdnlab.com/nv-subject/" target="_blank">https://www.sdnlab.com/nv-subject/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
 
@@ -2186,95 +2297,6 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
 <p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-istio-discovery-proxy/">
-      <img src="/post/k8s-istio-discovery-proxy/featured_hu9eb2fa38cf3057f002d1fb2a9e3892ce_333237_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-istio-discovery-proxy/" itemprop="url">K8s Istio Pilot as envoy control place</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    # side car proxy
- 方法1  Namespace labels
-kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
   </div>
   
 
