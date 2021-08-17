@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content=" 安装 sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo wg-quick up wg0  ">
+  <meta name="description" content=" 安装 $lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04.1 LTS Release: 20.04 Codename: focal   sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo modprobe wireguard sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf sudo wg-quick up wg0  ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/">
@@ -137,7 +137,7 @@
   <meta property="og:site_name" content="NgAPP">
   <meta property="og:url" content="https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/">
   <meta property="og:title" content="Wireguad Vpn Client for Ubuntu | NgAPP">
-  <meta property="og:description" content=" 安装 sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo wg-quick up wg0  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content=" 安装 $lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04.1 LTS Release: 20.04 Codename: focal   sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo modprobe wireguard sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf sudo wg-quick up wg0  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-08-31T12:41:39&#43;08:00">
@@ -503,8 +503,19 @@
 
 <h2 id="安装">安装</h2>
 
-<pre><code>sudo apt install wireguard  wireguard-dkms -y
+<pre><code>$lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04.1 LTS
+Release:        20.04
+Codename:       focal
+</code></pre>
+
+<pre><code>
+sudo apt install wireguard  wireguard-dkms -y
 wget algo/configs/localhost/wireguard/desktop.conf  /etc/wireguard/wg0.conf
+sudo modprobe wireguard
+sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
 sudo wg-quick up wg0
 </code></pre>
 
