@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="注册用户 /etc/matrix-synapse/homeserver.yaml
+registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver.">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/matrix-homeserver/">
 
   
 
@@ -116,15 +113,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/matrix-homeserver/">
 
   
   
@@ -139,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="NgAPP">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | NgAPP">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/matrix-homeserver/">
+  <meta property="og:title" content="Matrix Homeserver | NgAPP">
+  <meta property="og:description" content="注册用户 /etc/matrix-synapse/homeserver.yaml
+registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-05-13T16:13:30&#43;08:00">
+  <meta property="article:published_time" content="2019-08-18T10:07:00&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-08-18T10:07:00&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | NgAPP</title>
+  <title>Matrix Homeserver | NgAPP</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -353,22 +353,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -383,7 +367,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -400,177 +386,268 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Matrix Homeserver</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/scm/">SCM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/faas/">FAAS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/cri/">CRI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/github/">GITHUB</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/db/">DB</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/cache/">CACHE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/redis/">REDIS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/efk/">EFK</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/os/">OS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/shiro/">SHIRO</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/dev/">DEV</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/datawarehouse/">DATAWAREHOUSE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/etl/">ETL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/olap/">OLAP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/bgp/">BGP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/kafka/">KAFKA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/maven/">MAVEN</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/mq/">MQ</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/rdbms/">RDBMS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/insurance/">Insurance</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/6/">&laquo;</a></li>
+  <span class="article-date">
     
     
+      
+    
+    <time>Aug 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Matrix%20Homeserver&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmatrix-homeserver%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmatrix-homeserver%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmatrix-homeserver%2f&amp;title=Matrix%20Homeserver"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmatrix-homeserver%2f&amp;title=Matrix%20Homeserver"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Matrix%20Homeserver&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmatrix-homeserver%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="注册用户">注册用户</h1>
+
+<p><code>/etc/matrix-synapse/homeserver.yaml</code></p>
+
+<pre><code>registration_shared_secret:  
+</code></pre>
+
+<pre><code>sudo systemctl restart matrix-synapse
+</code></pre>
+
+<h2 id="配置代理">配置代理</h2>
+
+<pre><code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+</code></pre>
+
+<pre><code>server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    # For the federation port
+    listen 8448 ssl http2 default_server;
+    listen [::]:8448 ssl http2 default_server;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+    location ~* ^(\/_matrix|\/_synapse\/client) {
+        proxy_pass http://localhost:8008;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+
+        # Nginx by default only allows file uploads up to 1M in size
+        # Increase client_max_body_size to match max_upload_size defined in homeserver.yaml
+        client_max_body_size 50M;
+    }
+}
+</code></pre>
+
+<h1 id="创建用户">创建用户</h1>
+
+<h2 id="工具">工具</h2>
+
+<pre><code>register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
+</code></pre>
+
+<h2 id="api">API</h2>
+
+<h3 id="nonce">nonce</h3>
+
+<pre><code>curl http://192.168.10.103:8008/_synapse/admin/v1/register
+
+{&quot;nonce&quot;:&quot;c6091d1c6fc96580b0fc25820e908ef4613fbec15233063e2aadc1d3a81c8a9170805f5d9f2fa63016dd7138bc8ad409a4da46bf75a2e429c541d0828abf0612&quot;}
+</code></pre>
+
+<h3 id="mac">MAC</h3>
+
+<pre><code>import hashlib
+import hmac
+
+
+def generate_mac(nonce, user, password, admin=False, user_type=None):
+
+    mac = hmac.new(
+      key=b'registration_shared_secret',
+      digestmod=hashlib.sha1,
+    )
+
+    mac.update(nonce.encode('utf8'))
+    mac.update(b&quot;\x00&quot;)
+    mac.update(user.encode('utf8'))
+    mac.update(b&quot;\x00&quot;)
+    mac.update(password.encode('utf8'))
+    mac.update(b&quot;\x00&quot;)
+    mac.update(b&quot;admin&quot; if admin else b&quot;notadmin&quot;)
+    if user_type:
+        mac.update(b&quot;\x00&quot;)
+        mac.update(user_type.encode('utf8'))
+
+    return mac.hexdigest()
+
+
+nonce = &quot;6052ab555c5925adfb2441dffa7761c375d3b1c7dd83032eb2ae6ff4d1a3424ebab1fe6f0ccdae3eba2f655caff9de74e706019adee57da2f3b4b3199432dd5d&quot;
+shared_secret = &quot;registration_shared_secret&quot;
+
+mac=generate_mac(nonce, &quot;wuhg&quot;, &quot;wuhg&quot;, True)
+print(mac)
+</code></pre>
+
+<pre><code>POST /_synapse/admin/v1/register
+  
+  {
+   &quot;nonce&quot;: &quot;thisisanonce&quot;,
+   &quot;username&quot;: &quot;bigo&quot;,
+   &quot;displayname&quot;: &quot;bigo&quot;,
+   &quot;password&quot;: &quot;pizz&quot;,
+   &quot;admin&quot;: true,
+   &quot;mac&quot;: &quot;mac_digest_here&quot;
+  }
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/im/">IM</a>
+  
+  <a class="badge badge-light" href="/tags/matrix/">MATRIX</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -743,6 +820,4 @@
     </script>
   </body>
 </html>
-
-
 

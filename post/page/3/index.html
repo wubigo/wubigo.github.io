@@ -1954,6 +1954,89 @@ docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack
 
 
 
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/matrix-homeserver/" itemprop="url">Matrix Homeserver</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    注册用户 /etc/matrix-synapse/homeserver.yaml
+registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="dateModified">
 
@@ -2272,96 +2355,6 @@ WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&qu
 否则，msinstaller， services.msc， regedit
 等都会报错：
 The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    微服务认证和授权有很多方案，
-这里比较各种主流方案的优缺点，
-为你的业务系统选择MAA方案提供指南
-   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
-实现方式：
- Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
-JWT: 头，负载和签名
- 头
-{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
   </div>
   
 
