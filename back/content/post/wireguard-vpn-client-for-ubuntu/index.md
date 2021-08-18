@@ -24,7 +24,7 @@ categories = []
 
 ```
 $lsb_release -a
-No LSB modules are available.
+
 Distributor ID: Ubuntu
 Description:    Ubuntu 20.04.1 LTS
 Release:        20.04
