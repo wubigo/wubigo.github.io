@@ -139,3 +139,26 @@ POST /_synapse/admin/v1/register
   }
 ```
 
+# 收发消息
+
+## 托管的WEB
+
+https://app.element.io/#/login
+
+homeserver：https://192.168.10.10
+
+
+## 安装
+
+```
+wget https://github.com/vector-im/element-web/releases/download/v1.8.1/element-v1.8.1.tar.gz
+tar element-v1.8.1.tar.gz
+cp element-v1.8.1 /var/www/html/element
+cd /var/www/html/element
+cp config.sample.json config.json
+```
+
+https://192.168.10.10/element
+
+
+
