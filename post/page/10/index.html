@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-07-02T08:57:53&#43;08:00">
+  <meta property="og:updated_time" content="2021-08-19T14:53:17&#43;08:00">
   
 
   
@@ -398,6 +398,298 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-image-timezone/" itemprop="url">Docker Image Timezone</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>FROM centos:7
+RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf
+RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
+# 设置时区(日志、调用链)
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+ENV workdir /app/
+ADD VERSION .
+
+WORKDIR ${workdir}
+# JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换
+# 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
+CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-30 14:47:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-30 14:47:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/saas-notes/" itemprop="url">SaaS Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="ddos-基础防护">DDoS 基础防护</h2>
+
+<p>腾讯云 DDoS 基础防护本身免费，当用户购买了腾讯云 CVM、CLB 等服务时，会自动开启 DDoS 基础防护。</p>
+
+<p>普通用户提供2Gbps的防护能力，最高可达10Gbps</p>
+
+<h2 id="高防ip">高防IP</h2>
+
+<p>高防包不需要更改客户业务 IP，高防IP需要客户将腾讯的高防 IP 作为业务 IP 发布；</p>
+
+<p>高防包只能防护一台云主机或一台负载均衡（ 1 个公网 IP），高防 IP 可防护多台云主机；</p>
+
+<p>高防包只能防护腾讯云内设备，高防 IP 可防护非腾讯云设备</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-12-30-booksireadthisyear/" itemprop="url">Books I read this year</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="gone-with-the-wind">Gone with the Wind</h1>
+
+<p><a href="https://www.amazon.com/Gone-Wind-Margaret-Mitchell" target="_blank">https://www.amazon.com/Gone-Wind-Margaret-Mitchell</a></p>
+
+<h1 id="deep-learning-with-python">Deep Learning with Python</h1>
+
+<p><a href="https://www.manning.com/books/deep-learning-with-python" target="_blank">https://www.manning.com/books/deep-learning-with-python</a></p>
+
+<h1 id="how-to-win-friends-and-influence-people">How to Win Friends and Influence People</h1>
+
+<p><a href="https://www.amazon.com/How-Friends-Influence-People-Chinese" target="_blank">https://www.amazon.com/How-Friends-Influence-People-Chinese</a></p>
+
+<h1 id="books-i-read-this-year">Books I read this year</h1>
+
+<p><a href="https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017" target="_blank">https://www.gatesnotes.com/About-Bill-Gates/Best-Books-2017</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2029,270 +2321,6 @@ provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/overlay-vs-underlay-networks/" itemprop="url">Overlay vs Underlay Networks</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="overlay-vs-underlay-in-summary">Overlay vs underlay in summary</h1>
-
-<p>An Underlay network is the physical network responsible for the delivery of packets like DWDM, L2, L3, MPLS, or internet, etc. while an overlay is a logical network that uses network virtualization to built connectivity on top of physical infrastructure using tunneling encapsulations such as VXLAN, GRE, IPSec.</p>
-
-<p><a href="https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/" target="_blank">https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Some things worth noting in br_add_if:</p>
-
-<ul>
-<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
-<li>Bridges cannot be added to a bridge.</li>
-<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
-</ul>
-
-<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 13, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
-kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
-kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.
   </div>
   
 

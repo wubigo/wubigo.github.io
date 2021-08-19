@@ -5,8 +5,71 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Jul 2021 08:57:53 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Aug 2021 14:53:17 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Matrix Web Client Dev Setup</title>
+      <link>https://wubigo.com/post/matrix-web-client-dev-setup/</link>
+      <pubDate>Thu, 19 Aug 2021 14:53:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
+      <description>
+
+&lt;h1 id=&#34;node&#34;&gt;NODE&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;node -v
+v14.17.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;编译matrix-js-sdk&#34;&gt;编译matrix-js-sdk&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/matrix-org/matrix-js-sdk.git
+pushd matrix-js-sdk
+yarn link
+yarn install
+popd
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Matrix Encrypted Communication</title>
+      <link>https://wubigo.com/post/matrix-encrypted-communication/</link>
+      <pubDate>Wed, 18 Aug 2021 17:46:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/matrix-encrypted-communication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decentralized Social Network: Federated VS P2P Protocol</title>
+      <link>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</link>
+      <pubDate>Wed, 18 Aug 2021 15:55:30 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</guid>
+      <description>
+
+&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
+
+&lt;p&gt;Traditionally Matrix decentralises communication by replicating conversation history over a mesh of servers, so that no single server has ownership of a given conversation. Meanwhile, users connect to their given homeserver from clients via plain HTTPS + DNS. This has the significant disadvantage that for a user to have full control and ownership over their communication, they need to run their own server - which comes with a cost, and requires you to be a proficient sysadmin. In order to fully democratise communication and eliminate a compulsory dependency on a homeserver, we&amp;rsquo;ve started seriously working on making Matrix run as a P2P protocol by compiling homeservers to run clientside and using P2P transports such as libp2p - while seamlessly supporting all existing Matrix clients (e.g. Riot.im), bots and bridges with negligible changes. This work includes:&lt;/p&gt;
+
+&lt;p&gt;Compiling Matrix homeservers (e.g. Dendrite) to efficiently run clientside
+Layering HTTPS over P2P transports such as libp2p (e.g. &lt;a href=&#34;https://github.com/matrix-org/libp2p-proxy&#34; target=&#34;_blank&#34;&gt;https://github.com/matrix-org/libp2p-proxy&lt;/a&gt;)
+Switching Matrix identifiers from @user:domain tuples to be Curve25519 public keys (MSC1228)
+Decentralising accounts so they can be hosted concurrently on multiple nodes (e.g. a mix of server-side and client-side homeservers)
+Experimenting with node discovery from DNS to DHTs and other mechanisms (e.g. gossip mechanisms)
+Experimenting with smarter bandwidth-efficient routing algorithms than full-mesh (e.g. combinations of spanning trees, overlapping spanning trees, gossip mechanisms)
+Making Matrix&amp;rsquo;s low-bandwidth CoAP transport production grade
+Experimenting with metadata-protecting relay mechanisms rather than using full homeservers for server-side relaying.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://archive.fosdem.org/2020/schedule/event/dip_p2p_matrix/&#34; target=&#34;_blank&#34;&gt;https://archive.fosdem.org/2020/schedule/event/dip_p2p_matrix/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;bluesky&#34;&gt;Bluesky&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gitlab.com/bluesky-community1/decentralized-ecosystem&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/bluesky-community1/decentralized-ecosystem&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>软件产品开发工时评估技巧</title>
@@ -2020,274 +2083,6 @@ metadata:
     k8s-app: filebeat
 ---
 
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>在Ubuntu上禁用DNS本地缓存 </title>
-      <link>https://wubigo.com/post/ubuntu-dns-client/</link>
-      <pubDate>Thu, 29 Oct 2020 21:59:14 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/ubuntu-dns-client/</guid>
-      <description>
-
-&lt;p&gt;Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo cat /run/resolvconf/resolv.conf
-sudo cat /run/dnsmasq/resolv.conf
-sudo cat /etc/systemd/resolved.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;disable-the-local-dns-cache&#34;&gt;Disable the local DNS cache&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/NetworkManager/NetworkManager.conf&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#dns=dnsmasq
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;systemctl restart network-manager
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo systemctl disable dnsmasq
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;ubuntu-20-04&#34;&gt;ubuntu 20.04&lt;/h2&gt;
-
-&lt;p&gt;双网卡或局域网加无线网主机，路由指向通一个路由器&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ls -l /etc/resolv.conf
-/etc/resolv.conf -&amp;gt; /run/systemd/resolve/stub-resolv.conf
-
-unlink /etc/resolv.conf
-ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
-
-
-sudo ip route del default  dev wlp2s0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&#34; target=&#34;_blank&#34;&gt;https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;更新ip地址&#34;&gt;更新IP地址&lt;/h2&gt;
-
-&lt;p&gt;To renew or release an IP address for the eth0 interface, enter:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo dhclient -r eth0
-sudo dhclient eth0
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Setup K8s With Kubeadm</title>
-      <link>https://wubigo.com/post/k8s-setup-with-kubeadm/</link>
-      <pubDate>Thu, 29 Oct 2020 16:38:33 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/k8s-setup-with-kubeadm/</guid>
-      <description>
-
-&lt;h2 id=&#34;安装docker&#34;&gt;安装docker&lt;/h2&gt;
-
-&lt;h2 id=&#34;检查dns&#34;&gt;检查dns&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo cat /etc/resolv.conf
-# Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
-#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
-nameserver 10.8.3.1
-nameserver 114.114.114.114
-nameserver 8.8.8.8
-nameserver 114.114.114.114
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/ubuntu-dns-client/&#34;&gt;详细说明&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;letting-iptables-see-bridged-traffic&#34;&gt;Letting iptables see bridged traffic&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
-EOF
-sudo sysctl --system
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;安装kubeadm&#34;&gt;安装kubeadm&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/k8s-notes/&#34;&gt;kubeadm install mirror in china&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
-sudo kubeadm init --image-repository registry.aliyuncs.com/google_containers
-
-kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
-
-kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
-
-
-kubeadm join 10.8.3.222:6443 --token awon9z.bcw8z \
-    --discovery-token-ca-cert-hash sha256:7b90bca7225915f07179fd2ad31820533
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;检查dns-1&#34;&gt;检查DNS&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl run -it busybox --image=busybox --restart=Never -- sh
-If you don&#39;t see a command prompt, try pressing enter.
-/ # nslookup kubernetes
-Server:         10.96.0.10
-Address:        10.96.0.10:53
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;为calico的kdd安装calicoctl-calico-ctl-v3-11-3-pod&#34;&gt;为calico的KDD安装calicoctl(calico/ctl:v3.11.3 POD)&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl apply -f https://docs.projectcalico.org/manifests/calicoctl.yaml
-alias calicoctl=&amp;quot;kubectl exec -i -n kube-system calicoctl -- /calicoctl&amp;quot;
-calicoctl get node
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;calicoctl node status用法提示&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;calicoctl的版本必须和calico-node版本一致才能正常工作&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;必须在calico-node所在的节点上运行该命令&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.11.3/calicoctl
-export DATASTORE_TYPE=kubernetes
-export KUBECONFIG=~/.kube/config
-sudo ./calicoctl node status
-Calico process is running.
-
-IPv4 BGP status
-+--------------+-------------------+-------+------------+-------------+
-| PEER ADDRESS |     PEER TYPE     | STATE |   SINCE    |    INFO     |
-+--------------+-------------------+-------+------------+-------------+
-| 10.8.3.211   | node-to-node mesh | up    | 2020-10-30 | Established |
-+--------------+-------------------+-------+------------+-------------+
-
-IPv6 BGP status
-No IPv6 peers found.
-
-bigo@bigo-s3:~$ sudo ./calicoctl version
-Client Version:    v3.11.3
-Git commit:        05f36cc8
-no etcd endpoints specified
-bigo@bigo-s3:~$ alias calicoctl=&amp;quot;kubectl exec -i -n kube-system calicoctl -- /calicoctl&amp;quot;
-bigo@bigo-s3:~$ calicoctl version
-Client Version:    v3.16.4
-Git commit:        51418082
-Cluster Version:   v3.11.3
-Cluster Type:      k8s,bgp,kdd
-bigo@bigo-s3:~$ calicoctl node status
-Calico process is not running.
-command terminated with exit code 1
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.projectcalico.org/getting-started/clis/calicoctl/install&#34; target=&#34;_blank&#34;&gt;https://docs.projectcalico.org/getting-started/clis/calicoctl/install&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;ubuntu-20&#34;&gt;ubuntu 20&lt;/h2&gt;
-
-&lt;p&gt;安装完后确保没有使用本地DNS缓存&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;unlink /etc/resolv.conf
-ln -s /run/systemd/resolve/resolv.conf  /etc/resolv.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;[FATAL][1783] int_dataplane.go 1035: Kernel&#39;s RPF check is set to &#39;loose&#39;.  This would allow endpoints to spoof their IP address.  Calico requires net.ipv4.conf.all.rp_filter to be set to 0 or 1. If you require loose RPF and you are not concerned about spoofing, this check can be disabled by setting the IgnoreLooseRPF configuration parameter to &#39;true&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;确保br_netfilter模块已经加载&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lsmod | grep br_netfilter
-sudo modprobe br_netfilter
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;启用IP转发&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sysctl -w net.ipv4.ip_forward = 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;重新安装&#34;&gt;重新安装&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm reset
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;刷新所有的链（-F），删除所有的非默认链（-X）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;iptables -F
-iptables -X
-
-iptables -nvL
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubeadm token create --print-join-command
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>容器工具--Skafflod</title>
-      <link>https://wubigo.com/post/skafflod/</link>
-      <pubDate>Thu, 29 Oct 2020 09:36:06 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/skafflod/</guid>
-      <description>
-
-&lt;h2 id=&#34;安装kubectl&#34;&gt;安装kubectl&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
-cat &amp;lt;&amp;lt;EOF &amp;gt;/etc/apt/sources.list.d/kubernetes.list
-deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-EOF  
-apt-get update
-apt-get install -y kubectl=1.18.3-00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Installing bash completion on Linux&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl completion bash &amp;gt; ~/.kube/kubectl.bash.inc
-printf &amp;quot;
-# Kubectl shell completion
-source &#39;$HOME/.kube/kubectl.bash.inc&#39;
-&amp;quot; &amp;gt;&amp;gt; $HOME/.bashrc
-source $HOME/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:GoogleCloudPlatform/microservices-demo.git 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;cat /etc/docker/daemon.json
-
-{
-  &amp;quot;insecure-registries&amp;quot; : [&amp;quot;10.8.5.211&amp;quot;]
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;microservices-demo/src/shippingservice/Dockerfile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;RUN go env -w GOPROXY=https://goproxy.cn,direct 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;microservices-demo/src/recommendationservice/Dockerfile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ENV DISABLE_DEBUGGER=1
-ENV DISABLE_PROFILER=1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;skaffold run --default-repo=10.8.5.211/library
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl port-forward deployment/frontend 8080:8080
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
