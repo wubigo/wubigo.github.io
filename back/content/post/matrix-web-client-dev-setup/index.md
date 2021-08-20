@@ -20,14 +20,15 @@ categories = []
 +++
 
 
-# NODE 
+# 准备环境 
 
 ```
 node -v
 v14.17.5
+npm install -g yarn@1.22.11
 ```
 
-# 编译matrix-js-sdk
+# 链接SDK
 
 ```
 git clone https://github.com/matrix-org/matrix-js-sdk.git
@@ -35,5 +36,32 @@ pushd matrix-js-sdk
 yarn link
 yarn install
 popd
+
+
+git clone https://github.com/matrix-org/matrix-react-sdk.git
+pushd matrix-react-sdk
+yarn link
+yarn link matrix-js-sdk
+yarn install
+popd
+
+
+
+git clone https://github.com/vector-im/element-web.git
+cd element-web
+yarn link matrix-js-sdk
+yarn link matrix-react-sdk
+yarn install
+yarn reskindex
+yarn start
+
 ```
 
+
+# 启动
+
+```
+cp config.sample.json config.json
+
+curl http://127.0.0.1:8080/
+```
