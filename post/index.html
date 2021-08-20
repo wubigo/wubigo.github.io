@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-08-19T14:53:17&#43;08:00">
+  <meta property="og:updated_time" content="2021-08-20T21:19:44&#43;08:00">
   
 
   
@@ -423,6 +423,89 @@
 
 
 
+<meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 20, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/yarn-2-note/" itemprop="url">Yarn 2 Note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    升级YARN npm install -g yarn@1.22.11 &gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
+ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&gt; .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="datePublished">
 <meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="dateModified">
 
@@ -473,19 +556,46 @@
   <div class="article-style" itemprop="articleBody">
     
 
-<h1 id="node">NODE</h1>
+<h1 id="准备环境">准备环境</h1>
 
 <pre><code>node -v
 v14.17.5
+npm install -g yarn@1.22.11
 </code></pre>
 
-<h1 id="编译matrix-js-sdk">编译matrix-js-sdk</h1>
+<h1 id="链接sdk">链接SDK</h1>
 
 <pre><code>git clone https://github.com/matrix-org/matrix-js-sdk.git
 pushd matrix-js-sdk
 yarn link
 yarn install
 popd
+
+
+git clone https://github.com/matrix-org/matrix-react-sdk.git
+pushd matrix-react-sdk
+yarn link
+yarn link matrix-js-sdk
+yarn install
+popd
+
+
+
+git clone https://github.com/vector-im/element-web.git
+cd element-web
+yarn link matrix-js-sdk
+yarn link matrix-react-sdk
+yarn install
+yarn reskindex
+yarn start
+
+</code></pre>
+
+<h1 id="启动">启动</h1>
+
+<pre><code>cp config.sample.json config.json
+
+curl http://127.0.0.1:8080/
 </code></pre>
 
   </div>
@@ -2146,89 +2256,6 @@ sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
 sudo wg-quick up wg0
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 20, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nginx-root-vs-alias/" itemprop="url">Nginx Root vs Alias</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.
-In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias.
   </div>
   
 

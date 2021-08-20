@@ -6,10 +6,20 @@
     <description>Recent content in Posts on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Aug 2021 14:53:17 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Aug 2021 21:19:44 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Yarn 2 Note</title>
+      <link>https://wubigo.com/post/yarn-2-note/</link>
+      <pubDate>Fri, 20 Aug 2021 21:19:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/yarn-2-note/</guid>
+      <description>升级YARN npm install -g yarn@1.22.11 &amp;gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &amp;gt; :; (node ./preinstall.js &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
+ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&amp;gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&amp;gt; .</description>
+    </item>
     
     <item>
       <title>Matrix Web Client Dev Setup</title>
@@ -17,7 +27,7 @@
       <pubDate>Thu, 19 Aug 2021 14:53:17 +0800</pubDate>
       
       <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
-      <description> NODE node -v v14.17.5  编译matrix-js-sdk git clone https://github.com/matrix-org/matrix-js-sdk.git pushd matrix-js-sdk yarn link yarn install popd  </description>
+      <description> 准备环境 node -v v14.17.5 npm install -g yarn@1.22.11  链接SDK git clone https://github.com/matrix-org/matrix-js-sdk.git pushd matrix-js-sdk yarn link yarn install popd git clone https://github.com/matrix-org/matrix-react-sdk.git pushd matrix-react-sdk yarn link yarn link matrix-js-sdk yarn install popd git clone https://github.com/vector-im/element-web.git cd element-web yarn link matrix-js-sdk yarn link matrix-react-sdk yarn install yarn reskindex yarn start  启动 cp config.sample.json config.json curl http://127.0.0.1:8080/  </description>
     </item>
     
     <item>

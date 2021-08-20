@@ -5,8 +5,45 @@
     <description>Recent content in NgAPP on NgAPP</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Aug 2021 14:53:17 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Aug 2021 21:19:44 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Yarn 2 Note</title>
+      <link>https://wubigo.com/post/yarn-2-note/</link>
+      <pubDate>Fri, 20 Aug 2021 21:19:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/yarn-2-note/</guid>
+      <description>
+
+&lt;h1 id=&#34;升级yarn&#34;&gt;升级YARN&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g yarn@1.22.11
+
+
+
+&amp;gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn
+&amp;gt; :; (node ./preinstall.js &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 || true)
+
+C:\local\node-v14.17.5-win-x64\yarn -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js
+C:\local\node-v14.17.5-win-x64\yarnpkg -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js
++ yarn@1.22.11
+updated 1 package in 0.7s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;yarn-link&#34;&gt;yarn link&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;/home/ubuntu/.config/yarn/link/matrix-js-sdk&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll
+total 8
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./
+drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../
+lrwxrwxrwx 1 ubuntu ubuntu   22 Aug 19 09:31 matrix-js-sdk -&amp;gt; ../../../matrix-js-sdk/
+lrwxrwxrwx 1 ubuntu ubuntu   25 Aug 19 07:25 matrix-react-sdk -&amp;gt; ../../../matrix-react-sdk/
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Matrix Web Client Dev Setup</title>
@@ -16,19 +53,46 @@
       <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
       <description>
 
-&lt;h1 id=&#34;node&#34;&gt;NODE&lt;/h1&gt;
+&lt;h1 id=&#34;准备环境&#34;&gt;准备环境&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;node -v
 v14.17.5
+npm install -g yarn@1.22.11
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;编译matrix-js-sdk&#34;&gt;编译matrix-js-sdk&lt;/h1&gt;
+&lt;h1 id=&#34;链接sdk&#34;&gt;链接SDK&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/matrix-org/matrix-js-sdk.git
 pushd matrix-js-sdk
 yarn link
 yarn install
 popd
+
+
+git clone https://github.com/matrix-org/matrix-react-sdk.git
+pushd matrix-react-sdk
+yarn link
+yarn link matrix-js-sdk
+yarn install
+popd
+
+
+
+git clone https://github.com/vector-im/element-web.git
+cd element-web
+yarn link matrix-js-sdk
+yarn link matrix-react-sdk
+yarn install
+yarn reskindex
+yarn start
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;cp config.sample.json config.json
+
+curl http://127.0.0.1:8080/
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -1650,440 +1714,6 @@ curl http://localhost:8080
 &lt;p&gt;不时之需。ElasticSearch 只对相对较“热”的数据提供检索服务&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&#34; target=&#34;_blank&#34;&gt;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ECK notes</title>
-      <link>https://wubigo.com/post/elastic-cloud-on-k8s/</link>
-      <pubDate>Mon, 02 Nov 2020 18:03:25 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/elastic-cloud-on-k8s/</guid>
-      <description>
-
-&lt;h2 id=&#34;什么是eck&#34;&gt;什么是ECK&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-elasticsearch-crd&#34;&gt;install Elasticsearch CRD&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml
-kubectl -n elastic-system logs -f statefulset.apps/elastic-operator
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;创建pv-两种方法任选其一&#34;&gt;创建PV(两种方法任选其一)&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;hostPath&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;localPath.yaml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: es-pv-volume
-  labels:
-    type: local
-spec:
-  storageClassName: local-hdd
-  capacity:
-    storage: 200Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: &amp;quot;/mnt/data&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Local volume&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Local volumes do not currently support dynamic provisioning&lt;/strong&gt;
-&lt;strong&gt;创建目录/mnt/pv&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sc.yaml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: local-storage
-provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;local-pv.yaml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-hdd
-spec:
-  capacity:
-    storage: 200Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-hdd
-  local:
-    path: /mnt/pv/
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;单节点&#34;&gt;单节点&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;es.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
-kind: Elasticsearch
-metadata:
-  name: quickstart
-spec:
-  version: 7.9.3
-  nodeSets:
-  - name: default
-    count: 1
-    config:
-      node.master: true
-      node.data: true
-      node.ingest: true
-      node.store.allow_mmap: false
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 100Gi
-        storageClassName: local-hdd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;禁用tls&#34;&gt;禁用TLS&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;es-no-tls.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: elasticsearch.k8s.elastic.co/v1
-kind: Elasticsearch
-metadata:
-  name: quickstart
-spec:
-  version: 7.9.3
-  nodeSets:
-  - name: default
-    count: 1
-    config:
-      node.master: true
-      node.data: true
-      node.ingest: true
-      node.store.allow_mmap: false
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 100Gi
-        storageClassName: local-hdd
-  http:
-    tls:
-      selfSignedCertificate:
-        disabled: true
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get elasticsearch
-NAME         HEALTH   NODES   VERSION   PHASE   AGE
-quickstart   green    1       7.9.3     Ready   50m
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;检查&#34;&gt;检查&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get service quickstart-es-http
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;密码&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get secret quickstart-es-elastic-user -o go-template=&#39;{{.data.elastic | base64decode}}&#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;http/s&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl port-forward service/quickstart-es-http 9200
-
-
-curl -u &amp;quot;elastic:$PASSWORD&amp;quot; -k &amp;quot;https://localhost:9200&amp;quot;
-
-curl -u &amp;quot;elastic:8FfgPZu0985bAm2x4243ncxJ&amp;quot; -k &amp;quot;https://10.101.24.19:9200&amp;quot;
-
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;安装kibana&#34;&gt;安装kibana&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;kibana.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apiVersion: kibana.k8s.elastic.co/v1
-kind: Kibana
-metadata:
-  name: quickstart
-spec:
-  version: 7.9.3
-  count: 1
-  elasticsearchRef:
-    name: quickstart
-    namespace: default
-  http:
-    tls:
-      selfSignedCertificate:
-        disabled: true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get svc
-NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)               AGE
-kubernetes                ClusterIP   10.96.0.1        &amp;lt;none&amp;gt;        443/TCP               10h
-quickstart-es-default     ClusterIP   None             &amp;lt;none&amp;gt;        9200/TCP              8h
-quickstart-es-http        ClusterIP   10.101.24.19     &amp;lt;none&amp;gt;        9200/TCP              8h
-quickstart-es-transport   ClusterIP   None             &amp;lt;none&amp;gt;        9300/TCP              8h
-quickstart-kb-http        ClusterIP   10.110.209.226   &amp;lt;none&amp;gt;        5601/TCP              15m
-
-
-kubectl port-forward service/quickstart-kb-http 5601
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;安装filebeat&#34;&gt;安装filebeat&lt;/h2&gt;
-
-&lt;p&gt;Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an&lt;/p&gt;
-
-&lt;p&gt;agent on your servers, Filebeat monitors the log files or locations that you specify,&lt;/p&gt;
-
-&lt;p&gt;collects log events, and forwards them either to Elasticsearch or Logstash for indexing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -L -O https://raw.githubusercontent.com/elastic/beats/7.9/deploy/kubernetes/filebeat-kubernetes.yaml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: filebeat-config  
-  labels:
-    k8s-app: filebeat
-data:
-  filebeat.yml: |-
-    # filebeat.inputs:
-    # - type: container
-    #   paths:
-    #     - /var/log/containers/*.log
-    #   processors:
-    #     - add_kubernetes_metadata:
-    #         host: ${NODE_NAME}
-    #         matchers:
-    #         - logs_path:
-    #             logs_path: &amp;quot;/var/log/containers/&amp;quot;
-    filebeat.autodiscover:
-     providers:
-       - type: kubernetes
-         node: ${NODE_NAME}
-         hints.enabled: true
-         hints.default_config:
-           type: container
-           paths:
-             - /var/log/containers/*${data.kubernetes.container.id}.log
-    processors:
-      - add_cloud_metadata:
-      - add_host_metadata:
-      - add_locale: ~
-    cloud.id: ${ELASTIC_CLOUD_ID}
-    cloud.auth: ${ELASTIC_CLOUD_AUTH}
-    output.elasticsearch:
-      hosts: [&#39;http://${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}&#39;]
-      username: ${ELASTICSEARCH_USERNAME}
-      password: ${ELASTICSEARCH_PASSWORD}
-      ssl.enabled: false
-      ssl.certificate_authorities:
-      - /mnt/elastic/tls.crt
-    setup.dashboards.enabled: true
-    setup.kibana:
-      host: &amp;quot;http://${KIBANA_HOST}:5601&amp;quot;
-      username: ${ELASTICSEARCH_USERNAME}
-      password: ${ELASTICSEARCH_PASSWORD}
-      protocol: &amp;quot;http&amp;quot;
-      ssl.enabled: false
-    filebeat.config:
-      modules:
-        path: ${path.config}/modules.d/*.yml
-        reload.enabled: false
-    filebeat.modules:
-      - module: system
-        syslog:
-          enabled: true
-          var.paths: [&amp;quot;/var/log/messages&amp;quot;]
-          var.convert_timezone: true
-        auth:
-          enabled: true
-          var.paths: [&amp;quot;/var/log/secure&amp;quot;]
-          var.convert_timezone: true
----
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: filebeat
-  labels:
-    k8s-app: filebeat
-spec:
-  selector:
-    matchLabels:
-      k8s-app: filebeat
-  template:
-    metadata:
-      labels:
-        k8s-app: filebeat
-    spec:
-      tolerations:
-        - key: node-role.kubernetes.io/master
-          effect: NoSchedule
-      serviceAccountName: filebeat
-      terminationGracePeriodSeconds: 30
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
-      containers:
-      - name: filebeat
-        image: docker.elastic.co/beats/filebeat:7.9.3
-        args: [
-          &amp;quot;-c&amp;quot;, &amp;quot;/etc/filebeat.yml&amp;quot;,
-          &amp;quot;-e&amp;quot;,
-        ]
-        env:
-        - name: ELASTICSEARCH_HOST
-          value: quickstart-es-http
-        - name: ELASTICSEARCH_PORT
-          value: &amp;quot;9200&amp;quot;
-        - name: ELASTICSEARCH_USERNAME
-          value: elastic
-        - name: ELASTICSEARCH_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: elastic
-              name: quickstart-es-elastic-user
-        - name: KIBANA_HOST
-          value: quickstart-kb-http
-        - name: ELASTIC_CLOUD_ID
-          value:
-        - name: ELASTIC_CLOUD_AUTH
-          value:
-        - name: NODE_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.nodeName
-        securityContext:
-          runAsUser: 0
-          # If using Red Hat OpenShift uncomment this:
-          #privileged: true
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 100Mi
-        volumeMounts:
-        - name: config
-          mountPath: /etc/filebeat.yml
-          readOnly: true
-          subPath: filebeat.yml
-        - name: data
-          mountPath: /usr/share/filebeat/data
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: true
-        - name: varlog
-          mountPath: /var/log
-          readOnly: true
-        - name: es-certs
-          mountPath: /mnt/elastic/tls.crt
-          readOnly: true
-          subPath: tls.crt
-        - name: localtime
-          mountPath: /etc/localtime
-          readOnly: true
-      volumes:
-      - name: config
-        configMap:
-          defaultMode: 0600
-          name: filebeat-config
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-      - name: varlog
-        hostPath:
-          path: /var/log
-      # data folder stores a registry of read status for all files, so we don&#39;t send everything again on a Filebeat pod restart
-      - name: data
-        hostPath:
-          path: /var/lib/filebeat-data
-          type: DirectoryOrCreate
-      - name: es-certs
-        secret:
-          secretName: quickstart-es-http-certs-public
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
-          type: File
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: filebeat
-subjects:
-- kind: ServiceAccount
-  name: filebeat
-  namespace: default
-roleRef:
-  kind: ClusterRole
-  name: filebeat
-  apiGroup: rbac.authorization.k8s.io
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: filebeat
-  labels:
-    k8s-app: filebeat
-rules:
-- apiGroups: [&amp;quot;&amp;quot;] # &amp;quot;&amp;quot; indicates the core API group
-  resources:
-  - namespaces
-  - pods
-  verbs:
-  - get
-  - watch
-  - list
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: filebeat
-  labels:
-    k8s-app: filebeat
----
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

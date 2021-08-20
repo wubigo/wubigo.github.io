@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-08-19T14:53:17&#43;08:00">
+  <meta property="og:updated_time" content="2021-08-20T21:19:44&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2172,88 +2255,6 @@ go get -u github.com/derekparker/delve/cmd/dlv
 go get -u -v github.com/dgraph-io/dgo
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 4, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/envoy-control-plane-api-server-testing/" itemprop="url">Envoy Control Plane API Server Testing</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
   </div>
   
 
