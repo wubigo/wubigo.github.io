@@ -114,8 +114,8 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -136,9 +136,9 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="NgAPP">
+  <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/nodejs-xpath/">
-  <meta property="og:title" content="Nodejs Xpath名字空间 | NgAPP">
+  <meta property="og:title" content="Nodejs Xpath名字空间 | wubigo">
   <meta property="og:description" content="如果xml文件带有名字空间，XPATH支持
 还不够完善。下面介绍两种可以工作的方式
 namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;&#43;value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { &#39;ns0&#39; : &#39;http://www.sitemaps.org/schemas/sitemap/0.9&#39;, &#39;mathml&#39;: &#39;http://www.w3.org/1998/Math/MathML&#39; }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
 
   
 
-  <title>Nodejs Xpath名字空间 | NgAPP</title>
+  <title>Nodejs Xpath名字空间 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -194,7 +194,7 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">NgAPP</a>
+      <a class="navbar-brand" href="/">wubigo</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

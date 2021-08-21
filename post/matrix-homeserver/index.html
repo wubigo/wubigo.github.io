@@ -113,8 +113,8 @@ registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理
   
 
   
-  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
-  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="NgAPP">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -135,9 +135,9 @@ registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理
   <meta property="twitter:site" content="@wubigo">
   <meta property="twitter:creator" content="@wubigo">
   
-  <meta property="og:site_name" content="NgAPP">
+  <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/matrix-homeserver/">
-  <meta property="og:title" content="Matrix Homeserver | NgAPP">
+  <meta property="og:title" content="Matrix Homeserver | wubigo">
   <meta property="og:description" content="注册用户 /etc/matrix-synapse/homeserver.yaml
 registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -151,7 +151,7 @@ registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理
 
   
 
-  <title>Matrix Homeserver | NgAPP</title>
+  <title>Matrix Homeserver | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -192,7 +192,7 @@ registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理
   <div class="container">
 
     
-      <a class="navbar-brand" href="/">NgAPP</a>
+      <a class="navbar-brand" href="/">wubigo</a>
       
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
