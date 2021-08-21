@@ -1,5 +1,5 @@
 +++
-title = "Yarn 2 Note"
+title = "YARN2 Note"
 date = 2021-08-20T21:19:44+08:00
 draft = false
 
@@ -48,3 +48,17 @@ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../
 lrwxrwxrwx 1 ubuntu ubuntu   22 Aug 19 09:31 matrix-js-sdk -> ../../../matrix-js-sdk/
 lrwxrwxrwx 1 ubuntu ubuntu   25 Aug 19 07:25 matrix-react-sdk -> ../../../matrix-react-sdk/
 ```
+
+
+# 创建应用
+
+```
+yarn create react-app matrix
+
+yarn start
+```
+
+
+`C:\Users\bigo\AppData\Local\Yarn\Data\global\node_modules\.bin\create-react-app`
+
+`/home/ubuntu/.config/yarn/global/node_modules/.bin/create-react-app`
