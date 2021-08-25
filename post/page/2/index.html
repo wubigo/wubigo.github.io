@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-08-20T21:19:44&#43;08:00">
+  <meta property="og:updated_time" content="2021-08-26T06:24:31&#43;08:00">
   
 
   
@@ -398,6 +398,107 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 31, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wireguard-vpn-client-for-ubuntu/" itemprop="url">Wireguad Vpn Client for Ubuntu</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="安装">安装</h2>
+
+<pre><code>$lsb_release -a
+
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04.1 LTS
+Release:        20.04
+Codename:       focal
+</code></pre>
+
+<pre><code>
+sudo apt install wireguard  wireguard-dkms -y
+wget algo/configs/localhost/wireguard/desktop.conf  /etc/wireguard/wg0.conf
+sudo modprobe wireguard
+sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
+sudo wg-quick up wg0
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2114,119 +2215,6 @@ sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装pol
     准备  iptables
 cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system  install container runtime
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu sudo usermod -aG docker bigo  setup vpn and proxy
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 19, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/7-habits-of-highly-effective-programmers/" itemprop="url">高效程序员的7个习惯</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>软件工程师为了找到工作，花费大量的时间在leetcode上刷题</p>
-
-<p>然后为面试制作一份完美的简历。</p>
-
-<p>一旦在创业公司或在FANG巨头中找到自己的心仪的工作，发现</p>
-
-<p>为了面试所做的技术准备在实际工作中根本排不上用场。</p>
-
-<p>下面我们来谈谈我们对于由TechLead首创的高效程序员的7个习惯</p>
-
-<p>的个人看法</p>
-
-<p><img src="/img/post/the-evolution-of-software-architecture.jpeg" alt="" /></p>
-
-<h2 id="学会阅读别人的代码">学会阅读别人的代码</h2>
-
-<h2 id="能快速识别出一个项目是否值得">能快速识别出一个项目是否值得</h2>
-
-<h2 id="避免不必要的会议">避免不必要的会议</h2>
-
-<h2 id="代码管理工具git">代码管理工具git</h2>
-
-<h2 id="书写简单的易维护的代码">书写简单的易维护的代码</h2>
-
-<h2 id="要事优先并学会拒绝">要事优先并学会拒绝</h2>
-
-<h2 id="从运营的角度进行系统设计">从运营的角度进行系统设计</h2>
-
-<p><a href="https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33" target="_blank">https://medium.com/better-programming/7-habits-of-highly-effective-programmers-563ee3b63f33</a></p>
-
   </div>
   
 

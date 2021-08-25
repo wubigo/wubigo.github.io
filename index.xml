@@ -5,8 +5,26 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Aug 2021 21:19:44 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Aug 2021 06:24:31 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Chrome Read Mode</title>
+      <link>https://wubigo.com/post/chrome-read-mode/</link>
+      <pubDate>Thu, 26 Aug 2021 06:24:31 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/chrome-read-mode/</guid>
+      <description>
+
+&lt;h1 id=&#34;打开阅读模式&#34;&gt;打开阅读模式&lt;/h1&gt;
+
+&lt;p&gt;Open a new tab and enter chrome://flags/#enable-reader-mode to jump directly to the Reader Mode Flag.&lt;/p&gt;
+
+&lt;h1 id=&#34;使用&#34;&gt;使用&lt;/h1&gt;
+
+&lt;p&gt;Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>YARN2 Note</title>
@@ -1641,94 +1659,6 @@ A shard is a low-level worker unit that holds just a slice of all the data in th
 &lt;p&gt;create a new index with the new settings and copy all of your documents&lt;/p&gt;
 
 &lt;p&gt;from the old index to the new index&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Skywalking on K8s</title>
-      <link>https://wubigo.com/post/skywalking-on-k8s/</link>
-      <pubDate>Wed, 04 Nov 2020 15:58:19 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/skywalking-on-k8s/</guid>
-      <description>
-
-&lt;h2 id=&#34;安装eck-禁用tls&#34;&gt;安装ECK(禁用TLS)&lt;/h2&gt;
-
-&lt;p&gt;[](/post/elastic-cloud-on-k8s/)&lt;/p&gt;
-
-&lt;h2 id=&#34;安装helm3&#34;&gt;安装helm3&lt;/h2&gt;
-
-&lt;h2 id=&#34;安装skywalking8&#34;&gt;安装skywalking8&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:wubigo/skywalking-kubernetes.git
-cd skywalking-kubernetes/chart
-helm repo add elastic https://helm.elastic.co
-helm dep up skywalking
-export SKYWALKING_RELEASE_NAME=skywalking
-export SKYWALKING_RELEASE_NAMESPACE=default  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;配置ES&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;skywalking/values-my-es.yaml&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;oap:
-  image:
-    tag: 8.1.0-es7      # Set the right tag according to the existing Elasticsearch version
-  storageType: elasticsearch7
-
-ui:
-  image:
-    tag: 8.1.0
-
-elasticsearch:
-  enabled: false
-  config:               
-    host: 10.101.24.19
-    port:
-      http: 9200
-    user: &amp;quot;elastic&amp;quot;         #[optional]
-    password: &amp;quot;8FfgPZu0985bAm2x4243ncxJ&amp;quot;     # [optional]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;helm install &amp;quot;${SKYWALKING_RELEASE_NAME}&amp;quot; skywalking -n &amp;quot;${SKYWALKING_RELEASE_NAMESPACE}&amp;quot; \
-  -f ./skywalking/values-my-es.yaml
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;检查&#34;&gt;检查&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl get svc
-NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)               AGE
-kubernetes                ClusterIP   10.96.0.1        &amp;lt;none&amp;gt;        443/TCP               4h31m
-quickstart-es-default     ClusterIP   None             &amp;lt;none&amp;gt;        9200/TCP              123m
-quickstart-es-http        ClusterIP   10.101.24.19     &amp;lt;none&amp;gt;        9200/TCP              123m
-quickstart-es-transport   ClusterIP   None             &amp;lt;none&amp;gt;        9300/TCP              123m
-skywalking-oap            ClusterIP   10.105.155.189   &amp;lt;none&amp;gt;        12800/TCP,11800/TCP   8m4s
-skywalking-ui             ClusterIP   10.111.140.232   &amp;lt;none&amp;gt;        80/TCP                8m4s
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl port-forward service/skywalking-ui 8080:80
-
-curl http://localhost:8080
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
-
-&lt;p&gt;对于Trace 信息， 数据的采集与存储是一个典型的写多读少的业务场景。&lt;/p&gt;
-
-&lt;p&gt;ElasticSearch 存储主要分为两大部分：服务/操作索引和 Span 索引。&lt;/p&gt;
-
-&lt;p&gt;利用 ElasticSearch 会对数据进行分片，分 index 的存储，防止历史数据丢失，&lt;/p&gt;
-
-&lt;p&gt;方便对历史问题进行回溯。对于超过 30 天的数据进行归档，转存到 ES 之外以备&lt;/p&gt;
-
-&lt;p&gt;不时之需。ElasticSearch 只对相对较“热”的数据提供检索服务&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&#34; target=&#34;_blank&#34;&gt;https://github.com/imperialwicket/elasticsearch-logstash-index-mgmt&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
