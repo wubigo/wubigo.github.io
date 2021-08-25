@@ -65,3 +65,8 @@ cp config.sample.json config.json
 
 curl http://127.0.0.1:8080/
 ```
+
+
+# 登录
+
+homeserver：http://192.168.43.16:8008/
