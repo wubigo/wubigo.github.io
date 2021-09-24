@@ -20,6 +20,22 @@
 
 &lt;p&gt;Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.&lt;/p&gt;
 
+&lt;h1 id=&#34;s3-support-in-apache-hadoop&#34;&gt;S3 Support in Apache Hadoop&lt;/h1&gt;
+
+&lt;p&gt;Apache Hadoop ships with a connector to S3 called &amp;ldquo;S3A&amp;rdquo;, with the url prefix &amp;ldquo;s3a:&amp;ldquo;;
+its previous connectors &amp;ldquo;s3&amp;rdquo;, and &amp;ldquo;s3n&amp;rdquo; are deprecated and/or deleted from recent Hadoop versions.&lt;/p&gt;
+
+&lt;p&gt;Amazon&amp;rsquo;s EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client&lt;/p&gt;
+
+&lt;p&gt;Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work
+You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an &amp;ldquo;object store&amp;rdquo; with&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.&lt;/li&gt;
+&lt;li&gt;Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries -and visible to other processes during this time, and indeed, until the eventual consistency has been resolved. This breaks the commit protocol used by all these applications to safely commit the output of multiple tasks within a job.
+Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for committing work.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h1 id=&#34;统一元数据&#34;&gt;统一元数据&lt;/h1&gt;
 
 &lt;p&gt;统一的元数据管理，可以实现：&lt;/p&gt;
