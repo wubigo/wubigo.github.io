@@ -32,7 +32,7 @@ its previous connectors "s3", and "s3n" are deprecated and/or deleted from recen
 
 Amazon's EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client
 
-Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work
+**Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work**
 You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an "object store" with
 
 - Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.
