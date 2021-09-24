@@ -25,8 +25,19 @@ categories = []
 
 Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.  
 
+# S3 Support in Apache Hadoop
 
+Apache Hadoop ships with a connector to S3 called "S3A", with the url prefix "s3a:";
+its previous connectors "s3", and "s3n" are deprecated and/or deleted from recent Hadoop versions.
 
+Amazon's EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client
+
+Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work
+You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an "object store" with
+
+- Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.
+- Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries -and visible to other processes during this time, and indeed, until the eventual consistency has been resolved. This breaks the commit protocol used by all these applications to safely commit the output of multiple tasks within a job.
+Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for committing work.
 
 # 统一元数据
 
