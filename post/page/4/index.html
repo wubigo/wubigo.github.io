@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-08-26T06:24:31&#43;08:00">
+  <meta property="og:updated_time" content="2021-09-24T09:32:22&#43;08:00">
   
 
   
@@ -398,6 +398,108 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/use-public-cloud-for-free/" itemprop="url">免费使用公有云服务</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    [TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2223,101 +2325,6 @@ signature_v2 = False
 <h2 id="总结">总结</h2>
 
 <p>在不进行任何优化的情况下，s3cmd比mc传输速度快好几倍</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-18 08:14:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-18 08:14:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 18, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/domain-nameserver-notes/" itemprop="url">域名名字服务器配置</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="检查域名使用的名字服务器">检查域名使用的名字服务器</h2>
-
-<p><a href="https://lookup.icann.org/" target="_blank">https://lookup.icann.org/</a></p>
-
-<p><img src="/img/post/dns-nameserver.png" alt="" /></p>
-
-<h2 id="更改名字服务器">更改名字服务器</h2>
-
-<p>更改名字服务器需通过域名注册服务商进行更改</p>
-
-<p><img src="/img/post/custom-dns.png" alt="" /></p>
 
   </div>
   

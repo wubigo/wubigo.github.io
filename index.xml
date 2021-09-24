@@ -5,8 +5,22 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Aug 2021 06:24:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Sep 2021 09:32:22 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Lakehouse Notes</title>
+      <link>https://wubigo.com/post/lakehouse-notes/</link>
+      <pubDate>Fri, 24 Sep 2021 09:32:22 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lakehouse-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;replication-method&#34;&gt;Replication Method&lt;/h2&gt;
+
+&lt;p&gt;Replication Method * - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Chrome Read Mode</title>
@@ -136,7 +150,8 @@ curl http://127.0.0.1:8080/
       <pubDate>Wed, 18 Aug 2021 17:46:17 +0800</pubDate>
       
       <guid>https://wubigo.com/post/matrix-encrypted-communication/</guid>
-      <description></description>
+      <description>&lt;p&gt;The matrix specification does not enforce how users register with a server. It just specifies the URL path and absolute minimum keys. The reference homeserver uses a username/password to authenticate user, but other homeservers may use different methods. This is why you need to specify the type of method&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -1621,44 +1636,6 @@ minimize overhead imposed by slow-start and other congestion mechanisms&lt;/p&gt
 &lt;p&gt;In short, the title&amp;rsquo;s misleading from my understanding. The Kubelet is removing the special-cased dockershim, but k8s distributions that ship with docker as the runtime should be able to run a cri-&amp;gt;docker layer to retain docker support.&lt;/p&gt;
 
 &lt;p&gt;For more info on this, see the discussion on this pr: &lt;a href=&#34;https://github.com/kubernetes/kubernetes/pull/94624&#34; target=&#34;_blank&#34;&gt;https://github.com/kubernetes/kubernetes/pull/94624&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Elastic Search Notes</title>
-      <link>https://wubigo.com/post/elastic-search-notes/</link>
-      <pubDate>Tue, 24 Nov 2020 09:26:24 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/elastic-search-notes/</guid>
-      <description>
-
-&lt;p&gt;“The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”&lt;/p&gt;
-
-&lt;p&gt;“Relational DB  ⇒ Databases ⇒ Tables ⇒ Rows      ⇒ Columns
-Elasticsearch  ⇒ Indices   ⇒ Types  ⇒ Documents ⇒ Fields”&lt;/p&gt;
-
-&lt;p&gt;“_index
-Where the document lives&lt;/p&gt;
-
-&lt;p&gt;_type
-The class of object that the document represents&lt;/p&gt;
-
-&lt;p&gt;_id
-The unique identifier for the document”&lt;/p&gt;
-
-&lt;p&gt;Actually, in Elasticsearch, our data is stored and indexed in shards, while an index is just a logical namespace that groups together one or more shards. However, this is an internal detail; our application shouldn’t care about shards at all. As far as our application is concerned, our documents live in an index. Elasticsearch takes care of the details.&lt;/p&gt;
-
-&lt;p&gt;In a relational database, we usually store objects of the same class in the same table, because they share the same data structure. For the same reason, in Elasticsearch we use the same type for documents that represent the same class of thing, because they share the same data structure.
-Every type has its own mapping or schema definition, which defines the data structure for documents of that type, much like the columns in a database table. Documents of all types can be stored in the same index, but the mapping for the type tells Elasticsearch how the data in each document should be indexed&lt;/p&gt;
-
-&lt;p&gt;An index is just a logical namespace that points to one or more physical shards.
-A shard is a low-level worker unit that holds just a slice of all the data in the index&lt;/p&gt;
-
-&lt;h1 id=&#34;reindex&#34;&gt;reindex&lt;/h1&gt;
-
-&lt;p&gt;create a new index with the new settings and copy all of your documents&lt;/p&gt;
-
-&lt;p&gt;from the old index to the new index&lt;/p&gt;
 </description>
     </item>
     
