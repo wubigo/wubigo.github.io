@@ -1,11 +1,11 @@
 +++
-title = "Matrix Encrypted Communication"
-date = 2021-08-18T17:46:17+08:00
+title = "Lakehouse Notes"
+date = 2021-09-24T09:32:22+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
+tags = ["DW","DATALAKE"]
 categories = []
 
 # Featured image
@@ -21,4 +21,6 @@ categories = []
 
 
 
- The matrix specification does not enforce how users register with a server. It just specifies the URL path and absolute minimum keys. The reference homeserver uses a username/password to authenticate user, but other homeservers may use different methods. This is why you need to specify the type of method
+## Replication Method
+
+Replication Method * - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.  
