@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-24T09:32:22&#43;08:00">
+  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-onecloud-source-code-dev-note/" itemprop="url">Onecloud Source Code Dev Note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    删除 systemctl list-unit-files --all | grep yunion systemctl disable yunion-executor systemctl disable yunion-registry systemctl disable kubelet rm -rf /opt/yunion systemctl disable libvirtd.service ip link set virbr0 down brctl delbr virbr0  operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
+WEB 前端代码是很多 git 仓库组成的，需要用 &lsquo;yarn sync release/3.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2113,113 +2196,6 @@ A single-file component consists of three parts:
 <h1 id="see-entire-packet-payload-using-tcpdump">See entire packet payload using tcpdump</h1>
 
 <pre><code>windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 12, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-java-spring-cloud/" itemprop="url">Lang Java Spring Cloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="spring-cloud-greenwich-release">spring-cloud-greenwich-release</h1>
-
-<p>To get started with Maven with a BOM (dependency management only):</p>
-
-<pre><code>&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
-            &lt;version&gt;Greenwich.RELEASE&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-            &lt;scope&gt;import&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
-    &lt;/dependency&gt;    
-&lt;/dependencies&gt;
-
 </code></pre>
 
   </div>

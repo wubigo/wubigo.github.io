@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-24T09:32:22&#43;08:00">
+  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-02 12:34:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-02 12:34:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vpn-with-wireguard/" itemprop="url">Vpn With Wireguard</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
+wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) public_key=$(echo $private_key | wg pubkey)  配置
+ ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2180,88 +2264,6 @@ aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+
 [default] output = json region = local  ~/.aws/credentials
 [default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
 provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-11 09:42:42 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-11 09:42:42 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 11, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/virtual-networking-on-linux/" itemprop="url">Linux中的虚拟网络设施</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    标准设备  Bridge: A Linux bridge behaves like a network switch. It forwards packets between interfaces that are connected to it. It&rsquo;s usually used for forwarding packets on routers, on gateways, or between VMs and network namespaces on a host. It also supports STP, VLAN filter, and multicast snooping. TUN: TUN (network Tunnel) devices work at the IP level or layer three level of the network stack and are usually point-to-point connections.
   </div>
   
 

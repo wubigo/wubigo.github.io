@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-24T09:32:22&#43;08:00">
+  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 27, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-tuning-on-os/" itemprop="url">Mysql Tuning on OS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2102,89 +2185,6 @@ Now we have the newest version of OpenSSH installed and patched with the improve
   
   <div class="article-style" itemprop="articleBody">
     NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 1, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-01-etcd-notes/" itemprop="url">ETCD notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Verify etcd CA data sudo openssl x509 -in /etc/kubernetes/pki/etcd/server.crt -text ... X509v3 extensions: X509v3 Key Usage: critical Digital Signature, Key Encipherment X509v3 Extended Key Usage: TLS Web Server Authentication, TLS Web Client Authentication X509v3 Subject Alternative Name: DNS:bigo-vm3, DNS:localhost, IP Address:192.168.1.11, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1 ...   server.crt is signed for DNS names [bigo-vm3 localhost] and IPs [192.168.1.11 127.0.0.1 ::1]
- etcd config $kubeadm init phase etcd local -v 4 [etcd] wrote Static Pod manifest for a local etcd member to &quot;/etc/kubernetes/manifests/etcd.
   </div>
   
 
