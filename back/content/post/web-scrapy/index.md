@@ -63,6 +63,28 @@ The data flow in Scrapy is controlled by the execution engine, and goes like thi
 http://www.editthiscookie.com/
 
 
+# CSS vs XPATH
+
+Goal  |	              CSS     | 	XPath 
+| :---: | :---: | :---: | 
+All Elements	|      *         |  //*  
+All P Elements	|    p	      |        //p 
+All Child Elements|	p > *	    |  //p/*
+Element By ID	     | #foo      |	//*[@id=’foo’]
+Element By Class	|  .foo	    |   //*[contains(@class,’foo’)] 1
+Element With Attribute|	*[title]|	//*[@title]
+First Child of All P|	p > *:first-child	|  //p/*[0]
+All P with an A child	|  Not possible	|   //p[a]
+Next Element    |	p + *	    | //p/following-sibling::*[0]
+
+
+CSS selectors are better to use when dealing with classes, IDs and tag names. They are shorter and easier to read
+
+
+Use CSS Selectors for doing simple queries based on the attributes of the element. CSS Selectors tend to perform better, faster and more reliable than XPath in most browsers
+
+
+
 # ref 
 
 https://cloud.tencent.com/developer/article/1050304
