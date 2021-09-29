@@ -58,6 +58,78 @@ Safari/9537.53
 
 &lt;p&gt;&lt;a href=&#34;http://www.editthiscookie.com/&#34; target=&#34;_blank&#34;&gt;http://www.editthiscookie.com/&lt;/a&gt;&lt;/p&gt;
 
+&lt;h1 id=&#34;css-vs-xpath&#34;&gt;CSS vs XPATH&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;Goal&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;CSS&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;XPath&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All P Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All Child Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p &amp;gt; *&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/*&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element By ID&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;#foo&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[@id=’foo’]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element By Class&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;.foo&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[contains(@class,’foo’)] 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element With Attribute&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*[title]&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[@title]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;First Child of All P&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p &amp;gt; *:first-child&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/*[0]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All P with an A child&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Not possible&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p[a]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Next Element&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p + *&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/following-sibling::*[0]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;CSS selectors are better to use when dealing with classes, IDs and tag names. They are shorter and easier to read&lt;/p&gt;
+
+&lt;p&gt;Use CSS Selectors for doing simple queries based on the attributes of the element. CSS Selectors tend to perform better, faster and more reliable than XPath in most browsers&lt;/p&gt;
+
 &lt;h1 id=&#34;ref&#34;&gt;ref&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1050304&#34; target=&#34;_blank&#34;&gt;https://cloud.tencent.com/developer/article/1050304&lt;/a&gt;&lt;/p&gt;

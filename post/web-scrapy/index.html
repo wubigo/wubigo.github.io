@@ -545,6 +545,78 @@ Safari/9537.53
 
 <p><a href="http://www.editthiscookie.com/" target="_blank">http://www.editthiscookie.com/</a></p>
 
+<h1 id="css-vs-xpath">CSS vs XPATH</h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">Goal</th>
+<th align="center">CSS</th>
+<th align="center">XPath</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">All Elements</td>
+<td align="center">*</td>
+<td align="center">//*</td>
+</tr>
+
+<tr>
+<td align="center">All P Elements</td>
+<td align="center">p</td>
+<td align="center">//p</td>
+</tr>
+
+<tr>
+<td align="center">All Child Elements</td>
+<td align="center">p &gt; *</td>
+<td align="center">//p/*</td>
+</tr>
+
+<tr>
+<td align="center">Element By ID</td>
+<td align="center">#foo</td>
+<td align="center">//*[@id=’foo’]</td>
+</tr>
+
+<tr>
+<td align="center">Element By Class</td>
+<td align="center">.foo</td>
+<td align="center">//*[contains(@class,’foo’)] 1</td>
+</tr>
+
+<tr>
+<td align="center">Element With Attribute</td>
+<td align="center">*[title]</td>
+<td align="center">//*[@title]</td>
+</tr>
+
+<tr>
+<td align="center">First Child of All P</td>
+<td align="center">p &gt; *:first-child</td>
+<td align="center">//p/*[0]</td>
+</tr>
+
+<tr>
+<td align="center">All P with an A child</td>
+<td align="center">Not possible</td>
+<td align="center">//p[a]</td>
+</tr>
+
+<tr>
+<td align="center">Next Element</td>
+<td align="center">p + *</td>
+<td align="center">//p/following-sibling::*[0]</td>
+</tr>
+</tbody>
+</table>
+
+<p>CSS selectors are better to use when dealing with classes, IDs and tag names. They are shorter and easier to read</p>
+
+<p>Use CSS Selectors for doing simple queries based on the attributes of the element. CSS Selectors tend to perform better, faster and more reliable than XPath in most browsers</p>
+
 <h1 id="ref">ref</h1>
 
 <p><a href="https://cloud.tencent.com/developer/article/1050304" target="_blank">https://cloud.tencent.com/developer/article/1050304</a></p>
