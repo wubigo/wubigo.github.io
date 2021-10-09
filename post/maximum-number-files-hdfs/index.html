@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,15 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="HDFS The maximum number of files in HDFS depends on two things:
+ total storage space in the cluster
+ the heap size of the NameNode.
+  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
+2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
+Each file object and each block object takes about 150 bytes of the memory.">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/maximum-number-files-hdfs/">
 
   
 
@@ -116,15 +117,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/maximum-number-files-hdfs/">
 
   
   
@@ -139,19 +140,26 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/maximum-number-files-hdfs/">
+  <meta property="og:title" content="Maximum Number Files Hdfs | wubigo">
+  <meta property="og:description" content="HDFS The maximum number of files in HDFS depends on two things:
+ total storage space in the cluster
+ the heap size of the NameNode.
+  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
+2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
+Each file object and each block object takes about 150 bytes of the memory."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-09T09:55:08&#43;08:00">
+  <meta property="article:published_time" content="2021-10-09T09:55:08&#43;08:00">
+  
+  <meta property="article:modified_time" content="2021-10-09T09:55:08&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | wubigo</title>
+  <title>Maximum Number Files Hdfs | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -353,22 +361,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -383,7 +375,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -400,179 +394,208 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Maximum Number Files Hdfs</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/ide/">IDE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/csi/">CSI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/xml/">XML</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/eda/">EDA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sql/">SQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vpc/">VPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ec2/">EC2</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/hosting/">HOSTING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/it%E4%BA%91%E6%9C%8D%E5%8A%A1/">IT云服务</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/pop3/">POP3</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/smtp/">SMTP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/gomod/">GOMOD</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/saas/">SAAS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ea/">EA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/togaf/">ToGAF</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/3d/">3D</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ar/">AR</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/bim/">BIM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/rpc/">RPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/career/">CAREER</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/5/">&laquo;</a></li>
+  <span class="article-date">
     
     
-    <li class="page-item"><a class="page-link" href="/tags/page/7/">&raquo;</a></li>
+      
     
+    <time>Oct 9, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Maximum%20Number%20Files%20Hdfs&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmaximum-number-files-hdfs%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmaximum-number-files-hdfs%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmaximum-number-files-hdfs%2f&amp;title=Maximum%20Number%20Files%20Hdfs"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmaximum-number-files-hdfs%2f&amp;title=Maximum%20Number%20Files%20Hdfs"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Maximum%20Number%20Files%20Hdfs&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmaximum-number-files-hdfs%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="hdfs">HDFS</h1>
+
+<p>The maximum number of files in HDFS depends on two things:</p>
+
+<ol>
+<li><p>total storage space in the cluster</p></li>
+
+<li><p>the heap size of the NameNode.</p></li>
+</ol>
+
+<p>1) You can find out what percentage of storage has been used from HDFS
+NameNode UI.</p>
+
+<p>2) The basic rule of thumb is that 1 GB heap is needed for every million of files.</p>
+
+<p>Each file object and each block object takes about 150 bytes of the memory. For example, if you have 10 million files and each file has 1 one block each, then you would need about 3GB of memory for the NameNode.</p>
+
+<p>If I had 10 million files, each using a block, then we would be using: 10 million + 10 million = 20 million * 150 = 3,000,000,000 bytes = 3 GB MEMORY. Keep in mind the NameNode will need memory for other processes. So to support 10 million files then your NameNode will need much more than 3GB of memory.</p>
+
+<p>So you can increase your max number of files as you go. With increasing
+heap for every 1 million files.</p>
+
+<h1 id="jindofs介绍和使用">JindoFS介绍和使用</h1>
+
+<p>JindoFS提供兼容对象存储的纯客户端模式（SDK）和缓存模式（Cache），
+以支持与优化Hadoop和Spark生态大数据计算对OSS的访问；
+提供块存储模式（Block），以充分利用OSS的海量存储能力和优化文件系统元数据的操作。</p>
+
+<p>Q：Block模式跟HDFS相比，是更好的HDFS？</p>
+
+<p>A：
+HDFS的常规限制为4亿，而Block模式元数据规模上支撑10亿以上的文件数，大于HDFS的限制，而且在集群高峰期时性能更为稳定。
+HDFS有Java onheap限制，而Block模式没有Java onheap和内存限制，可以支持更大的数据规模。
+Block模式轻运维，不用担心坏盘或坏节点，数据1备份放置在OSS上，支持上下线节点。
+支持对冷数据做透明压缩和归档，使用多种手段进行成本优化，对接对象存储，支持EB级数据规模。
+Block模式支持HDFS的一些重要特性。例如，HDFS AuditLog、Ranger集成和数据加密。</p>
+
+<p>Q：Block模式具有哪些特别的优势？</p>
+
+<p>A：
+Block模式可以管理文件元数据和组织文件数据，因此可以不局限于OSS对象存储，完全可以满足各种大数据引擎对存储接口的需求。这些接口包括但不限于Rename的原子性和事务性能力、高性能本地写入、透明压缩、truncate、append、flush、sync和snapshot等。这些高阶存储接口对实现完整的POSIX和对接更多的大数据引擎到OSS是不可或缺的，例如，Flink、HBase、Kafka和Kudu。其他两种方式使用OSS也可以对接部分接口，但是能力和优势会有所不足。
+Block模式在费用上优于其他两种方式使用OSS。Block模式中，因为全部数据中占比60%的温数据和热数据都在本地有缓存备份，大部分读请求都不会通过OSS，所以可以节省一部分费用。</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/hdfs/">HDFS</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -745,6 +768,4 @@
     </script>
   </body>
 </html>
-
-
 

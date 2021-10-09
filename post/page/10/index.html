@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-09T09:55:08&#43;08:00">
   
 
   
@@ -398,6 +398,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-01-07-webtestingautomation/" itemprop="url">web testing automation</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Puppeteer vs Selenium/WebDriver  Selenium/WebDriver focuses on cross-browser automation; its value proposition is a single standard API that works across all major browsers. Puppeteer focuses on Chromium; its value proposition is richer functionality and higher reliability.  That said, you can use Puppeteer to run tests against Chromium, e.g. using the community-driven jest-puppeteer. While this probably shouldn’t be your only testing solution, it does have a few good points compared to WebDriver: * Puppeteer requires zero setup and comes bundled with the Chromium version it works best with, making it very easy to start with.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2179,91 +2261,6 @@ month
   <div class="article-style" itemprop="articleBody">
     查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
 aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/terraform-notes/" itemprop="url">Terraform Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
-[default] output = json region = local  ~/.aws/credentials
-[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
-provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
   </div>
   
 

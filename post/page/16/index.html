@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-09T09:55:08&#43;08:00">
   
 
   
@@ -398,6 +398,103 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 27, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-slave/" itemprop="url">Mysql Slave</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<pre><code>[mysqld]
+server-id = 2
+relay-log-index = slave-relay-bin.index
+relay-log = slave-relay-bin
+</code></pre>
+
+<pre><code>mysql&gt;CHANGE MASTER TO MASTER_HOST = 'db2',MASTER_PORT = 3306, MASTER_USER = 'repl_user', MASTER_PASSWORD = 'xyzzy';
+</code></pre>
+
+<h1 id="connecting-the-master">Connecting the Master</h1>
+
+<pre><code>mysql&gt; START SLAVE;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2103,88 +2200,6 @@ Now we have the newest version of OpenSSH installed and patched with the improve
 <p><code>部分源代码</code>
 <img src="./met-source.png" alt="source code" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    18 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
   </div>
   
 

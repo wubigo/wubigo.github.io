@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-09-28T08:57:03&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-09T09:55:08&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/ubuntu-dns-client/" itemprop="url">在Ubuntu上禁用DNS本地缓存 </a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
+sudo cat /run/resolvconf/resolv.conf sudo cat /run/dnsmasq/resolv.conf sudo cat /etc/systemd/resolved.conf  Disable the local DNS cache /etc/NetworkManager/NetworkManager.conf
+#dns=dnsmasq  systemctl restart network-manager  sudo systemctl disable dnsmasq  ubuntu 20.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2109,109 +2193,6 @@ lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pin
 <p>Fast Identity Online (FIDO)</p>
 
 <p>WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 14, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vmware-vm-static-ip/" itemprop="url">分配Vmware虚机静态IP</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="虚机网卡地址">虚机网卡地址</h2>
-
-<p><img src="/img/post/vmare-static-ip.png" alt="" /></p>
-
-<h2 id="配置静态ip">配置静态IP</h2>
-
-<p><code>C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf</code></p>
-
-<pre><code>host VMnet8 {
-    hardware ethernet 00:0C:29:23:AV:67;
-    fixed-address 192.168.137.170;
-}
-</code></pre>
-
-<h2 id="重启vmware-dhcp服务">重启VMWARE DHCP服务</h2>
-
-<pre><code>net stop vmnetdhcp
-net start vmnetdhcp
-</code></pre>
 
   </div>
   
