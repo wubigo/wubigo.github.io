@@ -5,8 +5,58 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 09:55:08 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 Oct 2021 10:15:58 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Web Test Automation in Lambda Way</title>
+      <link>https://wubigo.com/post/web-test-automation-in-lambda-way/</link>
+      <pubDate>Sat, 09 Oct 2021 10:15:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-test-automation-in-lambda-way/</guid>
+      <description>
+
+&lt;h1 id=&#34;调整默认配置-设置内存和超时时间&#34;&gt;调整默认配置（设置内存和超时时间）&lt;/h1&gt;
+
+&lt;p&gt;函数计算的模式内存是128 MB， 超时是3秒。  默认配置&lt;/p&gt;
+
+&lt;p&gt;pyppeteer无法正常工作。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;aws lambda get-function --function-name webdriver
+{
+    &amp;quot;Configuration&amp;quot;: {
+        &amp;quot;FunctionName&amp;quot;: &amp;quot;webdriver&amp;quot;,
+        &amp;quot;FunctionArn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&amp;quot;,
+        &amp;quot;Runtime&amp;quot;: &amp;quot;nodejs12.x&amp;quot;,
+        &amp;quot;Role&amp;quot;: &amp;quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&amp;quot;,
+        &amp;quot;Handler&amp;quot;: &amp;quot;index.handler&amp;quot;,
+        &amp;quot;CodeSize&amp;quot;: 598,
+        &amp;quot;Description&amp;quot;: &amp;quot;&amp;quot;,
+        &amp;quot;Timeout&amp;quot;: 63,
+        &amp;quot;MemorySize&amp;quot;: 1024,
+        &amp;quot;LastModified&amp;quot;: &amp;quot;2021-10-08T09:44:02.000+0000&amp;quot;,
+        &amp;quot;CodeSha256&amp;quot;: &amp;quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI+XEGlggfpPlV/AI=&amp;quot;,
+        &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;,
+        &amp;quot;TracingConfig&amp;quot;: {
+            &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot;
+        },
+        &amp;quot;RevisionId&amp;quot;: &amp;quot;3c08812d-e958-4427-a47e-be628966be36&amp;quot;,
+        &amp;quot;Layers&amp;quot;: [
+            {
+                &amp;quot;Arn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&amp;quot;,
+                &amp;quot;CodeSize&amp;quot;: 51779390
+            }
+        ],
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;使用lambda-layer&#34;&gt;使用lambda  layer&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/shelfio/chrome-aws-lambda-layer&#34; target=&#34;_blank&#34;&gt;https://github.com/shelfio/chrome-aws-lambda-layer&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;注意要使用相应分区&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Maximum Number Files Hdfs</title>
@@ -1795,22 +1845,6 @@ minimize overhead imposed by slow-start and other congestion mechanisms&lt;/p&gt
 &lt;p&gt;每个人都有自己的卷子。这让我想起了作家E·B·怀特的那句话，这句话特别简单，但是当我们面对大变局的时代，这句话可能表达了一种最佳的态度：面对复杂，保持欢喜。&lt;/p&gt;
 
 &lt;p&gt;时间的朋友，我们明年再见。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>函数服务容器化</title>
-      <link>https://wubigo.com/post/container-support-for-lambda/</link>
-      <pubDate>Thu, 31 Dec 2020 18:59:41 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/container-support-for-lambda/</guid>
-      <description>&lt;p&gt;函数计算最大的卖点是只用交付业务代码，业务代码在预定义的被托管的可执行环境执行。&lt;/p&gt;
-
-&lt;p&gt;由可执行环境管理基础架构，网络，操作系统。&lt;/p&gt;
-
-&lt;p&gt;但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。&lt;/p&gt;
-
-&lt;p&gt;而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。&lt;/p&gt;
 </description>
     </item>
     
