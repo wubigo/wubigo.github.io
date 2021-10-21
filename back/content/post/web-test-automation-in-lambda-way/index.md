@@ -68,12 +68,21 @@ https://github.com/shelfio/chrome-aws-lambda-layer
 ```
 const chromium = require('chrome-aws-lambda');
 
+
+function getRandomInt(max) {
+  let r = Math.floor(Math.random() * max)
+  if ( r <= 1 )
+    r = 2
+  return r;
+}
+
+
 exports.handler = async (event, context, callback) => {
   console.log("fn EVENT: \n" + JSON.stringify(event, null, 2))
   let e = JSON.parse(JSON.stringify(event, null, 2));
   let pageNo = e["pageNo"]
   if ( pageNo == null )
-    pageNo = 2
+    pageNo = getRandomInt(17)
   console.log("pageNo="+pageNo);
   let result = null;
   let browser = null;
@@ -200,5 +209,26 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
         "Arn": "arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver"
     }
 ]
+
+```
+
+
+# 检查调度结果
+
+```
+2021-10-21T09:55:56.099Z	397385df-555a-451a-9ba6-b9548438c797	INFO	fn EVENT: 
+{
+    "version": "0",
+    "id": "8945024c-4594-df8a-74f3-9c98b0e75ed5",
+    "detail-type": "Scheduled Event",
+    "source": "aws.events",
+    "account": "762491489154",
+    "time": "2021-10-21T09:55:11Z",
+    "region": "ap-northeast-1",
+    "resources": [
+        "arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule"
+    ],
+    "detail": {}
+}
 
 ```
