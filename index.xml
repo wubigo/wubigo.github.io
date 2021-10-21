@@ -60,12 +60,21 @@
 
 &lt;pre&gt;&lt;code&gt;const chromium = require(&#39;chrome-aws-lambda&#39;);
 
+
+function getRandomInt(max) {
+  let r = Math.floor(Math.random() * max)
+  if ( r &amp;lt;= 1 )
+    r = 2
+  return r;
+}
+
+
 exports.handler = async (event, context, callback) =&amp;gt; {
   console.log(&amp;quot;fn EVENT: \n&amp;quot; + JSON.stringify(event, null, 2))
   let e = JSON.parse(JSON.stringify(event, null, 2));
   let pageNo = e[&amp;quot;pageNo&amp;quot;]
   if ( pageNo == null )
-    pageNo = 2
+    pageNo = getRandomInt(17)
   console.log(&amp;quot;pageNo=&amp;quot;+pageNo);
   let result = null;
   let browser = null;
@@ -180,6 +189,25 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
         &amp;quot;Arn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&amp;quot;
     }
 ]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;检查调度结果&#34;&gt;检查调度结果&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;2021-10-21T09:55:56.099Z	397385df-555a-451a-9ba6-b9548438c797	INFO	fn EVENT: 
+{
+    &amp;quot;version&amp;quot;: &amp;quot;0&amp;quot;,
+    &amp;quot;id&amp;quot;: &amp;quot;8945024c-4594-df8a-74f3-9c98b0e75ed5&amp;quot;,
+    &amp;quot;detail-type&amp;quot;: &amp;quot;Scheduled Event&amp;quot;,
+    &amp;quot;source&amp;quot;: &amp;quot;aws.events&amp;quot;,
+    &amp;quot;account&amp;quot;: &amp;quot;762491489154&amp;quot;,
+    &amp;quot;time&amp;quot;: &amp;quot;2021-10-21T09:55:11Z&amp;quot;,
+    &amp;quot;region&amp;quot;: &amp;quot;ap-northeast-1&amp;quot;,
+    &amp;quot;resources&amp;quot;: [
+        &amp;quot;arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule&amp;quot;
+    ],
+    &amp;quot;detail&amp;quot;: {}
+}
 
 &lt;/code&gt;&lt;/pre&gt;
 </description>
