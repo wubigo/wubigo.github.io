@@ -426,7 +426,7 @@ aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: {
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -702,7 +702,27 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
     &quot;detail&quot;: {}
 }
 
+
+# 检查日志
+
+`log-events.json`
 </code></pre>
+
+<p>{
+ &ldquo;logStreamName&rdquo;: &ldquo;2021/10/21/[$LATEST]eae72f7f77124ab69d0a1fc398172cec&rdquo;,
+ &ldquo;logGroupName&rdquo;: &ldquo;/aws/lambda/webdriver&rdquo;,
+ &ldquo;startFromHead&rdquo;: true
+}</p>
+
+<pre><code>
+
+
+</code></pre>
+
+<p>aws logs describe-log-streams &ndash;log-group-name /aws/lambda/webdriver &ndash;log-stream-name-prefix 2021/10/21</p>
+
+<p>aws logs get-log-events &ndash;cli-input-json file://log-events.json
+```</p>
 
     </div>
 

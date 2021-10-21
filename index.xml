@@ -209,7 +209,27 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
     &amp;quot;detail&amp;quot;: {}
 }
 
+
+# 检查日志
+
+`log-events.json`
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{
+ &amp;ldquo;logStreamName&amp;rdquo;: &amp;ldquo;2021/10/21/[$LATEST]eae72f7f77124ab69d0a1fc398172cec&amp;rdquo;,
+ &amp;ldquo;logGroupName&amp;rdquo;: &amp;ldquo;/aws/lambda/webdriver&amp;rdquo;,
+ &amp;ldquo;startFromHead&amp;rdquo;: true
+}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;aws logs describe-log-streams &amp;ndash;log-group-name /aws/lambda/webdriver &amp;ndash;log-stream-name-prefix 2021/10/21&lt;/p&gt;
+
+&lt;p&gt;aws logs get-log-events &amp;ndash;cli-input-json file://log-events.json
+```&lt;/p&gt;
 </description>
     </item>
     
