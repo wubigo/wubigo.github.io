@@ -72,6 +72,8 @@ exports.handler = async (event, context, callback) => {
   console.log("fn EVENT: \n" + JSON.stringify(event, null, 2))
   let e = JSON.parse(JSON.stringify(event, null, 2));
   let pageNo = e["pageNo"]
+  if ( pageNo == null )
+    pageNo = 2
   console.log("pageNo="+pageNo);
   let result = null;
   let browser = null;
@@ -123,6 +125,33 @@ exports.handler = async (event, context, callback) => {
 
 ```
 
+
+# 配置
+
+
+`policy.json`
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+        "Effect": "Allow",
+        "Principal": {
+            "Service": ["lambda.amazonaws.com", "s3.amazonaws.com"]
+    },
+    "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+```
+aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+```
+
 # 复制
 
 ```
@@ -134,6 +163,11 @@ aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-
 ```
 aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{"pageNo": 5}' response.json --profile us
 
+
+
+
+aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{"pageNo": 5}' out --log-type Tail --query 'LogResult' --output text --profile us |  base64 -d
+
 ```
 
 # 检查结果
@@ -143,3 +177,28 @@ cat response.json
 ```
 
 
+# EventBridge调度
+
+
+```
+aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(1 hour)'
+
+
+aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule
+
+
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+```
+
+
+`targets.json`
+
+```
+[
+    {
+        "Id": "1",
+        "Arn": "arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver"
+    }
+]
+
+```
