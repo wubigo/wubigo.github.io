@@ -64,6 +64,8 @@ exports.handler = async (event, context, callback) =&amp;gt; {
   console.log(&amp;quot;fn EVENT: \n&amp;quot; + JSON.stringify(event, null, 2))
   let e = JSON.parse(JSON.stringify(event, null, 2));
   let pageNo = e[&amp;quot;pageNo&amp;quot;]
+  if ( pageNo == null )
+    pageNo = 2
   console.log(&amp;quot;pageNo=&amp;quot;+pageNo);
   let result = null;
   let browser = null;
@@ -115,6 +117,29 @@ exports.handler = async (event, context, callback) =&amp;gt; {
 
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h1 id=&#34;配置&#34;&gt;配置&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;policy.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;,
+    &amp;quot;Statement&amp;quot;: [
+    {
+        &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;,
+        &amp;quot;Principal&amp;quot;: {
+            &amp;quot;Service&amp;quot;: [&amp;quot;lambda.amazonaws.com&amp;quot;, &amp;quot;s3.amazonaws.com&amp;quot;]
+    },
+    &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h1 id=&#34;复制&#34;&gt;复制&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
@@ -124,11 +149,38 @@ exports.handler = async (event, context, callback) =&amp;gt; {
 
 &lt;pre&gt;&lt;code&gt;aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; response.json --profile us
 
+
+
+
+aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; out --log-type Tail --query &#39;LogResult&#39; --output text --profile us |  base64 -d
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;检查结果&#34;&gt;检查结果&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;cat response.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;eventbridge调度&#34;&gt;EventBridge调度&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &#39;rate(1 hour)&#39;
+
+
+aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action &#39;lambda:InvokeFunction&#39; --principal events.amazonaws.com --source-arn arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule
+
+
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;targets.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[
+    {
+        &amp;quot;Id&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;Arn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&amp;quot;
+    }
+]
+
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
