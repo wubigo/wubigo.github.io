@@ -55,6 +55,81 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/shelfio/chrome-aws-lambda-layer&#34; target=&#34;_blank&#34;&gt;https://github.com/shelfio/chrome-aws-lambda-layer&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;注意要使用相应分区&lt;/p&gt;
+
+&lt;h1 id=&#34;函数定义&#34;&gt;函数定义&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;const chromium = require(&#39;chrome-aws-lambda&#39;);
+
+exports.handler = async (event, context, callback) =&amp;gt; {
+  console.log(&amp;quot;fn EVENT: \n&amp;quot; + JSON.stringify(event, null, 2))
+  let e = JSON.parse(JSON.stringify(event, null, 2));
+  let pageNo = e[&amp;quot;pageNo&amp;quot;]
+  console.log(&amp;quot;pageNo=&amp;quot;+pageNo);
+  let result = null;
+  let browser = null;
+
+  try {
+    
+    let path = await chromium.executablePath;
+    console.log(&amp;quot;browser begin: &amp;quot;+ path+&amp;quot;\n&amp;quot; );
+    browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+    
+    let page = await browser.newPage();
+    await page.setDefaultTimeout(0);
+
+    await page.goto(&#39;https://wubigo.com/post/page/&#39;+pageNo);
+    console.log(&amp;quot;go to wubigo&amp;quot;);
+    result = await page.title();
+    console.log(&amp;quot;title: &amp;quot; +result +&amp;quot;\n&amp;quot; );
+    
+
+    const page2 = await browser.newPage();
+    await page2.setDefaultNavigationTimeout(0);
+    const articles = await page.$$(&#39;h3.article-title&#39;);
+    for (let i = 0; i &amp;lt; articles.length; i++) {
+      const link = await articles[i].$eval(&#39;a&#39;, a =&amp;gt; a.getAttribute(&#39;href&#39;))
+        .catch((e) =&amp;gt; console.log(&#39;catch err: &#39; + e));
+      console.log(&#39;link=&#39;+link);
+      e[&amp;quot;link&amp;quot;+i]=link;
+      // await articles[i].click().catch((e) =&amp;gt; console.log(&#39;err: &#39; + e));
+      await page2.goto(&#39;https://wubigo.com/&#39;+link);
+      // await page.goBack();
+      
+    }
+  } catch (error) {
+    return callback(error);
+  } finally {
+    if (browser !== null) {
+      await browser.close();
+    }
+  }
+  result = JSON.stringify(e)
+  return callback(null, result);
+};
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;复制&#34;&gt;复制&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;执行&#34;&gt;执行&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; response.json --profile us
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;检查结果&#34;&gt;检查结果&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;cat response.json
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

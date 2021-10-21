@@ -31,7 +31,8 @@
   <meta name="description" content="调整默认配置（设置内存和超时时间） 函数计算的模式内存是128 MB， 超时是3秒。 默认配置
 pyppeteer无法正常工作。
 aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: { &quot;FunctionName&quot;: &quot;webdriver&quot;, &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;, &quot;Runtime&quot;: &quot;nodejs12.x&quot;, &quot;Role&quot;: &quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&quot;, &quot;Handler&quot;: &quot;index.handler&quot;, &quot;CodeSize&quot;: 598, &quot;Description&quot;: &quot;&quot;, &quot;Timeout&quot;: 63, &quot;MemorySize&quot;: 1024, &quot;LastModified&quot;: &quot;2021-10-08T09:44:02.000&#43;0000&quot;, &quot;CodeSha256&quot;: &quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI&#43;XEGlggfpPlV/AI=&quot;, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;RevisionId&quot;: &quot;3c08812d-e958-4427-a47e-be628966be36&quot;, &quot;Layers&quot;: [ { &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&quot;, &quot;CodeSize&quot;: 51779390 } ],  使用lambda layer https://github.com/shelfio/chrome-aws-lambda-layer
-注意要使用相应分区">
+注意要使用相应分区
+函数定义 const chromium = require(&#39;chrome-aws-lambda&#39;); exports.handler = async (event, context, callback) =&gt; { console.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/web-test-automation-in-lambda-way/">
@@ -143,7 +144,8 @@ aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: {
   <meta property="og:description" content="调整默认配置（设置内存和超时时间） 函数计算的模式内存是128 MB， 超时是3秒。 默认配置
 pyppeteer无法正常工作。
 aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: { &quot;FunctionName&quot;: &quot;webdriver&quot;, &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;, &quot;Runtime&quot;: &quot;nodejs12.x&quot;, &quot;Role&quot;: &quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&quot;, &quot;Handler&quot;: &quot;index.handler&quot;, &quot;CodeSize&quot;: 598, &quot;Description&quot;: &quot;&quot;, &quot;Timeout&quot;: 63, &quot;MemorySize&quot;: 1024, &quot;LastModified&quot;: &quot;2021-10-08T09:44:02.000&#43;0000&quot;, &quot;CodeSha256&quot;: &quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI&#43;XEGlggfpPlV/AI=&quot;, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;RevisionId&quot;: &quot;3c08812d-e958-4427-a47e-be628966be36&quot;, &quot;Layers&quot;: [ { &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&quot;, &quot;CodeSize&quot;: 51779390 } ],  使用lambda layer https://github.com/shelfio/chrome-aws-lambda-layer
-注意要使用相应分区"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+注意要使用相应分区
+函数定义 const chromium = require(&#39;chrome-aws-lambda&#39;); exports.handler = async (event, context, callback) =&gt; { console."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2021-10-09T10:15:58&#43;08:00">
@@ -424,7 +426,7 @@ aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: {
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -546,6 +548,81 @@ aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: {
 <p><a href="https://github.com/shelfio/chrome-aws-lambda-layer" target="_blank">https://github.com/shelfio/chrome-aws-lambda-layer</a></p>
 
 <p>注意要使用相应分区</p>
+
+<h1 id="函数定义">函数定义</h1>
+
+<pre><code>const chromium = require('chrome-aws-lambda');
+
+exports.handler = async (event, context, callback) =&gt; {
+  console.log(&quot;fn EVENT: \n&quot; + JSON.stringify(event, null, 2))
+  let e = JSON.parse(JSON.stringify(event, null, 2));
+  let pageNo = e[&quot;pageNo&quot;]
+  console.log(&quot;pageNo=&quot;+pageNo);
+  let result = null;
+  let browser = null;
+
+  try {
+    
+    let path = await chromium.executablePath;
+    console.log(&quot;browser begin: &quot;+ path+&quot;\n&quot; );
+    browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+    
+    let page = await browser.newPage();
+    await page.setDefaultTimeout(0);
+
+    await page.goto('https://wubigo.com/post/page/'+pageNo);
+    console.log(&quot;go to wubigo&quot;);
+    result = await page.title();
+    console.log(&quot;title: &quot; +result +&quot;\n&quot; );
+    
+
+    const page2 = await browser.newPage();
+    await page2.setDefaultNavigationTimeout(0);
+    const articles = await page.$$('h3.article-title');
+    for (let i = 0; i &lt; articles.length; i++) {
+      const link = await articles[i].$eval('a', a =&gt; a.getAttribute('href'))
+        .catch((e) =&gt; console.log('catch err: ' + e));
+      console.log('link='+link);
+      e[&quot;link&quot;+i]=link;
+      // await articles[i].click().catch((e) =&gt; console.log('err: ' + e));
+      await page2.goto('https://wubigo.com/'+link);
+      // await page.goBack();
+      
+    }
+  } catch (error) {
+    return callback(error);
+  } finally {
+    if (browser !== null) {
+      await browser.close();
+    }
+  }
+  result = JSON.stringify(e)
+  return callback(null, result);
+};
+
+</code></pre>
+
+<h1 id="复制">复制</h1>
+
+<pre><code>aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
+</code></pre>
+
+<h1 id="执行">执行</h1>
+
+<pre><code>aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{&quot;pageNo&quot;: 5}' response.json --profile us
+
+</code></pre>
+
+<h1 id="检查结果">检查结果</h1>
+
+<pre><code>cat response.json
+</code></pre>
 
     </div>
 

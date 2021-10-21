@@ -20,7 +20,8 @@
       <description>调整默认配置（设置内存和超时时间） 函数计算的模式内存是128 MB， 超时是3秒。 默认配置
 pyppeteer无法正常工作。
 aws lambda get-function --function-name webdriver { &amp;quot;Configuration&amp;quot;: { &amp;quot;FunctionName&amp;quot;: &amp;quot;webdriver&amp;quot;, &amp;quot;FunctionArn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&amp;quot;, &amp;quot;Runtime&amp;quot;: &amp;quot;nodejs12.x&amp;quot;, &amp;quot;Role&amp;quot;: &amp;quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&amp;quot;, &amp;quot;Handler&amp;quot;: &amp;quot;index.handler&amp;quot;, &amp;quot;CodeSize&amp;quot;: 598, &amp;quot;Description&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;Timeout&amp;quot;: 63, &amp;quot;MemorySize&amp;quot;: 1024, &amp;quot;LastModified&amp;quot;: &amp;quot;2021-10-08T09:44:02.000+0000&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI+XEGlggfpPlV/AI=&amp;quot;, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;RevisionId&amp;quot;: &amp;quot;3c08812d-e958-4427-a47e-be628966be36&amp;quot;, &amp;quot;Layers&amp;quot;: [ { &amp;quot;Arn&amp;quot;: &amp;quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&amp;quot;, &amp;quot;CodeSize&amp;quot;: 51779390 } ],  使用lambda layer https://github.com/shelfio/chrome-aws-lambda-layer
-注意要使用相应分区</description>
+注意要使用相应分区
+函数定义 const chromium = require(&#39;chrome-aws-lambda&#39;); exports.handler = async (event, context, callback) =&amp;gt; { console.</description>
     </item>
     
     <item>
