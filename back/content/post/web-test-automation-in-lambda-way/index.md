@@ -190,7 +190,7 @@ cat response.json
 
 
 ```
-aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(1 hour)'
+aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(30 minutes)'
 
 
 aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule
