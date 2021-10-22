@@ -22,6 +22,7 @@ categories = []
 # 设置默认配置
 
 ```
+aws configure list-profiles
 export AWS_PROFILE=us
 ```
 
@@ -82,6 +83,39 @@ aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(
 
 
 aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:eu-central-1:762491489154:rule/webdriver-scheduled-rule
-```
+
 
 aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+```
+
+# 自动
+
+```
+aws configure list-profiles
+export AWS_PROFILE=us-west-2
+FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
+echo $FN
+
+aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(30 minutes)'
+
+
+EVENT=$(aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:${AWS_PROFILE}:762491:rule/webdriver-scheduled-rule)
+echo $EVENT
+
+T=$(python3 targets.py ${AWS_PROFILE})
+cat targets.json
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+sleep 5
+awslogs streams /aws/lambda/webdriver
+awslogs get /aws/lambda/webdriver --filter-pattern="[r=REPORT,...]"
+```
+
+
+# 清理
+
+```
+aws lambda remove-permission --function-name webdriver --statement-id webdriver-scheduled-event
+aws events list-targets-by-rule --rule webdriver-scheduled-rule
+aws events remove-targets --rule  webdriver-scheduled-rule --ids 1
+aws events delete-rule --name "webdriver-scheduled-rule"
+```
