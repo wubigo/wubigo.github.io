@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+  <meta name="description" content="设置默认配置 aws configure list-profiles export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
 PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
 { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.">
 
@@ -139,7 +139,7 @@ PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdr
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/lambda-redeploy-across-region/">
   <meta property="og:title" content="Lambda Redeploy Across Region | wubigo">
-  <meta property="og:description" content="设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+  <meta property="og:description" content="设置默认配置 aws configure list-profiles export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
 PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
 { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -422,7 +422,7 @@ PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdr
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -507,7 +507,8 @@ PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdr
 
 <h1 id="设置默认配置">设置默认配置</h1>
 
-<pre><code>export AWS_PROFILE=us
+<pre><code>aws configure list-profiles
+export AWS_PROFILE=us
 </code></pre>
 
 <h1 id="下载部署包">下载部署包</h1>
@@ -559,9 +560,39 @@ aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:p
 
 
 aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:eu-central-1:762491489154:rule/webdriver-scheduled-rule
+
+
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
 </code></pre>
 
-<p>aws events put-targets &ndash;rule webdriver-scheduled-rule &ndash;targets file://targets.json</p>
+<h1 id="自动">自动</h1>
+
+<pre><code>aws configure list-profiles
+export AWS_PROFILE=us-west-2
+FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
+echo $FN
+
+aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(30 minutes)'
+
+
+EVENT=$(aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:${AWS_PROFILE}:762491:rule/webdriver-scheduled-rule)
+echo $EVENT
+
+T=$(python3 targets.py ${AWS_PROFILE})
+cat targets.json
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+sleep 5
+awslogs streams /aws/lambda/webdriver
+awslogs get /aws/lambda/webdriver --filter-pattern=&quot;[r=REPORT,...]&quot;
+</code></pre>
+
+<h1 id="清理">清理</h1>
+
+<pre><code>aws lambda remove-permission --function-name webdriver --statement-id webdriver-scheduled-event
+aws events list-targets-by-rule --rule webdriver-scheduled-rule
+aws events remove-targets --rule  webdriver-scheduled-rule --ids 1
+aws events delete-rule --name &quot;webdriver-scheduled-rule&quot;
+</code></pre>
 
     </div>
 
