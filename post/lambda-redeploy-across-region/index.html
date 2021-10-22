@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,12 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/lambda/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lambda-redeploy-across-region/">
 
   
 
@@ -114,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/lambda/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/lambda/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/lambda/">
+  <link rel="canonical" href="https://wubigo.com/post/lambda-redeploy-across-region/">
 
   
   
@@ -137,19 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/lambda/">
-  <meta property="og:title" content="LAMBDA | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/lambda-redeploy-across-region/">
+  <meta property="og:title" content="Lambda Redeploy Across Region | wubigo">
+  <meta property="og:description" content="设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-22T11:59:36&#43;08:00">
+  <meta property="article:published_time" content="2021-10-22T11:59:36&#43;08:00">
+  
+  <meta property="article:modified_time" content="2021-10-22T11:59:36&#43;08:00">
   
 
   
 
   
 
-  <title>LAMBDA | wubigo</title>
+  <title>Lambda Redeploy Across Region | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -365,7 +369,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -382,116 +388,243 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Lambda Redeploy Across Region</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">LAMBDA</h1>
+
+
+
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 22, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Lambda%20Redeploy%20Across%20Region&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-redeploy-across-region%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flambda-redeploy-across-region%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flambda-redeploy-across-region%2f&amp;title=Lambda%20Redeploy%20Across%20Region"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flambda-redeploy-across-region%2f&amp;title=Lambda%20Redeploy%20Across%20Region"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Lambda%20Redeploy%20Across%20Region&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flambda-redeploy-across-region%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lambda-redeploy-across-region/">Lambda Redeploy Across Region</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
-PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
-{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/web-test-automation-in-lambda-way/">Web Test Automation in Lambda Way</a></h2>
-    <div class="article-style">
-      
-      调整默认配置（设置内存和超时时间） 函数计算的模式内存是128 MB， 超时是3秒。 默认配置
-pyppeteer无法正常工作。
-aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: { &quot;FunctionName&quot;: &quot;webdriver&quot;, &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;, &quot;Runtime&quot;: &quot;nodejs12.x&quot;, &quot;Role&quot;: &quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&quot;, &quot;Handler&quot;: &quot;index.handler&quot;, &quot;CodeSize&quot;: 598, &quot;Description&quot;: &quot;&quot;, &quot;Timeout&quot;: 63, &quot;MemorySize&quot;: 1024, &quot;LastModified&quot;: &quot;2021-10-08T09:44:02.000+0000&quot;, &quot;CodeSha256&quot;: &quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI+XEGlggfpPlV/AI=&quot;, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;RevisionId&quot;: &quot;3c08812d-e958-4427-a47e-be628966be36&quot;, &quot;Layers&quot;: [ { &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&quot;, &quot;CodeSize&quot;: 51779390 } ],  使用lambda layer https://github.com/shelfio/chrome-aws-lambda-layer
-注意要使用相应分区
-函数定义 const chromium = require('chrome-aws-lambda'); function getRandomInt(max) { let r = Math.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/container-support-for-lambda/">函数服务容器化</a></h2>
-    <div class="article-style">
-      
-      函数计算最大的卖点是只用交付业务代码，业务代码在预定义的被托管的可执行环境执行。
-由可执行环境管理基础架构，网络，操作系统。
-但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。
-而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lambda-provisioned-concurrency/">Lambda Provisioned Concurrency</a></h2>
-    <div class="article-style">
-      
-      Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></h2>
-    <div class="article-style">
-      
-       创建函数  分配角色
-zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></h2>
-    <div class="article-style">
-      
-      发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&hellip;[\$LATEST].
-aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name '/aws/lambda/my-function' --query logStreams[*].logStreamName aws logs get-log-events --log-group-name '/aws/lambda/my-function' --log-stream-name '2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c' { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></h2>
-    <div class="article-style">
-      
-      事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
-对象并发送给函数代码。
-事件的结构和内容由事件源决定
-支持事件源的服务
- Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
-API和资源(函数或函数层）访问权限。
-权限策略也可以授权给资源本身，让资源或服务访问lambda。
-每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
-本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
-lambda也通过执行角色请求对事件源的读取权限。
-资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
-aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &gt; --principal sns.amazonaws.com --output text {&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}  serveless backend Lambda allows to trigger execution of code
-in response to events in AWS, enabling
-serverless backend solutions.
-The Lambda Function itself includes source code
-      
-    </div>
-  </div>
-  
 
-  
+<h1 id="设置默认配置">设置默认配置</h1>
 
+<pre><code>export AWS_PROFILE=us
+</code></pre>
+
+<h1 id="下载部署包">下载部署包</h1>
+
+<pre><code>aws lambda get-function --function-name webdriver
+
+
+&quot;Code&quot;: {
+        &quot;RepositoryType&quot;: &quot;S3&quot;,
+        &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;
+</code></pre>
+
+<p>从Location下载部署包</p>
+
+<pre><code>PROF = &quot;eu-central-1&quot;
+
+aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<p><code>role-policy.json</code></p>
+
+<pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+    {
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Principal&quot;: {
+            &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;]
+    },
+    &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+</code></pre>
+
+<pre><code>aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.json
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+</code></pre>
+
+<h1 id="测试">测试</h1>
+
+<p>aws lambda invoke &ndash;function-name webdriver &ndash;cli-binary-format raw-in-base64-out &ndash;payload &lsquo;{&ldquo;pageNo&rdquo;: 5}&rsquo; out &ndash;log-type Tail &ndash;query &lsquo;LogResult&rsquo; &ndash;output text &ndash;profile us |  base64 -d</p>
+
+<h1 id="调度">调度</h1>
+
+<pre><code>aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(30 minutes)' 
+
+
+aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:eu-central-1:762491489154:rule/webdriver-scheduled-rule
+</code></pre>
+
+<p>aws events put-targets &ndash;rule webdriver-scheduled-rule &ndash;targets file://targets.json</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/lambda/">LAMBDA</a>
+  
+  <a class="badge badge-light" href="/tags/sls/">SLS</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          
+          <li><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></li>
+          
+          <li><a href="/post/web-test-automation-in-lambda-way/">Web Test Automation in Lambda Way</a></li>
+          
+          <li><a href="/post/container-support-for-lambda/">函数服务容器化</a></li>
+          
+          <li><a href="/post/v8-isolates/">V8 Isolates</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -664,6 +797,4 @@ The Lambda Function itself includes source code
     </script>
   </body>
 </html>
-
-
 

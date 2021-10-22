@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-09T10:15:58&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-22T11:59:36&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 22, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-redeploy-across-region/" itemprop="url">Lambda Redeploy Across Region</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    设置默认配置 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2175,90 +2259,6 @@ Does that mean using docker as your runtime is deprecated?
 _type The class of object that the document represents
 _id The unique identifier for the document”
 Actually, in Elasticsearch, our data is stored and indexed in shards, while an index is just a logical namespace that groups together one or more shards.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 4, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/skywalking-on-k8s/" itemprop="url">Skywalking on K8s</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
-安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
-oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &quot;elastic&quot; #[optional] password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot; # [optional]  helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \ -f .
   </div>
   
 
