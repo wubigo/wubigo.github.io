@@ -19,6 +19,29 @@
 &lt;h1 id=&#34;设置默认配置&#34;&gt;设置默认配置&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;aws configure list-profiles
+
+default
+us-east-1
+us-east-2
+us-west-2
+us-west-1
+eu
+eu-west-1
+af-south-1
+ap-east-1
+ap-south-1
+ap-northeast-3
+ap-northeast-2
+ap-southeast-1
+ap-southeast-2
+ca-central-1
+eu-west-2
+eu-south-1
+eu-west-3
+eu-north-1
+me-south-1
+sa-east-1
+
 export AWS_PROFILE=us
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -78,8 +101,13 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
 
 &lt;h1 id=&#34;自动&#34;&gt;自动&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;aws configure list-profiles
-export AWS_PROFILE=us-west-2
+&lt;pre&gt;&lt;code&gt;if [ -z &amp;quot;$1&amp;quot; ]
+  then
+    echo &amp;quot;No region supplied&amp;quot;
+    exit 1
+fi
+export AWS_PROFILE=$1
+
 FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
 echo $FN
 
