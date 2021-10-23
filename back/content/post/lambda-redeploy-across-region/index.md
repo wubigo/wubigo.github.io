@@ -23,6 +23,29 @@ categories = []
 
 ```
 aws configure list-profiles
+
+default
+us-east-1
+us-east-2
+us-west-2
+us-west-1
+eu
+eu-west-1
+af-south-1
+ap-east-1
+ap-south-1
+ap-northeast-3
+ap-northeast-2
+ap-southeast-1
+ap-southeast-2
+ca-central-1
+eu-west-2
+eu-south-1
+eu-west-3
+eu-north-1
+me-south-1
+sa-east-1
+
 export AWS_PROFILE=us
 ```
 
@@ -91,8 +114,13 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
 # 自动
 
 ```
-aws configure list-profiles
-export AWS_PROFILE=us-west-2
+if [ -z "$1" ]
+  then
+    echo "No region supplied"
+    exit 1
+fi
+export AWS_PROFILE=$1
+
 FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
 echo $FN
 
