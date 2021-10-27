@@ -86,7 +86,9 @@ aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:p
 
 &lt;h1 id=&#34;测试&#34;&gt;测试&lt;/h1&gt;
 
-&lt;p&gt;aws lambda invoke &amp;ndash;function-name webdriver &amp;ndash;cli-binary-format raw-in-base64-out &amp;ndash;payload &amp;lsquo;{&amp;ldquo;pageNo&amp;rdquo;: 5}&amp;rsquo; out &amp;ndash;log-type Tail &amp;ndash;query &amp;lsquo;LogResult&amp;rsquo; &amp;ndash;output text &amp;ndash;profile us |  base64 -d&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export AWS_PROFILE=eu-south-1
+aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; out --log-type Tail --query &#39;LogResult&#39; --output text |  base64 -d
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;调度&#34;&gt;调度&lt;/h1&gt;
 
@@ -98,6 +100,13 @@ aws lambda add-permission --function-name webdriver --statement-id webdriver-sch
 
 aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;调整周期&#34;&gt;调整周期&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &amp;quot;rate(10 minutes)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&#34; target=&#34;_blank&#34;&gt;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;自动&#34;&gt;自动&lt;/h1&gt;
 
