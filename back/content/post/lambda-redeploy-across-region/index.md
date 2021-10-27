@@ -96,8 +96,11 @@ aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:p
 
 # 测试
 
-aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{"pageNo": 5}' out --log-type Tail --query 'LogResult' --output text --profile us |  base64 -d
 
+```
+export AWS_PROFILE=eu-south-1
+aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{"pageNo": 5}' out --log-type Tail --query 'LogResult' --output text |  base64 -d
+```
 
 # 调度
 
@@ -110,6 +113,17 @@ aws lambda add-permission --function-name webdriver --statement-id webdriver-sch
 
 aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
 ```
+
+## 调整周期 
+
+```
+aws events put-rule --name webdriver-scheduled-rule --schedule-expression "rate(10 minutes)"
+```
+
+https://github.com/wubigo/API/blob/master/bash/put-rule.sh
+
+
+
 
 # 自动
 
