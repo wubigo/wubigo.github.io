@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-04-25T12:02:41&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
   
 
   
@@ -399,6 +399,16 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/quasar-app-flow/">Quasar App Flow</a></h2>
+    <div class="article-style">
+      
+      CQuasar App Flow In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:
+Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets) Quasar Extras get imported (Roboto font – if used, icons, animations, …) Quasar CSS &amp; your app’s global CSS are imported App.vue is loaded (not yet being used) Store is imported (if using Vuex Store in src/store) Router is imported (in src/router) Boot files are imported Router default export function executed Boot files get their default export function executed (if on Electron mode) Electron is imported and injected into Vue prototype (if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps Instantiating Vue with root component and attaching to DOM
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/js-vue/">Vue notes</a></h2>

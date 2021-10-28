@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-22T11:59:36&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
   
 
   
@@ -398,6 +398,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-11-24 09:26:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-24 09:26:24 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 24, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/elastic-search-notes/" itemprop="url">Elastic Search Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    “The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”
+“Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields”
+“_index Where the document lives
+_type The class of object that the document represents
+_id The unique identifier for the document”
+Actually, in Elasticsearch, our data is stored and indexed in shards, while an index is just a logical namespace that groups together one or more shards.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2103,93 +2190,6 @@ https://github.com/go-gorm/gorm   region endpoint climc endpoint-show b0d33d8b37
     <a href="/post/i-just-hit-100k-yr-on-github-sponsors/" itemprop="url">I-Just-Hit-$100k-yr-On-GitHub-Sponsors</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 19, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    49 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/" itemprop="url">从源代码构建Onecloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    系统设置 /etc/yum.conf
-obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
-安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
-安装kubelet
-OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
-  </div>
   
 
   

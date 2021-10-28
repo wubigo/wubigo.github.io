@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-22T11:59:36&#43;08:00">
+  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
   
 
   
@@ -398,6 +398,106 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 28, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/quasar-app-flow/" itemprop="url">Quasar App Flow</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="cquasar-app-flow">CQuasar App Flow</h1>
+
+<p>In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:</p>
+
+<p>Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets)
+Quasar Extras get imported (Roboto font – if used, icons, animations, …)
+Quasar CSS &amp; your app’s global CSS are imported
+App.vue is loaded (not yet being used)
+Store is imported (if using Vuex Store in src/store)
+Router is imported (in src/router)
+Boot files are imported
+Router default export function executed
+Boot files get their default export function executed
+(if on Electron mode) Electron is imported and injected into Vue prototype
+(if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps
+Instantiating Vue with root component and attaching to DOM</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2171,93 +2271,6 @@ curl http://127.0.0.1:8080/
     Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
 However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
 Does that mean using docker as your runtime is deprecated?
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-11-24 09:26:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-24 09:26:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 24, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/elastic-search-notes/" itemprop="url">Elastic Search Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    “The act of storing data in Elasticsearch is called indexing, but before we can index a document, we need to decide where to store it”
-“Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields”
-“_index Where the document lives
-_type The class of object that the document represents
-_id The unique identifier for the document”
-Actually, in Elasticsearch, our data is stored and indexed in shards, while an index is just a logical namespace that groups together one or more shards.
   </div>
   
 
