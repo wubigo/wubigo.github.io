@@ -631,6 +631,20 @@ awslogs streams /aws/lambda/webdriver
 awslogs get /aws/lambda/webdriver --filter-pattern=&quot;[r=REPORT,...]&quot;
 </code></pre>
 
+<h1 id="禁止调用">禁止调用</h1>
+
+<pre><code> aws lambda put-function-concurrency --function-name webdriver --reserved-concurrent-executions 0
+</code></pre>
+
+<p>function cannot be invoked while the reserved concurrency is zero.</p>
+
+<p>Calling the invoke API action failed with this message: Rate Exceeded.</p>
+
+<h1 id="并发配额重置">并发配额重置</h1>
+
+<pre><code>aws lambda delete-function-concurrency  --function-name webdriver
+</code></pre>
+
 <h1 id="清理">清理</h1>
 
 <pre><code>aws lambda remove-permission --function-name webdriver --statement-id webdriver-scheduled-event
