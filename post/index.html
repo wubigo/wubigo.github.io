@@ -471,25 +471,8 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="cquasar-app-flow">CQuasar App Flow</h1>
-
-<p>In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:</p>
-
-<p>Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets)
-Quasar Extras get imported (Roboto font – if used, icons, animations, …)
-Quasar CSS &amp; your app’s global CSS are imported
-App.vue is loaded (not yet being used)
-Store is imported (if using Vuex Store in src/store)
-Router is imported (in src/router)
-Boot files are imported
-Router default export function executed
-Boot files get their default export function executed
-(if on Electron mode) Electron is imported and injected into Vue prototype
-(if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps
-Instantiating Vue with root component and attaching to DOM</p>
-
+    CQuasar App Flow In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:
+Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets) Quasar Extras get imported (Roboto font – if used, icons, animations, …) Quasar CSS &amp; your app’s global CSS are imported App.vue is loaded (not yet being used) Store is imported (if using Vuex Store in src/store) Router is imported (in src/router) Boot files are imported Router default export function executed Boot files get their default export function executed (if on Electron mode) Electron is imported and injected into Vue prototype (if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps Instantiating Vue with root component and attaching to DOM
   </div>
   
 
