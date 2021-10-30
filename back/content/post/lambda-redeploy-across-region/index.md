@@ -161,6 +161,23 @@ awslogs streams /aws/lambda/webdriver
 awslogs get /aws/lambda/webdriver --filter-pattern="[r=REPORT,...]"
 ```
 
+# 禁止调用
+
+
+
+```
+ aws lambda put-function-concurrency --function-name webdriver --reserved-concurrent-executions 0
+```
+
+function cannot be invoked while the reserved concurrency is zero.
+
+Calling the invoke API action failed with this message: Rate Exceeded.
+
+# 并发配额重置
+
+```
+aws lambda delete-function-concurrency  --function-name webdriver
+```
 
 # 清理
 
@@ -170,3 +187,4 @@ aws events list-targets-by-rule --rule webdriver-scheduled-rule
 aws events remove-targets --rule  webdriver-scheduled-rule --ids 1
 aws events delete-rule --name "webdriver-scheduled-rule"
 ```
+
