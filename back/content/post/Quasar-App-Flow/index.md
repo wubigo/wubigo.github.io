@@ -38,3 +38,21 @@ Boot files get their default export function executed
 (if on Electron mode) Electron is imported and injected into Vue prototype
 (if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps
 Instantiating Vue with root component and attaching to DOM
+
+
+# Vue组件脚手架
+
+```
+quasar new --list
+quasar new [type] <name of your component with optional subfolder>
+```
+
+创建组件
+```
+quasar new component com1
+quasar new page page1
+
+```
+
+## 组件类型
+layout, page, component , boot, store
