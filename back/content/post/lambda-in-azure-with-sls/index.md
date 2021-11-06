@@ -1,5 +1,5 @@
 +++
-title = "Lambda in Azure"
+title = "Lambda in Azure with sls"
 date = 2021-11-06T11:59:57+08:00
 draft = false
 
