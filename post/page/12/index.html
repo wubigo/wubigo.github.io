@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/istio-pilot-docker/" itemprop="url">Istio Pilot Docker</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    使用一个没有被占用的网段设置DOCKER_GATEWAY
+export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
+kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2099,114 +2183,6 @@ helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quo
 uname -r 4.15.0-45-generic  加载macvlan模块
 sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
      主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-03-01-jekyll/" itemprop="url">jekyll notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="how-to-allow-unsafe-ports-in-chrome">How to allow unsafe ports in Chrome</h1>
-
-<p><a href="http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome" target="_blank">http://douglastarr.com/how-to-allow-unsafe-ports-in-chrome</a></p>
-
-<h1 id="config">config</h1>
-
-<pre><code>$ cat _config.yml
-port: 6000
-</code></pre>
-
-<h1 id="build-for-production">build for production</h1>
-
-<pre><code>$rm site.tar (remove before build otherwise tar-self is repackaged too)
-$JEKYLL_ENV=production bundle exec jekyll build
-$tar zcvf site.tar _site/*
-</code></pre>
-
-<h1 id="replace-gem-source-mirror">replace gem source mirror</h1>
-
-<pre><code>gem sources --remove https://rubygems.org/
-gem sources -a http://ruby.taobao.org/
-gem sources -l
-http://ruby.taobao.org/
-</code></pre>
-
   </div>
   
 

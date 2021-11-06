@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 6, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-in-azure/" itemprop="url">Lambda in Azure</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d '{&quot;name&quot;: &quot;Azure&quot;}'  清理 removeall.json
+{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }  az group deployment create --mode complete --template-file .
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2171,90 +2254,6 @@ curl http://127.0.0.1:8080/
 
 <p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 3, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-deprecate-dockershim/" itemprop="url">Deprecate Dockershim</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
-However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
-Does that mean using docker as your runtime is deprecated?
   </div>
   
 

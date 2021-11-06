@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-10-28T15:53:54&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
   
 
   
@@ -398,6 +398,106 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-03 20:45:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-sdk-setup/" itemprop="url">K8S SDK Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="安装golang-dep">安装Golang Dep</h1>
+
+<pre><code>go get -v github.com/tools/godep
+</code></pre>
+
+<h1 id="安装client-go">安装client-go</h1>
+
+<pre><code>go get k8s.io/client-go/kubernetes
+cd $GOPATH/src/k8s.io/client-go
+git checkout v10.0.0
+godep restore ./...
+</code></pre>
+
+<h1 id="集群外开发">集群外开发</h1>
+
+<h1 id="集群内开发">集群内开发</h1>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2136,95 +2236,6 @@ and process them in a way that allows them to participate
 <h2 id="接收邮件">接收邮件</h2>
 
 <p><img src="/img/post/pop3-forward.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-contribution-note/" itemprop="url">Minio开发笔记</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="依赖">依赖</h2>
-
-<pre><code>go list -m all
-go list -m -versions github.com/minio/cli
-</code></pre>
 
   </div>
   
