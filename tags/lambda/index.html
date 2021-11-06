@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T23:07:10&#43;08:00">
   
 
   
@@ -401,7 +401,19 @@
   
   
   <div>
-    <h2><a href="/post/lambda-in-azure/">Lambda in Azure</a></h2>
+    <h2><a href="/post/lambda-in-azure-with-azure-functions-core-tools/">Lambda in Azure With Azure Functions Core Tools</a></h2>
+    <div class="article-style">
+      
+      安装FUNC npm i -D azure-functions-core-tools@3 export PATH=./  安装playwright-chromium export PLAYWRIGHT_BROWSERS_PATH=0 npm install playwright-chromium@1.3.0  确认chrome的存放路径
+node_modules/playwright-chromium/.local-browsers/chromium-792639
+创建函数 /home/ubuntu/sls/azure-sls/node_modules/.bin/func init func new func start ```` # 发布  func azure functionapp publish my_function_app_name &ndash;build remote ```
+总结 部署节点和运行环境在同一可用区加快部署速度
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lambda-in-azure-with-sls/">Lambda in Azure with sls</a></h2>
     <div class="article-style">
       
       创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d '{&quot;name&quot;: &quot;Azure&quot;}'  清理 removeall.json

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T23:07:10&#43;08:00">
   
 
   
@@ -423,6 +423,128 @@
 
 
 
+<meta content="2021-11-06 23:07:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-06 23:07:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 6, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-in-azure-with-azure-functions-core-tools/" itemprop="url">Lambda in Azure With Azure Functions Core Tools</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="安装func">安装FUNC</h1>
+
+<pre><code>npm i -D azure-functions-core-tools@3
+
+export PATH=./
+</code></pre>
+
+<h1 id="安装playwright-chromium">安装playwright-chromium</h1>
+
+<pre><code>export PLAYWRIGHT_BROWSERS_PATH=0
+npm install playwright-chromium@1.3.0
+</code></pre>
+
+<p>确认chrome的存放路径</p>
+
+<p><code>node_modules/playwright-chromium/.local-browsers/chromium-792639</code></p>
+
+<h1 id="创建函数">创建函数</h1>
+
+<pre><code>/home/ubuntu/sls/azure-sls/node_modules/.bin/func  init
+
+
+func new
+
+
+func start
+````
+
+# 发布
+
+</code></pre>
+
+<p>func azure functionapp publish my_function_app_name  &ndash;build remote
+```</p>
+
+<h1 id="总结">总结</h1>
+
+<p>部署节点和运行环境在同一可用区加快部署速度</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="datePublished">
 <meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="dateModified">
 
@@ -466,7 +588,7 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-in-azure/" itemprop="url">Lambda in Azure</a>
+    <a href="/post/lambda-in-azure-with-sls/" itemprop="url">Lambda in Azure with sls</a>
   </h3>
 
   
@@ -2162,97 +2284,6 @@ curl http://127.0.0.1:8080/
 <p>但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。</p>
 
 <p>而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/year-end-review-2020/" itemprop="url">2020年终总结</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="项目">项目</h2>
-
-<p>2020承接的是一个银行数据中心智能运营平台项目，这个项目需求之前由公司的售前</p>
-
-<p>和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。</p>
-
-<p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
 
   </div>
   

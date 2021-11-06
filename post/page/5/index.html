@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-06T11:59:57&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-06T23:07:10&#43;08:00">
   
 
   
@@ -398,6 +398,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-01 04:19:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-01 04:19:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 1, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/speech_recognition-transcribed-voice-dataset/" itemprop="url">mozilla crowdsources the largest dataset of human voices</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>转录语音数据集</p>
+
+<p>mozilla crowdsources the largest dataset of human voices available for use, including 18 different languages, adding up to almost 1,400 hours of recorded voice data from more than 42,000 contributors</p>
+
+<p><a href="https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/" target="_blank">https://blog.mozilla.org/blog/2019/02/28/sharing-our-common-voices-mozilla-releases-the-largest-to-date-public-domain-transcribed-voice-dataset/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2222,90 +2309,6 @@ policy document format across many services to control authorization
 to resources and API actions
 terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
 resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-apigateway/" itemprop="url">函数＋网关</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
-'use strict' exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '&lt;p&gt;Hello world!&lt;/p&gt;' } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
-resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.
   </div>
   
 
