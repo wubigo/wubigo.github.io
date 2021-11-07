@@ -63,7 +63,7 @@ sls invoke -f hello -d '{"name": "Azure"}'
 # 清理
 
 
-`removeall.json`
+`empty.json`
 
 ```
 {
@@ -78,5 +78,7 @@ sls invoke -f hello -d '{"name": "Azure"}'
 
 
 ```
-az group deployment create --mode complete --template-file ./rmall.json --resource-group sls-rg
+
+az group deployment create --mode complete --template-file ./empty.json --resource-group testgroup
+az group delete -n testgroup -y
 ```

@@ -25,6 +25,11 @@ categories = []
 npm i -D azure-functions-core-tools@3
 
 export PATH=./
+
+export CLI_DEBUG=1
+
+func host start --verbose
+
 ```
 
 # 安装playwright-chromium
@@ -42,13 +47,43 @@ npm install playwright-chromium@1.3.0
 
 ```
 /home/ubuntu/sls/azure-sls/node_modules/.bin/func  init
-
-
 func new
-
-
 func start
-````
+```
+
+# 本地测试
+
+```
+export CLI_DEBUG=1
+func host start --verbose
+```
+
+`host.json`
+
+
+```
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  }
+}
+```
+
+如果遇到如下问题
+
+> Value cannot be null. (Parameter 'provider')
+
+注释/禁用 extensionBundle
 
 # 发布
 
