@@ -28,8 +28,8 @@
   
     
   
-  <meta name="description" content="创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d &#39;{&quot;name&quot;: &quot;Azure&quot;}&#39;  清理 removeall.json
-{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }  az group deployment create --mode complete --template-file .">
+  <meta name="description" content="创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d &#39;{&quot;name&quot;: &quot;Azure&quot;}&#39;  清理 empty.json
+{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }   az group deployment create --mode complete --template-file .">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lambda-in-azure-with-sls/">
@@ -138,8 +138,8 @@
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/lambda-in-azure-with-sls/">
   <meta property="og:title" content="Lambda in Azure with sls | wubigo">
-  <meta property="og:description" content="创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d &#39;{&quot;name&quot;: &quot;Azure&quot;}&#39;  清理 removeall.json
-{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }  az group deployment create --mode complete --template-file ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d &#39;{&quot;name&quot;: &quot;Azure&quot;}&#39;  清理 empty.json
+{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }   az group deployment create --mode complete --template-file ."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2021-11-06T11:59:57&#43;08:00">
@@ -539,7 +539,7 @@ sls deploy --dryrun
 
 <h1 id="清理">清理</h1>
 
-<p><code>removeall.json</code></p>
+<p><code>empty.json</code></p>
 
 <pre><code>{
 &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;,
@@ -551,7 +551,9 @@ sls deploy --dryrun
 }
 </code></pre>
 
-<pre><code>az group deployment create --mode complete --template-file ./rmall.json --resource-group sls-rg
+<pre><code>
+az group deployment create --mode complete --template-file ./empty.json --resource-group testgroup
+az group delete -n testgroup -y
 </code></pre>
 
     </div>
