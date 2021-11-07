@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-06T23:07:10&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-07T10:50:49&#43;08:00">
   
 
   
@@ -399,6 +399,15 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/azure-function-from-cmd/">Azure Function From Cmd</a></h2>
+    <div class="article-style">
+      
+      az account list-locations --query &quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;DisplayName)&quot; --output table  #!/bin/bash # Function app and storage account names must be unique. storageName=mystorageaccount$RANDOM functionAppName=myserverlessfunc$RANDOM region=westeurope # Create a resource group. az group create --name myResourceGroup --location $region # Create an Azure storage account in the resource group. az storage account create \ --name $storageName \ --location $region \ --resource-group myResourceGroup \ --sku Standard_LRS # Create a serverless function app in the resource group.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/lambda-in-azure-with-azure-functions-core-tools/">Lambda in Azure With Azure Functions Core Tools</a></h2>

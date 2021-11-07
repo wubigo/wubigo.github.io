@@ -6,10 +6,19 @@
     <description>Recent content in LAMBDA on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Nov 2021 23:07:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 10:50:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Azure Function From Cmd</title>
+      <link>https://wubigo.com/post/azure-function-from-cmd/</link>
+      <pubDate>Sun, 07 Nov 2021 10:50:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/azure-function-from-cmd/</guid>
+      <description>az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table  #!/bin/bash # Function app and storage account names must be unique. storageName=mystorageaccount$RANDOM functionAppName=myserverlessfunc$RANDOM region=westeurope # Create a resource group. az group create --name myResourceGroup --location $region # Create an Azure storage account in the resource group. az storage account create \ --name $storageName \ --location $region \ --resource-group myResourceGroup \ --sku Standard_LRS # Create a serverless function app in the resource group.</description>
+    </item>
     
     <item>
       <title>Lambda in Azure With Azure Functions Core Tools</title>

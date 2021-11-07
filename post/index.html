@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-06T23:07:10&#43;08:00">
+  <meta property="og:updated_time" content="2021-11-07T10:50:49&#43;08:00">
   
 
   
@@ -398,6 +398,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-11-07 10:50:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-07 10:50:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 7, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/azure-function-from-cmd/" itemprop="url">Azure Function From Cmd</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    az account list-locations --query &quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;DisplayName)&quot; --output table  #!/bin/bash # Function app and storage account names must be unique. storageName=mystorageaccount$RANDOM functionAppName=myserverlessfunc$RANDOM region=westeurope # Create a resource group. az group create --name myResourceGroup --location $region # Create an Azure storage account in the resource group. az storage account create \ --name $storageName \ --location $region \ --resource-group myResourceGroup \ --sku Standard_LRS # Create a serverless function app in the resource group.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2160,95 +2242,6 @@ curl http://127.0.0.1:8080/
 想来想去，还真有一个地方也是这样。学校给我带来的最大的收益——而且时间越长就看得越清楚的那部分收益——是同学。
 就像我自己，1990年到1994年，在武汉的华中科技大学新闻系上学。当时一看周围，一群灰头土脸的同学，十几岁的毛孩子，“谁的青春不迷茫”。
 但是，毕业之后，将近30年，大家分头奋斗。突然有一天就发现，我的同学们都成长为了各行各业的中坚力量。大家互相帮忙、守望相助的能力都在提高。
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:59:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:59:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/container-support-for-lambda/" itemprop="url">函数服务容器化</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>函数计算最大的卖点是只用交付业务代码，业务代码在预定义的被托管的可执行环境执行。</p>
-
-<p>由可执行环境管理基础架构，网络，操作系统。</p>
-
-<p>但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。</p>
-
-<p>而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</p>
-
   </div>
   
 

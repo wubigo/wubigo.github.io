@@ -5,8 +5,46 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Nov 2021 23:07:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 10:50:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Azure Function From Cmd</title>
+      <link>https://wubigo.com/post/azure-function-from-cmd/</link>
+      <pubDate>Sun, 07 Nov 2021 10:50:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/azure-function-from-cmd/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+# Function app and storage account names must be unique.
+storageName=mystorageaccount$RANDOM
+functionAppName=myserverlessfunc$RANDOM
+region=westeurope
+
+# Create a resource group.
+az group create --name myResourceGroup --location $region
+
+# Create an Azure storage account in the resource group.
+az storage account create \
+  --name $storageName \
+  --location $region \
+  --resource-group myResourceGroup \
+  --sku Standard_LRS
+
+# Create a serverless function app in the resource group.
+az functionapp create \
+  --name $functionAppName \
+  --storage-account $storageName \
+  --consumption-plan-location $region \
+  --resource-group myResourceGroup \
+  --functions-version 2
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Lambda in Azure With Azure Functions Core Tools</title>
@@ -1119,71 +1157,6 @@ Experimenting with metadata-protecting relay mechanisms rather than using full h
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Web性能优化指南</title>
-      <link>https://wubigo.com/post/high-performance-browser-networking/</link>
-      <pubDate>Sun, 06 Jun 2021 06:56:24 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/high-performance-browser-networking/</guid>
-      <description>
-
-&lt;h2 id=&#34;应用优化&#34;&gt;应用优化&lt;/h2&gt;
-
-&lt;p&gt;Eliminating unnecessary data transfers is, of course, the single best optimization—e.g.,
-eliminating unnecessary resources or ensuring that the minimum number of bits is
-transferred by applying the appropriate compression algorithm. Following that, locating
-the bits closer to the client, by geo-distributing servers around the world—e.g., using a
-CDN—will help reduce latency of network roundtrips and significantly improve TCP
-performance. Finally, where possible, existing TCP connections should be reused to
-minimize overhead imposed by slow-start and other congestion mechanisms&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;No bit is faster than one that is not sent; send fewer bits.&lt;/li&gt;
-&lt;li&gt;We can’t make the bits travel faster, but we can move the bits closer.&lt;/li&gt;
-&lt;li&gt;TCP connection reuse is critical to improve performance.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;tcp性能优化检查清单&#34;&gt;TCP性能优化检查清单&lt;/h2&gt;
-
-&lt;p&gt;• Upgrade server kernel to latest version (Linux: 3.2+).
-• Ensure that cwnd size is set to 10.
-• Disable slow-start after idle.
-• Ensure that window scaling is enabled.
-• Eliminate redundant data transfers.
-• Compress transferred data.
-• Position servers closer to the user to reduce roundtrip times.
-• Reuse established TCP connections whenever possible.&lt;/p&gt;
-
-&lt;h2 id=&#34;udp性能优化检查清单&#34;&gt;UDP性能优化检查清单&lt;/h2&gt;
-
-&lt;p&gt;• Application must tolerate a wide range of Internet path conditions.
-• Application should control rate of transmission.
-• Application should perform congestion control over all traffic.
-• Application should use bandwidth similar to TCP.
-• Application should back off retransmission counters following loss.
-• Application should not send datagrams that exceed path MTU.
-• Application should handle datagram loss, duplication, and reordering.
-• Application should be robust to delivery delays up to 2 minutes.
-• Application should enable IPv4 UDP checksum, and must enable IPv6 checksum.
-• Application may use keepalives when needed (minimum interval 15 seconds).&lt;/p&gt;
-
-&lt;h2 id=&#34;tls性能优化检查清单&#34;&gt;TLS性能优化检查清单&lt;/h2&gt;
-
-&lt;p&gt;• Get best performance from TCP.
- • Upgrade TLS libraries to latest release, and (re)build servers against them.
- • Enable and configure session caching and stateless resumption.
- • Monitor your session caching hit rates and adjust configuration accordingly.
- • Terminate TLS sessions closer to the user to minimize roundtrip latencies.
- • Configure your TLS record size to fit into a single TCP segment.
- • Ensure that your certificate chain does not overflow the initial congestion window.
- • Remove unnecessary certificates from your chain; minimize the depth.
- • Disable TLS compression on your server.
- • Configure SNI support on your server.
- • Configure OCSP stapling on your server.
- • Append HTTP Strict Transport Security header.&lt;/p&gt;
 </description>
     </item>
     
