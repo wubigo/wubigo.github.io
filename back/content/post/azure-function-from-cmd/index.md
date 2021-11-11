@@ -19,6 +19,7 @@ categories = []
   focal_point = ""
 +++
 
+# AZURE REGION
 
 ```
 az account list-locations --query "sort_by([].{DisplayName:displayName, Name:name}, &DisplayName)" --output table
@@ -26,7 +27,7 @@ az account list-locations --query "sort_by([].{DisplayName:displayName, Name:nam
 
 
 
-
+# 创建函数APP
 
 ```
 #!/bin/bash
