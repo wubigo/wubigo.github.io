@@ -5,8 +5,37 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Nov 2021 10:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 20:00:24 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Azure Config</title>
+      <link>https://wubigo.com/post/azure-config/</link>
+      <pubDate>Sun, 07 Nov 2021 20:00:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/azure-config/</guid>
+      <description>
+
+&lt;h1 id=&#34;配置&#34;&gt;配置&lt;/h1&gt;
+
+&lt;p&gt;&amp;rsquo;.azure/config`&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[defaults]
+location = westus
+
+[cloud]
+name = AzureCloud
+
+[core]
+output = table
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;az config set defaults.location=westus2 defaults.group=MyResourceGroup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;az v2不支持config，直接修改配置文件&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Azure Function From Cmd</title>
@@ -14,8 +43,14 @@
       <pubDate>Sun, 07 Nov 2021 10:50:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/azure-function-from-cmd/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table
+      <description>
+
+&lt;h1 id=&#34;azure-region&#34;&gt;AZURE REGION&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;创建函数app&#34;&gt;创建函数APP&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;#!/bin/bash
 
@@ -1002,161 +1037,6 @@ Experimenting with metadata-protecting relay mechanisms rather than using full h
 &lt;h1 id=&#34;bluesky&#34;&gt;Bluesky&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://gitlab.com/bluesky-community1/decentralized-ecosystem&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/bluesky-community1/decentralized-ecosystem&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>软件产品开发工时评估技巧</title>
-      <link>https://wubigo.com/post/software-estimation/</link>
-      <pubDate>Fri, 02 Jul 2021 08:57:53 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/software-estimation/</guid>
-      <description>
-
-&lt;p&gt;软件项目开发时间线很难做到精确的评估，但在项目管理的时候，&lt;/p&gt;
-
-&lt;p&gt;我们必须要提供这个数字。&lt;/p&gt;
-
-&lt;h1 id=&#34;重要特征-时间和不确定性&#34;&gt;重要特征：时间和不确定性&lt;/h1&gt;
-
-&lt;p&gt;一个只包含时间的评估隐含了一定程度的不确定性。 如果你告诉我一个任务需要花10天时间，&lt;/p&gt;
-
-&lt;p&gt;我会假设进度在控制之中。但如果你告诉我一个任务花10到15天，那这个期限就有很高的风险。&lt;/p&gt;
-
-&lt;h1 id=&#34;项目工期评估技巧&#34;&gt;项目工期评估技巧&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;任务分解&lt;/li&gt;
-&lt;li&gt;评估不确定性&lt;/li&gt;
-&lt;li&gt;分别做最好和最坏情况的评估&lt;/li&gt;
-&lt;li&gt;任务跟踪并优化&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;任务分解&#34;&gt;任务分解&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;复杂度&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;时间(人天)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;小&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;中等&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;特别大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;不用追求一步到位完成工时评估， 开始的时候做粗略的评估，&lt;/p&gt;
-
-&lt;p&gt;该评估可能包含一些复杂度比较大的任务。&lt;/p&gt;
-
-&lt;h2 id=&#34;评估不确定性&#34;&gt;评估不确定性&lt;/h2&gt;
-
-&lt;p&gt;20-30人日与5-45人日的工时评估是完全不同的，即便两者的中位数都是25人天&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;不确定性级别&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;乘数效应&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;低&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1.1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;中等&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1.5&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;特别大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;计算工时&#34;&gt;计算工时&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;复杂度&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;不确定性&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;期望工时&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;最坏情况&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;计量支付私有化部署&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;低&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;20&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;40&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;这个任务预计20天完成，最坏情况需求40天。或者工时可以表示为20-40人日&lt;/p&gt;
-
-&lt;h2 id=&#34;评估跟踪&#34;&gt;评估跟踪&lt;/h2&gt;
-
-&lt;p&gt;最后一定要跟踪实际完成时间&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;复杂度&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;不确定性&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;期望工时&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;最坏情况&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;实际工时&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;计量支付私有化部署&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;低&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;大&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;20&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;40&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;35&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </description>
     </item>
     
