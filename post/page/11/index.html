@@ -423,6 +423,93 @@
 
 
 
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 21, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/nodejs-promise/" itemprop="url">Nodejs异步通信之Promise</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
+ 回调
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="dateModified">
 
@@ -2142,101 +2229,6 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   <div class="article-style" itemprop="articleBody">
     &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
 The Zuul proxy server is designed by default to work on the Spring products.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
-
-<p><img src="./basic-auth.png" alt="" /></p>
-
-<p><img src="./post-form.png" alt="" /></p>
-
-<h1 id="access-protected-resource">access protected resource</h1>
-
-<p><img src="./res.png" alt="" /></p>
-
   </div>
   
 
