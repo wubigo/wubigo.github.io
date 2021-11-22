@@ -3480,7 +3480,7 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
       <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
       
       <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description>容器组件 $ ps fxa | grep docker 1046 ? Ssl 86:30 /usr/bin/dockerd -H fd:// 1129 ? Ssl 61:37 \_ docker-containerd --config /var/run/docker/containerd/containerd.toml 4370 ? Sl 0:01 | \_ docker-containerd-shim -namespace moby -workdir /var/lib/docker/containerd/daemon/io.containerd.runtime.v1.linux/moby/187543746f3caaac62254b8aee40a7c5c8060d54722fa631a7cdfadd0722c71a -address /var/run/docker/containerd/docker-containerd.sock -containerd-binary /usr/bin/docker-containerd -runtime-root /var/run/docker/runtime-runc 4352 ? Sl 0:00 \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 443 -container-ip 172.17.0.3 -container-port 443 4364 ? Sl 0:00 \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.3 -container-port 80 3897 pts/1 S+ 0:00 \_ grep --color=auto docker  Multi-stage builds in Docker only support for Doceker version &amp;gt; 17.</description>
+      <description>端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &amp;ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world</description>
     </item>
     
     <item>
