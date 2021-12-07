@@ -28,10 +28,12 @@
   
     
   
-  <meta name="description" content="端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world">
+  <meta name="description" content="requirements on distributed transactions  database sharding
+ service-oriented transformation and more cross-service transactions
+  three scenarios for distributed transactions  Cross-database distributed transactions Cross-service distributed transactions Hybrid distributed transactions  five distributed transaction solutions  XA Specification TCC Saga Local-Message-Based Distributed Transactions Transactional-Message-Based Distributed Transactions  https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-notes/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/an-in-depth-analysis-of-distributed-transaction-solutions/">
 
   
 
@@ -120,7 +122,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/docker-notes/">
+  <link rel="canonical" href="https://wubigo.com/post/an-in-depth-analysis-of-distributed-transaction-solutions/">
 
   
   
@@ -135,21 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/docker-notes/">
-  <meta property="og:title" content="Docker Notes | wubigo">
-  <meta property="og:description" content="端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/an-in-depth-analysis-of-distributed-transaction-solutions/">
+  <meta property="og:title" content="Distributed Transaction Solutions | wubigo">
+  <meta property="og:description" content="requirements on distributed transactions  database sharding
+ service-oriented transformation and more cross-service transactions
+  three scenarios for distributed transactions  Cross-database distributed transactions Cross-service distributed transactions Hybrid distributed transactions  five distributed transaction solutions  XA Specification TCC Saga Local-Message-Based Distributed Transactions Transactional-Message-Based Distributed Transactions  https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2016-01-25T17:11:05&#43;08:00">
+  <meta property="article:published_time" content="2020-12-07T14:28:41&#43;08:00">
   
-  <meta property="article:modified_time" content="2016-01-25T17:11:05&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2020-12-07T14:28:41&#43;08:00">
   
 
   
 
-  <title>Docker Notes | wubigo</title>
+  
+
+  <title>Distributed Transaction Solutions | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -386,7 +390,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Docker Notes</h1>
+  <h1 itemprop="name">Distributed Transaction Solutions</h1>
 
   
 
@@ -395,8 +399,8 @@
 
 
 
-<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-01-25 17:11:05 &#43;0800 CST" itemprop="dateModified">
+<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -409,7 +413,7 @@
     
       
     
-    <time>Jan 25, 2016</time>
+    <time>Dec 7, 2020</time>
   </span>
   
 
@@ -418,7 +422,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    1 min read
   </span>
   
 
@@ -433,35 +437,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Docker%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-notes%2f"
+         href="https://twitter.com/intent/tweet?text=Distributed%20Transaction%20Solutions&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fan-in-depth-analysis-of-distributed-transaction-solutions%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-notes%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fan-in-depth-analysis-of-distributed-transaction-solutions%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-notes%2f&amp;title=Docker%20Notes"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fan-in-depth-analysis-of-distributed-transaction-solutions%2f&amp;title=Distributed%20Transaction%20Solutions"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-notes%2f&amp;title=Docker%20Notes"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fan-in-depth-analysis-of-distributed-transaction-solutions%2f&amp;title=Distributed%20Transaction%20Solutions"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Docker%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-notes%2f">
+         href="mailto:?subject=Distributed%20Transaction%20Solutions&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fan-in-depth-analysis-of-distributed-transaction-solutions%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -501,209 +505,38 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="端口绑定">端口绑定</h1>
-
-<p>By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world</p>
-
-<pre><code>docker  port &lt;container-name&gt;
-</code></pre>
-
-<h1 id="容器组件">容器组件</h1>
-
-<pre><code>$ ps fxa | grep docker
- 1046 ?        Ssl   86:30 /usr/bin/dockerd -H fd://
- 1129 ?        Ssl   61:37  \_ docker-containerd --config /var/run/docker/containerd/containerd.toml
- 4370 ?        Sl     0:01  |   \_ docker-containerd-shim -namespace moby -workdir /var/lib/docker/containerd/daemon/io.containerd.runtime.v1.linux/moby/187543746f3caaac62254b8aee40a7c5c8060d54722fa631a7cdfadd0722c71a -address /var/run/docker/containerd/docker-containerd.sock -containerd-binary /usr/bin/docker-containerd -runtime-root /var/run/docker/runtime-runc
- 4352 ?        Sl     0:00  \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 443 -container-ip 172.17.0.3 -container-port 443
- 4364 ?        Sl     0:00  \_ /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.3 -container-port 80
- 3897 pts/1    S+     0:00              \_ grep --color=auto docker
-
-</code></pre>
-
-<h1 id="multi-stage-builds-in-docker">Multi-stage builds in Docker</h1>
-
-<p><strong>only support for Doceker version &gt; 17.05</strong></p>
-
-<p><a href="https://blog.alexellis.io/mutli-stage-docker-builds/" target="_blank">https://blog.alexellis.io/mutli-stage-docker-builds/</a></p>
-
-<pre><code>FROM golang:1.10 as builder
-# build env and make target
-FROM alpine:latest
-WORKDIR /root/
-COPY --from=builder ./
-</code></pre>
-
-<h1 id="busybox-nslookup">busybox nslookup</h1>
-
-<p><strong>busybox:latest has bug on nslookup</strong></p>
-
-<pre><code>docker network create test
-32024cd09daca748f8254468f4f00893afc2e1173c378919b1f378ed719f1618
-docker run -dit --name nginx --network test nginx:alpine
-7feaf1f0b4f3d421603bbb984854b753c7cbc6b581dd0a304d3b8fccf8c6604b
-$ docker run -it --rm --network test busybox:1.28 nslookup nginx
-Server:    127.0.0.11
-Address 1: 127.0.0.11
-Name:      nginx
-Address 1: 172.22.0.2 nginx.test
-docker stop nginx
-docker network rm test
-</code></pre>
-
-<h1 id="docker-proxy">docker proxy</h1>
-
-<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
-
-<pre><code>[Service]
-Environment=&quot;HTTP_PROXY=http://127.0.0.1:33351/&quot;
-Environment=&quot;HTTPS_PROXY=http://127.0.0.1:33351/&quot;
-</code></pre>
-
-<pre><code>sudo systemctl daemon-reload
-sudo systemctl restart docker
-systemctl show --property=Environment docker
-</code></pre>
-
-<h1 id="docker-clean-up-disk-space">docker clean up disk space</h1>
+<h1 id="requirements-on-distributed-transactions">requirements on distributed transactions</h1>
 
 <ul>
-<li>delete volumes</li>
+<li><p>database sharding</p></li>
 
-<li><pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)
-$ docker volume ls -qf dangling=true | xargs -r docker volume rm
-</code></pre>
-
-<pre><code>docker rmi $(docker images --filter &quot;dangling=true&quot; -q --no-trunc)
-docker rmi $(docker images | grep &quot;none&quot; | awk '/ / { print $3 }')
-docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
-</code></pre></li>
+<li><p>service-oriented transformation and more cross-service transactions</p></li>
 </ul>
 
-<p><strong>Caution</strong></p>
-
-<pre><code>docker system prune -a
-</code></pre>
-
-<h1 id="ubuntu-docker-post-installation-steps">ubuntu docker Post-installation steps</h1>
+<h1 id="three-scenarios-for-distributed-transactions">three scenarios for distributed transactions</h1>
 
 <ul>
-<li><p>check to docker log for warning</p>
-
-<pre><code>journalctl -xu docker
-journalctl -xu docker.service
-</code></pre></li>
-
-<li><p>check-config</p></li>
+<li>Cross-database distributed transactions</li>
+<li>Cross-service distributed transactions</li>
+<li>Hybrid distributed transactions</li>
 </ul>
 
-<blockquote>
-<p>curl <a href="https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh" target="_blank">https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh</a> &gt; check-config.sh</p>
-</blockquote>
-
-<pre><code>docker run -d --name web httpd:2.4.38-alpine
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:5.5
-docker run -it --name curl bigo/curl:v1
-sudo pipework br1 web 192.168.1.117/24
-sudo pipework br1 mysql 192.168.1.118/24
-sudo pipework br1 curl 192.168.1.119/24
-docker exec -it curl curl 192.168.117
-docker logs web
-192.168.1.119 - - [28/Feb/2019:10:09:15 +0000] &quot;GET / HTTP/1.1&quot; 200 45
-192.168.1.119 - - [28/Feb/2019:10:15:43 +0000] &quot;GET / HTTP/1.1&quot; 200 45
-
-</code></pre>
-
-<p>pipework eth2 web</p>
-
-<h1 id="文件">文件</h1>
-
-<pre><code>CONTAINDER_ID = $(docker run -d image)
-NS_PID = $(head -n 1 /sys/fs/cgroup/devices/docker/$CONTAINDER_ID/tasks)
-LOCAL_PAIR_VETH=veth&lt;NO&gt;pl&lt;NS_PID&gt;
-GUEST_PAIR_VETH=veth&lt;NO&gt;pg&lt;NS_PID&gt;
-ip link set veth1pl1452 master br1
-ip link set veth1pl1452 up
-ip link set veth1pg1452 netns 1452
-ip netns exec 1452 ip link set veth1pg1452 name eth1
-ip netns exec 1452 ip -4 addr add 192.168.1.118/24 dev eth1
-ip netns exec 1452 ip -4 link set eth1 up
-</code></pre>
-
-<p>为容器配置路由</p>
-
-<pre><code>sudo nsenter -t $(docker-pid web) -n ip route del default
-sudo nsenter -t $(docker-pid web) -n ip route add default via 192.168.1.1 dev eth0
-</code></pre>
-
-<h1 id="容器间通信">容器间通信</h1>
+<h1 id="five-distributed-transaction-solutions">five distributed transaction solutions</h1>
 
 <ul>
-<li><p>icc
-inter-container communication</p>
-
-<pre><code>docker network create --driver bridge --subnet 192.168.200.0/24 --ip-range 192.168.200.0/24 -o &quot;com.docker.network.bridge.enable_icc&quot;=&quot;false&quot; no-icc-network
-</code></pre></li>
-
-<li><p>enable_ip_masquerade</p></li>
+<li>XA Specification</li>
+<li>TCC</li>
+<li>Saga</li>
+<li>Local-Message-Based Distributed Transactions</li>
+<li>Transactional-Message-Based Distributed Transactions</li>
 </ul>
 
-<p>是否允许NAT使用宿主的IP掩蔽来自容器访问宿主外的网络包的SOURCE IP</p>
-
-<pre><code>com.docker.network.bridge.enable_ip_masquerade
-</code></pre>
-
-<h1 id="改变默认的数据存储位置和驱动">改变默认的数据存储位置和驱动</h1>
-
-<ul>
-<li>配置</li>
-</ul>
-
-<p><code>daemon.json</code></p>
-
-<pre><code>{
-    &quot;data-root&quot;: &quot;/mnt/docker&quot;,
-    &quot;storage-driver&quot;: &quot;overlay2&quot;
-}
-</code></pre>
-
-<ul>
-<li><p>移动数据</p>
-
-<pre><code>systemctl stop docker
-mv /var/lib/docker/* /mnt/docker/
-systemctl start docker
-</code></pre></li>
-</ul>
-
-<h1 id="定位容器的veth接口">定位容器的VETH接口</h1>
-
-<pre><code>docker exec CID sudo ethtool -S eth0
-NIC statistics:
-     peer_ifindex: 7
-sudo ip link | grep 7
-</code></pre>
-
-<blockquote>
-<p>capture all incoming IP traffic destined to the node
-except local traffic</p>
-</blockquote>
-
-<pre><code>sudo tcpdump -i enp0s25 tcp -n
-sudo tcpdump -i enp0s25 dst host 192.168.1.5 and not src net 192.168.1.0/24
-</code></pre>
-
-<p>[1] <a href="https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html" target="_blank">https://www.securitynik.com/2016/12/docker-networking-internals-how-docker_16.html</a></p>
+<p><a href="https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions" target="_blank">https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions</a></p>
 
     </div>
 
     
 
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
-  
-</div>
 
 
 
