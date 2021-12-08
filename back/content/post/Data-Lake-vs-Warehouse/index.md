@@ -21,6 +21,12 @@ categories = []
 
 
 
+Data catalogs solve the problem by tagging fields and data sets with consistent business
+terms and providing a shopping-type interface that allows the users to find data
+sets by describing what they are looking for using the business terms that they are
+used to, and to understand the data in those data sets through tags and descriptions
+that use business terms
+
 https://towardsdatascience.com/how-to-build-your-data-platform-choosing-a-cloud-data-warehouse
 
 
