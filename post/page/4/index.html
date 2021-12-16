@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-12-07T15:58:21&#43;08:00">
+  <meta property="og:updated_time" content="2021-12-16T13:40:38&#43;08:00">
   
 
   
@@ -398,6 +398,175 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-vpc/" itemprop="url">函数计算VPC支持更新</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    IN VPC 更新前VPC
+更新后VPC
+While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
+ Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-12-13 14:37:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-13 14:37:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 13, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/machine-learning-notes/" itemprop="url">Machine Learning Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Machine learning is the study of powerful techniques that can learn from experience.
+As a machine learning algorithm accumulates more experience, typically in the form of observational data or interactions with an environment, its performance improves</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2167,204 +2336,6 @@ WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&qu
 否则，msinstaller， services.msc， regedit
 等都会报错：
 The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    微服务认证和授权有很多方案，
-这里比较各种主流方案的优缺点，
-为你的业务系统选择MAA方案提供指南
-   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
-实现方式：
- Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
-JWT: 头，负载和签名
- 头
-{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-python3.5-remove/" itemprop="url">Linux删除Python3.5</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>之前一直用pycharm,今天把code升级到1.3.2的时候，
-突然提示我安装python扩展，决定试试。
-结果发现python的解释器设置有问题，
-总是设置为系统的解释器，
-而虚拟环境的解释器不起作用。</p>
-
-<pre><code>apt remove --purge python3.5
-reboot
-</code></pre>
-
-<p>结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
-造成了很大的麻烦。</p>
-
-<p>Ctrl+Alt+F1进入虚拟控制台登录</p>
-
-<pre><code>apt install python3.5
-apt install ubuntu-desktop
-</code></pre>
-
-<p>重新安装chrome和virtualbox</p>
-
-<pre><code>cd /etc/apt/sources.list.d
-sudo mv google-chrome.list.save google-chrome.list
-apt update
-apt install google-chrome-stable
-</code></pre>
-
   </div>
   
 
