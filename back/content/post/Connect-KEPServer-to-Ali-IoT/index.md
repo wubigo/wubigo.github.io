@@ -38,3 +38,14 @@ IoT Gateway is a module that provides integration with external IT systems
 
 and cloud platforms through a series of protocols such as MQTT and HTTP.
 
+
+
+![](/img/post/kepserverex-iot.png)
+
+
+1. A random value simulator sends values to IoT Gateway.
+2. Values go through the IoT Gateway to IoT Core.
+3. IoT Core bridges the values to Pub/Sub.
+4. Users send command messages through IoT Core.
+5. Command messages go through IoT Core to the IoT Gateway.
+6. IoT Gateway delivers the messages to the simulated device.
