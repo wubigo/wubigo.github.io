@@ -23,6 +23,18 @@ Configure an MQTT Client Agent within the IoT Gateway Plug-In for KEPServerEX
 
 to send data to Ali IoT. The connection can be made using MQTT over Transmission 
 
-Control Protocol (TCP) and MQTT over Transport Layer Security (TLS)
+Control Protocol (TCP) and MQTT over Transport Layer Security (TLS).
 
+
+
+set up Kepware KEPServerEX IoT Gateway on Windows to connect with the MQTT bridge
+
+of IoT Core to push streaming data to Cloud and send control messages from IoT 
+
+Core back to KEPServerEX
+
+
+IoT Gateway is a module that provides integration with external IT systems 
+
+and cloud platforms through a series of protocols such as MQTT and HTTP.
 
