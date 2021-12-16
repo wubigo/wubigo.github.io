@@ -525,6 +525,17 @@ Core back to KEPServerEX"><meta property="og:image" content="https://wubigo.com/
 
 <p>and cloud platforms through a series of protocols such as MQTT and HTTP.</p>
 
+<p><img src="/img/post/kepserverex-iot.png" alt="" /></p>
+
+<ol>
+<li>A random value simulator sends values to IoT Gateway.</li>
+<li>Values go through the IoT Gateway to IoT Core.</li>
+<li>IoT Core bridges the values to Pub/Sub.</li>
+<li>Users send command messages through IoT Core.</li>
+<li>Command messages go through IoT Core to the IoT Gateway.</li>
+<li>IoT Gateway delivers the messages to the simulated device.</li>
+</ol>
+
     </div>
 
     
