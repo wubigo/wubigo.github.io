@@ -428,7 +428,7 @@ Core back to KEPServerEX"><meta property="og:image" content="https://wubigo.com/
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -509,7 +509,9 @@ Core back to KEPServerEX"><meta property="og:image" content="https://wubigo.com/
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>Configure an MQTT Client Agent within the IoT Gateway Plug-In for KEPServerEX</p>
+      
+
+<p>Configure an MQTT Client Agent within the IoT Gateway Plug-In for KEPServerEX</p>
 
 <p>to send data to Ali IoT. The connection can be made using MQTT over Transmission</p>
 
@@ -535,6 +537,31 @@ Core back to KEPServerEX"><meta property="og:image" content="https://wubigo.com/
 <li>Command messages go through IoT Core to the IoT Gateway.</li>
 <li>IoT Gateway delivers the messages to the simulated device.</li>
 </ol>
+
+<h1 id="setup">setup</h1>
+
+<ul>
+<li>Install Kepware KEPServerEX.</li>
+<li>Install PowerShell.</li>
+<li>Create or select a Cloud project.</li>
+<li>Enable Kepware KEPServerEX Configuration API Service.</li>
+<li>Install the Cloud SDK.</li>
+</ul>
+
+<h1 id="detail">detail</h1>
+
+<ul>
+<li>Generate a self-signed certificate authority (CA) certificate.</li>
+<li>Provision an IoT Core device on Google Cloud.</li>
+<li>Configure Kepware KEPServerEX IoT Gateway as an IoT Core device.</li>
+<li>Set up a Windows scheduled task to refresh the JSON Web Token (JWT).</li>
+<li>Set up the Kepware KEPServerEX IoT Gateway to send simulated metrics to IoT Core, and verify on Pub/Sub.</li>
+<li>Set up the Kepware KEPServerEX IoT Gateway to receive command messages and send commands from IoT Core.</li>
+</ul>
+
+<h1 id="data-collect">data collect</h1>
+
+<p>Read data from onsite equipment using industrial protocols such as OPC-UA, Modbus and  EtherNet/IP</p>
 
     </div>
 
