@@ -49,3 +49,30 @@ and cloud platforms through a series of protocols such as MQTT and HTTP.
 4. Users send command messages through IoT Core.
 5. Command messages go through IoT Core to the IoT Gateway.
 6. IoT Gateway delivers the messages to the simulated device.
+
+
+# setup
+
+- Install Kepware KEPServerEX.
+- Install PowerShell.
+- Create or select a Cloud project.
+- Enable Kepware KEPServerEX Configuration API Service.
+- Install the Cloud SDK.
+
+
+
+
+
+# detail 
+
+- Generate a self-signed certificate authority (CA) certificate.
+- Provision an IoT Core device on Google Cloud.
+- Configure Kepware KEPServerEX IoT Gateway as an IoT Core device.
+- Set up a Windows scheduled task to refresh the JSON Web Token (JWT).
+- Set up the Kepware KEPServerEX IoT Gateway to send simulated metrics to IoT Core, and verify on Pub/Sub.
+- Set up the Kepware KEPServerEX IoT Gateway to receive command messages and send commands from IoT Core.
+
+
+# data collect
+
+Read data from onsite equipment using industrial protocols such as OPC-UA, Modbus and  EtherNet/IP
