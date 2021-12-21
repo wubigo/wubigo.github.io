@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-12-16T13:40:38&#43;08:00">
+  <meta property="og:updated_time" content="2021-12-20T17:04:37&#43;08:00">
   
 
   
@@ -398,6 +398,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/reinstall-a-running-linux-system-via-ssh/" itemprop="url">通过SSH远程修复linux</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>tl;dr</p>
+
+<pre><code>uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso
+sudo mount -t tmpfs  tmpfs /takeover/
+sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd
+cp -rf /mnt/cd/* /takeover/
+curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &gt; busybox
+chmod u+x /takeover/busybox
+git clone https://github.com/marcan/takeover.sh.git
+gcc takeover.sh/fakeinit.c -o ./fakeinit
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2098,101 +2191,6 @@ Once you run multiple backend processes on a server: A Redis daemon (on that ser
   
   <div class="article-style" itemprop="articleBody">
     Early neural networks Although the core ideas of neural networks were investigated in toy forms as early as the 1950s, the approach took decades to really get started. For a long time, the missing piece was a lack of an efficient way to train large neural networks. This changed in the mid-1980s, as multiple people independently rediscovered the &ldquo;backpropagation&rdquo; algorithm, a way to train chains of parametric operations using gradient descent optimization (later in the book, we will go on to precisely define these concepts), and started applying it to neural networks.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-02-03-numpynotes/" itemprop="url">numpy notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="along-an-axis">along an axis</h1>
-
-<p>Axes are defined for arrays with more than one dimension. A 2-dimensional
-array has two corresponding axes: the first running vertically downwards
-across rows (axis 0), and the second running horizontally across columns (axis 1)</p>
-
-<pre><code>&gt;&gt;&gt;print np.arange(12)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
-</code></pre>
-
   </div>
   
 

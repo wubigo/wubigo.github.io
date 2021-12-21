@@ -5,8 +5,44 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Dec 2021 13:40:38 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Dec 2021 17:04:37 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mainflux Dev Setup</title>
+      <link>https://wubigo.com/post/mainflux-dev-setup/</link>
+      <pubDate>Mon, 20 Dec 2021 17:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mainflux-dev-setup/</guid>
+      <description>
+
+&lt;h1 id=&#34;build&#34;&gt;BUILD&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p $GOPATH/src/github.com/mailflux
+git clone https://github.com/wubigo/mainflux.git
+cd github.com/mailflux/mailflux/
+make
+make dockers_dev
+make run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;provision-the-system&#34;&gt;Provision the System&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;mainflux-cli provision test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;get-token&#34;&gt;GET TOKEN&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -k https://172.21.53.253/tokens
+
+{
+  &amp;quot;email&amp;quot;: &amp;quot;bold_gould@email.com&amp;quot;,
+  &amp;quot;password&amp;quot;: &amp;quot;12345678&amp;quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Connect KEPServer to Ali IoT</title>
@@ -1027,62 +1063,6 @@ yarn start
 &lt;p&gt;&lt;code&gt;C:\Users\bigo\AppData\Local\Yarn\Data\global\node_modules\.bin\create-react-app&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;/home/ubuntu/.config/yarn/global/node_modules/.bin/create-react-app&lt;/code&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Matrix Web Client Dev Setup</title>
-      <link>https://wubigo.com/post/matrix-web-client-dev-setup/</link>
-      <pubDate>Thu, 19 Aug 2021 14:53:17 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
-      <description>
-
-&lt;h1 id=&#34;准备环境&#34;&gt;准备环境&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;node -v
-v14.17.5
-npm install -g yarn@1.22.11
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;链接sdk&#34;&gt;链接SDK&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/matrix-org/matrix-js-sdk.git
-pushd matrix-js-sdk
-yarn link
-yarn install
-popd
-
-
-git clone https://github.com/matrix-org/matrix-react-sdk.git
-pushd matrix-react-sdk
-yarn link
-yarn link matrix-js-sdk
-yarn install
-popd
-
-
-
-git clone https://github.com/vector-im/element-web.git
-cd element-web
-yarn link matrix-js-sdk
-yarn link matrix-react-sdk
-yarn install
-yarn reskindex
-yarn start
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;cp config.sample.json config.json
-
-curl http://127.0.0.1:8080/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;登录&#34;&gt;登录&lt;/h1&gt;
-
-&lt;p&gt;homeserver：&lt;a href=&#34;http://192.168.43.16:8008/&#34; target=&#34;_blank&#34;&gt;http://192.168.43.16:8008/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

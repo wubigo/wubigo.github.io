@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-12-16T13:40:38&#43;08:00">
+  <meta property="og:updated_time" content="2021-12-20T17:04:37&#43;08:00">
   
 
   
@@ -398,6 +398,102 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
+The advantages of serving content from such a sub-domain, however, are that
+The sub-domain can be a cookie-less domain
+If you use your cookies correctly (ie.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2206,105 +2302,6 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
 <pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
 </code></pre></li>
 </ul>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-5.7-sql-mode/" itemprop="url">Mysql 5.7 SQL MODE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
-
-<pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
-+---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| Variable_name | Value                                                                                                                                     |
-+---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| sql_mode      | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
-</code></pre>
-
-<pre><code>[mysqld]  
-sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
-</code></pre>
-
-<pre><code>mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;
-</code></pre>
 
   </div>
   
