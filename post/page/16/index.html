@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,566 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-05-03-doing_on_ubuntu/" itemprop="url">doing_on_ubuntu</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    TZ $ export TZ=:/etc/localtime locale /etc/environment: LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8  1: set TZ=:/etc/localtime https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
+mysql utf8 For the recent version of MySQL,
+default-character-set = utf8 causes a problem. It&rsquo;s deprecated I think.
+As Justin Ball says in &ldquo;Upgrade to MySQL 5.5.12 and now MySQL won’t start, you should:
+Remove that directive and you should be good. Then your configuration file (&lsquo;/etc/my.cnf&rsquo; for example) should look like that: [mysqld] collation-server = utf8_unicode_ci init-connect=&lsquo;SET NAMES utf8&rsquo; character-set-server = utf8 Restart MySQL.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-04-03-cdn/" itemprop="url">cdn note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
+The advantages of serving content from such a sub-domain, however, are that
+The sub-domain can be a cookie-less domain
+If you use your cookies correctly (ie.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-03-03-boot/" itemprop="url">SPRING-boot note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>1: all required dep on jsp tomcat</p>
+
+<pre><code>&lt;!-- Compile --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+        &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Provided --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+        &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Test --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-03-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-03-03-web-api-reference/" itemprop="url">web API reference</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="documenting-the-web-together">Documenting the Web together</h1>
+
+<p><a href="https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/" target="_blank">https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/</a></p>
+
+<h1 id="mdn">MDN</h1>
+
+<p><a href="https://developer.mozilla.org" target="_blank">https://developer.mozilla.org</a></p>
+
+<h1 id="dev-docs">DEV DOCS</h1>
+
+<p><a href="https://devdocs.io" target="_blank">https://devdocs.io</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-02-28 15:19:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-02-28 15:19:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/effective-coding-java/" itemprop="url">Effective Coding Java</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="java-基础">JAVA 基础</h1>
+
+<p><a href="post/2010-01-01-java-notes/" target="_blank">JAVA 基础</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-01-03-arangodb/" itemprop="url">arrangodb note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    1: ArangoDB automatically indexes the _key attribute in each collection. There is no need to index this attribute separately. Please note that a document&rsquo;s _id attribute is derived from the _key attribute, and is thus implicitly indexed, too.
+2: Creating a database
+We don’t want to mess with any existing data, so let’s start by creating a new database called “mydb”:
+db.createDatabase(&lsquo;mydb&rsquo;).then( () =&gt; console.log(&lsquo;Database created&rsquo;), err =&gt; console.error(&lsquo;Failed to create database:&lsquo;, err) );
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1741,540 +2301,6 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
   
   <div class="article-style" itemprop="articleBody">
     INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin + | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <ul>
-<li><p>whether MySQL Server supports partitioning</p>
-
-<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
-</code></pre></li>
-</ul>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-5.7-sql-mode/" itemprop="url">Mysql 5.7 SQL MODE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
-
-<pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
-+---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| Variable_name | Value                                                                                                                                     |
-+---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| sql_mode      | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
-</code></pre>
-
-<pre><code>[mysqld]  
-sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
-</code></pre>
-
-<pre><code>mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-master/" itemprop="url">Mysql Master</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code>[mysqld]
-
-log-bin = master-bin
-log-bin-index = master-bin.index
-server-id = 1
-</code></pre>
-
-<p>Grant the user to retrieve the binary log from the master</p>
-
-<pre><code>mysql&gt;CREATE USER repl_user;
-GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2013-01-03-api_design/" itemprop="url">API_design Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="api-design-choosing-between-names-and-identifiers-in-urls">API design: Choosing between names and identifiers in URLs</h1>
-
-<p><a href="https://cloudplatform.googleblog.com/2017/10/API-design-choosing-between-names-and-identifiers-in-URLs.html" target="_blank">API design: Choosing between names and identifiers in URLs</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-10-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-10-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-10-04-big-data-notes/" itemprop="url">Develop Apache Spark Apps with IntelliJ IDEA on Windows OS</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    mapr downside with intermediate state “MapReduce’s approach of fully materializing intermediate state has downsides compared to Unix pipes: * A MapReduce job can only start when all tasks in the preceding jobs (that generate”“its inputs) have completed, whereas processes connected by a Unix pipe are started at the same time, with output being consumed as soon as it is produced. Skew or varying load on different machines means that a job often has a few straggler tasks that take much longer to complete than the others.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
-$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
-$virtualenv -p /home/whg/python2.
   </div>
   
 

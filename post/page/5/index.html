@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,554 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-05-10 16:57:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-05-10 16:57:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/" itemprop="url">Wireless and Wired Connection Both at a Same Time in Windows</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    give the wireless network higher priority than the wired WIRELESS CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Uncheck it. That will enable a text box named &ldquo;Interface metric&rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.
+WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Again Uncheck &ldquo;Automatic metric&rdquo;, and fill in a number in the &ldquo;Interface metric&rdquo; box.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 6, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/windows-application-information-service/" itemprop="url">Windows Application Information Service</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    AppInfo 启动类型必须是自动或手动，
+否则，msinstaller， services.msc， regedit
+等都会报错：
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/microservices-authentication-and-authorization/" itemprop="url">微服务认证和授权（MAA）指南</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &quot;typ&quot;: &quot;JWT&quot;, &quot;alg&quot;: &quot;HS256&quot; }  负载
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-24 14:04:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 24, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-python3.5-remove/" itemprop="url">Linux删除Python3.5</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>之前一直用pycharm,今天把code升级到1.3.2的时候，
+突然提示我安装python扩展，决定试试。
+结果发现python的解释器设置有问题，
+总是设置为系统的解释器，
+而虚拟环境的解释器不起作用。</p>
+
+<pre><code>apt remove --purge python3.5
+reboot
+</code></pre>
+
+<p>结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了，
+造成了很大的麻烦。</p>
+
+<p>Ctrl+Alt+F1进入虚拟控制台登录</p>
+
+<pre><code>apt install python3.5
+apt install ubuntu-desktop
+</code></pre>
+
+<p>重新安装chrome和virtualbox</p>
+
+<pre><code>cd /etc/apt/sources.list.d
+sudo mv google-chrome.list.save google-chrome.list
+apt update
+apt install google-chrome-stable
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 24, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/k8s-app-development-toolbox/">
+      <img src="/post/k8s-app-development-toolbox/featured_hu47d231d63492733826f3a040baad0438_760864_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-app-development-toolbox/" itemprop="url">K8s高效应用开发工具集</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="本地流线型开发">本地流线型开发</h1>
+
+<p><a href="/post/k8s-development-streamline/">本地流线型开发</a></p>
+
+<h1 id="集成开发-测试部署">集成开发，测试部署</h1>
+
+<p><a href="/post/k8s-ide-tool">IDE</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-pod-command-override/" itemprop="url">K8s Pod Command Override</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1802,517 +2350,6 @@ aws lambda create-function --function-name sns-db-function \
 </code></pre></li>
 </ul>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-lambda-as-a-subscriber-of-sns/" itemprop="url">Lambda订阅SNS通知(上)</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&hellip;[\$LATEST].
-aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name '/aws/lambda/my-function' --query logStreams[*].logStreamName aws logs get-log-events --log-group-name '/aws/lambda/my-function' --log-stream-name '2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c' { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-data-lake/" itemprop="url">Aws S3 Data Lake</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><img src="s3-catalog.png" alt="" /></p>
-
-<p><a href="https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23" target="_blank">https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23</a></p>
-
-<p><a href="https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc" target="_blank">https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 15, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-nodejs/" itemprop="url">函数计算Nodejs实例</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    restore snapshot shell snapshot.sh
-!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 13, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/gatsby-debug/" itemprop="url">Gatsby Debug</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Debugging the Build Process Gatsby’s build and develop steps run as a Node.js application
-which you can debug using standard tools for Node.js applications.
-Debugging with Node.js’ built-in console console.log(args)  VS Code Debugger (Auto-Config)  Preferences: Type node debug into the search bar. Make sure the Auto Attach option is set to on.
- launch.json
-  launch.json
-{ // Use IntelliSense to learn about possible attributes. // Hover to view descriptions of existing attributes.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-13 09:14:26 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-13 09:14:26 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 13, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/server-side-rendering/" itemprop="url">Server Side Rendering</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Client Side Rendering(CSR) Rendering an app in a browser, generally using the DOM
-The initial HTML rendered by the server is a placeholder and
-the entire user interface and data rendered in the browser
-once all your scripts load.
-PROS  Rich site interactions Fast rendering after the initial load Partial real-time updates Cheaper to host &amp; scale  CONS  SEO and index issues Mostly initial bundle.js load duration Performance issues on old mobile devices/slow networks Social Media crawlers and sharing problems (SMO)  Server Side Rendering(SSR) Server rendering generates the full HTML for a page
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 11, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-install-from-source/" itemprop="url">Minio源代码安装</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装两种方式 从最新源代码发布版安装  git设置代理
-[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
-set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
-go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
   </div>
   
 

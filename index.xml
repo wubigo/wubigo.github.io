@@ -5,8 +5,170 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Nov 2021 20:00:24 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jan 2022 16:59:00 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2021 Notes</title>
+      <link>https://wubigo.com/post/notes-2021/</link>
+      <pubDate>Sat, 01 Jan 2022 16:59:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/notes-2021/</guid>
+      <description>
+
+&lt;h2 id=&#34;社会价值&#34;&gt;社会价值&lt;/h2&gt;
+
+&lt;p&gt;个人的价值在于为别人和社会解决问题和提供帮助，在帮助别人的过程
+中促进个人成长。读书不是目的，读书只是为大脑提供了输入，产生对
+社会有用的输出才是读书的真正目的&lt;/p&gt;
+
+&lt;h2 id=&#34;思考&#34;&gt;思考&lt;/h2&gt;
+
+&lt;p&gt;思考比行动重要。害怕思考，草率行动是懒惰的表现。思考就是抑制动物的
+本性过程，思考是个人成长的最快途径&lt;/p&gt;
+
+&lt;h2 id=&#34;沟通&#34;&gt;沟通&lt;/h2&gt;
+
+&lt;p&gt;理解对方是沟通的前提条件。沟通就是让对方认识到自己提议的价值，
+让对方受益。无论沟通的对象是朋友，家人，同事，不要首先想着
+如何改变别人，重要的调整自己。&lt;/p&gt;
+
+&lt;h2 id=&#34;业务和技术&#34;&gt;业务和技术&lt;/h2&gt;
+
+&lt;p&gt;软件解决方案的出发点是解决客户问题。解决问题与技术的先进性与否无关，
+很多情况下解决方案取决于公司的组织形式和资源条件。运维成本是大型
+软件解决方案最主要的成本。监控的目的在于预防失败。
+越早发现问题，解决成本越低。&lt;/p&gt;
+
+&lt;h2 id=&#34;知识积累&#34;&gt;知识积累&lt;/h2&gt;
+
+&lt;p&gt;价值与风险是统一的，看待机会既要看到可能的价值，同时认识到风险。
+巨大的价值必然伴随着巨大的风险。偶然发现的所谓的价值机会可能只是
+一个无知陷阱。知识和财富不仅在于积累更在于传承。财富最重要的是
+在于保值。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mainflux Dev Setup</title>
+      <link>https://wubigo.com/post/mainflux-dev-setup/</link>
+      <pubDate>Mon, 20 Dec 2021 17:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mainflux-dev-setup/</guid>
+      <description>
+
+&lt;h1 id=&#34;build&#34;&gt;BUILD&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p $GOPATH/src/github.com/mailflux
+git clone https://github.com/wubigo/mainflux.git
+cd github.com/mailflux/mailflux/
+make
+make dockers_dev
+make run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;provision-the-system&#34;&gt;Provision the System&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;mainflux-cli provision test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;get-token&#34;&gt;GET TOKEN&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -k https://172.21.53.253/tokens
+
+{
+  &amp;quot;email&amp;quot;: &amp;quot;bold_gould@email.com&amp;quot;,
+  &amp;quot;password&amp;quot;: &amp;quot;12345678&amp;quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connect KEPServer to Ali IoT</title>
+      <link>https://wubigo.com/post/connect-kepserver-to-ali-iot/</link>
+      <pubDate>Thu, 16 Dec 2021 13:40:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-kepserver-to-ali-iot/</guid>
+      <description>
+
+&lt;p&gt;Configure an MQTT Client Agent within the IoT Gateway Plug-In for KEPServerEX&lt;/p&gt;
+
+&lt;p&gt;to send data to Ali IoT. The connection can be made using MQTT over Transmission&lt;/p&gt;
+
+&lt;p&gt;Control Protocol (TCP) and MQTT over Transport Layer Security (TLS).&lt;/p&gt;
+
+&lt;p&gt;set up Kepware KEPServerEX IoT Gateway on Windows to connect with the MQTT bridge&lt;/p&gt;
+
+&lt;p&gt;of IoT Core to push streaming data to Cloud and send control messages from IoT&lt;/p&gt;
+
+&lt;p&gt;Core back to KEPServerEX&lt;/p&gt;
+
+&lt;p&gt;IoT Gateway is a module that provides integration with external IT systems&lt;/p&gt;
+
+&lt;p&gt;and cloud platforms through a series of protocols such as MQTT and HTTP.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/kepserverex-iot.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;A random value simulator sends values to IoT Gateway.&lt;/li&gt;
+&lt;li&gt;Values go through the IoT Gateway to IoT Core.&lt;/li&gt;
+&lt;li&gt;IoT Core bridges the values to Pub/Sub.&lt;/li&gt;
+&lt;li&gt;Users send command messages through IoT Core.&lt;/li&gt;
+&lt;li&gt;Command messages go through IoT Core to the IoT Gateway.&lt;/li&gt;
+&lt;li&gt;IoT Gateway delivers the messages to the simulated device.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;setup&#34;&gt;setup&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install Kepware KEPServerEX.&lt;/li&gt;
+&lt;li&gt;Install PowerShell.&lt;/li&gt;
+&lt;li&gt;Create or select a Cloud project.&lt;/li&gt;
+&lt;li&gt;Enable Kepware KEPServerEX Configuration API Service.&lt;/li&gt;
+&lt;li&gt;Install the Cloud SDK.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;detail&#34;&gt;detail&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Generate a self-signed certificate authority (CA) certificate.&lt;/li&gt;
+&lt;li&gt;Provision an IoT Core device on Google Cloud.&lt;/li&gt;
+&lt;li&gt;Configure Kepware KEPServerEX IoT Gateway as an IoT Core device.&lt;/li&gt;
+&lt;li&gt;Set up a Windows scheduled task to refresh the JSON Web Token (JWT).&lt;/li&gt;
+&lt;li&gt;Set up the Kepware KEPServerEX IoT Gateway to send simulated metrics to IoT Core, and verify on Pub/Sub.&lt;/li&gt;
+&lt;li&gt;Set up the Kepware KEPServerEX IoT Gateway to receive command messages and send commands from IoT Core.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;data-collect&#34;&gt;data collect&lt;/h1&gt;
+
+&lt;p&gt;Read data from onsite equipment using industrial protocols such as OPC-UA, Modbus and  EtherNet/IP&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Lake vs Warehouse</title>
+      <link>https://wubigo.com/post/data-lake-vs-warehouse/</link>
+      <pubDate>Tue, 07 Dec 2021 15:58:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake-vs-warehouse/</guid>
+      <description>&lt;p&gt;Data catalogs solve the problem by tagging fields and data sets with consistent business
+terms and providing a shopping-type interface that allows the users to find data
+sets by describing what they are looking for using the business terms that they are
+used to, and to understand the data in those data sets through tags and descriptions
+that use business terms.&lt;/p&gt;
+
+&lt;p&gt;Data lakes are the do-it-yourself version of a data warehouse, allowing data engineering teams to pick and choose the various metadata, storage, and compute technologies they want to use depending on the needs of their systems.
+Data lakes are ideal for data teams looking to build a more customized platform, often supported by a handful (or more) of data engineers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/data-lake-stack.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://towardsdatascience.com/how-to-build-your-data-platform-choosing-a-cloud-data-warehouse&#34; target=&#34;_blank&#34;&gt;https://towardsdatascience.com/how-to-build-your-data-platform-choosing-a-cloud-data-warehouse&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.alibabacloud.com/blog/alibaba-cloud-maxcompute-vs--aws-redshift-azure-sql-data-warehouse&#34; target=&#34;_blank&#34;&gt;https://www.alibabacloud.com/blog/alibaba-cloud-maxcompute-vs--aws-redshift-azure-sql-data-warehouse&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Azure Config</title>
@@ -894,149 +1056,6 @@ Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for commit
 &lt;h1 id=&#34;使用&#34;&gt;使用&lt;/h1&gt;
 
 &lt;p&gt;Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>YARN2 Note</title>
-      <link>https://wubigo.com/post/yarn2-note/</link>
-      <pubDate>Fri, 20 Aug 2021 21:19:44 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/yarn2-note/</guid>
-      <description>
-
-&lt;h1 id=&#34;升级yarn&#34;&gt;升级YARN&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;npm install -g yarn@1.22.11
-
-
-
-&amp;gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn
-&amp;gt; :; (node ./preinstall.js &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 || true)
-
-C:\local\node-v14.17.5-win-x64\yarn -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js
-C:\local\node-v14.17.5-win-x64\yarnpkg -&amp;gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js
-+ yarn@1.22.11
-updated 1 package in 0.7s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;yarn-link&#34;&gt;yarn link&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;/home/ubuntu/.config/yarn/link/matrix-js-sdk&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll
-total 8
-drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./
-drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../
-lrwxrwxrwx 1 ubuntu ubuntu   22 Aug 19 09:31 matrix-js-sdk -&amp;gt; ../../../matrix-js-sdk/
-lrwxrwxrwx 1 ubuntu ubuntu   25 Aug 19 07:25 matrix-react-sdk -&amp;gt; ../../../matrix-react-sdk/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;创建应用&#34;&gt;创建应用&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;yarn create react-app matrix
-
-yarn start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;C:\Users\bigo\AppData\Local\Yarn\Data\global\node_modules\.bin\create-react-app&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/home/ubuntu/.config/yarn/global/node_modules/.bin/create-react-app&lt;/code&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Matrix Web Client Dev Setup</title>
-      <link>https://wubigo.com/post/matrix-web-client-dev-setup/</link>
-      <pubDate>Thu, 19 Aug 2021 14:53:17 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
-      <description>
-
-&lt;h1 id=&#34;准备环境&#34;&gt;准备环境&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;node -v
-v14.17.5
-npm install -g yarn@1.22.11
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;链接sdk&#34;&gt;链接SDK&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/matrix-org/matrix-js-sdk.git
-pushd matrix-js-sdk
-yarn link
-yarn install
-popd
-
-
-git clone https://github.com/matrix-org/matrix-react-sdk.git
-pushd matrix-react-sdk
-yarn link
-yarn link matrix-js-sdk
-yarn install
-popd
-
-
-
-git clone https://github.com/vector-im/element-web.git
-cd element-web
-yarn link matrix-js-sdk
-yarn link matrix-react-sdk
-yarn install
-yarn reskindex
-yarn start
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;cp config.sample.json config.json
-
-curl http://127.0.0.1:8080/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;登录&#34;&gt;登录&lt;/h1&gt;
-
-&lt;p&gt;homeserver：&lt;a href=&#34;http://192.168.43.16:8008/&#34; target=&#34;_blank&#34;&gt;http://192.168.43.16:8008/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Matrix Encrypted Communication</title>
-      <link>https://wubigo.com/post/matrix-encrypted-communication/</link>
-      <pubDate>Wed, 18 Aug 2021 17:46:17 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/matrix-encrypted-communication/</guid>
-      <description>&lt;p&gt;The matrix specification does not enforce how users register with a server. It just specifies the URL path and absolute minimum keys. The reference homeserver uses a username/password to authenticate user, but other homeservers may use different methods. This is why you need to specify the type of method&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Decentralized Social Network: Federated VS P2P Protocol</title>
-      <link>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</link>
-      <pubDate>Wed, 18 Aug 2021 15:55:30 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</guid>
-      <description>
-
-&lt;h1 id=&#34;matrix&#34;&gt;Matrix&lt;/h1&gt;
-
-&lt;p&gt;Traditionally Matrix decentralises communication by replicating conversation history over a mesh of servers, so that no single server has ownership of a given conversation. Meanwhile, users connect to their given homeserver from clients via plain HTTPS + DNS. This has the significant disadvantage that for a user to have full control and ownership over their communication, they need to run their own server - which comes with a cost, and requires you to be a proficient sysadmin. In order to fully democratise communication and eliminate a compulsory dependency on a homeserver, we&amp;rsquo;ve started seriously working on making Matrix run as a P2P protocol by compiling homeservers to run clientside and using P2P transports such as libp2p - while seamlessly supporting all existing Matrix clients (e.g. Riot.im), bots and bridges with negligible changes. This work includes:&lt;/p&gt;
-
-&lt;p&gt;Compiling Matrix homeservers (e.g. Dendrite) to efficiently run clientside
-Layering HTTPS over P2P transports such as libp2p (e.g. &lt;a href=&#34;https://github.com/matrix-org/libp2p-proxy&#34; target=&#34;_blank&#34;&gt;https://github.com/matrix-org/libp2p-proxy&lt;/a&gt;)
-Switching Matrix identifiers from @user:domain tuples to be Curve25519 public keys (MSC1228)
-Decentralising accounts so they can be hosted concurrently on multiple nodes (e.g. a mix of server-side and client-side homeservers)
-Experimenting with node discovery from DNS to DHTs and other mechanisms (e.g. gossip mechanisms)
-Experimenting with smarter bandwidth-efficient routing algorithms than full-mesh (e.g. combinations of spanning trees, overlapping spanning trees, gossip mechanisms)
-Making Matrix&amp;rsquo;s low-bandwidth CoAP transport production grade
-Experimenting with metadata-protecting relay mechanisms rather than using full homeservers for server-side relaying.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://archive.fosdem.org/2020/schedule/event/dip_p2p_matrix/&#34; target=&#34;_blank&#34;&gt;https://archive.fosdem.org/2020/schedule/event/dip_p2p_matrix/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;bluesky&#34;&gt;Bluesky&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gitlab.com/bluesky-community1/decentralized-ecosystem&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/bluesky-community1/decentralized-ecosystem&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

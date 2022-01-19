@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,530 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-service-headless/" itemprop="url">K8s Service Headless</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/envoy-notes/" itemprop="url">Envoy NOTES</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:29:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/network-tools/" itemprop="url">常用的网络工具</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="常用命令">常用命令</h2>
+
+<p><a href="/post/2010-01-22-computer-networking/">常用命令</a></p>
+
+<h2 id="bandwidth-utilization-tool">bandwidth utilization tool</h2>
+
+<pre><code>wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz |  tar xvz -C ~/bin/
+
+
+bandwhich
+</code></pre>
+
+<h2 id="tcp">TCP</h2>
+
+<p><a href="/post/tcpdump-windows">tcpdump-windows</a></p>
+
+<p><a href="/post/linux-notes/#TCP-DUMP">TCP DUMP</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 06:20:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-chrome/" itemprop="url">Linux Chrome</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
+ 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
+.config/google-chrome/Default/Preferences
+sed -i '/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
+Chrome Didn&rsquo;t Shut Down Correctly Error Solved Windows 7
+ 方法2（不可靠）  Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &lsquo;Default&rsquo; value to &lsquo;Disable&rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring  方法1（可靠）
+ set password-store to basic
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    13 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/helm-chart-istio/" itemprop="url">Helm Chart Istio</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: '44471' [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-24 07:02:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-24 07:02:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 24, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-ide-tool/" itemprop="url">K8s IDE Tool: code extension</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    for developers building applications to run in Kubernetes clusters, and for DevOps staff troubleshooting Kubernetes applications. Features include:
+ View your clusters in an explorer tree view, and drill into workloads, services, pods and nodes. Browse Helm repos and install charts into your Kubernetes cluster. Intellisense for Kubernetes resources and Helm charts and templates. Edit Kubernetes resource manifests and apply them to your cluster. Build and run containers in your cluster from Dockerfiles in your project.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1714,562 +2238,6 @@ to run your database in the cloud without managing any database instances.
 It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
 unpredictable workloads.</p>
 </blockquote>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-10 22:21:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-10 22:21:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 10, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    11 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/js-vue-cli-note/" itemprop="url">Web vue-cli Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    webpack-simple Webpack is a module bundler for Javascript applications,
-it starts at the entrypoint and then build a dependency
-graph of the whole application, pulling those dependencies
-into one or more bundles that can be included in application.
-It supports multiple different file types through loaders,
-loaders will take files that have no concept of modules (e.g. css)
-and process them in a way that allows them to participate
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-02-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-02-02-dynamicroutingbetweencapsules/" itemprop="url">Understanding Dynamic Routing between Capsules</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="understanding-dynamic-routing-between-capsules">Understanding Dynamic Routing between Capsules</h1>
-
-<p><a href="https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/" target="_blank">https://jhui.github.io/2017/11/03/Dynamic-Routing-Between-Capsules/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-30 11:43:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-architectures/" itemprop="url">书籍推荐:无服务器架构及应用案例详解</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank">Serverless Architectures</a></p>
-
-<p><a href="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" target="_blank"><img src="./serverless.jpg" alt="https://www.amazon.com/dp/1617293822/ref=rdr_ext_tmb" /></a></p>
-
-<pre><code>ISBN-10: 1617293822
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-30 09:32:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-30 09:32:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/sr-iov-vs-dpdk/" itemprop="url">SR-IOV vs DPDK/VPP for NFV</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Linux Bridge supported GRE Tunnels, but not the newer and more scalable VXLAN model
-<a href="https://vincent.bernat.ch/en/blog/2017-vxlan-linux" target="_blank">https://vincent.bernat.ch/en/blog/2017-vxlan-linux</a></p>
-
-<p><img src="/img/post/sr-iov.png" alt="" /></p>
-
-<p>This post will talk</p>
-
-<p>about the various building blocks available to speed up packet processing</p>
-
-<p>both hardware based e.g.SR-IOV, RDT, QAT, VMDq, VTD</p>
-
-<p>and software based e.g. DPDK, Fd.io/VPP, OVS etc and give</p>
-
-<p>hands on lab experience</p>
-
-<p><a href="https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decision-can-impact-performance/" target="_blank">https://www.telcocloudbridge.com/blog/dpdk-vs-sr-iov-for-nfv-why-a-wrong-decision-can-impact-performance/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/iot-notes/" itemprop="url">IOT Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together &mdash; say a fleet of railcars &mdash; are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-vpc-connection/" itemprop="url">Aws VPC之间或VPC与私有网络之间的连接方式汇总</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="vpc之间的连接方式">VPC之间的连接方式</h2>
-
-<ul>
-<li><p>专线</p></li>
-
-<li><p>VPN托管服务</p></li>
-
-<li><p>VPN Peering</p></li>
-
-<li><p>自建或第三方VPN</p></li>
-
-<li><p>PrivateLink</p></li>
-</ul>
-
-<h2 id="vpc与私有网络之间的连接方式">VPC与私有网络之间的连接方式</h2>
-
-<ul>
-<li><p>VPN托管服务</p></li>
-
-<li><p>专线</p></li>
-
-<li><p>专线+VPN</p></li>
-
-<li><p>自建或第三方VPN</p></li>
-
-<li><p>Transit VPC</p></li>
-
-<li><p>VPN Hub</p></li>
-</ul>
 
   </div>
   

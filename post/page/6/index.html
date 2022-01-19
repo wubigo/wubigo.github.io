@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,517 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-31 11:04:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-lambda-as-a-subscriber-of-sns/" itemprop="url">Lambda订阅SNS通知(上)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name '/aws/lambda/my-function' --query logStreams[*].logStreamName aws logs get-log-events --log-group-name '/aws/lambda/my-function' --log-stream-name '2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c' { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-26 08:20:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-data-lake/" itemprop="url">Aws S3 Data Lake</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="s3-catalog.png" alt="" /></p>
+
+<p><a href="https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23" target="_blank">https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23</a></p>
+
+<p><a href="https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc" target="_blank">https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-15 22:54:39 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 15, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-nodejs/" itemprop="url">函数计算Nodejs实例</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-13 11:45:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 13, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/gatsby-debug/" itemprop="url">Gatsby Debug</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Debugging the Build Process Gatsby’s build and develop steps run as a Node.js application
+which you can debug using standard tools for Node.js applications.
+Debugging with Node.js’ built-in console console.log(args)  VS Code Debugger (Auto-Config)  Preferences: Type node debug into the search bar. Make sure the Auto Attach option is set to on.
+ launch.json
+  launch.json
+{ // Use IntelliSense to learn about possible attributes. // Hover to view descriptions of existing attributes.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-13 09:14:26 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-13 09:14:26 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 13, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/server-side-rendering/" itemprop="url">Server Side Rendering</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Client Side Rendering(CSR) Rendering an app in a browser, generally using the DOM
+The initial HTML rendered by the server is a placeholder and
+the entire user interface and data rendered in the browser
+once all your scripts load.
+PROS  Rich site interactions Fast rendering after the initial load Partial real-time updates Cheaper to host &amp; scale  CONS  SEO and index issues Mostly initial bundle.js load duration Performance issues on old mobile devices/slow networks Social Media crawlers and sharing problems (SMO)  Server Side Rendering(SSR) Server rendering generates the full HTML for a page
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/minio-install-from-source/" itemprop="url">Minio源代码安装</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装两种方式 从最新源代码发布版安装  git设置代理
+[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
+set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1660,589 +2171,6 @@ functions: hello: handler: handler.hello events: - http: path: ping method: get 
  Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
  Bazel 0.19.0 doesn&rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
 $bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot; --sandbox_debug &gt; build.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-07-linuxperformancetuning/" itemprop="url">Linux performance</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
-Interrupt Coalescence ubuntu 16 default
-Interrupt Coalescence (IC)
-$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
-$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
-use Jumbo frames
-ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
-ip -s link show eth0  stop irqbalance for home user
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dockering-java-8/" itemprop="url">Dockering Java 8</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><strong>Improve docker container detection and resource configuration usage</strong></p>
-
-<p><a href="https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54" target="_blank">https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54</a></p>
-
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-26 14:49:57 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-lambda-apigateway/" itemprop="url">Aws Lambda Apigateway</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code> awslocal lambda add-permission --function-name ServerlessExample --action lambda:InvokeFunction --statement-id sns-topic --principal apigateway.amazonaws.com --source-arn &quot;arn:aws:execute-api:us-east-1:123456789012:pmte6kdjb6/*/*&quot;
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-26 11:14:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/http-status-code-for-reset-api/" itemprop="url">REST API中如何使用Http状态码</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
- Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
-https://httpstatuses.com/
-The main choice is do you want to treat the HTTP status code as part of your REST API or not.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-24 09:46:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-24 09:46:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-lambda-notes/" itemprop="url">Aws Lambda Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
-对象并发送给函数代码。
-事件的结构和内容由事件源决定
-支持事件源的服务
- Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
-API和资源(函数或函数层）访问权限。
-权限策略也可以授权给资源本身，让资源或服务访问lambda。
-每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
-本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
-lambda也通过执行角色请求对事件源的读取权限。
-资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
-aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &gt; --principal sns.amazonaws.com --output text {&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}  serveless backend Lambda allows to trigger execution of code
-in response to events in AWS, enabling
-serverless backend solutions.
-The Lambda Function itself includes source code
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 21, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/pass-over-iaas/" itemprop="url">面向应用的无服务器架构</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>根据多年在IAAS/PAAS平台的建议经验，并帮助多个行业例如医疗，电信，
-建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享，
-希望能为中小企业上云提供一些有价值的建议。</p>
-
-<p><strong>本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心，
-需要根据目前的计算能力选择相应的云服务厂商</strong></p>
-
-<p>云服务模型</p>
-
-<p><img src="./cloud-model.jpeg" alt="RNA" /></p>
-
-<p>从云服务模型可以看出，企业上云有以下路径可选。
-但导向是一致的，专注业务，IT外包。</p>
-
-<ul>
-<li>从自建数据中心向IaaS平台迁移</li>
-<li>从IaaS平台向PaaS迁移</li>
-<li>在公有云厂家间迁移</li>
-<li>从IaaS平台向FaaS迁移</li>
-<li>混合云</li>
-</ul>
-
-<p>上云的初级阶段:
-购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同，
-如何选择最高性价比的云主机，参考</p>
-
-<p><a href="/post/iaas-how-to-buy-ec2/">云主机主要性价比指标</a></p>
-
-<p>硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：</p>
-
-<ul>
-<li>云主机内网/外网平均带宽(最核心指标)</li>
-<li>存储(网络硬盘)IO吞吐量</li>
-<li>初始化完成后首次资源利用率</li>
-</ul>
-
-<p>其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构
-起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成
-这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016
-年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。</p>
-
-<p><strong>网络带宽是很多企业战略转型决定上云遇到的第一个大坑</strong></p>
-
-<blockquote>
-<p>内网平均带宽也是衡量私有云厂商服务能力的核心指标</p>
-</blockquote>
-
-<p>所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益</p>
-
-<p><a href="/post/iaas-benchmark-2016/">国内外云厂商主要产品基准测试对比图</a></p>
-
-<p><a href="/post/iaas-gears">上云注意事项</a></p>
-
-<p>上云的中级阶段：PaaS</p>
-
-<p><a href="/post/paas-how-to-buy">如何选择PAAS供应商</a></p>
-
-<p>上云的终级阶段: 不需要服务器。</p>
-
-<p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
-
   </div>
   
 

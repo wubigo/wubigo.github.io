@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,518 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 16, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-ha-setup-with-kubeadm/" itemprop="url">K8s HA Setup With Kubeadm</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-11 22:35:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/reinstall-a-running-linux-system-via-ssh/" itemprop="url">通过SSH远程修复linux</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>tl;dr</p>
+
+<pre><code>uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso
+sudo mount -t tmpfs  tmpfs /takeover/
+sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd
+cp -rf /mnt/cd/* /takeover/
+curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &gt; busybox
+chmod u+x /takeover/busybox
+git clone https://github.com/marcan/takeover.sh.git
+gcc takeover.sh/fakeinit.c -o ./fakeinit
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 16:38:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-mesh-istio/" itemprop="url">K8S微服务治理</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6  安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 4, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/git-forkpull-model/" itemprop="url">分叉拉取模式(fork and pull model)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    GITHUB两种主要的pull request的开发模式
+分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
+在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
+ https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
+ GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 3, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-computing-why-how/" itemprop="url">无服务器计算环境OPENFAAS搭建</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    准备  创建角色和授权
+kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 2, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1681,553 +2193,6 @@ logging driver To configure the Docker daemon to default to a specific logging d
     COOKIE &amp; HTTP SESSION H5 addition that adds a key/value store to browsers and cookies
 stateful session Some examples of scaling stateful sessions:
 Once you run multiple backend processes on a server: A Redis daemon (on that server) for session storage. Once you run on multiple servers: A dedicated server running Redis just for session storage. Once you run on multiple servers, in multiple clusters: Sticky sessions.  JWT session  Stateless JWT: A JWT token that contains the session data, encoded directly into the token.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-03-machinelearningbasic/" itemprop="url">machine learning basic</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Early neural networks Although the core ideas of neural networks were investigated in toy forms as early as the 1950s, the approach took decades to really get started. For a long time, the missing piece was a lack of an efficient way to train large neural networks. This changed in the mid-1980s, as multiple people independently rediscovered the &ldquo;backpropagation&rdquo; algorithm, a way to train chains of parametric operations using gradient descent optimization (later in the book, we will go on to precisely define these concepts), and started applying it to neural networks.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-02-03-numpynotes/" itemprop="url">numpy notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="along-an-axis">along an axis</h1>
-
-<p>Axes are defined for arrays with more than one dimension. A 2-dimensional
-array has two corresponding axes: the first running vertically downwards
-across rows (axis 0), and the second running horizontally across columns (axis 1)</p>
-
-<pre><code>&gt;&gt;&gt;print np.arange(12)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=1)
-&gt;&gt;&gt;print np.arange(12).reshape(3, 4).mean(axis=0)
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-hacknewsfavorites2017/" itemprop="url">Hacknews favorites 2017</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="the-state-of-front-end-frameworks">The State Of Front-End Frameworks</h1>
-
-<p>[]()</p>
-
-<h1 id="let-s-encrypt-now-holds-35-of-the-market">Let&rsquo;s Encrypt now holds 35% of the market</h1>
-
-<p><a href="https://nettrack.info/ssl_certificate_issuers.html" target="_blank">https://nettrack.info/ssl_certificate_issuers.html</a></p>
-
-<h1 id="code-together-in-real-time-with-teletype-for-atom">Code together in real time with Teletype for Atom</h1>
-
-<p><a href="https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html" target="_blank">https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html</a></p>
-
-<h1 id="how-firefox-got-fast-again">How Firefox Got Fast Again</h1>
-
-<p><a href="https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/" target="_blank">https://hacks.mozilla.org/2017/11/entering-the-quantum-era-how-firefox-got-fast-again-and-where-its-going-to-get-faster/</a></p>
-
-<h1 id="do-you-need-a-vpn">Do you need a VPN</h1>
-
-<p><a href="https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn" target="_blank">https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2017-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2017-01-01-discoursenotes/" itemprop="url">discourse notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="discourse-setup">discourse-setup</h1>
-
-<p>discourse-setup script does, more-or-less, is just copy samples/standalone.yml to containers/app.yml and edit a bunch of stuff in response to the answers to a bunch of questions</p>
-
-<pre><code>$cp samples/standalone.yml containers/app.yml
-</code></pre>
-
-<p>Discourse app.yml AWS setup example</p>
-
-<p><a href="https://gist.github.com/stroupaloop/7fa3cab406423da02d02" target="_blank">Discourse app.yml AWS setup</a></p>
-
-<p><a href="https://meta.discourse.org/t/how-to-specify-a-different-port-not-80-during-installation/47859" target="_blank">how-to-specify-a-different-port-not-80-during-install</a></p>
-
-<p>fix these settings after bootstrapping, edit the /containers/app.yml
-  then rebuild to take effect</p>
-
-<pre><code>./launcher rebuild app
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-12-30-ghostnotes/" itemprop="url">ghost notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Adding swap memory If your system has less than 1GB memory, you may run into errors. To overcome this, configure a larger amount of swap memory:
-dd if=/dev/zero of=/var/swap bs=1k count=1024k mkswap /var/swap swapon /var/swap echo '/var/swap swap swap default 0 0' &gt;&gt; /etc/fstab  default-setting /var/www/ghost/versions/1.18.2/core/server/data/schema/default-settings.json  blog mail configuration using Amazon SES Ghost is a blogging platform written in nodejs. Edit the config.js file at the ghost root directory
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-12-30 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-12-30-softwareleadweekly/" itemprop="url">software lead weekly</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    good practise There are several common things and These all take practice. 1. Organization skills/project management skills: ability to pull together internal/external resources, ability to create clear plans, ability to build relationships with other teams to make cross-team collaboration easier 2. Communication skills: ability to deescalate and mediate conflicts fairly, ability to give both positive and negative feedback regularly, ability to create psychological safety, ability to deliver bad news while maintaining psychological safety, ability to run efficient meetings, ability to make unpopular decisions while still commanding the team&rsquo;s respect, ability to engage with different personality types and communication styles 3.
   </div>
   
 

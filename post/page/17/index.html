@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,540 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <ul>
+<li><p>whether MySQL Server supports partitioning</p>
+
+<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
+</code></pre></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-02-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5.7-sql-mode/" itemprop="url">Mysql 5.7 SQL MODE</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
+
+<pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable_name | Value                                                                                                                                     |
++---------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| sql_mode      | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
+</code></pre>
+
+<pre><code>[mysqld]  
+sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
+</code></pre>
+
+<pre><code>mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-master/" itemprop="url">Mysql Master</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>[mysqld]
+
+log-bin = master-bin
+log-bin-index = master-bin.index
+server-id = 1
+</code></pre>
+
+<p>Grant the user to retrieve the binary log from the master</p>
+
+<pre><code>mysql&gt;CREATE USER repl_user;
+GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2013-01-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2013-01-03-api_design/" itemprop="url">API_design Note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="api-design-choosing-between-names-and-identifiers-in-urls">API design: Choosing between names and identifiers in URLs</h1>
+
+<p><a href="https://cloudplatform.googleblog.com/2017/10/API-design-choosing-between-names-and-identifiers-in-URLs.html" target="_blank">API design: Choosing between names and identifiers in URLs</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-10-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-10-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-10-04-big-data-notes/" itemprop="url">Develop Apache Spark Apps with IntelliJ IDEA on Windows OS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    mapr downside with intermediate state “MapReduce’s approach of fully materializing intermediate state has downsides compared to Unix pipes: * A MapReduce job can only start when all tasks in the preceding jobs (that generate”“its inputs) have completed, whereas processes connected by a Unix pipe are started at the same time, with output being consumed as soon as it is produced. Skew or varying load on different machines means that a job often has a few straggler tasks that take much longer to complete than the others.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1677,629 +2211,6 @@ ENTRYPOINT [&quot;/tiller&quot;]
 </blockquote>
 
 <h1 id="util">util</h1>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-04-10 19:42:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-04-10 19:42:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 10, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-03-windows-note/" itemprop="url">windows notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="常用工具">常用工具</h2>
-
-<ul>
-<li>cport</li>
-</ul>
-
-<p><a href="https://www.nirsoft.net/utils/cports.html" target="_blank">https://www.nirsoft.net/utils/cports.html</a></p>
-
-<h2 id="turn-on-ie-proxy">turn on IE proxy</h2>
-
-<pre><code>@ECHO OFF
-ECHO Turn on proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 1 /f
-</code></pre>
-
-<h2 id="turn-off-ie-proxy">turn off IE proxy</h2>
-
-<pre><code>@ECHO OFF
-ECHO Turn off IE Proxy! please wait...
-REG ADD &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyEnable /t REG_DWORD /d 0 /f
-</code></pre>
-
-<h2 id="禁止用户修改密码">禁止用户修改密码</h2>
-
-<pre><code>net users
-net user /add cmp cmp
-net user cmp /PasswordChg:No
-WMIC USERACCOUNT WHERE Name='cmp' SET PasswordExpires=FALSE
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-03-07 15:52:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-03-07 15:52:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 7, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/6-linux-command-should-be-in-control/" itemprop="url">应该掌握的linux命令</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>LINUX shell常用工具提供强大的功能，在日常中熟练掌握能给我
-带来不少动能</p>
-
-<ul>
-<li>grep</li>
-<li>cat</li>
-<li>find</li>
-<li>head/tail</li>
-<li>wc</li>
-<li>awk</li>
-<li>shuf</li>
-</ul>
-
-<h1 id="查找">查找</h1>
-
-<p>在logs目录下查找所有包含2010_05_02的日志文件</p>
-
-<pre><code>ls logs/ | grep 2010_05_02
-</code></pre>
-
-<pre><code>pip freeze | grep scipy
-scipy==1.1.0
-</code></pre>
-
-<pre><code>grep -oP &quot;'[\w]+ == [\d.]+'&quot;  setup.py
-scipy == 1.1.0
-</code></pre>
-
-<p>#</p>
-
-<pre><code>find . -name '..*swp' -delete
-</code></pre>
-
-<h1 id="awk">awk</h1>
-
-<pre><code>head -n 1 data.csv | awk -F ',' '{print NF}'
-</code></pre>
-
-<h1 id="shuf">shuf</h1>
-
-<p>从数据集中随机取50个样本</p>
-
-<pre><code>cat big_csv.csv | shuf | head -n 50 &gt; sample_csv.csv
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 22, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-22-computer-networking/" itemprop="url">computer networking</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    iproute2 SCTP transport-layer protocols are implemented in the end systems but not in network routers.
-The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 5, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-05-%E5%90%8D%E8%A8%80/" itemprop="url">名言</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>杨绛</p>
-
-<pre><code>我们曾如此渴望命运的波澜，到最后才发现：人生最曼妙的风景，竟是内心的淡定与从容
-我们曾如此期盼外界的认可，到最后才知道：世界是自己的，与他人毫无关系
-</code></pre>
-
-<p>星云大师</p>
-
-<pre><code>一个人倘若一心除恶，表示他看到的都是恶。
-真正有益于世界的做法不是除恶，而是行善；不是打击负能量，而是弘扬正能量
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/java-notes/" itemprop="url">Java Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
-echo 'export JAVA_TOOL_OPTIONS=&quot;-Dhttps.protocols=TLSv1.2&quot;' &gt;&gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2009-03-29 15:09:22 &#43;0800 CST" itemprop="datePublished">
-<meta content="2009-03-29 15:09:22 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 29, 2009</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/insurance/" itemprop="url">保险通识指南</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="保险本质">保险本质</h2>
-
-<p>购买保险是为了减少预期以外的事件对被保险人的财务状况造成冲击，
-为受益人提供经济补偿减轻负担。也就是，
-用经济学原理来解释就是被保险人通过缴纳保费换取未来财务状况更大的确定性。</p>
-
-<p>打个比方，没买保险前，你未来财富现值的范围可能是 [-50万元, 200万元]，
-有负值的原因可能是各种财富损失，比如家里大火，比如治病过程中支付的高额医疗费用
-；而通过购买保险，你的未来财富现值的范围可能变成[80万, 190万]，
-虽然最大值因为要交保费而变小了，但是更加确定了
-（这个例子中波动范围从250万缩小到110万，所以未来更确定了，当然我这里举例简化了很多统计学上的东西，大家知道我想表达的意思就好)。</p>
-
-<p>保险核心是保障和转移风险。连投、万能、分红、两全是理财</p>
-
-<p>保险最大的风险是你购买的保障并不是你真正需要的保障</p>
-
-<p>国内根据保险业务类别一共有4种牌照：人寿保险、健康险、养老险和财产险。
-其中前3种牌照在目前情况下大部分经营范围实际是重叠的，
-所以可以认为是同一种，即人身险牌照。
-也就是我们常说的保险公司只分为两种：
-寿险（说人身险、人寿保险也是一个意思）公司和财险公司</p>
-
-<p>以大家熟知的“中国平安”为例，“中国平安”旗下有非常多的业务，
-其中由“平安保险”负责集团的保险业务，
-而平安保险实际再分为：平安人寿、平安健康险、平安养老和平安财险四家保险子公司负责。
-这四家公司各持有一块牌照，也就是中国平安一共有持有4块牌照经营保险业务。
-每家子公司都需单独接受偿付能力监管，集团还有总的偿付能力监管。</p>
-
-<h2 id="保险条款">保险条款</h2>
-
-<p>保险条款着重看“保险责任”和“除外责任”那两节即可</p>
-
-<h2 id="购买保险顺序">购买保险顺序</h2>
-
-<p>社保-意外险-寿险-重疾险</p>
-
-<h2 id="参考">参考</h2>
-
-<p><a href="https://post.smzdm.com/p/568110/" target="_blank">https://post.smzdm.com/p/568110/</a></p>
 
   </div>
   

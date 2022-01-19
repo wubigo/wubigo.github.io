@@ -299,3 +299,6 @@ seq 1 100 | xargs -I {} java  -jar bin/ossimport2.jar  -c conf/sys.properties cl
 
 
 [http://www.slashroot.in/linux-file-system-read-write-performance-test](http://www.slashroot.in/linux-file-system-read-write-performance-test)
+
+
+[测试块存储性能](https://partners-intl.aliyun.com/help/zh/doc-detail/147897.htm)

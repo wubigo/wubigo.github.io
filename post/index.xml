@@ -6,10 +6,56 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Nov 2021 20:00:24 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jan 2022 16:59:00 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2021 Notes</title>
+      <link>https://wubigo.com/post/notes-2021/</link>
+      <pubDate>Sat, 01 Jan 2022 16:59:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/notes-2021/</guid>
+      <description>社会价值 个人的价值在于为别人和社会解决问题和提供帮助，在帮助别人的过程 中促进个人成长。读书不是目的，读书只是为大脑提供了输入，产生对 社会有用的输出才是读书的真正目的
+思考 思考比行动重要。害怕思考，草率行动是懒惰的表现。思考就是抑制动物的 本性过程，思考是个人成长的最快途径
+沟通 理解对方是沟通的前提条件。沟通就是让对方认识到自己提议的价值， 让对方受益。无论沟通的对象是朋友，家人，同事，不要首先想着 如何改变别人，重要的调整自己。
+业务和技术 软件解决方案的出发点是解决客户问题。解决问题与技术的先进性与否无关， 很多情况下解决方案取决于公司的组织形式和资源条件。运维成本是大型 软件解决方案最主要的成本。监控的目的在于预防失败。 越早发现问题，解决成本越低。
+知识积累 价值与风险是统一的，看待机会既要看到可能的价值，同时认识到风险。 巨大的价值必然伴随着巨大的风险。偶然发现的所谓的价值机会可能只是 一个无知陷阱。知识和财富不仅在于积累更在于传承。财富最重要的是 在于保值。</description>
+    </item>
+    
+    <item>
+      <title>Mainflux Dev Setup</title>
+      <link>https://wubigo.com/post/mainflux-dev-setup/</link>
+      <pubDate>Mon, 20 Dec 2021 17:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mainflux-dev-setup/</guid>
+      <description> BUILD mkdir -p $GOPATH/src/github.com/mailflux git clone https://github.com/wubigo/mainflux.git cd github.com/mailflux/mailflux/ make make dockers_dev make run  Provision the System mainflux-cli provision test  GET TOKEN curl -k https://172.21.53.253/tokens { &amp;quot;email&amp;quot;: &amp;quot;bold_gould@email.com&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;12345678&amp;quot; }  </description>
+    </item>
+    
+    <item>
+      <title>Connect KEPServer to Ali IoT</title>
+      <link>https://wubigo.com/post/connect-kepserver-to-ali-iot/</link>
+      <pubDate>Thu, 16 Dec 2021 13:40:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-kepserver-to-ali-iot/</guid>
+      <description>Configure an MQTT Client Agent within the IoT Gateway Plug-In for KEPServerEX
+to send data to Ali IoT. The connection can be made using MQTT over Transmission
+Control Protocol (TCP) and MQTT over Transport Layer Security (TLS).
+set up Kepware KEPServerEX IoT Gateway on Windows to connect with the MQTT bridge
+of IoT Core to push streaming data to Cloud and send control messages from IoT
+Core back to KEPServerEX</description>
+    </item>
+    
+    <item>
+      <title>Data Lake vs Warehouse</title>
+      <link>https://wubigo.com/post/data-lake-vs-warehouse/</link>
+      <pubDate>Tue, 07 Dec 2021 15:58:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake-vs-warehouse/</guid>
+      <description>Data catalogs solve the problem by tagging fields and data sets with consistent business terms and providing a shopping-type interface that allows the users to find data sets by describing what they are looking for using the business terms that they are used to, and to understand the data in those data sets through tags and descriptions that use business terms.
+Data lakes are the do-it-yourself version of a data warehouse, allowing data engineering teams to pick and choose the various metadata, storage, and compute technologies they want to use depending on the needs of their systems.</description>
+    </item>
     
     <item>
       <title>Azure Config</title>
@@ -317,6 +363,17 @@ No personal data is collected, and no images are stored.
       <description>项目 2020承接的是一个银行数据中心智能运营平台项目，这个项目需求之前由公司的售前
 和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。
 加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</description>
+    </item>
+    
+    <item>
+      <title>Distributed Transaction Solutions</title>
+      <link>https://wubigo.com/post/an-in-depth-analysis-of-distributed-transaction-solutions/</link>
+      <pubDate>Mon, 07 Dec 2020 14:28:41 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/an-in-depth-analysis-of-distributed-transaction-solutions/</guid>
+      <description>requirements on distributed transactions  database sharding
+ service-oriented transformation and more cross-service transactions
+  three scenarios for distributed transactions  Cross-database distributed transactions Cross-service distributed transactions Hybrid distributed transactions  five distributed transaction solutions  XA Specification TCC Saga Local-Message-Based Distributed Transactions Transactional-Message-Based Distributed Transactions  https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions</description>
     </item>
     
     <item>
@@ -712,6 +769,15 @@ C:\Windows\SoftwareDistribution\Download</description>
 更新后VPC
 While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
  Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Notes</title>
+      <link>https://wubigo.com/post/machine-learning-notes/</link>
+      <pubDate>Fri, 13 Dec 2019 14:37:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/machine-learning-notes/</guid>
+      <description>Machine learning is the study of powerful techniques that can learn from experience. As a machine learning algorithm accumulates more experience, typically in the form of observational data or interactions with an environment, its performance improves</description>
     </item>
     
     <item>

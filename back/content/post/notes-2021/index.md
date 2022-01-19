@@ -1,0 +1,51 @@
++++
+title = "2021 Notes"
+date = 2022-01-01T16:59:00+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["NOTES"]
+categories = []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+## 社会价值
+
+个人的价值在于为别人和社会解决问题和提供帮助，在帮助别人的过程
+中促进个人成长。读书不是目的，读书只是为大脑提供了输入，产生对
+社会有用的输出才是读书的真正目的
+
+## 思考
+
+思考比行动重要。害怕思考，草率行动是懒惰的表现。思考就是抑制动物的
+本性过程，思考是个人成长的最快途径
+
+## 沟通
+
+理解对方是沟通的前提条件。沟通就是让对方认识到自己提议的价值，
+让对方受益。无论沟通的对象是朋友，家人，同事，不要首先想着
+如何改变别人，重要的调整自己。
+
+## 业务和技术
+
+软件解决方案的出发点是解决客户问题。解决问题与技术的先进性与否无关，
+很多情况下解决方案取决于公司的组织形式和资源条件。运维成本是大型
+软件解决方案最主要的成本。监控的目的在于预防失败。
+越早发现问题，解决成本越低。
+
+## 知识积累
+
+价值与风险是统一的，看待机会既要看到可能的价值，同时认识到风险。
+巨大的价值必然伴随着巨大的风险。偶然发现的所谓的价值机会可能只是
+一个无知陷阱。知识和财富不仅在于积累更在于传承。财富最重要的是
+在于保值。

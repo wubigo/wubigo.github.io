@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-11-07T20:00:24&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
   
 
   
@@ -398,6 +398,487 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-29 15:28:40 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-29 15:28:40 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 29, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/v8-isolates/" itemprop="url">V8 Isolates</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Isolate represents an isolated instance of the V8 engine. V8 isolates have completely separate states. Objects from one isolate must not be used in other isolates. When V8 is initialized a default isolate is implicitly created and entered. The embedder can create additional isolates and use them in parallel in multiple threads. An isolate can be entered by at most one thread at any given time. The Locker/Unlocker API must be used to synchronize.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-26 07:39:23 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-26 07:39:23 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 26, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/api-gateway-lambda-authorizer/" itemprop="url">网关授权之函数实现</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="setting-up-the-hosted-ui-with-the-amazon-cognito">Setting Up the Hosted UI with the Amazon Cognito</h2>
+
+<p>Unless required by your authorization flow, clear the option <strong><em>Generate client secret</em></strong>. The client secret is used by applications that have a server-side component that can secure the client secret</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-18 20:34:43 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-18 20:34:43 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 18, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-proxy-vs-lambda-integration/" itemprop="url">Lambda Proxy vs Lambda Integration</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="lambda-proxy-vs-lambda-integration">Lambda Proxy vs Lambda Integration</h2>
+
+<p><a href="https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway" target="_blank">https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway</a></p>
+
+<h3 id="python">PYTHON</h3>
+
+<p><a href="https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/" target="_blank">https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/</a></p>
+
+<h3 id="java">JAVA</h3>
+
+<p><a href="https://www.baeldung.com/aws-lambda-api-gateway" target="_blank">https://www.baeldung.com/aws-lambda-api-gateway</a></p>
+
+<pre><code>git clone https://github.com/eugenp/tutorials.git
+cd tutorials/aws-lambda
+mvn clean package shade:shade
+aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
+</code></pre>
+
+<p>从S3上传文件到lambad</p>
+
+<ul>
+<li><p>handler</p>
+
+<pre><code>com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest
+</code></pre></li>
+</ul>
+
+<h3 id="nodejs">NODEJS</h3>
+
+<p><a href="https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89" target="_blank">https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-15 19:23:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 15, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-schedule-event/" itemprop="url">Lambda之任务定时调度</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    函数计算有很多使用场景，今天介绍定时任务调度
+例如每周六生成业务报表
+事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/python3-notes/" itemprop="url">Python3 Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="python-镜像">PYTHON 镜像</h2>
+
+<blockquote>
+<p>ERROR: Could not install packages due to an EnvironmentError:
+HTTPSConnectionPool(host=&lsquo;files.pythonhosted.org&rsquo;, port=443)</p>
+</blockquote>
+
+<p><code>$HOME/.config/pip/pip.conf</code></p>
+
+<pre><code>[global]
+
+trusted-host=mirrors.aliyun.com
+
+index-url=http://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+<h2 id="windows-10">WINDOWS 10</h2>
+
+<pre><code>Python 3.6.8
+</code></pre>
+
+<pre><code>  File &quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&quot;, line 383, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+</code></pre>
+
+<pre><code>python -m pip uninstall pip
+python -m ensurepip
+python -m pip install -U pip
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1780,518 +2261,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 }
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 4, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cmp-2020/" itemprop="url">云管平台(CMP)行业报告(2020)</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>云管平台赋能企业在多云环境下，对服务或资源自身和生命周期进行自动化的管理。</p>
-
-<p>当前行业主要聚焦在可用行，成本管理，云安全。</p>
-
-<h2 id="平台支持要求">平台支持要求</h2>
-
-<ul>
-<li><p>公有云</p></li>
-
-<li><p>私有云(openstack/VMWARE/K8S)</p></li>
-</ul>
-
-<h2 id="总概">总概</h2>
-
-<p><img src="/img/post/Gartner-Magic-Quadrant-for-Cloud-Management-Platforms-Chart-2020.jpg" alt="" /></p>
-
-<p><a href="https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/" target="_blank">https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-03-30 02:27:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-03-30 02:27:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/ad-blocking/" itemprop="url">广告拦截</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>上网，最让人无法忍受的是大量的广告影响自己的有限的注意力。</p>
-
-<p>以前的做法是尽量避免浏览带有大量广告的网站。</p>
-
-<p>今天介绍几款可以主动屏蔽商业广告的工具。</p>
-
-<h2 id="基于操作系统">基于操作系统</h2>
-
-<hr />
-
-<p><a href="https://github.com/pi-hole/pi-hole" target="_blank">https://github.com/pi-hole/pi-hole</a></p>
-
-<h2 id="基于浏览器">基于浏览器</h2>
-
-<hr />
-
-<p>Adblock Plus | The world&rsquo;s # 1 free ad blocker</p>
-
-<p><img src="/img/post/ad-blocking.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-vpc/" itemprop="url">函数计算VPC支持更新</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    IN VPC 更新前VPC
-更新后VPC
-While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
- Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-reinvent-2019-keynote/" itemprop="url">AWS Re:Invent 2019主题汇总-P1</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="计算">计算</h2>
-
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
-
-<p>主要的新功能包括：</p>
-
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
-
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
-
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
-
-<h2 id="网络">网络</h2>
-
-<ul>
-<li><p>传输网关支持多播</p></li>
-
-<li><p>加速的网络到网络的VPN链接</p></li>
-</ul>
-
-<h2 id="存储和数据分析">存储和数据分析</h2>
-
-<ul>
-<li><p>S3 Access Points和数据湖</p></li>
-
-<li><p>ES搜索支持S3</p></li>
-
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
-
-<li><p>AQUA查询加速器</p></li>
-
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
-
-<li><p>托管的Cassandra服务</p></li>
-</ul>
-
-<h2 id="函数计算">函数计算</h2>
-
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
-
-<li><p>EKS正式支持FARGATE</p></li>
-
-<li><p>RDS PROXY</p></li>
-
-<li><p><a href="/post/serverless-vpc">VPC支持更新</a></p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-08 11:01:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:01:06 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-provisioned-concurrency/" itemprop="url">Lambda Provisioned Concurrency</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.
   </div>
   
 
