@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-20T06:37:33&#43;08:00">
   
 
   
@@ -398,6 +398,96 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 8, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/2018-11-08-buildtensorflow-1-12/">
+      <img src="/post/2018-11-08-buildtensorflow-1-12/featured_hud54c9ec4a911da88f2221e2dd09a79e0_4159_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-08-buildtensorflow-1-12/" itemprop="url">build tensorflow 1.12</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Note:
+ Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
+ Bazel 0.19.0 doesn&rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
+$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot; --sandbox_debug &gt; build.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2137,90 +2227,6 @@ Graphite Graphite has no direct data collection support. Carbon listens passivel
   <div class="article-style" itemprop="articleBody">
     Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
 kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/netdata-notes/" itemprop="url">Netdata notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    INSTALL  docker
-docker run -d --name=netdata \ -p 19999:19999 \ -v /etc/passwd:/host/etc/passwd:ro \ -v /etc/group:/host/etc/group:ro \ -v /proc:/host/proc:ro \ -v /sys:/host/sys:ro \ -v /etc/os-release:/host/etc/os-release:ro \ --cap-add SYS_PTRACE \ --security-opt apparmor=unconfined \ netdata/netdata  script
-bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.
   </div>
   
 

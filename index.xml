@@ -5,8 +5,42 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2022 16:59:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jan 2022 06:37:33 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>install Mysql 5 on Ubuntu20</title>
+      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
+      <pubDate>Thu, 20 Jan 2022 06:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
+      <description>
+
+&lt;h1 id=&#34;select-myql-5-7&#34;&gt;select myql 5.7&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+dpkg -i mysql-apt-config_0.8.12-1_all.deb
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;turns-off-the-gpg-check&#34;&gt;turns off the GPG check&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;sources.list.d/mysql.list&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;install-mysql-and-create-admin-user&#34;&gt;install mysql and create admin user&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt update
+apt-cache policy mysql-server | grep 5.7
+sudo apt install  mysql-client=5.7.37-1ubuntu18.04  mysql-community-server=5.7.37-1ubuntu18.04
+mysql -u root -p
+GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>2021 Notes</title>
@@ -1038,24 +1072,6 @@ Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for commit
 &lt;h2 id=&#34;数据共享&#34;&gt;数据共享&lt;/h2&gt;
 
 &lt;p&gt;使用统一的元数据库，如果您的所有数据都存放在OSS之上，则不需要做任何元数据的迁移和重建，所有集群都是可以直接访问数据，这样每个EMR集群可以做不同的业务，但是可以很方便地实现数据的共享。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Chrome Read Mode</title>
-      <link>https://wubigo.com/post/chrome-read-mode/</link>
-      <pubDate>Thu, 26 Aug 2021 06:24:31 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/chrome-read-mode/</guid>
-      <description>
-
-&lt;h1 id=&#34;打开阅读模式&#34;&gt;打开阅读模式&lt;/h1&gt;
-
-&lt;p&gt;Open a new tab and enter chrome://flags/#enable-reader-mode to jump directly to the Reader Mode Flag.&lt;/p&gt;
-
-&lt;h1 id=&#34;使用&#34;&gt;使用&lt;/h1&gt;
-
-&lt;p&gt;Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”&lt;/p&gt;
 </description>
     </item>
     

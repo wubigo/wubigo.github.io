@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-20T06:37:33&#43;08:00">
   
 
   
@@ -398,6 +398,113 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-01-20 06:37:33 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-01-20 06:37:33 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 20, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5-on-ubuntu20/" itemprop="url">install Mysql 5 on Ubuntu20</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="select-myql-5-7">select myql 5.7</h1>
+
+<pre><code>wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+dpkg -i mysql-apt-config_0.8.12-1_all.deb
+
+
+</code></pre>
+
+<h1 id="turns-off-the-gpg-check">turns off the GPG check</h1>
+
+<p><code>sources.list.d/mysql.list</code></p>
+
+<pre><code>deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7
+</code></pre>
+
+<h1 id="install-mysql-and-create-admin-user">install mysql and create admin user</h1>
+
+<pre><code>sudo apt update
+apt-cache policy mysql-server | grep 5.7
+sudo apt install  mysql-client=5.7.37-1ubuntu18.04  mysql-community-server=5.7.37-1ubuntu18.04
+mysql -u root -p
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'pass' WITH GRANT OPTION
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2110,95 +2217,6 @@ curl http://127.0.0.1:8080/
   
   <div class="article-style" itemprop="articleBody">
     Matrix Traditionally Matrix decentralises communication by replicating conversation history over a mesh of servers, so that no single server has ownership of a given conversation. Meanwhile, users connect to their given homeserver from clients via plain HTTPS + DNS. This has the significant disadvantage that for a user to have full control and ownership over their communication, they need to run their own server - which comes with a cost, and requires you to be a proficient sysadmin.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-07-02 08:57:53 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-07-02 08:57:53 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 2, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/software-estimation/" itemprop="url">软件产品开发工时评估技巧</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    软件项目开发时间线很难做到精确的评估，但在项目管理的时候，
-我们必须要提供这个数字。
-重要特征：时间和不确定性 一个只包含时间的评估隐含了一定程度的不确定性。 如果你告诉我一个任务需要花10天时间，
-我会假设进度在控制之中。但如果你告诉我一个任务花10到15天，那这个期限就有很高的风险。
-项目工期评估技巧  任务分解 评估不确定性 分别做最好和最坏情况的评估 任务跟踪并优化  任务分解    复杂度 时间(人天)     小 1   中等 3   大 5   特别大 10    不用追求一步到位完成工时评估， 开始的时候做粗略的评估，
-该评估可能包含一些复杂度比较大的任务。
-评估不确定性 20-30人日与5-45人日的工时评估是完全不同的，即便两者的中位数都是25人天
-   不确定性级别 乘数效应     低 1.1   中等 1.5   大 2   特别大 5    计算工时    任务 复杂度 不确定性 期望工时 最坏情况     计量支付私有化部署 低 大 20 40    这个任务预计20天完成，最坏情况需求40天。或者工时可以表示为20-40人日
   </div>
   
 

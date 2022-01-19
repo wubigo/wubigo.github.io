@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-01-01T16:59:00&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-20T06:37:33&#43;08:00">
   
 
   
@@ -398,6 +398,102 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-image-timezone/" itemprop="url">Docker Image Timezone</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>FROM centos:7
+RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf
+RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
+# 设置时区(日志、调用链)
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+ENV workdir /app/
+ADD VERSION .
+
+WORKDIR ${workdir}
+# JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换
+# 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
+CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2225,95 +2321,6 @@ provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/overlay-vs-underlay-networks/" itemprop="url">Overlay vs Underlay Networks</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="overlay-vs-underlay-in-summary">Overlay vs underlay in summary</h1>
-
-<p>An Underlay network is the physical network responsible for the delivery of packets like DWDM, L2, L3, MPLS, or internet, etc. while an overlay is a logical network that uses network virtualization to built connectivity on top of physical infrastructure using tunneling encapsulations such as VXLAN, GRE, IPSec.</p>
-
-<p><a href="https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/" target="_blank">https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/</a></p>
-
   </div>
   
 
