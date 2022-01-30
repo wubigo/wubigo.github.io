@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/404.html">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-relocate-the-data-directory/">
 
   
 
@@ -120,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/404.html">
+  <link rel="canonical" href="https://wubigo.com/post/mysql-relocate-the-data-directory/">
 
   
   
@@ -135,19 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/404.html">
-  <meta property="og:title" content="404 Page not found | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/mysql-relocate-the-data-directory/">
+  <meta property="og:title" content="Mysql Relocate the Data Directory | wubigo">
+  <meta property="og:description" content="cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2022-01-30T19:44:00&#43;08:00">
   
+  <meta property="article:modified_time" content="2022-01-30T19:44:00&#43;08:00">
+  
+
   
 
   
 
-  
-
-  <title>404 Page not found | wubigo</title>
+  <title>Mysql Relocate the Data Directory | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -362,62 +366,211 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Perhaps you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
-  
-  <h2>Posts</h2>
-  
-  <ul>
-    <li><a href="/post/mysql-relocate-the-data-directory/">Mysql Relocate the Data Directory</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/mysql-5-on-ubuntu20/">install Mysql 5 on Ubuntu20</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/notes-2021/">2021 Notes</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/mainflux-dev-setup/">Mainflux Dev Setup</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/connect-kepserver-to-ali-iot/">Connect KEPServer to Ali IoT</a></li>
-  </ul>
-  
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Mysql Relocate the Data Directory</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2022-01-30 19:44:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-01-30 19:44:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
 
   
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 30, 2022</time>
+  </span>
   
-  <h2>Projects</h2>
+
   
-  <ul>
-    <li><a href="/project/vpn/">VPN</a></li>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Mysql%20Relocate%20the%20Data%20Directory&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-relocate-the-data-directory%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-relocate-the-data-directory%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-relocate-the-data-directory%2f&amp;title=Mysql%20Relocate%20the%20Data%20Directory"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-relocate-the-data-directory%2f&amp;title=Mysql%20Relocate%20the%20Data%20Directory"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Mysql%20Relocate%20the%20Data%20Directory&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-relocate-the-data-directory%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-  
-  <ul>
-    <li><a href="/project/noserver/">函数计算</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/sds/">大数据存储</a></li>
-  </ul>
-  
+</div>
+
+
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="cp-data-file">cp data file</h1>
+
+<pre><code>cp /var/lib/mysql /data -Rf
+chown -R mysql:mysql /data/mysql
+</code></pre>
+
+<h1 id="apparmor">AppArmor</h1>
+
+<p><code>/etc/apparmor.d/local/usr.sbin.mysqld</code></p>
+
+<pre><code>/data/mysql r,
+/data/mysql/** rwk, 
+</code></pre>
+
+<pre><code>sudo systemctl reload apparmor 
+</code></pre>
+
+<h1 id="sudo-as-myql">sudo as myql</h1>
+
+<pre><code>sudo -s -u mysql
+</code></pre>
+
+<h1 id="mysql-时间类型支持微秒">mysql 时间类型支持微秒</h1>
+
+<p>MySQL permits fractional seconds for TIME, DATETIME,
+and TIMESTAMP values, with up to microseconds (6 digits)
+Mysql DATETIME(6)  DATETIME[(fsp)]
+The fsp value, if given, must be in the range 0 to 6. A value of 0
+signifies that there is no fractional part. If omitted, the default
+precision is 0. (This differs from the standard SQL default of 6,
+for compatibility with previous MySQL versions.)</p>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

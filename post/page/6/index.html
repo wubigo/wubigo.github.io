@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-01-20T06:37:33&#43;08:00">
+  <meta property="og:updated_time" content="2022-01-30T19:44:00&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 3, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wireguard-dev-guide/" itemprop="url">Wireguard开发参考</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>git clone https://git.zx2c4.com/wireguard-go
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2093,90 +2178,6 @@ While these methods are great ways to test and debug issues associated with indi
   <div class="article-style" itemprop="articleBody">
     serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
 import json def my_handler(event, context): print(&quot;Received event: &quot; + json.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-15 15:39:37 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-15 15:39:37 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 15, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-localstack-serverless/" itemprop="url">基于Localstack的Serverless框架本地集成</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
-serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
-functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources
   </div>
   
 

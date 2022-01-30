@@ -5,8 +5,50 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jan 2022 06:37:33 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jan 2022 19:44:00 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mysql Relocate the Data Directory</title>
+      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
+      <pubDate>Sun, 30 Jan 2022 19:44:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
+      <description>
+
+&lt;h1 id=&#34;cp-data-file&#34;&gt;cp data file&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;cp /var/lib/mysql /data -Rf
+chown -R mysql:mysql /data/mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;apparmor&#34;&gt;AppArmor&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/apparmor.d/local/usr.sbin.mysqld&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/data/mysql r,
+/data/mysql/** rwk, 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo systemctl reload apparmor 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;sudo-as-myql&#34;&gt;sudo as myql&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo -s -u mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;mysql-时间类型支持微秒&#34;&gt;mysql 时间类型支持微秒&lt;/h1&gt;
+
+&lt;p&gt;MySQL permits fractional seconds for TIME, DATETIME,
+and TIMESTAMP values, with up to microseconds (6 digits)
+Mysql DATETIME(6)  DATETIME[(fsp)]
+The fsp value, if given, must be in the range 0 to 6. A value of 0
+signifies that there is no fractional part. If omitted, the default
+precision is 0. (This differs from the standard SQL default of 6,
+for compatibility with previous MySQL versions.)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>install Mysql 5 on Ubuntu20</title>
@@ -1026,52 +1068,6 @@ Safari/9537.53
 &lt;h1 id=&#34;ref&#34;&gt;ref&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1050304&#34; target=&#34;_blank&#34;&gt;https://cloud.tencent.com/developer/article/1050304&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lakehouse Notes</title>
-      <link>https://wubigo.com/post/lakehouse-notes/</link>
-      <pubDate>Fri, 24 Sep 2021 09:32:22 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lakehouse-notes/</guid>
-      <description>
-
-&lt;h2 id=&#34;replication-method&#34;&gt;Replication Method&lt;/h2&gt;
-
-&lt;p&gt;Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.&lt;/p&gt;
-
-&lt;h1 id=&#34;s3-support-in-apache-hadoop&#34;&gt;S3 Support in Apache Hadoop&lt;/h1&gt;
-
-&lt;p&gt;Apache Hadoop ships with a connector to S3 called &amp;ldquo;S3A&amp;rdquo;, with the url prefix &amp;ldquo;s3a:&amp;ldquo;;
-its previous connectors &amp;ldquo;s3&amp;rdquo;, and &amp;ldquo;s3n&amp;rdquo; are deprecated and/or deleted from recent Hadoop versions.&lt;/p&gt;
-
-&lt;p&gt;Amazon&amp;rsquo;s EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work&lt;/strong&gt;
-You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an &amp;ldquo;object store&amp;rdquo; with&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.&lt;/li&gt;
-&lt;li&gt;Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries -and visible to other processes during this time, and indeed, until the eventual consistency has been resolved. This breaks the commit protocol used by all these applications to safely commit the output of multiple tasks within a job.
-Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for committing work.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;统一元数据&#34;&gt;统一元数据&lt;/h1&gt;
-
-&lt;p&gt;统一的元数据管理，可以实现：&lt;/p&gt;
-
-&lt;h2 id=&#34;持久化的元数据存储&#34;&gt;持久化的元数据存储&lt;/h2&gt;
-
-&lt;p&gt;支持统一元数据之前，元数据都是在集群内部的MySQL数据库，元数据会随着集群的释放而丢失，特别是EMR提供了灵活按量模式，集群可以按需创建用完就释放。如果您需要保留现有的元数据信息，必须登录集群手动将元数据信息导出。支持统一元数据之后，释放集群不会清理元数据信息。所以，在任何时候删除OSS上或者集群HDFS上数据（包括释放集群操作）的时候，需要先确认该数据对应的元数据已经删除（即要删掉数据对应的表和数据库），否则元数据库中可能出现一些脏数据。&lt;/p&gt;
-
-&lt;h2 id=&#34;计算存储分离&#34;&gt;计算存储分离&lt;/h2&gt;
-
-&lt;p&gt;EMR上可以支持将数据存放在阿里云OSS中，在大数据量的情况下将数据存储在OSS上会大大降低使用的成本，EMR集群主要用来作为计算资源，在计算完成之后可以随时释放，数据在OSS上，同时也不用再考虑元数据迁移的问题。&lt;/p&gt;
-
-&lt;h2 id=&#34;数据共享&#34;&gt;数据共享&lt;/h2&gt;
-
-&lt;p&gt;使用统一的元数据库，如果您的所有数据都存放在OSS之上，则不需要做任何元数据的迁移和重建，所有集群都是可以直接访问数据，这样每个EMR集群可以做不同的业务，但是可以很方便地实现数据的共享。&lt;/p&gt;
 </description>
     </item>
     
