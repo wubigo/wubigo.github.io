@@ -1,9 +1,30 @@
----
-layout: post
-title: redis note
-date: 2012-05-03
-tag: Iaas
----
++++
+title = "Redis Notes"
+date = 2012-08-02T07:34:07+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["REDIS", "CACHE"]
+categories = []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+# 删除消费组
+
+```
+XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP
+```
+
 
 # Redis latency problems troubleshooting
 
@@ -55,3 +76,4 @@ echo "bind 0.0.0.0" >> redis.conf
 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option.
 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
 ```
+
