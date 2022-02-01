@@ -25,4 +25,3 @@ categories = []
 >Maybe this year, we ought to walk through the rooms of our lives not 
 >looking for flaws, but looking for potential—Ellen Goodman
 
-![happy new year of tiger](/img/happy-new-year-tiger.jpg)
