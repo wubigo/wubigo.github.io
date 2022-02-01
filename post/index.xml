@@ -6,10 +6,19 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 09:37:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Feb 2022 07:34:02 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql Notes</title>
+      <link>https://wubigo.com/post/mysql-notes/</link>
+      <pubDate>Wed, 02 Feb 2022 07:34:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-notes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>虎年新春快乐</title>
@@ -30,16 +39,6 @@
       <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
       <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
 /data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
-    </item>
-    
-    <item>
-      <title>install Mysql 5 on Ubuntu20</title>
-      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
-      <pubDate>Thu, 20 Jan 2022 06:37:33 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
-      <description> select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
-deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION  </description>
     </item>
     
     <item>
@@ -3956,26 +3955,21 @@ $virtualenv -p /home/whg/python2.</description>
     </item>
     
     <item>
+      <title>Redis Notes</title>
+      <link>https://wubigo.com/post/redis-notes/</link>
+      <pubDate>Thu, 02 Aug 2012 07:34:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-notes/</guid>
+      <description>删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process.</description>
+    </item>
+    
+    <item>
       <title>RDBMS vs NoSQL</title>
       <link>https://wubigo.com/post/2012-07-04-rdbms-nosql/</link>
       <pubDate>Wed, 04 Jul 2012 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2012-07-04-rdbms-nosql/</guid>
       <description>B+树 vs. LSM树 RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树 NoSQL使用LSM树</description>
-    </item>
-    
-    <item>
-      <title>dbms note</title>
-      <link>https://wubigo.com/post/2012-06-04-mysql/</link>
-      <pubDate>Mon, 04 Jun 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2012-06-04-mysql/</guid>
-      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
-mysql&amp;gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:</description>
     </item>
     
     <item>
@@ -3987,15 +3981,6 @@ A typical mysqldump command to move data from an external database to an Amazon 
       <description>iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
  dmidecode
 sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw</description>
-    </item>
-    
-    <item>
-      <title>redis note</title>
-      <link>https://wubigo.com/post/2012-05-03-redis-notes/</link>
-      <pubDate>Thu, 03 May 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://wubigo.com/post/2012-05-03-redis-notes/</guid>
-      <description>Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.</description>
     </item>
     
     <item>
@@ -4019,6 +4004,16 @@ A good way to determine whether to adjust the value is to compare the key_read_r
  Don&amp;rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
  Keep key files in safe. Don&amp;rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
  Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&amp;rsquo; authentication.</description>
+    </item>
+    
+    <item>
+      <title>install Mysql 5 on Ubuntu20</title>
+      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
+      <pubDate>Fri, 20 Jan 2012 06:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
+      <description> select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION  </description>
     </item>
     
     <item>

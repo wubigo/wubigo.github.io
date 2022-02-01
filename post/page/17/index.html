@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
   
 
   
@@ -1211,6 +1211,88 @@ $virtualenv -p /home/whg/python2.
 
 
 
+<meta content="2012-08-02 07:34:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-08-02 07:34:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 2, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/redis-notes/" itemprop="url">Redis Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1266,93 +1348,6 @@ $virtualenv -p /home/whg/python2.
 <p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
 NoSQL使用LSM树</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-06-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-06-04-mysql/" itemprop="url">dbms note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
-mysql&gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
   </div>
   
 
@@ -1448,88 +1443,6 @@ A typical mysqldump command to move data from an external database to an Amazon 
     iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
  dmidecode
 sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 3, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-05-03-redis-notes/" itemprop="url">redis note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process. If you are using a virtual machine, it is possible that you have an intrinsic latency that has nothing to do with Redis.
   </div>
   
 
@@ -1699,6 +1612,113 @@ A good way to determine whether to adjust the value is to compare the key_read_r
  Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
  Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
  Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-01-20 06:37:33 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-01-20 06:37:33 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 20, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-5-on-ubuntu20/" itemprop="url">install Mysql 5 on Ubuntu20</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="select-myql-5-7">select myql 5.7</h1>
+
+<pre><code>wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+dpkg -i mysql-apt-config_0.8.12-1_all.deb
+
+
+</code></pre>
+
+<h1 id="turns-off-the-gpg-check">turns off the GPG check</h1>
+
+<p><code>sources.list.d/mysql.list</code></p>
+
+<pre><code>deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7
+</code></pre>
+
+<h1 id="install-mysql-and-create-admin-user">install mysql and create admin user</h1>
+
+<pre><code>sudo apt update
+apt-cache policy mysql-server | grep 5.7
+sudo apt install  mysql-client=5.7.37-1ubuntu18.04  mysql-community-server=5.7.37-1ubuntu18.04
+mysql -u root -p
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'pass' WITH GRANT OPTION
+</code></pre>
+
   </div>
   
 

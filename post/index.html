@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
   
 
   
@@ -423,6 +423,84 @@
 
 
 
+<meta content="2022-02-02 07:34:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-02-02 07:34:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 2, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-notes/" itemprop="url">Mysql Notes</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2022-02-01 09:37:46 &#43;0800 CST" itemprop="datePublished">
 <meta content="2022-02-01 09:37:46 &#43;0800 CST" itemprop="dateModified">
 
@@ -566,113 +644,6 @@ looking for flaws, but looking for potential—Ellen Goodman</p>
   <div class="article-style" itemprop="articleBody">
     cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
 /data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-01-20 06:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-01-20 06:37:33 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 20, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-5-on-ubuntu20/" itemprop="url">install Mysql 5 on Ubuntu20</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="select-myql-5-7">select myql 5.7</h1>
-
-<pre><code>wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-dpkg -i mysql-apt-config_0.8.12-1_all.deb
-
-
-</code></pre>
-
-<h1 id="turns-off-the-gpg-check">turns off the GPG check</h1>
-
-<p><code>sources.list.d/mysql.list</code></p>
-
-<pre><code>deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7
-</code></pre>
-
-<h1 id="install-mysql-and-create-admin-user">install mysql and create admin user</h1>
-
-<pre><code>sudo apt update
-apt-cache policy mysql-server | grep 5.7
-sudo apt install  mysql-client=5.7.37-1ubuntu18.04  mysql-community-server=5.7.37-1ubuntu18.04
-mysql -u root -p
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'pass' WITH GRANT OPTION
-</code></pre>
-
   </div>
   
 

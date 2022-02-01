@@ -5,8 +5,17 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 09:37:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Feb 2022 07:34:02 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mysql Notes</title>
+      <link>https://wubigo.com/post/mysql-notes/</link>
+      <pubDate>Wed, 02 Feb 2022 07:34:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-notes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>虎年新春快乐</title>
@@ -66,40 +75,6 @@ for compatibility with previous MySQL versions.)&lt;/p&gt;
 &lt;h1 id=&#34;检查表大小&#34;&gt;检查表大小&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;select table_schema as database_name, table_name, round( (data_length + index_length) / 1024 / 1024, 2) as total_size, round( (data_length) / 1024 / 1024, 2) as data_size, round( (index_length) / 1024 / 1024, 2) as index_size from information_schema.tables where table_schema not in (&#39;information_schema&#39;, &#39;mysql&#39;, &#39;performance_schema&#39; ,&#39;sys&#39;) and table_type = &#39;BASE TABLE&#39; -- and table_schema = &#39;your database name&#39; order by total_size desc limit 10;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>install Mysql 5 on Ubuntu20</title>
-      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
-      <pubDate>Thu, 20 Jan 2022 06:37:33 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
-      <description>
-
-&lt;h1 id=&#34;select-myql-5-7&#34;&gt;select myql 5.7&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-dpkg -i mysql-apt-config_0.8.12-1_all.deb
-
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;turns-off-the-gpg-check&#34;&gt;turns off the GPG check&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;sources.list.d/mysql.list&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;install-mysql-and-create-admin-user&#34;&gt;install mysql and create admin user&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt update
-apt-cache policy mysql-server | grep 5.7
-sudo apt install  mysql-client=5.7.37-1ubuntu18.04  mysql-community-server=5.7.37-1ubuntu18.04
-mysql -u root -p
-GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

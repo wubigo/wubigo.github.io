@@ -28,11 +28,10 @@
   
     
   
-  <meta name="description" content="[mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
-mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY &#39;xyzzy&#39;;  ">
+  <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-master/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-notes/">
 
   
 
@@ -121,7 +120,7 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/mysql-master/">
+  <link rel="canonical" href="https://wubigo.com/post/mysql-notes/">
 
   
   
@@ -136,22 +135,21 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/mysql-master/">
-  <meta property="og:title" content="Mysql Master | wubigo">
-  <meta property="og:description" content="[mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
-mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY &#39;xyzzy&#39;;  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/mysql-notes/">
+  <meta property="og:title" content="Mysql Notes | wubigo">
+  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2013-01-22T17:08:07&#43;08:00">
+  <meta property="article:published_time" content="2022-02-02T07:34:02&#43;08:00">
   
-  <meta property="article:modified_time" content="2013-01-22T17:08:07&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2022-02-02T07:34:02&#43;08:00">
   
 
   
 
-  <title>Mysql Master | wubigo</title>
+  
+
+  <title>Mysql Notes | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -388,7 +386,7 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Mysql Master</h1>
+  <h1 itemprop="name">Mysql Notes</h1>
 
   
 
@@ -397,8 +395,8 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
 
 
 
-<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-01-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+<meta content="2022-02-02 07:34:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-02-02 07:34:02 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -411,7 +409,7 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
     
       
     
-    <time>Jan 22, 2013</time>
+    <time>Feb 2, 2022</time>
   </span>
   
 
@@ -420,7 +418,7 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    0 min read
   </span>
   
 
@@ -435,35 +433,35 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mysql%20Master&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-master%2f"
+         href="https://twitter.com/intent/tweet?text=Mysql%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-master%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-notes%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-master%2f&amp;title=Mysql%20Master"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-notes%2f&amp;title=Mysql%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-master%2f&amp;title=Mysql%20Master"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-notes%2f&amp;title=Mysql%20Notes"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mysql%20Master&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-master%2f">
+         href="mailto:?subject=Mysql%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-notes%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -501,32 +499,12 @@ mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDEN
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre><code>[mysqld]
-
-log-bin = master-bin
-log-bin-index = master-bin.index
-server-id = 1
-</code></pre>
-
-<p>Grant the user to retrieve the binary log from the master</p>
-
-<pre><code>mysql&gt;CREATE USER repl_user;
-GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
-</code></pre>
-
+      
     </div>
 
     
 
 
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
-  
-  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
-  
-</div>
-
 
 
 
@@ -547,22 +525,6 @@ GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/mysql-5.7-myisam/">Mysql 5.7 MyISAM</a></li>
-          
-          <li><a href="/post/mysql-5-on-ubuntu20/">install Mysql 5 on Ubuntu20</a></li>
-          
-          <li><a href="/post/2011-01-01-shell-script/">shell script</a></li>
-          
-          <li><a href="/post/6-linux-command-should-be-in-control/">应该掌握的linux命令</a></li>
-          
-        </ul>
-      </div>
       
     
 
