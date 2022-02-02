@@ -27,7 +27,9 @@ Lettuce, on the other hand, is built on netty (https://netty.io/) and connection
       <pubDate>Thu, 02 Aug 2012 07:34:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/redis-notes/</guid>
-      <description>删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.medium. Otherwise fork() is too slow. Transparent huge pages must be disabled from your kernel. Use echo never &amp;gt; /sys/kernel/mm/transparent_hugepage/enabled to disable them, and restart your Redis process.</description>
+      <description>系统配置 /etc/sysctl.conf
+vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &amp;gt; config get dir 1) &amp;quot;dir&amp;quot; 2) &amp;quot;/mnt/redis-data&amp;quot;  /etc/systemd/system/redis.service
+[Service] ReadWriteDirectories=-/mnt/redis-data  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.</description>
     </item>
     
   </channel>
