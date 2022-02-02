@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
   
 
   
@@ -398,172 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-05-20 17:23:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-20 17:23:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 20, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/monitoring/" itemprop="url">Monitoring notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
-Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 10, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
-kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2221,6 +2055,205 @@ A single-file component consists of three parts:
 -Djava.net.preferIPv4Stack=true  Spring Boot Actuator &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
 management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
 mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-04-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/2018-04-07-dgraphnotes/">
+      <img src="/post/2018-04-07-dgraphnotes/featured_hu8ccc471813a5f222bb11aa8da163f5de_72674_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-04-07-dgraphnotes/" itemprop="url">Dgraph note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="start-dgraph-cluster">Start Dgraph cluster</h1>
+
+<pre><code>dgraph zero
+</code></pre>
+
+<h1 id="start-dgraph-server">start Dgraph server</h1>
+
+<pre><code> dgraph server --memory_mb 2048 --zero localhost:5080 --port_offset 2000
+
+ Note:port_offsetValue added to all listening port numbers. [Internal=7080, HTTP=8080, Grpc=9080]
+
+</code></pre>
+
+<h1 id="how-do-i-configure-go-to-use-a-proxy">How do I configure Go to use a proxy</h1>
+
+<p><a href="https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy" target="_blank">https://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy</a></p>
+
+<h1 id="web-based-graph-visualization-with-d3-and-keylines">Web based graph visualization with D3 and KeyLines</h1>
+
+<p><a href="https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/" target="_blank">https://cambridge-intelligence.com/web-graph-visualization-d3-keylines/</a></p>
+
+<h1 id="setup-client">SETUP CLIENT</h1>
+
+<pre><code>set http_proxy=192.168.0.119:3128
+git config --global http.proxy http://192.168.0.119:3128
+go get -u github.com/derekparker/delve/cmd/dlv
+go get -u -v github.com/dgraph-io/dgo
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/envoy-control-plane-api-server-testing/" itemprop="url">Envoy Control Plane API Server Testing</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
   </div>
   
 

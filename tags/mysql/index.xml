@@ -148,6 +148,20 @@ mysql&amp;gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user 
     </item>
     
     <item>
+      <title>Mysql Notes</title>
+      <link>https://wubigo.com/post/mysql-notes/</link>
+      <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-notes/</guid>
+      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
+mysql&amp;gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:</description>
+    </item>
+    
+    <item>
       <title>Mysql 5.7 MyISAM</title>
       <link>https://wubigo.com/post/mysql-5.7-myisam/</link>
       <pubDate>Sun, 22 Apr 2012 17:08:07 +0800</pubDate>

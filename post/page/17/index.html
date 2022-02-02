@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
   
 
   
@@ -398,93 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-5.7-innodb/" itemprop="url">Mysql 5.7 InnoDB</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    index buffer Depends on Storage Engine
-MyISAM (Caches Index Pages From .MYI files)
-SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine='MyISAM' AND table_schema NOT IN ('information_schema','performance_schema','mysql');  Subtract that from key_buffer_size.
-InnoDB (Caches Data and Index Pages)
-SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine='InnoDB';  Subtract that from innodb_buffer_pool_size.
-convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELECT CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements FROM information_schema.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1348,6 +1261,93 @@ $virtualenv -p /home/whg/python2.
 <p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
 NoSQL使用LSM树</p>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-notes/" itemprop="url">Mysql Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
+mysql&gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
   </div>
   
 

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
   
 
   
@@ -398,179 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-04-10 19:42:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-04-10 19:42:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 10, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/windows-update-corruption/" itemprop="url">Windows Update Corruption</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>4月8号的更新，出现了如下问题</p>
-
-<p><a href="https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing" target="_blank">https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing</a></p>
-
-<p>通过卸载更新把更新删除后，系统恢复正常</p>
-
-<h2 id="删除本地下载的更新文件">删除本地下载的更新文件</h2>
-
-<p><a href="https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/" target="_blank">https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/</a></p>
-
-<p><code>C:\Windows\SoftwareDistribution\Download</code></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-04-06 06:40:42 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-04-06 06:40:42 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 6, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/no-code-for-backend/" itemprop="url">No-Coding for Backend</a>
-  </h3>
-
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2394,6 +2221,189 @@ git clone git@github.com:localstack/localstack.git git fetch --all git checkout 
 localstack\docker-compose.yml
  SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
 docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-08-18 10:07:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/matrix-homeserver/" itemprop="url">Matrix Homeserver</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    注册用户 /etc/matrix-synapse/homeserver.yaml
+registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-06-17 11:26:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/minio-as-a-gateway-to-b2/" itemprop="url">Minio配置为B2存储网关</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="配置">配置</h2>
+
+<p><img src="/img/post/minio-gateway-b2.png" alt="" /></p>
+
+<ul>
+<li><p>下载B2 TLS安全证书</p>
+
+<pre><code>openssl s_client -showcerts -connect api.backblazeb2.com:443 &gt; b2.crt
+
+mv b2.crt .minio/certs/CAs/
+
+set MINIO_ACCESS_KEY=B2_keyID
+set MINIO_SECRET_KEY=B2_applicationKey
+minio gateway b2
+</code></pre></li>
+</ul>
+
   </div>
   
 

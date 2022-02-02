@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-02T07:34:02&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
   
 
   
@@ -398,173 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-24 06:55:53 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 24, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-csi/" itemprop="url">K8S CSI</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
-Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 21, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-xpath/" itemprop="url">Nodejs Xpath名字空间</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    如果xml文件带有名字空间，XPATH支持
-还不够完善。下面介绍两种可以工作的方式
-namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2220,6 +2053,188 @@ wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) p
 
 <p><a href="http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/" target="_blank">http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/</a></p>
 
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 2, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    12 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vpn-win-setup/" itemprop="url">Vpn客户端设置参考</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    how-to-allow-local-network-when-using-wireguard-vpn-tunnel  允许非隧道流量
+Open the WireGaurd Windows client. In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel. Hit the Edit button. Uncheck Block untunneled traffic (kill-switch) option  增加本地的网络
+AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1   安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
+配置  更改公钥
+ Endpoint所在的vpn服务器地址
+  https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-01-01-hacknewsfavorites2018/" itemprop="url">Hacknews favorites 2018</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Hijack of Amazon’s domain service used to reroute web traffic for two hours https://doublepulsar.com/hijack-of-amazons-internet-domain-service-used-to-reroute-web-traffic-for-two-hours-unnoticed-3a6f0dda6a6f
+Socioeconomic group classification based on user features http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf
+The long, tortuous and fascinating process of creating a Chinese font (qz.com) https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/
+Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service https://blog.cloudflare.com/announcing-1111/
+Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html
+Announcing gRPC Support in NGINX https://www.nginx.com/blog/nginx-1-13-10-grpc/
+ACME v2 and Wildcard Certificate Support is Live https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live
+PIXAR’S 22 RULES OF STORYTELLING https://www.
   </div>
   
 

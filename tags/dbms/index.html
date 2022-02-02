@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2012-01-20T06:37:33&#43;08:00">
+  <meta property="og:updated_time" content="2012-06-04T07:34:02&#43;08:00">
   
 
   
@@ -399,6 +399,20 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/mysql-notes/">Mysql Notes</a></h2>
+    <div class="article-style">
+      
+      showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
+mysql&gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/mysql-5-on-ubuntu20/">install Mysql 5 on Ubuntu20</a></h2>

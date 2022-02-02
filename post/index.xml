@@ -6,19 +6,10 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Feb 2022 07:34:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Feb 2022 09:37:46 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Mysql Notes</title>
-      <link>https://wubigo.com/post/mysql-notes/</link>
-      <pubDate>Wed, 02 Feb 2022 07:34:02 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-notes/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>虎年新春快乐</title>
@@ -29,16 +20,6 @@
       <description>虎年新春快乐
  Maybe this year, we ought to walk through the rooms of our lives not looking for flaws, but looking for potential—Ellen Goodman
  </description>
-    </item>
-    
-    <item>
-      <title>Mysql Relocate the Data Directory</title>
-      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
-      <pubDate>Sun, 30 Jan 2022 19:44:00 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
-      <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
-/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
     </item>
     
     <item>
@@ -3678,6 +3659,16 @@ ubuntu@ip-192-168-133-137:/etc/nginx$ nginx -V nginx version: nginx/1.12.1 built
     </item>
     
     <item>
+      <title>Mysql Relocate the Data Directory</title>
+      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
+      <pubDate>Fri, 30 Jan 2015 19:44:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
+      <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
+    </item>
+    
+    <item>
       <title>泛播IPV4</title>
       <link>https://wubigo.com/post/anycast-with-ipv4/</link>
       <pubDate>Sat, 07 Jun 2014 14:44:19 +0800</pubDate>
@@ -3970,6 +3961,20 @@ $virtualenv -p /home/whg/python2.</description>
       
       <guid>https://wubigo.com/post/2012-07-04-rdbms-nosql/</guid>
       <description>B+树 vs. LSM树 RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树 NoSQL使用LSM树</description>
+    </item>
+    
+    <item>
+      <title>Mysql Notes</title>
+      <link>https://wubigo.com/post/mysql-notes/</link>
+      <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-notes/</guid>
+      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
+mysql&amp;gt;source dump.sql
+update the database if directly upgrade from 5.0 to 5.5
+mysql_upgrade -u root -p
+service mysql restart
+A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:</description>
     </item>
     
     <item>

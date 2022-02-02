@@ -5,17 +5,8 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Feb 2022 07:34:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Feb 2022 09:37:46 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Mysql Notes</title>
-      <link>https://wubigo.com/post/mysql-notes/</link>
-      <pubDate>Wed, 02 Feb 2022 07:34:02 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-notes/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>虎年新春快乐</title>
@@ -29,53 +20,6 @@
 &lt;p&gt;Maybe this year, we ought to walk through the rooms of our lives not
 looking for flaws, but looking for potential—Ellen Goodman&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mysql Relocate the Data Directory</title>
-      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
-      <pubDate>Sun, 30 Jan 2022 19:44:00 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
-      <description>
-
-&lt;h1 id=&#34;cp-data-file&#34;&gt;cp data file&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;cp /var/lib/mysql /data -Rf
-chown -R mysql:mysql /data/mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;apparmor&#34;&gt;AppArmor&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/apparmor.d/local/usr.sbin.mysqld&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/data/mysql r,
-/data/mysql/** rwk, 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo systemctl reload apparmor 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;sudo-as-myql&#34;&gt;sudo as myql&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo -s -u mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;mysql-时间类型支持微秒&#34;&gt;mysql 时间类型支持微秒&lt;/h1&gt;
-
-&lt;p&gt;MySQL permits fractional seconds for TIME, DATETIME,
-and TIMESTAMP values, with up to microseconds (6 digits)
-Mysql DATETIME(6)  DATETIME[(fsp)]
-The fsp value, if given, must be in the range 0 to 6. A value of 0
-signifies that there is no fractional part. If omitted, the default
-precision is 0. (This differs from the standard SQL default of 6,
-for compatibility with previous MySQL versions.)&lt;/p&gt;
-
-&lt;h1 id=&#34;检查表大小&#34;&gt;检查表大小&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;select table_schema as database_name, table_name, round( (data_length + index_length) / 1024 / 1024, 2) as total_size, round( (data_length) / 1024 / 1024, 2) as data_size, round( (index_length) / 1024 / 1024, 2) as index_size from information_schema.tables where table_schema not in (&#39;information_schema&#39;, &#39;mysql&#39;, &#39;performance_schema&#39; ,&#39;sys&#39;) and table_type = &#39;BASE TABLE&#39; -- and table_schema = &#39;your database name&#39; order by total_size desc limit 10;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -935,6 +879,180 @@ Block模式支持HDFS的一些重要特性。例如，HDFS AuditLog、Ranger集�
 &lt;p&gt;A：
 Block模式可以管理文件元数据和组织文件数据，因此可以不局限于OSS对象存储，完全可以满足各种大数据引擎对存储接口的需求。这些接口包括但不限于Rename的原子性和事务性能力、高性能本地写入、透明压缩、truncate、append、flush、sync和snapshot等。这些高阶存储接口对实现完整的POSIX和对接更多的大数据引擎到OSS是不可或缺的，例如，Flink、HBase、Kafka和Kudu。其他两种方式使用OSS也可以对接部分接口，但是能力和优势会有所不足。
 Block模式在费用上优于其他两种方式使用OSS。Block模式中，因为全部数据中占比60%的温数据和热数据都在本地有缓存备份，大部分读请求都不会通过OSS，所以可以节省一部分费用。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Web Scrapy</title>
+      <link>https://wubigo.com/post/web-scrapy/</link>
+      <pubDate>Tue, 28 Sep 2021 08:57:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-scrapy/</guid>
+      <description>
+
+&lt;h1 id=&#34;用户代理&#34;&gt;用户代理&lt;/h1&gt;
+
+&lt;p&gt;mobile devices browsing the web often see a pared-down ver‐
+sion of sites, lacking banner ads, Flash, and other distractions. If you try changing
+your User-Agent to something like the following, you might find that sites get a little
+easier to scrape!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) 
+AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 
+Safari/9537.53
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;scrapy-architecture&#34;&gt;scrapy architecture&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/scrapy_architecture.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The data flow in Scrapy is controlled by the execution engine, and goes like this:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The Engine gets the initial Requests to crawl from the Spider.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Engine schedules the Requests in the Scheduler and asks for the next Requests to crawl.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Scheduler returns the next Requests to the Engine.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Engine sends the Requests to the Downloader, passing through the Downloader Middlewares (see process_request()).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Once the page finishes downloading the Downloader generates a Response (with that page) and sends it to the Engine, passing through the Downloader Middlewares (see process_response()).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Engine receives the Response from the Downloader and sends it to the Spider for processing, passing through the Spider Middleware (see process_spider_input()).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Spider processes the Response and returns scraped items and new Requests (to follow) to the Engine, passing through the Spider Middleware (see process_spider_output()).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Engine sends processed items to Item Pipelines, then send processed Requests to the Scheduler and asks for possible next Requests to crawl.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The process repeats (from step 1) until there are no more requests from the Scheduler.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;check-cookie&#34;&gt;check cookie&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.editthiscookie.com/&#34; target=&#34;_blank&#34;&gt;http://www.editthiscookie.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;css-vs-xpath&#34;&gt;CSS vs XPATH&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;Goal&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;CSS&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;XPath&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All P Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All Child Elements&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p &amp;gt; *&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/*&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element By ID&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;#foo&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[@id=’foo’]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element By Class&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;.foo&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[contains(@class,’foo’)] 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Element With Attribute&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;*[title]&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//*[@title]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;First Child of All P&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p &amp;gt; *:first-child&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/*[0]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;All P with an A child&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Not possible&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p[a]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Next Element&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;p + *&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;//p/following-sibling::*[0]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;CSS selectors are better to use when dealing with classes, IDs and tag names. They are shorter and easier to read&lt;/p&gt;
+
+&lt;p&gt;Use CSS Selectors for doing simple queries based on the attributes of the element. CSS Selectors tend to perform better, faster and more reliable than XPath in most browsers&lt;/p&gt;
+
+&lt;h1 id=&#34;ref&#34;&gt;ref&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1050304&#34; target=&#34;_blank&#34;&gt;https://cloud.tencent.com/developer/article/1050304&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lakehouse Notes</title>
+      <link>https://wubigo.com/post/lakehouse-notes/</link>
+      <pubDate>Fri, 24 Sep 2021 09:32:22 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lakehouse-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;replication-method&#34;&gt;Replication Method&lt;/h2&gt;
+
+&lt;p&gt;Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.&lt;/p&gt;
+
+&lt;h1 id=&#34;s3-support-in-apache-hadoop&#34;&gt;S3 Support in Apache Hadoop&lt;/h1&gt;
+
+&lt;p&gt;Apache Hadoop ships with a connector to S3 called &amp;ldquo;S3A&amp;rdquo;, with the url prefix &amp;ldquo;s3a:&amp;ldquo;;
+its previous connectors &amp;ldquo;s3&amp;rdquo;, and &amp;ldquo;s3n&amp;rdquo; are deprecated and/or deleted from recent Hadoop versions.&lt;/p&gt;
+
+&lt;p&gt;Amazon&amp;rsquo;s EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work&lt;/strong&gt;
+You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an &amp;ldquo;object store&amp;rdquo; with&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.&lt;/li&gt;
+&lt;li&gt;Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries -and visible to other processes during this time, and indeed, until the eventual consistency has been resolved. This breaks the commit protocol used by all these applications to safely commit the output of multiple tasks within a job.
+Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for committing work.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;统一元数据&#34;&gt;统一元数据&lt;/h1&gt;
+
+&lt;p&gt;统一的元数据管理，可以实现：&lt;/p&gt;
+
+&lt;h2 id=&#34;持久化的元数据存储&#34;&gt;持久化的元数据存储&lt;/h2&gt;
+
+&lt;p&gt;支持统一元数据之前，元数据都是在集群内部的MySQL数据库，元数据会随着集群的释放而丢失，特别是EMR提供了灵活按量模式，集群可以按需创建用完就释放。如果您需要保留现有的元数据信息，必须登录集群手动将元数据信息导出。支持统一元数据之后，释放集群不会清理元数据信息。所以，在任何时候删除OSS上或者集群HDFS上数据（包括释放集群操作）的时候，需要先确认该数据对应的元数据已经删除（即要删掉数据对应的表和数据库），否则元数据库中可能出现一些脏数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;计算存储分离&#34;&gt;计算存储分离&lt;/h2&gt;
+
+&lt;p&gt;EMR上可以支持将数据存放在阿里云OSS中，在大数据量的情况下将数据存储在OSS上会大大降低使用的成本，EMR集群主要用来作为计算资源，在计算完成之后可以随时释放，数据在OSS上，同时也不用再考虑元数据迁移的问题。&lt;/p&gt;
+
+&lt;h2 id=&#34;数据共享&#34;&gt;数据共享&lt;/h2&gt;
+
+&lt;p&gt;使用统一的元数据库，如果您的所有数据都存放在OSS之上，则不需要做任何元数据的迁移和重建，所有集群都是可以直接访问数据，这样每个EMR集群可以做不同的业务，但是可以很方便地实现数据的共享。&lt;/p&gt;
 </description>
     </item>
     
