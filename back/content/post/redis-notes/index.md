@@ -19,6 +19,32 @@ categories = []
   focal_point = ""
 +++
 
+#  系统配置
+
+`/etc/sysctl.conf`
+
+```
+vm.swappiness = 1
+vm.overcommit_memory = 1
+```
+ 
+# 改变数据目录
+
+```
+sudo install -o redis -g redis -d /mnt/redis-data
+
+
+> config get dir
+1) "dir"
+2) "/mnt/redis-data"
+```
+
+`/etc/systemd/system/redis.service`
+```
+[Service]
+ReadWriteDirectories=-/mnt/redis-data
+```
+
 # 删除消费组
 
 ```
