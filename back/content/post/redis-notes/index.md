@@ -45,6 +45,22 @@ sudo install -o redis -g redis -d /mnt/redis-data
 ReadWriteDirectories=-/mnt/redis-data
 ```
 
+# pidfile NOT FOUND FROM SYSTEMD
+
+`/etc/redis/redis.conf`
+
+```
+pidfile /var/run/redis/redis-server.pid
+```
+
+`/etc/systemd/system/redis.service`
+```
+PIDFile=/run/redis/redis-server.pid
+```
+
+
+
+
 # 删除消费组
 
 ```
