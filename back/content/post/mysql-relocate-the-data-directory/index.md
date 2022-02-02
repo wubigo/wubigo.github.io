@@ -1,6 +1,6 @@
 +++
 title = "Mysql Relocate the Data Directory"
-date = 2022-01-30T19:44:00+08:00
+date = 2015-01-30T19:44:00+08:00
 draft = false
 
 # Tags and categories
