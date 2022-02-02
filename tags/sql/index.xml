@@ -24,6 +24,16 @@
     </item>
     
     <item>
+      <title>Mysql High Performance</title>
+      <link>https://wubigo.com/post/mysql-high-performance/</link>
+      <pubDate>Mon, 08 Jan 2018 14:20:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-high-performance/</guid>
+      <description>InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario</description>
+    </item>
+    
+    <item>
       <title>Having Multiple Tables in FROM and Using JOIN</title>
       <link>https://wubigo.com/post/having-multiple-tables-in-from-and-using-join/</link>
       <pubDate>Wed, 26 Aug 2015 09:40:44 +0800</pubDate>
@@ -38,12 +48,32 @@ Why Use the New Syntax for SQL Joins?
     </item>
     
     <item>
+      <title>Mysql Relocate the Data Directory</title>
+      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
+      <pubDate>Fri, 30 Jan 2015 19:44:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
+      <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
+    </item>
+    
+    <item>
       <title>Postgres Notes</title>
       <link>https://wubigo.com/post/postgres-notes/</link>
       <pubDate>Sat, 06 Apr 2013 15:46:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/postgres-notes/</guid>
       <description>INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&amp;gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin + | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.</description>
+    </item>
+    
+    <item>
+      <title>install Mysql 5 on Ubuntu20</title>
+      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
+      <pubDate>Fri, 20 Jan 2012 06:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
+      <description> select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION  </description>
     </item>
     
   </channel>

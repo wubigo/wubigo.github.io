@@ -413,6 +413,16 @@
   </div>
   
   <div>
+    <h2><a href="/post/mysql-high-performance/">Mysql High Performance</a></h2>
+    <div class="article-style">
+      
+      InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/having-multiple-tables-in-from-and-using-join/">Having Multiple Tables in FROM and Using JOIN</a></h2>
     <div class="article-style">
       
@@ -427,10 +437,30 @@ Why Use the New Syntax for SQL Joins?
   </div>
   
   <div>
+    <h2><a href="/post/mysql-relocate-the-data-directory/">Mysql Relocate the Data Directory</a></h2>
+    <div class="article-style">
+      
+      cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/postgres-notes/">Postgres Notes</a></h2>
     <div class="article-style">
       
       INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin template0 | rdsadmin | UTF8 | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin + | | | | | rdsadmin=CTc/rdsadmin template1 | postgres | UTF8 | en_US.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5-on-ubuntu20/">install Mysql 5 on Ubuntu20</a></h2>
+    <div class="article-style">
+      
+       select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'pass' WITH GRANT OPTION  
       
     </div>
   </div>
