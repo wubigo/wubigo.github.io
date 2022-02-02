@@ -30,7 +30,9 @@
   
   <meta name="description" content="系统配置 /etc/sysctl.conf
 vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &gt; config get dir 1) &quot;dir&quot; 2) &quot;/mnt/redis-data&quot;  /etc/systemd/system/redis.service
-[Service] ReadWriteDirectories=-/mnt/redis-data  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3.">
+[Service] ReadWriteDirectories=-/mnt/redis-data  pidfile NOT FOUND FROM SYSTEMD /etc/redis/redis.conf
+pidfile /var/run/redis/redis-server.pid  /etc/systemd/system/redis.service
+PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/redis-notes/">
@@ -141,7 +143,9 @@ vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o r
   <meta property="og:title" content="Redis Notes | wubigo">
   <meta property="og:description" content="系统配置 /etc/sysctl.conf
 vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &gt; config get dir 1) &quot;dir&quot; 2) &quot;/mnt/redis-data&quot;  /etc/systemd/system/redis.service
-[Service] ReadWriteDirectories=-/mnt/redis-data  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this. For EC2 users, make sure you use HVM based modern EC2 instances, like m3."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+[Service] ReadWriteDirectories=-/mnt/redis-data  pidfile NOT FOUND FROM SYSTEMD /etc/redis/redis.conf
+pidfile /var/run/redis/redis-server.pid  /etc/systemd/system/redis.service
+PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2012-08-02T07:34:07&#43;08:00">
@@ -527,6 +531,18 @@ vm.overcommit_memory = 1
 
 <pre><code>[Service]
 ReadWriteDirectories=-/mnt/redis-data
+</code></pre>
+
+<h1 id="pidfile-not-found-from-systemd">pidfile NOT FOUND FROM SYSTEMD</h1>
+
+<p><code>/etc/redis/redis.conf</code></p>
+
+<pre><code>pidfile /var/run/redis/redis-server.pid
+</code></pre>
+
+<p><code>/etc/systemd/system/redis.service</code></p>
+
+<pre><code>PIDFile=/run/redis/redis-server.pid
 </code></pre>
 
 <h1 id="删除消费组">删除消费组</h1>
