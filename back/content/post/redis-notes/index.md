@@ -39,7 +39,7 @@ sudo install -o redis -g redis -d /mnt/redis-data
 2) "/mnt/redis-data"
 ```
 
-`/etc/systemd/system/redis.service`
+`/lib/systemd/system/redis-server.service`
 ```
 [Service]
 ReadWriteDirectories=-/mnt/redis-data
@@ -53,7 +53,7 @@ ReadWriteDirectories=-/mnt/redis-data
 pidfile /var/run/redis/redis-server.pid
 ```
 
-`/etc/systemd/system/redis.service`
+`/lib/systemd/system/redis-server.service`
 ```
 PIDFile=/run/redis/redis-server.pid
 ```

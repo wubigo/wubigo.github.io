@@ -19,6 +19,25 @@ categories = []
   focal_point = ""
 +++
 
+# innodb_file_per_table
+
+```
+[mysqld]
+datadir         = /data/mysql
+```
+
+ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 
+用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库
+和point表
+
+```
+CREATE DATABASE device
+CREATE TABLE device.point (...) ENGINE=InnoDB
+```
+
+`/data/mysql/device/point.ibd`
+`/data/mysql/device/point.frm`
+
 
 # showing current configuration
 
