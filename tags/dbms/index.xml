@@ -17,12 +17,11 @@
       <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-notes/</guid>
-      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
+      <description>innodb_file_per_table [mysqld] datadir = /data/mysql  ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库 和point表
+CREATE DATABASE device CREATE TABLE device.point (...) ENGINE=InnoDB  /data/mysql/device/point.ibd /data/mysql/device/point.frm
+showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
 mysql&amp;gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:</description>
+update the database if directly upgrade from 5.0 to 5.</description>
     </item>
     
   </channel>

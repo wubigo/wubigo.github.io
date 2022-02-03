@@ -3952,9 +3952,9 @@ $virtualenv -p /home/whg/python2.</description>
       
       <guid>https://wubigo.com/post/redis-notes/</guid>
       <description>系统配置 /etc/sysctl.conf
-vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &amp;gt; config get dir 1) &amp;quot;dir&amp;quot; 2) &amp;quot;/mnt/redis-data&amp;quot;  /etc/systemd/system/redis.service
+vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &amp;gt; config get dir 1) &amp;quot;dir&amp;quot; 2) &amp;quot;/mnt/redis-data&amp;quot;  /lib/systemd/system/redis-server.service
 [Service] ReadWriteDirectories=-/mnt/redis-data  pidfile NOT FOUND FROM SYSTEMD /etc/redis/redis.conf
-pidfile /var/run/redis/redis-server.pid  /etc/systemd/system/redis.service
+pidfile /var/run/redis/redis-server.pid  /lib/systemd/system/redis-server.service
 PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this.</description>
     </item>
     
@@ -3973,12 +3973,11 @@ PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST 
       <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-notes/</guid>
-      <description>showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
+      <description>innodb_file_per_table [mysqld] datadir = /data/mysql  ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库 和point表
+CREATE DATABASE device CREATE TABLE device.point (...) ENGINE=InnoDB  /data/mysql/device/point.ibd /data/mysql/device/point.frm
+showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
 mysql&amp;gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.5
-mysql_upgrade -u root -p
-service mysql restart
-A typical mysqldump command to move data from an external database to an Amazon RDS DB instance looks similar to the following:</description>
+update the database if directly upgrade from 5.0 to 5.</description>
     </item>
     
     <item>
