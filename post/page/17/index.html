@@ -1354,11 +1354,11 @@ NoSQL使用LSM树</p>
 
   
   <div class="article-style" itemprop="articleBody">
-    innodb_file_per_table [mysqld] datadir = /data/mysql  ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库 和point表
+    错误日志时间戳 [mysqld] log_timestamps = SYSTEM  innodb_file_per_table [mysqld] datadir = /data/mysql  ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库 和point表
 CREATE DATABASE device CREATE TABLE device.point (...) ENGINE=InnoDB  /data/mysql/device/point.ibd /data/mysql/device/point.frm
 showing current configuration  mysql&gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &gt; dump.sql mysqldump -u root -h db -pgld --all-databases &gt; dump.sql  then import data in mysql shell
 mysql&gt;source dump.sql
-update the database if directly upgrade from 5.0 to 5.
+update the database if directly upgrade from 5.
   </div>
   
 
