@@ -20,6 +20,14 @@ categories = []
   focal_point = ""
 +++
 
+# show the last queries 
+
+```
+mysql>SET GLOBAL log_output = 'FILE';
+mysql>SET GLOBAL general_log = 'ON';
+mysql>SHOW VARIABLES WHERE Variable_name LIKE 'general_log_file'
+
+```
 
 
 # Disable ONLY_FULL_GROUP_BY
