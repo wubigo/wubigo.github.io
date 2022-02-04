@@ -19,6 +19,15 @@ categories = []
   focal_point = ""
 +++
 
+# 错误日志时间戳
+
+
+```
+[mysqld]
+log_timestamps = SYSTEM
+```
+
+
 # innodb_file_per_table
 
 ```
