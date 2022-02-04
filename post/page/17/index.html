@@ -728,6 +728,14 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
   <div class="article-style" itemprop="articleBody">
     
 
+<h1 id="show-the-last-queries">show the last queries</h1>
+
+<pre><code>mysql&gt;SET GLOBAL log_output = 'FILE';
+mysql&gt;SET GLOBAL general_log = 'ON';
+mysql&gt;SHOW VARIABLES WHERE Variable_name LIKE 'general_log_file'
+
+</code></pre>
+
 <h1 id="disable-only-full-group-by">Disable ONLY_FULL_GROUP_BY</h1>
 
 <pre><code>SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode';
