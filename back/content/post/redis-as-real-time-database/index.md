@@ -68,11 +68,14 @@ categories = []
 1. 消息队列动态创建，目前以时间戳为标识方便处理(例如"STREAM:02041123")
 2. 消息队列消费完后删除，释放内存( isDelived && isSaved  -> redisson.getKeys().delete("STREAM:02041123"))
 3. 动态检查消息队列列表，如果没有消费，立即处理(redisson.getKeys())
-
+4. 主节点配置为缓存，从节点配置为存储
 
 经过测试，现在redis消息队列每小时能处理2千万条的设备数据。
 还需要进一步优化。
 
+### REDIS消息处理确认流程图
+
+![REDIS消息队列](/img/redis-stream.svg)
 
 ## 更换分布式监控
 ## 更换实时数据库
