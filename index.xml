@@ -68,10 +68,15 @@
 &lt;li&gt;消息队列动态创建，目前以时间戳为标识方便处理(例如&amp;rdquo;STREAM:02041123&amp;rdquo;)&lt;/li&gt;
 &lt;li&gt;消息队列消费完后删除，释放内存( isDelived &amp;amp;&amp;amp; isSaved  -&amp;gt; redisson.getKeys().delete(&amp;ldquo;STREAM:02041123&amp;rdquo;))&lt;/li&gt;
 &lt;li&gt;动态检查消息队列列表，如果没有消费，立即处理(redisson.getKeys())&lt;/li&gt;
+&lt;li&gt;主节点配置为缓存，从节点配置为存储&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;经过测试，现在redis消息队列每小时能处理2千万条的设备数据。
 还需要进一步优化。&lt;/p&gt;
+
+&lt;h3 id=&#34;redis消息处理确认流程图&#34;&gt;REDIS消息处理确认流程图&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/redis-stream.svg&#34; alt=&#34;REDIS消息队列&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;更换分布式监控&#34;&gt;更换分布式监控&lt;/h2&gt;
 
