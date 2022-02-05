@@ -134,3 +134,5 @@ Redis 支持高可用性和持久性。 高可用性
 [3] [What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 
 [4] [Optimization of RocksDB for Redis on Flash](http://www.kereno.com/rocksdb-rof.pdf)
+
+[5] [Memtier benchmark](https://github.com/RedisLabs/memtier_benchmark)
