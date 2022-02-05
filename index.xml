@@ -5,8 +5,87 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 09:37:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 Feb 2022 11:40:58 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Redis消息队列和实时数据处理</title>
+      <link>https://wubigo.com/post/redis-as-real-time-database/</link>
+      <pubDate>Sat, 05 Feb 2022 11:40:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-as-real-time-database/</guid>
+      <description>
+
+&lt;h1 id=&#34;项目简介&#34;&gt;项目简介&lt;/h1&gt;
+
+&lt;p&gt;最近在做工业自动化(IIoT)项目，涉及到很多场景需要对一系列设备进行监控和信号处理。
+该类场景对实时处理能力，系统稳定性，高可用性，容灾能力等等要求非常高。
+其中几个核心的需求：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;设备数据不能丢失&lt;/li&gt;
+&lt;li&gt;实时告警(毫秒级延迟)&lt;/li&gt;
+&lt;li&gt;设备数据必须优先在边缘节点处理，边缘节点的物理服务器只有两台&lt;/li&gt;
+&lt;li&gt;每个边缘节点接入的设备上行数据量大概6万点/秒，数据包小于1K&lt;/li&gt;
+&lt;li&gt;中心需要汇聚和分析所有边缘节点的设备数据&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;技术现状&#34;&gt;技术现状&lt;/h1&gt;
+
+&lt;h2 id=&#34;实时数据处理&#34;&gt;实时数据处理&lt;/h2&gt;
+
+&lt;p&gt;实时数据处理是一个自 1990 年代以来一直在研究的问题 。
+产生的数据量增加了，加上越来越复杂的软件解决方案
+开发，需要满足这些需求出现了流式应用程序，例如
+欺诈检测、网络监控和电子交易依赖于实时数据处理
+确保所提供的服务被认为是正确和可靠的。
+绝大多数现代应用程序使用某种数据库管理系统
+处理数据。当应用程序收集或生成数据时，它会被存储和索引
+它可以在以后由应用程序查询。但是，对于具有更严格
+对实时数据处理的要求，这不是一个合适的方法。这是流的地方
+处理开始发挥作用。流处理是在接收数据时直接处理数据。实时流
+处理应用程序通常具有必须满足的某些关键要求。有低
+输入和处理后的数据输出之间的延迟是实现实时的关键特征
+应用。更传统的批处理方法需要以这样的方式收集数据
+称为批次，其中处理只能在每个批次的最终数据块完成后开始
+到达的。对于实时用例，这导致的延迟是不可接受的，因为这些实时的延迟
+流应用程序最好在毫秒内。&lt;/p&gt;
+
+&lt;h2 id=&#34;现有资源&#34;&gt;现有资源&lt;/h2&gt;
+
+&lt;p&gt;公司现有的工控产品都是基于微服务架构实现的。用于满足超大型集团公司
+工控自动化需求:DEV/OPS，PaaS，双活，AI/OPS等。需要上百个虚机来支
+撑现有的工控平台。&lt;/p&gt;
+
+&lt;h1 id=&#34;技术调研&#34;&gt;技术调研&lt;/h1&gt;
+
+&lt;h2 id=&#34;更换消息中间件&#34;&gt;更换消息中间件&lt;/h2&gt;
+
+&lt;p&gt;使用REDIS STREAM替换消息中间件。
+在测试中，发现REDIS作为队列，使用比较方便：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;消息队列动态创建，目前以时间戳为标识方便处理(例如&amp;rdquo;STREAM:02041123&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;消息队列消费完后删除，释放内存( isDelived &amp;amp;&amp;amp; isSaved  -&amp;gt; redisson.getKeys().delete(&amp;ldquo;STREAM:02041123&amp;rdquo;))&lt;/li&gt;
+&lt;li&gt;动态检查消息队列列表，如果没有消费，立即处理(redisson.getKeys())&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;经过测试，现在redis消息队列每小时能处理2千万条的设备数据。
+还需要进一步优化。&lt;/p&gt;
+
+&lt;h2 id=&#34;更换分布式监控&#34;&gt;更换分布式监控&lt;/h2&gt;
+
+&lt;h2 id=&#34;更换实时数据库&#34;&gt;更换实时数据库&lt;/h2&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;https://www.doria.fi/bitstream/handle/10024/177865/tallberg_sebastian.pdf?sequence=2&amp;amp;isAllowed=y&#34; target=&#34;_blank&#34;&gt;A COMPARISON OF DATA INGESTION PLATFORMS IN REAL-TIME STREAMING&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] &lt;a href=&#34;https://www.alibabacloud.com/blog/interview-with-the-creator-of-redisson-building-an-open-source-enterprise-redis-client_593854&#34; target=&#34;_blank&#34;&gt;Interview with the Creator of Redisson&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[3] &lt;a href=&#34;https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying&#34; target=&#34;_blank&#34;&gt;What every software engineer should know about real-time data&amp;rsquo;s unifying abstraction&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>虎年新春快乐</title>
@@ -1007,52 +1086,6 @@ Safari/9537.53
 &lt;h1 id=&#34;ref&#34;&gt;ref&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1050304&#34; target=&#34;_blank&#34;&gt;https://cloud.tencent.com/developer/article/1050304&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lakehouse Notes</title>
-      <link>https://wubigo.com/post/lakehouse-notes/</link>
-      <pubDate>Fri, 24 Sep 2021 09:32:22 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lakehouse-notes/</guid>
-      <description>
-
-&lt;h2 id=&#34;replication-method&#34;&gt;Replication Method&lt;/h2&gt;
-
-&lt;p&gt;Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.&lt;/p&gt;
-
-&lt;h1 id=&#34;s3-support-in-apache-hadoop&#34;&gt;S3 Support in Apache Hadoop&lt;/h1&gt;
-
-&lt;p&gt;Apache Hadoop ships with a connector to S3 called &amp;ldquo;S3A&amp;rdquo;, with the url prefix &amp;ldquo;s3a:&amp;ldquo;;
-its previous connectors &amp;ldquo;s3&amp;rdquo;, and &amp;ldquo;s3n&amp;rdquo; are deprecated and/or deleted from recent Hadoop versions.&lt;/p&gt;
-
-&lt;p&gt;Amazon&amp;rsquo;s EMR Service is based upon Apache Hadoop, but contains modifications and their own closed-source S3 client&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Important: you need a consistency layer to use Amazon S3 as a destination of MapReduce, Spark and Hive work&lt;/strong&gt;
-You cannot use any of the S3 filesystem clients as a drop-in replacement for HDFS. Amazon S3 is an &amp;ldquo;object store&amp;rdquo; with&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Eventual consistency: changes made by one application (creation, updates and deletions) will not be visible until some undefined time.&lt;/li&gt;
-&lt;li&gt;Non-atomic rename and delete operations. Renaming or deleting large directories takes time proportional to the number of entries -and visible to other processes during this time, and indeed, until the eventual consistency has been resolved. This breaks the commit protocol used by all these applications to safely commit the output of multiple tasks within a job.
-Hadoop 3.x ships with S3Guard for consistency, and the S3A Committers for committing work.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;统一元数据&#34;&gt;统一元数据&lt;/h1&gt;
-
-&lt;p&gt;统一的元数据管理，可以实现：&lt;/p&gt;
-
-&lt;h2 id=&#34;持久化的元数据存储&#34;&gt;持久化的元数据存储&lt;/h2&gt;
-
-&lt;p&gt;支持统一元数据之前，元数据都是在集群内部的MySQL数据库，元数据会随着集群的释放而丢失，特别是EMR提供了灵活按量模式，集群可以按需创建用完就释放。如果您需要保留现有的元数据信息，必须登录集群手动将元数据信息导出。支持统一元数据之后，释放集群不会清理元数据信息。所以，在任何时候删除OSS上或者集群HDFS上数据（包括释放集群操作）的时候，需要先确认该数据对应的元数据已经删除（即要删掉数据对应的表和数据库），否则元数据库中可能出现一些脏数据。&lt;/p&gt;
-
-&lt;h2 id=&#34;计算存储分离&#34;&gt;计算存储分离&lt;/h2&gt;
-
-&lt;p&gt;EMR上可以支持将数据存放在阿里云OSS中，在大数据量的情况下将数据存储在OSS上会大大降低使用的成本，EMR集群主要用来作为计算资源，在计算完成之后可以随时释放，数据在OSS上，同时也不用再考虑元数据迁移的问题。&lt;/p&gt;
-
-&lt;h2 id=&#34;数据共享&#34;&gt;数据共享&lt;/h2&gt;
-
-&lt;p&gt;使用统一的元数据库，如果您的所有数据都存放在OSS之上，则不需要做任何元数据的迁移和重建，所有集群都是可以直接访问数据，这样每个EMR集群可以做不同的业务，但是可以很方便地实现数据的共享。&lt;/p&gt;
 </description>
     </item>
     

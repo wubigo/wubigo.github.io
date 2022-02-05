@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-01T09:37:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-02-05T11:40:58&#43;08:00">
   
 
   
@@ -398,6 +398,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-04 06:50:43 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/envoy-control-plane-api-server-testing/" itemprop="url">Envoy Control Plane API Server Testing</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2139,90 +2221,6 @@ draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
   <div class="article-style" itemprop="articleBody">
     PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
 Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-21 15:45:05 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 21, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/nodejs-xpath/" itemprop="url">Nodejs Xpath名字空间</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    如果xml文件带有名字空间，XPATH支持
-还不够完善。下面介绍两种可以工作的方式
-namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&quot;ns0&quot;: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;}); const nodes = select(&quot;//ns0:loc&quot;, doc); nodes.forEach((value) =&gt; console.log(&quot;ns0:&quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { 'ns0' : 'http://www.sitemaps.org/schemas/sitemap/0.9', 'mathml': 'http://www.w3.org/1998/Math/MathML' }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &quot;//ns0:loc&quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.
   </div>
   
 
