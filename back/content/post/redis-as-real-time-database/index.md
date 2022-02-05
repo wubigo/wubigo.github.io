@@ -100,3 +100,5 @@ categories = []
 [2] [Interview with the Creator of Redisson](https://www.alibabacloud.com/blog/interview-with-the-creator-of-redisson-building-an-open-source-enterprise-redis-client_593854)
 
 [3] [What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+
+[4] [Optimization of RocksDB for Redis on Flash](http://www.kereno.com/rocksdb-rof.pdf)
