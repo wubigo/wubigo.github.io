@@ -163,11 +163,7 @@ mysql&amp;gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user 
       <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-notes/</guid>
-      <description>错误日志时间戳 [mysqld] log_timestamps = SYSTEM  innodb_file_per_table [mysqld] datadir = /data/mysql  ibdata1 是InnoDB 系统表空间， 使用innodb_file_per_table = 1 用户创建的表和索引按数据库单独存放。 假设用户创建了device数据库 和point表
-CREATE DATABASE device CREATE TABLE device.point (...) ENGINE=InnoDB  /data/mysql/device/point.ibd /data/mysql/device/point.frm
-showing current configuration  mysql&amp;gt;SHOW VARIABLES;   mysqldump -u root -h 192.168.76.62 -pgld --all-databases &amp;gt; dump.sql mysqldump -u root -h db -pgld --all-databases &amp;gt; dump.sql  then import data in mysql shell
-mysql&amp;gt;source dump.sql
-update the database if directly upgrade from 5.</description>
+      <description>检查表 show table status FROM redis_db like &#39;point_value&#39;; +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | point_value | InnoDB | 10 | Dynamic | 316755485 | 143 | 45420118016 | 0 | 0 | 3145728 | NULL | 2022-01-30 18:55:44 | 2022-02-06 18:17:56 | NULL | utf8_general_ci | NULL | | | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ 1 row in set (0.</description>
     </item>
     
     <item>
