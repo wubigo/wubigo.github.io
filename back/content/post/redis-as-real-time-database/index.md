@@ -146,3 +146,5 @@ Redis 支持高可用性和持久性。 高可用性
 [6] [Distributed key-value database](https://tikv.org/docs/5.1/reference/architecture/overview/)
 
 [7] [Evolution of Development in a Key-value Store Serving Large-scale Applications](https://dl.acm.org/doi/fullHtml/10.1145/3483840)
+
+[8] [Block storage performance](https://cloud.google.com/compute/docs/disks/performance)
