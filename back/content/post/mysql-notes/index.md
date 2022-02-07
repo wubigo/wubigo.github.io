@@ -19,7 +19,7 @@ categories = []
   focal_point = ""
 +++
 
-# 检查表
+# 查看表状态
 
 ```
 show table status FROM redis_db like 'point_value';
@@ -81,7 +81,6 @@ CREATE TABLE device.point (...) ENGINE=InnoDB
 # showing current configuration
 
 ```
-
 mysql>SHOW VARIABLES;
 ```
 

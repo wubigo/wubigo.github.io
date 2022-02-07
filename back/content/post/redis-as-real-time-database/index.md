@@ -103,7 +103,7 @@ Redis 支持高可用性和持久性。 高可用性
 4. 主节点配置为缓存，从节点配置为存储
 
 经过测试，现在redis消息队列每小时能处理2千万条的设备数据。
-还需要进一步优化。
+还需要进一步优化写入速度。
 
 ### REDIS消息处理确认流程图
 
@@ -114,6 +114,10 @@ Redis 支持高可用性和持久性。 高可用性
 
 
 
+# REDIS数据可靠性
+
+## REDIS ON FLASH
+## REDIS SHARD
 
 
 
@@ -136,3 +140,5 @@ Redis 支持高可用性和持久性。 高可用性
 [4] [Optimization of RocksDB for Redis on Flash](http://www.kereno.com/rocksdb-rof.pdf)
 
 [5] [Memtier benchmark](https://github.com/RedisLabs/memtier_benchmark)
+
+[6] [Distributed key-value database](https://tikv.org/docs/5.1/reference/architecture/overview/)
