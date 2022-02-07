@@ -19,6 +19,19 @@ categories = []
   focal_point = ""
 +++
 
+#  Java诊断利器Arthas
+
+```
+curl -O https://arthas.aliyun.com/arthas-boot.jar
+java -jar arthas-boot.jar
+[arthas@9208]$ thread 1
+"main" Id=1 TIMED_WAITING
+    at java.base@8.0.12/java.lang.Thread.sleep(Native Method)
+    at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339)
+    at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)
+```
+
+
 # JVM MEMORY MODEL
 
 ![](./jvm-memory-mode.png)
