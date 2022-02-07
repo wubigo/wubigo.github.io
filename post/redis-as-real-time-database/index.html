@@ -603,7 +603,7 @@ Redis 抽象和高摄取速度已被证明特别重要
 </ol>
 
 <p>经过测试，现在redis消息队列每小时能处理2千万条的设备数据。
-还需要进一步优化。</p>
+还需要进一步优化写入速度。</p>
 
 <h3 id="redis消息处理确认流程图">REDIS消息处理确认流程图</h3>
 
@@ -612,6 +612,12 @@ Redis 抽象和高摄取速度已被证明特别重要
 <h2 id="更换分布式监控">更换分布式监控</h2>
 
 <h2 id="更换实时数据库">更换实时数据库</h2>
+
+<h1 id="redis数据可靠性">REDIS数据可靠性</h1>
+
+<h2 id="redis-on-flash">REDIS ON FLASH</h2>
+
+<h2 id="redis-shard">REDIS SHARD</h2>
 
 <h2 id="参考">参考</h2>
 
@@ -624,6 +630,8 @@ Redis 抽象和高摄取速度已被证明特别重要
 <p>[4] <a href="http://www.kereno.com/rocksdb-rof.pdf" target="_blank">Optimization of RocksDB for Redis on Flash</a></p>
 
 <p>[5] <a href="https://github.com/RedisLabs/memtier_benchmark" target="_blank">Memtier benchmark</a></p>
+
+<p>[6] <a href="https://tikv.org/docs/5.1/reference/architecture/overview/" target="_blank">Distributed key-value database</a></p>
 
     </div>
 
