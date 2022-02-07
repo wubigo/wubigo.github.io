@@ -113,10 +113,12 @@ Redis 支持高可用性和持久性。 高可用性
 ## 更换实时数据库
 
 
-
 # REDIS数据可靠性
 
 ## REDIS ON FLASH
+
+![REDIS ON FLASH](/img/redis-on-flash.svg)
+
 ## REDIS SHARD
 
 
