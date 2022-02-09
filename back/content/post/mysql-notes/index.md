@@ -48,6 +48,9 @@ show table status FROM redis_db like 'point_value';
 +--------------------+------------+----------------+-------------+--------------+-----------+
 ```
 
+# 数据优化
+
+https://docs.oracle.com/cd/E17952_01/mysql-5.6-en/data-size.html
 
 # 错误日志时间戳
 
