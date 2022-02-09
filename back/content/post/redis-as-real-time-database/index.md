@@ -152,3 +152,5 @@ Redis 支持高可用性和持久性。 高可用性
 [7] [Evolution of Development in a Key-value Store Serving Large-scale Applications](https://dl.acm.org/doi/fullHtml/10.1145/3483840)
 
 [8] [Block storage performance](https://cloud.google.com/compute/docs/disks/performance)
+
+[9] [built CockroachDB on top of RocksDB](https://www.cockroachlabs.com/blog/cockroachdb-on-rocksd/)
