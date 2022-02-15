@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["REDIS", "CACHE", "NOSQL"]
+tags = ["REDIS", "CACHE", "NOSQL", "KVS"]
 categories = []
 
 # Featured image
@@ -119,7 +119,9 @@ Redis 支持高可用性和持久性。 高可用性
 
 在许多情况下，SSD 的高性能也将延迟和吞吐量的性能瓶颈从设备 I/O 转移到了网络上。
 对于应用程序而言，将其架构设计为将数据存储在本地 SSD 上而不是使用远程数据存储
-服务变得更具吸引力。 这增加了对可嵌入应用程序的键值存储引擎的需求
+服务变得更具吸引力。 这增加了对可嵌入应用程序的键值存储引擎的需求.
+
+RocksDB单节点的存储上限是100GB，超过100GB需要使用分区。
 
 ![REDIS ON FLASH](/img/redis-on-flash.svg)
 
@@ -154,3 +156,5 @@ Redis 支持高可用性和持久性。 高可用性
 [8] [Block storage performance](https://cloud.google.com/compute/docs/disks/performance)
 
 [9] [built CockroachDB on top of RocksDB](https://www.cockroachlabs.com/blog/cockroachdb-on-rocksd/)
+
+[10] [Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
