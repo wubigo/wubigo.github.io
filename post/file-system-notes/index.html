@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,12 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="大多数重要的应用程序都是在文件系统的基础上构建，而不是在原始磁盘上 构建。例如LEVELDB.
+文件系统在系统崩溃恢复所表现的行为，我们称之为持久化属性，大概分为 两类：原子操作和顺序操作
+[1] All File Systems Are Not Created Equal">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/os/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/file-system-notes/">
 
   
 
@@ -114,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/os/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/os/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/os/">
+  <link rel="canonical" href="https://wubigo.com/post/file-system-notes/">
 
   
   
@@ -137,19 +137,23 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/os/">
-  <meta property="og:title" content="OS | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/file-system-notes/">
+  <meta property="og:title" content="文件系统的持久化特性 | wubigo">
+  <meta property="og:description" content="大多数重要的应用程序都是在文件系统的基础上构建，而不是在原始磁盘上 构建。例如LEVELDB.
+文件系统在系统崩溃恢复所表现的行为，我们称之为持久化属性，大概分为 两类：原子操作和顺序操作
+[1] All File Systems Are Not Created Equal"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-02-16T07:00:41&#43;08:00">
+  <meta property="article:published_time" content="2019-02-16T07:00:41&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-02-16T07:00:41&#43;08:00">
   
 
   
 
   
 
-  <title>OS | wubigo</title>
+  <title>文件系统的持久化特性 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -365,7 +369,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -382,56 +388,185 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">文件系统的持久化特性</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">OS</h1>
+
+
+
+<meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 16, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e7%89%b9%e6%80%a7&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffile-system-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2ffile-system-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffile-system-notes%2f&amp;title=%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e7%89%b9%e6%80%a7"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2ffile-system-notes%2f&amp;title=%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e7%89%b9%e6%80%a7"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e7%89%b9%e6%80%a7&amp;body=https%3a%2f%2fwubigo.com%2fpost%2ffile-system-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/file-system-notes/">文件系统的持久化特性</a></h2>
-    <div class="article-style">
-      
-      大多数重要的应用程序都是在文件系统的基础上构建，而不是在原始磁盘上 构建。例如LEVELDB.
-文件系统在系统崩溃恢复所表现的行为，我们称之为持久化属性，大概分为 两类：原子操作和顺序操作
-[1] All File Systems Are Not Created Equal
-      
+    <div class="article-style" itemprop="articleBody">
+      <p>大多数重要的应用程序都是在文件系统的基础上构建，而不是在原始磁盘上
+构建。例如LEVELDB.</p>
+
+<p>文件系统在系统崩溃恢复所表现的行为，我们称之为持久化属性，大概分为
+两类：原子操作和顺序操作</p>
+
+<p>[1] <a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-pillai.pdf" target="_blank">All File Systems Are Not Created Equal</a></p>
+
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/wins-turn-off-windows-activation/">购买笔记本电脑的正确打开姿势</a></h2>
-    <div class="article-style">
-      
-       关闭网络连接 个性化设置  性能模式
- 任务栏
- 通知
- 文件夹
-  关闭激活服务 禁用激活服务 https://www.wikihow.com/Turn-Off-Windows-Activation
-关闭自动激活 https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
-注意 个性化设置必须在关闭激活服务之前完成
-禁止用户修改密码 net users net user user_cmp /PasswordChg:No  关闭后台服务 turn off the background app functionality
-Start &gt; Settings &gt; Privacy &gt; Background apps  
-      
-    </div>
-  </div>
-  
 
-  
+    
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/kvs/">KVS</a>
+  
+  <a class="badge badge-light" href="/tags/os/">OS</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/log-about-real-time-datas-unifying-abstraction/">日志:每个程序员都应该了解的实时数据统一抽象</a></li>
+          
+          <li><a href="/post/wins-turn-off-windows-activation/">购买笔记本电脑的正确打开姿势</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -604,6 +739,4 @@ Start &gt; Settings &gt; Privacy &gt; Background apps
     </script>
   </body>
 </html>
-
-
 
