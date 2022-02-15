@@ -1771,6 +1771,100 @@ response, err := client.AllocateHosts(request)
 
 
 
+<meta content="2019-02-15 09:44:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-02-15 09:44:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 15, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/the-log-about-real-time-datas-unifying-abstraction/" itemprop="url">日志:每个程序员都应该了解的实时数据统一抽象</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>在4年前加入广联达的时候，当时我们正在从传统的CS，单体的中心数据库，私有数据中心
+向分布式，混合云架构演进。我们现在构建，部署，运营分布式关系/图像/键值数据库，
+分布式检索，基于HDFS和对象存储的大数据分析平台。</p>
+
+<p>在这个过程中，打心里认为学到的最重要的一个简单概念：日志。有时候我们叫它预写日志，
+提交日志或事务日志。日志伴随着计算机出现就一直存在，是分布式数据系统和实时应用
+架构的核心。</p>
+
+<p>你不会完全理解数据库，NoSQL，键值存储，复制，paxos共识，hadoop，版本控制等任务
+软件系统，除非完全理解日志。然而大部分程序员其实对日志并不熟悉。本贴将带你一步步
+了解日志，包括什么是日志，如何有效的使用日志，通过日志来构建数据集成，实时数据处理
+等业务系统。</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-02-12 09:56:28 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-02-12 09:56:28 &#43;0800 CST" itemprop="dateModified">
 
@@ -2235,122 +2329,6 @@ signature_v2 = False
 <p>更改名字服务器需通过域名注册服务商进行更改</p>
 
 <p><img src="/img/post/custom-dns.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vxlan-on-linux/" itemprop="url">Vxlan on Linux</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="端到端vxlan-unicast">端到端VXLAN(unicast)</h2>
-
-<pre><code>ip a
-
-ip link add vxlan0 type vxlan \
-    id 42 \
-    dstport 4789 \
-    remote 10.12.0.172 \
-    local 10.12.2.95 \
-    dev eth0
-
-
-ip -d link show dev vxlan0
-
-
-
-ip addr add 192.168.8.101/24 dev vxlan0
-ip link set vxlan0 up
-
-
-ip r
-default via 10.12.0.1 dev eth0
-10.12.0.0/21 dev eth0  proto kernel  scope link  src 10.12.2.95
-192.168.8.0/24 dev vxlan0  proto kernel  scope link  src 192.168.8.101
-
-
-bridge fdb | grep vxlan0
-
-ip neigh
-</code></pre>
-
-<h2 id="多播vxlan-multicast">多播vxlan(multicast)</h2>
 
   </div>
   

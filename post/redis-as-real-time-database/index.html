@@ -619,7 +619,9 @@ Redis 抽象和高摄取速度已被证明特别重要
 
 <p>在许多情况下，SSD 的高性能也将延迟和吞吐量的性能瓶颈从设备 I/O 转移到了网络上。
 对于应用程序而言，将其架构设计为将数据存储在本地 SSD 上而不是使用远程数据存储
-服务变得更具吸引力。 这增加了对可嵌入应用程序的键值存储引擎的需求</p>
+服务变得更具吸引力。 这增加了对可嵌入应用程序的键值存储引擎的需求.</p>
+
+<p>RocksDB单节点的存储上限是100GB，超过100GB需要使用分区。</p>
 
 <p><img src="/img/redis-on-flash.svg" alt="REDIS ON FLASH" /></p>
 
@@ -645,6 +647,8 @@ Redis 抽象和高摄取速度已被证明特别重要
 
 <p>[9] <a href="https://www.cockroachlabs.com/blog/cockroachdb-on-rocksd/" target="_blank">built CockroachDB on top of RocksDB</a></p>
 
+<p>[10] <a href="https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf" target="_blank">Separating Keys from Values in SSD-conscious Storage</a></p>
+
     </div>
 
     
@@ -657,6 +661,8 @@ Redis 抽象和高摄取速度已被证明特别重要
   <a class="badge badge-light" href="/tags/cache/">CACHE</a>
   
   <a class="badge badge-light" href="/tags/nosql/">NOSQL</a>
+  
+  <a class="badge badge-light" href="/tags/kvs/">KVS</a>
   
 </div>
 
@@ -686,6 +692,8 @@ Redis 抽象和高摄取速度已被证明特别重要
         <h3>Related</h3>
         <ul>
           
+          <li><a href="/post/the-log-about-real-time-datas-unifying-abstraction/">日志:每个程序员都应该了解的实时数据统一抽象</a></li>
+          
           <li><a href="/post/redis-with-spring-boot-v2/">Redis With Spring Boot V2</a></li>
           
           <li><a href="/post/redis-notes/">Redis Notes</a></li>
@@ -693,8 +701,6 @@ Redis 抽象和高摄取速度已被证明特别重要
           <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
           
           <li><a href="/post/2018-04-07-dgraphnotes/">Dgraph note</a></li>
-          
-          <li><a href="/post/cassandra/">Cassandra</a></li>
           
         </ul>
       </div>

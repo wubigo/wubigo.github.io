@@ -423,6 +423,89 @@
 
 
 
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-27 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 27, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-tuning-on-os/" itemprop="url">Mysql Tuning on OS</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
 
@@ -2134,88 +2217,6 @@ Now we have the newest version of OpenSSH installed and patched with the improve
 <p><code>部分源代码</code>
 <img src="./met-source.png" alt="source code" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 3, 2011</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    18 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2011-02-03-san/" itemprop="url">NFS VS. SAN VS. lUSTRE</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.
   </div>
   
 

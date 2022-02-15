@@ -33,9 +33,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/kvs/">
 
   
 
@@ -116,15 +114,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/tags/kvs/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/tags/kvs/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/tags/kvs/">
 
   
   
@@ -139,8 +137,8 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | wubigo">
+  <meta property="og:url" content="https://wubigo.com/tags/kvs/">
+  <meta property="og:title" content="KVS | wubigo">
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -151,7 +149,7 @@
 
   
 
-  <title>Tags | wubigo</title>
+  <title>KVS | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -353,22 +351,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -404,7 +386,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
+  <h1 itemprop="name">KVS</h1>
 
   
 
@@ -419,158 +401,33 @@
   
   
   <div>
-    <h2><a href="/tags/gomod/">GOMOD</a></h2>
+    <h2><a href="/post/redis-as-real-time-database/">Redis消息队列和实时数据处理</a></h2>
     <div class="article-style">
+      
+      REDIS Redis (Remote Dictionary Server)是一个流行的开源内存 提供高级键值抽象的键值存储。 Redis 是单线程的，它只处理一个命令 客户端在进程的主线程中一次。 不同于传统的KV 键是简单数据类型（通常是字符串）的系统，键 在 Redis 中可以用作复杂的数据类型，例如哈希、列表、 集和排序集。 此外，Redis 支持复杂的原子 对这些数据类型的操作（例如，从 一个列表，将具有给定分数的新值插入排序集等）。 Redis 抽象和高摄取速度已被证明特别重要 对于许多延迟敏感的任务很有用。 因此，Redis 已获得广泛采用，并被越来越多的人使用 生产环境中的公司.
+Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节点复制到 从节点并同步它们。 当一个主进程失败时，它的 对应的从属进程已准备好接管后续进程 称为故障转移。 持久性可以通过以下任一方式配置 以下两个选项：
+ 使用时间点快照文件 称为 RDB（Redis 数据库）
+ 使用名为AOF（仅附加文件）。
+  注意这三种机制（AOF重写、RDB 快照和复制）依赖 fork 获取 进程内存的时间点快照并将其序列化 （而主进程继续为客户端命令提供服务）
+项目简介 最近在做工业自动化(IIoT)项目，涉及到很多场景需要对一系列设备进行监控和信号处理。 该类场景对实时处理能力，系统稳定性，高可用性，容灾能力等等要求非常高。 其中几个核心的需求：
+ 设备数据不能丢失 实时告警(毫秒级延迟) 设备数据必须优先在边缘节点处理，边缘节点的物理服务器只有两台 每个边缘节点接入的设备上行数据量大概6万点/秒，数据包小于1K 中心需要汇聚和分析所有边缘节点的设备数据  技术现状 实时数据处理 实时数据处理是一个自 1990 年代以来一直在研究的问题 。 产生的数据量增加了，加上越来越复杂的软件解决方案 开发，需要满足这些需求出现了流式应用程序，例如 欺诈检测、网络监控和电子交易依赖于实时数据处理 确保所提供的服务被认为是正确和可靠的。 绝大多数现代应用程序使用某种数据库管理系统 处理数据。当应用程序收集或生成数据时，它会被存储和索引 它可以在以后由应用程序查询。但是，对于具有更严格 对实时数据处理的要求，这不是一个合适的方法。这是流的地方 处理开始发挥作用。流处理是在接收数据时直接处理数据。实时流 处理应用程序通常具有必须满足的某些关键要求。有低 输入和处理后的数据输出之间的延迟是实现实时的关键特征 应用。更传统的批处理方法需要以这样的方式收集数据 称为批次，其中处理只能在每个批次的最终数据块完成后开始 到达的。对于实时用例，这导致的延迟是不可接受的，因为这些实时的延迟 流应用程序最好在毫秒内。
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/tags/saas/">SAAS</a></h2>
+    <h2><a href="/post/the-log-about-real-time-datas-unifying-abstraction/">日志:每个程序员都应该了解的实时数据统一抽象</a></h2>
     <div class="article-style">
       
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ea/">EA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/togaf/">ToGAF</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/3d/">3D</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ar/">AR</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/bim/">BIM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/rpc/">RPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/career/">CAREER</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/manage/">MANAGE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ssh/">SSH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/scm/">SCM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/faas/">FAAS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/cri/">CRI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/github/">GITHUB</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/db/">DB</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/oop/">OOP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/efk/">EFK</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/os/">OS</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/shiro/">SHIRO</a></h2>
-    <div class="article-style">
+      在4年前加入广联达的时候，当时我们正在从传统的CS，单体的中心数据库，私有数据中心 向分布式，混合云架构演进。我们现在构建，部署，运营分布式关系/图像/键值数据库， 分布式检索，基于HDFS和对象存储的大数据分析平台。
+在这个过程中，打心里认为学到的最重要的一个简单概念：日志。有时候我们叫它预写日志， 提交日志或事务日志。日志伴随着计算机出现就一直存在，是分布式数据系统和实时应用 架构的核心。
+你不会完全理解数据库，NoSQL，键值存储，复制，paxos共识，hadoop，版本控制等任务 软件系统，除非完全理解日志。然而大部分程序员其实对日志并不熟悉。本贴将带你一步步 了解日志，包括什么是日志，如何有效的使用日志，通过日志来构建数据集成，实时数据处理 等业务系统。
       
     </div>
   </div>
   
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/6/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/8/">&raquo;</a></li>
-    
-  </ul>
-</nav>
-
 
 </div>
 <div class="container">

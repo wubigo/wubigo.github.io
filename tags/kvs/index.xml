@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CACHE on wubigo</title>
-    <link>https://wubigo.com/tags/cache/</link>
-    <description>Recent content in CACHE on wubigo</description>
+    <title>KVS on wubigo</title>
+    <link>https://wubigo.com/tags/kvs/</link>
+    <description>Recent content in KVS on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Feb 2022 11:40:58 +0800</lastBuildDate>
     
-	<atom:link href="https://wubigo.com/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wubigo.com/tags/kvs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -35,29 +35,6 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
       <description>在4年前加入广联达的时候，当时我们正在从传统的CS，单体的中心数据库，私有数据中心 向分布式，混合云架构演进。我们现在构建，部署，运营分布式关系/图像/键值数据库， 分布式检索，基于HDFS和对象存储的大数据分析平台。
 在这个过程中，打心里认为学到的最重要的一个简单概念：日志。有时候我们叫它预写日志， 提交日志或事务日志。日志伴随着计算机出现就一直存在，是分布式数据系统和实时应用 架构的核心。
 你不会完全理解数据库，NoSQL，键值存储，复制，paxos共识，hadoop，版本控制等任务 软件系统，除非完全理解日志。然而大部分程序员其实对日志并不熟悉。本贴将带你一步步 了解日志，包括什么是日志，如何有效的使用日志，通过日志来构建数据集成，实时数据处理 等业务系统。</description>
-    </item>
-    
-    <item>
-      <title>Redis With Spring Boot V2</title>
-      <link>https://wubigo.com/post/redis-with-spring-boot-v2/</link>
-      <pubDate>Thu, 28 Apr 2016 17:08:07 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/redis-with-spring-boot-v2/</guid>
-      <description>LETTUCE VS JEDIS While Jedis is easy to use and supports a vast number of Redis features, it is not thread safe and needs connection pooling to work in a multi-threaded environment. Connection pooling comes at the cost of a physical connection per Jedis instance which increases the number of Redis connections.
-Lettuce, on the other hand, is built on netty (https://netty.io/) and connection instances can be shared across multiple threads.</description>
-    </item>
-    
-    <item>
-      <title>Redis Notes</title>
-      <link>https://wubigo.com/post/redis-notes/</link>
-      <pubDate>Thu, 02 Aug 2012 07:34:07 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/redis-notes/</guid>
-      <description>系统配置 /etc/sysctl.conf
-vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o redis -g redis -d /mnt/redis-data &amp;gt; config get dir 1) &amp;quot;dir&amp;quot; 2) &amp;quot;/mnt/redis-data&amp;quot;  /lib/systemd/system/redis-server.service
-[Service] ReadWriteDirectories=-/mnt/redis-data  pidfile NOT FOUND FROM SYSTEMD /etc/redis/redis.conf
-pidfile /var/run/redis/redis-server.pid  /lib/systemd/system/redis-server.service
-PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this.</description>
     </item>
     
   </channel>
