@@ -723,7 +723,9 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
 
   
   <div class="article-style" itemprop="articleBody">
-    表分区 主键=((分区键) + [Clustering Columns])
+    表分区 主键=((分区键) + [簇键])
+create table kvstor ( k_part_one text, k_part_two int, k_clust_one text, k_clust_two int, k_clust_three uuid, data text, PRIMARY KEY((k_part_one, k_part_two), k_clust_one, k_clust_two, k_clust_three) );  分区键 分区键决定数据在集群内的分布在哪个分区
+簇键 簇建决定数据的在分区内的排列顺序
 Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :
   </div>
   
