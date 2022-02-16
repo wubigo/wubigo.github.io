@@ -20,6 +20,25 @@ categories = []
 +++
 
 
+# Cassandra DB 主要缺点
+
+1. Cassandra has big issue with Data Read Latency
+2. Hard to tune-up for both latency and throughput
+3. Highly depended on Work load and type
+4. Max 20 % P99 latency drop
+5. Most memory consumed by storage engine
+6. To store huge amount of data, JVM is required to manage the memory to clean up garbage    collection that is not done by the application but by a language in Cassandra
+
+Cassandra is not recommended if you have following use cases :
+
+1. you are not storing volumes of data across racks of clusters.
+2. if you have a strong requirement for ACID properties.
+3. if you want to use aggregate function.
+4. if you are not partitioning your servers.
+5. if you are application has more read requests than writes.
+6. if you require strong Consistency.
+
+
 
 
 # RocksDB SST 文件在不同 Level 的特性
