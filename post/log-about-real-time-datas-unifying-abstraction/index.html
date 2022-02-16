@@ -158,7 +158,7 @@
   
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/log-about-real-time-datas-unifying-abstraction/">
-  <meta property="og:title" content="日志:每个程序员都应该了解的实时数据统一抽象 | wubigo">
+  <meta property="og:title" content="日志：每个程序员都应该了解的实时数据统一抽象 | wubigo">
   <meta property="og:description" content="在4年前加入GLODON的时候，当时我们正在从传统的CS，单体的中心数据库，私有数据中心 向分布式，混合云架构演进。我们现在构建，部署，运营分布式关系/图像/键值数据库， 分布式检索，基于HDFS和对象存储的大数据分析平台。
 在这个过程中，打心里认为学到的最重要的一个简单概念：日志。有时候我们叫它预写日志， 提交日志或事务日志。日志伴随着计算机出现就一直存在，是分布式数据系统和实时应用 架构的核心。
 你不会完全理解数据库，NoSQL，键值存储，复制，paxos共识，hadoop，版本控制等任务 软件系统，除非完全理解日志。然而大部分程序员其实对日志并不熟悉。本贴将带你一步步 了解日志，包括什么是日志，如何有效的使用日志，通过日志来构建数据集成，实时数据处理 等业务系统。
@@ -193,7 +193,7 @@
 
   
 
-  <title>日志:每个程序员都应该了解的实时数据统一抽象 | wubigo</title>
+  <title>日志：每个程序员都应该了解的实时数据统一抽象 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -430,7 +430,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">日志:每个程序员都应该了解的实时数据统一抽象</h1>
+  <h1 itemprop="name">日志：每个程序员都应该了解的实时数据统一抽象</h1>
 
   
 
@@ -477,7 +477,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e6%97%a5%e5%bf%97%3a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f"
+         href="https://twitter.com/intent/tweet?text=%e6%97%a5%e5%bf%97%ef%bc%9a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -491,21 +491,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f&amp;title=%e6%97%a5%e5%bf%97%3a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f&amp;title=%e6%97%a5%e5%bf%97%ef%bc%9a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f&amp;title=%e6%97%a5%e5%bf%97%3a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f&amp;title=%e6%97%a5%e5%bf%97%ef%bc%9a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e6%97%a5%e5%bf%97%3a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f">
+         href="mailto:?subject=%e6%97%a5%e5%bf%97%ef%bc%9a%e6%af%8f%e4%b8%aa%e7%a8%8b%e5%ba%8f%e5%91%98%e9%83%bd%e5%ba%94%e8%af%a5%e4%ba%86%e8%a7%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e7%bb%9f%e4%b8%80%e6%8a%bd%e8%b1%a1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flog-about-real-time-datas-unifying-abstraction%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
