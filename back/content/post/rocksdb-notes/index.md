@@ -19,6 +19,11 @@ categories = []
   focal_point = ""
 +++
 
+# 表分区
+
+![cassandra_partiton](/img/cassandra_partiton.png)
+
+主键=((分区键) + [Clustering Columns])
 
 # Cassandra DB 主要缺点
 
@@ -37,8 +42,6 @@ Cassandra is not recommended if you have following use cases :
 4. if you are not partitioning your servers.
 5. if you are application has more read requests than writes.
 6. if you require strong Consistency.
-
-
 
 
 # RocksDB SST 文件在不同 Level 的特性
