@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,12 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="RocksDB SST 文件在不同 Level 的特性  L0 层：SST 文件资身是按 Key 排序，但 L0 层的 SST 文件之间是无序的，每个 L0 层的 SST 文件之间会发生 Key Range 的重合，也就是说相同 Key 的数据可能存在于在 L0 层的每一个 SST 文件中。 L1 ~ Ln 层：多个 L0 层的 SST 文件达到 Compaction 条件后，与若干个 L1 层文件进行 Compaction 后形成新的 L1 层 SST 文件，L1 层 SST 文件之间不会出现 Key Range 的重合，也就是说相同 Key 的数据最多只会存在于 L1 层的一个 SST 文件中（L2 ~ Ln 层同理）。读取数据时，数据可能存在于 Memtable、Block Cache、SST 文件中。  读取操作：  Point Lookup（点查）：先从 Memtable 和 Block Cache 中尝试获取结果，如果没有找到则会按照层级查找 SST 文件。对于 L0 层 SST 文件，先通过 KeyRange 过滤出可能包含此 Key 的 SST 文件再进行查找；再对于 L1~Ln 层的文件进行二分查找定位对应的 SST 文件并进行读取。 Range Scan：多路归并的思想，返回给用户的 Iterator 由多个 Iterator 组成：每个 Memtable、Immutable Memtable、L0 层 SST 文件、以及多个 L1 ~ Ln 层 SST 文件中构建 Iterator，并以多路归并的方式返回给用户具体的值。  Compaction策略 Compaction 是将多个文件合并成一个文件的过程，在合并过程中会进行相同 Key 的去重，过期 Key 的删除等操作。一次 Compaction 可以简单看作将 N 个文件数据读取后，经过整理再重新写一遍的过程。在这里举两个极端的例子：">
 
   
-  <link rel="alternate" hreflang="zh" href="https://wubigo.com/zh/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/rocksdb-notes/">
 
   
 
@@ -116,15 +112,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/">
+  <link rel="canonical" href="https://wubigo.com/post/rocksdb-notes/">
 
   
   
@@ -139,19 +135,21 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/">
-  <meta property="og:title" content="Tags | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/rocksdb-notes/">
+  <meta property="og:title" content="Rocksdb Notes | wubigo">
+  <meta property="og:description" content="RocksDB SST 文件在不同 Level 的特性  L0 层：SST 文件资身是按 Key 排序，但 L0 层的 SST 文件之间是无序的，每个 L0 层的 SST 文件之间会发生 Key Range 的重合，也就是说相同 Key 的数据可能存在于在 L0 层的每一个 SST 文件中。 L1 ~ Ln 层：多个 L0 层的 SST 文件达到 Compaction 条件后，与若干个 L1 层文件进行 Compaction 后形成新的 L1 层 SST 文件，L1 层 SST 文件之间不会出现 Key Range 的重合，也就是说相同 Key 的数据最多只会存在于 L1 层的一个 SST 文件中（L2 ~ Ln 层同理）。读取数据时，数据可能存在于 Memtable、Block Cache、SST 文件中。  读取操作：  Point Lookup（点查）：先从 Memtable 和 Block Cache 中尝试获取结果，如果没有找到则会按照层级查找 SST 文件。对于 L0 层 SST 文件，先通过 KeyRange 过滤出可能包含此 Key 的 SST 文件再进行查找；再对于 L1~Ln 层的文件进行二分查找定位对应的 SST 文件并进行读取。 Range Scan：多路归并的思想，返回给用户的 Iterator 由多个 Iterator 组成：每个 Memtable、Immutable Memtable、L0 层 SST 文件、以及多个 L1 ~ Ln 层 SST 文件中构建 Iterator，并以多路归并的方式返回给用户具体的值。  Compaction策略 Compaction 是将多个文件合并成一个文件的过程，在合并过程中会进行相同 Key 的去重，过期 Key 的删除等操作。一次 Compaction 可以简单看作将 N 个文件数据读取后，经过整理再重新写一遍的过程。在这里举两个极端的例子："><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-05T11:40:58&#43;08:00">
+  <meta property="article:published_time" content="2018-02-16T15:05:34&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-02-16T15:05:34&#43;08:00">
   
 
   
 
   
 
-  <title>Tags | wubigo</title>
+  <title>Rocksdb Notes | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -353,22 +351,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>English</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="https://wubigo.com/zh/tags/">
-                <span>中文 (简体)</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -383,7 +365,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -400,179 +384,198 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Rocksdb Notes</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Tags</h1>
-
-  
-
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
-  <div>
-    <h2><a href="/tags/openapi/">OPENAPI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/groovy/">GROOVY</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/grpc/">GRPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/mysql/">MYSQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/shell/">SHELL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/spring/">SPRING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/stream/">STREAM</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/tcp/">TCP</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/graph/">GRAPH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/servicemesh/">SERVICEMESH</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ide/">IDE</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/csi/">CSI</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/xml/">XML</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/kvstor/">KVSTOR</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/eda/">EDA</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/sql/">SQL</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/vpc/">VPC</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ec2/">EC2</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/hosting/">HOSTING</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/it%E4%BA%91%E6%9C%8D%E5%8A%A1/">IT云服务</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/page/5/">&laquo;</a></li>
+  <span class="article-date">
     
     
-    <li class="page-item"><a class="page-link" href="/tags/page/7/">&raquo;</a></li>
+      
     
+    <time>Feb 16, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Rocksdb%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2frocksdb-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2frocksdb-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2frocksdb-notes%2f&amp;title=Rocksdb%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2frocksdb-notes%2f&amp;title=Rocksdb%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Rocksdb%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2frocksdb-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
+
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="rocksdb-sst-文件在不同-level-的特性">RocksDB SST 文件在不同 Level 的特性</h1>
+
+<ol>
+<li>L0 层：SST 文件资身是按 Key 排序，但 L0 层的 SST 文件之间是无序的，每个 L0 层的 SST 文件之间会发生 Key Range 的重合，也就是说相同 Key 的数据可能存在于在 L0 层的每一个 SST 文件中。</li>
+<li>L1 ~ Ln 层：多个 L0 层的 SST 文件达到 Compaction 条件后，与若干个 L1 层文件进行 Compaction 后形成新的 L1 层 SST 文件，L1 层 SST 文件之间不会出现 Key Range 的重合，也就是说相同 Key 的数据最多只会存在于 L1 层的一个 SST 文件中（L2 ~ Ln 层同理）。读取数据时，数据可能存在于 Memtable、Block Cache、SST 文件中。</li>
+</ol>
+
+<h1 id="读取操作">读取操作：</h1>
+
+<ol>
+<li>Point Lookup（点查）：先从 Memtable 和 Block Cache 中尝试获取结果，如果没有找到则会按照层级查找 SST 文件。对于 L0 层 SST 文件，先通过 KeyRange 过滤出可能包含此 Key 的 SST 文件再进行查找；再对于 L1~Ln 层的文件进行二分查找定位对应的 SST 文件并进行读取。</li>
+<li>Range Scan：多路归并的思想，返回给用户的 Iterator 由多个 Iterator 组成：每个 Memtable、Immutable Memtable、L0 层 SST 文件、以及多个 L1 ~ Ln 层 SST 文件中构建 Iterator，并以多路归并的方式返回给用户具体的值。</li>
+</ol>
+
+<h1 id="compaction策略">Compaction策略</h1>
+
+<p>Compaction 是将多个文件合并成一个文件的过程，在合并过程中会进行相同 Key 的去重，过期 Key 的删除等操作。一次 Compaction 可以简单看作将 N 个文件数据读取后，经过整理再重新写一遍的过程。在这里举两个极端的例子：</p>
+
+<ul>
+<li>完全不发生 Compaction：SST 文件只存在于 L0 层，由于 L0 层不保证 SST 之间的 Key Range 不发生重合，所以数据读取需要访问很多 L0 层 SST 文件，在读取性能上会非常差。</li>
+<li>持续发生 Compaction：假如每生成一个 SST 文件，我们就将它和其他 SST 文件进行 Compaction，那么数据写入的开销则会非常大。</li>
+</ul>
+
+<p>可以看出，Compaction 策略的不同决定了读写放大，也决定了读写的性能，所以一个合理的 Compaction 策略其实是对读写性能的平衡，针对不同场景的需求，我们应该认真考虑其场景所适合的 Compaction 策略。RocksDB 默认提供三种 Compaction 策略，每个策略的触发条件都比较复杂，原理可看对应链接，这里仅描述一下它们的特点：</p>
+
+<ol>
+<li>Leveled Compaction（默认策略）：Compaction 触发频率相对高，读放大低，写放大高</li>
+<li>Universal Compaction：Compaction 触发频率相对低，读放大高，写放大低</li>
+<li>FIFO Compaction：几乎不发生 Compaction，读放大高，写放大几乎没有</li>
+</ol>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/kvs/">KVS</a>
+  
+  <a class="badge badge-light" href="/tags/kvstor/">KVSTOR</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -745,6 +748,4 @@
     </script>
   </body>
 </html>
-
-
 

@@ -675,6 +675,88 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
 
 
 
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 16, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/rocksdb-notes/" itemprop="url">Rocksdb Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    RocksDB SST 文件在不同 Level 的特性  L0 层：SST 文件资身是按 Key 排序，但 L0 层的 SST 文件之间是无序的，每个 L0 层的 SST 文件之间会发生 Key Range 的重合，也就是说相同 Key 的数据可能存在于在 L0 层的每一个 SST 文件中。 L1 ~ Ln 层：多个 L0 层的 SST 文件达到 Compaction 条件后，与若干个 L1 层文件进行 Compaction 后形成新的 L1 层 SST 文件，L1 层 SST 文件之间不会出现 Key Range 的重合，也就是说相同 Key 的数据最多只会存在于 L1 层的一个 SST 文件中（L2 ~ Ln 层同理）。读取数据时，数据可能存在于 Memtable、Block Cache、SST 文件中。  读取操作：  Point Lookup（点查）：先从 Memtable 和 Block Cache 中尝试获取结果，如果没有找到则会按照层级查找 SST 文件。对于 L0 层 SST 文件，先通过 KeyRange 过滤出可能包含此 Key 的 SST 文件再进行查找；再对于 L1~Ln 层的文件进行二分查找定位对应的 SST 文件并进行读取。 Range Scan：多路归并的思想，返回给用户的 Iterator 由多个 Iterator 组成：每个 Memtable、Immutable Memtable、L0 层 SST 文件、以及多个 L1 ~ Ln 层 SST 文件中构建 Iterator，并以多路归并的方式返回给用户具体的值。  Compaction策略 Compaction 是将多个文件合并成一个文件的过程，在合并过程中会进行相同 Key 的去重，过期 Key 的删除等操作。一次 Compaction 可以简单看作将 N 个文件数据读取后，经过整理再重新写一遍的过程。在这里举两个极端的例子：
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
 
@@ -2134,90 +2216,6 @@ even more cores depending on the scenario</p>
   
   <div class="article-style" itemprop="articleBody">
     Puppeteer vs Selenium/WebDriver  Selenium/WebDriver focuses on cross-browser automation; its value proposition is a single standard API that works across all major browsers. Puppeteer focuses on Chromium; its value proposition is richer functionality and higher reliability.  That said, you can use Puppeteer to run tests against Chromium, e.g. using the community-driven jest-puppeteer. While this probably shouldn’t be your only testing solution, it does have a few good points compared to WebDriver: * Puppeteer requires zero setup and comes bundled with the Chromium version it works best with, making it very easy to start with.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 12:34:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-02 12:34:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vpn-with-wireguard/" itemprop="url">Vpn With Wireguard</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
-wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) public_key=$(echo $private_key | wg pubkey)  配置
- ip a 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.
   </div>
   
 
