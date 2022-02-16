@@ -160,3 +160,5 @@ RocksDB单节点的存储上限是100GB，超过100GB需要使用分区。
 [10] [Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
 
 [11] [Atlas: Baidu’s Key-value Storage System for Cloud Data](https://wubigo.com/talk/)
+
+[12] [Scaling HDFS to Manage Billions of Files with Key Value Stores(Hadoop Summit 2015)](https://www.slideshare.net/Hadoop_Summit/scaling-hdfs-to-manage-billions)
