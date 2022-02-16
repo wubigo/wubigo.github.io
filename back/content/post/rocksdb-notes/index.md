@@ -23,7 +23,25 @@ categories = []
 
 ![cassandra_partiton](/img/cassandra_partiton.png)
 
-主键=((分区键) + [Clustering Columns])
+主键=((分区键) + [簇键])
+
+```
+create table kvstor (
+      k_part_one text,
+      k_part_two int,
+      k_clust_one text,
+      k_clust_two int,
+      k_clust_three uuid,
+      data text,
+      PRIMARY KEY((k_part_one, k_part_two), k_clust_one, k_clust_two, k_clust_three)      
+  );
+```
+## 分区键
+分区键决定数据在集群内的分布在哪个分区
+
+## 簇键
+簇建决定数据的在分区内的排列顺序
+
 
 # Cassandra DB 主要缺点
 
