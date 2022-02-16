@@ -461,7 +461,8 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
     <h2><a href="/post/rocksdb-notes/">Rocksdb Notes</a></h2>
     <div class="article-style">
       
-      Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :
+      表分区 主键=((分区键) + [Clustering Columns])
+Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :
       
     </div>
   </div>
