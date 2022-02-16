@@ -158,3 +158,5 @@ RocksDB单节点的存储上限是100GB，超过100GB需要使用分区。
 [9] [built CockroachDB on top of RocksDB](https://www.cockroachlabs.com/blog/cockroachdb-on-rocksd/)
 
 [10] [Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
+
+[11] [Atlas: Baidu’s Key-value Storage System for Cloud Data](https://wubigo.com/talk/)
