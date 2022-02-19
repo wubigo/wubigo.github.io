@@ -675,6 +675,90 @@ namespace for XML documents http.get(&quot;https://wubigo.com/en/sitemap.xml&quo
 
 
 
+<meta content="2018-02-19 18:32:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-19 18:32:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 19, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/leveldb-port-in-java-dev/" itemprop="url">Leveldb Port in Java Dev</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Windows开发环境 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  change the settings on how to deal with line endings git 3 options:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="dateModified">
 
@@ -2137,88 +2221,6 @@ plugin. It’s much better than the older version of InnoDB.</p>
 <p>It now scales well to 24 CPU cores, and arguably up to 32 or
 even more cores depending on the scenario</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-01-07-webtestingautomation/" itemprop="url">web testing automation</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Puppeteer vs Selenium/WebDriver  Selenium/WebDriver focuses on cross-browser automation; its value proposition is a single standard API that works across all major browsers. Puppeteer focuses on Chromium; its value proposition is richer functionality and higher reliability.  That said, you can use Puppeteer to run tests against Chromium, e.g. using the community-driven jest-puppeteer. While this probably shouldn’t be your only testing solution, it does have a few good points compared to WebDriver: * Puppeteer requires zero setup and comes bundled with the Chromium version it works best with, making it very easy to start with.
   </div>
   
 

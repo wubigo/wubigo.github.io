@@ -423,6 +423,90 @@
 
 
 
+<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-kubelet/" itemprop="url">K8s Kubelet</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    PodUID kubectl get pod &lt;PID_NAME&gt; -o=jsonpath='{.metadata.uid}'  POD on disk /var/lib/kubelet/pods/&lt;PodUID&gt;/
+/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
+ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
 
@@ -2100,120 +2184,6 @@ The auto-assign public IP address feature for this instance is disabled because 
 在代码仓库的根目录创建CNAME文件 CNME文件包括根域域名
 tee CNAME &lt;&lt; EOF wubigo.com EOF  在DNS控制台创建域名记录 一条指向根域的A记录，一条指向子域的CNAME记录 AN A Record for @(apex doamin) and a cname record(Alias) for github 不要在github页使用通配符 dns 记录! 否则没有指定的子域将有被别人使用的风险
 确认域名配置成功 dig www.wubigo.com +nostats +nocomments +nocmd ; &lt;&lt;&gt;&gt; DiG 9.10.3-P4-Ubuntu &lt;&lt;&gt;&gt; www.wubigo.com +nostats +nocomments +nocmd ;; global options: +cmd ;www.wubigo.com.	IN	A www.wubigo.com.	1	IN	CNAME	wubigo.github.io. wubigo.github.io.	3462	IN	A	185.199.111.153 wubigo.github.io.	3462	IN	A	185.199.110.153 wubigo.github.io.	3462	IN	A	185.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-02-23 20:28:40 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 23, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-monitor/">
-      <img src="/post/k8s-monitor/featured_hu7496222db252267954e8b3b6e45f55ad_36931_918x517_fill_q90_lanczos_smart1_2.png" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-monitor/" itemprop="url">K8S Monitor</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="setup-prometheus">setup prometheus</h1>
-
-<ul>
-<li>prepare pv for prometheus</li>
-</ul>
-
-<p><a href="https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc--using-local-pv" target="_blank">https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&ndash;using-local-pv</a></p>
-
-<ul>
-<li><p>install</p>
-
-<pre><code>helm install --name prometheus1  stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false
-</code></pre></li>
-</ul>
-
   </div>
   
 

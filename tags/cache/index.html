@@ -447,6 +447,17 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
   </div>
   
   <div>
+    <h2><a href="/post/leveldb-port-in-java-dev/">Leveldb Port in Java Dev</a></h2>
+    <div class="article-style">
+      
+      Windows开发环境 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  change the settings on how to deal with line endings git 3 options:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/redis-with-spring-boot-v2/">Redis With Spring Boot V2</a></h2>
     <div class="article-style">
       
