@@ -28,9 +28,13 @@
   
     
   
-  <meta name="description" content="Windows开发环境 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
-&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  change the settings on how to deal with line endings git 3 options:
- Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF.">
+  <meta name="description" content="在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&ldquo;core.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/leveldb-port-in-java-dev/">
@@ -138,10 +142,14 @@
   
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/leveldb-port-in-java-dev/">
-  <meta property="og:title" content="Leveldb Port in Java Dev | wubigo">
-  <meta property="og:description" content="Windows开发环境 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
-&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  change the settings on how to deal with line endings git 3 options:
- Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:title" content="在windows上搭建Leveldb的开发环境 | wubigo">
+  <meta property="og:description" content="在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&ldquo;core."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-19T18:32:37&#43;08:00">
@@ -153,7 +161,7 @@
 
   
 
-  <title>Leveldb Port in Java Dev | wubigo</title>
+  <title>在windows上搭建Leveldb的开发环境 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -390,7 +398,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Leveldb Port in Java Dev</h1>
+  <h1 itemprop="name">在windows上搭建Leveldb的开发环境</h1>
 
   
 
@@ -437,7 +445,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Leveldb%20Port%20in%20Java%20Dev&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%9c%a8windows%e4%b8%8a%e6%90%ad%e5%bb%baLeveldb%e7%9a%84%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -451,21 +459,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f&amp;title=Leveldb%20Port%20in%20Java%20Dev"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f&amp;title=%e5%9c%a8windows%e4%b8%8a%e6%90%ad%e5%bb%baLeveldb%e7%9a%84%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f&amp;title=Leveldb%20Port%20in%20Java%20Dev"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f&amp;title=%e5%9c%a8windows%e4%b8%8a%e6%90%ad%e5%bb%baLeveldb%e7%9a%84%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Leveldb%20Port%20in%20Java%20Dev&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f">
+         href="mailto:?subject=%e5%9c%a8windows%e4%b8%8a%e6%90%ad%e5%bb%baLeveldb%e7%9a%84%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-port-in-java-dev%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -505,11 +513,9 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="windows开发环境">Windows开发环境</h1>
+<p>在windows上搭建Leveldb的开发环境</p>
 
-<pre><code>[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return
-[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return
-</code></pre>
+<p>Leveldb使用了checkstyle</p>
 
 <p><a href="https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml" target="_blank">https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml</a></p>
 
@@ -519,9 +525,17 @@
 &lt;/module&gt;
 </code></pre>
 
-<h2 id="change-the-settings-on-how-to-deal-with-line-endings">change the settings on how to deal with line endings</h2>
+<p>使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下</p>
 
-<p>git  3 options:</p>
+<pre><code>[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return
+</code></pre>
+
+<p>解决办法之一是调整git换行设置</p>
+
+<h2 id="git换行设置-line-endings">git换行设置(line endings)</h2>
+
+<p>换行设置的3个选项:</p>
 
 <ol>
 <li>Checkout Windows-style, commit Unix-style</li>

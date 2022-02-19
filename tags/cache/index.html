@@ -447,12 +447,16 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
   </div>
   
   <div>
-    <h2><a href="/post/leveldb-port-in-java-dev/">Leveldb Port in Java Dev</a></h2>
+    <h2><a href="/post/leveldb-port-in-java-dev/">在windows上搭建Leveldb的开发环境</a></h2>
     <div class="article-style">
       
-      Windows开发环境 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
-&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  change the settings on how to deal with line endings git 3 options:
- Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF.
+      在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&ldquo;core.
       
     </div>
   </div>
