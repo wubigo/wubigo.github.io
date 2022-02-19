@@ -1,5 +1,5 @@
 +++
-title = "Leveldb Port in Java Dev"
+title = "在windows上搭建Leveldb的开发环境"
 date = 2018-02-19T18:32:37+08:00
 draft = false
 
@@ -19,16 +19,9 @@ categories = []
   focal_point = ""
 +++
 
+在windows上搭建Leveldb的开发环境
 
-# Windows开发环境
-
-
-## 
-
-```
-[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return
-[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return
-```
+Leveldb使用了checkstyle
 
 https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
 
@@ -39,10 +32,20 @@ https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
 </module>
 ```
 
+使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
 
-## change the settings on how to deal with line endings
 
-git  3 options:
+```
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return
+```
+
+解决办法之一是调整git换行设置
+
+
+## git换行设置(line endings)
+
+换行设置的3个选项:
 
 1. Checkout Windows-style, commit Unix-style
 
