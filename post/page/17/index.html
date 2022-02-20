@@ -466,6 +466,101 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/maven-mirror/" itemprop="url">Maven Mirror</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>阿里云Maven中央仓库为 阿里云云效 提供的公共代理仓库</p>
+
+<p>打开 maven 的配置文件（ windows 机器一般在 maven 安装目录的 conf/settings.xml ），</p>
+
+<p>在<mirrors></mirrors>标签中添加 mirror 子节点:</p>
+
+<pre><code>&lt;mirror&gt;
+  &lt;id&gt;aliyunmaven&lt;/id&gt;
+  &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+  &lt;name&gt;阿里云公共仓库&lt;/name&gt;
+  &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
+&lt;/mirror&gt;
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/mysql-tuning-on-many-tables/" itemprop="url">Mysql Tuning on Many Tables</a>
   </h3>
 
@@ -2053,91 +2148,6 @@ sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMB
     key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
 recommend: 25% or more of the available server memory
 A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-02-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 1, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-02-01-tls-notes/" itemprop="url">TLS notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    NOTICE
- Don&rsquo;t put ca-key.pem into a Container Linux Config, it is recommended to store it in safe place. This key allows to generate as much certificates as possible.
- Keep key files in safe. Don&rsquo;t forget to set proper file permissions, i.e. chmod 0600 server-key.pem.
- Certificates in this TLDR example have both server auth and client auth X509 V3 extensions and you can use them with servers and clients&rsquo; authentication.
   </div>
   
 

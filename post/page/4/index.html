@@ -820,6 +820,89 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 
 
 
+<meta content="2020-02-20 19:13:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-02-20 19:13:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 20, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/leveldb-main-structure/" itemprop="url">Leveld结构解析</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="/img/leveldb-sst.png" alt="" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-02-20 09:58:26 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-02-20 09:58:26 &#43;0800 CST" itemprop="dateModified">
 
@@ -2285,108 +2368,6 @@ sudo systemctl restart docker
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 12, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/use-public-cloud-for-free/" itemprop="url">免费使用公有云服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    [TOC]
-AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码
-git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
-  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
   </div>
   
 
