@@ -21,6 +21,8 @@ categories = []
 
 # 跳表介绍
 
+![](/img/skip-list.png)
+
 > Skip lists are a data structure that can be used in place of balanced trees.
 > Skip lists use probabilistic balancing rather than strictly enforced balancing
 > and as a result the algorithms for insertion and deletion in skip lists are
@@ -29,6 +31,9 @@ categories = []
 
 > 跳表是一种可以用来代替平衡树的数据结构，跳表使用概率平衡而不是严格执行的平衡，
 > 因此，与等效树的等效算法相比，跳表中插入和删除的算法要简单得多，并且速度要快得多。
+
+跳表是由包含多个级别的链表组成，最低级别的链表存储了所有的主键并且按序链接
+
 
 # java跳表
 
