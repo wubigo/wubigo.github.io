@@ -423,6 +423,97 @@
 
 
 
+<meta content="2018-02-26 11:11:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-26 11:11:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s_cni_kube-router/" itemprop="url">K8s CNI之Kube Router实现</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="准备">准备</h1>
+
+<ul>
+<li>搭建测试环境</li>
+</ul>
+
+<p>可以参考<a href="https://wubigo.com/post/2016-02-03-k8s-local-development-setup/" target="_blank">从源代码构件K8S开发环境</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-24 07:30:53 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-24 07:30:53 &#43;0800 CST" itemprop="dateModified">
 
@@ -2134,97 +2225,6 @@ module github.com/wubigo/API/go/hello go 1.
   
   <div class="article-style" itemprop="articleBody">
     Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&lt;bigo&gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ kubectl cp &lt;namespace&gt;/&lt;pod-name&gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &quot;/CN=wubigo/O=bigo LLC&quot; sudo openssl x509 -req -in bigo.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-08 14:20:48 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-08 14:20:48 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 8, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-high-performance/" itemprop="url">Mysql High Performance</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="innodb">InnoDB</h2>
-
-<p>MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB
-plugin. It’s much better than the older version of InnoDB.</p>
-
-<p>It now scales well to 24 CPU cores, and arguably up to 32 or
-even more cores depending on the scenario</p>
-
   </div>
   
 
