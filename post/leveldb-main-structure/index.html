@@ -28,7 +28,23 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content=" LevelDB 是一基于内存&#43;SSD的键值存储引擎。
+ 内存存储最新的更改和热数据(缓存) SSD持久化所有数据  LevelDB经常使用代理&#43;主从模式构建集群。 与REDIS协议保持兼容，可以被REDIS客户端访问。
+内存结构 LevelDB在内存维护两个跳表:MemTable, 一个只读，一个可写。
+序列号(Sequence number)是全局自增的，每次的修改序列号都会加1。 每个主键保存多个版本的键值。LevelDB用serial number标识键值对 的版本。最大的serial number代表最新的键值对。
+键值对有两种更新操作：
+ Put = 1 Delete = 0  当可写的MemTable的大小超过阈值，会把所有的键值转移到只读的MemTable。 同时会创建一个新的可写的MemTable。只读的MemTable会被一个线程异步的 写入SSD。读操作会先查询可写的MemTable，然后查询只读的MemTable，最后 去查询SSD.
+对可写的MemTable支持多线程操作，所以需要并发控制。
+只读的MemTable存在时间很短，被创建后就会把异步写入SSD,然后清空。 当可写的MemTable增长很快，只读的MemTable会很快被填满。如果只读 的MemTable还没有别完全写入SSD，写入线程就会被阻塞。
+内存结构操作日志 最近的MemTable的写入操作都会有一个对应的日志文件记录。 日志文件也有两份，对应两个跳表。
+SSD数据结构 SST LevelDB在SSD上存储了许多SST(Sorted String Table)文件, 每个文件对应一个级别，每个级别有多个SST文件。 SST文件的大小是相同的，不同的是每个级别文件数目不同。 主键在每个SST文件都是有序的。 级别0的文件和其他级别的文件有一个明显的区别：其他级别的SST 文件之间的主键不会重叠，但级别0的SST文件之间的主键可能重叠， 因为级别0的SST文件之间从MemTable直接转存过来。
+为了防止在级别0的SST文件进行键值读取的读放大，LevelDB默认 级别0有4个文件。
+MANIFEST 所有文件的主键范围，级别和其他的元信息存储在MANIFEST文件。 MANIFEST有版本号，通过文件名后缀标识，例如MANIFEST-000031。 每次打开数据库，一个新的版本号的MANIFEST就好被创建，旧版本 的文件就会被删除。
+CURRENT CURRENT文件内容记录了当前版本的MANIFEST文件名字。LevelDB首先读 CURRENT文件内容知道合法的MANIFEST文件。
+LOCK LevelDB数据库目录不允许被多个进程同时访问，当一个进程打开数据库， 一个排他的文件锁就创建。
+log 日志文件，记录操作日志，例如次要整理和主要整理日志
+数据整理 从只读MemTable到0级的SST文件的转移叫次级整理。从SST文件向 更低级转移交主要整理。
+文件合并 ">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/leveldb-main-structure/">
@@ -136,8 +152,24 @@
   
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/leveldb-main-structure/">
-  <meta property="og:title" content="Leveld结构解析 | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:title" content="LevelDB结构解析 | wubigo">
+  <meta property="og:description" content=" LevelDB 是一基于内存&#43;SSD的键值存储引擎。
+ 内存存储最新的更改和热数据(缓存) SSD持久化所有数据  LevelDB经常使用代理&#43;主从模式构建集群。 与REDIS协议保持兼容，可以被REDIS客户端访问。
+内存结构 LevelDB在内存维护两个跳表:MemTable, 一个只读，一个可写。
+序列号(Sequence number)是全局自增的，每次的修改序列号都会加1。 每个主键保存多个版本的键值。LevelDB用serial number标识键值对 的版本。最大的serial number代表最新的键值对。
+键值对有两种更新操作：
+ Put = 1 Delete = 0  当可写的MemTable的大小超过阈值，会把所有的键值转移到只读的MemTable。 同时会创建一个新的可写的MemTable。只读的MemTable会被一个线程异步的 写入SSD。读操作会先查询可写的MemTable，然后查询只读的MemTable，最后 去查询SSD.
+对可写的MemTable支持多线程操作，所以需要并发控制。
+只读的MemTable存在时间很短，被创建后就会把异步写入SSD,然后清空。 当可写的MemTable增长很快，只读的MemTable会很快被填满。如果只读 的MemTable还没有别完全写入SSD，写入线程就会被阻塞。
+内存结构操作日志 最近的MemTable的写入操作都会有一个对应的日志文件记录。 日志文件也有两份，对应两个跳表。
+SSD数据结构 SST LevelDB在SSD上存储了许多SST(Sorted String Table)文件, 每个文件对应一个级别，每个级别有多个SST文件。 SST文件的大小是相同的，不同的是每个级别文件数目不同。 主键在每个SST文件都是有序的。 级别0的文件和其他级别的文件有一个明显的区别：其他级别的SST 文件之间的主键不会重叠，但级别0的SST文件之间的主键可能重叠， 因为级别0的SST文件之间从MemTable直接转存过来。
+为了防止在级别0的SST文件进行键值读取的读放大，LevelDB默认 级别0有4个文件。
+MANIFEST 所有文件的主键范围，级别和其他的元信息存储在MANIFEST文件。 MANIFEST有版本号，通过文件名后缀标识，例如MANIFEST-000031。 每次打开数据库，一个新的版本号的MANIFEST就好被创建，旧版本 的文件就会被删除。
+CURRENT CURRENT文件内容记录了当前版本的MANIFEST文件名字。LevelDB首先读 CURRENT文件内容知道合法的MANIFEST文件。
+LOCK LevelDB数据库目录不允许被多个进程同时访问，当一个进程打开数据库， 一个排他的文件锁就创建。
+log 日志文件，记录操作日志，例如次要整理和主要整理日志
+数据整理 从只读MemTable到0级的SST文件的转移叫次级整理。从SST文件向 更低级转移交主要整理。
+文件合并 "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-02-20T19:13:49&#43;08:00">
@@ -149,7 +181,7 @@
 
   
 
-  <title>Leveld结构解析 | wubigo</title>
+  <title>LevelDB结构解析 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -386,7 +418,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Leveld结构解析</h1>
+  <h1 itemprop="name">LevelDB结构解析</h1>
 
   
 
@@ -418,7 +450,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -433,7 +465,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Leveld%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f"
+         href="https://twitter.com/intent/tweet?text=LevelDB%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -447,21 +479,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f&amp;title=Leveld%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f&amp;title=LevelDB%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f&amp;title=Leveld%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f&amp;title=LevelDB%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Leveld%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f">
+         href="mailto:?subject=LevelDB%e7%bb%93%e6%9e%84%e8%a7%a3%e6%9e%90&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fleveldb-main-structure%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -499,7 +531,94 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p><img src="/img/leveldb-sst.png" alt="" /></p>
+      
+
+<p>LevelDB 是一基于内存+SSD的键值存储引擎。</p>
+
+<ul>
+<li>内存存储最新的更改和热数据(缓存)</li>
+<li>SSD持久化所有数据</li>
+</ul>
+
+<p>LevelDB经常使用代理+主从模式构建集群。
+与REDIS协议保持兼容，可以被REDIS客户端访问。</p>
+
+<p><img src="/img/leveldb-sst.png" alt="" /></p>
+
+<h2 id="内存结构">内存结构</h2>
+
+<p>LevelDB在内存维护两个<a href="/post/leveldb之跳表/">跳表</a>:MemTable,
+一个只读，一个可写。</p>
+
+<p>序列号(Sequence number)是全局自增的，每次的修改序列号都会加1。
+每个主键保存多个版本的键值。LevelDB用serial number标识键值对
+的版本。最大的serial number代表最新的键值对。</p>
+
+<p>键值对有两种更新操作：</p>
+
+<ul>
+<li>Put = 1</li>
+<li>Delete = 0</li>
+</ul>
+
+<p>当可写的MemTable的大小超过阈值，会把所有的键值转移到只读的MemTable。
+同时会创建一个新的可写的MemTable。只读的MemTable会被一个线程异步的
+写入SSD。读操作会先查询可写的MemTable，然后查询只读的MemTable，最后
+去查询SSD.</p>
+
+<p>对可写的MemTable支持多线程操作，所以需要并发控制。</p>
+
+<p>只读的MemTable存在时间很短，被创建后就会把异步写入SSD,然后清空。
+当可写的MemTable增长很快，只读的MemTable会很快被填满。如果只读
+的MemTable还没有别完全写入SSD，写入线程就会被阻塞。</p>
+
+<h3 id="内存结构操作日志">内存结构操作日志</h3>
+
+<p>最近的MemTable的写入操作都会有一个对应的日志文件记录。
+日志文件也有两份，对应两个跳表。</p>
+
+<h2 id="ssd数据结构">SSD数据结构</h2>
+
+<h3 id="sst">SST</h3>
+
+<p>LevelDB在SSD上存储了许多SST(Sorted String Table)文件,
+每个文件对应一个级别，每个级别有多个SST文件。
+SST文件的大小是相同的，不同的是每个级别文件数目不同。
+主键在每个SST文件都是有序的。
+级别0的文件和其他级别的文件有一个明显的区别：其他级别的SST
+文件之间的主键不会重叠，但级别0的SST文件之间的主键可能重叠，
+因为级别0的SST文件之间从MemTable直接转存过来。</p>
+
+<p>为了防止在级别0的SST文件进行键值读取的读放大，LevelDB默认
+级别0有4个文件。</p>
+
+<h3 id="manifest">MANIFEST</h3>
+
+<p>所有文件的主键范围，级别和其他的元信息存储在MANIFEST文件。
+MANIFEST有版本号，通过文件名后缀标识，例如MANIFEST-000031。
+每次打开数据库，一个新的版本号的MANIFEST就好被创建，旧版本
+的文件就会被删除。</p>
+
+<h3 id="current">CURRENT</h3>
+
+<p>CURRENT文件内容记录了当前版本的MANIFEST文件名字。LevelDB首先读
+CURRENT文件内容知道合法的MANIFEST文件。</p>
+
+<h3 id="lock">LOCK</h3>
+
+<p>LevelDB数据库目录不允许被多个进程同时访问，当一个进程打开数据库，
+一个排他的文件锁就创建。</p>
+
+<h3 id="log">log</h3>
+
+<p>日志文件，记录操作日志，例如次要整理和主要整理日志</p>
+
+<h2 id="数据整理">数据整理</h2>
+
+<p>从只读MemTable到0级的SST文件的转移叫次级整理。从SST文件向
+更低级转移交主要整理。</p>
+
+<h2 id="文件合并">文件合并</h2>
 
     </div>
 
