@@ -94,6 +94,33 @@ c:\>wsl -l
 c:\>wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 ```
 
+
+# 升级linux
+
+```
+d:\code\dapp>wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Running         1
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
+
+升级Ubuntu  从WSL 1 到2
+
+```
+wsl --set-version Ubuntu 2
+
+d:\code\dapp>wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Stopped         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
+
+
+
+
+
 REF
 
 [1](https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa)
