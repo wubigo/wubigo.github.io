@@ -118,7 +118,29 @@ d:\code\dapp>wsl -l -v
 ```
 
 
+# WSL localhost connection refused
 
+
+运行之前先备份`/etc/hosts`
+
+`wsl2-ubuntu-map-win-localhost.sh`
+
+```
+nameserver=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}')   # find nameserver
+[ -n "$nameserver" ] || "unable to find nameserver" || exit 1            # exit immediately if nameserver was not found
+echo "##### nameserver found: '$nameserver'"
+localhost_entry=$(grep -v "127.0.0.1" /etc/hosts | grep "\slocalhost$")  # find localhost entry excluding 127.0.0.1
+if [ -n "$localhost_entry" ]; then                                       # if localhost entry was found
+    echo "##### localhost entry found: '$localhost_entry'"
+    sed -i "s/$localhost_entry/$nameserver localhost/g" /etc/hosts       # then update localhost entry with the new $nameserver
+else                                                                     # else if entry was not found
+    echo "##### localhost entry not found"
+    echo "$nameserver localhost" >> /etc/hosts                           # then append $nameserver mapping to localhost
+fi
+cat /etc/hosts                                              
+```
+
+https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21
 
 
 REF
