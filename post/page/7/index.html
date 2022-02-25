@@ -423,6 +423,89 @@
 
 
 
+<meta content="2018-11-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 22, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-22-cninetworkproviderforkubernetes/" itemprop="url">Choosing a CNI Network Provider for Kubernetes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
+Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-11-20 11:56:47 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-11-20 11:56:47 &#43;0800 CST" itemprop="dateModified">
 
@@ -2139,88 +2222,6 @@ JavaScript. How does the browser read that?
 
 <p>To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-07-23 17:17:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-07-23 17:17:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 23, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/terraform-aws-s3-resource-example/" itemprop="url">Terraform Aws S3 Resource Example</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Add notification configuration to SNS Topic resource &quot;aws_sns_topic&quot; &quot;topic&quot; { name = &quot;s3-event-notification-topic&quot; policy = &lt;&lt;POLICY { &quot;Version&quot;:&quot;2012-10-17&quot;, &quot;Statement&quot;:[{ &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: {&quot;AWS&quot;:&quot;*&quot;}, &quot;Action&quot;: &quot;SNS:Publish&quot;, &quot;Resource&quot;: &quot;arn:aws:sns:*:*:s3-event-notification-topic&quot;, &quot;Condition&quot;:{ &quot;ArnLike&quot;:{&quot;aws:SourceArn&quot;:&quot;${aws_s3_bucket.bucket.arn}&quot;} } }] } POLICY } resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; { bucket = &quot;your_bucket_name&quot; } resource &quot;aws_s3_bucket_notification&quot; &quot;bucket_notification&quot; { bucket = &quot;${aws_s3_bucket.bucket.id}&quot; topic { topic_arn = &quot;${aws_sns_topic.topic.arn}&quot; events = [&quot;s3:ObjectCreated:*&quot;] filter_suffix = &quot;.log&quot; } }  Add notification configuration to Lambda Function resource &quot;aws_iam_role&quot; &quot;iam_for_lambda&quot; { name = &quot;iam_for_lambda&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
   </div>
   
 

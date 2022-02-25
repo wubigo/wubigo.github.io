@@ -423,6 +423,130 @@
 
 
 
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 13, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-proxy/" itemprop="url">Docker Proxy for daemon and client</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
+
+<ul>
+<li>systemd level</li>
+</ul>
+
+<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
+
+<pre><code>[Service]
+Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
+</code></pre>
+
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+
+<ul>
+<li>service level</li>
+</ul>
+
+<p><code>/etc/default/docker</code></p>
+
+<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
+</code></pre>
+
+<ul>
+<li>daemon level</li>
+</ul>
+
+<p><code>/etc/docker/daemon</code></p>
+
+<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
+
+<p><code>~/.docker/config.json</code></p>
+
+<pre><code>       &quot;proxies&quot;:{
+                &quot;default&quot;:{}
+        }
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
 
@@ -2275,109 +2399,6 @@ PostgreSQL都有日志传送协议，在从库上做数据库复制。</p>
   <div class="article-style" itemprop="articleBody">
     <p><a href="https://git-lfs.github.com/" target="_blank">https://git-lfs.github.com/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-02-11 11:38:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-02-11 11:38:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 11, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/kubeamd-cheat-sheet/">
-      <img src="/post/kubeamd-cheat-sheet/featured_huff6dce5c74a19d801415df9f3d509047_4091_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/kubeamd-cheat-sheet/" itemprop="url">kubeamd cheat sheet</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    version notes
-some only works on 1.13
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;13&quot;, GitVersion:&quot;v1.13.3&quot;, GitCommit:&quot;721bfa751924da8d1680787490c54b9179b1fed0&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2019-02-16T15:29:34Z&quot;, GoVersion:&quot;go1.11.5&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
- get all Pending pods
-kubectl get pods --field-selector=status.phase=Pending  images list
-kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &quot;enp0s3&quot; I0217 07:28:13.
   </div>
   
 
