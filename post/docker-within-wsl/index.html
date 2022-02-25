@@ -440,7 +440,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -617,6 +617,28 @@ d:\code\dapp&gt;wsl -l -v
   docker-desktop         Running         2
   docker-desktop-data    Running         2
 </code></pre>
+
+<h1 id="wsl-localhost-connection-refused">WSL localhost connection refused</h1>
+
+<p>运行之前先备份<code>/etc/hosts</code></p>
+
+<p><code>wsl2-ubuntu-map-win-localhost.sh</code></p>
+
+<pre><code>nameserver=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}')   # find nameserver
+[ -n &quot;$nameserver&quot; ] || &quot;unable to find nameserver&quot; || exit 1            # exit immediately if nameserver was not found
+echo &quot;##### nameserver found: '$nameserver'&quot;
+localhost_entry=$(grep -v &quot;127.0.0.1&quot; /etc/hosts | grep &quot;\slocalhost$&quot;)  # find localhost entry excluding 127.0.0.1
+if [ -n &quot;$localhost_entry&quot; ]; then                                       # if localhost entry was found
+    echo &quot;##### localhost entry found: '$localhost_entry'&quot;
+    sed -i &quot;s/$localhost_entry/$nameserver localhost/g&quot; /etc/hosts       # then update localhost entry with the new $nameserver
+else                                                                     # else if entry was not found
+    echo &quot;##### localhost entry not found&quot;
+    echo &quot;$nameserver localhost&quot; &gt;&gt; /etc/hosts                           # then append $nameserver mapping to localhost
+fi
+cat /etc/hosts                                              
+</code></pre>
+
+<p><a href="https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21" target="_blank">https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21</a></p>
 
 <p>REF</p>
 
