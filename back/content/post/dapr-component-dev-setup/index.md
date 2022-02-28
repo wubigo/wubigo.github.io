@@ -96,3 +96,15 @@ MINGW64 /d/code/go/src/github.com/dapr
 $which head
 $make
 ```
+
+## Proto客户端生成
+
+1. 安装protoc
+
+https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protoc-3.14.0-win64.zip
+
+2. 安装Go PB插件protoc-gen-go, protoc-gen-go-grpc
+
+```
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+```
