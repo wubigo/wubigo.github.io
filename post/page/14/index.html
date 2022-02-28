@@ -423,6 +423,94 @@
 
 
 
+<meta content="2017-03-01 10:49:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-01 10:49:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker_network_macvlan/" itemprop="url">Docker网络macvlan</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
+ 好处
+ 现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
+uname -r 4.15.0-45-generic  加载macvlan模块
+sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
+     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-03-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2132,106 +2220,6 @@ Technologies like RDMA and TOE create a parallel stack in the kernel and solve t
  使用user_data初始化包括安装常用软件包，自动外挂硬盘等
  使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
   上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-11-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-11-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 1, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2016-11-01-graphprocessing/" itemprop="url">Graph Processing</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="twitter-social-network-dataset">twitter social network dataset</h1>
-
-<p><a href="http://law.di.unimi.it/datasets.php" target="_blank">http://law.di.unimi.it/datasets.php</a></p>
-
-<h1 id="a-comparison-of-state-of-the-art-graph-processing-systems">A comparison of state-of-the-art graph processing systems</h1>
-
-<p><a href="https://code.facebook.com/posts/319004238457019/a-comparison-of-state-of-the-art-graph-processing-systems/" target="_blank">https://code.facebook.com/posts/319004238457019/a-comparison-of-state-of-the-art-graph-processing-systems/</a></p>
-
-<h1 id="linkedin-graph-database">Linkedin graph database</h1>
-
-<p><a href="https://engineering.linkedin.com/teams/data/projects/search-and-discovery" target="_blank">https://engineering.linkedin.com/teams/data/projects/search-and-discovery</a>
-<a href="https://engineering.linkedin.com/teams/data" target="_blank">https://engineering.linkedin.com/teams/data</a></p>
-
-<h1 id="why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database">Why I left Apache Spark GraphX and returned to HBase for my graph database</h1>
-
-<p><a href="https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/" target="_blank">https://lbartkowski.wordpress.com/2015/04/21/why-i-left-apache-spark-graphx-and-returned-to-hbase-for-my-graph-database/</a></p>
-
   </div>
   
 

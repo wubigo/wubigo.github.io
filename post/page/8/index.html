@@ -423,6 +423,93 @@
 
 
 
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-03 09:03:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 3, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/gatsby-notes/" itemprop="url">Gatsby Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    bind eip gatsby develop -- --host=0.0.0.0  Prettier VS Code plugin JSX The hybrid “HTML-in-JS” is actually a syntax extension
+of JavaScript, for React, called JSX
+In pure JavaScript, it looks more like this:
+src/pages/index.js
+import React from &quot;react&quot; export default () =&gt; React.createElement(&quot;div&quot;, null, &quot;Hello world!&quot;)  Now you can spot the use of the &lsquo;react&rsquo; import! But wait. You’re writing JSX, not pure HTML and
+JavaScript. How does the browser read that?
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-08-29 06:26:51 &#43;0800 CST" itemprop="dateModified">
 
@@ -2087,93 +2174,6 @@ log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).
     install client pip install shadowsocks  client.json
 { &quot;server&quot;:&quot;server-ip&quot;, &quot;server_port&quot;:8000, &quot;local_port&quot;:3050, &quot;password&quot;:&quot;your-password&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  { &quot;server&quot;:&quot;your_server_ip&quot;, #ss服务器IP &quot;server_port&quot;:your_server_port, #端口 &quot;local_address&quot;: &quot;127.0.0.1&quot;, #本地ip &quot;local_port&quot;:1080, #本地端口 &quot;password&quot;:&quot;your_server_passwd&quot;,#连接ss密码 &quot;timeout&quot;:300, #等待超时 &quot;method&quot;:&quot;rc4-md5&quot;, #加密方式 &quot;fast_open&quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &quot;workers&quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
 listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/spring-actuator/" itemprop="url">Spring Actuator</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    setup  &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;  enable web client all endpoints are exposed to JMX and WEB clents
-By default, all endpoints except for shutdown are enabled.
- enable all endpoings
- enable all endpoints accessed by web
-management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
-WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
   </div>
   
 

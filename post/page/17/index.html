@@ -446,6 +446,147 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/java-coding-guidelines/" itemprop="url">Java编码规范</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="java-开发规范">JAVA 开发规范</h1>
+
+<p>目标：</p>
+
+<ul>
+<li>容易维护</li>
+<li>健壮</li>
+<li>可复用</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">指导</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">编码</td>
+<td align="left">UTF-8</td>
+</tr>
+
+<tr>
+<td align="left">注释</td>
+<td align="left">支持Swagger</td>
+</tr>
+
+<tr>
+<td align="left">git模式</td>
+<td align="left">PR(pull-request) / merge request</td>
+</tr>
+
+<tr>
+<td align="left">代码静态检查</td>
+<td align="left">遵守风格规范</td>
+</tr>
+
+<tr>
+<td align="left">代码提交</td>
+<td align="left">必须通过review</td>
+</tr>
+
+<tr>
+<td align="left">测试</td>
+<td align="left">所有代码都有单元测试</td>
+</tr>
+
+<tr>
+<td align="left">集成测试</td>
+<td align="left">所有代码必须通过集成测试才能提交到分支或主干</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://google.github.io/styleguide/javaguide.html" target="_blank">编码风格</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
     2 min read
   </span>
   
@@ -2146,88 +2287,6 @@ PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST 
 <p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
 NoSQL使用LSM树</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-notes/" itemprop="url">Mysql Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    查看表状态 show table status FROM redis_db like 'point_value'; +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | point_value | InnoDB | 10 | Dynamic | 316755485 | 143 | 45420118016 | 0 | 0 | 3145728 | NULL | 2022-01-30 18:55:44 | 2022-02-06 18:17:56 | NULL | utf8_general_ci | NULL | | | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ 1 row in set (0.
   </div>
   
 

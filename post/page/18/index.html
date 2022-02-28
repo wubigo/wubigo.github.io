@@ -423,6 +423,88 @@
 
 
 
+<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2012-06-04 07:34:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mysql-notes/" itemprop="url">Mysql Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    查看表状态 show table status FROM redis_db like 'point_value'; +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | point_value | InnoDB | 10 | Dynamic | 316755485 | 143 | 45420118016 | 0 | 0 | 3145728 | NULL | 2022-01-30 18:55:44 | 2022-02-06 18:17:56 | NULL | utf8_general_ci | NULL | | | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ 1 row in set (0.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
 <meta content="2012-06-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
@@ -2233,91 +2315,6 @@ echo 'export JAVA_TOOL_OPTIONS=&quot;-Dhttps.protocols=TLSv1.2&quot;' &gt;&gt; ~
   
   <div class="article-style" itemprop="articleBody">
     certbot  Congratulations! Your certificate and chain have been saved at: /etc/letsencrypt/live/et.com/fullchain.pem Your key file has been saved at: /etc/letsencrypt/live/et.com/privkey.pem Your cert will expire on 2018-02-19. To obtain a new or tweaked version of this certificate in the future, simply run certbot again with the &ldquo;certonly&rdquo; option. To non-interactively renew all of your certificates, run &ldquo;certbot renew&rdquo;  If you like Certbot, please consider supporting our work by:   Donating to ISRG / Let&rsquo;s Encrypt: https://letsencrypt.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/piwik/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Configuring Piwik accessed via an Nginx reverse proxy public Nginx server configured as
-location ^~ /piwik/ { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Host $host; proxy_pass http://192.168.79.4/piwik/; }  config.ini.php config on piwi nginx site
-[General] proxy_client_headers[] = &quot;HTTP_X_FORWARDED_FOR&quot; proxy_client_headers[] = &quot;X-Real-IP&quot; proxy_host_headers[] = &quot;HTTP_X_FORWARDED_HOST&quot; proxy_ips[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;&lt;public-domain-server&gt;&quot;  Configure GeoIP (PECL) With Piwik check php version
-curl http://localhost/info.php PHP Version 7.
   </div>
   
 

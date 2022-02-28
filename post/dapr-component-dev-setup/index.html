@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="[1] https://www.asyncapi.com/docs/getting-started/coming-from-openapi">
+  <meta name="description" content="开发环境准备 git version 2.34.1.windows.1 cmd&gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
+# binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&gt;make -v GNU Make 4.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/openapi-vs-asyncapi/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/dapr-component-dev-setup/">
 
   
 
@@ -120,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/openapi-vs-asyncapi/">
+  <link rel="canonical" href="https://wubigo.com/post/dapr-component-dev-setup/">
 
   
   
@@ -135,21 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/openapi-vs-asyncapi/">
-  <meta property="og:title" content="OpenAPI vs AsyncAPI | wubigo">
-  <meta property="og:description" content="[1] https://www.asyncapi.com/docs/getting-started/coming-from-openapi"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/dapr-component-dev-setup/">
+  <meta property="og:title" content="Dapr组件开发环境搭建 | wubigo">
+  <meta property="og:description" content="开发环境准备 git version 2.34.1.windows.1 cmd&gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
+# binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&gt;make -v GNU Make 4."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2022-02-26T21:55:15&#43;08:00">
+  <meta property="article:published_time" content="2021-02-28T10:26:04&#43;08:00">
   
-  <meta property="article:modified_time" content="2022-02-26T21:55:15&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2021-02-28T10:26:04&#43;08:00">
   
 
   
 
-  <title>OpenAPI vs AsyncAPI | wubigo</title>
+  
+
+  <title>Dapr组件开发环境搭建 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -386,7 +388,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">OpenAPI vs AsyncAPI</h1>
+  <h1 itemprop="name">Dapr组件开发环境搭建</h1>
 
   
 
@@ -395,8 +397,8 @@
 
 
 
-<meta content="2022-02-26 21:55:15 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-02-26 21:55:15 &#43;0800 CST" itemprop="dateModified">
+<meta content="2021-02-28 10:26:04 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-02-28 10:26:04 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -409,7 +411,7 @@
     
       
     
-    <time>Feb 26, 2022</time>
+    <time>Feb 28, 2021</time>
   </span>
   
 
@@ -433,35 +435,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=OpenAPI%20vs%20AsyncAPI&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fopenapi-vs-asyncapi%2f"
+         href="https://twitter.com/intent/tweet?text=Dapr%e7%bb%84%e4%bb%b6%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdapr-component-dev-setup%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fopenapi-vs-asyncapi%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdapr-component-dev-setup%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fopenapi-vs-asyncapi%2f&amp;title=OpenAPI%20vs%20AsyncAPI"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdapr-component-dev-setup%2f&amp;title=Dapr%e7%bb%84%e4%bb%b6%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fopenapi-vs-asyncapi%2f&amp;title=OpenAPI%20vs%20AsyncAPI"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdapr-component-dev-setup%2f&amp;title=Dapr%e7%bb%84%e4%bb%b6%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=OpenAPI%20vs%20AsyncAPI&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fopenapi-vs-asyncapi%2f">
+         href="mailto:?subject=Dapr%e7%bb%84%e4%bb%b6%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdapr-component-dev-setup%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -499,13 +501,76 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p><img src="/img/post/multi-runtime.jpg" alt="" /></p>
+      
 
-<p><img src="/img/post/openap-vs-asyncapi-1.png" alt="" /></p>
+<h1 id="开发环境准备">开发环境准备</h1>
 
-<p><img src="/img/post/openap-vs-asyncapi-2.png" alt="" /></p>
+<pre><code>git version 2.34.1.windows.1
 
-<p>[1] <a href="https://www.asyncapi.com/docs/getting-started/coming-from-openapi" target="_blank">https://www.asyncapi.com/docs/getting-started/coming-from-openapi</a></p>
+
+
+cmd&gt;docker version
+Client:
+ Cloud integration: v1.0.22
+ Version:           20.10.12
+ API version:       1.41
+ Go version:        go1.16.12
+ Git commit:        e91ed57
+ Built:             Mon Dec 13 11:44:07 2021
+ OS/Arch:           windows/amd64
+ Context:           default
+ Experimental:      true
+
+
+go version go1.17.5 windows/amd64
+</code></pre>
+
+<h2 id="golangci-lint">golangci-lint</h2>
+
+<p>在windows上启动git Bash执行如下sh命令安装golangci-lint</p>
+
+<pre><code># binary will be $(go env GOPATH)/bin/golangci-lint
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2
+golangci-lint --version
+</code></pre>
+
+<h2 id="安装make">安装make</h2>
+
+<pre><code>choco install mingw --version 8.1.0
+
+cmd&gt;make -v
+GNU Make 4.3
+Built for Windows32
+</code></pre>
+
+<h2 id="安装coreutils-可选">安装coreutils(可选)</h2>
+
+<p>Git Bash有部分coreutils工具，如果从Git Bash构建，可以不用安装coreutils</p>
+
+<pre><code>choco install gnuwin32-coreutils.install
+</code></pre>
+
+<p><a href="https://github.com/dapr/dapr/blob/master/docs/development/setup-dapr-development-env.md" target="_blank">https://github.com/dapr/dapr/blob/master/docs/development/setup-dapr-development-env.md</a></p>
+
+<h1 id="代码">代码</h1>
+
+<pre><code>cd %GOPATH%/src
+
+# Clone dapr
+mkdir -p github.com\dapr\dapr
+git clone https://github.com/dapr/dapr.git github.com\dapr\dapr
+
+# Clone component-contrib
+mkdir -p github.com\dapr\components-contrib
+git clone https://github.com/dapr/components-contrib.git github.com\dapr\components-contrib
+</code></pre>
+
+<h2 id="用git-bash构建">用Git Bash构建</h2>
+
+<pre><code>MINGW64 /d/code/go/src/github.com/dapr
+$which head
+$make
+</code></pre>
 
     </div>
 
@@ -514,7 +579,11 @@
 
 <div class="article-tags">
   
+  <a class="badge badge-light" href="/tags/paas/">PaaS</a>
+  
   <a class="badge badge-light" href="/tags/eda/">EDA</a>
+  
+  <a class="badge badge-light" href="/tags/ddd/">DDD</a>
   
 </div>
 
@@ -543,8 +612,6 @@
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
-          <li><a href="/post/dapr-component-dev-setup/">Dapr组件开发环境搭建</a></li>
           
           <li><a href="/post/serverless-database/">数据库无服务器架构</a></li>
           
