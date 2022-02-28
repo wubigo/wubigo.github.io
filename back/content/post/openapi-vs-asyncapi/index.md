@@ -19,6 +19,8 @@ categories = []
   focal_point = ""
 +++
 
+![](/img/post/multi-runtime.jpg)
+
 
 ![](/img/post/openap-vs-asyncapi-1.png)
 
