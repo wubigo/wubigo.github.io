@@ -567,7 +567,7 @@ git clone https://github.com/dapr/components-contrib.git github.com\dapr\compone
 
 <h2 id="用git-bash构建">用Git Bash构建</h2>
 
-<pre><code>MINGW64 /d/code/go/src/github.com/dapr
+<pre><code>MINGW64 /d/code/go/src/github.com/dapr/dapr
 $which head
 $make
 </code></pre>
@@ -584,8 +584,18 @@ $make
 <li><p>安装Go PB插件protoc-gen-go, protoc-gen-go-grpc</p>
 
 <pre><code>go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 </code></pre></li>
 </ol>
+
+<p>或者用make工具安装PB插件</p>
+
+<pre><code>make init-proto
+</code></pre>
+
+<h1 id="dapr初始化">dapr初始化</h1>
+
+<p><img src="/img/post/dapr-init.jpeg" alt="" /></p>
 
     </div>
 
