@@ -92,7 +92,7 @@ git clone https://github.com/dapr/components-contrib.git github.com\dapr\compone
 ## 用Git Bash构建
 
 ```
-MINGW64 /d/code/go/src/github.com/dapr
+MINGW64 /d/code/go/src/github.com/dapr/dapr
 $which head
 $make
 ```
@@ -107,4 +107,15 @@ https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protoc-3.1
 
 ```
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
+
+或者用make工具安装PB插件
+
+```
+make init-proto
+```
+
+# dapr初始化
+
+![](/img/post/dapr-init.jpeg)
