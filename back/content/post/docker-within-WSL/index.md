@@ -40,6 +40,20 @@ categories = []
 
 [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
+# WSL 命令行和默认 shell
+
+
+```
+cmd:\>wsl
+wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf
+[automount]
+root = /mnt/host
+crossDistro = true
+options = "metadata"
+```
+
+
+
 # 安装Ubuntu for WSL 16.0.4 LTS
 
 [install ubuntu in WSL](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
