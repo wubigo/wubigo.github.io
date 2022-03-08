@@ -52,6 +52,33 @@ crossDistro = true
 options = "metadata"
 ```
 
+# WSL DOCKER磁盘卷路径
+
+```
+cmd:\>docker volume inspect edgex_consul-config
+[
+    {
+        "CreatedAt": "2022-03-07T08:04:34Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "edgex",
+            "com.docker.compose.version": "2.2.3",
+            "com.docker.compose.volume": "consul-config"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/edgex_consul-config/_data",
+        "Name": "edgex_consul-config",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+```
+
+
+`\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\`
+
+
+
+
 
 
 # 安装Ubuntu for WSL 16.0.4 LTS
