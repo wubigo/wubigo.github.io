@@ -36,10 +36,7 @@
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
-WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.">
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-within-wsl/">
@@ -156,10 +153,7 @@ $ curl -fsSL https://download.">
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
-WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-10-08T14:21:19&#43;08:00">
@@ -556,6 +550,28 @@ root = /mnt/host
 crossDistro = true
 options = &quot;metadata&quot;
 </code></pre>
+
+<h1 id="wsl-docker磁盘卷路径">WSL DOCKER磁盘卷路径</h1>
+
+<pre><code>cmd:\&gt;docker volume inspect edgex_consul-config
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: {
+            &quot;com.docker.compose.project&quot;: &quot;edgex&quot;,
+            &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;,
+            &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot;
+        },
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;,
+        &quot;Name&quot;: &quot;edgex_consul-config&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+</code></pre>
+
+<p><code>\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</code></p>
 
 <h1 id="安装ubuntu-for-wsl-16-0-4-lts">安装Ubuntu for WSL 16.0.4 LTS</h1>
 

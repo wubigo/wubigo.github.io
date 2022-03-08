@@ -423,6 +423,89 @@
 
 
 
+<meta content="2013-11-05 10:35:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-11-05 10:35:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 5, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/kvm/" itemprop="url">Kvm</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    QEMU runs the guest code via the KVM kernel module. When working with KVM, QEMU also does I/O emulation, I/O device setup, live migration, and so on. QEMU opens the device file (/dev/kvm) exposed by the KVM kernel module and executes ioctls()on it
+KVM exposesa device file called /dev/kvmto applications to make use of the ioctls()provided. QEMU makes use of this device file to talk with KVM and to create, initialize, and manage the kernel mode context of virtual machines
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2013-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
 
@@ -2199,94 +2282,6 @@ vm.swappiness = 1 vm.overcommit_memory = 1  改变数据目录 sudo install -o r
 [Service] ReadWriteDirectories=-/mnt/redis-data  pidfile NOT FOUND FROM SYSTEMD /etc/redis/redis.conf
 pidfile /var/run/redis/redis-server.pid  /lib/systemd/system/redis-server.service
 PIDFile=/run/redis/redis-server.pid  删除消费组 XGROUP DESTROY STREAM:TEST STRRAM:TEST:GROUP  Redis latency problems troubleshooting  Make sure you are not running slow commands that are blocking the server. Use the Redis Slow Log feature to check this.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2012-07-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 4, 2012</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2012-07-04-rdbms-nosql/" itemprop="url">RDBMS vs NoSQL</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="b-树-vs-lsm树">B+树 vs. LSM树</h1>
-
-<p>RDBMS使用B+树专门针对磁盘存储而优化的N叉排序树
-NoSQL使用LSM树</p>
-
   </div>
   
 
