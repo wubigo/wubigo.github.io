@@ -30,7 +30,7 @@
   
   <meta name="description" content="Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
  The docker logs command is not available for drivers other than json-file and journald.
-logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.">
+docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-logging/">
@@ -141,7 +141,7 @@ logging driver To configure the Docker daemon to default to a specific logging d
   <meta property="og:title" content="Docker日志 | wubigo">
   <meta property="og:description" content="Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
  The docker logs command is not available for drivers other than json-file and journald.
-logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2017-02-17T08:24:25&#43;08:00">
@@ -510,6 +510,11 @@ logging driver To configure the Docker daemon to default to a specific logging d
 </blockquote>
 
 <p><strong>The <code>docker logs</code> command is not available for drivers other than json-file and journald.</strong></p>
+
+<h1 id="docker-compose日志">docker-compose日志</h1>
+
+<pre><code>docker-compose -f docker-compose-0.7.1.yml logs -f
+</code></pre>
 
 <h1 id="logging-driver">logging driver</h1>
 
