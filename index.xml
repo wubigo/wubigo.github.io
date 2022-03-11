@@ -5,8 +5,380 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Feb 2022 21:55:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Mar 2022 15:39:42 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Edgex Device Service Dev Env Setup</title>
+      <link>https://wubigo.com/post/edgex-device-service-dev-env-setup/</link>
+      <pubDate>Fri, 11 Mar 2022 15:39:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/edgex-device-service-dev-env-setup/</guid>
+      <description>
+
+&lt;p&gt;搭建EDGX设备服务开发环境&lt;/p&gt;
+
+&lt;h1 id=&#34;启动edgex核心服务&#34;&gt;启动EDGEX核心服务&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml
+
+
+ docker-compose -f docker-compose-no-secty.yml up -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;打开数据和控制服务调试开关&#34;&gt;打开数据和控制服务调试开关&lt;/h1&gt;
+
+&lt;p&gt;在consul里面配置应用：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit&#34; target=&#34;_blank&#34;&gt;http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;修改INFO为DEBUG&lt;/p&gt;
+
+&lt;h1 id=&#34;在ide里面启动设备服务&#34;&gt;在IDE里面启动设备服务&lt;/h1&gt;
+
+&lt;p&gt;以IP摄像头设备服务为例&lt;/p&gt;
+
+&lt;h2 id=&#34;打开webcam&#34;&gt;打开WEBCAM&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/webcam-to-ip-camera/&#34; target=&#34;_blank&#34;&gt;webcam-to-ip-camera&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;配置开发环境&#34;&gt;配置开发环境&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:edgexfoundry/device-camera-go.git
+git checkout jakarta
+cd device-camera-go
+
+set EDGEX_SECURITY_SECRET_STORE=false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调整IDE的当前工作目录为：device-camera-go\cmd
+否则，设备服务启动会找不到设备配置文件。&lt;/p&gt;
+
+&lt;p&gt;或者移动资源文件到IDE当前工作目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mv -rf cmd/res  .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;打开设备服务调试日志并启动设备服务&#34;&gt;打开设备服务调试日志并启动设备服务&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;res/configuration.toml
+@@ -1,5 +1,5 @@
+ [Writable]
+-LogLevel = &amp;quot;INFO&amp;quot;
++LogLevel = &amp;quot;DEBUG&amp;quot;
+
+
+
+level=INFO ts=2022-03-11T08:13:54.8106393Z app=device-camera source=devices.go:87 msg=&amp;quot;Device Camera001 not found in Metadata, adding it ...&amp;quot;        
+level=INFO ts=2022-03-11T08:13:54.8133486Z app=device-camera source=autodiscovery.go:33 msg=&amp;quot;AutoDiscovery stopped: disabled by configuration&amp;quot;       
+level=INFO ts=2022-03-11T08:13:54.813521Z app=device-camera source=autodiscovery.go:42 msg=&amp;quot;AutoDiscovery stopped: ProtocolDiscovery not implemented&amp;quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:50 msg=&amp;quot;Service dependencies resolved...&amp;quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:51 msg=&amp;quot;Starting device-camera to be replaced by makefile &amp;quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:55 msg=&amp;quot;Camera device service started&amp;quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:58 msg=&amp;quot;Service started in: 649.0037ms&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;在edgex-device-rest日志查看启动的设备服务&#34;&gt;在edgex-device-rest日志查看启动的设备服务&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker logs -f edgex-device-rest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;配置设备文件&#34;&gt;配置设备文件&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;[[DeviceList]]
+Name = &amp;quot;Camera001&amp;quot;
+ProfileName = &amp;quot;camera-bosch&amp;quot;
+Location = &amp;quot;edgex lab&amp;quot;
+  [DeviceList.Protocols]
+    [DeviceList.Protocols.HTTP]
+    Address = &amp;quot;localhost:56000&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;设备数据采集和控制&#34;&gt;设备数据采集和控制&lt;/h2&gt;
+
+&lt;h3 id=&#34;查看设备所有的资源&#34;&gt;查看设备所有的资源&lt;/h3&gt;
+
+&lt;p&gt;通过EDGEX元数据服务查看设备资源&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X GET http://localhost:59882/api/v2/device/name/Camera001
+{
+    &amp;quot;apiVersion&amp;quot;: &amp;quot;v2&amp;quot;,
+    &amp;quot;statusCode&amp;quot;: 200,
+    &amp;quot;deviceCoreCommand&amp;quot;: {
+        &amp;quot;deviceName&amp;quot;: &amp;quot;Camera001&amp;quot;,
+        &amp;quot;profileName&amp;quot;: &amp;quot;camera-bosch&amp;quot;,
+        &amp;quot;coreCommands&amp;quot;: [
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifProfileInformation&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifProfileInformation&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifProfileInformation&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;TamperDetected&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/TamperDetected&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;TamperDetected&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Bool&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;occupancy&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/occupancy&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;occupancy&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Uint32&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifReboot&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifReboot&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifReboot&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Bool&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;counter&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/counter&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;counter&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Uint32&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifDeviceInformation&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifDeviceInformation&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifDeviceInformation&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifDateTime&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifDateTime&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifDateTime&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifDns&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifDns&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifDns&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifNetworkProtocols&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifNetworkProtocols&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifNetworkProtocols&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifNetworkDefaultGateway&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifNetworkDefaultGateway&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifNetworkDefaultGateway&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifNetworkInterfaces&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifNetworkInterfaces&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifNetworkInterfaces&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifNtp&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifNtp&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifNtp&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifUsers&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifUsers&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifUsers&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifSnapshot&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Binary&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifUser&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifUser&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifUser&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifHostname&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;MotionDetected&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/MotionDetected&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;MotionDetected&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Bool&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifStreamURI&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifStreamURI&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifStreamURI&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifHostnameFromDHCP&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifHostnameFromDHCP&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifHostnameFromDHCP&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Bool&amp;quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;访问设备资源&#34;&gt;访问设备资源&lt;/h3&gt;
+
+&lt;p&gt;设备的资源地址为上面接口返回的信息：url+path  (设备控制服务)&lt;/p&gt;
+
+&lt;p&gt;例如: &lt;a href=&#34;http://edgex-core-command:59882/api/v2/device/name/Camera001/OnvifHostnameFromDHCP&#34; target=&#34;_blank&#34;&gt;OnvifHostnameFromDHCP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;设备控制服务会调用实际的设备服务的API:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker logs -f edgex-core-command 
+
+edgex-core-command           | level=ERROR ts=2022-03-11T08:23:01.759949942Z app=core-command source=http.go:47 X-Correlation-ID=8a4c186d-6f40-464f-be03-b5e67c866d3b msg=&amp;quot;failed to send a http request -&amp;gt; Get \&amp;quot;http://localhost:59985/api/v2/device/name/Camera001/OnvifHostname\&amp;quot;: dial tcp 127.0.0.1:59985: connect: connection refused&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;因为设备服务启动的时候，配置的ip为LOCALHOST, 容器内现在无法访问到设备服务实例API, 所以连接拒绝&lt;/p&gt;
+
+&lt;p&gt;在设备服务所在网络浏览器直接上面的地址即可&lt;/p&gt;
+
+&lt;h1 id=&#34;清理测试环境&#34;&gt;清理测试环境&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose -f docker-compose-no-secty.yml down
+docker volume rm $(docker volume ls -q)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>OpenAPI vs AsyncAPI</title>
@@ -992,59 +1364,6 @@ aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.
 
 &lt;p&gt;aws logs get-log-events &amp;ndash;cli-input-json file://log-events.json
 ```&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Maximum Number Files Hdfs</title>
-      <link>https://wubigo.com/post/maximum-number-files-hdfs/</link>
-      <pubDate>Sat, 09 Oct 2021 09:55:08 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/maximum-number-files-hdfs/</guid>
-      <description>
-
-&lt;h1 id=&#34;hdfs&#34;&gt;HDFS&lt;/h1&gt;
-
-&lt;p&gt;The maximum number of files in HDFS depends on two things:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;total storage space in the cluster&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;the heap size of the NameNode.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;1) You can find out what percentage of storage has been used from HDFS
-NameNode UI.&lt;/p&gt;
-
-&lt;p&gt;2) The basic rule of thumb is that 1 GB heap is needed for every million of files.&lt;/p&gt;
-
-&lt;p&gt;Each file object and each block object takes about 150 bytes of the memory. For example, if you have 10 million files and each file has 1 one block each, then you would need about 3GB of memory for the NameNode.&lt;/p&gt;
-
-&lt;p&gt;If I had 10 million files, each using a block, then we would be using: 10 million + 10 million = 20 million * 150 = 3,000,000,000 bytes = 3 GB MEMORY. Keep in mind the NameNode will need memory for other processes. So to support 10 million files then your NameNode will need much more than 3GB of memory.&lt;/p&gt;
-
-&lt;p&gt;So you can increase your max number of files as you go. With increasing
-heap for every 1 million files.&lt;/p&gt;
-
-&lt;h1 id=&#34;jindofs介绍和使用&#34;&gt;JindoFS介绍和使用&lt;/h1&gt;
-
-&lt;p&gt;JindoFS提供兼容对象存储的纯客户端模式（SDK）和缓存模式（Cache），
-以支持与优化Hadoop和Spark生态大数据计算对OSS的访问；
-提供块存储模式（Block），以充分利用OSS的海量存储能力和优化文件系统元数据的操作。&lt;/p&gt;
-
-&lt;p&gt;Q：Block模式跟HDFS相比，是更好的HDFS？&lt;/p&gt;
-
-&lt;p&gt;A：
-HDFS的常规限制为4亿，而Block模式元数据规模上支撑10亿以上的文件数，大于HDFS的限制，而且在集群高峰期时性能更为稳定。
-HDFS有Java onheap限制，而Block模式没有Java onheap和内存限制，可以支持更大的数据规模。
-Block模式轻运维，不用担心坏盘或坏节点，数据1备份放置在OSS上，支持上下线节点。
-支持对冷数据做透明压缩和归档，使用多种手段进行成本优化，对接对象存储，支持EB级数据规模。
-Block模式支持HDFS的一些重要特性。例如，HDFS AuditLog、Ranger集成和数据加密。&lt;/p&gt;
-
-&lt;p&gt;Q：Block模式具有哪些特别的优势？&lt;/p&gt;
-
-&lt;p&gt;A：
-Block模式可以管理文件元数据和组织文件数据，因此可以不局限于OSS对象存储，完全可以满足各种大数据引擎对存储接口的需求。这些接口包括但不限于Rename的原子性和事务性能力、高性能本地写入、透明压缩、truncate、append、flush、sync和snapshot等。这些高阶存储接口对实现完整的POSIX和对接更多的大数据引擎到OSS是不可或缺的，例如，Flink、HBase、Kafka和Kudu。其他两种方式使用OSS也可以对接部分接口，但是能力和优势会有所不足。
-Block模式在费用上优于其他两种方式使用OSS。Block模式中，因为全部数据中占比60%的温数据和热数据都在本地有缓存备份，大部分读请求都不会通过OSS，所以可以节省一部分费用。&lt;/p&gt;
 </description>
     </item>
     

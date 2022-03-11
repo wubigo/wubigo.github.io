@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2021-12-20T17:04:37&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
   
 
   
@@ -401,6 +401,23 @@
   
   
   <div>
+    <h2><a href="/post/edgex-device-service-dev-env-setup/">Edgex Device Service Dev Env Setup</a></h2>
+    <div class="article-style">
+      
+      搭建EDGX设备服务开发环境
+启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
+http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
+修改INFO为DEBUG
+在IDE里面启动设备服务 以IP摄像头设备服务为例
+打开WEBCAM webcam-to-ip-camera
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。
+或者移动资源文件到IDE当前工作目录
+mv -rf cmd/res .  打开设备服务调试日志并启动设备服务 res/configuration.toml @@ -1,5 +1,5 @@ [Writable] -LogLevel = &quot;INFO&quot; +LogLevel = &quot;DEBUG&quot; level=INFO ts=2022-03-11T08:13:54.8106393Z app=device-camera source=devices.go:87 msg=&quot;Device Camera001 not found in Metadata, adding it ...&quot; level=INFO ts=2022-03-11T08:13:54.8133486Z app=device-camera source=autodiscovery.go:33 msg=&quot;AutoDiscovery stopped: disabled by configuration&quot; level=INFO ts=2022-03-11T08:13:54.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/mainflux-dev-setup/">Mainflux Dev Setup</a></h2>
     <div class="article-style">
       
@@ -419,6 +436,15 @@ Control Protocol (TCP) and MQTT over Transport Layer Security (TLS).
 set up Kepware KEPServerEX IoT Gateway on Windows to connect with the MQTT bridge
 of IoT Core to push streaming data to Cloud and send control messages from IoT
 Core back to KEPServerEX
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/webcam-to-ip-camera/">Webcam to IP Camera</a></h2>
+    <div class="article-style">
+      
+      摄像头的区别 USB vs RTSP vs ONVIF If we use USB cameras we do not need the camera url and some functions like moving, zooming etc. will not be available. In the case of RTSP cameras and ONVIF cameras there are more functions available. The difference between the RTSP camera and the ONVIF camera is the following: the RTSP camera has only one stream in comparsion with the ONVIF camera having multiple streams at a time
       
     </div>
   </div>

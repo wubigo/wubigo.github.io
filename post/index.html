@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-26T21:55:15&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
   
 
   
@@ -398,6 +398,96 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/edgex-device-service-dev-env-setup/" itemprop="url">Edgex Device Service Dev Env Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    搭建EDGX设备服务开发环境
+启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
+http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
+修改INFO为DEBUG
+在IDE里面启动设备服务 以IP摄像头设备服务为例
+打开WEBCAM webcam-to-ip-camera
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。
+或者移动资源文件到IDE当前工作目录
+mv -rf cmd/res .  打开设备服务调试日志并启动设备服务 res/configuration.toml @@ -1,5 +1,5 @@ [Writable] -LogLevel = &quot;INFO&quot; +LogLevel = &quot;DEBUG&quot; level=INFO ts=2022-03-11T08:13:54.8106393Z app=device-camera source=devices.go:87 msg=&quot;Device Camera001 not found in Metadata, adding it ...&quot; level=INFO ts=2022-03-11T08:13:54.8133486Z app=device-camera source=autodiscovery.go:33 msg=&quot;AutoDiscovery stopped: disabled by configuration&quot; level=INFO ts=2022-03-11T08:13:54.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2086,135 +2176,6 @@ S3 Support in Apache Hadoop Apache Hadoop ships with a connector to S3 called &l
   <div class="article-style" itemprop="articleBody">
     升级YARN npm install -g yarn@1.22.11 &gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
 ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&gt; .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 19, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/matrix-web-client-dev-setup/" itemprop="url">Matrix Web Client Dev Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="准备环境">准备环境</h1>
-
-<pre><code>node -v
-v14.17.5
-npm install -g yarn@1.22.11
-</code></pre>
-
-<h1 id="链接sdk">链接SDK</h1>
-
-<pre><code>git clone https://github.com/matrix-org/matrix-js-sdk.git
-pushd matrix-js-sdk
-yarn link
-yarn install
-popd
-
-
-git clone https://github.com/matrix-org/matrix-react-sdk.git
-pushd matrix-react-sdk
-yarn link
-yarn link matrix-js-sdk
-yarn install
-popd
-
-
-
-git clone https://github.com/vector-im/element-web.git
-cd element-web
-yarn link matrix-js-sdk
-yarn link matrix-react-sdk
-yarn install
-yarn reskindex
-yarn start
-
-</code></pre>
-
-<h1 id="启动">启动</h1>
-
-<pre><code>cp config.sample.json config.json
-
-curl http://127.0.0.1:8080/
-</code></pre>
-
-<h1 id="登录">登录</h1>
-
-<p>homeserver：<a href="http://192.168.43.16:8008/" target="_blank">http://192.168.43.16:8008/</a></p>
-
   </div>
   
 

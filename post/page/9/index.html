@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-26T21:55:15&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
   
 
   
@@ -398,6 +398,174 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/grpc-load-balancing-on-kubernetes-without-tears/" itemprop="url">GRPC Load Balancing on Kubernetes Without Tears</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2065,222 +2233,6 @@ mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto
     v3.11.0-&gt;k8s 1.11
 openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
 identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-03-07-connectingtosslservices/" itemprop="url">Connecting to SSL services</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JDK Version java -version openjdk version &quot;1.8.0_151&quot; OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12) OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)  Verify that the target server is configured to serve SSL https://www.ssllabs.com/ssltest/
-Connecting to SSL services https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html
-If you are getting an exception due to &ldquo;Illegal key size&rdquo; and you are using Sun’s JDK, you need to install the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files. See the following links for more information:
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-03-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 7, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/life/">LIFE</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/2018-03-17-%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/">
-      <img src="/post/2018-03-17-%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/featured_hua70c9fbe3bfdb59f07c74bf39bb8519a_135041_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-03-17-%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/" itemprop="url">自我管理</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    导语：本文最早刊登于《哈佛商业评论》，是其历史最佳文章之一。 作者彼得·德鲁克是现代管理学之父，其著作影响了数代追求创新以及 最佳管理实践的学者和企业家们，各类商业管理课程也都深受彼得·德鲁克思想的影响。 本文后被收录在德鲁克的著作《21 世纪的管理挑战》中。非常值得一读再读。 作者 | 彼得·德鲁克 来源 | 《21世纪的管理挑战》第 6 章 自我管理（节选） 字数 | 7150（阅读约 10 分钟）  我们生活的时代充满着前所未有的机会：如果你有雄心，又不乏智慧，那么不管你从何处起步，你都可以沿着自己所选择的道路登上事业的顶峰。
-不过，有了机会，也就有了责任。今天的公司并不怎么管员工的职业发展；实际上，知识工作者必须成为自己的首席执行官。你应该在公司中开辟自己的天地，知道何时改变发展道路，并在可能长达 50 年的职业生涯中不断努力、干出实绩。
-要做好这些事情，你首先要对自己有深刻的认识——不仅清楚自己的优点和缺点，也知道自己是怎样学习新知识和与别人共事的，并且还明白自己的价值观是什么、自己又能在哪些方面做出最大贡献。
-因为只有当所有工作都从自己的长处着眼，你才能真正做到卓尔不群。
-历史上的伟人——拿破仑、达芬奇、莫扎特——都很善于自我管理。这在很大程度上也是他们成为伟人的原因。不过，他们属于不可多得的奇才，不但有着不同于常人的天资，而且天生就会管理自己，因而才取得了不同于常人的成就。
-而我们当中的大多数人，甚至包括那些还算有点天赋的人，都不得不通过学习来掌握自我管理的技巧。
-我们必须学会自我发展，必须知道把自己放在什么样的位置上，才能做出最大的贡献，而且还必须在长达 50 年的职业生涯中保持着高度的警觉和投入。
-我们的长处是什么 多数人都以为他们知道自己擅长什么。其实不然，更多的情况是，人们只知道自己不擅长什么——即便是在这一点上，人们也往往认识不清。
-然而，一个人要有所作为，只能靠发挥自己的长处，而如果从事自己不太擅长的工作是无法取得成就的，更不用说那些自己根本干不了的事情了。
-我们需要知己所长，才能知己所属。
-要发现自己的长处，唯一途径就是回馈分析法（feedback analysis）。每当做出重要决定或采取重要行动时，你都可以事先记录下自己对结果的预期。9 到 12 个月后，再将实际结果与自己的预期比较。
-我本人采用这种方法已有 15 到 20 年了，而每次使用都有意外的收获。
-我们只要持之以恒地运用这个简单的方法，就能在较短的时间内，发现自己的长处。在采用这种方法之后，你就能知道，自己正在做（或没有做）的哪些事情会让你的长处无法发挥出来。
-同时，你也将看到自己在哪些方面能力不是特别强。最后，你还将了解到自己在哪些方面完全不擅长，做不出成绩来。
-根据回馈分析的启示，你需要在几方面采取行动。
-首先最重要的是，专注于你的长处，把自己放到那些能发挥长处的地方。
-其次，加强你的长处。回馈分析会迅速地显示，你在哪些方面需要改善自己的技能或学习新技能。它还将显示你在知识上的差距——这些差距通常都可以弥补。
-第三，发现任何由于恃才傲物而造成的偏见和无知，并且加以克服。有太多的人，尤其是那些术业有专攻的人，往往对其他领域的知识不屑一顾，或者认为聪明的头脑就可取代知识。
-比如，很多一流的工程师遇上与人相关的事就束手无策，他们还以此为荣——因为他们觉得，对条理清晰的工程师头脑来说，人太混乱无序了。与此形成鲜明对照的是，人力资源方面的专业人员常常以他们连基本的会计知识或数量分析都一无所知而自傲。
-不过，人们要是对这样的无知还沾沾自喜的话，那无异于自取灭亡。其实，要让自己的长处得到充分发挥，你就应该努力学习新技能、汲取新知识。
-另外一点也同样重要——纠正你的不良习惯。所谓不良习惯，是指那些会影响你的工作成效和工作表现的事情。这样的习惯能很快地在回馈中反映出来。
-与此同时，回馈还会反映出哪些问题是由缺乏礼貌造成的。礼貌是一个组织的润滑剂。
-礼貌，其实也很简单。无非是说声「请」和「谢谢」，记住别人的名字，或问候对方家人这样的小事。许多聪明人，尤其是聪明的年轻人，没有意识到这一点。
-如果回馈分析表明某个人只要一遇到需要别人合作的事就屡屡失败，那么很可能就意味着这个人的举止不大得体——也就是缺乏礼貌。
-把预期和实际结果进行比较，也会发现自己不能做什么。我们每个人都有许多一窍不通、毫无天分的领域，在这些领域我们甚至连平庸的水平都达不到。人们，尤其是知识工作者，就不应该试图去完成这些领域的工作和任务。他们应该尽量少把精力浪费在那些不能胜任的领域上，因为从无能到平庸要比从一流到卓越需要人们付出多得多的努力。
-我们的工作方式是怎样的 很少有人知道自己平时是怎样把事情给做成的。
-实际上，我们当中的大多数人甚至不知道，不同人有着不同的工作方式和表现。
-许多人不是以他们习惯的方式工作，这当然就容易造成无所作为。
-对于知识工作者来说，「我的工作方式是怎样的？」可能比「我的长处是什么？」这个问题更加重要。
-同一个人的长处一样，一个人的工作方式也是独一无二的，这由人的个性决定。
-通常，几个常见的个性特征就决定了一个人的工作方式。
-我属于读者型，还是听者型？
-首先，你要搞清楚的是，你是读者型（习惯阅读信息）还是听者型（习惯听取信息）的人。绝大多数人甚至都不知道还有读者型和听者型之说，而且很少有人既是读者型又是听者型。知道自己属于哪种类型的人更少。
-没有几个听者型的人可以通过努力变成合格的读者型——不管是主动还是被动的努力，反之亦然。不了解你的工作方式不可能发挥才干或取得成就。
-我们如何学习 要了解一个人的工作方式，需要弄清的第二点是，他是如何学习的。
   </div>
   
 

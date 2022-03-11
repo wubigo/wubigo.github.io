@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-02-26T21:55:15&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
   
 
   
@@ -398,6 +398,195 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vmware-vm-static-ip/" itemprop="url">分配Vmware虚机静态IP</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="虚机网卡地址">虚机网卡地址</h2>
+
+<p><img src="/img/post/vmare-static-ip.png" alt="" /></p>
+
+<h2 id="配置静态ip">配置静态IP</h2>
+
+<p><code>C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf</code></p>
+
+<pre><code>host VMnet8 {
+    hardware ethernet 00:0C:29:23:AV:67;
+    fixed-address 192.168.137.170;
+}
+</code></pre>
+
+<h2 id="重启vmware-dhcp服务">重启VMWARE DHCP服务</h2>
+
+<pre><code>net stop vmnetdhcp
+net start vmnetdhcp
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 13, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/centos-notes/" itemprop="url">Centos Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
+DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network   set the default route on interface
+DEFROUTE=&quot;yes&quot;   删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
+sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2257,179 +2446,6 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
 <li><p>同事</p></li>
 </ul>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-11 17:39:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-11 17:39:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 11, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/function-computing-rise-like-s3/" itemprop="url">函数计算颠覆对象执行环境(像S3对象存储一样)</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><img src="./uaa-serverless.png" alt="uaa-on-serverless" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-within-wsl/" itemprop="url">在WSL中使用Docker</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    在windows中使用docker有多种方式：
- docker WIN10 desktop
- WSL
-  本文主要介绍在WSL中使用docker
-前提条件  Windows 10 Version 1803以上(支持cgroups)
- Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
- Docker 17.09
-  安装WSL install WSL
-WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\
   </div>
   
 

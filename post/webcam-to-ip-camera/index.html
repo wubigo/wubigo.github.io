@@ -518,12 +518,41 @@
 Listening on :56000
 </code></pre>
 
+<p>打开浏览器：</p>
+
+<p><a href="http://localhost:56000/" target="_blank">http://localhost:56000/</a></p>
+
+<p>html
+jpeg
+mjpeg</p>
+
+<p>chrome/inspect/network/img</p>
+
+<pre><code>data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
+</code></pre>
+
+<h2 id="display-base64-images-in-html">display Base64 images in HTML</h2>
+
+<pre><code>&lt;div&gt;
+  
+  &lt;img src=&quot;data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==&quot; alt=&quot;Red dot&quot; /&gt;
+&lt;/div&gt;
+</code></pre>
+
 <h1 id="使用anycam管理ip摄像头">使用anycam管理IP摄像头</h1>
 
-<p>通过RTSP方式管理webcam，</p>
+<p>通过RTSP方式管理webcam:</p>
 
 <p>输入：localhost:56000<br />
 连接方式：RTSP</p>
+
+<h1 id="参考">参考</h1>
+
+<p>[1]<a href="https://camera-sdk.com/p_6580-how-to-turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam-in-c-sharp.html" target="_blank">turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam</a></p>
+
+<p>[2]<a href="https://github.com/gen2brain/cam2ip" target="_blank">Turn any webcam into an IP camera</a></p>
 
     </div>
 
@@ -532,9 +561,15 @@ Listening on :56000
 
 <div class="article-tags">
   
+  <a class="badge badge-light" href="/tags/iiot/">IIOT</a>
+  
   <a class="badge badge-light" href="/tags/rtsp/">RTSP</a>
   
   <a class="badge badge-light" href="/tags/onvif/">ONVIF</a>
+  
+  <a class="badge badge-light" href="/tags/cv/">CV</a>
+  
+  <a class="badge badge-light" href="/tags/iot/">IOT</a>
   
 </div>
 
@@ -558,6 +593,20 @@ Listening on :56000
 
 
       
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/face-detection-notes/">面部生物识别学习笔记</a></li>
+          
+          <li><a href="/post/iot-building-blocks/">物联网核心构件</a></li>
+          
+          <li><a href="/post/iot-notes/">IOT Notes</a></li>
+          
+        </ul>
+      </div>
       
     
 
