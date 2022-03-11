@@ -40,6 +40,32 @@ cmd:\>cam2ip-1.6-64bit-cv\cam2ip
 Listening on :56000
 ```
 
+打开浏览器：
+
+http://localhost:56000/
+
+html
+jpeg
+mjpeg
+
+chrome/inspect/network/img
+
+```
+data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
+```
+
+## display Base64 images in HTML
+
+```
+<div>
+  
+  <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
+</div>
+```
+
+
 # 使用anycam管理IP摄像头
 
 通过RTSP方式管理webcam:
