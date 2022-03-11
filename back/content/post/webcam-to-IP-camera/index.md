@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["RTSP", "ONVIF"]
+tags = ["RTSP", "ONVIF"，"CV"]
 categories = []
 
 # Featured image
@@ -42,8 +42,14 @@ Listening on :56000
 
 # 使用anycam管理IP摄像头
 
-通过RTSP方式管理webcam，
+通过RTSP方式管理webcam:
 
 输入：localhost:56000      
 连接方式：RTSP
 
+
+# 参考
+
+[1][turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam](https://camera-sdk.com/p_6580-how-to-turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam-in-c-sharp.html)
+
+[2][Turn any webcam into an IP camera](https://github.com/gen2brain/cam2ip)
