@@ -423,6 +423,96 @@
 
 
 
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 8, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-within-wsl/" itemprop="url">在WSL中使用Docker</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="dateModified">
 
@@ -2235,104 +2325,6 @@ response, err := client.AllocateHosts(request)
 <p><a href="/post/cni_l2_network_on_bare_metal/">CNI 网桥</a></p></li>
 </ul>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-02-22 11:38:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-02-22 11:38:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 22, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/it/">IT</a>
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/blog_on_hugo/">
-      <img src="/post/blog_on_hugo/featured_hu284695fc8e59587d70e5b2d7df491030_200937_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/blog_on_hugo/" itemprop="url">Blog on hugo way</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Decide to gave hugo a shot after many years of being jekyll
   </div>
   
 
