@@ -1,5 +1,5 @@
 +++
-title = "Edgex Device Service Dev Env Setup"
+title = "搭建Edgex设备服务开发环境"
 date = 2022-03-11T15:39:42+08:00
 draft = false
 
