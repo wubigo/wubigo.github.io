@@ -82,7 +82,7 @@ http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/
 git clone git@github.com:edgexfoundry/device-camera-go.git
 git checkout jakarta
 cd device-camera-go
-
+go mod tidy
 set EDGEX_SECURITY_SECRET_STORE=false
 ```
 

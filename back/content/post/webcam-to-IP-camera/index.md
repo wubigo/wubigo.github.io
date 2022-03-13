@@ -71,7 +71,11 @@ data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
 通过RTSP方式管理webcam:
 
 输入：localhost:56000      
-连接方式：RTSP
+连接方式：MJPEG
+
+
+
+http://localhost:56000/mjpeg
 
 
 # 参考
