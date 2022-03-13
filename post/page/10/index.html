@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-20 18:47:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 20, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-openshift/" itemprop="url">K8s Openshift</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    v3.11.0-&gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&quot;$(pwd)&quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&quot;$(pwd)&quot;/openshift.local.config/master/ca.crt sudo chmod +r &quot;$(pwd)&quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2113,119 +2197,6 @@ and process them in a way that allows them to participate
   
   <div class="article-style" itemprop="articleBody">
     The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together &mdash; say a fleet of railcars &mdash; are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-29 16:23:34 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 29, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-vpc-connection/" itemprop="url">Aws VPC之间或VPC与私有网络之间的连接方式汇总</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="vpc之间的连接方式">VPC之间的连接方式</h2>
-
-<ul>
-<li><p>专线</p></li>
-
-<li><p>VPN托管服务</p></li>
-
-<li><p>VPN Peering</p></li>
-
-<li><p>自建或第三方VPN</p></li>
-
-<li><p>PrivateLink</p></li>
-</ul>
-
-<h2 id="vpc与私有网络之间的连接方式">VPC与私有网络之间的连接方式</h2>
-
-<ul>
-<li><p>VPN托管服务</p></li>
-
-<li><p>专线</p></li>
-
-<li><p>专线+VPN</p></li>
-
-<li><p>自建或第三方VPN</p></li>
-
-<li><p>Transit VPC</p></li>
-
-<li><p>VPN Hub</p></li>
-</ul>
-
   </div>
   
 

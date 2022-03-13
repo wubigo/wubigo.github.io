@@ -28,10 +28,11 @@
   
     
   
-  <meta name="description" content="摄像头的区别 USB vs RTSP vs ONVIF If we use USB cameras we do not need the camera url and some functions like moving, zooming etc. will not be available. In the case of RTSP cameras and ONVIF cameras there are more functions available. The difference between the RTSP camera and the ONVIF camera is the following: the RTSP camera has only one stream in comparsion with the ONVIF camera having multiple streams at a time">
+  <meta name="description" content="驱动服务客户端初始化与核心数据和命令服务 // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.
+驱动 diff --git a/internal/driver/driver.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/webcam-to-ip-camera/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/edgex-device-serice-implements-howto/">
 
   
 
@@ -120,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/webcam-to-ip-camera/">
+  <link rel="canonical" href="https://wubigo.com/post/edgex-device-serice-implements-howto/">
 
   
   
@@ -135,21 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/webcam-to-ip-camera/">
-  <meta property="og:title" content="Webcam to IP Camera | wubigo">
-  <meta property="og:description" content="摄像头的区别 USB vs RTSP vs ONVIF If we use USB cameras we do not need the camera url and some functions like moving, zooming etc. will not be available. In the case of RTSP cameras and ONVIF cameras there are more functions available. The difference between the RTSP camera and the ONVIF camera is the following: the RTSP camera has only one stream in comparsion with the ONVIF camera having multiple streams at a time"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/edgex-device-serice-implements-howto/">
+  <meta property="og:title" content="如何实现Edgex设备服务 | wubigo">
+  <meta property="og:description" content="驱动服务客户端初始化与核心数据和命令服务 // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.
+驱动 diff --git a/internal/driver/driver."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2021-03-11T09:34:40&#43;08:00">
+  <meta property="article:published_time" content="2022-03-13T17:19:50&#43;08:00">
   
-  <meta property="article:modified_time" content="2021-03-11T09:34:40&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2022-03-13T17:19:50&#43;08:00">
   
 
   
 
-  <title>Webcam to IP Camera | wubigo</title>
+  
+
+  <title>如何实现Edgex设备服务 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -386,7 +388,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Webcam to IP Camera</h1>
+  <h1 itemprop="name">如何实现Edgex设备服务</h1>
 
   
 
@@ -395,8 +397,8 @@
 
 
 
-<meta content="2021-03-11 09:34:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-03-11 09:34:40 &#43;0800 CST" itemprop="dateModified">
+<meta content="2022-03-13 17:19:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-03-13 17:19:50 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -409,7 +411,7 @@
     
       
     
-    <time>Mar 11, 2021</time>
+    <time>Mar 13, 2022</time>
   </span>
   
 
@@ -433,35 +435,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Webcam%20to%20IP%20Camera&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwebcam-to-ip-camera%2f"
+         href="https://twitter.com/intent/tweet?text=%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0Edgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-serice-implements-howto%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fwebcam-to-ip-camera%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-serice-implements-howto%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwebcam-to-ip-camera%2f&amp;title=Webcam%20to%20IP%20Camera"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-serice-implements-howto%2f&amp;title=%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0Edgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fwebcam-to-ip-camera%2f&amp;title=Webcam%20to%20IP%20Camera"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-serice-implements-howto%2f&amp;title=%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0Edgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Webcam%20to%20IP%20Camera&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fwebcam-to-ip-camera%2f">
+         href="mailto:?subject=%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0Edgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-serice-implements-howto%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -501,60 +503,47 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="摄像头的区别-usb-vs-rtsp-vs-onvif">摄像头的区别 USB  vs  RTSP  vs  ONVIF</h1>
+<h1 id="驱动服务客户端初始化与核心数据和命令服务">驱动服务客户端初始化与核心数据和命令服务</h1>
 
-<p>If we use USB cameras we do not need the camera url and some functions like moving, zooming etc. will not be available. In the case of RTSP cameras and ONVIF cameras there are more functions available. The difference between the RTSP camera and the ONVIF camera is the following: the RTSP camera has only one stream in comparsion with the ONVIF camera having multiple streams at a time</p>
+<p>// InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services
+// through Metadata Client and Core Data Client.
+// Service Client Initializer also needs to check the service status of Metadata and Core Data Services,
+// because they are important dependencies of Device Service.
+// The initialization process should be pending until Metadata Service and Core Data Service are both available.</p>
 
-<h1 id="安装cam2ip">安装cam2ip</h1>
+<h1 id="驱动">驱动</h1>
 
-<p><a href="https://github.com/gen2brain/cam2ip" target="_blank">https://github.com/gen2brain/cam2ip</a></p>
+<pre><code>diff --git a/internal/driver/driver.go b/internal/driver/driver.go
 
-<p>下载OPENCV版
-<a href="https://github.com/gen2brain/cam2ip/releases/download/1.6/cam2ip-1.6-64bit-cv2.zip" target="_blank">https://github.com/gen2brain/cam2ip/releases/download/1.6/cam2ip-1.6-64bit-cv2.zip</a></p>
-
-<p>运行</p>
-
-<pre><code>cmd:\&gt;cam2ip-1.6-64bit-cv\cam2ip
-Listening on :56000
+@@ -388,7 +389,7 @@ func (d *Driver) Initialize(lc logger.LoggingClient, asyncCh 
+-
++       debug.PrintStack()
 </code></pre>
 
-<p>打开浏览器：</p>
+<pre><code>runtime/debug.Stack()
+        C:/local/go/src/runtime/debug/stack.go:24 +0x7a
+runtime/debug.PrintStack()
+        C:/local/go/src/runtime/debug/stack.go:16 +0x19
+github.com/edgexfoundry/device-camera-go/internal/driver.(*Driver).Initialize(0xc00034fa00, {0x14495f0, 0xc0003714a0}, 0xc000480060, 0x0)        
+        D:/code/go/src/github.com/edgexfoundry/device-camera-go/internal/driver/driver.go:392 +0xc7
+github.com/edgexfoundry/device-sdk-go/v2/pkg/service.(*Bootstrap).BootstrapHandler(0xc0000d26e0, {0x14408d8, 0xc00036b0c0}, 0xc000388680, {{0xc08
+38af7a5288f3c, 0xf37d35, 0x17238c0}, 0xdf8475800, 0x3b9aca00}, 0xc00034fa80)
+        D:/code/go/pkg/mod/github.com/edgexfoundry/device-sdk-go/v2@v2.2.0-dev.8/pkg/service/init.go:55 +0x62d
+github.com/edgexfoundry/go-mod-bootstrap/v2/bootstrap.RunAndReturnWaitGroup({0x14408d8, 0xc00036b0c0}, 0xc0003827f0, {0x1446b90, 0xc000351500}, {
+0x13d7f8f, 0xd}, {0x13d868d, 0xe}, {0x1445710, ...}, ...)
+        D:/code/go/pkg/mod/github.com/edgexfoundry/go-mod-bootstrap/v2@v2.1.0/bootstrap/bootstrap.go:158 +0xa33
+github.com/edgexfoundry/go-mod-bootstrap/v2/bootstrap.Run({0x14408d8, 0xc00036b0c0}, 0xc0003827f0, {0x1446b90, 0xc000351500}, {0x13d7f8f, 0xd}, {
+0x13d868d, 0xe}, {0x1445710, ...}, ...)
+        D:/code/go/pkg/mod/github.com/edgexfoundry/go-mod-bootstrap/v2@v2.1.0/bootstrap/bootstrap.go:184 +0x19c
+github.com/edgexfoundry/device-sdk-go/v2/pkg/service.Main({0x13d7f8f, 0xd}, {0x13e0370, 0x1a}, {0x1391bc0, 0xc00034fa00}, {0x14408d8, 0xc00036b0c
+0}, 0xc0003827f0, 0xc0002c1bc0)
+        D:/code/go/pkg/mod/github.com/edgexfoundry/device-sdk-go/v2@v2.2.0-dev.8/pkg/service/main.go:66 +0x9b3
+github.com/edgexfoundry/device-sdk-go/v2/pkg/startup.Bootstrap({0x13d7f8f, 0xd}, {0x13e0370, 0x1a}, {0x1391bc0, 0xc00034fa00})
+        D:/code/go/pkg/mod/github.com/edgexfoundry/device-sdk-go/v2@v2.2.0-dev.8/pkg/startup/bootstrap.go:19 +0x11a
+main.main()
+        D:/code/go/src/github.com/edgexfoundry/device-camera-go/cmd/main.go:22 +0x4c
 
-<p><a href="http://localhost:56000/" target="_blank">http://localhost:56000/</a></p>
-
-<p>html
-jpeg
-mjpeg</p>
-
-<p>chrome/inspect/network/img</p>
-
-<pre><code>data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
 </code></pre>
-
-<h2 id="display-base64-images-in-html">display Base64 images in HTML</h2>
-
-<pre><code>&lt;div&gt;
-  
-  &lt;img src=&quot;data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
-    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-        9TXL0Y4OHwAAAABJRU5ErkJggg==&quot; alt=&quot;Red dot&quot; /&gt;
-&lt;/div&gt;
-</code></pre>
-
-<h1 id="使用anycam管理ip摄像头">使用anycam管理IP摄像头</h1>
-
-<p>通过RTSP方式管理webcam:</p>
-
-<p>输入：localhost:56000<br />
-连接方式：MJPEG</p>
-
-<p><a href="http://localhost:56000/mjpeg" target="_blank">http://localhost:56000/mjpeg</a></p>
-
-<h1 id="参考">参考</h1>
-
-<p>[1]<a href="https://camera-sdk.com/p_6580-how-to-turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam-in-c-sharp.html" target="_blank">turn-your-old-rtsp-ip-camera-into-an-onvif-ip-webcam</a></p>
-
-<p>[2]<a href="https://github.com/gen2brain/cam2ip" target="_blank">Turn any webcam into an IP camera</a></p>
 
     </div>
 
@@ -562,14 +551,6 @@ mjpeg</p>
 
 
 <div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/iiot/">IIOT</a>
-  
-  <a class="badge badge-light" href="/tags/rtsp/">RTSP</a>
-  
-  <a class="badge badge-light" href="/tags/onvif/">ONVIF</a>
-  
-  <a class="badge badge-light" href="/tags/cv/">CV</a>
   
   <a class="badge badge-light" href="/tags/iot/">IOT</a>
   
@@ -601,11 +582,15 @@ mjpeg</p>
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/face-detection-notes/">面部生物识别学习笔记</a></li>
+          <li><a href="/post/edgex-device-service-dev-env-setup/">搭建Edgex设备服务开发环境</a></li>
+          
+          <li><a href="/post/mainflux-dev-setup/">Mainflux Dev Setup</a></li>
+          
+          <li><a href="/post/connect-kepserver-to-ali-iot/">Connect KEPServer to Ali IoT</a></li>
+          
+          <li><a href="/post/webcam-to-ip-camera/">Webcam to IP Camera</a></li>
           
           <li><a href="/post/iot-building-blocks/">物联网核心构件</a></li>
-          
-          <li><a href="/post/iot-notes/">IOT Notes</a></li>
           
         </ul>
       </div>

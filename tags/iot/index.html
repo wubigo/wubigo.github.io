@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-11T15:39:42&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
   
 
   
@@ -401,6 +401,16 @@
   
   
   <div>
+    <h2><a href="/post/edgex-device-serice-implements-howto/">如何实现Edgex设备服务</a></h2>
+    <div class="article-style">
+      
+      驱动服务客户端初始化与核心数据和命令服务 // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.
+驱动 diff --git a/internal/driver/driver.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/edgex-device-service-dev-env-setup/">搭建Edgex设备服务开发环境</a></h2>
     <div class="article-style">
       
@@ -416,7 +426,7 @@ http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/
 修改INFO为DEBUG
 在IDE里面启动设备服务 以IP摄像头设备服务为例
 打开WEBCAM webcam-to-ip-camera
-配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。
       
     </div>
   </div>

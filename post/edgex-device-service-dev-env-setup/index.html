@@ -40,7 +40,7 @@ http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/
 修改INFO为DEBUG
 在IDE里面启动设备服务 以IP摄像头设备服务为例
 打开WEBCAM webcam-to-ip-camera
-配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。">
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/edgex-device-service-dev-env-setup/">
@@ -161,7 +161,7 @@ http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/
 修改INFO为DEBUG
 在IDE里面启动设备服务 以IP摄像头设备服务为例
 打开WEBCAM webcam-to-ip-camera
-配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2022-03-11T15:39:42&#43;08:00">
@@ -579,7 +579,7 @@ http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/
 <pre><code>git clone git@github.com:edgexfoundry/device-camera-go.git
 git checkout jakarta
 cd device-camera-go
-
+go mod tidy
 set EDGEX_SECURITY_SECRET_STORE=false
 </code></pre>
 
