@@ -17,8 +17,7 @@
       <pubDate>Sun, 13 Mar 2022 17:19:50 +0800</pubDate>
       
       <guid>https://wubigo.com/post/edgex-device-serice-implements-howto/</guid>
-      <description>驱动服务客户端初始化与核心数据和命令服务 // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.
-驱动 diff --git a/internal/driver/driver.</description>
+      <description>加载设备配置文件 device-sdk-go: service.init.go: driver.Initialize initializeOnvifClient onvif4go.NewOnvifDevice.Initialize() provision.LoadProfiles(ds.config.Device.ProfilesDir, dic) provision.LoadDevices  驱动服务客户端初始化与核心数据和命令服务 clients.BootstrapHandler -&amp;gt; InitDependencyClients // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.</description>
     </item>
     
     <item>
@@ -3409,7 +3408,8 @@ docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &amp;gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &amp;gt;if both are unnamed pointer types that point to variables of the same underlying type; these &amp;gt;conversions change the type but not the representation of the value. If x is assignable to T, a &amp;gt;conversion is permitted but is usually redundant.</description>
+      <description>虚拟包版本 Untagged revisions can be referred to using a &amp;ldquo;pseudo-version&amp;rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&amp;gt; v0.0.2-0.20211216162907-40b41ba86c5c  类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &amp;gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &amp;gt;if both are unnamed pointer types that point to variables of the same underlying type; these &amp;gt;conversions change the type but not the representation of the value.</description>
     </item>
     
     <item>
