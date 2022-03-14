@@ -20,20 +20,46 @@ categories = []
 +++
 
 
+# 加载设备配置文件
+
+```
+device-sdk-go:
+service.init.go:   
+       driver.Initialize
+             initializeOnvifClient
+                onvif4go.NewOnvifDevice.Initialize()
+       provision.LoadProfiles(ds.config.Device.ProfilesDir, dic)
+       provision.LoadDevices
+
+```
+
 # 驱动服务客户端初始化与核心数据和命令服务
+
+```
+clients.BootstrapHandler -> InitDependencyClients
+    
+
+
+
 
 // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services
 // through Metadata Client and Core Data Client.
 // Service Client Initializer also needs to check the service status of Metadata and Core Data Services,
 // because they are important dependencies of Device Service.
 // The initialization process should be pending until Metadata Service and Core Data Service are both available.
-
+```
 
 
 
 
 
 # 驱动
+
+
+```
+func (d *Driver) Initialize     ->    loadCameraConfig
+```
+
 
 
 ```
@@ -71,3 +97,12 @@ main.main()
 
 ```
 
+
+## OnvifClient
+
+[onvif4go](https://github.com/faceterteam/onvif4go)
+
+
+## ONVIF设备 
+
+ONVIF提供一系列被清楚定义的网络服务给符合ONVIF标准的设备及客户。此外，一些条件功能只能在特定的产品中才能实现。例如要实现摄像机的PTZ功能，必须要在接口处提供特定的支持服务才可以实现，可选的服务也都须被定义。产品必须详细说明所支持的服务及功能。在开发上非常简便，软件客户端可以查询符合ONVIF标准的设备，获取产品的服务与功能列表。例如图像服务是可选受理的服务，客户端可以通过设备管理服务的“能力获取”（GetCapabilities）查询该服务的可用性。这意味着集成商可以在软件中自动侦测产品所支持的服务及功能
