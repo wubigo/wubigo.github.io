@@ -59,5 +59,24 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED          STA
 6b1ccff548ba   redis               "docker-entrypoint.s…"    dapr_redis
 ```
 
+# 源代码
+
+## 默认的日志级别
+
+`github.com/dapr/kit@logger\options.go`
+
+```
+const (
+	defaultJSONOutput  = false
+	defaultOutputLevel = "debug"
+	undefinedAppID     = ""
+)
+```
+
+
+
+
+
+
 
 
