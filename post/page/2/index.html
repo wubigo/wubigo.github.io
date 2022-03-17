@@ -423,97 +423,6 @@
 
 
 
-<meta content="2021-08-26 06:24:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-08-26 06:24:31 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 26, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/chrome-read-mode/" itemprop="url">Chrome Read Mode</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="打开阅读模式">打开阅读模式</h1>
-
-<p>Open a new tab and enter chrome://flags/#enable-reader-mode to jump directly to the Reader Mode Flag.</p>
-
-<h1 id="使用">使用</h1>
-
-<p>Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="datePublished">
 <meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="dateModified">
 
@@ -2283,6 +2192,90 @@ oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elastic
   <div class="article-style" itemprop="articleBody">
     什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
 apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/ubuntu-dns-client/" itemprop="url">在Ubuntu上禁用DNS本地缓存 </a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
+sudo cat /run/resolvconf/resolv.conf sudo cat /run/dnsmasq/resolv.conf sudo cat /etc/systemd/resolved.conf  Disable the local DNS cache /etc/NetworkManager/NetworkManager.conf
+#dns=dnsmasq  systemctl restart network-manager  sudo systemctl disable dnsmasq  ubuntu 20.
   </div>
   
 
