@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 16, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lynx-ycombinator/" itemprop="url">通过lynx浏览黑客新网</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    最近黑客新网也被墙了，WTF
+lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pingcap.com) 107 points by Bella-Xiang 4 hours ago | hide | 17 comments 2. Adobe to remove Flash Player from web site after December 2020 (adobe.com) 740 points by michaelhoffman 14 hours ago | hide | 412 comments 3. How many of you know that the team is working on something that no-one wants? (iism.org) 255 points by kiyanwang 8 hours ago | hide | 136 comments 4.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2303,117 +2386,6 @@ GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下
 安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
 js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
 gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 27, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/digital-evolution-of-open-source-business-process-management/" itemprop="url">开源的工作流引擎技术演进历史</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    第一代 2003年， jBPM 1.0发布。
-运行环境：J2EE
-过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)
-当时的主流的技术： applets, Swing桌面和EJB
-第二代 2004年，jBPM 2.0发布
-同时jBPM加入JBoss基金会.
-运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器
-第三代 2005年, jBPM 3.0发布，支持BPEL
-过程定义语言：过程虚拟机
-架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通
-过JAVA实现状态机，而且支持建模
-HIBERNETE作为持久机制并同时提供会话对象的概念，
-工作流引擎所有的相关性交互都纳入contextual block范畴
-这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础
-第四代 2009年， jBPM 4.0 alpha版发布.
-过程虚拟机成功工作流引擎的核心。
-过程定义语言：BPMN, jPDL 和 BPEL
-因为团队人员离开并启动Activiti，正式版没能发布。
-主要改进：
- 无状态的服务API 运行时和历史数据的分离： 保证运行时持久的性能  第五代 2010年, Activiti 1发布
-改变：
- 版权从LGPL转到APACHE.
- 过程定义语言：BPMN(唯一)
- 从性能和扩展性加强PVM
- 多租户支持
- 轻量级架构
-  第六代 2017年，flowable 6.0发布。
-改变：
- 过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移
- 数据远完全抽象：支持NoSQL
   </div>
   
 

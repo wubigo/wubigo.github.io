@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
   
 
   
@@ -398,6 +398,139 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 26, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="创建bucket">创建BUCKET</h2>
+
+<p>使用两种方式之一创建BUCKET</p>
+
+<ul>
+<li><p>terraform</p>
+
+<pre><code>git clone https://github.com/wubigo/iaas
+
+cd s3
+
+terraform apply
+
+</code></pre></li>
+
+<li><p>awscli</p>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre></li>
+</ul>
+
+<h3 id="确认配置">确认配置</h3>
+
+<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
+{
+    &quot;IndexDocument&quot;: {
+        &quot;Suffix&quot;: &quot;index.html&quot;
+    },
+    &quot;ErrorDocument&quot;: {
+        &quot;Key&quot;: &quot;404.html&quot;
+    }
+}
+
+</code></pre>
+
+<h2 id="配置dns-c记录">配置DNS C记录</h2>
+
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+
+<p><img src="/img/post/s3-web.png" alt="" /></p>
+
+<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+</code></pre>
+
+<h2 id="上传站点内容">上传站点内容</h2>
+
+<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2142,93 +2275,6 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
     # side car proxy
  方法1  Namespace labels
 kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/cassandra/">
-      <img src="/post/cassandra/featured_hu22b11bbc68f072918e062ea4bc21e939_19335_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cassandra/" itemprop="url">Cassandra</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.
   </div>
   
 

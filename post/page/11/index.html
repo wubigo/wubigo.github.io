@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
   
 
   
@@ -398,6 +398,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-01-29 18:20:21 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/iot-notes/" itemprop="url">IOT Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together &mdash; say a fleet of railcars &mdash; are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2185,139 +2267,6 @@ CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&q
 <p>NvGRE（Network virtualization GRE，RFC draft）是微软搞出来的数据中心虚拟化技术，是一种MACinGRE隧道。它对传统的GRE报头进行了改造，增加了24位的VSID字段标识租户，而FlowID可用来做ECMP。由于去掉了GRE报头中的Checksum字段，因此NvGRE不支持校验和检验。NvGRE封装以太网帧，外层的报头可以为IPv4也可以为IPv6</p>
 
 <p><a href="https://www.sdnlab.com/nv-subject/" target="_blank">https://www.sdnlab.com/nv-subject/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 26, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="创建bucket">创建BUCKET</h2>
-
-<p>使用两种方式之一创建BUCKET</p>
-
-<ul>
-<li><p>terraform</p>
-
-<pre><code>git clone https://github.com/wubigo/iaas
-
-cd s3
-
-terraform apply
-
-</code></pre></li>
-
-<li><p>awscli</p>
-
-<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
-aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
-</code></pre></li>
-</ul>
-
-<h3 id="确认配置">确认配置</h3>
-
-<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
-{
-    &quot;IndexDocument&quot;: {
-        &quot;Suffix&quot;: &quot;index.html&quot;
-    },
-    &quot;ErrorDocument&quot;: {
-        &quot;Key&quot;: &quot;404.html&quot;
-    }
-}
-
-</code></pre>
-
-<h2 id="配置dns-c记录">配置DNS C记录</h2>
-
-<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
-
-<p><img src="/img/post/s3-web.png" alt="" /></p>
-
-<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
-</code></pre>
-
-<h2 id="上传站点内容">上传站点内容</h2>
-
-<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
-</code></pre>
 
   </div>
   

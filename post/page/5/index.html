@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-13T17:19:50&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
   
 
   
@@ -398,6 +398,117 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 27, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/digital-evolution-of-open-source-business-process-management/" itemprop="url">开源的工作流引擎技术演进历史</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    第一代 2003年， jBPM 1.0发布。
+运行环境：J2EE
+过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)
+当时的主流的技术： applets, Swing桌面和EJB
+第二代 2004年，jBPM 2.0发布
+同时jBPM加入JBoss基金会.
+运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器
+第三代 2005年, jBPM 3.0发布，支持BPEL
+过程定义语言：过程虚拟机
+架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通
+过JAVA实现状态机，而且支持建模
+HIBERNETE作为持久机制并同时提供会话对象的概念，
+工作流引擎所有的相关性交互都纳入contextual block范畴
+这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础
+第四代 2009年， jBPM 4.0 alpha版发布.
+过程虚拟机成功工作流引擎的核心。
+过程定义语言：BPMN, jPDL 和 BPEL
+因为团队人员离开并启动Activiti，正式版没能发布。
+主要改进：
+ 无状态的服务API 运行时和历史数据的分离： 保证运行时持久的性能  第五代 2010年, Activiti 1发布
+改变：
+ 版权从LGPL转到APACHE.
+ 过程定义语言：BPMN(唯一)
+ 从性能和扩展性加强PVM
+ 多租户支持
+ 轻量级架构
+  第六代 2017年，flowable 6.0发布。
+改变：
+ 过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移
+ 数据远完全抽象：支持NoSQL
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2191,118 +2302,6 @@ git branch -av|grep 1.13
 
 <pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dev-on-tencent-cloud-sdk-in-go/" itemprop="url">通过SDK操纵公有云</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>基于腾讯云Go SDK开发</p>
-
-<h1 id="下载开发工具集">下载开发工具集</h1>
-
-<pre><code>go get -u github.com/tencentcloud/tencentcloud-sdk-go
-</code></pre>
-
-<h1 id="为集群准备cvm">为集群准备CVM</h1>
-
-<p>从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
-然后把安全凭证传送给SDK客户端</p>
-
-<pre><code>secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;)
-credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;)
-client, _ := cvm.NewClient(credential, regions.Beijing)
-</code></pre>
-
-<pre><code>request := cvm.NewAllocateHostsRequest()
-request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;))
-response, err := client.AllocateHosts(request)
-</code></pre>
-
-<h1 id="通过ansible在cvm搭建k8s集群">通过ANSIBLE在CVM搭建K8S集群</h1>
-
-<pre><code>Ansible.Hosts().Get(response.ToJsonString())
-</code></pre>
-
-<p>调用ANSIBLE开始在CVM部署K8S集群</p>
 
   </div>
   
