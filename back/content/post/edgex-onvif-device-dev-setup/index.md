@@ -113,6 +113,14 @@ Host = "10.166.44.182"
 
 ## 启动ONVIF摄像头服务
 
+## 启动设备服务
+
+```
+cd device-camera-go/cmd
+set EDGEX_SECURITY_SECRET_STORE=false
+go run main.go
+```
+
 ## 查看设备资源
 
 curl -X GET http://10.166.44.182:59882/api/v2/device/name/Camera001
