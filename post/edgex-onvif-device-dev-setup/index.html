@@ -598,6 +598,13 @@ Host = &quot;10.166.44.182&quot;
 
 <h2 id="启动onvif摄像头服务">启动ONVIF摄像头服务</h2>
 
+<h2 id="启动设备服务">启动设备服务</h2>
+
+<pre><code>cd device-camera-go/cmd
+set EDGEX_SECURITY_SECRET_STORE=false
+go run main.go
+</code></pre>
+
 <h2 id="查看设备资源">查看设备资源</h2>
 
 <p>curl -X GET <a href="http://10.166.44.182:59882/api/v2/device/name/Camera001" target="_blank">http://10.166.44.182:59882/api/v2/device/name/Camera001</a></p>
