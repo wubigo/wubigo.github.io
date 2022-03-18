@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
   
 
   
@@ -398,6 +398,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 18, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/edgex-onvif-device-dev-setup/" itemprop="url">Edgex Onvif Device Dev Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
+networks: edgex-network: {}  为
+network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
+environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
+10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
+注册服务，消息队列，核心服务的所在的主机配置
+[Registry] Type = &quot;consul&quot; Host = &quot;10.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2088,97 +2176,6 @@ User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/5
   <div class="article-style" itemprop="articleBody">
     Replication Method Replication Method - Replication method to use for extracting data from the database. STANDARD replication requires no setup on the DB side but will not be able to represent deletions incrementally. CDC uses the Binlog to detect inserts, updates, and deletes. This needs to be configured on the source database itself.
 S3 Support in Apache Hadoop Apache Hadoop ships with a connector to S3 called &ldquo;S3A&rdquo;, with the url prefix &ldquo;s3a:&ldquo;; its previous connectors &ldquo;s3&rdquo;, and &ldquo;s3n&rdquo; are deprecated and/or deleted from recent Hadoop versions.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-08-26 06:24:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-08-26 06:24:31 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 26, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/chrome-read-mode/" itemprop="url">Chrome Read Mode</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="打开阅读模式">打开阅读模式</h1>
-
-<p>Open a new tab and enter chrome://flags/#enable-reader-mode to jump directly to the Reader Mode Flag.</p>
-
-<h1 id="使用">使用</h1>
-
-<p>Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”</p>
-
   </div>
   
 

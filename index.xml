@@ -5,8 +5,143 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 17:29:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Mar 2022 10:58:46 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Edgex Onvif Device Dev Setup</title>
+      <link>https://wubigo.com/post/edgex-onvif-device-dev-setup/</link>
+      <pubDate>Fri, 18 Mar 2022 10:58:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/edgex-onvif-device-dev-setup/</guid>
+      <description>
+
+&lt;h1 id=&#34;启动edgex核心服务&#34;&gt;启动EDGEX核心服务&lt;/h1&gt;
+
+&lt;h2 id=&#34;使用容器主机网络&#34;&gt;使用容器主机网络&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;networks:
+      edgex-network: {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;network_mode: host
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;consul&#34;&gt;CONSUL&lt;/h3&gt;
+
+&lt;p&gt;配置CONSUL绑定到指定以太网卡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;environment:
+      CONSUL_BIND_INTERFACE: ens3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;配置dns&#34;&gt;配置DNS&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;10.166.44.182 edgex-core-consul
+10.166.44.182 edgex-core-command
+10.166.44.182 edgex-redis
+10.166.44.182 edgex-core-metadata
+10.166.44.182 edgex-core-data
+10.166.44.182 edgex-support-notifications
+10.166.44.182 edgex-support-scheduler
+10.166.44.182 edgex-ui-go
+10.166.44.182 edgex-kuiper
+10.166.44.182 edgex-app-rules-engine
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;启动核心服务&#34;&gt;启动核心服务&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose -f docker-compose-no-secty.yml up -d 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;检查核心服务启动正常&#34;&gt;检查核心服务启动正常&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker logs -f edgex-core-command edgex-core-data edgex-core-metadata
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;在本地启动设备服务&#34;&gt;在本地启动设备服务&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:edgexfoundry/device-camera-go.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改&lt;code&gt;cmd\res\configuration.toml&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;注册服务，消息队列，核心服务的所在的主机配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Registry]
+Type = &amp;quot;consul&amp;quot;
+Host = &amp;quot;10.166.44.182&amp;quot;
+Port = 8500
+
+[MessageQueue]
+Protocol = &amp;quot;redis&amp;quot;
+Host = &amp;quot;10.166.44.182&amp;quot;
+
+[Clients.core-data]
+  Protocol = &amp;quot;http&amp;quot;
+  Host = &amp;quot;10.166.44.182&amp;quot;
+  Port = 59880
+
+  [Clients.core-metadata]
+  Protocol = &amp;quot;http&amp;quot;
+  Host = &amp;quot;10.166.44.182&amp;quot;
+  Port = 59881
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;连接onvif摄像头&#34;&gt;连接ONVIF摄像头&lt;/h2&gt;
+
+&lt;h2 id=&#34;启动onvif摄像头服务&#34;&gt;启动ONVIF摄像头服务&lt;/h2&gt;
+
+&lt;h2 id=&#34;查看设备资源&#34;&gt;查看设备资源&lt;/h2&gt;
+
+&lt;p&gt;curl -X GET &lt;a href=&#34;http://10.166.44.182:59882/api/v2/device/name/Camera001&#34; target=&#34;_blank&#34;&gt;http://10.166.44.182:59882/api/v2/device/name/Camera001&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;建议：请使用postman测试，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifSnapshot&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;Binary&amp;quot;
+                    }
+                ]
+            },
+            {
+                &amp;quot;name&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
+                &amp;quot;get&amp;quot;: true,
+                &amp;quot;set&amp;quot;: true,
+                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifHostname&amp;quot;,
+                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
+                &amp;quot;parameters&amp;quot;: [
+                    {
+                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
+                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
+                    }
+                ]
+            }
+````
+
+postmana返回的路径可以直接点击，并直接调用相应的资源
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot&#34; target=&#34;_blank&#34;&gt;http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot&lt;/a&gt;
+```&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>如何实现Edgex设备服务</title>
@@ -1118,164 +1253,6 @@ quasar new page page1
 &lt;h2 id=&#34;组件类型&#34;&gt;组件类型&lt;/h2&gt;
 
 &lt;p&gt;layout, page, component , boot, store&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lambda Redeploy Across Region</title>
-      <link>https://wubigo.com/post/lambda-redeploy-across-region/</link>
-      <pubDate>Fri, 22 Oct 2021 11:59:36 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lambda-redeploy-across-region/</guid>
-      <description>
-
-&lt;h1 id=&#34;计算时间-vs-请求数量&#34;&gt;计算时间 vs 请求数量&lt;/h1&gt;
-
-&lt;h2 id=&#34;平均计算时长&#34;&gt;平均计算时长&lt;/h2&gt;
-
-&lt;p&gt;427586 / 27386 = 15.6 (秒)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/aws-lambda-fee.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;设置默认配置&#34;&gt;设置默认配置&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws configure list-profiles
-
-default
-us-east-1
-us-east-2
-us-west-2
-us-west-1
-eu
-eu-west-1
-af-south-1
-ap-east-1
-ap-south-1
-ap-northeast-3
-ap-northeast-2
-ap-southeast-1
-ap-southeast-2
-ca-central-1
-eu-west-2
-eu-south-1
-eu-west-3
-eu-north-1
-me-south-1
-sa-east-1
-
-export AWS_PROFILE=us
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;下载部署包&#34;&gt;下载部署包&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda get-function --function-name webdriver
-
-
-&amp;quot;Code&amp;quot;: {
-        &amp;quot;RepositoryType&amp;quot;: &amp;quot;S3&amp;quot;,
-        &amp;quot;Location&amp;quot;: &amp;quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从Location下载部署包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;PROF = &amp;quot;eu-central-1&amp;quot;
-
-aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;配置&#34;&gt;配置&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;role-policy.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;,
-    &amp;quot;Statement&amp;quot;: [
-    {
-        &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;,
-        &amp;quot;Principal&amp;quot;: {
-            &amp;quot;Service&amp;quot;: [&amp;quot;lambda.amazonaws.com&amp;quot;]
-    },
-    &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;
-    }
-  ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.json
-aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;测试&#34;&gt;测试&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;export AWS_PROFILE=eu-south-1
-aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; out --log-type Tail --query &#39;LogResult&#39; --output text |  base64 -d
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;调度&#34;&gt;调度&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &#39;rate(30 minutes)&#39; 
-
-
-aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action &#39;lambda:InvokeFunction&#39; --principal events.amazonaws.com --source-arn arn:aws:events:eu-central-1:762491489154:rule/webdriver-scheduled-rule
-
-
-aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;调整周期&#34;&gt;调整周期&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &amp;quot;rate(10 minutes)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&#34; target=&#34;_blank&#34;&gt;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;自动&#34;&gt;自动&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;if [ -z &amp;quot;$1&amp;quot; ]
-  then
-    echo &amp;quot;No region supplied&amp;quot;
-    exit 1
-fi
-export AWS_PROFILE=$1
-
-FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
-echo $FN
-
-aws events put-rule --name webdriver-scheduled-rule --schedule-expression &#39;rate(30 minutes)&#39;
-
-
-EVENT=$(aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action &#39;lambda:InvokeFunction&#39; --principal events.amazonaws.com --source-arn arn:aws:events:${AWS_PROFILE}:762491:rule/webdriver-scheduled-rule)
-echo $EVENT
-
-T=$(python3 targets.py ${AWS_PROFILE})
-cat targets.json
-aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
-sleep 5
-awslogs streams /aws/lambda/webdriver
-awslogs get /aws/lambda/webdriver --filter-pattern=&amp;quot;[r=REPORT,...]&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;禁止调用&#34;&gt;禁止调用&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt; aws lambda put-function-concurrency --function-name webdriver --reserved-concurrent-executions 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;function cannot be invoked while the reserved concurrency is zero.&lt;/p&gt;
-
-&lt;p&gt;Calling the invoke API action failed with this message: Rate Exceeded.&lt;/p&gt;
-
-&lt;h1 id=&#34;并发配额重置&#34;&gt;并发配额重置&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda delete-function-concurrency  --function-name webdriver
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;清理&#34;&gt;清理&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda remove-permission --function-name webdriver --statement-id webdriver-scheduled-event
-aws events list-targets-by-rule --rule webdriver-scheduled-rule
-aws events remove-targets --rule  webdriver-scheduled-rule --ids 1
-aws events delete-rule --name &amp;quot;webdriver-scheduled-rule&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-17T17:29:55&#43;08:00">
+  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
   
 
   
@@ -399,6 +399,21 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/edgex-onvif-device-dev-setup/">Edgex Onvif Device Dev Setup</a></h2>
+    <div class="article-style">
+      
+      启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
+networks: edgex-network: {}  为
+network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
+environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
+10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
+注册服务，消息队列，核心服务的所在的主机配置
+[Registry] Type = &quot;consul&quot; Host = &quot;10.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/edgex-device-service-onvif/">如何实现Edgex设备服务</a></h2>
