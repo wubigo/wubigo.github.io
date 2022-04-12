@@ -11,7 +11,7 @@ IF [%MSG%] == [] (
 
 git status
 git add .
-git commit -a -m %MSG%
+git commit -a  -s -m %MSG%
 git push
 
 REM build static resource

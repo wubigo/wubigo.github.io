@@ -38,10 +38,7 @@ C:\Windows\SoftwareDistribution\Download</description>
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
-安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&amp;gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.</description>
+WSL 命令行和默认 shell cmd:\&amp;gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &amp;quot;metadata&amp;quot;  WSL DOCKER磁盘卷路径 cmd:\&amp;gt;docker volume inspect edgex_consul-config [ { &amp;quot;CreatedAt&amp;quot;: &amp;quot;2022-03-07T08:04:34Z&amp;quot;, &amp;quot;Driver&amp;quot;: &amp;quot;local&amp;quot;, &amp;quot;Labels&amp;quot;: { &amp;quot;com.docker.compose.project&amp;quot;: &amp;quot;edgex&amp;quot;, &amp;quot;com.docker.compose.version&amp;quot;: &amp;quot;2.2.3&amp;quot;, &amp;quot;com.docker.compose.volume&amp;quot;: &amp;quot;consul-config&amp;quot; }, &amp;quot;Mountpoint&amp;quot;: &amp;quot;/var/lib/docker/volumes/edgex_consul-config/_data&amp;quot;, &amp;quot;Name&amp;quot;: &amp;quot;edgex_consul-config&amp;quot;, &amp;quot;Options&amp;quot;: null, &amp;quot;Scope&amp;quot;: &amp;quot;local&amp;quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</description>
     </item>
     
     <item>

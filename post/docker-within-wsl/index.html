@@ -36,10 +36,14 @@
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
+<<<<<<< HEAD
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
 安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
 c:\&gt;wsl -d Ubuntu-16.04  安装docker
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17.">
+=======
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-within-wsl/">
@@ -156,10 +160,14 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
+<<<<<<< HEAD
 安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
 安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
 c:\&gt;wsl -d Ubuntu-16.04  安装docker
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; $ sudo apt-get install docker-ce=17."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+=======
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-10-08T14:21:19&#43;08:00">
@@ -440,7 +448,11 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     1 min read
+=======
+    2 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -547,6 +559,38 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $
 
 <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">install WSL</a></p>
 
+<h1 id="wsl-命令行和默认-shell">WSL 命令行和默认 shell</h1>
+
+<pre><code>cmd:\&gt;wsl
+wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf
+[automount]
+root = /mnt/host
+crossDistro = true
+options = &quot;metadata&quot;
+</code></pre>
+
+<h1 id="wsl-docker磁盘卷路径">WSL DOCKER磁盘卷路径</h1>
+
+<pre><code>cmd:\&gt;docker volume inspect edgex_consul-config
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: {
+            &quot;com.docker.compose.project&quot;: &quot;edgex&quot;,
+            &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;,
+            &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot;
+        },
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;,
+        &quot;Name&quot;: &quot;edgex_consul-config&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+</code></pre>
+
+<p><code>\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</code></p>
+
 <h1 id="安装ubuntu-for-wsl-16-0-4-lts">安装Ubuntu for WSL 16.0.4 LTS</h1>
 
 <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual" target="_blank">install ubuntu in WSL</a></p>
@@ -598,6 +642,51 @@ sudo service docker start
 c:\&gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 </code></pre>
 
+<<<<<<< HEAD
+=======
+<h1 id="升级linux">升级linux</h1>
+
+<pre><code>d:\code\dapp&gt;wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Running         1
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+</code></pre>
+
+<p>升级Ubuntu  从WSL 1 到2</p>
+
+<pre><code>wsl --set-version Ubuntu 2
+
+d:\code\dapp&gt;wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Stopped         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+</code></pre>
+
+<h1 id="wsl-localhost-connection-refused">WSL localhost connection refused</h1>
+
+<p>运行之前先备份<code>/etc/hosts</code></p>
+
+<p><code>wsl2-ubuntu-map-win-localhost.sh</code></p>
+
+<pre><code>nameserver=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}')   # find nameserver
+[ -n &quot;$nameserver&quot; ] || &quot;unable to find nameserver&quot; || exit 1            # exit immediately if nameserver was not found
+echo &quot;##### nameserver found: '$nameserver'&quot;
+localhost_entry=$(grep -v &quot;127.0.0.1&quot; /etc/hosts | grep &quot;\slocalhost$&quot;)  # find localhost entry excluding 127.0.0.1
+if [ -n &quot;$localhost_entry&quot; ]; then                                       # if localhost entry was found
+    echo &quot;##### localhost entry found: '$localhost_entry'&quot;
+    sed -i &quot;s/$localhost_entry/$nameserver localhost/g&quot; /etc/hosts       # then update localhost entry with the new $nameserver
+else                                                                     # else if entry was not found
+    echo &quot;##### localhost entry not found&quot;
+    echo &quot;$nameserver localhost&quot; &gt;&gt; /etc/hosts                           # then append $nameserver mapping to localhost
+fi
+cat /etc/hosts                                              
+</code></pre>
+
+<p><a href="https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21" target="_blank">https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21</a></p>
+
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 <p>REF</p>
 
 <p><a href="https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa" target="_blank">1</a></p>

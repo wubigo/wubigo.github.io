@@ -40,6 +40,47 @@ categories = []
 
 [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
+# WSL 命令行和默认 shell
+
+
+```
+cmd:\>wsl
+wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf
+[automount]
+root = /mnt/host
+crossDistro = true
+options = "metadata"
+```
+
+# WSL DOCKER磁盘卷路径
+
+```
+cmd:\>docker volume inspect edgex_consul-config
+[
+    {
+        "CreatedAt": "2022-03-07T08:04:34Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "edgex",
+            "com.docker.compose.version": "2.2.3",
+            "com.docker.compose.volume": "consul-config"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/edgex_consul-config/_data",
+        "Name": "edgex_consul-config",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+```
+
+
+`\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\`
+
+
+
+
+
+
 # 安装Ubuntu for WSL 16.0.4 LTS
 
 [install ubuntu in WSL](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
@@ -93,6 +134,63 @@ sudo service docker start
 c:\>wsl -l
 c:\>wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
 ```
+
+
+# 升级linux
+
+```
+d:\code\dapp>wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Running         1
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
+
+升级Ubuntu  从WSL 1 到2
+
+```
+wsl --set-version Ubuntu 2
+
+d:\code\dapp>wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Stopped         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+```
+
+
+# WSL localhost connection refused
+
+
+运行之前先备份`/etc/hosts`
+
+`wsl2-ubuntu-map-win-localhost.sh`
+
+```
+nameserver=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}')   # find nameserver
+[ -n "$nameserver" ] || "unable to find nameserver" || exit 1            # exit immediately if nameserver was not found
+echo "##### nameserver found: '$nameserver'"
+localhost_entry=$(grep -v "127.0.0.1" /etc/hosts | grep "\slocalhost$")  # find localhost entry excluding 127.0.0.1
+if [ -n "$localhost_entry" ]; then                                       # if localhost entry was found
+    echo "##### localhost entry found: '$localhost_entry'"
+    sed -i "s/$localhost_entry/$nameserver localhost/g" /etc/hosts       # then update localhost entry with the new $nameserver
+else                                                                     # else if entry was not found
+    echo "##### localhost entry not found"
+    echo "$nameserver localhost" >> /etc/hosts                           # then append $nameserver mapping to localhost
+fi
+cat /etc/hosts                                              
+```
+
+https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21
+
+
+# 在windows访问wsl文件系统
+
+```
+\\wsl$
+```
+
+
 
 REF
 

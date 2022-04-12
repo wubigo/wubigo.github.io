@@ -27,7 +27,47 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
     </item>
     
     <item>
-      <title>日志:每个程序员都应该了解的实时数据统一抽象</title>
+      <title>LevelDB结构解析</title>
+      <link>https://wubigo.com/post/leveldb-main-structure/</link>
+      <pubDate>Thu, 20 Feb 2020 19:13:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb-main-structure/</guid>
+      <description> LevelDB 是一基于内存+SSD的键值存储引擎。
+ 内存存储最新的更改和热数据(缓存) SSD持久化所有数据  LevelDB经常使用代理+主从模式构建集群。 与REDIS协议保持兼容，可以被REDIS客户端访问。
+内存结构 LevelDB在内存维护两个跳表:MemTable, 一个只读，一个可写。
+序列号(Sequence number)是全局自增的，每次的修改序列号都会加1。 每个主键保存多个版本的键值。LevelDB用serial number标识键值对 的版本。最大的serial number代表最新的键值对。
+键值对有两种更新操作：
+ Put = 1 Delete = 0  当可写的MemTable的大小超过阈值，会把所有的键值转移到只读的MemTable。 同时会创建一个新的可写的MemTable。只读的MemTable会被一个线程异步的 写入SSD。读操作会先查询可写的MemTable，然后查询只读的MemTable，最后 去查询SSD.
+对可写的MemTable支持多线程操作，所以需要并发控制。
+只读的MemTable存在时间很短，被创建后就会把异步写入SSD,然后清空。 当可写的MemTable增长很快，只读的MemTable会很快被填满。如果只读 的MemTable还没有别完全写入SSD，写入线程就会被阻塞。
+内存结构操作日志 最近的MemTable的写入操作都会有一个对应的日志文件记录。 日志文件也有两份，对应两个跳表。
+SSD数据结构 SST LevelDB在SSD上存储了许多SST(Sorted String Table)文件, 每个文件对应一个级别，每个级别有多个SST文件。 SST文件的大小是相同的，不同的是每个级别文件数目不同。 主键在每个SST文件都是有序的。 级别0的文件和其他级别的文件有一个明显的区别：其他级别的SST 文件之间的主键不会重叠，但级别0的SST文件之间的主键可能重叠， 因为级别0的SST文件之间从MemTable直接转存过来。
+为了防止在级别0的SST文件进行键值读取的读放大，LevelDB默认 级别0有4个文件。
+MANIFEST 所有文件的主键范围，级别和其他的元信息存储在MANIFEST文件。 MANIFEST有版本号，通过文件名后缀标识，例如MANIFEST-000031。 每次打开数据库，一个新的版本号的MANIFEST就好被创建，旧版本 的文件就会被删除。
+CURRENT CURRENT文件内容记录了当前版本的MANIFEST文件名字。LevelDB首先读 CURRENT文件内容知道合法的MANIFEST文件。
+LOCK LevelDB数据库目录不允许被多个进程同时访问，当一个进程打开数据库， 一个排他的文件锁就创建。
+log 日志文件，记录操作日志，例如次要整理和主要整理日志
+数据整理 从只读MemTable到0级的SST文件的转移叫次级整理。从SST文件向 更低级转移交主要整理。
+文件合并 </description>
+    </item>
+    
+    <item>
+      <title>键值存储引擎基础数据结构之跳表</title>
+      <link>https://wubigo.com/post/leveldb%E4%B9%8B%E8%B7%B3%E8%A1%A8/</link>
+      <pubDate>Thu, 20 Feb 2020 09:58:26 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb%E4%B9%8B%E8%B7%B3%E8%A1%A8/</guid>
+      <description>跳表介绍  Skip lists are a data structure that can be used in place of balanced trees. Skip lists use probabilistic balancing rather than strictly enforced balancing and as a result the algorithms for insertion and deletion in skip lists are much simpler and significantly faster than equivalent algorithms for balanced trees.
+跳表是一种可以用来代替平衡树的数据结构，跳表使用概率平衡而不是严格执行的平衡， 因此，与等效树的等效算法相比，跳表中插入和删除的算法要简单得多，并且速度要快得多。
+ 跳表是由包含多个级别的链表组成，最低级别的链表存储了所有的主键并且按序链接
+java跳表 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html
+跳表结构  多条链构成，是关键字升序排列的数据结构； 包含多个级别，一个head引用指向最高的级别，最低（底部）的级别，包含所有的key； 每一个级别都是其更低级别的子集，并且是有序的； 如果关键字key在级别level=i中出现，则level&amp;lt;=i的链表中都会包含该关键字key；  ConcurrentSkipListMap和TreeMap类似，它们虽然都是有序的哈希表。但是，第一，它们的线程安全机制不同，TreeMap是非线程安全的，而ConcurrentSkipListMap是线程安全的。第二，ConcurrentSkipListMap是通过跳表实现的，而TreeMap是通过红黑树实现的
+跳表分为许多层(level)，每一层都可以看作是数据的索引，这些索引的意义就是加快跳表查找数据速度。每一层的数据都是有序的，上一层数据是下一层数据的子集，并且第一层(level 1)包含了全部的数据；层次越高，跳跃性越大，包含的数据越少。跳表包含一个表头，它查找数据时，是从上往下，从左往右进行查找。
+ConcurrentSkipListMap优点：</description>
+    </item>
+    
+    <item>
+      <title>日志：每个程序员都应该了解的实时数据统一抽象</title>
       <link>https://wubigo.com/post/log-about-real-time-datas-unifying-abstraction/</link>
       <pubDate>Fri, 15 Feb 2019 09:44:41 +0800</pubDate>
       
@@ -55,6 +95,21 @@ Redis 支持高可用性和持久性。 高可用性 是通过将数据从主节
 不同应用组的人描述日志的使用可能有所不同，数据库组的人经常区分物理日志和逻辑日志， 物理日志记录每行改变的内容，逻辑日志记录导致改变的SQL命令(CRUD)。
 分布式系统文献经常把处理和复制划分为两大类别：状态机模式和主备模式。状态机模式 经常指双活，对输入请求做日志记录，每一个副本处理每一个请求。主备模式和状态机模式 有稍微的差别，主备模式为推举一个主节点，主节点会按顺便处理请求，并把处理结果的 状态作为日志同步到从节点。
 变更日志101： 参考 [1] What every software engineer should know about real-time data&amp;rsquo;s unifying abstraction</description>
+    </item>
+    
+    <item>
+      <title>在windows上搭建Leveldb的开发环境</title>
+      <link>https://wubigo.com/post/leveldb-port-in-java-dev/</link>
+      <pubDate>Mon, 19 Feb 2018 18:32:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb-port-in-java-dev/</guid>
+      <description>在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&amp;lt;module name=&amp;quot;RegexpMultiline&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;format&amp;quot; value=&amp;quot;\r&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;message&amp;quot; value=&amp;quot;Line contains carriage return&amp;quot;/&amp;gt; &amp;lt;/module&amp;gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&amp;ldquo;core.</description>
     </item>
     
     <item>

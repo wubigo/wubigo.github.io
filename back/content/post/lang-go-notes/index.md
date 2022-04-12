@@ -19,6 +19,18 @@ categories = []
   focal_point = ""
 +++
 
+## 虚拟包版本
+
+Untagged revisions can be referred to using a "pseudo-version" like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+
+```
+go get github.com/vladimirvivien/go4vl@40b41ba
+go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 => v0.0.2-0.20211216162907-40b41ba86c5c
+```
+
+
+
+
 ## 类型转换操作
 
 >For every type T, there is a corresponding conversion operation T(x) that converts the value x to >type T. A conversion from one type to another is allowed if both have the same underlying type, or >if both are unnamed pointer types that point to variables of the same underlying type; these >conversions change the type but not the representation of the value. If x is assignable to T, a >conversion is permitted but is usually redundant. 

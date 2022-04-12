@@ -140,7 +140,11 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+<<<<<<< HEAD
   <meta property="og:updated_time" content="2022-02-05T11:40:58&#43;08:00">
+=======
+  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   
 
   
@@ -423,8 +427,13 @@
 
 
 
+<<<<<<< HEAD
 <meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-26 17:13:28 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -437,7 +446,11 @@
     
       
     
+<<<<<<< HEAD
     <time>Sep 29, 2017</time>
+=======
+    <time>Dec 26, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -466,16 +479,72 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/win10-customize/" itemprop="url">Win10 Customize</a>
+=======
+    <a href="/post/aws-s3-web-hosting/" itemprop="url">Aws S3 Web Hosting</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
+<<<<<<< HEAD
 <h1 id="disable-taskbar-thumbnail-preview-on-windows">disable Taskbar thumbnail preview on Windows</h1>
 
 <p><a href="https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10" target="_blank">https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10</a></p>
+=======
+<h2 id="创建bucket">创建BUCKET</h2>
+
+<p>使用两种方式之一创建BUCKET</p>
+
+<ul>
+<li><p>terraform</p>
+
+<pre><code>git clone https://github.com/wubigo/iaas
+
+cd s3
+
+terraform apply
+
+</code></pre></li>
+
+<li><p>awscli</p>
+
+<pre><code>aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html
+aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json
+</code></pre></li>
+</ul>
+
+<h3 id="确认配置">确认配置</h3>
+
+<pre><code>aws s3api get-bucket-website --bucket s.wubigo.com
+{
+    &quot;IndexDocument&quot;: {
+        &quot;Suffix&quot;: &quot;index.html&quot;
+    },
+    &quot;ErrorDocument&quot;: {
+        &quot;Key&quot;: &quot;404.html&quot;
+    }
+}
+
+</code></pre>
+
+<h2 id="配置dns-c记录">配置DNS C记录</h2>
+
+<p>查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com</p>
+
+<p><img src="/img/post/s3-web.png" alt="" /></p>
+
+<pre><code>CNAME Record	    s    s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+</code></pre>
+
+<h2 id="上传站点内容">上传站点内容</h2>
+
+<pre><code>aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive
+</code></pre>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   </div>
   
@@ -510,8 +579,13 @@
 
 
 
+<<<<<<< HEAD
 <meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-22 15:29:31 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -524,7 +598,11 @@
     
       
     
+<<<<<<< HEAD
     <time>Sep 9, 2017</time>
+=======
+    <time>Dec 22, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -553,11 +631,16 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/bim-vs-cad/" itemprop="url">BIM和CAD的对比</a>
+=======
+    <a href="/post/go-vscode/" itemprop="url">Go Vscode环境配置</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     
 
 <p>最近在做智慧工地的项目，“智慧工地”的建设很大一部分信息主要是来自于工程BIM模型。
@@ -623,6 +706,10 @@
 <li><a href="https://clara.io/" target="_blank">https://clara.io/</a></li>
 </ul>
 
+=======
+    go version go version go version go1.13.5 windows/amd64  vs proxy 根据code提示自动安装插件
+手工安装插件 go代理配置 set http_proxy=http://127.0.0.1:4910  git代理配置 git config --global http.proxy https://127.0.0.1:4910 git config --global http.sslverify &quot;false&quot;  手工安装插件 go get -u -v github.com/go-delve/delve/cmd/dlv go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/ramya-rao-a/go-outline go get -u -v github.com/acroca/go-symbols go get -u -v github.com/mdempsky/gocode go get -u -v github.com/rogpeppe/godef go get -u -v golang.org/x/tools/cmd/godoc go get -u -v github.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -656,8 +743,13 @@
 
 
 
+<<<<<<< HEAD
 <meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+=======
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:35:31 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -670,7 +762,11 @@
     
       
     
+<<<<<<< HEAD
     <time>Aug 1, 2017</time>
+=======
+    <time>Dec 21, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -679,7 +775,11 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     2 min read
+=======
+    1 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -687,6 +787,7 @@
   
 
   
+<<<<<<< HEAD
   
   
   <span class="middot-divider"></span>
@@ -698,6 +799,8 @@
   </span>
   
   
+=======
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   
 
@@ -710,14 +813,27 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/2017-08-01-deep_learning_with_python/" itemprop="url">Deep Learning with Python</a>
+=======
+    <a href="/post/nodejs-promise/" itemprop="url">Nodejs异步通信之Promise</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
 MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
  Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
+=======
+    与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
+ 回调
+function successCallback(result) { console.log(&quot;Audio file ready at URL: &quot; + result); } function failureCallback(error) { console.error(&quot;Error generating audio file: &quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -751,8 +867,13 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 
 
 
+<<<<<<< HEAD
 <meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-21 07:14:14 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -765,7 +886,11 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
     
       
     
+<<<<<<< HEAD
     <time>Jul 30, 2017</time>
+=======
+    <time>Dec 21, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -774,7 +899,11 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     1 min read
+=======
+    2 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -794,11 +923,16 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/overlay-vs-underlay-networks/" itemprop="url">Overlay vs Underlay Networks</a>
+=======
+    <a href="/post/nodejs-prototype/" itemprop="url">Nodejs对象创建方式</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     
 
 <h1 id="overlay-vs-underlay-in-summary">Overlay vs underlay in summary</h1>
@@ -807,6 +941,10 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 
 <p><a href="https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/" target="_blank">https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/</a></p>
 
+=======
+    对象创建有如下几种方式
+使用{} let animal = {} animal.name = 'Leo' animal.energy = 10 animal.eat = function (amount) { console.log(`${this.name} is eating.`) this.energy += amount } animal.sleep = function (length) { console.log(`${this.name} is sleeping.`) this.energy += length } animal.play = function (length) { console.log(`${this.name} is playing.`) this.energy -= length }  构造函数 function Animal (name, energy) { let animal = {} animal.name = name animal.energy = energy animal.eat = function (amount) { console.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -840,8 +978,13 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 
 
 
+<<<<<<< HEAD
 <meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-12-11 07:25:10 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-11 07:25:10 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -854,7 +997,11 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
     
       
     
+<<<<<<< HEAD
     <time>Jul 28, 2017</time>
+=======
+    <time>Dec 11, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -883,11 +1030,16 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
+=======
+    <a href="/post/enterprise-architecture-framework/" itemprop="url">Enterprise Architecture Framework</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     <p>Some things worth noting in br_add_if:</p>
 
 <ul>
@@ -897,6 +1049,24 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 </ul>
 
 <p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
+=======
+    
+
+<h2 id="architecture-domain">Architecture domain</h2>
+
+<p>Since Stephen Spewak&rsquo;s Enterprise Architecture Planning (EAP) in 1993, and perhaps before then, it has been normal to divide enterprises architecture into four architecture domains.</p>
+
+<ul>
+<li>Business architecture,</li>
+<li>Data architecture,</li>
+<li>Applications architecture,</li>
+<li>Technology architecture.</li>
+</ul>
+
+<p><img src="./Enterprise_Architecture.jpg" alt="" /><em>Layers of the enterprise architecture</em></p>
+
+<p><img src="./Architecture_Domain_Reference_Architecture.jpg" alt="" /></p>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   </div>
   
@@ -931,8 +1101,13 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
 
 
 
+<<<<<<< HEAD
 <meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+=======
+<meta content="2017-12-03 08:39:52 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-12-03 08:39:52 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -945,7 +1120,11 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
     
       
     
+<<<<<<< HEAD
     <time>Jul 13, 2017</time>
+=======
+    <time>Dec 3, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -954,7 +1133,11 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     4 min read
+=======
+    3 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -974,14 +1157,26 @@ MATPLOTLIB Matplot is a python library that help us to plot data. The easiest an
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
+=======
+    <a href="/post/nodejs-notes/" itemprop="url">Nodejs Notes</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
 kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
 kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.
+=======
+    set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &quot;C:\\Users\\Administrator\\.npmrc&quot;  declare variables ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will
+rarely find var anymore.
+A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,
+modified)
+Immutability is embraced in React and its ecosystem. That’s why const should be your default
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1015,8 +1210,13 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
 
 
+<<<<<<< HEAD
 <meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+=======
+<meta content="2017-12-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-12-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1029,7 +1229,11 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
     
       
     
+<<<<<<< HEAD
     <time>May 3, 2017</time>
+=======
+    <time>Dec 2, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1058,13 +1262,18 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/2017-05-03-atomnote/" itemprop="url">atom note</a>
+=======
+    <a href="/post/2017-12-02-machinelearning101slidedeck/" itemprop="url">Machine Learning 101 slidedeck</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
+<<<<<<< HEAD
 <h1 id="proxy-config-for-windows">proxy config for Windows</h1>
 
 <pre><code>   ~/.atom/.apmrc
@@ -1075,6 +1284,11 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 <h1 id="set-up-use-atom-as-a-markdown-editor">Set Up &amp; Use Atom as a Markdown Editor</h1>
 
 <p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
+=======
+<h1 id="machine-learning-101-slidedeck">Machine Learning 101 slidedeck</h1>
+
+<p><a href="https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90" target="_blank">https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&amp;cmp=em-data-na-na-newsltr_20171213&amp;slide=id.g183f28bdc3_0_90</a></p>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   </div>
   
@@ -1109,8 +1323,13 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-30 17:51:29 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1123,7 +1342,11 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
     
       
     
+<<<<<<< HEAD
     <time>Apr 30, 2017</time>
+=======
+    <time>Nov 30, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1132,7 +1355,11 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     5 min read
+=======
+    1 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1150,6 +1377,7 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
   
   
   
+<<<<<<< HEAD
   
   <a href="/post/k8s-istio-discovery-proxy/">
       <img src="/post/k8s-istio-discovery-proxy/featured_hu9eb2fa38cf3057f002d1fb2a9e3892ce_333237_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
@@ -1158,13 +1386,37 @@ kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Neve
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/k8s-istio-discovery-proxy/" itemprop="url">K8s Istio Pilot as envoy control place</a>
+=======
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-free-tier-quota/" itemprop="url">AWS云服务免费额度列表</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     # side car proxy
  方法1  Namespace labels
 kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
+=======
+    AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1198,8 +1450,13 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1212,7 +1469,11 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
     
       
     
+<<<<<<< HEAD
     <time>Apr 28, 2017</time>
+=======
+    <time>Nov 23, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1221,7 +1482,11 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     3 min read
+=======
+    1 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1239,6 +1504,7 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   
   
   
+<<<<<<< HEAD
   
   <a href="/post/cassandra/">
       <img src="/post/cassandra/featured_hu22b11bbc68f072918e062ea4bc21e939_19335_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
@@ -1247,11 +1513,44 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
     <a href="/post/cassandra/" itemprop="url">Cassandra</a>
+=======
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-apigateway-notes/" itemprop="url">Aws Apigateway Notes</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.
+=======
+    
+
+<h2 id="create-rest-api-resource">create rest api resource</h2>
+
+<pre><code>awslocal apigateway create-rest-api --name 'My First API' --description 'This is my first API'
+</code></pre>
+
+<pre><code>awslocal apigateway get-rest-apis                                         {
+    &quot;items&quot;: [
+        {
+            &quot;createdDate&quot;: 1574513755,
+            &quot;id&quot;: &quot;tjc336382o&quot;,
+            &quot;name&quot;: &quot;hello_api2&quot;
+        },
+        {
+            &quot;description&quot;: &quot;This is my first API&quot;,
+            &quot;createdDate&quot;: 1574513755,
+            &quot;id&quot;: &quot;foyylqv018&quot;,
+            &quot;name&quot;: &quot;My First API&quot;
+        }
+    ]
+}
+
+</code></pre>
+
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1285,8 +1584,13 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1299,7 +1603,11 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
     
       
     
+<<<<<<< HEAD
     <time>Apr 28, 2017</time>
+=======
+    <time>Nov 23, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1328,13 +1636,22 @@ kubectl label ns servicea istio-injection=enabled  Istio watches over all the de
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/spring-gateway/" itemprop="url">Spring Gateway</a>
+=======
+    <a href="/post/2014-02-03-aws-notes/" itemprop="url">Aws Notes</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt; &lt;/dependency&gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
 The Zuul proxy server is designed by default to work on the Spring products.
+=======
+    查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1368,8 +1685,13 @@ The Zuul proxy server is designed by default to work on the Spring products.
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1382,7 +1704,11 @@ The Zuul proxy server is designed by default to work on the Spring products.
     
       
     
+<<<<<<< HEAD
     <time>Apr 28, 2017</time>
+=======
+    <time>Nov 23, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1391,7 +1717,11 @@ The Zuul proxy server is designed by default to work on the Spring products.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     1 min read
+=======
+    2 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1411,11 +1741,16 @@ The Zuul proxy server is designed by default to work on the Spring products.
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
+=======
+    <a href="/post/terraform-notes/" itemprop="url">Terraform Notes</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     
 
 <p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
@@ -1430,6 +1765,12 @@ The Zuul proxy server is designed by default to work on the Spring products.
 
 <p><img src="./res.png" alt="" /></p>
 
+=======
+    前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1463,8 +1804,13 @@ The Zuul proxy server is designed by default to work on the Spring products.
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-25 07:10:55 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-11-11 09:42:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-11 09:42:42 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1477,7 +1823,11 @@ The Zuul proxy server is designed by default to work on the Spring products.
     
       
     
+<<<<<<< HEAD
     <time>Apr 25, 2017</time>
+=======
+    <time>Nov 11, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1486,7 +1836,11 @@ The Zuul proxy server is designed by default to work on the Spring products.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     3 min read
+=======
+    2 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1506,17 +1860,25 @@ The Zuul proxy server is designed by default to work on the Spring products.
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/connect-container-to-host-network/" itemprop="url">容器多种方式链接宿主网络</a>
+=======
+    <a href="/post/virtual-networking-on-linux/" itemprop="url">Linux中的虚拟网络设施</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     提示： 以下操作是在VirtualBox虚机环境，并做如下配置
  网络  下拉高级设置，在&rdquo;Adapter Type&rdquo;选择PCnet-FAST III&rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&rdquo;Promiscuous Mode&rdquo;必须设置为&rdquo;Allow All&rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
  多网卡  每块网卡都要做上述调整
 准备  安装util-linux
 sudo apt install util-linux   /etc/network/interface
 cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.
+=======
+    标准设备  Bridge: A Linux bridge behaves like a network switch. It forwards packets between interfaces that are connected to it. It&rsquo;s usually used for forwarding packets on routers, on gateways, or between VMs and network namespaces on a host. It also supports STP, VLAN filter, and multicast snooping. TUN: TUN (network Tunnel) devices work at the IP level or layer three level of the network stack and are usually point-to-point connections.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1550,8 +1912,13 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-05 10:32:32 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-05 10:32:32 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-09-29 15:26:01 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1564,7 +1931,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     
       
     
+<<<<<<< HEAD
     <time>Apr 5, 2017</time>
+=======
+    <time>Sep 29, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1593,13 +1964,18 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/glodon-biz/" itemprop="url">Glodon Biz</a>
+=======
+    <a href="/post/win10-customize/" itemprop="url">Win10 Customize</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
+<<<<<<< HEAD
 <h2 id="业务">业务</h2>
 
 <hr />
@@ -1662,6 +2038,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 客户超过1100家，其中特、一级企业逾990家；新增项目超过3200个，其中特、一级企业项目逾2900个。
 报告期内，数字施工业务的企业级和岗位级产品线也取得良好进展。企业级产品价值获得更多客户认
 可，客户覆盖率和应用率进一步提升；岗位级产品持续迭代和打磨，产品的规模化拓展正在推进过程中。</p>
+=======
+<h1 id="disable-taskbar-thumbnail-preview-on-windows">disable Taskbar thumbnail preview on Windows</h1>
+
+<p><a href="https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10" target="_blank">https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10</a></p>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   </div>
   
@@ -1696,8 +2077,13 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-03 05:53:42 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-03 05:53:42 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-09-09 07:52:46 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1710,7 +2096,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     
       
     
+<<<<<<< HEAD
     <time>Apr 3, 2017</time>
+=======
+    <time>Sep 9, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1719,7 +2109,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     3 min read
+=======
+    1 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1739,12 +2133,84 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/rpc-grpc/" itemprop="url">RPC GRPC</a>
+=======
+    <a href="/post/bim-vs-cad/" itemprop="url">BIM和CAD的对比</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     the architecture of gRPC is layered: The lowest layer is the transport: gRPC uses HTTP/2 as its transport protocol. HTTP/2 provides the same basic semantics as HTTP 1.1 (the version with which nearly all developers are familiar), but aims to be more efficient and more secure. The new features in HTTP/2 that are most obvious at first glance are (1) that it can multiplex many parallel requests over the same network connection and (2) that it allows full-duplex bidirectional communication.
+=======
+    
+
+<p>最近在做智慧工地的项目，“智慧工地”的建设很大一部分信息主要是来自于工程BIM模型。
+大部分情况下，BIM模型的精确度决定了“智慧工地”的开展程度。
+“智慧工地”建设中，BIM模型的应用主要集中在以下几个方面：</p>
+
+<ul>
+<li><p>工程量的统计：分析各施工流水段各材料的工程量，如混凝土的工程量。</p></li>
+
+<li><p>施工模拟：施工进度计划与BIM模型相关联，对施工过程进行模拟。将实际工程进度与模拟进度进行对比，可以直观的看出工程是否滞后。</p></li>
+
+<li><p>可视化交底：通过BIM的可视化特点，对施工方案进行模拟，对施工人员进行3D动画交底，提高了交底的可行性。</p></li>
+
+<li><p>节点分析： 对复杂节点进行BIM建模，通过模型对复杂节点进行分析。</p></li>
+
+<li><p>综合管线碰撞检测： 检测预留孔洞、机电、设备管线安装碰撞。</p></li>
+</ul>
+
+<p>从具体实现的角度对BIM和CAD做个比较</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">CAD</th>
+<th align="left">BIM</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">工具集</td>
+<td align="left">2D(3D通过划线)</td>
+<td align="left">3D</td>
+</tr>
+
+<tr>
+<td align="left">连接过程</td>
+<td align="left">直接(2D对象直接连接)</td>
+<td align="left">间接(3D对象通过参数装配)</td>
+</tr>
+
+<tr>
+<td align="left">视图</td>
+<td align="left">高度具体的可视化视图</td>
+<td align="left">动态流线型视图，可随意放大，缩小</td>
+</tr>
+
+<tr>
+<td align="left">知识复用</td>
+<td align="left"></td>
+<td align="left">MODEL(部件从MODEL抽取，而且部件的修改同时同步到MODEL)</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="基于web的3d建模工具">基于WEB的3D建模工具</h1>
+
+<ul>
+<li><a href="https://www.onshape.com/" target="_blank">https://www.onshape.com/</a></li>
+<li>Lagoa(基于云端的3D建模APP，被Autodesk6千万美元收购)</li>
+<li><a href="https://www.vectary.com/" target="_blank">https://www.vectary.com/</a></li>
+<li><a href="https://clara.io/" target="_blank">https://clara.io/</a></li>
+</ul>
+
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1778,8 +2244,13 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-02 15:31:41 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1792,7 +2263,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
     
       
     
+<<<<<<< HEAD
     <time>Apr 2, 2017</time>
+=======
+    <time>Aug 1, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1801,7 +2276,11 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     3 min read
+=======
+    2 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1809,6 +2288,20 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   
+<<<<<<< HEAD
+=======
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   
 
@@ -1821,14 +2314,24 @@ cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface 
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/istio-pilot-docker/" itemprop="url">Istio Pilot Docker</a>
+=======
+    <a href="/post/2017-08-01-deep_learning_with_python/" itemprop="url">Deep Learning with Python</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     使用一个没有被占用的网段设置DOCKER_GATEWAY
 export DOCKER_GATEWAY=172.28.0.1  URL=https://github.com/istio/istio/releases/download/1.1.1/istio-1.1.1-linux.tar.gz curl -L &quot;$URL&quot; | tar xz cd istio-1.1.1 docker-compose -f install/consul/istio.yaml up -d  Configure kubectl to use mapped local port for the API server:
 kubectl config set-context istio --cluster=istio kubectl config set-cluster istio --server=http://localhost:8080 kubectl config use-context istio  docker-compose -f samples/bookinfo/platform/consul/bookinfo.yaml up -d  kubectl apply -f samples/bookinfo/platform/consul/destination-rule-all.yaml kubectl get destinationrules -o yaml  kubectl apply -f samples/bookinfo/platform/consul/virtual-service-all-v1.yaml  docker-compose -f bookinfo.yaml exec details-v1 sh #cat /etc/resolv.
+=======
+    On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
+MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
+ Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -1862,8 +2365,13 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-04-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+=======
+<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1876,7 +2384,11 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     
       
     
+<<<<<<< HEAD
     <time>Apr 2, 2017</time>
+=======
+    <time>Jul 30, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1905,16 +2417,28 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/2017-04-02-microserviceplatformspring-cloudvskubernetes/" itemprop="url">Microservice platform Spring-cloud VS Kubernetes</a>
+=======
+    <a href="/post/overlay-vs-underlay-networks/" itemprop="url">Overlay vs Underlay Networks</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
     
 
+<<<<<<< HEAD
 <h1 id="microservice-platform-spring-cloud-vs-kubernetes">Microservice platform Spring-cloud VS Kubernetes</h1>
 
 <p><a href="https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/" target="_blank">https://developers.redhat.com/blog/2016/12/09/spring-cloud-for-microservices-compared-to-kubernetes/</a></p>
+=======
+<h1 id="overlay-vs-underlay-in-summary">Overlay vs underlay in summary</h1>
+
+<p>An Underlay network is the physical network responsible for the delivery of packets like DWDM, L2, L3, MPLS, or internet, etc. while an overlay is a logical network that uses network virtualization to built connectivity on top of physical infrastructure using tunneling encapsulations such as VXLAN, GRE, IPSec.</p>
+
+<p><a href="https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/" target="_blank">https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/</a></p>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
   </div>
   
@@ -1949,8 +2473,13 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
 
 
 
+<<<<<<< HEAD
 <meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-04-01 23:30:42 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -1963,7 +2492,11 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     
       
     
+<<<<<<< HEAD
     <time>Apr 1, 2017</time>
+=======
+    <time>Jul 28, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1972,7 +2505,11 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     2 min read
+=======
+    1 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -1992,14 +2529,31 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/k8s-dns/" itemprop="url">K8s DNS</a>
+=======
+    <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
 Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
  A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
+=======
+    <p>Some things worth noting in br_add_if:</p>
+
+<ul>
+<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
+<li>Bridges cannot be added to a bridge.</li>
+<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
+</ul>
+
+<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
+
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -2033,8 +2587,13 @@ Regardless of the software handling the actual DNS records, both implementations
 
 
 
+<<<<<<< HEAD
 <meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -2047,7 +2606,11 @@ Regardless of the software handling the actual DNS records, both implementations
     
       
     
+<<<<<<< HEAD
     <time>Mar 31, 2017</time>
+=======
+    <time>Jul 13, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -2056,7 +2619,11 @@ Regardless of the software handling the actual DNS records, both implementations
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     1 min read
+=======
+    4 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -2076,11 +2643,16 @@ Regardless of the software handling the actual DNS records, both implementations
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/docker-alpine/" itemprop="url">Docker Alpine</a>
+=======
+    <a href="/post/k8s-notes/" itemprop="url">K8S notes</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     
 
 <h1 id="set-date">set date</h1>
@@ -2099,6 +2671,11 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
 <pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 </code></pre>
 
+=======
+    节点维护 kubectl drain &lt;node name&gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &lt;node name&gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;&amp; apt-get install -y apt-transport-https curl https://mirrors.
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -2132,8 +2709,13 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
 
 
 
+<<<<<<< HEAD
 <meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -2146,7 +2728,11 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
     
       
     
+<<<<<<< HEAD
     <time>Mar 30, 2017</time>
+=======
+    <time>May 3, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -2175,14 +2761,34 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/k8s-kubelet/" itemprop="url">K8s Kubelet</a>
+=======
+    <a href="/post/2017-05-03-atomnote/" itemprop="url">atom note</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     PodUID kubectl get pod &lt;PID_NAME&gt; -o=jsonpath='{.metadata.uid}'  POD on disk /var/lib/kubelet/pods/&lt;PodUID&gt;/
 /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
 ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.
+=======
+    
+
+<h1 id="proxy-config-for-windows">proxy config for Windows</h1>
+
+<pre><code>   ~/.atom/.apmrc
+   https-proxy = http://192.168.0.119:3128/
+   http-proxy = http://192.168.0.119:3128/
+</code></pre>
+
+<h1 id="set-up-use-atom-as-a-markdown-editor">Set Up &amp; Use Atom as a Markdown Editor</h1>
+
+<p><a href="https://www.portent.com/blog/content-strategy/atom-markdown.htm" target="_blank">https://www.portent.com/blog/content-strategy/atom-markdown.htm</a></p>
+
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 
@@ -2216,8 +2822,13 @@ ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root roo
 
 
 
+<<<<<<< HEAD
 <meta content="2017-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
 <meta content="2017-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+=======
+<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="dateModified">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
 
 <div class="article-metadata">
 
@@ -2230,7 +2841,11 @@ ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root roo
     
       
     
+<<<<<<< HEAD
     <time>Mar 22, 2017</time>
+=======
+    <time>Apr 30, 2017</time>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -2239,7 +2854,11 @@ ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root roo
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
+<<<<<<< HEAD
     1 min read
+=======
+    5 min read
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </span>
   
 
@@ -2258,17 +2877,27 @@ ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root roo
   
   
   
+<<<<<<< HEAD
   <a href="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/">
       <img src="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/featured_hua4fab6e409d7c02df7c1418e5f288793_19875_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+=======
+  <a href="/post/k8s-istio-discovery-proxy/">
+      <img src="/post/k8s-istio-discovery-proxy/featured_hu9eb2fa38cf3057f002d1fb2a9e3892ce_333237_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </a>
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
+<<<<<<< HEAD
     <a href="/post/2018-03-28-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%BA%E8%84%89/" itemprop="url">最重要的人脉</a>
+=======
+    <a href="/post/k8s-istio-discovery-proxy/" itemprop="url">K8s Istio Pilot as envoy control place</a>
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
+<<<<<<< HEAD
     你的老板，才是你最重要的人脉
 我相信这世界上，90% 的人都有过诅咒上司的一刻。偏执、变态、有病这些词，都是恨不得改成老板微信标签的定语。
 但是说大实话，年纪轻轻就有人促使你学会面对职场残酷的人，那不是一个贵人是什么？
@@ -2314,6 +2943,11 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 他们身上的精华可以吸取，糟点可以避开，那你的装备才会越来越多，在升职加薪的路上一路打怪冲关。
 这年头流行让别人给自己「赋能」，现代管理学之父彼得·德鲁克比我们早数十年就看到上司的这个「功能」。他说：
  Making the strength of the boss productive is a key to the subordinate’s own effectiveness.
+=======
+    # side car proxy
+ 方法1  Namespace labels
+kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
+>>>>>>> 30f51d6a59a2471ebfe6cd088ba9fa23459acca0
   </div>
   
 

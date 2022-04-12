@@ -24,6 +24,13 @@ categories = []
 **The `docker logs` command is not available for drivers other than json-file and journald.**
 
 
+# docker-compose日志
+
+```
+docker-compose -f docker-compose-0.7.1.yml logs -f
+```
+
+
 # logging driver
 
 To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.json file

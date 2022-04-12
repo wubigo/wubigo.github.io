@@ -6,10 +6,64 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Feb 2022 11:40:58 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Mar 2022 10:58:46 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Edgex Onvif Device Dev Setup</title>
+      <link>https://wubigo.com/post/edgex-onvif-device-dev-setup/</link>
+      <pubDate>Fri, 18 Mar 2022 10:58:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/edgex-onvif-device-dev-setup/</guid>
+      <description>启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
+networks: edgex-network: {}  为
+network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
+environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
+10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
+注册服务，消息队列，核心服务的所在的主机配置
+[Registry] Type = &amp;quot;consul&amp;quot; Host = &amp;quot;10.</description>
+    </item>
+    
+    <item>
+      <title>如何实现Edgex设备服务</title>
+      <link>https://wubigo.com/post/edgex-device-service-onvif/</link>
+      <pubDate>Thu, 17 Mar 2022 17:29:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/edgex-device-service-onvif/</guid>
+      <description>加载设备配置文件 device-sdk-go: service.init.go: driver.Initialize initializeOnvifClient onvif4go.NewOnvifDevice.Initialize() provision.LoadProfiles(ds.config.Device.ProfilesDir, dic) provision.LoadDevices  驱动服务客户端初始化与核心数据和命令服务 clients.BootstrapHandler -&amp;gt; InitDependencyClients // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.</description>
+    </item>
+    
+    <item>
+      <title>搭建Edgex设备服务开发环境</title>
+      <link>https://wubigo.com/post/edgex-device-service-dev-env-setup/</link>
+      <pubDate>Fri, 11 Mar 2022 15:39:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/edgex-device-service-dev-env-setup/</guid>
+      <description>搭建EDGEX设备服务开发环境
+EDGEX简介 EdgeX Foundry 项目成立于2017年，由Linux 基金会主持，目前已经拥有75个会员， 包括重量级的SAMSUNG，Dell，AMD，ANALOG DEVICES &amp;hellip; 但其中最重要的角色其实是戴尔。它为EdgeX Foundry提供该公司采用Apache 2.0许可证的FUSE源代码。FUSE包括10多种微服务和12500多万行代码，它们在连接标准、边缘分析、安全、系统管理和服务之间提供了互操作性。我发现在科普的过程中，会不断的引入新概念，然后就得嵌套解释新名词和概念。那FUSE 又是什么？FUSE 是Dell 为了拓展边缘计算物联网服务而发展出来的，基于Java SPRING CLOUD 的微服务框架软件。这套软件最大的特征是中立于任何硬件平台和操作系统，高度模块化，可自由扩展。Dell 从私有化完成的那天开始，我们见到它一系列的并购，其中并购VMware，EMC 等动作，都直接剑指云计算和物联网技术。FUSE 的发布，更昭示了Dell谋求转型的决心。物联网的繁荣非常地依赖于物联网生态企业，全球大型IT 公司谋求物联网布局，都会提供框架软件，再培养生态伙伴来形成落地应用。而在生态伙伴的培养过程中，开源的基础框架软件是非常容易被理解和吸收的。 这也是Dell 选择跟Linux 基金会合作，并捐赠和完善代码的重要原因：Dell 需要庞大的生态伙伴，而Linux 具有开源软件界强大的号召力和影响力。
+EdgeX Foundry原来是用Java写的，导致平台体积庞大，占用资源，后来Linux基金会用Go语言对其进行了重构.
+EdgeX Foundry是一系列松耦合、开源的微服务集合。该微服务集合构成了四个微服务层及两个增强的基础系统服务，这四个微服务层包含了从物理域数据采集到信息域数据处理等一系列的服务，另外两个基础系统服务为该四个服务层提供支撑服务。
+四个微服务层分别是：
+ 设备服务负责采集数据及控制设备功能。 核心服务负责本地存储分析和转发数据，以及控制命令下发。 支持服务负责日志记录、任务调度、数据清理、规则引擎和告警通知。 应用服务/导出服务负责上传数据到云端或第三方信息系统，以及接收控制命令转发给核心服务。  两个增强基础系统服务：
+安全服务、管理服务这两个软件模块虽然不直接处理边缘计算的功能性业务，但是对于边缘计算的安全性和易用性来说很重要
+启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
+http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
+修改INFO为DEBUG
+在IDE里面启动设备服务 以IP摄像头设备服务为例
+打开WEBCAM webcam-to-ip-camera
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。</description>
+    </item>
+    
+    <item>
+      <title>OpenAPI vs AsyncAPI</title>
+      <link>https://wubigo.com/post/openapi-vs-asyncapi/</link>
+      <pubDate>Sat, 26 Feb 2022 21:55:15 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/openapi-vs-asyncapi/</guid>
+      <description>[1] https://www.asyncapi.com/docs/getting-started/coming-from-openapi</description>
+    </item>
     
     <item>
       <title>Redis消息队列和实时数据处理</title>
@@ -288,6 +342,15 @@ ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubun
     </item>
     
     <item>
+      <title>Webcam to IP Camera</title>
+      <link>https://wubigo.com/post/webcam-to-ip-camera/</link>
+      <pubDate>Thu, 11 Mar 2021 09:34:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/webcam-to-ip-camera/</guid>
+      <description>摄像头的区别 USB vs RTSP vs ONVIF If we use USB cameras we do not need the camera url and some functions like moving, zooming etc. will not be available. In the case of RTSP cameras and ONVIF cameras there are more functions available. The difference between the RTSP camera and the ONVIF camera is the following: the RTSP camera has only one stream in comparsion with the ONVIF camera having multiple streams at a time</description>
+    </item>
+    
+    <item>
       <title>面部生物识别学习笔记</title>
       <link>https://wubigo.com/post/face-detection-notes/</link>
       <pubDate>Sat, 23 Jan 2021 19:58:46 +0800</pubDate>
@@ -496,12 +559,32 @@ ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10.</
     </item>
     
     <item>
+      <title>Dapr组件开发环境搭建</title>
+      <link>https://wubigo.com/post/dapr-component-dev-setup/</link>
+      <pubDate>Mon, 28 Sep 2020 10:26:04 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dapr-component-dev-setup/</guid>
+      <description>开发环境准备 git version 2.34.1.windows.1 cmd&amp;gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
+# binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&amp;gt;make -v GNU Make 4.</description>
+    </item>
+    
+    <item>
       <title>Wireguad Vpn Client for Ubuntu</title>
       <link>https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/</link>
       <pubDate>Mon, 31 Aug 2020 12:41:39 +0800</pubDate>
       
       <guid>https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/</guid>
       <description> 安装 $lsb_release -a Distributor ID: Ubuntu Description: Ubuntu 20.04.1 LTS Release: 20.04 Codename: focal   sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo modprobe wireguard sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf sudo wg-quick up wg0  </description>
+    </item>
+    
+    <item>
+      <title>Dapr Notes</title>
+      <link>https://wubigo.com/post/dapr-notes/</link>
+      <pubDate>Tue, 25 Aug 2020 14:46:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dapr-notes/</guid>
+      <description>重新安装 Ensure that Docker Desktop is set to Linux containers mode when you run Dapr in self hosted mode
+d:\code&amp;gt;dapr uninstall Removing Dapr from your machine... Removing directory: C:\Users\wubigo\.dapr\bin Removing container: dapr_placement Dapr has been removed successfully d:\code&amp;gt;dapr init Making the jump to hyperspace... Installing runtime version 1.6.0 Downloading binaries and setting up components... Downloaded binaries and completed components set up. daprd binary has been installed to C:\Users\wubigo\.dapr\bin. dapr_placement container is running.</description>
     </item>
     
     <item>
@@ -786,6 +869,57 @@ C:\Windows\SoftwareDistribution\Download</description>
     </item>
     
     <item>
+      <title>Git Bash Notes</title>
+      <link>https://wubigo.com/post/git-bash-notes/</link>
+      <pubDate>Sat, 07 Mar 2020 19:31:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/git-bash-notes/</guid>
+      <description>git bash$ winpty docker run -it ubuntu /bin/bash  Prefixing the path with a double slash (//bin//bash) or
+set MSYS_NO_PATHCONV=1  http://stackoverflow.com/questions/7250130/how-to-stop-mingw-and-msys-from-mangling-path-names-given-at-the-command-line#34386471
+https://github.com/git-for-windows/git/issues/577#issuecomment-166118846</description>
+    </item>
+    
+    <item>
+      <title>LevelDB结构解析</title>
+      <link>https://wubigo.com/post/leveldb-main-structure/</link>
+      <pubDate>Thu, 20 Feb 2020 19:13:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb-main-structure/</guid>
+      <description> LevelDB 是一基于内存+SSD的键值存储引擎。
+ 内存存储最新的更改和热数据(缓存) SSD持久化所有数据  LevelDB经常使用代理+主从模式构建集群。 与REDIS协议保持兼容，可以被REDIS客户端访问。
+内存结构 LevelDB在内存维护两个跳表:MemTable, 一个只读，一个可写。
+序列号(Sequence number)是全局自增的，每次的修改序列号都会加1。 每个主键保存多个版本的键值。LevelDB用serial number标识键值对 的版本。最大的serial number代表最新的键值对。
+键值对有两种更新操作：
+ Put = 1 Delete = 0  当可写的MemTable的大小超过阈值，会把所有的键值转移到只读的MemTable。 同时会创建一个新的可写的MemTable。只读的MemTable会被一个线程异步的 写入SSD。读操作会先查询可写的MemTable，然后查询只读的MemTable，最后 去查询SSD.
+对可写的MemTable支持多线程操作，所以需要并发控制。
+只读的MemTable存在时间很短，被创建后就会把异步写入SSD,然后清空。 当可写的MemTable增长很快，只读的MemTable会很快被填满。如果只读 的MemTable还没有别完全写入SSD，写入线程就会被阻塞。
+内存结构操作日志 最近的MemTable的写入操作都会有一个对应的日志文件记录。 日志文件也有两份，对应两个跳表。
+SSD数据结构 SST LevelDB在SSD上存储了许多SST(Sorted String Table)文件, 每个文件对应一个级别，每个级别有多个SST文件。 SST文件的大小是相同的，不同的是每个级别文件数目不同。 主键在每个SST文件都是有序的。 级别0的文件和其他级别的文件有一个明显的区别：其他级别的SST 文件之间的主键不会重叠，但级别0的SST文件之间的主键可能重叠， 因为级别0的SST文件之间从MemTable直接转存过来。
+为了防止在级别0的SST文件进行键值读取的读放大，LevelDB默认 级别0有4个文件。
+MANIFEST 所有文件的主键范围，级别和其他的元信息存储在MANIFEST文件。 MANIFEST有版本号，通过文件名后缀标识，例如MANIFEST-000031。 每次打开数据库，一个新的版本号的MANIFEST就好被创建，旧版本 的文件就会被删除。
+CURRENT CURRENT文件内容记录了当前版本的MANIFEST文件名字。LevelDB首先读 CURRENT文件内容知道合法的MANIFEST文件。
+LOCK LevelDB数据库目录不允许被多个进程同时访问，当一个进程打开数据库， 一个排他的文件锁就创建。
+log 日志文件，记录操作日志，例如次要整理和主要整理日志
+数据整理 从只读MemTable到0级的SST文件的转移叫次级整理。从SST文件向 更低级转移交主要整理。
+文件合并 </description>
+    </item>
+    
+    <item>
+      <title>键值存储引擎基础数据结构之跳表</title>
+      <link>https://wubigo.com/post/leveldb%E4%B9%8B%E8%B7%B3%E8%A1%A8/</link>
+      <pubDate>Thu, 20 Feb 2020 09:58:26 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb%E4%B9%8B%E8%B7%B3%E8%A1%A8/</guid>
+      <description>跳表介绍  Skip lists are a data structure that can be used in place of balanced trees. Skip lists use probabilistic balancing rather than strictly enforced balancing and as a result the algorithms for insertion and deletion in skip lists are much simpler and significantly faster than equivalent algorithms for balanced trees.
+跳表是一种可以用来代替平衡树的数据结构，跳表使用概率平衡而不是严格执行的平衡， 因此，与等效树的等效算法相比，跳表中插入和删除的算法要简单得多，并且速度要快得多。
+ 跳表是由包含多个级别的链表组成，最低级别的链表存储了所有的主键并且按序链接
+java跳表 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html
+跳表结构  多条链构成，是关键字升序排列的数据结构； 包含多个级别，一个head引用指向最高的级别，最低（底部）的级别，包含所有的key； 每一个级别都是其更低级别的子集，并且是有序的； 如果关键字key在级别level=i中出现，则level&amp;lt;=i的链表中都会包含该关键字key；  ConcurrentSkipListMap和TreeMap类似，它们虽然都是有序的哈希表。但是，第一，它们的线程安全机制不同，TreeMap是非线程安全的，而ConcurrentSkipListMap是线程安全的。第二，ConcurrentSkipListMap是通过跳表实现的，而TreeMap是通过红黑树实现的
+跳表分为许多层(level)，每一层都可以看作是数据的索引，这些索引的意义就是加快跳表查找数据速度。每一层的数据都是有序的，上一层数据是下一层数据的子集，并且第一层(level 1)包含了全部的数据；层次越高，跳跃性越大，包含的数据越少。跳表包含一个表头，它查找数据时，是从上往下，从左往右进行查找。
+ConcurrentSkipListMap优点：</description>
+    </item>
+    
+    <item>
       <title>函数计算VPC支持更新</title>
       <link>https://wubigo.com/post/serverless-vpc/</link>
       <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
@@ -956,10 +1090,7 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
  Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
  Docker 17.09
   安装WSL install WSL
-安装Ubuntu for WSL 16.0.4 LTS install ubuntu in WSL
-安装DOCKER  启动ubuntu in WSL(以管理员身份运行)
-c:\&amp;gt;wsl -d Ubuntu-16.04  安装docker
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; $ sudo apt-get install docker-ce=17.</description>
+WSL 命令行和默认 shell cmd:\&amp;gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &amp;quot;metadata&amp;quot;  WSL DOCKER磁盘卷路径 cmd:\&amp;gt;docker volume inspect edgex_consul-config [ { &amp;quot;CreatedAt&amp;quot;: &amp;quot;2022-03-07T08:04:34Z&amp;quot;, &amp;quot;Driver&amp;quot;: &amp;quot;local&amp;quot;, &amp;quot;Labels&amp;quot;: { &amp;quot;com.docker.compose.project&amp;quot;: &amp;quot;edgex&amp;quot;, &amp;quot;com.docker.compose.version&amp;quot;: &amp;quot;2.2.3&amp;quot;, &amp;quot;com.docker.compose.volume&amp;quot;: &amp;quot;consul-config&amp;quot; }, &amp;quot;Mountpoint&amp;quot;: &amp;quot;/var/lib/docker/volumes/edgex_consul-config/_data&amp;quot;, &amp;quot;Name&amp;quot;: &amp;quot;edgex_consul-config&amp;quot;, &amp;quot;Options&amp;quot;: null, &amp;quot;Scope&amp;quot;: &amp;quot;local&amp;quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</description>
     </item>
     
     <item>
@@ -1252,7 +1383,7 @@ CNI 网桥
     </item>
     
     <item>
-      <title>日志:每个程序员都应该了解的实时数据统一抽象</title>
+      <title>日志：每个程序员都应该了解的实时数据统一抽象</title>
       <link>https://wubigo.com/post/log-about-real-time-datas-unifying-abstraction/</link>
       <pubDate>Fri, 15 Feb 2019 09:44:41 +0800</pubDate>
       
@@ -2321,6 +2452,33 @@ namespace for XML documents http.get(&amp;quot;https://wubigo.com/en/sitemap.xml
     </item>
     
     <item>
+      <title>在windows上搭建Leveldb的开发环境</title>
+      <link>https://wubigo.com/post/leveldb-port-in-java-dev/</link>
+      <pubDate>Mon, 19 Feb 2018 18:32:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/leveldb-port-in-java-dev/</guid>
+      <description>在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&amp;lt;module name=&amp;quot;RegexpMultiline&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;format&amp;quot; value=&amp;quot;\r&amp;quot;/&amp;gt; &amp;lt;property name=&amp;quot;message&amp;quot; value=&amp;quot;Line contains carriage return&amp;quot;/&amp;gt; &amp;lt;/module&amp;gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&amp;ldquo;core.</description>
+    </item>
+    
+    <item>
+      <title>Rocksdb Notes</title>
+      <link>https://wubigo.com/post/rocksdb-notes/</link>
+      <pubDate>Fri, 16 Feb 2018 15:05:34 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/rocksdb-notes/</guid>
+      <description>表分区 主键=((分区键) + [簇键])
+create table kvstor ( k_part_one text, k_part_two int, k_clust_one text, k_clust_two int, k_clust_three uuid, data text, PRIMARY KEY((k_part_one, k_part_two), k_clust_one, k_clust_two, k_clust_three) );  分区键 分区键决定数据在集群内的分布在哪个分区
+簇键 簇建决定数据的在分区内的排列顺序
+Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :</description>
+    </item>
+    
+    <item>
       <title>数据库无服务器架构</title>
       <link>https://wubigo.com/post/serverless-database/</link>
       <pubDate>Wed, 14 Feb 2018 02:16:59 +0800</pubDate>
@@ -3256,7 +3414,7 @@ update-locale LANG=zh_CN.UTF-8 # File generated by update-locale LANG=&amp;quot;
       <guid>https://wubigo.com/post/docker-logging/</guid>
       <description>Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
  The docker logs command is not available for drivers other than json-file and journald.
-logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.</description>
+docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.</description>
     </item>
     
     <item>
@@ -3265,7 +3423,8 @@ logging driver To configure the Docker daemon to default to a specific logging d
       <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
       
       <guid>https://wubigo.com/post/lang-go-notes/</guid>
-      <description>类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &amp;gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &amp;gt;if both are unnamed pointer types that point to variables of the same underlying type; these &amp;gt;conversions change the type but not the representation of the value. If x is assignable to T, a &amp;gt;conversion is permitted but is usually redundant.</description>
+      <description>虚拟包版本 Untagged revisions can be referred to using a &amp;ldquo;pseudo-version&amp;rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&amp;gt; v0.0.2-0.20211216162907-40b41ba86c5c  类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &amp;gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &amp;gt;if both are unnamed pointer types that point to variables of the same underlying type; these &amp;gt;conversions change the type but not the representation of the value.</description>
     </item>
     
     <item>
