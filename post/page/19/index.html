@@ -423,89 +423,6 @@
 
 
 
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-22 07:10:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 22, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2010-01-22-computer-networking/" itemprop="url">computer networking</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    iproute2 SCTP transport-layer protocols are implemented in the end systems but not in network routers.
-The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
 <meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2010-01-05 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -1023,6 +940,88 @@ curl http://localhost/info.php PHP Version 7.
     Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
 In a terminal, type:
 sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="" itemprop="datePublished">
+<meta content="" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 0001</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/redis-as-real-time-database/" itemprop="url"></a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    redisson.getKeys().delete("STREAM:02041123"))3. 动态检查消息队列列表，如果没有消费，立即处理(redisson.getKeys())4. 主节点配置为缓存，从节点配置为存储经过测试，现在redis消息队列每小时能处理2千万条的设备数据。还需要进一步优化写入速度。### REDIS消息处理确认流程图![REDIS消息队列](/img/redis-stream.svg)## 更换分布式监控## 更换实时数据库# REDIS数据可靠性## REDIS ON FLASH在许多情况下，SSD 的高性能也将延迟和吞吐量的性能瓶颈从设备 I/O 转移到了网络上。对于应用程序而言，将其架构设计为将数据存储在本地 SSD 上而不是使用远程数据存储服务变得更具吸引力。 这增加了对可嵌入应用程序的键值存储引擎的需求.RocksDB单节点的存储上限是100GB，超过100GB需要使用分区。![REDIS ON FLASH](/img/redis-on-flash.svg)## REDIS SHARD## 参考[1] [A COMPARISON OF DATA INGESTION PLATFORMS IN REAL-TIME STREAMING](https://www.doria.fi/bitstream/handle/10024/177865/tallberg_sebastian.pdf?sequence=2&isAllowed=y)[2] [Interview with the Creator of Redisson](https://www.alibabacloud.com/blog/interview-with-the-creator-of-redisson-building-an-open-source-enterprise-redis-client_593854)[3] [What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)[4] [Optimization of RocksDB for Redis on Flash](http://www.
   </div>
   
 
