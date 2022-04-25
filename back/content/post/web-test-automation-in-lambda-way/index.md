@@ -72,12 +72,11 @@ aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:p
 aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
 ```
 
-
 # 调整默认配置（设置内存和超时时间）
 
-函数计算的模式内存是128 MB， 超时是3秒。  默认配置
+函数计算的默认配置：  内存是128 MB， 超时是3秒。  
 
-pyppeteer无法正常工作。
+默认配置 pyppeteer无法正常工作。
 
 ```
 aws lambda get-function --function-name webdriver
