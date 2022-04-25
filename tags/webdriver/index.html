@@ -404,11 +404,8 @@
     <h2><a href="/post/web-test-automation-in-lambda-way/">Web Test Automation in Lambda Way</a></h2>
     <div class="article-style">
       
-      调整默认配置（设置内存和超时时间） 函数计算的模式内存是128 MB， 超时是3秒。 默认配置
-pyppeteer无法正常工作。
-aws lambda get-function --function-name webdriver { &quot;Configuration&quot;: { &quot;FunctionName&quot;: &quot;webdriver&quot;, &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;, &quot;Runtime&quot;: &quot;nodejs12.x&quot;, &quot;Role&quot;: &quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&quot;, &quot;Handler&quot;: &quot;index.handler&quot;, &quot;CodeSize&quot;: 598, &quot;Description&quot;: &quot;&quot;, &quot;Timeout&quot;: 63, &quot;MemorySize&quot;: 1024, &quot;LastModified&quot;: &quot;2021-10-08T09:44:02.000+0000&quot;, &quot;CodeSha256&quot;: &quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI+XEGlggfpPlV/AI=&quot;, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;RevisionId&quot;: &quot;3c08812d-e958-4427-a47e-be628966be36&quot;, &quot;Layers&quot;: [ { &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&quot;, &quot;CodeSize&quot;: 51779390 } ],  使用lambda layer https://github.com/shelfio/chrome-aws-lambda-layer
-注意要使用相应分区
-函数定义 const chromium = require('chrome-aws-lambda'); function getRandomInt(max) { let r = Math.
+      aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.
       
     </div>
   </div>
