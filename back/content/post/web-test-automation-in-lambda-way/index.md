@@ -19,6 +19,59 @@ categories = []
   focal_point = ""
 +++
 
+# aws客户端环境准备
+
+```
+git clone 
+pip install awscli https://github.com/wubigo/API.git
+python API/python/aws/aws.py
+cp API/python/aws/cred.json  ~/.aws/credentials
+cp API/python/aws/config  ~/.aws/config
+
+```
+
+# 创建函数部署包
+
+```
+mkdir lambda_web
+wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web
+zip -r  webdriver.zip lambda_web/*
+```
+
+
+
+# 配置
+
+
+`policy.json`
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+        "Effect": "Allow",
+        "Principal": {
+            "Service": ["lambda.amazonaws.com", "s3.amazonaws.com"]
+    },
+    "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+```
+aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+```
+
+# 复制
+
+```
+aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
+```
+
 
 # 调整默认配置（设置内存和超时时间）
 
@@ -134,38 +187,6 @@ exports.handler = async (event, context, callback) => {
 
 ```
 
-
-# 配置
-
-
-`policy.json`
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-    {
-        "Effect": "Allow",
-        "Principal": {
-            "Service": ["lambda.amazonaws.com", "s3.amazonaws.com"]
-    },
-    "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-```
-aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
-aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
-```
-
-# 复制
-
-```
-aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
-```
 
 # 执行
 
