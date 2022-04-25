@@ -61,6 +61,7 @@ zip -r  webdriver.zip lambda_web/*
 ```
 
 ```
+export ACCOUNT_ID=820934811997 
 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
 aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
