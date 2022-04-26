@@ -115,6 +115,18 @@ https://github.com/shelfio/chrome-aws-lambda-layer
 
 注意要使用相应分区
 
+## 自定义函数服务层
+
+
+```
+git clone --depth=1 https://github.com/alixaxel/chrome-aws-lambda.git && \
+cd chrome-aws-lambda && \
+make chrome_aws_lambda.zip
+
+
+aws lambda publish-layer-version --layer-name chrome_aws_lambda --zip-file fileb:///home/ubuntu/chrome-aws-lambda/chrome_aws_lambda.zip --compatible-runtimes nodejs12.x
+   
+```
 
 # 函数定义
 
