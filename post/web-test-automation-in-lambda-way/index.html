@@ -589,6 +589,17 @@ aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:p
 
 <p>注意要使用相应分区</p>
 
+<h2 id="自定义函数服务层">自定义函数服务层</h2>
+
+<pre><code>git clone --depth=1 https://github.com/alixaxel/chrome-aws-lambda.git &amp;&amp; \
+cd chrome-aws-lambda &amp;&amp; \
+make chrome_aws_lambda.zip
+
+
+aws lambda publish-layer-version --layer-name chrome_aws_lambda --zip-file fileb:///home/ubuntu/chrome-aws-lambda/chrome_aws_lambda.zip --compatible-runtimes nodejs12.x
+   
+</code></pre>
+
 <h1 id="函数定义">函数定义</h1>
 
 <pre><code>const chromium = require('chrome-aws-lambda');
