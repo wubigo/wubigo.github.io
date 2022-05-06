@@ -675,6 +675,17 @@ cat /etc/hosts
 
 <p><a href="https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa" target="_blank">1</a></p>
 
+<h1 id="静态ip">静态IP</h1>
+
+<p><code>WSL-ip.bat</code></p>
+
+<pre><code>wsl -d Ubuntu -u root ip addr add 192.168.50.16/24 broadcast 192.168.50.255 dev eth0 label eth0:1
+
+netsh interface ip add address &quot;vEthernet (WSL)&quot; 192.168.50.88 255.255.255.0
+</code></pre>
+
+<p><a href="https://lifesaver.codes/answer/static-ip-on-wsl-2-418" target="_blank">https://lifesaver.codes/answer/static-ip-on-wsl-2-418</a></p>
+
     </div>
 
     
