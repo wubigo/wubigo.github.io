@@ -195,3 +195,18 @@ https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For
 REF
 
 [1](https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa)
+
+
+#  静态IP
+
+
+`WSL-ip.bat`
+
+```
+wsl -d Ubuntu -u root ip addr add 192.168.50.16/24 broadcast 192.168.50.255 dev eth0 label eth0:1
+
+netsh interface ip add address "vEthernet (WSL)" 192.168.50.88 255.255.255.0
+```
+
+https://lifesaver.codes/answer/static-ip-on-wsl-2-418
+
