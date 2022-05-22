@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
   
 
   
@@ -398,6 +398,173 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-11-02 18:03:25 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 2, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/elastic-cloud-on-k8s/" itemprop="url">ECK notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    什么是ECK Built on the Kubernetes Operator pattern, Elastic Cloud on Kubernetes (ECK) extends the basic Kubernetes orchestration capabilities to support the setup and management of Elasticsearch, Kibana and APM Server on Kubernetes  install Elasticsearch CRD kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml kubectl -n elastic-system logs -f statefulset.apps/elastic-operator  创建PV(两种方法任选其一)  hostPath  localPath.yaml
+apiVersion: v1 kind: PersistentVolume metadata: name: es-pv-volume labels: type: local spec: storageClassName: local-hdd capacity: storage: 200Gi accessModes: - ReadWriteOnce hostPath: path: &quot;/mnt/data&quot;   Local volume  Local volumes do not currently support dynamic provisioning 创建目录/mnt/pv
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-10-29 21:59:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/ubuntu-dns-client/" itemprop="url">在Ubuntu上禁用DNS本地缓存 </a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Linux systems which use a GUI often have a network manager running, which uses a dnsmasq instance running on a loopback address such as 127.0.0.1 or 127.0.1.1 to cache DNS requests, and adds this entry to /etc/resolv.conf. The dnsmasq service speeds up DNS look-ups and also provides DHCP services
+sudo cat /run/resolvconf/resolv.conf sudo cat /run/dnsmasq/resolv.conf sudo cat /etc/systemd/resolved.conf  Disable the local DNS cache /etc/NetworkManager/NetworkManager.conf
+#dns=dnsmasq  systemctl restart network-manager  sudo systemctl disable dnsmasq  ubuntu 20.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2018,176 +2185,6 @@ https://github.com/go-gorm/gorm   region endpoint climc endpoint-show b0d33d8b37
     <a href="/post/i-just-hit-100k-yr-on-github-sponsors/" itemprop="url">I-Just-Hit-$100k-yr-On-GitHub-Sponsors</a>
   </h3>
 
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 19, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    49 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/" itemprop="url">从源代码构建Onecloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    系统设置 /etc/yum.conf
-obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
-安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
-安装kubelet
-OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
-mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 16, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lynx-ycombinator/" itemprop="url">通过lynx浏览黑客新网</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    最近黑客新网也被墙了，WTF
-lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pingcap.com) 107 points by Bella-Xiang 4 hours ago | hide | 17 comments 2. Adobe to remove Flash Player from web site after December 2020 (adobe.com) 740 points by michaelhoffman 14 hours ago | hide | 412 comments 3. How many of you know that the team is working on something that no-one wants? (iism.org) 255 points by kiyanwang 8 hours ago | hide | 136 comments 4.
-  </div>
   
 
   

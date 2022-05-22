@@ -5,8 +5,75 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 10:58:46 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 May 2022 16:30:53 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CAN总线消息格式DBC_Format</title>
+      <link>https://wubigo.com/post/iov-can-msg-dbc_format/</link>
+      <pubDate>Sun, 22 May 2022 16:30:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/iov-can-msg-dbc_format/</guid>
+      <description>
+
+&lt;h1 id=&#34;can消息总线格式&#34;&gt;CAN消息总线格式&lt;/h1&gt;
+
+&lt;h2 id=&#34;dbc格式&#34;&gt;DBC格式&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;BO_ 500 IO_DEBUG: 4 IO
+ SG_ IO_DEBUG_test_unsigned : 0|8@1+ (1,0) [0|0] &amp;quot;&amp;quot; DBG
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;说明：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The message name is IO_DEBUG and MID is 500 (decimal), and the length is 4 bytes (though we only need 1 for 8-bit signal)&lt;/li&gt;
+&lt;li&gt;The sender is IO&lt;/li&gt;
+&lt;li&gt;0|8: The unsigned signal starts at bit position 0, and the size of this signal is 8&lt;/li&gt;
+&lt;li&gt;(1,0): The scale and offset (discussed later)&lt;/li&gt;
+&lt;li&gt;[0|0]: Min and Max is not defined (discussed later)&lt;/li&gt;
+&lt;li&gt;&amp;rdquo;&amp;rdquo;: There are no units (it could be, for instance &amp;ldquo;inches&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;@1+: Defines that the signal is little-endian, and unsigned: Never change this!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;http://socialledge.com/sjsu/index.php/DBC_Format&#34; target=&#34;_blank&#34;&gt;CAN DBC&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Lake Notes</title>
+      <link>https://wubigo.com/post/data-lake-notes/</link>
+      <pubDate>Wed, 11 May 2022 19:59:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;three-main-use-cases-for-metadata-repositories&#34;&gt;three main use cases for metadata repositories:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Finding data assets
+For example, a data architect may want to know which tables in which databases
+contain a Customer_ID.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tracking lineage (provenance)
+Many regulations require enterprises to document the lineage of data assets—in
+other words, where the data for those assets came from and how it was generated
+or transformed.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Impact analysis
+If developers are making changes in a complex ecosystem, there is always a dan‐
+ger of breaking something. Impact analysis allows developers to see all the data
+assets that rely on a particular field or integration job before making a change&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;data-governance&#34;&gt;Data governance&lt;/h2&gt;
+
+&lt;p&gt;tools record, document, and sometimes manage governance poli‐cies. The tools usually
+define who the data steward is for each data asset. Data stew‐
+ards are responsible for making sure the data assets are correct, documenting their
+purpose and lineage, and defining access and lifecycle management policies for them&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Edgex Onvif Device Dev Setup</title>
@@ -1065,208 +1132,6 @@ sls deploy --dryrun
 &lt;pre&gt;&lt;code&gt;
 az group deployment create --mode complete --template-file ./empty.json --resource-group testgroup
 az group delete -n testgroup -y
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Quasar App Flow</title>
-      <link>https://wubigo.com/post/quasar-app-flow/</link>
-      <pubDate>Thu, 28 Oct 2021 15:53:54 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/quasar-app-flow/</guid>
-      <description>
-
-&lt;h1 id=&#34;cquasar-app-flow&#34;&gt;CQuasar App Flow&lt;/h1&gt;
-
-&lt;p&gt;In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:&lt;/p&gt;
-
-&lt;p&gt;Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets)
-Quasar Extras get imported (Roboto font – if used, icons, animations, …)
-Quasar CSS &amp;amp; your app’s global CSS are imported
-App.vue is loaded (not yet being used)
-Store is imported (if using Vuex Store in src/store)
-Router is imported (in src/router)
-Boot files are imported
-Router default export function executed
-Boot files get their default export function executed
-(if on Electron mode) Electron is imported and injected into Vue prototype
-(if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps
-Instantiating Vue with root component and attaching to DOM&lt;/p&gt;
-
-&lt;h1 id=&#34;vue组件脚手架&#34;&gt;Vue组件脚手架&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;quasar new --list
-quasar new [type] &amp;lt;name of your component with optional subfolder&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;创建组件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;quasar new component com1
-quasar new page page1
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;组件类型&#34;&gt;组件类型&lt;/h2&gt;
-
-&lt;p&gt;layout, page, component , boot, store&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lambda Redeploy Across Region</title>
-      <link>https://wubigo.com/post/lambda-redeploy-across-region/</link>
-      <pubDate>Fri, 22 Oct 2021 11:59:36 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lambda-redeploy-across-region/</guid>
-      <description>
-
-&lt;h1 id=&#34;计算时间-vs-请求数量&#34;&gt;计算时间 vs 请求数量&lt;/h1&gt;
-
-&lt;h2 id=&#34;平均计算时长&#34;&gt;平均计算时长&lt;/h2&gt;
-
-&lt;p&gt;427586 / 27386 = 15.6 (秒)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/aws-lambda-fee.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;设置默认配置&#34;&gt;设置默认配置&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws configure list-profiles
-
-default
-us-east-1
-us-east-2
-us-west-2
-us-west-1
-eu
-eu-west-1
-af-south-1
-ap-east-1
-ap-south-1
-ap-northeast-3
-ap-northeast-2
-ap-southeast-1
-ap-southeast-2
-ca-central-1
-eu-west-2
-eu-south-1
-eu-west-3
-eu-north-1
-me-south-1
-sa-east-1
-
-export AWS_PROFILE=us
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;下载部署包&#34;&gt;下载部署包&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda get-function --function-name webdriver
-
-
-&amp;quot;Code&amp;quot;: {
-        &amp;quot;RepositoryType&amp;quot;: &amp;quot;S3&amp;quot;,
-        &amp;quot;Location&amp;quot;: &amp;quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从Location下载部署包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;PROF = &amp;quot;eu-central-1&amp;quot;
-
-aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;配置&#34;&gt;配置&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;role-policy.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;,
-    &amp;quot;Statement&amp;quot;: [
-    {
-        &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;,
-        &amp;quot;Principal&amp;quot;: {
-            &amp;quot;Service&amp;quot;: [&amp;quot;lambda.amazonaws.com&amp;quot;]
-    },
-    &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;
-    }
-  ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://role-policy.json
-aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;测试&#34;&gt;测试&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;export AWS_PROFILE=eu-south-1
-aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload &#39;{&amp;quot;pageNo&amp;quot;: 5}&#39; out --log-type Tail --query &#39;LogResult&#39; --output text |  base64 -d
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;调度&#34;&gt;调度&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &#39;rate(30 minutes)&#39; 
-
-
-aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action &#39;lambda:InvokeFunction&#39; --principal events.amazonaws.com --source-arn arn:aws:events:eu-central-1:762491489154:rule/webdriver-scheduled-rule
-
-
-aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;调整周期&#34;&gt;调整周期&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;aws events put-rule --name webdriver-scheduled-rule --schedule-expression &amp;quot;rate(10 minutes)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&#34; target=&#34;_blank&#34;&gt;https://github.com/wubigo/API/blob/master/bash/put-rule.sh&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;自动&#34;&gt;自动&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;if [ -z &amp;quot;$1&amp;quot; ]
-  then
-    echo &amp;quot;No region supplied&amp;quot;
-    exit 1
-fi
-export AWS_PROFILE=$1
-
-FN=$(aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491:role/lambda-s3   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:${AWS_PROFILE}:762491:layer:chrome-aws-lambda:25)
-echo $FN
-
-aws events put-rule --name webdriver-scheduled-rule --schedule-expression &#39;rate(30 minutes)&#39;
-
-
-EVENT=$(aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action &#39;lambda:InvokeFunction&#39; --principal events.amazonaws.com --source-arn arn:aws:events:${AWS_PROFILE}:762491:rule/webdriver-scheduled-rule)
-echo $EVENT
-
-T=$(python3 targets.py ${AWS_PROFILE})
-cat targets.json
-aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
-sleep 5
-awslogs streams /aws/lambda/webdriver
-awslogs get /aws/lambda/webdriver --filter-pattern=&amp;quot;[r=REPORT,...]&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;禁止调用&#34;&gt;禁止调用&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt; aws lambda put-function-concurrency --function-name webdriver --reserved-concurrent-executions 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;function cannot be invoked while the reserved concurrency is zero.&lt;/p&gt;
-
-&lt;p&gt;Calling the invoke API action failed with this message: Rate Exceeded.&lt;/p&gt;
-
-&lt;h1 id=&#34;并发配额重置&#34;&gt;并发配额重置&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda delete-function-concurrency  --function-name webdriver
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;清理&#34;&gt;清理&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;aws lambda remove-permission --function-name webdriver --statement-id webdriver-scheduled-event
-aws events list-targets-by-rule --rule webdriver-scheduled-rule
-aws events remove-targets --rule  webdriver-scheduled-rule --ids 1
-aws events delete-rule --name &amp;quot;webdriver-scheduled-rule&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

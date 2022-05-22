@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
   
 
   
@@ -398,6 +398,178 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-11 15:46:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/minio-install-from-source/" itemprop="url">Minio源代码安装</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装两种方式 从最新源代码发布版安装  git设置代理
+[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
+set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&gt;/dev/null || (echo &quot;Installing golint&quot; &amp;&amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&gt;/dev/null || (echo &quot;Installing staticcheck&quot; &amp;&amp; wget --quiet https://github.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-12-04 12:11:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 4, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/javascript-arrow-functions/" itemprop="url">JavaScript Arrow Functions</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="javascript-arrow-functions">JavaScript Arrow Functions</h2>
+
+<p><a href="https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html" target="_blank">https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2014,231 +2186,6 @@ aws lambda add-permission --function-name my-function --action lambda:InvokeFunc
 in response to events in AWS, enabling
 serverless backend solutions.
 The Lambda Function itself includes source code
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-21 23:34:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 21, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/pass-over-iaas/" itemprop="url">面向应用的无服务器架构</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>根据多年在IAAS/PAAS平台的建议经验，并帮助多个行业例如医疗，电信，
-建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享，
-希望能为中小企业上云提供一些有价值的建议。</p>
-
-<p><strong>本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心，
-需要根据目前的计算能力选择相应的云服务厂商</strong></p>
-
-<p>云服务模型</p>
-
-<p><img src="./cloud-model.jpeg" alt="RNA" /></p>
-
-<p>从云服务模型可以看出，企业上云有以下路径可选。
-但导向是一致的，专注业务，IT外包。</p>
-
-<ul>
-<li>从自建数据中心向IaaS平台迁移</li>
-<li>从IaaS平台向PaaS迁移</li>
-<li>在公有云厂家间迁移</li>
-<li>从IaaS平台向FaaS迁移</li>
-<li>混合云</li>
-</ul>
-
-<p>上云的初级阶段:
-购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同，
-如何选择最高性价比的云主机，参考</p>
-
-<p><a href="/post/iaas-how-to-buy-ec2/">云主机主要性价比指标</a></p>
-
-<p>硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：</p>
-
-<ul>
-<li>云主机内网/外网平均带宽(最核心指标)</li>
-<li>存储(网络硬盘)IO吞吐量</li>
-<li>初始化完成后首次资源利用率</li>
-</ul>
-
-<p>其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构
-起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成
-这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016
-年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。</p>
-
-<p><strong>网络带宽是很多企业战略转型决定上云遇到的第一个大坑</strong></p>
-
-<blockquote>
-<p>内网平均带宽也是衡量私有云厂商服务能力的核心指标</p>
-</blockquote>
-
-<p>所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益</p>
-
-<p><a href="/post/iaas-benchmark-2016/">国内外云厂商主要产品基准测试对比图</a></p>
-
-<p><a href="/post/iaas-gears">上云注意事项</a></p>
-
-<p>上云的中级阶段：PaaS</p>
-
-<p><a href="/post/paas-how-to-buy">如何选择PAAS供应商</a></p>
-
-<p>上云的终级阶段: 不需要服务器。</p>
-
-<p><a href="/post/faas-how-to-buy">如何选择FAAS供应商</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-10-20 13:22:06 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-10-20 13:22:06 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 20, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-upload-with-localstack/" itemprop="url">Aws S3 Upload With Localstack</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://github.com/wubigo/localstack-examples" target="_blank">https://github.com/wubigo/localstack-examples</a></p>
-
   </div>
   
 

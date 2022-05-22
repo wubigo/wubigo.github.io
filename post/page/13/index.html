@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
   
 
   
@@ -398,6 +398,182 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-30 15:04:55 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/k8s-istio-discovery-proxy/">
+      <img src="/post/k8s-istio-discovery-proxy/featured_hu9eb2fa38cf3057f002d1fb2a9e3892ce_333237_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-istio-discovery-proxy/" itemprop="url">K8s Istio Pilot as envoy control place</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    # side car proxy
+ 方法1  Namespace labels
+kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/cassandra/">
+      <img src="/post/cassandra/featured_hu22b11bbc68f072918e062ea4bc21e939_19335_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cassandra/" itemprop="url">Cassandra</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    特性  与hadoop集成，支持MR数据读取 二级索引 支持长行（最多20亿的列） 动态schema更改 bulk load 其他数据源如hadoop with sstableloader， CSV importing with cqlsh DTCS优化时序数据性能  DB CATEGORY BY CAP  CA  To primarily support consistency and availability means that you’re likely using two-phase commit for distributed transactions. It means that the system will block when a network partition occurs, so it may be that your system is limited to a single data center cluster in an attempt to mitigate this.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2051,181 +2227,6 @@ gcc takeover.sh/fakeinit.c -o ./fakeinit
   
   <div class="article-style" itemprop="articleBody">
     准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6  安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-04 08:06:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 4, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/git-forkpull-model/" itemprop="url">分叉拉取模式(fork and pull model)</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    GITHUB两种主要的pull request的开发模式
-分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
-在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
- https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
- GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
- 打开git命令行客户端，把分叉仓库克隆到本地环境
-git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
-git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-03 08:45:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-computing-why-how/" itemprop="url">无服务器计算环境OPENFAAS搭建</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    准备  创建角色和授权
-kubectl create clusterrolebinding &quot;cluster-admin-faas&quot; \ --clusterrole=cluster-admin \ --user=&quot;cluster-admin-faas&quot;  分别为FAAS核心服务和函数创建名字空间
-kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
-# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
-helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
   </div>
   
 

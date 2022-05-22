@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-03-18T10:58:46&#43;08:00">
+  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
   
 
   
@@ -398,6 +398,176 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 19, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    49 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/" itemprop="url">从源代码构建Onecloud</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    系统设置 /etc/yum.conf
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
+安装kubelet
+OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 16, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lynx-ycombinator/" itemprop="url">通过lynx浏览黑客新网</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    最近黑客新网也被墙了，WTF
+lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pingcap.com) 107 points by Bella-Xiang 4 hours ago | hide | 17 comments 2. Adobe to remove Flash Player from web site after December 2020 (adobe.com) 740 points by michaelhoffman 14 hours ago | hide | 412 comments 3. How many of you know that the team is working on something that no-one wants? (iism.org) 255 points by kiyanwang 8 hours ago | hide | 136 comments 4.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2206,214 +2376,6 @@ aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-ac
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 29, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/java-last-2-years/">
-      <img src="/post/java-last-2-years/featured_hu3ae4e81a60560e1b764b586b4e2f8e78_497631_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/java-last-2-years/" itemprop="url">JAVA这两年</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JAVA 这两年最重要的项目就是GRAAL的正式版发布。
-GRAAL能做什么？
- 让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,  启动时间小于100ms， 像C, GO, ERLANG一样的执行速度
- 更低的内存占用：只占用传统的JVM应用20%的内存
-  听起来是不是该项目为函数计算做准备的？
-是，但不完全是。
-GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
- JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
-安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
-js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
-gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 27, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/digital-evolution-of-open-source-business-process-management/" itemprop="url">开源的工作流引擎技术演进历史</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    第一代 2003年， jBPM 1.0发布。
-运行环境：J2EE
-过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)
-当时的主流的技术： applets, Swing桌面和EJB
-第二代 2004年，jBPM 2.0发布
-同时jBPM加入JBoss基金会.
-运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器
-第三代 2005年, jBPM 3.0发布，支持BPEL
-过程定义语言：过程虚拟机
-架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通
-过JAVA实现状态机，而且支持建模
-HIBERNETE作为持久机制并同时提供会话对象的概念，
-工作流引擎所有的相关性交互都纳入contextual block范畴
-这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础
-第四代 2009年， jBPM 4.0 alpha版发布.
-过程虚拟机成功工作流引擎的核心。
-过程定义语言：BPMN, jPDL 和 BPEL
-因为团队人员离开并启动Activiti，正式版没能发布。
-主要改进：
- 无状态的服务API 运行时和历史数据的分离： 保证运行时持久的性能  第五代 2010年, Activiti 1发布
-改变：
- 版权从LGPL转到APACHE.
- 过程定义语言：BPMN(唯一)
- 从性能和扩展性加强PVM
- 多租户支持
- 轻量级架构
-  第六代 2017年，flowable 6.0发布。
-改变：
- 过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移
- 数据远完全抽象：支持NoSQL
   </div>
   
 
