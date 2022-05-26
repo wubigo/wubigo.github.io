@@ -1921,7 +1921,7 @@ relay-log = slave-relay-bin
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -1946,12 +1946,10 @@ relay-log = slave-relay-bin
 
   
   <div class="article-style" itemprop="articleBody">
-    index buffer Depends on Storage Engine
-MyISAM (Caches Index Pages From .MYI files)
-SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine='MyISAM' AND table_schema NOT IN ('information_schema','performance_schema','mysql');  Subtract that from key_buffer_size.
-InnoDB (Caches Data and Index Pages)
-SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine='InnoDB';  Subtract that from innodb_buffer_pool_size.
-convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = 'guowang'; SELECT CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements FROM information_schema.
+    mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER 'root'@'%' IDENTIFIED BY '123'; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p'123' -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql.
   </div>
   
 

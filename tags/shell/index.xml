@@ -107,12 +107,10 @@ The table_open_cache and max_connections system variables affect the maximum num
       <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/mysql-5.7-innodb/</guid>
-      <description>index buffer Depends on Storage Engine
-MyISAM (Caches Index Pages From .MYI files)
-SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine=&#39;MyISAM&#39; AND table_schema NOT IN (&#39;information_schema&#39;,&#39;performance_schema&#39;,&#39;mysql&#39;);  Subtract that from key_buffer_size.
-InnoDB (Caches Data and Index Pages)
-SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine=&#39;InnoDB&#39;;  Subtract that from innodb_buffer_pool_size.
-convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39;; SELECT CONCAT(&#39;ALTER TABLE `&#39;, table_name, &#39;` ENGINE=MyISAM;&#39;) AS sql_statements FROM information_schema.</description>
+      <description>mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&amp;gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&amp;gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &amp;lsquo;root@localhost&amp;rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&amp;gt; select user,host,plugin from mysql.</description>
     </item>
     
     <item>

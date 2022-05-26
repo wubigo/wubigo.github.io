@@ -28,12 +28,10 @@
   
     
   
-  <meta name="description" content="index buffer Depends on Storage Engine
-MyISAM (Caches Index Pages From .MYI files)
-SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine=&#39;MyISAM&#39; AND table_schema NOT IN (&#39;information_schema&#39;,&#39;performance_schema&#39;,&#39;mysql&#39;);  Subtract that from key_buffer_size.
-InnoDB (Caches Data and Index Pages)
-SELECT FLOOR(SUM(data_length&#43;index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine=&#39;InnoDB&#39;;  Subtract that from innodb_buffer_pool_size.
-convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39;; SELECT CONCAT(&#39;ALTER TABLE `&#39;, table_name, &#39;` ENGINE=MyISAM;&#39;) AS sql_statements FROM information_schema.">
+  <meta name="description" content="mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-5.7-innodb/">
@@ -142,12 +140,10 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/mysql-5.7-innodb/">
   <meta property="og:title" content="Mysql 5.7 InnoDB | wubigo">
-  <meta property="og:description" content="index buffer Depends on Storage Engine
-MyISAM (Caches Index Pages From .MYI files)
-SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB FROM information_schema.tables WHERE engine=&#39;MyISAM&#39; AND table_schema NOT IN (&#39;information_schema&#39;,&#39;performance_schema&#39;,&#39;mysql&#39;);  Subtract that from key_buffer_size.
-InnoDB (Caches Data and Index Pages)
-SELECT FLOOR(SUM(data_length&#43;index_length)/POWER(1024,2)) InnoDBSizeMB FROM information_schema.tables WHERE engine=&#39;InnoDB&#39;;  Subtract that from innodb_buffer_pool_size.
-convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39;; SELECT CONCAT(&#39;ALTER TABLE `&#39;, table_name, &#39;` ENGINE=MyISAM;&#39;) AS sql_statements FROM information_schema."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2013-04-22T17:08:07&#43;08:00">
@@ -428,7 +424,7 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -510,6 +506,51 @@ convert all tables from InnoDB into MyISAM SET @DATABASE_NAME = &#39;guowang&#39
 
     <div class="article-style" itemprop="articleBody">
       
+
+<h1 id="mysql-8-测试环境快速搭建-wsl-root远程访问">mysql 8 测试环境快速搭建(WSL/root远程访问)</h1>
+
+<pre><code>sudo apt install -y mysql-server
+mysql --version
+sudo mysql
+mysql&gt;CREATE USER 'root'@'%' IDENTIFIED BY '123';
+mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+mysql&gt;flush PRIVILEGES
+</code></pre>
+
+<p><code>mysql.conf.d/mysqld.cnf</code> :32:bind-address         = 0.0.0.0</p>
+
+<pre><code>sudo service mysql restart
+</code></pre>
+
+<p>Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)</p>
+
+<h2 id="root用户本地登录">root用户本地登录</h2>
+
+<p>本地登录使用系统认证(auth_socket)</p>
+
+<pre><code>sudo mysql
+</code></pre>
+
+<h2 id="root用户远程登录">root用户远程登录</h2>
+
+<pre><code>mysql -u root -p'123' -h 192.168.168.128
+</code></pre>
+
+<pre><code>mysql&gt; select user,host,plugin from mysql.user;
++------------------+-----------+-----------------------+
+| user             | host      | plugin                |
++------------------+-----------+-----------------------+
+| root             | %         | caching_sha2_password |
+| debian-sys-maint | localhost | caching_sha2_password |
+| mysql.infoschema | localhost | caching_sha2_password |
+| mysql.session    | localhost | caching_sha2_password |
+| mysql.sys        | localhost | caching_sha2_password |
+| root             | localhost | auth_socket           |
++------------------+-----------+-----------------------+
+
+mysqldump miaosha &gt; dump.sql
+mysql -u root -p'123' -h 192.168.168.128 miaosha &lt; miaosha.sql
+</code></pre>
 
 <h1 id="index-buffer">index buffer</h1>
 
