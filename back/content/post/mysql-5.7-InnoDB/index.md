@@ -20,7 +20,61 @@ categories = []
   focal_point = ""
 +++
 
+# mysql 8 测试环境快速搭建(WSL/root远程访问)
 
+
+
+
+```
+sudo apt install -y mysql-server
+mysql --version
+sudo mysql
+mysql>CREATE USER 'root'@'%' IDENTIFIED BY '123';
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+mysql>flush PRIVILEGES
+```
+
+
+`mysql.conf.d/mysqld.cnf` :32:bind-address         = 0.0.0.0
+
+```
+sudo service mysql restart
+```
+
+
+Create the root user (yes, a new user because what exists is 'root@localhost' which is local access only)
+
+##  root用户本地登录
+
+本地登录使用系统认证(auth_socket)
+
+```
+sudo mysql
+```
+
+## root用户远程登录
+
+```
+mysql -u root -p'123' -h 192.168.168.128
+```
+
+
+```
+mysql> select user,host,plugin from mysql.user;
++------------------+-----------+-----------------------+
+| user             | host      | plugin                |
++------------------+-----------+-----------------------+
+| root             | %         | caching_sha2_password |
+| debian-sys-maint | localhost | caching_sha2_password |
+| mysql.infoschema | localhost | caching_sha2_password |
+| mysql.session    | localhost | caching_sha2_password |
+| mysql.sys        | localhost | caching_sha2_password |
+| root             | localhost | auth_socket           |
++------------------+-----------+-----------------------+
+
+mysqldump miaosha > dump.sql
+mysql -u root -p'123' -h 192.168.168.128 miaosha < miaosha.sql
+```
 
 # index buffer
 
