@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
+  <meta property="og:updated_time" content="2022-06-28T11:09:12&#43;08:00">
   
 
   
@@ -398,6 +398,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 4, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-access-point/" itemprop="url">Aws S3 Access Point</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>aws sts get-caller-identity
+
+aws s3control list-access-points --account-id 46569194568
+
+aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
+
+aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point
+{
+    &quot;Name&quot;: &quot;my-access-point&quot;,
+    &quot;PublicAccessBlockConfiguration&quot;: {
+        &quot;IgnorePublicAcls&quot;: true,
+        &quot;BlockPublicPolicy&quot;: true,
+        &quot;BlockPublicAcls&quot;: true,
+        &quot;RestrictPublicBuckets&quot;: true
+    },
+    &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;,
+    &quot;Bucket&quot;: &quot;wubigo&quot;,
+    &quot;NetworkOrigin&quot;: &quot;Internet&quot;
+}
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2218,90 +2321,6 @@ docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   a
 Dockerfile
 FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
 apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-17 10:25:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 17, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-logging/" itemprop="url">K8s Logging</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
-/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
-ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
   </div>
   
 

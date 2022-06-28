@@ -5,8 +5,24 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 May 2022 16:30:53 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jun 2022 11:09:12 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Windows 11核心系统服务列表</title>
+      <link>https://wubigo.com/post/default-services-in-windows-11/</link>
+      <pubDate>Tue, 28 Jun 2022 11:09:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/default-services-in-windows-11/</guid>
+      <description>&lt;p&gt;因为禁用了下列服务：&lt;/p&gt;
+
+&lt;p&gt;Application Information                Appinfo&lt;/p&gt;
+
+&lt;p&gt;导致无法打开系统高级设置，SERVICES.MSC&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&#34; target=&#34;_blank&#34;&gt;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>CAN总线消息格式DBC_Format</title>
@@ -1070,69 +1086,6 @@ func host start --verbose
 &lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
 
 &lt;p&gt;部署节点和运行环境在同一可用区加快部署速度&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lambda in Azure with sls</title>
-      <link>https://wubigo.com/post/lambda-in-azure-with-sls/</link>
-      <pubDate>Sat, 06 Nov 2021 11:59:57 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/lambda-in-azure-with-sls/</guid>
-      <description>
-
-&lt;h1 id=&#34;创建函数&#34;&gt;创建函数&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;npm install -g serverless@2.65.0
-sls -v
-
-Framework Core: 2.65.0
-Plugin: 5.5.1
-SDK: 4.3.0
-Components: 3.17.2
-
-sls create -t azure-nodejs -p azure-fn
-cd azure-fn
-npm install
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;npm list |grep serverless-azure-functions
-└─┬ serverless-azure-functions@2.1.3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;部署函数&#34;&gt;部署函数&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;set AZURE_SUBSCRIPTION_ID=02a23ad5-
-set AZURE_TENANT_ID=e9950462
-set AZURE_CLIENT_ID=39258bc8
-set AZURE_CLIENT_SECRET=hYdvD0
-sls deploy --dryrun
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;测试&#34;&gt;测试&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;sls invoke -f hello -d &#39;{&amp;quot;name&amp;quot;: &amp;quot;Azure&amp;quot;}&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;清理&#34;&gt;清理&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;empty.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-&amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;quot;,
-&amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;,
-&amp;quot;parameters&amp;quot;: { },
-&amp;quot;variables&amp;quot;: { },
-&amp;quot;resources&amp;quot;: [ ],
-&amp;quot;outputs&amp;quot;: { }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-az group deployment create --mode complete --template-file ./empty.json --resource-group testgroup
-az group delete -n testgroup -y
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

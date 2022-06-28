@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
+  <meta property="og:updated_time" content="2022-06-28T11:09:12&#43;08:00">
   
 
   
@@ -398,6 +398,124 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-29 14:20:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-29 14:20:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 29, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-cloudformation-with-localstack/" itemprop="url">基于Localstack的本地云服务编排</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p><a href="https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628" target="_blank">https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628</a></p>
+
+<p><a href="https://github.com/localstack/localstack/issues/632" target="_blank">https://github.com/localstack/localstack/issues/632</a></p>
+
+<p>AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless
+applications at a higher level</p>
+
+<h1 id="localstack-default-regrion">localstack default regrion</h1>
+
+<p><strong>us-east-1</strong></p>
+
+<h1 id="create-stack">create stack</h1>
+
+<p><strong>file path has to be in file URL format(file:///home/user/&hellip;)</strong></p>
+
+<p><code>func.yaml</code></p>
+
+<pre><code>AWSTemplateFormatVersion: '2010-09-09'
+Description: Simple CloudFormation Test Template
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: test-bucket-1
+</code></pre>
+
+<pre><code>aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1
+</code></pre>
+
+<pre><code>aws cloudformation describe-stacks  --endpoint-url=http://localhost:4581 --region us-east-1
+
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2120,88 +2238,6 @@ chrome://flags/#infinite-session-restore  Click on the right drop-down menu and 
 enter password to unlock your keyring  方法1（可靠）
  set password-store to basic
 dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    13 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/helm-chart-istio/" itemprop="url">Helm Chart Istio</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: '44471' [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.
   </div>
   
 

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-05-22T16:30:53&#43;08:00">
+  <meta property="og:updated_time" content="2022-06-28T11:09:12&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-09-28 08:57:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-09-28 08:57:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 28, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/web-scrapy/" itemprop="url">Web Scrapy</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    用户代理 mobile devices browsing the web often see a pared-down ver‐ sion of sites, lacking banner ads, Flash, and other distractions. If you try changing your User-Agent to something like the following, you might find that sites get a little easier to scrape!
+User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53  scrapy architecture The data flow in Scrapy is controlled by the execution engine, and goes like this:
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2199,90 +2282,6 @@ Set up an external identity provider in AWS AWS SSO/Settings
 Configure SAML SSO in your own identity provider Create AWS IAM role Access Management/SAML 2.0 Federation
 set the provider you created above as the SAML provider. Select Allow programmatic and AWS Management Console access.
 On the Attach Permission Policies page, select the appropriate policies to attach to the role.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-04 15:58:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 4, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/skywalking-on-k8s/" itemprop="url">Skywalking on K8s</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装ECK(禁用TLS) [](/post/elastic-cloud-on-k8s/)
-安装helm3 安装skywalking8 git clone git@github.com:wubigo/skywalking-kubernetes.git cd skywalking-kubernetes/chart helm repo add elastic https://helm.elastic.co helm dep up skywalking export SKYWALKING_RELEASE_NAME=skywalking export SKYWALKING_RELEASE_NAMESPACE=default   配置ES  skywalking/values-my-es.yaml
-oap: image: tag: 8.1.0-es7 # Set the right tag according to the existing Elasticsearch version storageType: elasticsearch7 ui: image: tag: 8.1.0 elasticsearch: enabled: false config: host: 10.101.24.19 port: http: 9200 user: &quot;elastic&quot; #[optional] password: &quot;8FfgPZu0985bAm2x4243ncxJ&quot; # [optional]  helm install &quot;${SKYWALKING_RELEASE_NAME}&quot; skywalking -n &quot;${SKYWALKING_RELEASE_NAMESPACE}&quot; \ -f .
   </div>
   
 
