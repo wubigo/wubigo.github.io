@@ -298,7 +298,25 @@ seq 1 100 | xargs -I {} java  -jar bin/ossimport2.jar  -c conf/sys.properties cl
 ```
 
 
+
+
+## DD
+
+dd is a standard UNIX utility that's capable of reading and writing blocks of data very
+efficiently. To use it properly for disk testing of sequential read and write throughput, you'll
+need to have it work with a file that's at least twice the size of your total server RAM
+
+
+
+
+```
+time sh -c "dd if=/dev/zero of=bigfile bs=8k count=blocks &&
+ sync" time dd if=bigfile of=/dev/null bs=8k
+```
+
 [http://www.slashroot.in/linux-file-system-read-write-performance-test](http://www.slashroot.in/linux-file-system-read-write-performance-test)
 
 
 [测试块存储性能](https://partners-intl.aliyun.com/help/zh/doc-detail/147897.htm)
+
+[PostgreSQL.9.6.High.Performance](https://github.com/PacktPublishing/PostgreSQL-9.6-High-Performance)
