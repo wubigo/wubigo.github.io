@@ -24,7 +24,13 @@ git push
 git status
 
 
+set LIFY=%2
 REM  NETLIFY BUILD WEBHOOK TRIGGER DEPLOY
-curl -X POST -d {} https://api.netlify.com/build_hooks/62c00259355a9e1243111768
+if [%LIFY%] == ["-n"] (
+    echo "NETLIFY BUILD WEBHOOK TRIGGER DEPLOY"
+    rem curl -X POST -d {} https://api.netlify.com/build_hooks/62c00259355a9e1243111768
+    
+)
+
 
 
