@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-06-28T11:09:12&#43;08:00">
+  <meta property="og:updated_time" content="2022-07-02T08:43:54&#43;08:00">
   
 
   
@@ -398,6 +398,126 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-07-02 08:43:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-07-02 08:43:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 2, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/postgres-and-pgcli/" itemprop="url">Postgres and Pgcli</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="start-pq">START PQ</h1>
+
+<pre><code>version: '2'
+
+services:
+  postgresql:
+    container_name: pg
+    image: postgres:12
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgresql_data:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_PASSWORD=!Qsx4rgb'
+      - 'PGDATA=/var/lib/postgresql/data/pgdata'
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+
+volumes:
+  postgresql_data:
+    driver: local
+
+</code></pre>
+
+<h1 id="安装pgcli">安装pgcli</h1>
+
+<pre><code>sudo apt install libpq-dev
+pip install -U pgcli
+export PATH=$PATH:/home/ubuntu/.local/bin
+pgcli -U postgres -h localhost
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2088,93 +2208,6 @@ PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdr
   <div class="article-style" itemprop="articleBody">
     aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
 { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 9, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/maximum-number-files-hdfs/" itemprop="url">Maximum Number Files Hdfs</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    HDFS The maximum number of files in HDFS depends on two things:
- total storage space in the cluster
- the heap size of the NameNode.
-  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
-2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
-Each file object and each block object takes about 150 bytes of the memory.
   </div>
   
 

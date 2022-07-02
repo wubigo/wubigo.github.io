@@ -726,9 +726,21 @@ Results: 87 seeks/second, 11.424 ms random access time (26606211 &lt; offsets &l
 seq 1 100 | xargs -I {} java  -jar bin/ossimport2.jar  -c conf/sys.properties clean jobs/job.{}.cfg
 </code></pre>
 
+<h2 id="dd">DD</h2>
+
+<p>dd is a standard UNIX utility that&rsquo;s capable of reading and writing blocks of data very
+efficiently. To use it properly for disk testing of sequential read and write throughput, you&rsquo;ll
+need to have it work with a file that&rsquo;s at least twice the size of your total server RAM</p>
+
+<pre><code>time sh -c &quot;dd if=/dev/zero of=bigfile bs=8k count=blocks &amp;&amp;
+ sync&quot; time dd if=bigfile of=/dev/null bs=8k
+</code></pre>
+
 <p><a href="http://www.slashroot.in/linux-file-system-read-write-performance-test" target="_blank">http://www.slashroot.in/linux-file-system-read-write-performance-test</a></p>
 
 <p><a href="https://partners-intl.aliyun.com/help/zh/doc-detail/147897.htm" target="_blank">测试块存储性能</a></p>
+
+<p><a href="https://github.com/PacktPublishing/PostgreSQL-9.6-High-Performance" target="_blank">PostgreSQL.9.6.High.Performance</a></p>
 
     </div>
 

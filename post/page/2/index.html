@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-06-28T11:09:12&#43;08:00">
+  <meta property="og:updated_time" content="2022-07-02T08:43:54&#43;08:00">
   
 
   
@@ -398,6 +398,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 9, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/maximum-number-files-hdfs/" itemprop="url">Maximum Number Files Hdfs</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    HDFS The maximum number of files in HDFS depends on two things:
+ total storage space in the cluster
+ the heap size of the NameNode.
+  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
+2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
+Each file object and each block object takes about 150 bytes of the memory.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2195,93 +2282,6 @@ Does that mean using docker as your runtime is deprecated?
 _type The class of object that the document represents
 _id The unique identifier for the document”
 Actually, in Elasticsearch, our data is stored and indexed in shards, while an index is just a logical namespace that groups together one or more shards.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-11-21 16:10:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-11-21 16:10:31 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 21, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-sso-connect-to-external-identity-provider/" itemprop="url">AWS SSO Connect to External SAML Identity Provider</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Create an external identity provider in AWS IAM/Access management/identity_providers/
-create a SAML type identity_providers
-Set up an external identity provider in AWS AWS SSO/Settings
-Configure SAML SSO in your own identity provider Create AWS IAM role Access Management/SAML 2.0 Federation
-set the provider you created above as the SAML provider. Select Allow programmatic and AWS Management Console access.
-On the Attach Permission Policies page, select the appropriate policies to attach to the role.
   </div>
   
 
