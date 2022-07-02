@@ -404,7 +404,7 @@
     <h2><a href="/post/postgres-and-pgcli/">Postgres and Pgcli</a></h2>
     <div class="article-style">
       
-       START PQ version: '2' services: postgresql: container_name: pg image: postgres:12 ports: - '5432:5432' volumes: - 'postgresql_data:/var/lib/postgresql/data' environment: - 'POSTGRES_PASSWORD=!Qsx4rgb' - 'PGDATA=/var/lib/postgresql/data/pgdata' # adminer: # image: adminer # restart: always # ports: # - 8080:8080 volumes: postgresql_data: driver: local  安装pgcli sudo apt install libpq-dev pip install -U pgcli export PATH=$PATH:/home/ubuntu/.local/bin pgcli -U postgres -h localhost  更改配置 postgres@localhost&gt; alter system set autovacuum = off; postgres@localhost&gt; SELECT pg_reload_conf(); postgres@localhost&gt; show autovacuum;  
+       START PG version: '2' services: postgresql: container_name: pg image: postgres:12 ports: - '5432:5432' volumes: - 'postgresql_data:/var/lib/postgresql/data' environment: - 'POSTGRES_PASSWORD=!Qsx4rgb' - 'PGDATA=/var/lib/postgresql/data/pgdata' # adminer: # image: adminer # restart: always # ports: # - 8080:8080 volumes: postgresql_data: driver: local  安装pgcli sudo apt install libpq-dev pip install -U pgcli export PATH=$PATH:/home/ubuntu/.local/bin pgcli -U postgres -h localhost  更改配置 postgres@localhost&gt; alter system set autovacuum = off; postgres@localhost&gt; SELECT pg_reload_conf(); postgres@localhost&gt; show autovacuum;  
       
     </div>
   </div>
