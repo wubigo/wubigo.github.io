@@ -510,6 +510,13 @@ pgcli -U postgres -h localhost
 
 </code></pre>
 
+<h1 id="更改配置">更改配置</h1>
+
+<pre><code>postgres@localhost&gt; alter system set autovacuum = off;
+postgres@localhost&gt; SELECT pg_reload_conf();
+postgres@localhost&gt; show autovacuum;
+</code></pre>
+
   </div>
   
 

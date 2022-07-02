@@ -52,6 +52,13 @@ export PATH=$PATH:/home/ubuntu/.local/bin
 pgcli -U postgres -h localhost
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;更改配置&#34;&gt;更改配置&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;postgres@localhost&amp;gt; alter system set autovacuum = off;
+postgres@localhost&amp;gt; SELECT pg_reload_conf();
+postgres@localhost&amp;gt; show autovacuum;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

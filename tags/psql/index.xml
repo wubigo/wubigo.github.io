@@ -17,7 +17,7 @@
       <pubDate>Sat, 02 Jul 2022 08:43:54 +0800</pubDate>
       
       <guid>https://wubigo.com/post/postgres-and-pgcli/</guid>
-      <description> START PQ version: &#39;2&#39; services: postgresql: container_name: pg image: postgres:12 ports: - &#39;5432:5432&#39; volumes: - &#39;postgresql_data:/var/lib/postgresql/data&#39; environment: - &#39;POSTGRES_PASSWORD=!Qsx4rgb&#39; - &#39;PGDATA=/var/lib/postgresql/data/pgdata&#39; # adminer: # image: adminer # restart: always # ports: # - 8080:8080 volumes: postgresql_data: driver: local  安装pgcli sudo apt install libpq-dev pip install -U pgcli export PATH=$PATH:/home/ubuntu/.local/bin pgcli -U postgres -h localhost  </description>
+      <description> START PQ version: &#39;2&#39; services: postgresql: container_name: pg image: postgres:12 ports: - &#39;5432:5432&#39; volumes: - &#39;postgresql_data:/var/lib/postgresql/data&#39; environment: - &#39;POSTGRES_PASSWORD=!Qsx4rgb&#39; - &#39;PGDATA=/var/lib/postgresql/data/pgdata&#39; # adminer: # image: adminer # restart: always # ports: # - 8080:8080 volumes: postgresql_data: driver: local  安装pgcli sudo apt install libpq-dev pip install -U pgcli export PATH=$PATH:/home/ubuntu/.local/bin pgcli -U postgres -h localhost  更改配置 postgres@localhost&amp;gt; alter system set autovacuum = off; postgres@localhost&amp;gt; SELECT pg_reload_conf(); postgres@localhost&amp;gt; show autovacuum;  </description>
     </item>
     
   </channel>
