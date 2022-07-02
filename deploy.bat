@@ -24,3 +24,7 @@ git push
 git status
 
 
+REM  NETLIFY BUILD WEBHOOK TRIGGER DEPLOY
+curl -X POST -d {} https://api.netlify.com/build_hooks/62c00259355a9e1243111768
+
+
