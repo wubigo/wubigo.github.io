@@ -5,8 +5,17 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jul 2022 08:43:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jul 2022 22:05:52 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>KVM(Keyboard, Video, and Mouse) Over IP</title>
+      <link>https://wubigo.com/post/kvm-over-ip/</link>
+      <pubDate>Fri, 22 Jul 2022 22:05:52 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kvm-over-ip/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Postgres and Pgcli</title>
@@ -1015,50 +1024,6 @@ output = table
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;az v2不支持config，直接修改配置文件&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Azure Function From Cmd</title>
-      <link>https://wubigo.com/post/azure-function-from-cmd/</link>
-      <pubDate>Sun, 07 Nov 2021 10:50:49 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/azure-function-from-cmd/</guid>
-      <description>
-
-&lt;h1 id=&#34;azure-region&#34;&gt;AZURE REGION&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;创建函数app&#34;&gt;创建函数APP&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-# Function app and storage account names must be unique.
-storageName=mystorageaccount$RANDOM
-functionAppName=myserverlessfunc$RANDOM
-region=westeurope
-
-# Create a resource group.
-az group create --name myResourceGroup --location $region
-
-# Create an Azure storage account in the resource group.
-az storage account create \
-  --name $storageName \
-  --location $region \
-  --resource-group myResourceGroup \
-  --sku Standard_LRS
-
-# Create a serverless function app in the resource group.
-az functionapp create \
-  --name $functionAppName \
-  --storage-account $storageName \
-  --consumption-plan-location $region \
-  --resource-group myResourceGroup \
-  --functions-version 2
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
