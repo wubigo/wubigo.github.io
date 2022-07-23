@@ -19,6 +19,19 @@ categories = []
   focal_point = ""
 +++
 
+# postgres in docker
+
+https://github.com/wubigo/docker-compose/blob/main/docker-compose-psql.yml
+
+## 启用pg_stat_statements
+
+```
+docker volume inspect root_postgresql_data |grep "Mountpoint"
+echo "shared_preload_libraries = 'pg_stat_statements'" > /var/lib/docker/volumes/root_postgresql_data/_data/pgdata/postgresql.conf
+
+
+```
+
 
 
 ## INSTALL
