@@ -14,7 +14,7 @@ git add .
 git commit -a  -s -m %MSG%
 git push
 
-REM build static resource
+REM build static resource to docs and config github page publish from docs
 hugo -s back -d c:/code/wubigo.github.io/docs
 git status
 git add .
