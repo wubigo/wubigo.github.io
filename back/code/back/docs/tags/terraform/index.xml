@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TERRAFORM on wubigo</title>
+    <link>https://wubigo.com/tags/terraform/</link>
+    <description>Recent content in TERRAFORM on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Nov 2018 23:54:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aws IAM Policy</title>
+      <link>https://wubigo.com/post/aws-iam-policy/</link>
+      <pubDate>Fri, 30 Nov 2018 23:54:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-policy/</guid>
+      <description>AWS leverages a standard JSON Identity and Access Management (IAM)
+policy document format across many services to control authorization
+to resources and API actions
+terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
+resource &amp;quot;aws_iam_role_policy&amp;quot; &amp;quot;s3_policy&amp;quot; { name = &amp;quot;s3_policy&amp;quot; role = &amp;quot;${aws_iam_role.lambda_s3_role.id}&amp;quot; policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;ListObjectsInBucket&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: [&amp;quot;s3:ListBucket&amp;quot;], &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name&amp;quot;] }, { &amp;quot;Sid&amp;quot;: &amp;quot;AllObjectActions&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*Object&amp;quot;, &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name/*&amp;quot;] } ] } EOF } resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;lambda_s3_role&amp;quot; { name = &amp;quot;lambda_s3_role&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
+    </item>
+    
+    <item>
+      <title>函数＋网关</title>
+      <link>https://wubigo.com/post/lambda-apigateway/</link>
+      <pubDate>Wed, 28 Nov 2018 23:38:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-apigateway/</guid>
+      <description>运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&amp;lt;p&amp;gt;Hello world!&amp;lt;/p&amp;gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;example&amp;quot; { function_name = &amp;quot;ServerlessExample&amp;quot; # The bucket name as created earlier with &amp;quot;aws s3api create-bucket&amp;quot; s3_bucket = &amp;quot;terraform-serverless-example&amp;quot; s3_key = &amp;quot;v1.</description>
+    </item>
+    
+    <item>
+      <title>Terraform Notes</title>
+      <link>https://wubigo.com/post/terraform-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 15:11:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-notes/</guid>
+      <description>前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &amp;quot;aws&amp;quot; { profile = &amp;quot;default&amp;quot; region = &amp;quot;us-east-1&amp;quot; endpoints { ec2 = &amp;quot;http://localhost:4597&amp;quot; sts = &amp;quot;http://localhost:4592&amp;quot; } } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-2757f631&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
+    
+  </channel>
+</rss>

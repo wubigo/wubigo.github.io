@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CNI on wubigo</title>
+    <link>https://wubigo.com/tags/cni/</link>
+    <description>Recent content in CNI on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Feb 2019 16:18:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/cni/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K8S CNI操作指引</title>
+      <link>https://wubigo.com/post/k8s-cni/</link>
+      <pubDate>Sun, 24 Feb 2019 16:18:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-cni/</guid>
+      <description> 简介 CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中， K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。 许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+在容器网络环境，经常看到docker看不到K8S POD的IP网络配置， DOCKER容器有时候和POD无法通信。
+CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式， 网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID， 然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络， 并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+K8S网络基础 K8S网络基础
+CNI插件 CNI实现方式 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
+ Flannel
+ Kube-router
+Kube-router
+ OpenVSwitch
+ Calico
+Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
+CNI-Calico
+ Weave Net
+ 网桥
+CNI 网桥
+  </description>
+    </item>
+    
+    <item>
+      <title>Choosing a CNI Network Provider for Kubernetes</title>
+      <link>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</link>
+      <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</guid>
+      <description>The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
+Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.</description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Calico实现</title>
+      <link>https://wubigo.com/post/k8s_cni_calico/</link>
+      <pubDate>Tue, 26 Jun 2018 11:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Kube Router实现</title>
+      <link>https://wubigo.com/post/k8s_cni_kube-router/</link>
+      <pubDate>Mon, 26 Feb 2018 11:11:08 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_kube-router/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>K8SCNI之L2 网络实现</title>
+      <link>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</link>
+      <pubDate>Thu, 26 Jan 2017 10:09:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</guid>
+      <description> 准备  搭建测试环境
+可以参考从源代码构件K8S开发环境
+  </description>
+    </item>
+    
+  </channel>
+</rss>

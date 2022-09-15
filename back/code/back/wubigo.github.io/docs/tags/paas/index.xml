@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PaaS on wubigo</title>
+    <link>https://wubigo.com/tags/paas/</link>
+    <description>Recent content in PaaS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Sep 2020 10:26:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/paas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dapr组件开发环境搭建</title>
+      <link>https://wubigo.com/post/dapr-component-dev-setup/</link>
+      <pubDate>Mon, 28 Sep 2020 10:26:04 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dapr-component-dev-setup/</guid>
+      <description>开发环境准备 git version 2.34.1.windows.1 cmd&amp;gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
+# binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&amp;gt;make -v GNU Make 4.</description>
+    </item>
+    
+    <item>
+      <title>面向应用的无服务器架构</title>
+      <link>https://wubigo.com/post/pass-over-iaas/</link>
+      <pubDate>Sun, 21 Oct 2018 23:34:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/pass-over-iaas/</guid>
+      <description>根据多年在IAAS/PAAS平台的建议经验，并帮助多个行业例如医疗，电信， 建筑行业客户向互联网IAAS/PAAS平台的迁移，在这里做一些直观的分享， 希望能为中小企业上云提供一些有价值的建议。
+本帖中部分建议只是针对没有自己数据中心的中小企业，如果已经拥有自己的数据中心， 需要根据目前的计算能力选择相应的云服务厂商
+云服务模型
+从云服务模型可以看出，企业上云有以下路径可选。 但导向是一致的，专注业务，IT外包。
+ 从自建数据中心向IaaS平台迁移 从IaaS平台向PaaS迁移 在公有云厂家间迁移 从IaaS平台向FaaS迁移 混合云  上云的初级阶段: 购买云主机， 购买云主机的性价比指标和物理主机的指标完全不同， 如何选择最高性价比的云主机，参考
+云主机主要性价比指标
+硬盘转速的指标对云主机不再适用，云主机的性价比指标主要有以下几个：
+ 云主机内网/外网平均带宽(最核心指标) 存储(网络硬盘)IO吞吐量 初始化完成后首次资源利用率  其中内网平均带宽是最核心的指标，不仅关乎到MONEY的问题，而且对你的应用架构 起决定性的影响，原来的应用架构在云主机模式将会长期处于网络IO阻塞状态。造成 这种问题的根本原因不是你原来的架构不好，而是公有云厂商的网络性能太差，在2016 年的时候，阿里的平均带宽还不到100M每秒。AWS大概在200M每秒。
+网络带宽是很多企业战略转型决定上云遇到的第一个大坑
+ 内网平均带宽也是衡量私有云厂商服务能力的核心指标
+ 所以公有云厂商又开始向你兜售混合云概念。混合云不符合公有云厂商的核心利益
+国内外云厂商主要产品基准测试对比图
+上云注意事项
+上云的中级阶段：PaaS
+如何选择PAAS供应商
+上云的终级阶段: 不需要服务器。
+如何选择FAAS供应商</description>
+    </item>
+    
+    <item>
+      <title>K8s Openshift</title>
+      <link>https://wubigo.com/post/k8s-openshift/</link>
+      <pubDate>Tue, 20 Mar 2018 18:47:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-openshift/</guid>
+      <description>v3.11.0-&amp;gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&amp;quot;$(pwd)&amp;quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/ca.crt sudo chmod +r &amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &amp;gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.</description>
+    </item>
+    
+    <item>
+      <title>K8S notes</title>
+      <link>https://wubigo.com/post/k8s-notes/</link>
+      <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-notes/</guid>
+      <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &amp;lt;node name&amp;gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>K8S local development setup from source code</title>
+      <link>https://wubigo.com/post/k8s-local-development-setup/</link>
+      <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-local-development-setup/</guid>
+      <description>Setup a local development environment from source code with kubeadm</description>
+    </item>
+    
+  </channel>
+</rss>

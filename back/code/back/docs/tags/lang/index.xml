@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LANG on wubigo</title>
+    <link>https://wubigo.com/tags/lang/</link>
+    <description>Recent content in LANG on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Aug 2018 06:26:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/lang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lang Go Dep Manage</title>
+      <link>https://wubigo.com/post/lang-go-dep-manage/</link>
+      <pubDate>Wed, 29 Aug 2018 06:26:51 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-dep-manage/</guid>
+      <description>glide To upgrade dependencies, please make the necessary modifications in glide.yaml and run glide update.</description>
+    </item>
+    
+    <item>
+      <title>Lang Java Spring Cloud</title>
+      <link>https://wubigo.com/post/lang-java-spring-cloud/</link>
+      <pubDate>Thu, 12 Apr 2018 06:21:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-java-spring-cloud/</guid>
+      <description> spring-cloud-greenwich-release To get started with Maven with a BOM (dependency management only):
+&amp;lt;dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;Greenwich.RELEASE&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;/dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-config&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Lang Java Spring Boot V2</title>
+      <link>https://wubigo.com/post/lang-java-spring-boot-v2/</link>
+      <pubDate>Wed, 11 Apr 2018 08:48:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-java-spring-boot-v2/</guid>
+      <description>JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+-Djava.net.preferIPv4Stack=true  Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.</description>
+    </item>
+    
+    <item>
+      <title>Go穿越Firewall</title>
+      <link>https://wubigo.com/post/lang-go-proxy/</link>
+      <pubDate>Thu, 22 Mar 2018 14:34:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-proxy/</guid>
+      <description> go模块代理 https://github.com/goproxy/goproxy.cn
+$go version go version go1.13.12 linux/amd64  go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn,direct   重置goproxy
+go env -w GOPROXY   go doc https://golang.google.cn
+proxy  从 Github 的代码库 clone
+go get -u github.com/golang/text mv $GOPATH/src/github.com/golang/text $GOPATH/src/golang.org/x/text go get -u github.com/golang/crypto mv $GOPATH/src/github.com/golang/crypto $GOPATH/src/golang.org/x/crypto  设置 GOPROXY 环境变量配置代理
+  例如：GOPROXY=https://goproxy.io
+https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md
+https://gocn.vip/article/1678
+配置代理  系统代理 GIT代理  </description>
+    </item>
+    
+    <item>
+      <title>Effective Coding</title>
+      <link>https://wubigo.com/post/effective-coding/</link>
+      <pubDate>Wed, 28 Feb 2018 15:18:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/effective-coding/</guid>
+      <description>高效编程
+ JAVA PYTHON GO  </description>
+    </item>
+    
+    <item>
+      <title>Go Module</title>
+      <link>https://wubigo.com/post/lang-go-module/</link>
+      <pubDate>Wed, 22 Mar 2017 15:09:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-module/</guid>
+      <description>模块 A module is a collection of related Go packages that are versioned together as a single unit.
+Modules record precise dependency requirements and create reproducible builds.
+ go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&amp;rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
+显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github.</description>
+    </item>
+    
+    <item>
+      <title>GO NOTES</title>
+      <link>https://wubigo.com/post/lang-go-notes/</link>
+      <pubDate>Sat, 11 Feb 2017 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-go-notes/</guid>
+      <description>虚拟包版本 Untagged revisions can be referred to using a &amp;ldquo;pseudo-version&amp;rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&amp;gt; v0.0.2-0.20211216162907-40b41ba86c5c  类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &amp;gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &amp;gt;if both are unnamed pointer types that point to variables of the same underlying type; these &amp;gt;conversions change the type but not the representation of the value.</description>
+    </item>
+    
+    <item>
+      <title>Effective Coding Java</title>
+      <link>https://wubigo.com/post/effective-coding-java/</link>
+      <pubDate>Fri, 28 Feb 2014 15:19:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/effective-coding-java/</guid>
+      <description>JAVA 基础 JAVA 基础</description>
+    </item>
+    
+    <item>
+      <title>Java Notes</title>
+      <link>https://wubigo.com/post/java-notes/</link>
+      <pubDate>Fri, 01 Jan 2010 15:06:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-notes/</guid>
+      <description>Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &amp;quot;main&amp;quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括</description>
+    </item>
+    
+  </channel>
+</rss>

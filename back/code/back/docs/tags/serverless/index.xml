@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SERVERLESS on wubigo</title>
+    <link>https://wubigo.com/tags/serverless/</link>
+    <description>Recent content in SERVERLESS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Dec 2019 06:33:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>函数计算VPC支持更新</title>
+      <link>https://wubigo.com/post/serverless-vpc/</link>
+      <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-vpc/</guid>
+      <description>IN VPC 更新前VPC
+更新后VPC
+While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
+ Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.</description>
+    </item>
+    
+    <item>
+      <title>Lambda Provisioned Concurrency</title>
+      <link>https://wubigo.com/post/lambda-provisioned-concurrency/</link>
+      <pubDate>Sun, 08 Dec 2019 11:01:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-provisioned-concurrency/</guid>
+      <description>Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.</description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(下)</title>
+      <link>https://wubigo.com/post/aws-lambda-dynamodb/</link>
+      <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
+      <description> 创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(上)</title>
+      <link>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</link>
+      <pubDate>Mon, 31 Dec 2018 11:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</guid>
+      <description>发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&amp;hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &amp;quot;ingestionTime&amp;quot;: 1577764111252, &amp;quot;timestamp&amp;quot;: 1577764096184, &amp;quot;message&amp;quot;: &amp;quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&amp;quot;Records\&amp;quot;: [\n {\n \&amp;quot;EventSource\&amp;quot;: \&amp;quot;aws:sns\&amp;quot;,\n \&amp;quot;EventVersion\&amp;quot;: \&amp;quot;1.0\&amp;quot;,\n \&amp;quot;EventSubscriptionArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&amp;quot;,\n \&amp;quot;Sns\&amp;quot;: {\n \&amp;quot;Type\&amp;quot;: \&amp;quot;Notification\&amp;quot;,\n \&amp;quot;MessageId\&amp;quot;: \&amp;quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&amp;quot;,\n \&amp;quot;TopicArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&amp;quot;,\n \&amp;quot;Subject\&amp;quot;: null,\n \&amp;quot;Message\&amp;quot;: \&amp;quot;MESSAGE_TEXT\&amp;quot;,\n \&amp;quot;Timestamp\&amp;quot;: \&amp;quot;2019-12-31T03:48:15.</description>
+    </item>
+    
+    <item>
+      <title>函数计算Nodejs实例</title>
+      <link>https://wubigo.com/post/serverless-nodejs/</link>
+      <pubDate>Sat, 15 Dec 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-nodejs/</guid>
+      <description>restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
+    </item>
+    
+    <item>
+      <title>Aws IAM Policy</title>
+      <link>https://wubigo.com/post/aws-iam-policy/</link>
+      <pubDate>Fri, 30 Nov 2018 23:54:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-policy/</guid>
+      <description>AWS leverages a standard JSON Identity and Access Management (IAM)
+policy document format across many services to control authorization
+to resources and API actions
+terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
+resource &amp;quot;aws_iam_role_policy&amp;quot; &amp;quot;s3_policy&amp;quot; { name = &amp;quot;s3_policy&amp;quot; role = &amp;quot;${aws_iam_role.lambda_s3_role.id}&amp;quot; policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;ListObjectsInBucket&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: [&amp;quot;s3:ListBucket&amp;quot;], &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name&amp;quot;] }, { &amp;quot;Sid&amp;quot;: &amp;quot;AllObjectActions&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*Object&amp;quot;, &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name/*&amp;quot;] } ] } EOF } resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;lambda_s3_role&amp;quot; { name = &amp;quot;lambda_s3_role&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
+    </item>
+    
+    <item>
+      <title>函数＋网关</title>
+      <link>https://wubigo.com/post/lambda-apigateway/</link>
+      <pubDate>Wed, 28 Nov 2018 23:38:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-apigateway/</guid>
+      <description>运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&amp;lt;p&amp;gt;Hello world!&amp;lt;/p&amp;gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;example&amp;quot; { function_name = &amp;quot;ServerlessExample&amp;quot; # The bucket name as created earlier with &amp;quot;aws s3api create-bucket&amp;quot; s3_bucket = &amp;quot;terraform-serverless-example&amp;quot; s3_key = &amp;quot;v1.</description>
+    </item>
+    
+    <item>
+      <title>函数计算之道</title>
+      <link>https://wubigo.com/post/computing-in-function-way/</link>
+      <pubDate>Thu, 22 Nov 2018 09:17:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/computing-in-function-way/</guid>
+      <description> 函数计算概论 函数计算就是事件驱动架构(EDA），目前函数计算支持的事件类型列表
+函数计算事件列表
+计费模式  请求数
+ 执行时间
+ 内存分配
+  优劣势分析  真正做到谁开发谁运维(who code it who run it)
+ 不需要提前做计算容量规划，服务器配置，负责均衡，扩容
+  代表性产品  DB: Aurora   </description>
+    </item>
+    
+    <item>
+      <title>Serverless Supports Events Type on Aws</title>
+      <link>https://wubigo.com/post/serverless-supports-events-type-on-aws/</link>
+      <pubDate>Tue, 20 Nov 2018 11:56:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-supports-events-type-on-aws/</guid>
+      <description>https://serverless.com/framework/docs/providers/aws/events/</description>
+    </item>
+    
+    <item>
+      <title>基于local stack的本地S3对象创建通知</title>
+      <link>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</link>
+      <pubDate>Mon, 19 Nov 2018 16:46:13 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</guid>
+      <description>get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }  create s3 notification config
+cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }  make notification effect</description>
+    </item>
+    
+    <item>
+      <title>Aws Log</title>
+      <link>https://wubigo.com/post/aws-log/</link>
+      <pubDate>Fri, 16 Nov 2018 16:00:25 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-log/</guid>
+      <description>AWS Lambda By default, all native logs within a Lambda function are stored in the function execution result within Lambda. Additionally, if you would like to review log information immediately after executing a function, invoking the Lambda function with the LogType parameter will retrieve the last 4KB of log data generated by the function. This information is returned in the x-amz-log-results header in the HTTP response.
+While these methods are great ways to test and debug issues associated with individual function calls, they do not do much by way of analysis or alerting.</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的函数计算开发应用列表</title>
+      <link>https://wubigo.com/post/aws-serverless-localstack-examples/</link>
+      <pubDate>Fri, 16 Nov 2018 07:25:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-serverless-localstack-examples/</guid>
+      <description>serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &amp;quot;logGroups&amp;quot;: [ { &amp;quot;arn&amp;quot;: &amp;quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&amp;quot;, &amp;quot;creationTime&amp;quot;: 1573867924377.624, &amp;quot;metricFilterCount&amp;quot;: 0, &amp;quot;logGroupName&amp;quot;: &amp;quot;/aws/lambda/upload-local-postprocess&amp;quot;, &amp;quot;storedBytes&amp;quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &amp;quot;logStreams&amp;quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
+import json def my_handler(event, context): print(&amp;quot;Received event: &amp;quot; + json.</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的Serverless框架本地集成</title>
+      <link>https://wubigo.com/post/aws-localstack-serverless/</link>
+      <pubDate>Thu, 15 Nov 2018 15:39:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-localstack-serverless/</guid>
+      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources</description>
+    </item>
+    
+    <item>
+      <title>Aws Lambda Notes</title>
+      <link>https://wubigo.com/post/aws-lambda-notes/</link>
+      <pubDate>Wed, 24 Oct 2018 09:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-notes/</guid>
+      <description>事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+对象并发送给函数代码。
+事件的结构和内容由事件源决定
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+API和资源(函数或函数层）访问权限。
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+lambda也通过执行角色请求对事件源的读取权限。
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &amp;gt; --principal sns.amazonaws.com --output text {&amp;quot;Sid&amp;quot;:&amp;quot;sns&amp;quot;,&amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;,&amp;quot;Principal&amp;quot;:{&amp;quot;Service&amp;quot;:&amp;quot;sns.amazonaws.com&amp;quot;},&amp;quot;Action&amp;quot;:&amp;quot;lambda:InvokeFunction&amp;quot;,&amp;quot;Resource&amp;quot;:&amp;quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&amp;quot;}  serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code</description>
+    </item>
+    
+    <item>
+      <title>Aws S3 Upload With Localstack</title>
+      <link>https://wubigo.com/post/aws-s3-upload-with-localstack/</link>
+      <pubDate>Sat, 20 Oct 2018 13:22:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-upload-with-localstack/</guid>
+      <description>https://github.com/wubigo/localstack-examples</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的本地Lambda开发</title>
+      <link>https://wubigo.com/post/aws-lambda-with-localstack/</link>
+      <pubDate>Sat, 29 Sep 2018 09:39:28 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-with-localstack/</guid>
+      <description>Create function index.js
+exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
+    </item>
+    
+    <item>
+      <title>基于local stack的Step Function本地化开发</title>
+      <link>https://wubigo.com/post/aws-step-function-with-local-lambda/</link>
+      <pubDate>Wed, 26 Sep 2018 14:43:54 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-step-function-with-local-lambda/</guid>
+      <description>安装AWS CLI
+(venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local   awslocal = aws &amp;ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
+(venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
+    </item>
+    
+    <item>
+      <title>无服务器架构应用场景</title>
+      <link>https://wubigo.com/post/serverless-user-case/</link>
+      <pubDate>Mon, 30 Apr 2018 22:43:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-user-case/</guid>
+      <description> 典型无服务器架构应用场景  应用后台
+ 数据处理
+ 实时分析
+ 遗留应用API代理
+ 调度服务
+ RPA
+  最新实现参考  基于S3和SES邮件服务器  </description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的本地云服务编排</title>
+      <link>https://wubigo.com/post/aws-cloudformation-with-localstack/</link>
+      <pubDate>Sun, 29 Apr 2018 14:20:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-cloudformation-with-localstack/</guid>
+      <description> https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
+https://github.com/localstack/localstack/issues/632
+AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless applications at a higher level
+localstack default regrion us-east-1
+create stack file path has to be in file URL format(file:///home/user/&amp;hellip;)
+func.yaml
+AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  </description>
+    </item>
+    
+    <item>
+      <title>数据库无服务器架构</title>
+      <link>https://wubigo.com/post/serverless-database/</link>
+      <pubDate>Wed, 14 Feb 2018 02:16:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-database/</guid>
+      <description> 问题 长链接
+通过连接池和数据库保持长链接
+ Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions), where the database will automatically start up, shut down, and scale capacity up or down based on your application&amp;rsquo;s needs. It enables you to run your database in the cloud without managing any database instances. It&amp;rsquo;s a simple, cost-effective option for infrequent, intermittent, or unpredictable workloads.
+ </description>
+    </item>
+    
+    <item>
+      <title>书籍推荐:无服务器架构及应用案例详解</title>
+      <link>https://wubigo.com/post/serverless-architectures/</link>
+      <pubDate>Tue, 30 Jan 2018 11:43:11 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-architectures/</guid>
+      <description>Serverless Architectures
+
+ISBN-10: 1617293822  </description>
+    </item>
+    
+    <item>
+      <title>创业公司IT云服务系列之计算服务</title>
+      <link>https://wubigo.com/post/startup-it-cloud-compute/</link>
+      <pubDate>Wed, 17 Jan 2018 21:48:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/startup-it-cloud-compute/</guid>
+      <description> 邮枪Concept plan(免费用户并增加一张信用卡)额度介绍  每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封 接收邮件免费 支持一千个定制域名 可以向任何邮箱地址发送而不用授权  创建发送账号 接收邮件 </description>
+    </item>
+    
+    <item>
+      <title>无服务器计算环境OPENFAAS搭建</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Fri, 03 Mar 2017 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>准备  创建角色和授权
+kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+    </item>
+    
+  </channel>
+</rss>

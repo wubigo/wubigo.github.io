@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。
+20多年来，工作流都是超大型企业的配置专利，而STEP function的推出
+可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&mdash;|:&mdash;|:&mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/from-vm-to-container-to-serverless/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/from-vm-to-container-to-serverless/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/from-vm-to-container-to-serverless/">
+  <meta property="og:title" content="虚拟机 -&gt; 容器 -&gt; 函数计算 | wubigo">
+  <meta property="og:description" content="昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。
+20多年来，工作流都是超大型企业的配置专利，而STEP function的推出
+可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&mdash;|:&mdash;|:&mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-09-26T07:48:37&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-09-26T07:48:37&#43;08:00">
+  
+
+  
+
+  
+
+  <title>虚拟机 -&gt; 容器 -&gt; 函数计算 | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">虚拟机 -&gt; 容器 -&gt; 函数计算</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e8%99%9a%e6%8b%9f%e6%9c%ba%20-%3e%20%e5%ae%b9%e5%99%a8%20-%3e%20%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f&amp;title=%e8%99%9a%e6%8b%9f%e6%9c%ba%20-%3e%20%e5%ae%b9%e5%99%a8%20-%3e%20%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f&amp;title=%e8%99%9a%e6%8b%9f%e6%9c%ba%20-%3e%20%e5%ae%b9%e5%99%a8%20-%3e%20%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e8%99%9a%e6%8b%9f%e6%9c%ba%20-%3e%20%e5%ae%b9%e5%99%a8%20-%3e%20%e5%87%bd%e6%95%b0%e8%ae%a1%e7%ae%97&amp;body=https%3a%2f%2fwubigo.com%2fpost%2ffrom-vm-to-container-to-serverless%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>昨天看到AWS <a href="https://aws.amazon.com/about-aws/whats-new/2019/08/aws-step-function-adds-support-for-nested-workflows/" target="_blank">STEP FUNCTIONS支持嵌套的工作流</a></p>
+
+<p>，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，</p>
+
+<p>后来工作流服务就没有大的工作，SWF框架的核心开发者一部分</p>
+
+<p>离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS</p>
+
+<p>支持工作流，看来这个千亿规模的市场又快被颠覆了。</p>
+
+<p>20多年来，工作流都是超大型企业的配置专利，而STEP function的推出</p>
+
+<p>可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。</p>
+
+<p>回顾一下自己的工作历史：</p>
+
+<p>从以前的数据中心服务器SA(2006), 到虚拟主机ESX，</p>
+
+<p>再到OPENSTACK(2010)搭建混合云，</p>
+
+<p>然后利用K8S(2014)搭建PaaS，现在SERVERLESS,</p>
+
+<p>计算架构正在发生快速的演进。本文梳理了算力演进历史和未来</p>
+
+<p>内容</p>
+
+<ul>
+<li><p>从虚拟主机到容器</p></li>
+
+<li><p>从容器到unikernel</p></li>
+
+<li><p>函数计算的蓬勃发展</p></li>
+</ul>
+
+<h1 id="什么是虚拟计算">什么是虚拟计算</h1>
+
+<p><img src="./virtulization.png" alt="" /></p>
+
+<h1 id="hypervisor分类">hypervisor分类</h1>
+
+<ul>
+<li>Type-1 裸机</li>
+</ul>
+
+<p>KVM, QEMU, VMWare, Virtualbox</p>
+
+<ul>
+<li>Type-2 托管</li>
+</ul>
+
+<p>XenServer， Hyper-v， KVM, ESX, Xen</p>
+
+<h1 id="虚拟机的问题">虚拟机的问题</h1>
+
+<ul>
+<li>贵</li>
+</ul>
+
+<p>一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年</p>
+
+<ul>
+<li>操作慢</li>
+</ul>
+
+<p>一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.</p>
+
+<p>启动，备份非常不便。</p>
+
+<h1 id="容器计算">容器计算</h1>
+
+<p><img src="./container.png" alt="" /></p>
+
+<p>|虚拟机|            容器
+|:&mdash;|:&mdash;|:&mdash;|
+构件|  完整的操作系统和应用|  微内核和应用
+虚拟技术|  硬件虚拟化|  操作系统虚拟化</p>
+
+<p><img src="./c-vs-v.png" alt="" /></p>
+
+<h1 id="容器计算带来什么好处">容器计算带来什么好处</h1>
+
+<ul>
+<li>容器镜像小</li>
+</ul>
+
+<p>alpine的容量是2M</p>
+
+<ul>
+<li>容器占用的硬件资源更少</li>
+</ul>
+
+<p>一台PC可以启动上百个容器</p>
+
+<ul>
+<li>容器启动快</li>
+</ul>
+
+<p>一般几毫秒可以启动</p>
+
+<ul>
+<li>容器不用备份</li>
+</ul>
+
+<p>容器创建只需要一个Dockerfile，容器镜像是只读镜像</p>
+
+<ul>
+<li>容器和微服务器架构，DevOps, CI/CD天然融合</li>
+</ul>
+
+<h1 id="容器存在的问题">容器存在的问题</h1>
+
+<ul>
+<li>安全</li>
+</ul>
+
+<p>容器共享操作系统内核，具体较低的隔离级别，</p>
+
+<p>如果内核出问题，其他的容器也会处于风险之中</p>
+
+<ul>
+<li>网络</li>
+</ul>
+
+<p>如何在足够的隔离级别和复杂的高效网络连接权衡</p>
+
+<h1 id="容器编排">容器编排</h1>
+
+<ul>
+<li><p>K8S</p></li>
+
+<li><p>EKS</p></li>
+
+<li><p>SWARM</p></li>
+
+<li><p>MARATHON</p></li>
+
+<li><p>MAGNM</p></li>
+
+<li><p>FLEET</p></li>
+</ul>
+
+<p>用户轻松在计算集群里面部署，管理，扩展基于容器的应用而</p>
+
+<p>不用关心容器和服务器的绑定，系统扩容等问题</p>
+
+<h1 id="容器网络">容器网络</h1>
+
+<ul>
+<li>CNM</li>
+</ul>
+
+<p>DOCKER规范，libnetwork实现</p>
+
+<p>内置的驱动包括none, host, bridge , overlay, MACvlan</p>
+
+<pre><code>$ docker network ls
+ NAME                 DRIVER              SCOPE
+68343147e103        bridge               bridge              local
+5d7df1d8f633        docker_default       bridge              local
+d3990aab14a9        host                 host                local
+fe4ec77439f4        none                 null                local
+</code></pre>
+
+<p><img src="./CNM.png" alt="" /></p>
+
+<ul>
+<li>CNI</li>
+</ul>
+
+<p>COREOS规范，被K8S, MESOS, CLOUD Foundry采用</p>
+
+<p>json格式的网络模式定义</p>
+
+<p><img src="./cni.png" alt="" /></p>
+
+<h1 id="docker的核心组件">docker的核心组件</h1>
+
+<ul>
+<li><p>LXC</p></li>
+
+<li><p>AUFS</p></li>
+</ul>
+
+<h1 id="docker的优势">DOCKER的优势</h1>
+
+<ul>
+<li><p>镜像不可修改</p></li>
+
+<li><p>部署没有第三方依赖</p></li>
+
+<li><p>注册器简单且容易扩展</p></li>
+
+<li><p>容易回滚</p></li>
+</ul>
+
+<p>对DOCKER的误解：</p>
+
+<ul>
+<li><p>如果学习了docker就不必学其他的系统知识了</p></li>
+
+<li><p>每个容器只能有一个进程</p></li>
+
+<li><p>用容器了就不必使用其他的配置管理工具了</p></li>
+
+<li><p>必须使用容器才能达到高效敏捷和一致性状态优势</p></li>
+</ul>
+
+<h1 id="open-containers-initiative">Open Containers Initiative</h1>
+
+<p><img src="./oci.png" alt="" /></p>
+
+<h1 id="unikernel">UniKernel</h1>
+
+<p><img src="./UniKernel.png" alt="" /></p>
+
+<h1 id="函数计算的兴起">函数计算的兴起</h1>
+
+<p><strong>No server is easier to manage than no-server</strong></p>
+
+<p>背景：</p>
+
+<ul>
+<li>前端技术演进</li>
+</ul>
+
+<ol>
+<li>强大的原生客户/移动客户端让开发者通过调用各种云服务</li>
+</ol>
+
+<p>编写大规模互联网应用，替换传统的后台服务</p>
+
+<ol>
+<li>HTTP/S应用接口及基于token的安全认证成为工业标准</li>
+</ol>
+
+<ul>
+<li>后台的定制化开发</li>
+</ul>
+
+<p>基于云服务器定制开发</p>
+
+<h1 id="serverless-vs-paas">ServerLess  VS  PaaS</h1>
+
+<p>PasS可能是ServerLess的一个迭代</p>
+
+<p><img src="./serverless.png" alt="" /></p>
+
+<p><img src="./article.png" alt="" /></p>
+
+<h1 id="总结">总结</h1>
+
+<ul>
+<li><p>虚拟机是一种更成熟的技术，更安全</p></li>
+
+<li><p>容器虚拟化是一个更适合微服务器架构的方案</p></li>
+
+<li><p>虚拟机和容器并不是互斥而是互补</p></li>
+
+<li><p>函数计算是一下个&hellip;</p></li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/architecture/">ARCHITECTURE</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

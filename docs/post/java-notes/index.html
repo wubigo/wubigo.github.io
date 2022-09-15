@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &quot;main&quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&quot;-Dhttps.protocols=TLSv1.2&quot;&#39; &gt;&gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/java-notes/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/java-notes/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/java-notes/">
+  <meta property="og:title" content="Java Notes | wubigo">
+  <meta property="og:description" content="Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &quot;main&quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&quot;-Dhttps.protocols=TLSv1.2&quot;&#39; &gt;&gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2010-01-01T15:06:20&#43;08:00">
+  
+  <meta property="article:modified_time" content="2010-01-01T15:06:20&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Java Notes | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Java Notes</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="datePublished">
+<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 2010</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Java%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjava-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fjava-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fjava-notes%2f&amp;title=Java%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fjava-notes%2f&amp;title=Java%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Java%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fjava-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="java诊断利器arthas">Java诊断利器Arthas</h1>
+
+<pre><code>curl -O https://arthas.aliyun.com/arthas-boot.jar
+java -jar arthas-boot.jar
+[arthas@9208]$ thread 1
+&quot;main&quot; Id=1 TIMED_WAITING
+    at java.base@8.0.12/java.lang.Thread.sleep(Native Method)
+    at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339)
+    at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)
+</code></pre>
+
+<h1 id="jvm-memory-model">JVM MEMORY MODEL</h1>
+
+<p><img src="./jvm-memory-mode.png" alt="" /></p>
+
+<h1 id="javax-net-ssl-sslexception-received-fatal-alert-protocol-version">javax.net.ssl.SSLException: Received fatal alert: protocol_version</h1>
+
+<p>On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0</p>
+
+<pre><code>echo 'export JAVA_TOOL_OPTIONS=&quot;-Dhttps.protocols=TLSv1.2&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+
+<h1 id="访问可见性">访问可见性</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">类</th>
+<th align="left">包</th>
+<th align="left">子类</th>
+<th align="left">所有人</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">public</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">是</td>
+</tr>
+
+<tr>
+<td align="left">protected</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">否</td>
+</tr>
+
+<tr>
+<td align="left">没有修饰符</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+
+<tr>
+<td align="left">private</td>
+<td align="left">是</td>
+<td align="left">否</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="方法签名">方法签名</h1>
+
+<p>方法签名包括</p>
+
+<ul>
+<li>方法名</li>
+<li>参数类型</li>
+<li>参数顺序</li>
+</ul>
+
+<p>不包括</p>
+
+<ul>
+<li>返回类型</li>
+<li>可见性</li>
+<li>抛出例外</li>
+</ul>
+
+<h1 id="过载和覆盖">过载和覆盖</h1>
+
+<ul>
+<li>过载: 方法名称相同但签名不同</li>
+<li>覆盖:
+
+<ul>
+<li>签名相同，而且返回类型也必须相同</li>
+<li>可见性不能减少，可以增加可见性</li>
+<li>例外必须相同或者是父类例外的子类</li>
+</ul></li>
+</ul>
+
+<h1 id="visibility-and-atomicity">visibility and Atomicity</h1>
+
+<p>in  the  absence  of  synchronization,  there  are  a  number  of  reasons  a  thread might  not  immediately  ‐  or  ever  ‐  see  the  results  of  an  operation  in  another  thread.  Compilers  may  generate  instructions in  a  different  order  than  the  &ldquo;obvious&rdquo;  one  suggested  by  the  source  code,  or  store  variables  in  registers  instead  of  in memory;  processors  may  execute  instructions  in  parallel  or  out  of  order;  caches  may  vary  the  order  in  which  writes  to variables  are  committed  to  main  memory;  and  values  stored  in  processor‐local  caches  may  not  be  visible  to  other processors.  These  factors  can  prevent  a  thread  from  seeing  the  most  up‐to‐date  value  for  a  variable  and  can  cause memory actions  in  other  threads  to  appear  to  happen  out  of  order  ‐  if  you  don&rsquo;t  use  adequate  synchronization.</p>
+
+<h1 id="lock-and-reentrantlock">Lock and ReentrantLock</h1>
+
+<p>Before Java 5.0, the only mechanisms for coordinating access to shared data were synchronized and volatile. Java
+5.0 adds another option: ReentrantLock. Contrary to what some have written, ReentrantLock is not a replacement for
+intrinsic locking, but rather an alternative with advanced features for when intrinsic locking proves too limited</p>
+
+<p>Intrinsic locking works fine in most situations
+but has some functional limitations ‐ it is not possible to interrupt a thread waiting to acquire a lock, or to attempt to
+acquire a lock without being willing to wait for it forever. Intrinsic locks also must be released in the same block of code
+in which they are acquired; this simplifies coding and interacts nicely with exception handling, but makes non‐blockstructured
+locking disciplines impossible</p>
+
+<h1 id="readwritelock">ReadWriteLock</h1>
+
+<p>The  locking  strategy  implemented  by  read‐write  locks  allows  multiple  simultaneous  readers  but  only  a  single  writer.
+In  practice, read‐write  locks  can  improve  performance  for  frequently  accessed  read‐mostly  data  structures  on  multiprocessor systems;  under  other  conditions  they  perform  slightly  worse  than  exclusive  locks  due  to  their  greater  complexity. Whether  they  are  an  improvement  in  any  given  situation  is  best  determined  via  profiling;  because  ReadWriteLock  uses Lock  for  the  read  and  write  portions  of  the  lock,  it  is  relatively  easy  to  swap  out  a  read‐write  lock  for  an  exclusive  one  if profiling  determines  that  a  read‐write  lock  is  not  a  win. </p>
+
+<h1 id="hashtable">hashtable</h1>
+
+<ul>
+<li>Hashtable is synchronized, whereas HashMap is not. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.</li>
+<li>Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values.</li>
+<li>One of HashMap&rsquo;s subclasses is LinkedHashMap, so in the event that you&rsquo;d want predictable iteration order (which is insertion order by default), you could easily swap out the HashMap for a LinkedHashMap. This wouldn&rsquo;t be as easy if you were using Hashtable.</li>
+</ul>
+
+<p>HashTable is obsolete in Java 1.7 and it is recommended to use ConcurrentMap implementation</p>
+
+<h1 id="java-memory-model">Java  Memory Model</h1>
+
+<p>The  Java  Memory  Model  is  specified  in  terms  of  actions,  which  include  reads  and  writes  to  variables,  locks  and  unlocks of  monitors,  and  starting  and  joining  with  threads.  The  JMM  defines  a  partial  ordering  [2]  called  happens‐before  on  all actions  within  the  program</p>
+
+<h1 id="soft-reference">soft reference</h1>
+
+<p>four different degrees of reference strength: strong, soft, weak, and phantom, in order from strongest to weakest</p>
+
+<p>SoftReferences aren&rsquo;t required to behave any differently than WeakReferences, but in practice softly reachable objects are generally retained as long as memory is in plentiful supply. This makes them an excellent foundation for a cache, such as the image cache described above</p>
+
+<h1 id="checked-exception">checked exception</h1>
+
+<p>The cardinal rule in deciding whether to use a checked or an unchecked exception is this: use checked exceptions for conditions from which the caller can reasonably be expected to recover. By throwing a checked exception, you force the caller to handle the exception in a catch clause or to propagate it outward. Each checked exception that a method is declared to throw is therefore a potent indication to the API user that the associated condition is a possible outcome of invoking the method.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/java/">JAVA</a>
+  
+  <a class="badge badge-light" href="/tags/lang/">LANG</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

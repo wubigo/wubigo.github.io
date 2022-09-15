@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MICROSERVICE on wubigo</title>
+    <link>https://wubigo.com/tags/microservice/</link>
+    <description>Recent content in MICROSERVICE on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Apr 2019 17:08:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/microservice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微服务认证和授权（MAA）指南</title>
+      <link>https://wubigo.com/post/microservices-authentication-and-authorization/</link>
+      <pubDate>Sun, 28 Apr 2019 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservices-authentication-and-authorization/</guid>
+      <description>微服务认证和授权有很多方案，
+这里比较各种主流方案的优缺点，
+为你的业务系统选择MAA方案提供指南
+   方案 优点 缺点     分布式会话管理 简单，成熟，服务器统一管理 扩展性比较差   客户令牌     单点登录     API网关令牌管理     第三方应用授权     SSL/TLS 双向认证      方案  分布式会话管理  会话信息由服务器存储
+实现方式：
+ Sticky session Session replication Centralized session storage   客户令牌  令牌由客户持有
+JWT: 头，负载和签名
+ 头
+{ &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot;, &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot; }  负载</description>
+    </item>
+    
+    <item>
+      <title>GRPC vs REST</title>
+      <link>https://wubigo.com/post/grpc-vs-rest/</link>
+      <pubDate>Sun, 29 Apr 2018 21:22:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-vs-rest/</guid>
+      <description>https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/</description>
+    </item>
+    
+    <item>
+      <title>Spring Actuator</title>
+      <link>https://wubigo.com/post/spring-actuator/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-actuator/</guid>
+      <description>setup  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  enable web client all endpoints are exposed to JMX and WEB clents
+By default, all endpoints except for shutdown are enabled.
+ enable all endpoings
+ enable all endpoints accessed by web
+management: endpoints: enabled-by-default: true web: exposure: include: &amp;quot;*&amp;quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.</description>
+    </item>
+    
+    <item>
+      <title>Envoy Control Plane API Server Testing</title>
+      <link>https://wubigo.com/post/envoy-control-plane-api-server-testing/</link>
+      <pubDate>Wed, 04 Apr 2018 06:50:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/envoy-control-plane-api-server-testing/</guid>
+      <description>SNAPSHOT // Snapshot is an internally consistent snapshot of xDS resources. // Consistentcy is important for the convergence as different resource types // from the snapshot may be delivered to the proxy in arbitrary order. type Snapshot struct { // Endpoints are items in the EDS response payload. Endpoints Resources // Clusters are items in the CDS response payload. Clusters Resources // Routes are items in the RDS response payload.</description>
+    </item>
+    
+    <item>
+      <title>Spring Gateway</title>
+      <link>https://wubigo.com/post/spring-gateway/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-gateway/</guid>
+      <description>&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-zuul&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  gateway with routing @EnableZuulServer is used when you want to build your own routing service and not use any Zuul prebuilt capabilities. An example of this would be if you wanted to use Zuul to integrate with a service discovery engine other than Eureka (for example, Consul). We’ll only use the @EnableZuulServer annotation in this book.
+The Zuul proxy server is designed by default to work on the Spring products.</description>
+    </item>
+    
+    <item>
+      <title>microservice notes</title>
+      <link>https://wubigo.com/post/2016-02-01-microservice-notes/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2016-02-01-microservice-notes/</guid>
+      <description>Microservices at Netflix Scale https://gotocon.com/dl/goto-amsterdam-2016/slides/RuslanMeshenberg_MicroservicesAtNetflixScaleFirstPrinciplesTradeoffsLessonsLearned.pdf
+securing microservice with UAA
+user accounting and authorizing service(UAA) Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
+JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.</description>
+    </item>
+    
+  </channel>
+</rss>

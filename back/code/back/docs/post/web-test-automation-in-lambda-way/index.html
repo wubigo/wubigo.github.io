@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/web-test-automation-in-lambda-way/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/web-test-automation-in-lambda-way/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/web-test-automation-in-lambda-way/">
+  <meta property="og:title" content="Web Test Automation in Lambda Way | wubigo">
+  <meta property="og:description" content="aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2021-10-09T10:15:58&#43;08:00">
+  
+  <meta property="article:modified_time" content="2021-10-09T10:15:58&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Web Test Automation in Lambda Way | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Web Test Automation in Lambda Way</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2021-10-09 10:15:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-09 10:15:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 9, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Web%20Test%20Automation%20in%20Lambda%20Way&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fweb-test-automation-in-lambda-way%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fweb-test-automation-in-lambda-way%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fweb-test-automation-in-lambda-way%2f&amp;title=Web%20Test%20Automation%20in%20Lambda%20Way"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fweb-test-automation-in-lambda-way%2f&amp;title=Web%20Test%20Automation%20in%20Lambda%20Way"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Web%20Test%20Automation%20in%20Lambda%20Way&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fweb-test-automation-in-lambda-way%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="aws客户端环境准备">aws客户端环境准备</h1>
+
+<pre><code>git clone 
+pip install awscli https://github.com/wubigo/API.git
+python API/python/aws/aws.py
+cp API/python/aws/cred.json  ~/.aws/credentials
+cp API/python/aws/config  ~/.aws/config
+
+</code></pre>
+
+<h1 id="创建函数部署包">创建函数部署包</h1>
+
+<pre><code>mkdir lambda_web
+wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web
+zip -r  webdriver.zip lambda_web/*
+</code></pre>
+
+<h1 id="配置">配置</h1>
+
+<p><code>policy.json</code></p>
+
+<pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+    {
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Principal&quot;: {
+            &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;]
+    },
+    &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+</code></pre>
+
+<pre><code>export ACCOUNT_ID=820934811997 
+aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+</code></pre>
+
+<h1 id="复制">复制</h1>
+
+<pre><code>aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler  --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5   --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25  --profile us
+</code></pre>
+
+<h1 id="调整默认配置-设置内存和超时时间">调整默认配置（设置内存和超时时间）</h1>
+
+<p>函数计算的默认配置：  内存是128 MB， 超时是3秒。</p>
+
+<p>默认配置 pyppeteer无法正常工作。</p>
+
+<pre><code>aws lambda get-function --function-name webdriver
+{
+    &quot;Configuration&quot;: {
+        &quot;FunctionName&quot;: &quot;webdriver&quot;,
+        &quot;FunctionArn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;,
+        &quot;Runtime&quot;: &quot;nodejs12.x&quot;,
+        &quot;Role&quot;: &quot;arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5&quot;,
+        &quot;Handler&quot;: &quot;index.handler&quot;,
+        &quot;CodeSize&quot;: 598,
+        &quot;Description&quot;: &quot;&quot;,
+        &quot;Timeout&quot;: 63,
+        &quot;MemorySize&quot;: 1024,
+        &quot;LastModified&quot;: &quot;2021-10-08T09:44:02.000+0000&quot;,
+        &quot;CodeSha256&quot;: &quot;Ma8ntxB5UxdLSOdotZBnSGDuBUDI+XEGlggfpPlV/AI=&quot;,
+        &quot;Version&quot;: &quot;$LATEST&quot;,
+        &quot;TracingConfig&quot;: {
+            &quot;Mode&quot;: &quot;PassThrough&quot;
+        },
+        &quot;RevisionId&quot;: &quot;3c08812d-e958-4427-a47e-be628966be36&quot;,
+        &quot;Layers&quot;: [
+            {
+                &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:764866452798:layer:chrome-aws-lambda:25&quot;,
+                &quot;CodeSize&quot;: 51779390
+            }
+        ],
+
+</code></pre>
+
+<h1 id="使用lambda-layer">使用lambda  layer</h1>
+
+<p><a href="https://github.com/shelfio/chrome-aws-lambda-layer" target="_blank">https://github.com/shelfio/chrome-aws-lambda-layer</a></p>
+
+<p>注意要使用相应分区</p>
+
+<h2 id="自定义函数服务层">自定义函数服务层</h2>
+
+<pre><code>git clone --depth=1 https://github.com/alixaxel/chrome-aws-lambda.git &amp;&amp; \
+cd chrome-aws-lambda &amp;&amp; \
+make chrome_aws_lambda.zip
+
+
+aws lambda publish-layer-version --layer-name chrome_aws_lambda --zip-file fileb:///home/ubuntu/chrome-aws-lambda/chrome_aws_lambda.zip --compatible-runtimes nodejs12.x
+   
+</code></pre>
+
+<h1 id="函数定义">函数定义</h1>
+
+<pre><code>const chromium = require('chrome-aws-lambda');
+
+
+function getRandomInt(max) {
+  let r = Math.floor(Math.random() * max)
+  if ( r &lt;= 1 )
+    r = 2
+  return r;
+}
+
+
+exports.handler = async (event, context, callback) =&gt; {
+  console.log(&quot;fn EVENT: \n&quot; + JSON.stringify(event, null, 2))
+  let e = JSON.parse(JSON.stringify(event, null, 2));
+  let pageNo = e[&quot;pageNo&quot;]
+  if ( pageNo == null )
+    pageNo = getRandomInt(17)
+  console.log(&quot;pageNo=&quot;+pageNo);
+  let result = null;
+  let browser = null;
+
+  try {
+    
+    let path = await chromium.executablePath;
+    console.log(&quot;browser begin: &quot;+ path+&quot;\n&quot; );
+    browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+    
+    let page = await browser.newPage();
+    await page.setDefaultTimeout(0);
+
+    await page.goto('https://wubigo.com/post/page/'+pageNo);
+    console.log(&quot;go to wubigo&quot;);
+    result = await page.title();
+    console.log(&quot;title: &quot; +result +&quot;\n&quot; );
+    
+
+    const page2 = await browser.newPage();
+    await page2.setDefaultNavigationTimeout(0);
+    const articles = await page.$$('h3.article-title');
+    for (let i = 0; i &lt; articles.length; i++) {
+      const link = await articles[i].$eval('a', a =&gt; a.getAttribute('href'))
+        .catch((e) =&gt; console.log('catch err: ' + e));
+      console.log('link='+link);
+      e[&quot;link&quot;+i]=link;
+      // await articles[i].click().catch((e) =&gt; console.log('err: ' + e));
+      await page2.goto('https://wubigo.com/'+link);
+      // await page.goBack();
+      
+    }
+  } catch (error) {
+    return callback(error);
+  } finally {
+    if (browser !== null) {
+      await browser.close();
+    }
+  }
+  result = JSON.stringify(e)
+  return callback(null, result);
+};
+
+</code></pre>
+
+<h1 id="执行">执行</h1>
+
+<pre><code>aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{&quot;pageNo&quot;: 5}' response.json --profile us
+
+
+
+
+aws lambda invoke --function-name webdriver --cli-binary-format raw-in-base64-out --payload '{&quot;pageNo&quot;: 5}' out --log-type Tail --query 'LogResult' --output text --profile us |  base64 -d
+
+</code></pre>
+
+<h1 id="检查结果">检查结果</h1>
+
+<pre><code>cat response.json
+</code></pre>
+
+<h1 id="eventbridge调度">EventBridge调度</h1>
+
+<pre><code>aws events put-rule --name webdriver-scheduled-rule --schedule-expression 'rate(30 minutes)'
+
+
+aws lambda add-permission --function-name webdriver --statement-id webdriver-scheduled-event --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule
+
+
+aws events put-targets --rule webdriver-scheduled-rule --targets file://targets.json
+</code></pre>
+
+<p><code>targets.json</code></p>
+
+<pre><code>[
+    {
+        &quot;Id&quot;: &quot;1&quot;,
+        &quot;Arn&quot;: &quot;arn:aws:lambda:ap-northeast-1:762491489154:function:webdriver&quot;
+    }
+]
+
+</code></pre>
+
+<h1 id="检查调度结果">检查调度结果</h1>
+
+<pre><code>2021-10-21T09:55:56.099Z	397385df-555a-451a-9ba6-b9548438c797	INFO	fn EVENT: 
+{
+    &quot;version&quot;: &quot;0&quot;,
+    &quot;id&quot;: &quot;8945024c-4594-df8a-74f3-9c98b0e75ed5&quot;,
+    &quot;detail-type&quot;: &quot;Scheduled Event&quot;,
+    &quot;source&quot;: &quot;aws.events&quot;,
+    &quot;account&quot;: &quot;762491489154&quot;,
+    &quot;time&quot;: &quot;2021-10-21T09:55:11Z&quot;,
+    &quot;region&quot;: &quot;ap-northeast-1&quot;,
+    &quot;resources&quot;: [
+        &quot;arn:aws:events:ap-northeast-1:762491489154:rule/webdriver-scheduled-rule&quot;
+    ],
+    &quot;detail&quot;: {}
+}
+
+
+# 检查日志
+
+`log-events.json`
+</code></pre>
+
+<p>{
+ &ldquo;logStreamName&rdquo;: &ldquo;2021/10/21/[$LATEST]eae72f7f77124ab69d0a1fc398172cec&rdquo;,
+ &ldquo;logGroupName&rdquo;: &ldquo;/aws/lambda/webdriver&rdquo;,
+ &ldquo;startFromHead&rdquo;: true
+}</p>
+
+<pre><code>
+
+
+</code></pre>
+
+<p>aws logs describe-log-streams &ndash;log-group-name /aws/lambda/webdriver &ndash;log-stream-name-prefix 2021/10/21</p>
+
+<p>aws logs get-log-events &ndash;cli-input-json file://log-events.json
+```</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/webdriver/">WEBDRIVER</a>
+  
+  <a class="badge badge-light" href="/tags/lambda/">LAMBDA</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/container-support-for-lambda/">函数服务容器化</a></li>
+          
+          <li><a href="/post/lambda-provisioned-concurrency/">Lambda Provisioned Concurrency</a></li>
+          
+          <li><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></li>
+          
+          <li><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></li>
+          
+          <li><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

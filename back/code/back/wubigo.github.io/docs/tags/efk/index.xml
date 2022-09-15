@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EFK on wubigo</title>
+    <link>https://wubigo.com/tags/efk/</link>
+    <description>Recent content in EFK on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Apr 2016 14:12:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/efk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K8s日志EFK</title>
+      <link>https://wubigo.com/post/k8s-logging-efk/</link>
+      <pubDate>Sun, 17 Apr 2016 14:12:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
+      <description>namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
+kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
+    </item>
+    
+  </channel>
+</rss>

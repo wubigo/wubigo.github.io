@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NETWORK on wubigo</title>
+    <link>https://wubigo.com/tags/network/</link>
+    <description>Recent content in NETWORK on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Jun 2020 08:14:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>分配Vmware虚机静态IP</title>
+      <link>https://wubigo.com/post/vmware-vm-static-ip/</link>
+      <pubDate>Sun, 14 Jun 2020 08:14:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vmware-vm-static-ip/</guid>
+      <description> 虚机网卡地址 配置静态IP C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf
+host VMnet8 { hardware ethernet 00:0C:29:23:AV:67; fixed-address 192.168.137.170; }  重启VMWARE DHCP服务 net stop vmnetdhcp net start vmnetdhcp  </description>
+    </item>
+    
+    <item>
+      <title>宽带服务</title>
+      <link>https://wubigo.com/post/start-your-own-isp/</link>
+      <pubDate>Mon, 16 Sep 2019 09:39:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/start-your-own-isp/</guid>
+      <description>https://news.ycombinator.com/item?id=20726906
+ISP Starter Kit
+http://www.wispa.org/Resources/HOW-TO-START-A-WISP
+wireless fiber
+5G mobile broadband
+https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution
+https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</description>
+    </item>
+    
+    <item>
+      <title>Wireless and Wired Connection Both at a Same Time in Windows</title>
+      <link>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</link>
+      <pubDate>Fri, 10 May 2019 16:57:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</guid>
+      <description>give the wireless network higher priority than the wired WIRELESS CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot; &amp;gt; advanced TCP/IP setting &amp;gt; Automatic metric  Uncheck it. That will enable a text box named &amp;ldquo;Interface metric&amp;rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.
+WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot; &amp;gt; advanced TCP/IP setting &amp;gt; Automatic metric  Again Uncheck &amp;ldquo;Automatic metric&amp;rdquo;, and fill in a number in the &amp;ldquo;Interface metric&amp;rdquo; box.</description>
+    </item>
+    
+    <item>
+      <title>K8S CNI操作指引</title>
+      <link>https://wubigo.com/post/k8s-cni/</link>
+      <pubDate>Sun, 24 Feb 2019 16:18:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-cni/</guid>
+      <description> 简介 CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中， K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。 许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+在容器网络环境，经常看到docker看不到K8S POD的IP网络配置， DOCKER容器有时候和POD无法通信。
+CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式， 网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID， 然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络， 并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+K8S网络基础 K8S网络基础
+CNI插件 CNI实现方式 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
+ Flannel
+ Kube-router
+Kube-router
+ OpenVSwitch
+ Calico
+Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
+CNI-Calico
+ Weave Net
+ 网桥
+CNI 网桥
+  </description>
+    </item>
+    
+    <item>
+      <title>Vxlan on Linux</title>
+      <link>https://wubigo.com/post/vxlan-on-linux/</link>
+      <pubDate>Thu, 03 Jan 2019 11:31:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vxlan-on-linux/</guid>
+      <description> 端到端VXLAN(unicast) ip a ip link add vxlan0 type vxlan \ id 42 \ dstport 4789 \ remote 10.12.0.172 \ local 10.12.2.95 \ dev eth0 ip -d link show dev vxlan0 ip addr add 192.168.8.101/24 dev vxlan0 ip link set vxlan0 up ip r default via 10.12.0.1 dev eth0 10.12.0.0/21 dev eth0 proto kernel scope link src 10.12.2.95 192.168.8.0/24 dev vxlan0 proto kernel scope link src 192.168.8.101 bridge fdb | grep vxlan0 ip neigh  多播vxlan(multicast) </description>
+    </item>
+    
+    <item>
+      <title>Wireguard开发参考</title>
+      <link>https://wubigo.com/post/wireguard-dev-guide/</link>
+      <pubDate>Thu, 03 Jan 2019 06:53:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireguard-dev-guide/</guid>
+      <description>git clone https://git.zx2c4.com/wireguard-go  </description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Calico实现</title>
+      <link>https://wubigo.com/post/k8s_cni_calico/</link>
+      <pubDate>Tue, 26 Jun 2018 11:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Windows</title>
+      <link>https://wubigo.com/post/tcpdump-windows/</link>
+      <pubDate>Tue, 24 Apr 2018 19:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/tcpdump-windows/</guid>
+      <description>install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  [1] [The Secret To 10 Million Concurrent Connections]http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html
+[2] [A User-Level TCP Stack for Processing 40 Million Concurrent TCP Connections]https://ieeexplore.ieee.org/abstract/document/8422993</description>
+    </item>
+    
+    <item>
+      <title>常用的网络工具</title>
+      <link>https://wubigo.com/post/network-tools/</link>
+      <pubDate>Sat, 31 Mar 2018 06:29:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/network-tools/</guid>
+      <description>常用命令 常用命令
+bandwidth utilization tool wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar xvz -C ~/bin/ bandwhich  TCP tcpdump-windows
+TCP DUMP</description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Kube Router实现</title>
+      <link>https://wubigo.com/post/k8s_cni_kube-router/</link>
+      <pubDate>Mon, 26 Feb 2018 11:11:08 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_kube-router/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>Linux中的虚拟网络设施</title>
+      <link>https://wubigo.com/post/virtual-networking-on-linux/</link>
+      <pubDate>Sat, 11 Nov 2017 09:42:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/virtual-networking-on-linux/</guid>
+      <description>标准设备  Bridge: A Linux bridge behaves like a network switch. It forwards packets between interfaces that are connected to it. It&amp;rsquo;s usually used for forwarding packets on routers, on gateways, or between VMs and network namespaces on a host. It also supports STP, VLAN filter, and multicast snooping. TUN: TUN (network Tunnel) devices work at the IP level or layer three level of the network stack and are usually point-to-point connections.</description>
+    </item>
+    
+    <item>
+      <title>容器多种方式链接宿主网络</title>
+      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
+      <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
+      <description>提示： 以下操作是在VirtualBox虚机环境，并做如下配置
+ 网络  下拉高级设置，在&amp;rdquo;Adapter Type&amp;rdquo;选择PCnet-FAST III&amp;rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&amp;rdquo;Promiscuous Mode&amp;rdquo;必须设置为&amp;rdquo;Allow All&amp;rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
+ 多网卡  每块网卡都要做上述调整
+准备  安装util-linux
+sudo apt install util-linux   /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.</description>
+    </item>
+    
+    <item>
+      <title>Docker网络macvlan</title>
+      <link>https://wubigo.com/post/docker_network_macvlan/</link>
+      <pubDate>Wed, 01 Mar 2017 10:49:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_network_macvlan/</guid>
+      <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
+ 好处
+ 现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
+uname -r 4.15.0-45-generic  加载macvlan模块
+sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
+     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
+    </item>
+    
+    <item>
+      <title>K8SCNI之L2 网络实现</title>
+      <link>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</link>
+      <pubDate>Thu, 26 Jan 2017 10:09:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</guid>
+      <description> 准备  搭建测试环境
+可以参考从源代码构件K8S开发环境
+  </description>
+    </item>
+    
+    <item>
+      <title>K8S网络基础</title>
+      <link>https://wubigo.com/post/k8s-network-basic/</link>
+      <pubDate>Wed, 24 Feb 2016 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-network-basic/</guid>
+      <description> K8S网络基础
+K8S简介 K8S是自动化部署和监控容器的容器编排和管理工具。各大云厂商和应用开发平台都提供基于K8S的容器服务。 如果觉得K8S托管服务不容易上手或者和本公司的业务场景不很匹配，现在也有很多工具帮助在自己的数据 中心或私有云平台搭建K8S运行环境。
+ Minikube kops kubeadm  如果你想搭建一个测试环境，请参考
+ 从K8S源代码构建容器集群(支持最新稳定版V1.13.3) 一个脚步部署K8S  Kubernetes主要构件:
+ 主节点： 主要的功能包括管理工作节点集群，服务部署，服务发现，工作调度，负载均衡等。 工作节点： 应用负载执行单元。 服务规范： 无状态服务，有状态服务，守护进程服务，定时任务等。   K8S网络基础 K8S网络模型
+ 每一个POD拥有独立的IP地址 任何两个POD之间都可以互相通信且不通过NAT 集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信  K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。
+K8S解决的网络问题：
+ 容器间通信问题： 由POD和localhost通信解决
+ POD间通信问题： 由CNI解决 POD和服务的通信问题： 由SERVICE解决 外部系统和SERVICE的通信问题： 由SERVICE解决  </description>
+    </item>
+    
+    <item>
+      <title>泛播IPV4</title>
+      <link>https://wubigo.com/post/anycast-with-ipv4/</link>
+      <pubDate>Sat, 07 Jun 2014 14:44:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/anycast-with-ipv4/</guid>
+      <description>What is anycast? Anycast, also known as IP anycast, is a networking technique that allows for multiple machines to share the same IP address. Based on the location of the user request, the routers send it to the machine in the network that is closest. This is beneficial since, among other things, it reduces latency and increases redundancy. If a particular data center were to go offline, an anycasted IP would choose the best path for users and automatically redirect them to the next closest data center.</description>
+    </item>
+    
+    <item>
+      <title>cdn note</title>
+      <link>https://wubigo.com/post/2014-04-03-cdn/</link>
+      <pubDate>Thu, 03 Apr 2014 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2014-04-03-cdn/</guid>
+      <description>The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
+The advantages of serving content from such a sub-domain, however, are that
+The sub-domain can be a cookie-less domain
+If you use your cookies correctly (ie.</description>
+    </item>
+    
+    <item>
+      <title>computer networking</title>
+      <link>https://wubigo.com/post/2010-01-22-computer-networking/</link>
+      <pubDate>Fri, 22 Jan 2010 07:10:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2010-01-22-computer-networking/</guid>
+      <description>iproute2 SCTP transport-layer protocols are implemented in the end systems but not in network routers.
+The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliable, message-oriented protocol that allows several different application-level “streams” to be multiplexed through a single SCTP connection (an approach known as “multi-streaming”). From a reliability standpoint, the different streams within the connection are handled separately, so that packet loss in one stream does not affect the delivery of data in other streams.</description>
+    </item>
+    
+  </channel>
+</rss>

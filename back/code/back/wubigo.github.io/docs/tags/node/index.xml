@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NODE on wubigo</title>
+    <link>https://wubigo.com/tags/node/</link>
+    <description>Recent content in NODE on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Dec 2018 22:54:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>函数计算Nodejs实例</title>
+      <link>https://wubigo.com/post/serverless-nodejs/</link>
+      <pubDate>Sat, 15 Dec 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-nodejs/</guid>
+      <description>restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
+    </item>
+    
+    <item>
+      <title>Gatsby Debug</title>
+      <link>https://wubigo.com/post/gatsby-debug/</link>
+      <pubDate>Thu, 13 Dec 2018 11:45:14 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/gatsby-debug/</guid>
+      <description>Debugging the Build Process Gatsby’s build and develop steps run as a Node.js application
+which you can debug using standard tools for Node.js applications.
+Debugging with Node.js’ built-in console console.log(args)  VS Code Debugger (Auto-Config)  Preferences: Type node debug into the search bar. Make sure the Auto Attach option is set to on.
+ launch.json
+  launch.json
+{ // Use IntelliSense to learn about possible attributes. // Hover to view descriptions of existing attributes.</description>
+    </item>
+    
+    <item>
+      <title>Gatsby Notes</title>
+      <link>https://wubigo.com/post/gatsby-notes/</link>
+      <pubDate>Mon, 03 Sep 2018 09:03:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/gatsby-notes/</guid>
+      <description>bind eip gatsby develop -- --host=0.0.0.0  Prettier VS Code plugin JSX The hybrid “HTML-in-JS” is actually a syntax extension
+of JavaScript, for React, called JSX
+In pure JavaScript, it looks more like this:
+src/pages/index.js
+import React from &amp;quot;react&amp;quot; export default () =&amp;gt; React.createElement(&amp;quot;div&amp;quot;, null, &amp;quot;Hello world!&amp;quot;)  Now you can spot the use of the &amp;lsquo;react&amp;rsquo; import! But wait. You’re writing JSX, not pure HTML and
+JavaScript. How does the browser read that?</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Xpath名字空间</title>
+      <link>https://wubigo.com/post/nodejs-xpath/</link>
+      <pubDate>Wed, 21 Feb 2018 15:45:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nodejs-xpath/</guid>
+      <description>如果xml文件带有名字空间，XPATH支持
+还不够完善。下面介绍两种可以工作的方式
+namespace for XML documents http.get(&amp;quot;https://wubigo.com/en/sitemap.xml&amp;quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&amp;quot;ns0&amp;quot;: &amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;}); const nodes = select(&amp;quot;//ns0:loc&amp;quot;, doc); nodes.forEach((value) =&amp;gt; console.log(&amp;quot;ns0:&amp;quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { &#39;ns0&#39; : &#39;http://www.sitemaps.org/schemas/sitemap/0.9&#39;, &#39;mathml&#39;: &#39;http://www.w3.org/1998/Math/MathML&#39; }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &amp;quot;//ns0:loc&amp;quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.</description>
+    </item>
+    
+    <item>
+      <title>Nodejs异步通信之Promise</title>
+      <link>https://wubigo.com/post/nodejs-promise/</link>
+      <pubDate>Thu, 21 Dec 2017 07:35:31 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nodejs-promise/</guid>
+      <description>与回调函数的区别  不用写错误条件if (err) return callback(err) Promise能被作为对象返回并被后期调用
+ 回调
+function successCallback(result) { console.log(&amp;quot;Audio file ready at URL: &amp;quot; + result); } function failureCallback(error) { console.error(&amp;quot;Error generating audio file: &amp;quot; + error); } createAudioFileAsync(audioSettings, successCallback, failureCallback);  promise
+const promise = createAudioFileAsync(audioSettings); promise.then(successCallback, failureCallback);   or
+createAudioFileAsync(audioSettings).then(successCallback, failureCallback);  状态 Promise有三种状态
+ pending: Initial Case where promise instantiated. fulfilled: Success Case which means promise resolved. rejected: Failure Case which means promise rejected.</description>
+    </item>
+    
+    <item>
+      <title>Nodejs对象创建方式</title>
+      <link>https://wubigo.com/post/nodejs-prototype/</link>
+      <pubDate>Thu, 21 Dec 2017 07:14:14 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nodejs-prototype/</guid>
+      <description>对象创建有如下几种方式
+使用{} let animal = {} animal.name = &#39;Leo&#39; animal.energy = 10 animal.eat = function (amount) { console.log(`${this.name} is eating.`) this.energy += amount } animal.sleep = function (length) { console.log(`${this.name} is sleeping.`) this.energy += length } animal.play = function (length) { console.log(`${this.name} is playing.`) this.energy -= length }  构造函数 function Animal (name, energy) { let animal = {} animal.name = name animal.energy = energy animal.eat = function (amount) { console.</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Notes</title>
+      <link>https://wubigo.com/post/nodejs-notes/</link>
+      <pubDate>Sun, 03 Dec 2017 08:39:52 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nodejs-notes/</guid>
+      <description>set registry npm config set registry=http://registry.npm.taobao.org npm config ls -l userconfig = &amp;quot;C:\\Users\\Administrator\\.npmrc&amp;quot;  declare variables ES6 comes with two more options to declare your variables: const and let. In JavaScript ES6, you will
+rarely find var anymore.
+A variable declared with const cannot be re-assigned or re-declared. It cannot get mutated (changed,
+modified)
+Immutability is embraced in React and its ecosystem. That’s why const should be your default</description>
+    </item>
+    
+  </channel>
+</rss>

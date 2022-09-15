@@ -15,7 +15,7 @@ git commit -a  -s -m %MSG%
 git push
 
 REM build static resource
-hugo -s back
+hugo -s back -d c:/code/wubigo.github.io/docs
 git status
 git add .
 set MSG=deploy:%MSG%

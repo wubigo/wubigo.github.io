@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/&#43;archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2012-08-04-ansible/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/2012-08-04-ansible/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/2012-08-04-ansible/">
+  <meta property="og:title" content="ansible note | wubigo">
+  <meta property="og:description" content="update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/&#43;archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2012-08-04T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2012-08-04T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>ansible note | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">ansible note</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=ansible%20note&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2012-08-04-ansible%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2f2012-08-04-ansible%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2012-08-04-ansible%2f&amp;title=ansible%20note"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2012-08-04-ansible%2f&amp;title=ansible%20note"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=ansible%20note&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2012-08-04-ansible%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="update-python-to-2-7-11-on-ubuntu">update python to 2.7.11 on ubuntu</h1>
+
+<p>apt_repository  need python &gt;2.7.9
+ansible_galaxy  has bug on ansible1.9.4 on proxy
+<a href="https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7" target="_blank">https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7</a></p>
+
+<pre><code>$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7
+
+(deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main)
+
+$sudo -E apt-get install --only-upgrade python2.7
+
+$python --version
+
+Python 2.7.11
+</code></pre>
+
+<p>Install
+$ sudo -E apt-get install software-properties-common
+$ sudo  -E apt-add-repository ppa:ansible/ansible
+$ sudo -E apt-get update
+$ sudo -E apt-get install &ndash;only-upgrade ansible
+Install latest ansible
+  $git clone git://github.com/ansible/ansible.git &ndash;recursive</p>
+
+<p>$virtualenv -p /home/whg/python2.7.11/bin/python python2.7.11</p>
+
+<p>$. ./python2.7.11/bin/activate
+$sudo pip install PyYAML Jinja2 httplib2 six
+Setting up Ansible to run out of checkout(~/.bashrc)
+export PATH=/home/ubuntu/ansible/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export export PYTHONPATH=/home/ubuntu/ansible/lib:
+sudo PYTHONPATH=/home/ubuntu/ansible/lib ansible</p>
+
+<p>or /etc/sudoers</p>
+
+<p>Defaults        env_reset</p>
+
+<p>Defaults        env_keep += &ldquo;PYTHONPATH&rdquo;</p>
+
+<p>ansible-galaxy(ansible &gt; 2 otherwise of proxy bug)
+use role installed from galaxy
+$ansible-galaxy install angstwad.docker_ubuntu</p>
+
+<p>#create a play book to use the role</p>
+
+<hr />
+
+<ul>
+<li>hosts: all</li>
+</ul>
+
+<p>sudo: yes</p>
+
+<p>roles:</p>
+
+<pre><code>- angstwad.docker_ubuntu
+</code></pre>
+
+<p>#test to run the book</p>
+
+<p>$ansible-playbook t1.yml</p>
+
+<p>Building Role Scaffolding
+$ansible-galaxy init rolename</p>
+
+<p>Best Practices:
+Create a dedicated ansible node on the local net in the cloud to play book
+copy directory to remote node using scp dir remote:~/dir or using synchronize module instead of copy</p>
+
+<p>facts about any system
+$ansible <hostname>-m setup | less</p>
+
+<p>#facter comes as part of extra modules. to use the facter module, the &ldquo;facter&rdquo; and #&ldquo;ruby-json&rdquo; packages preinstalled on the target host.</p>
+
+<p>$ansible <hostname> -m facter | less</p>
+
+<p>variables
+The following are the places from where Ansible accepts variables:</p>
+
+<p>The default directory inside a role
+Inventory variables
+The host_vars and group_vars parameters defined in separate directories
+The host/group vars parameter defined in an inventory file
+Variables in playbooks and role parameters
+The vars directory inside a role and variables defined inside a play
+Extra variables provided with the -e option at runtime</p>
+
+<p>Patterns</p>
+
+<p>Patterns in Ansible are how we decide which hosts to manage.The following patterns address one or more groups. Groups separated by a colon indicate an “OR” configuration. This means the host may be in either one group or the other:
+hosts: name1:name2:group1:group2</p>
+
+<p>Disable SSH Host Key Checking For All Hosts
+set these options permanently in ~/.ssh/config (for the current user) or in /etc/ssh/ssh_config (for all users), either for all hosts or for a given set of IP addresses</p>
+
+<p>Host *
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null</p>
+
+<p>Ansible looks for an ansible.cfg file in the following places, in this order:</p>
+
+<p>File specified by the ANSIBLE_CONFIG environment variable</p>
+
+<p>./ansible.cfg (ansible.cfg in the current directory)</p>
+
+<p>~/.ansible.cfg (.ansible.cfg in your home directory)</p>
+
+<p>/etc/ansible/ansible.cfg</p>
+
+<p>Ansible will then move to the next task in the list, and go through these same four steps. It’s important to note that:</p>
+
+<p>Ansible runs each task in parallel across all hosts.</p>
+
+<p>Ansible waits until all hosts have completed a task before moving to the next task.</p>
+
+<p>Ansible runs the tasks in the order that you specify them.</p>
+
+<p>Ansible supports the ssh-agent program, so you don’t need to explicitly specify SSH key files in your inventory files. See “SSH Agent” for more details if you haven’t used ssh-agent before.</p>
+
+<p>YAML to get started with your first playbook:</p>
+
+<p>The first line of a playbook should begin with &ldquo;&mdash; &rdquo; (three hyphens) which indicates the beginning of the YAML document.
+Lists in YAML are represented with a hyphen followed by a white space. A playbook contains a list of plays; they are represented with &ldquo;- &ldquo;. Each play is an associative array, a dictionary, or a map in terms of key-value pairs.
+Indentations are important. All members of a list should be at the same indentation level.
+Each play can contain key-value pairs separated by &ldquo;:&rdquo; to denote hosts, variables, roles, tasks, and so on.</p>
+
+<p>role dependencies
+pecify role dependency inside the meta subdirectory</p>
+
+<p>Safely limiting Ansible playbooks to a single machine
+There&rsquo;s also a cute little trick that lets you specify a single host on the command line (or multiple hosts, I guess), without an intermediary inventory:</p>
+
+<p>ansible-playbook -i &ldquo;imac1-local,&rdquo; user.yml
+Note the comma (,) at the end; this signals that it&rsquo;s a list, not a file</p>
+
+    </div>
+
+    
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

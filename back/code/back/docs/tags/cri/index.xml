@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CRI on wubigo</title>
+    <link>https://wubigo.com/tags/cri/</link>
+    <description>Recent content in CRI on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Mar 2017 10:49:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/cri/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker网络macvlan</title>
+      <link>https://wubigo.com/post/docker_network_macvlan/</link>
+      <pubDate>Wed, 01 Mar 2017 10:49:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_network_macvlan/</guid>
+      <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
+ 好处
+ 现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
+uname -r 4.15.0-45-generic  加载macvlan模块
+sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
+     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
+    </item>
+    
+  </channel>
+</rss>

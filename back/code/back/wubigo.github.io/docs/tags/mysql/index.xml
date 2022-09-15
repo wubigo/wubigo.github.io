@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MYSQL on wubigo</title>
+    <link>https://wubigo.com/tags/mysql/</link>
+    <description>Recent content in MYSQL on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Apr 2018 17:08:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Lake</title>
+      <link>https://wubigo.com/post/data-lake/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/data-lake/</guid>
+      <description>设计目标  存取（入库和分析）高效
+ 节省存储空间
+  评估单台设备基于采集评率的每年存储成本
+http://mysql.rjweb.org/doc.php/datawarehouse</description>
+    </item>
+    
+    <item>
+      <title>Mysql High Performance</title>
+      <link>https://wubigo.com/post/mysql-high-performance/</link>
+      <pubDate>Mon, 08 Jan 2018 14:20:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-high-performance/</guid>
+      <description>InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario</description>
+    </item>
+    
+    <item>
+      <title>Spring Oauth2</title>
+      <link>https://wubigo.com/post/spring-oauth2/</link>
+      <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/spring-oauth2/</guid>
+      <description> http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource </description>
+    </item>
+    
+    <item>
+      <title>Mysql Relocate the Data Directory</title>
+      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
+      <pubDate>Fri, 30 Jan 2015 19:44:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
+      <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on Many Tables</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-many-tables/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-many-tables/</guid>
+      <description>mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on Query</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-query/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-query/</guid>
+      <description>innodb-memcached-multiple-get-range-query  native partitioning in-place APIs</description>
+    </item>
+    
+    <item>
+      <title>Redis Install Ubuntu</title>
+      <link>https://wubigo.com/post/redis-install-ubuntu/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/redis-install-ubuntu/</guid>
+      <description>install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&amp;gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Slave</title>
+      <link>https://wubigo.com/post/mysql-slave/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-slave/</guid>
+      <description> [mysqld] server-id = 2 relay-log-index = slave-relay-bin.index relay-log = slave-relay-bin  mysql&amp;gt;CHANGE MASTER TO MASTER_HOST = &#39;db2&#39;,MASTER_PORT = 3306, MASTER_USER = &#39;repl_user&#39;, MASTER_PASSWORD = &#39;xyzzy&#39;;  Connecting the Master mysql&amp;gt; START SLAVE;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Tuning on OS</title>
+      <link>https://wubigo.com/post/mysql-tuning-on-os/</link>
+      <pubDate>Sat, 27 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-tuning-on-os/</guid>
+      <description>Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &amp;gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones</description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 InnoDB</title>
+      <link>https://wubigo.com/post/mysql-5.7-innodb/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-innodb/</guid>
+      <description>mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&amp;gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&amp;gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &amp;lsquo;root@localhost&amp;rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&amp;gt; select user,host,plugin from mysql.</description>
+    </item>
+    
+    <item>
+      <title>Mysql5.7</title>
+      <link>https://wubigo.com/post/mysql5.7/</link>
+      <pubDate>Mon, 22 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql5.7/</guid>
+      <description>mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;&amp;lt;password&amp;gt;&#39; WITH GRANT OPTION; mysql&amp;gt;FLUSH PRIVILEGES;   SHOW current setting mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE &#39;innodb%&#39;;  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Partition</title>
+      <link>https://wubigo.com/post/mysql-partition/</link>
+      <pubDate>Fri, 22 Mar 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-partition/</guid>
+      <description> whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &amp;quot;SHOW PLUGINS;&amp;quot; |grep partition   </description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 SQL MODE</title>
+      <link>https://wubigo.com/post/mysql-5.7-sql-mode/</link>
+      <pubDate>Fri, 22 Feb 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-sql-mode/</guid>
+      <description> show the last queries mysql&amp;gt;SET GLOBAL log_output = &#39;FILE&#39;; mysql&amp;gt;SET GLOBAL general_log = &#39;ON&#39;; mysql&amp;gt;SHOW VARIABLES WHERE Variable_name LIKE &#39;general_log_file&#39;  Disable ONLY_FULL_GROUP_BY SHOW VARIABLES WHERE Variable_name LIKE &#39;sql_mode&#39;; +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | Variable_name | Value | +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | sql_mode | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |  [mysqld] sql_mode = &amp;quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&amp;quot;  mysql&amp;gt; SHOW CREATE TABLE &amp;lt;tablename&amp;gt;;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Master</title>
+      <link>https://wubigo.com/post/mysql-master/</link>
+      <pubDate>Tue, 22 Jan 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-master/</guid>
+      <description>[mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
+mysql&amp;gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY &#39;xyzzy&#39;;  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Notes</title>
+      <link>https://wubigo.com/post/mysql-notes/</link>
+      <pubDate>Mon, 04 Jun 2012 07:34:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-notes/</guid>
+      <description>查看表状态 show table status FROM redis_db like &#39;point_value&#39;; +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | point_value | InnoDB | 10 | Dynamic | 316755485 | 143 | 45420118016 | 0 | 0 | 3145728 | NULL | 2022-01-30 18:55:44 | 2022-02-06 18:17:56 | NULL | utf8_general_ci | NULL | | | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ 1 row in set (0.</description>
+    </item>
+    
+    <item>
+      <title>Mysql 5.7 MyISAM</title>
+      <link>https://wubigo.com/post/mysql-5.7-myisam/</link>
+      <pubDate>Sun, 22 Apr 2012 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5.7-myisam/</guid>
+      <description>key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.</description>
+    </item>
+    
+    <item>
+      <title>install Mysql 5 on Ubuntu20</title>
+      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
+      <pubDate>Fri, 20 Jan 2012 06:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
+      <description> select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION  </description>
+    </item>
+    
+  </channel>
+</rss>

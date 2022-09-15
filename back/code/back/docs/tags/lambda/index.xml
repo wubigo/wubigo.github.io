@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LAMBDA on wubigo</title>
+    <link>https://wubigo.com/tags/lambda/</link>
+    <description>Recent content in LAMBDA on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Nov 2021 10:50:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Azure Function From Cmd</title>
+      <link>https://wubigo.com/post/azure-function-from-cmd/</link>
+      <pubDate>Sun, 07 Nov 2021 10:50:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/azure-function-from-cmd/</guid>
+      <description>AZURE REGION az account list-locations --query &amp;quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;amp;DisplayName)&amp;quot; --output table  创建函数APP #!/bin/bash # Function app and storage account names must be unique. storageName=mystorageaccount$RANDOM functionAppName=myserverlessfunc$RANDOM region=westeurope # Create a resource group. az group create --name myResourceGroup --location $region # Create an Azure storage account in the resource group. az storage account create \ --name $storageName \ --location $region \ --resource-group myResourceGroup \ --sku Standard_LRS # Create a serverless function app in the resource group.</description>
+    </item>
+    
+    <item>
+      <title>Lambda in Azure With Azure Functions Core Tools</title>
+      <link>https://wubigo.com/post/lambda-in-azure-with-azure-functions-core-tools/</link>
+      <pubDate>Sat, 06 Nov 2021 23:07:10 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-in-azure-with-azure-functions-core-tools/</guid>
+      <description>安装FUNC npm i -D azure-functions-core-tools@3 export PATH=./ export CLI_DEBUG=1 func host start --verbose  安装playwright-chromium export PLAYWRIGHT_BROWSERS_PATH=0 npm install playwright-chromium@1.3.0  确认chrome的存放路径
+node_modules/playwright-chromium/.local-browsers/chromium-792639
+创建函数 /home/ubuntu/sls/azure-sls/node_modules/.bin/func init func new func start  本地测试 export CLI_DEBUG=1 func host start --verbose  host.json
+{ &amp;quot;version&amp;quot;: &amp;quot;2.0&amp;quot;, &amp;quot;logging&amp;quot;: { &amp;quot;applicationInsights&amp;quot;: { &amp;quot;samplingSettings&amp;quot;: { &amp;quot;isEnabled&amp;quot;: true, &amp;quot;excludedTypes&amp;quot;: &amp;quot;Request&amp;quot; } } }, &amp;quot;extensionBundle&amp;quot;: { &amp;quot;id&amp;quot;: &amp;quot;Microsoft.Azure.Functions.ExtensionBundle&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;[2.*, 3.0.0)&amp;quot; } }  如果遇到如下问题
+ Value cannot be null.</description>
+    </item>
+    
+    <item>
+      <title>Lambda in Azure with sls</title>
+      <link>https://wubigo.com/post/lambda-in-azure-with-sls/</link>
+      <pubDate>Sat, 06 Nov 2021 11:59:57 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-in-azure-with-sls/</guid>
+      <description>创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d &#39;{&amp;quot;name&amp;quot;: &amp;quot;Azure&amp;quot;}&#39;  清理 empty.json
+{ &amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;quot;, &amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;, &amp;quot;parameters&amp;quot;: { }, &amp;quot;variables&amp;quot;: { }, &amp;quot;resources&amp;quot;: [ ], &amp;quot;outputs&amp;quot;: { } }   az group deployment create --mode complete --template-file .</description>
+    </item>
+    
+    <item>
+      <title>Lambda Redeploy Across Region</title>
+      <link>https://wubigo.com/post/lambda-redeploy-across-region/</link>
+      <pubDate>Fri, 22 Oct 2021 11:59:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-redeploy-across-region/</guid>
+      <description>计算时间 vs 请求数量 平均计算时长 427586 / 27386 = 15.6 (秒)
+设置默认配置 aws configure list-profiles default us-east-1 us-east-2 us-west-2 us-west-1 eu eu-west-1 af-south-1 ap-east-1 ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ca-central-1 eu-west-2 eu-south-1 eu-west-3 eu-north-1 me-south-1 sa-east-1 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &amp;quot;Code&amp;quot;: { &amp;quot;RepositoryType&amp;quot;: &amp;quot;S3&amp;quot;, &amp;quot;Location&amp;quot;: &amp;quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&amp;quot;  从Location下载部署包
+PROF = &amp;quot;eu-central-1&amp;quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.</description>
+    </item>
+    
+    <item>
+      <title>Web Test Automation in Lambda Way</title>
+      <link>https://wubigo.com/post/web-test-automation-in-lambda-way/</link>
+      <pubDate>Sat, 09 Oct 2021 10:15:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-test-automation-in-lambda-way/</guid>
+      <description>aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: [&amp;quot;lambda.amazonaws.com&amp;quot;, &amp;quot;s3.amazonaws.com&amp;quot;] }, &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.</description>
+    </item>
+    
+    <item>
+      <title>函数服务容器化</title>
+      <link>https://wubigo.com/post/container-support-for-lambda/</link>
+      <pubDate>Thu, 31 Dec 2020 18:59:41 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/container-support-for-lambda/</guid>
+      <description>函数计算最大的卖点是只用交付业务代码，业务代码在预定义的被托管的可执行环境执行。
+由可执行环境管理基础架构，网络，操作系统。
+但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。
+而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</description>
+    </item>
+    
+    <item>
+      <title>Lambda Provisioned Concurrency</title>
+      <link>https://wubigo.com/post/lambda-provisioned-concurrency/</link>
+      <pubDate>Sun, 08 Dec 2019 11:01:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-provisioned-concurrency/</guid>
+      <description>Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.</description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(下)</title>
+      <link>https://wubigo.com/post/aws-lambda-dynamodb/</link>
+      <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
+      <description> 创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(上)</title>
+      <link>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</link>
+      <pubDate>Mon, 31 Dec 2018 11:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</guid>
+      <description>发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&amp;hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &amp;quot;ingestionTime&amp;quot;: 1577764111252, &amp;quot;timestamp&amp;quot;: 1577764096184, &amp;quot;message&amp;quot;: &amp;quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&amp;quot;Records\&amp;quot;: [\n {\n \&amp;quot;EventSource\&amp;quot;: \&amp;quot;aws:sns\&amp;quot;,\n \&amp;quot;EventVersion\&amp;quot;: \&amp;quot;1.0\&amp;quot;,\n \&amp;quot;EventSubscriptionArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&amp;quot;,\n \&amp;quot;Sns\&amp;quot;: {\n \&amp;quot;Type\&amp;quot;: \&amp;quot;Notification\&amp;quot;,\n \&amp;quot;MessageId\&amp;quot;: \&amp;quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&amp;quot;,\n \&amp;quot;TopicArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&amp;quot;,\n \&amp;quot;Subject\&amp;quot;: null,\n \&amp;quot;Message\&amp;quot;: \&amp;quot;MESSAGE_TEXT\&amp;quot;,\n \&amp;quot;Timestamp\&amp;quot;: \&amp;quot;2019-12-31T03:48:15.</description>
+    </item>
+    
+    <item>
+      <title>Aws Lambda Notes</title>
+      <link>https://wubigo.com/post/aws-lambda-notes/</link>
+      <pubDate>Wed, 24 Oct 2018 09:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-notes/</guid>
+      <description>事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+对象并发送给函数代码。
+事件的结构和内容由事件源决定
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+API和资源(函数或函数层）访问权限。
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+lambda也通过执行角色请求对事件源的读取权限。
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &amp;gt; --principal sns.amazonaws.com --output text {&amp;quot;Sid&amp;quot;:&amp;quot;sns&amp;quot;,&amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;,&amp;quot;Principal&amp;quot;:{&amp;quot;Service&amp;quot;:&amp;quot;sns.amazonaws.com&amp;quot;},&amp;quot;Action&amp;quot;:&amp;quot;lambda:InvokeFunction&amp;quot;,&amp;quot;Resource&amp;quot;:&amp;quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&amp;quot;}  serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSH on wubigo</title>
+    <link>https://wubigo.com/tags/ssh/</link>
+    <description>Recent content in SSH on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Mar 2017 17:21:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux SSH</title>
+      <link>https://wubigo.com/post/linux-ssh/</link>
+      <pubDate>Thu, 16 Mar 2017 17:21:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-ssh/</guid>
+      <description>ssh client config ~/.ssh/config
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
+ForwardAgent yes  Enable ssh-agent on main device
+  .bashrc
+SSH_ENV=&amp;quot;$HOME/.ssh/environment&amp;quot; function start_agent { echo &amp;quot;Initialising new SSH agent...&amp;quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &amp;gt; &amp;quot;${SSH_ENV}&amp;quot; echo succeeded chmod 600 &amp;quot;${SSH_ENV}&amp;quot; . &amp;quot;${SSH_ENV}&amp;quot; &amp;gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &amp;quot;${SSH_ENV}&amp;quot; ]; then .</description>
+    </item>
+    
+  </channel>
+</rss>

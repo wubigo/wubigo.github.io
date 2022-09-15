@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP on wubigo</title>
+    <link>https://wubigo.com/tags/http/</link>
+    <description>Recent content in HTTP on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTTP/3</title>
+      <link>https://wubigo.com/post/2019-02-01-http3notes/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2019-02-01-http3notes/</guid>
+      <description>track http redirection  http://wubigo.com/post -&amp;gt; http://wubigo.com/post/ -&amp;gt; https://wubigo.com/post/
+curl -IL http://wubigo.com/post
+ HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&amp;rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.</description>
+    </item>
+    
+    <item>
+      <title>REST API中如何使用Http状态码</title>
+      <link>https://wubigo.com/post/http-status-code-for-reset-api/</link>
+      <pubDate>Fri, 26 Oct 2018 11:14:14 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/http-status-code-for-reset-api/</guid>
+      <description>Status-Line The first line of a Response message is the Status-Line, consisting of the protocol version followed by a numeric status code and its associated textual phrase, with each element separated by SP characters. No CR or LF is allowed except in the final CRLF sequence.
+ Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF  status code vs status in body https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html
+https://httpstatuses.com/
+The main choice is do you want to treat the HTTP status code as part of your REST API or not.</description>
+    </item>
+    
+    <item>
+      <title>HTTP Session Management</title>
+      <link>https://wubigo.com/post/http-session-management/</link>
+      <pubDate>Thu, 05 Jan 2017 10:46:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/http-session-management/</guid>
+      <description>COOKIE &amp;amp; HTTP SESSION H5 addition that adds a key/value store to browsers and cookies
+stateful session Some examples of scaling stateful sessions:
+Once you run multiple backend processes on a server: A Redis daemon (on that server) for session storage. Once you run on multiple servers: A dedicated server running Redis just for session storage. Once you run on multiple servers, in multiple clusters: Sticky sessions.  JWT session  Stateless JWT: A JWT token that contains the session data, encoded directly into the token.</description>
+    </item>
+    
+  </channel>
+</rss>

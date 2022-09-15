@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DEVOPS on wubigo</title>
+    <link>https://wubigo.com/tags/devops/</link>
+    <description>Recent content in DEVOPS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Jun 2018 21:02:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>避开Tiller使用Helm部署K8S应用</title>
+      <link>https://wubigo.com/post/helm-without-tiller/</link>
+      <pubDate>Mon, 04 Jun 2018 21:02:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/helm-without-tiller/</guid>
+      <description>避开Tiller使用Helm部署K8S应用
+Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
+ 部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring notes</title>
+      <link>https://wubigo.com/post/monitoring/</link>
+      <pubDate>Sun, 20 May 2018 17:23:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/monitoring/</guid>
+      <description>Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
+Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.</description>
+    </item>
+    
+  </channel>
+</rss>

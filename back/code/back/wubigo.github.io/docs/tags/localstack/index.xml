@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LOCALSTACK on wubigo</title>
+    <link>https://wubigo.com/tags/localstack/</link>
+    <description>Recent content in LOCALSTACK on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Sep 2019 07:46:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/localstack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>免费使用公有云服务</title>
+      <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
+      <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/use-public-cloud-for-free/</guid>
+      <description>[TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).</description>
+    </item>
+    
+    <item>
+      <title>函数＋网关</title>
+      <link>https://wubigo.com/post/lambda-apigateway/</link>
+      <pubDate>Wed, 28 Nov 2018 23:38:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-apigateway/</guid>
+      <description>运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
+&#39;use strict&#39; exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { &#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39; }, body: &#39;&amp;lt;p&amp;gt;Hello world!&amp;lt;/p&amp;gt;&#39; } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &amp;quot;aws_lambda_function&amp;quot; &amp;quot;example&amp;quot; { function_name = &amp;quot;ServerlessExample&amp;quot; # The bucket name as created earlier with &amp;quot;aws s3api create-bucket&amp;quot; s3_bucket = &amp;quot;terraform-serverless-example&amp;quot; s3_key = &amp;quot;v1.</description>
+    </item>
+    
+    <item>
+      <title>基于local stack的本地S3对象创建通知</title>
+      <link>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</link>
+      <pubDate>Mon, 19 Nov 2018 16:46:13 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-get-sqs-notification-on-s3-object-creation/</guid>
+      <description>get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &amp;quot;Attributes&amp;quot;: { &amp;quot;ApproximateNumberOfMessagesNotVisible&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;ApproximateNumberOfMessagesDelayed&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;CreatedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;ApproximateNumberOfMessages&amp;quot;: &amp;quot;1&amp;quot;, &amp;quot;ReceiveMessageWaitTimeSeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;DelaySeconds&amp;quot;: &amp;quot;0&amp;quot;, &amp;quot;VisibilityTimeout&amp;quot;: &amp;quot;30&amp;quot;, &amp;quot;LastModifiedTimestamp&amp;quot;: &amp;quot;1574152022&amp;quot;, &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:us-east-1:000000000000:localstack&amp;quot; } }  create s3 notification config
+cat notification.json { &amp;quot;QueueConfigurations&amp;quot;: [ { &amp;quot;QueueArn&amp;quot;: &amp;quot;arn:aws:sqs:local:000000000000:localstack&amp;quot;, &amp;quot;Events&amp;quot;: [ &amp;quot;s3:ObjectCreated:*&amp;quot; ] } ] }  make notification effect</description>
+    </item>
+    
+    <item>
+      <title>Aws Log</title>
+      <link>https://wubigo.com/post/aws-log/</link>
+      <pubDate>Fri, 16 Nov 2018 16:00:25 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-log/</guid>
+      <description>AWS Lambda By default, all native logs within a Lambda function are stored in the function execution result within Lambda. Additionally, if you would like to review log information immediately after executing a function, invoking the Lambda function with the LogType parameter will retrieve the last 4KB of log data generated by the function. This information is returned in the x-amz-log-results header in the HTTP response.
+While these methods are great ways to test and debug issues associated with individual function calls, they do not do much by way of analysis or alerting.</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的函数计算开发应用列表</title>
+      <link>https://wubigo.com/post/aws-serverless-localstack-examples/</link>
+      <pubDate>Fri, 16 Nov 2018 07:25:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-serverless-localstack-examples/</guid>
+      <description>serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &amp;quot;logGroups&amp;quot;: [ { &amp;quot;arn&amp;quot;: &amp;quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&amp;quot;, &amp;quot;creationTime&amp;quot;: 1573867924377.624, &amp;quot;metricFilterCount&amp;quot;: 0, &amp;quot;logGroupName&amp;quot;: &amp;quot;/aws/lambda/upload-local-postprocess&amp;quot;, &amp;quot;storedBytes&amp;quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &amp;quot;logStreams&amp;quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
+import json def my_handler(event, context): print(&amp;quot;Received event: &amp;quot; + json.</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的Serverless框架本地集成</title>
+      <link>https://wubigo.com/post/aws-localstack-serverless/</link>
+      <pubDate>Thu, 15 Nov 2018 15:39:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-localstack-serverless/</guid>
+      <description>install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources</description>
+    </item>
+    
+    <item>
+      <title>Aws Lambda Notes</title>
+      <link>https://wubigo.com/post/aws-lambda-notes/</link>
+      <pubDate>Wed, 24 Oct 2018 09:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-notes/</guid>
+      <description>事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+对象并发送给函数代码。
+事件的结构和内容由事件源决定
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+API和资源(函数或函数层）访问权限。
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+lambda也通过执行角色请求对事件源的读取权限。
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &amp;gt; --principal sns.amazonaws.com --output text {&amp;quot;Sid&amp;quot;:&amp;quot;sns&amp;quot;,&amp;quot;Effect&amp;quot;:&amp;quot;Allow&amp;quot;,&amp;quot;Principal&amp;quot;:{&amp;quot;Service&amp;quot;:&amp;quot;sns.amazonaws.com&amp;quot;},&amp;quot;Action&amp;quot;:&amp;quot;lambda:InvokeFunction&amp;quot;,&amp;quot;Resource&amp;quot;:&amp;quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&amp;quot;}  serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code</description>
+    </item>
+    
+    <item>
+      <title>Aws S3 Upload With Localstack</title>
+      <link>https://wubigo.com/post/aws-s3-upload-with-localstack/</link>
+      <pubDate>Sat, 20 Oct 2018 13:22:06 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-s3-upload-with-localstack/</guid>
+      <description>https://github.com/wubigo/localstack-examples</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的本地Lambda开发</title>
+      <link>https://wubigo.com/post/aws-lambda-with-localstack/</link>
+      <pubDate>Sat, 29 Sep 2018 09:39:28 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-with-localstack/</guid>
+      <description>Create function index.js
+exports.handler = async function(event, context) { console.log(&amp;quot;ENVIRONMENT VARIABLES\n&amp;quot; + JSON.stringify(process.env, null, 2)) console.log(&amp;quot;EVENT\n&amp;quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &amp;quot;Code&amp;quot;: { &amp;quot;Location&amp;quot;: &amp;quot;http://localhost:4574/2015-03-31/functions/my-function/code&amp;quot; }, &amp;quot;Configuration&amp;quot;: { &amp;quot;TracingConfig&amp;quot;: { &amp;quot;Mode&amp;quot;: &amp;quot;PassThrough&amp;quot; }, &amp;quot;Version&amp;quot;: &amp;quot;$LATEST&amp;quot;, &amp;quot;CodeSha256&amp;quot;: &amp;quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&amp;quot;, &amp;quot;FunctionName&amp;quot;: &amp;quot;my-function&amp;quot;, &amp;quot;LastModified&amp;quot;: &amp;quot;2019-09-29T01:16:43.</description>
+    </item>
+    
+    <item>
+      <title>基于local stack的Step Function本地化开发</title>
+      <link>https://wubigo.com/post/aws-step-function-with-local-lambda/</link>
+      <pubDate>Wed, 26 Sep 2018 14:43:54 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-step-function-with-local-lambda/</guid>
+      <description>安装AWS CLI
+(venv) d:\code\venv&amp;gt;pip install awscli pip install awscli-local   awslocal = aws &amp;ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&amp;gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;~/code/venv/bin/aws_completer&#39; aws EOF   安装AWS SAM CLI
+(venv) d:\code&amp;gt;pip install aws-sam-cli (venv) d:\code&amp;gt;sam --version SAM CLI, version 0.</description>
+    </item>
+    
+    <item>
+      <title>基于Localstack的本地云服务编排</title>
+      <link>https://wubigo.com/post/aws-cloudformation-with-localstack/</link>
+      <pubDate>Sun, 29 Apr 2018 14:20:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-cloudformation-with-localstack/</guid>
+      <description> https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
+https://github.com/localstack/localstack/issues/632
+AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless applications at a higher level
+localstack default regrion us-east-1
+create stack file path has to be in file URL format(file:///home/user/&amp;hellip;)
+func.yaml
+AWSTemplateFormatVersion: &#39;2010-09-09&#39; Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  </description>
+    </item>
+    
+    <item>
+      <title>AWS云服务免费额度列表</title>
+      <link>https://wubigo.com/post/aws-free-tier-quota/</link>
+      <pubDate>Thu, 30 Nov 2017 17:51:29 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-free-tier-quota/</guid>
+      <description>AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB</description>
+    </item>
+    
+    <item>
+      <title>Terraform Notes</title>
+      <link>https://wubigo.com/post/terraform-notes/</link>
+      <pubDate>Thu, 23 Nov 2017 15:11:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/terraform-notes/</guid>
+      <description>前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &amp;quot;aws&amp;quot; { profile = &amp;quot;default&amp;quot; region = &amp;quot;us-east-1&amp;quot; endpoints { ec2 = &amp;quot;http://localhost:4597&amp;quot; sts = &amp;quot;http://localhost:4592&amp;quot; } } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-2757f631&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
+    
+  </channel>
+</rss>

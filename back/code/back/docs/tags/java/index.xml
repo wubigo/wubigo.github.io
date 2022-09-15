@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JAVA on wubigo</title>
+    <link>https://wubigo.com/tags/java/</link>
+    <description>Recent content in JAVA on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2019 10:17:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JAVA这两年</title>
+      <link>https://wubigo.com/post/java-last-2-years/</link>
+      <pubDate>Tue, 29 Oct 2019 10:17:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-last-2-years/</guid>
+      <description>JAVA 这两年最重要的项目就是GRAAL的正式版发布。
+GRAAL能做什么？
+ 让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,  启动时间小于100ms， 像C, GO, ERLANG一样的执行速度
+ 更低的内存占用：只占用传统的JVM应用20%的内存
+  听起来是不是该项目为函数计算做准备的？
+是，但不完全是。
+GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
+ JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
+安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
+js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
+gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.</description>
+    </item>
+    
+    <item>
+      <title>Dockering Java 8</title>
+      <link>https://wubigo.com/post/dockering-java-8/</link>
+      <pubDate>Mon, 05 Nov 2018 09:33:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dockering-java-8/</guid>
+      <description>Improve docker container detection and resource configuration usage
+https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
+https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</description>
+    </item>
+    
+    <item>
+      <title>Groovy Notes</title>
+      <link>https://wubigo.com/post/groovy-notes/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/groovy-notes/</guid>
+      <description>Allow more ways of creating objects using literals
+ Introduce new datatypes together with their operators and expressions.
+  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
+log = &#39;&#39; (1..10).each{ log += it } assert log == &#39;12345678910&#39; log = &#39;&#39; (1..10).each{ counter -&amp;gt; log += counter } assert log == &#39;12345678910&#39;  A second way of declaring a closure is to directly assign it to a variable:</description>
+    </item>
+    
+    <item>
+      <title>Lang Java Spring Cloud</title>
+      <link>https://wubigo.com/post/lang-java-spring-cloud/</link>
+      <pubDate>Thu, 12 Apr 2018 06:21:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-java-spring-cloud/</guid>
+      <description> spring-cloud-greenwich-release To get started with Maven with a BOM (dependency management only):
+&amp;lt;dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;Greenwich.RELEASE&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;/dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-config&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Lang Java Spring Boot V2</title>
+      <link>https://wubigo.com/post/lang-java-spring-boot-v2/</link>
+      <pubDate>Wed, 11 Apr 2018 08:48:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lang-java-spring-boot-v2/</guid>
+      <description>JVM bind with IPv4 Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=true
+-Djava.net.preferIPv4Stack=true  Spring Boot Actuator &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-actuator&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  Actuator comes with most endpoints disabled. Thus, the only two available by default are /health and /info.
+management.endpoints.web.exposure.include=*  by default, all Actuator endpoints are now placed under the /actuator path
+mvn dependency:tree [INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:2.1.4.RELEASE:compile [INFO] | +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.4.RELEASE:compile [INFO] | | +- org.springframework:spring-aop:jar:5.1.6.RELEASE:compile [INFO] | | \- org.</description>
+    </item>
+    
+    <item>
+      <title>Effective Coding Java</title>
+      <link>https://wubigo.com/post/effective-coding-java/</link>
+      <pubDate>Fri, 28 Feb 2014 15:19:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/effective-coding-java/</guid>
+      <description>JAVA 基础 JAVA 基础</description>
+    </item>
+    
+    <item>
+      <title>Java编码规范</title>
+      <link>https://wubigo.com/post/java-coding-guidelines/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-coding-guidelines/</guid>
+      <description>JAVA 开发规范 目标：
+ 容易维护 健壮 可复用     分类 指导     编码 UTF-8   注释 支持Swagger   git模式 PR(pull-request) / merge request   代码静态检查 遵守风格规范   代码提交 必须通过review   测试 所有代码都有单元测试   集成测试 所有代码必须通过集成测试才能提交到分支或主干    编码风格</description>
+    </item>
+    
+    <item>
+      <title>Maven Mirror</title>
+      <link>https://wubigo.com/post/maven-mirror/</link>
+      <pubDate>Sun, 28 Apr 2013 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/maven-mirror/</guid>
+      <description>阿里云Maven中央仓库为 阿里云云效 提供的公共代理仓库
+打开 maven 的配置文件（ windows 机器一般在 maven 安装目录的 conf/settings.xml ），
+在标签中添加 mirror 子节点:
+&amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;aliyunmaven&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;阿里云公共仓库&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;https://maven.aliyun.com/repository/public&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Java Notes</title>
+      <link>https://wubigo.com/post/java-notes/</link>
+      <pubDate>Fri, 01 Jan 2010 15:06:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/java-notes/</guid>
+      <description>Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &amp;quot;main&amp;quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-ha-setup-with-kubeadm/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/k8s-ha-setup-with-kubeadm/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-ha-setup-with-kubeadm/">
+  <meta property="og:title" content="K8s HA Setup With Kubeadm | wubigo">
+  <meta property="og:description" content="setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2017-03-16T13:23:32&#43;08:00">
+  
+  <meta property="article:modified_time" content="2017-03-16T13:23:32&#43;08:00">
+  
+
+  
+
+  
+
+  <title>K8s HA Setup With Kubeadm | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">K8s HA Setup With Kubeadm</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 16, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=K8s%20HA%20Setup%20With%20Kubeadm&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-ha-setup-with-kubeadm%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-ha-setup-with-kubeadm%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-ha-setup-with-kubeadm%2f&amp;title=K8s%20HA%20Setup%20With%20Kubeadm"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-ha-setup-with-kubeadm%2f&amp;title=K8s%20HA%20Setup%20With%20Kubeadm"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=K8s%20HA%20Setup%20With%20Kubeadm&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-ha-setup-with-kubeadm%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="setup-external-etcd">setup external ETCD</h1>
+
+<ul>
+<li>install docker, kubelet, and kubeadm</li>
+<li>Configure the kubelet to be a service manager for etcd</li>
+<li>Create configuration files for kubeadm</li>
+</ul>
+
+<p><code>/tmp/${HOST0}/kubeadmcfg.yaml</code></p>
+
+<pre><code>apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot;
+kind: ClusterConfiguration
+etcd:
+    local:
+        serverCertSANs:
+        - &quot;192.168.1.10&quot;
+        peerCertSANs:
+        - &quot;192.168.1.10&quot;
+        extraArgs:
+            initial-cluster: infra0=https://192.168.1.10:2380
+            initial-cluster-state: new
+            name: infra0
+            listen-peer-urls: https://192.168.1.10:2380
+            listen-client-urls: https://192.168.1.10:2379
+            advertise-client-urls: https://192.168.1.10:2379
+            initial-advertise-peer-urls: https://192.168.1.10:2380
+</code></pre>
+
+<ul>
+<li><p>Generate the certificate authority</p>
+
+<pre><code>sudo kubeadm init phase certs etcd-ca
+export HOST0=&quot;192.168.1.10&quot;
+sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.yaml
+sudo kubeadm init phase certs etcd-peer --config=/tmp/${HOST0}/kubeadmcfg.yaml
+sudo kubeadm init phase certs etcd-healthcheck-client --config=/tmp/${HOST0}/kubeadmcfg.yaml
+sudo kubeadm init phase certs apiserver-etcd-client --config=/tmp/${HOST0}/kubeadmcfg.yaml
+</code></pre></li>
+
+<li><p>Create the static pod manifests</p>
+
+<pre><code>kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml
+</code></pre></li>
+</ul>
+
+<p><code>/etc/kubernetes/manifests</code></p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    scheduler.alpha.kubernetes.io/critical-pod: &quot;&quot;
+  creationTimestamp: null
+  labels:
+    component: etcd
+    tier: control-plane
+  name: etcd
+  namespace: kube-system
+spec:
+  containers:
+  - command:
+    - etcd
+    - --advertise-client-urls=https://192.168.1.10:2379
+    - --initial-advertise-peer-urls=https://192.168.1.10:2380
+    - --initial-cluster=infra0=https://192.168.1.10:2380
+    - --initial-cluster-state=new
+    - --listen-client-urls=https://192.168.1.10:2379
+    - --listen-peer-urls=https://192.168.1.10:2380
+    - --name=infra0
+    - --cert-file=/etc/kubernetes/pki/etcd/server.crt
+    - --client-cert-auth=true
+    - --data-dir=/var/lib/etcd
+    - --key-file=/etc/kubernetes/pki/etcd/server.key
+    - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt
+    - --peer-client-cert-auth=true
+    - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key
+    - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+    - --snapshot-count=10000
+    - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+    image: k8s.gcr.io/etcd:3.2.24
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      exec:
+        command:
+        - /bin/sh
+        - -ec
+        - ETCDCTL_API=3 etcdctl --endpoints=https://[192.168.1.10]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt
+          --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key
+          get foo
+      failureThreshold: 8
+      initialDelaySeconds: 15
+      timeoutSeconds: 15
+    name: etcd
+    resources: {}
+    volumeMounts:
+    - mountPath: /var/lib/etcd
+      name: etcd-data
+    - mountPath: /etc/kubernetes/pki/etcd
+      name: etcd-certs
+  hostNetwork: true
+  priorityClassName: system-cluster-critical
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes/pki/etcd
+      type: DirectoryOrCreate
+    name: etcd-certs
+  - hostPath:
+      path: /var/lib/etcd
+      type: DirectoryOrCreate
+    name: etcd-data
+status: {}
+
+</code></pre>
+
+<ul>
+<li><p>ensure the etcd pod is running</p>
+
+<pre><code>journalctl -xeu kubelet
+remote_image.go:112] PullImage &quot;k8s.gcr.io/etcd:3.2.24&quot; from image service failed: rpc error: code = Unknown desc = Error response fro
+3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537292    4221 kuberuntime_image.go:51] Pull image &quot;k8s.gcr.io/etcd:3.2.24&quot; failed: rpc error: code = Unknown desc = Error response from daemon: Get 
+3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537393    4221 kuberuntime_manager.go:749] container start failed: ErrImagePull: rpc error: code = Unknown desc = Error response from daemon: Get htt
+3月 16 14:41:53 bigo-vm2 kubelet[4221]: E0316 14:41:53.537469    4221 pod_workers.go:190] Error syncing pod 30ecbbae123bb7b8baaa2f08cb762164 (&quot;etcd-bigo-vm2_kube-system(30ecbbae123bb7b8baaa2f08cb762164)&quot;)
+</code></pre>
+
+<pre><code>docker pull mirrorgooglecontainers/etcd:3.2.24
+docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
+</code></pre></li>
+
+<li><p>Check the cluster health</p>
+
+<pre><code>docker run --rm -it \
+--net host \
+-v /etc/kubernetes:/etc/kubernetes k8s.gcr.io/etcd:3.2.24 etcdctl \
+--cert-file /etc/kubernetes/pki/etcd/peer.crt \
+--key-file /etc/kubernetes/pki/etcd/peer.key \
+--ca-file /etc/kubernetes/pki/etcd/ca.crt \
+--endpoints https://${HOST0}:2379 cluster-health
+</code></pre></li>
+</ul>
+
+<h1 id="set-up-the-first-control-plane-node">Set up the first control plane node</h1>
+
+<ul>
+<li><p>Copy the following files from any node from the etcd cluster</p>
+
+<pre><code>export CONTROL_PLANE=&quot;192.168.1.9&quot;
+scp /etc/kubernetes/pki/etcd/ca.crt &quot;${CONTROL_PLANE}&quot;:
+scp /etc/kubernetes/pki/apiserver-etcd-client.crt &quot;${CONTROL_PLANE}&quot;:
+scp /etc/kubernetes/pki/apiserver-etcd-client.key &quot;${CONTROL_PLANE}&quot;:
+</code></pre></li>
+</ul>
+
+<p><code>kubeadm-config.yaml</code></p>
+
+<pre><code>apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: stable
+apiServer:
+  certSANs:
+  - &quot;192.168.1.9&quot;
+controlPlaneEndpoint: &quot;192.168.1.9:6443&quot;
+etcd:
+    external:
+        endpoints:
+        - https://192.168.1.10:2379        
+        caFile: /etc/kubernetes/pki/etcd/ca.crt
+        certFile: /etc/kubernetes/pki/apiserver-etcd-client.crt
+        keyFile: /etc/kubernetes/pki/apiserver-etcd-client.key
+networking:
+  podSubnet: &quot;10.2.0.0/16&quot;
+</code></pre>
+
+<pre><code>kubeadm init --pod-network-cidr 10.2.0.0/16 --config kubeadm-config.yaml -v 4
+kubeadm init --config kubeadm-config.yaml -v 4
+</code></pre>
+
+<h1 id="setup-cni">setup CNI</h1>
+
+<pre><code>ssh $ETCD
+
+curl https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/calico.yaml&gt; calico.yaml
+# calico etcd setup
+sed -i -e &quot;s/\(^etcd_endpoints: \&quot;http.*$\)/etcd_endpoints: \&quot;https:\/\/$VM:2379\&quot;/g&quot; calico.yaml 
+# etcd_ca: &quot;/calico-secrets/etcd-ca&quot;
+sed -i -e 's/etcd_ca: \&quot;\&quot;   \# \&quot;\/calico-secrets/etcd-ca\&quot;/etcd_ca: \&quot;\/calico-secrets\/etcd-ca\&quot;/g' calico.yaml
+sed -i -e 's/etcd_cert: \&quot;\&quot; # \&quot;\/calico-secrets\/etcd-cert\&quot;/etcd_cert: \&quot;\/calico-secrets\/etcd-cert\&quot;/g' calico.yaml
+sed -i -e 's/etcd_key: \&quot;\&quot;  # \&quot;\/calico-secrets\/etcd-key\&quot;/etcd_key: \&quot;\/calico-secrets\/etcd-key\&quot;/g' calico.yaml
+CA=$(cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0)
+CERT=$(cat /etc/kubernetes/pki/etcd/server.crt | base64 -w 0)
+KEY=$(sudo cat /etc/kubernetes/pki/etcd/server.key | base64 -w 0)
+sed -i -e &quot;s/# etcd-ca: null/etcd-ca: $CA/g&quot; calico.yaml
+sed -i -e &quot;s/# etcd-cert: null/etcd-cert: $CERT/g&quot; calico.yaml
+sed -i -e &quot;s/# etcd-key: null/etcd-key: $KEY/g&quot; calico.yaml
+</code></pre>
+
+<h1 id="join-a-node">join a node</h1>
+
+<p><a href="https://blog.scottlowe.org/2018/08/21/bootstrapping-etcd-cluster-with-tls-using-kubeadm/" target="_blank">https://blog.scottlowe.org/2018/08/21/bootstrapping-etcd-cluster-with-tls-using-kubeadm/</a>
+<a href="https://github.com/kelseyhightower/standalone-kubelet-tutorial" target="_blank">https://github.com/kelseyhightower/standalone-kubelet-tutorial</a></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/k8s-mesh-istio/">K8S微服务治理</a></li>
+          
+          <li><a href="/post/k8s-monitor/">K8S Monitor</a></li>
+          
+          <li><a href="/post/k8s_cni_l2_network_on_bare_metal/">K8SCNI之L2 网络实现</a></li>
+          
+          <li><a href="/post/k8s-logging-efk/">K8s日志EFK</a></li>
+          
+          <li><a href="/post/k8s-network-basic/">K8S网络基础</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

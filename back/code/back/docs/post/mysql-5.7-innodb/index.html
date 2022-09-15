@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/mysql-5.7-innodb/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/mysql-5.7-innodb/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/mysql-5.7-innodb/">
+  <meta property="og:title" content="Mysql 5.7 InnoDB | wubigo">
+  <meta property="og:description" content="mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123&#39;; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p&#39;123&#39; -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2013-04-22T17:08:07&#43;08:00">
+  
+  <meta property="article:modified_time" content="2013-04-22T17:08:07&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Mysql 5.7 InnoDB | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Mysql 5.7 InnoDB</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-04-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Mysql%205.7%20InnoDB&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-5.7-innodb%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fmysql-5.7-innodb%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-5.7-innodb%2f&amp;title=Mysql%205.7%20InnoDB"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fmysql-5.7-innodb%2f&amp;title=Mysql%205.7%20InnoDB"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Mysql%205.7%20InnoDB&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fmysql-5.7-innodb%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="mysql-8-测试环境快速搭建-wsl-root远程访问">mysql 8 测试环境快速搭建(WSL/root远程访问)</h1>
+
+<pre><code>sudo apt install -y mysql-server
+mysql --version
+sudo mysql
+mysql&gt;CREATE USER 'root'@'%' IDENTIFIED BY '123';
+mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+mysql&gt;flush PRIVILEGES
+</code></pre>
+
+<p><code>mysql.conf.d/mysqld.cnf</code> :32:bind-address         = 0.0.0.0</p>
+
+<pre><code>sudo service mysql restart
+</code></pre>
+
+<p>Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)</p>
+
+<h2 id="root用户本地登录">root用户本地登录</h2>
+
+<p>本地登录使用系统认证(auth_socket)</p>
+
+<pre><code>sudo mysql
+</code></pre>
+
+<h2 id="root用户远程登录">root用户远程登录</h2>
+
+<pre><code>mysql -u root -p'123' -h 192.168.168.128
+</code></pre>
+
+<pre><code>mysql&gt; select user,host,plugin from mysql.user;
++------------------+-----------+-----------------------+
+| user             | host      | plugin                |
++------------------+-----------+-----------------------+
+| root             | %         | caching_sha2_password |
+| debian-sys-maint | localhost | caching_sha2_password |
+| mysql.infoschema | localhost | caching_sha2_password |
+| mysql.session    | localhost | caching_sha2_password |
+| mysql.sys        | localhost | caching_sha2_password |
+| root             | localhost | auth_socket           |
++------------------+-----------+-----------------------+
+
+mysqldump miaosha &gt; dump.sql
+mysql -u root -p'123' -h 192.168.168.128 miaosha &lt; miaosha.sql
+</code></pre>
+
+<h1 id="index-buffer">index buffer</h1>
+
+<p>Depends on Storage Engine</p>
+
+<p>MyISAM (Caches Index Pages From .MYI files)</p>
+
+<pre><code>SELECT FLOOR(SUM(index_length)/POWER(1024,2)) IndexSizesMB
+FROM information_schema.tables WHERE engine='MyISAM' AND
+table_schema NOT IN ('information_schema','performance_schema','mysql');
+</code></pre>
+
+<p>Subtract that from key_buffer_size.</p>
+
+<p>InnoDB (Caches Data and Index Pages)</p>
+
+<pre><code>SELECT FLOOR(SUM(data_length+index_length)/POWER(1024,2)) InnoDBSizeMB
+FROM information_schema.tables WHERE engine='InnoDB';
+</code></pre>
+
+<p>Subtract that from innodb_buffer_pool_size.</p>
+
+<h1 id="convert-all-tables-from-innodb-into-myisam">convert all tables from InnoDB  into MyISAM</h1>
+
+<pre><code>SET @DATABASE_NAME = 'guowang';
+
+SELECT  CONCAT('ALTER TABLE `', table_name, '` ENGINE=MyISAM;') AS sql_statements
+FROM    information_schema.tables AS tb
+WHERE   table_schema = @DATABASE_NAME
+AND     `ENGINE` = 'InnoDB'
+AND     `TABLE_TYPE` = 'BASE TABLE'
+ORDER BY table_name DESC;
+</code></pre>
+
+<pre><code> mysql&gt;show full processlist;
+ mysql&gt;Select concat('KILL ',id,';') from information_schema.processlist where user='root';
+</code></pre>
+
+<pre><code>SHOW ENGINE INNODB STATUS
+</code></pre>
+
+<h1 id="a-method-to-find-the-best-prefix-length-for-a-given-column">a method to find  the best prefix length for a given column</h1>
+
+<pre><code>SELECT
+ ROUND(SUM(LENGTH(`sno`)&lt;10)*100/COUNT(`sno`),2) AS pct_length_10,
+ ROUND(SUM(LENGTH(`sno`)&lt;20)*100/COUNT(`sno`),2) AS pct_length_20,
+ ROUND(SUM(LENGTH(`sno`)&lt;50)*100/COUNT(`sno`),2) AS pct_length_50,
+ ROUND(SUM(LENGTH(`sno`)&lt;100)*100/COUNT(`sno`),2) AS pct_length_100
+FROM `bs`;
+</code></pre>
+
+<h1 id="show-to-file">show to file</h1>
+
+<pre><code>mysql --table -e &quot;sELECT
+  nbiot_create_time
+ 		,metric
+   , totalTime
+FROM v_sel_g550 g  
+WHERE 
+ g.nbiot_create_time &gt;  '2019-04-04'&quot; -u root -p123456 guowang &gt; guowang-status.txt
+</code></pre>
+
+<p>sELECT
+  nbiot_create_time
+        ,metric
+   , totalTime
+FROM v_sel_g550 g<br />
+WHERE
+ g.nbiot_create_time &gt;  &lsquo;2019-04-04&rsquo;</p>
+
+<pre><code>CREATE TABLE ` v_sel_g550`  (
+`id` int(32) NOT NULL AUTO_INCREMENT,
+`nbiot_create_time` timestamp,
+`metric`  varchar(50),
+`totalTime` int,
+PRIMARY KEY (`id`) USING BTREE,
+) ENGINE = InnoDB
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/shell/">SHELL</a>
+  
+  <a class="badge badge-light" href="/tags/mysql/">MYSQL</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/mysql5.7/">Mysql5.7</a></li>
+          
+          <li><a href="/post/mysql-partition/">Mysql Partition</a></li>
+          
+          <li><a href="/post/mysql-5.7-sql-mode/">Mysql 5.7 SQL MODE</a></li>
+          
+          <li><a href="/post/mysql-master/">Mysql Master</a></li>
+          
+          <li><a href="/post/mysql-5.7-myisam/">Mysql 5.7 MyISAM</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

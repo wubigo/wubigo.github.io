@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>STORAGE on wubigo</title>
+    <link>https://wubigo.com/tags/storage/</link>
+    <description>Recent content in STORAGE on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jun 2019 11:26:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Minio配置为B2存储网关</title>
+      <link>https://wubigo.com/post/minio-as-a-gateway-to-b2/</link>
+      <pubDate>Mon, 17 Jun 2019 11:26:14 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/minio-as-a-gateway-to-b2/</guid>
+      <description> 配置  下载B2 TLS安全证书
+openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv b2.crt .minio/certs/CAs/ set MINIO_ACCESS_KEY=B2_keyID set MINIO_SECRET_KEY=B2_applicationKey minio gateway b2   </description>
+    </item>
+    
+    <item>
+      <title>大数据存储</title>
+      <link>https://wubigo.com/project/sds/</link>
+      <pubDate>Sat, 23 Feb 2019 16:45:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/project/sds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Minio源代码安装</title>
+      <link>https://wubigo.com/post/minio-install-from-source/</link>
+      <pubDate>Tue, 11 Dec 2018 15:46:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/minio-install-from-source/</guid>
+      <description>安装两种方式 从最新源代码发布版安装  git设置代理
+[user] email = hi@wubigo.com name = bigo [http] proxy = http://127.0.0.1:49210 sslverify = false  系统代理
+set HTTP_PROXY=http://127.0.0.1:49210/ set HTTPS_PROXY=http://127.0.0.1:49210/  安装
+go get github.com/minio/minio   MAKE mkdir -p $GOPATH/src/github.com/minio cd $GOPATH/src/github.com/minio git clone https://github.com/minio/minio.git cd minio/ git checkout RELEASE.2020-01-03T19-12-21Z make -n test go install -v mkdir -p /home/bigo/go/bin which golint 1&amp;gt;/dev/null || (echo &amp;quot;Installing golint&amp;quot; &amp;amp;&amp;amp; GO111MODULE=off go get -u golang.org/x/lint/golint) which staticcheck 1&amp;gt;/dev/null || (echo &amp;quot;Installing staticcheck&amp;quot; &amp;amp;&amp;amp; wget --quiet https://github.</description>
+    </item>
+    
+    <item>
+      <title>K8S CSI</title>
+      <link>https://wubigo.com/post/k8s-csi/</link>
+      <pubDate>Sat, 24 Feb 2018 06:55:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-csi/</guid>
+      <description>PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet</description>
+    </item>
+    
+    <item>
+      <title>创业公司IT云服务系列之数据存储</title>
+      <link>https://wubigo.com/post/startup-it-cloud-storage/</link>
+      <pubDate>Wed, 17 Jan 2018 21:48:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/startup-it-cloud-storage/</guid>
+      <description> 邮枪Concept plan(免费用户并增加一张信用卡)额度介绍  每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封 接收邮件免费 支持一千个定制域名 可以向任何邮箱地址发送而不用授权  创建发送账号 接收邮件 </description>
+    </item>
+    
+    <item>
+      <title>Minio开发笔记</title>
+      <link>https://wubigo.com/post/minio-contribution-note/</link>
+      <pubDate>Tue, 16 Jan 2018 07:10:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/minio-contribution-note/</guid>
+      <description> 依赖 go list -m all go list -m -versions github.com/minio/cli  </description>
+    </item>
+    
+  </channel>
+</rss>

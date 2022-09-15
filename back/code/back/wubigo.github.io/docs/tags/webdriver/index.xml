@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WEBDRIVER on wubigo</title>
+    <link>https://wubigo.com/tags/webdriver/</link>
+    <description>Recent content in WEBDRIVER on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 10:15:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/webdriver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Test Automation in Lambda Way</title>
+      <link>https://wubigo.com/post/web-test-automation-in-lambda-way/</link>
+      <pubDate>Sat, 09 Oct 2021 10:15:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-test-automation-in-lambda-way/</guid>
+      <description>aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: [&amp;quot;lambda.amazonaws.com&amp;quot;, &amp;quot;s3.amazonaws.com&amp;quot;] }, &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.</description>
+    </item>
+    
+  </channel>
+</rss>

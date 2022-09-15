@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SNS on wubigo</title>
+    <link>https://wubigo.com/tags/sns/</link>
+    <description>Recent content in SNS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Dec 2018 14:44:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/sns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lambda订阅SNS通知(下)</title>
+      <link>https://wubigo.com/post/aws-lambda-dynamodb/</link>
+      <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
+      <description> 创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(上)</title>
+      <link>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</link>
+      <pubDate>Mon, 31 Dec 2018 11:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</guid>
+      <description>发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&amp;hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &amp;quot;ingestionTime&amp;quot;: 1577764111252, &amp;quot;timestamp&amp;quot;: 1577764096184, &amp;quot;message&amp;quot;: &amp;quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&amp;quot;Records\&amp;quot;: [\n {\n \&amp;quot;EventSource\&amp;quot;: \&amp;quot;aws:sns\&amp;quot;,\n \&amp;quot;EventVersion\&amp;quot;: \&amp;quot;1.0\&amp;quot;,\n \&amp;quot;EventSubscriptionArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&amp;quot;,\n \&amp;quot;Sns\&amp;quot;: {\n \&amp;quot;Type\&amp;quot;: \&amp;quot;Notification\&amp;quot;,\n \&amp;quot;MessageId\&amp;quot;: \&amp;quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&amp;quot;,\n \&amp;quot;TopicArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&amp;quot;,\n \&amp;quot;Subject\&amp;quot;: null,\n \&amp;quot;Message\&amp;quot;: \&amp;quot;MESSAGE_TEXT\&amp;quot;,\n \&amp;quot;Timestamp\&amp;quot;: \&amp;quot;2019-12-31T03:48:15.</description>
+    </item>
+    
+  </channel>
+</rss>

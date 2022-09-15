@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K8S on wubigo</title>
+    <link>https://wubigo.com/tags/k8s/</link>
+    <description>Recent content in K8S on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Dec 2020 10:11:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deprecate Dockershim</title>
+      <link>https://wubigo.com/post/k8s-deprecate-dockershim/</link>
+      <pubDate>Thu, 03 Dec 2020 10:11:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-deprecate-dockershim/</guid>
+      <description>Kubernetes is removing the &amp;ldquo;dockershim&amp;rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?</description>
+    </item>
+    
+    <item>
+      <title>Kubeadm Note Update</title>
+      <link>https://wubigo.com/post/kubeadm-note-update/</link>
+      <pubDate>Sat, 23 May 2020 06:32:11 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kubeadm-note-update/</guid>
+      <description>准备  iptables
+cat &amp;lt;&amp;lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system  install container runtime
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&amp;quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu sudo usermod -aG docker bigo  setup vpn and proxy</description>
+    </item>
+    
+    <item>
+      <title>K8s高效应用开发工具集</title>
+      <link>https://wubigo.com/post/k8s-app-development-toolbox/</link>
+      <pubDate>Sun, 24 Mar 2019 08:01:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-app-development-toolbox/</guid>
+      <description>本地流线型开发 本地流线型开发
+集成开发，测试部署 IDE</description>
+    </item>
+    
+    <item>
+      <title>K8s Pod Command Override</title>
+      <link>https://wubigo.com/post/k8s-pod-command-override/</link>
+      <pubDate>Mon, 18 Mar 2019 14:49:10 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-pod-command-override/</guid>
+      <description>K8S POD Command Override OCR
+docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
+Dockerfile
+FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;amp;&amp;amp; rm -rf /var/cache/apk/* CMD [&amp;quot;--version&amp;quot;] ENTRYPOINT [&amp;quot;curl&amp;quot;]  cmd-override-pod.yaml
+apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&amp;quot;curl&amp;quot;] args: [&amp;quot;--help&amp;quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.</description>
+    </item>
+    
+    <item>
+      <title>K8s Logging</title>
+      <link>https://wubigo.com/post/k8s-logging/</link>
+      <pubDate>Sun, 17 Mar 2019 10:25:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging/</guid>
+      <description>Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/
+/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;
+ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.</description>
+    </item>
+    
+    <item>
+      <title>K8S CORE DEVELOPMENT</title>
+      <link>https://wubigo.com/post/k8s-core-development/</link>
+      <pubDate>Mon, 04 Mar 2019 11:13:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-core-development/</guid>
+      <description> git clone git@github.com:wubigo/kubernetes.git git remote add upstream https://github.com/kubernetes/kubernetes.git git fetch --all git checkout tags/v1.13.3 -b v1.13.3 git branch -av|grep 1.13 * fix-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2. remotes/origin/release-1.13 4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.  管理POD func (kl *Kubelet) syncPod(o syncPodOptions) error {  </description>
+    </item>
+    
+    <item>
+      <title>通过SDK操纵公有云</title>
+      <link>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</link>
+      <pubDate>Sun, 03 Mar 2019 20:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dev-on-tencent-cloud-sdk-in-go/</guid>
+      <description>基于腾讯云Go SDK开发
+下载开发工具集 go get -u github.com/tencentcloud/tencentcloud-sdk-go  为集群准备CVM 从本地开发集群K8S读取安全凭证secretId和secretKey配置信息， 然后把安全凭证传送给SDK客户端
+secretId, secretKey:= K8SClient.Secrets(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;cloud-pass&amp;quot;) credential := CloudCommon.NewCredential(&amp;quot;secretId&amp;quot;, &amp;quot;secretKey&amp;quot;) client, _ := cvm.NewClient(credential, regions.Beijing)  request := cvm.NewAllocateHostsRequest() request.FromJsonString(K8SClient.Configs(&amp;quot;namespace=tencent&amp;quot;).Get(&amp;quot;K8S-TENCENT-PROD&amp;quot;)) response, err := client.AllocateHosts(request)  通过ANSIBLE在CVM搭建K8S集群 Ansible.Hosts().Get(response.ToJsonString())  调用ANSIBLE开始在CVM部署K8S集群</description>
+    </item>
+    
+    <item>
+      <title>K8S CNI操作指引</title>
+      <link>https://wubigo.com/post/k8s-cni/</link>
+      <pubDate>Sun, 24 Feb 2019 16:18:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-cni/</guid>
+      <description> 简介 CNI是K8S的网络插件实现规范，与docker的CNM并不兼容，在K8S和docker的博弈过程中， K8S把docker作为默认的runtime并没有换来docker对K8S的支持。K8S决定支持CNI规范。 许多网络厂商的产品都提供同时都支持CNM和CNI的产品。
+在容器网络环境，经常看到docker看不到K8S POD的IP网络配置， DOCKER容器有时候和POD无法通信。
+CNI相对CNM是一个轻量级的规范。网络配置是基于JSON格式， 网络插件支持创建和删除指令。POD启动的时候发送创建指令。
+POD运行时首先为分配一个网络命名空间，并把该网络命名空间制定给容器ID， 然后把CNI配置文件传送给CNI网络驱动。网络驱动连接容器到自己的网络， 并把分配的IP地址通过JSON文件报告给POD运行时POD终止的时候发送删除指令。
+当前CNI指令负责处理IPAM, L2和L3, POD运行时处理端口映射(L4)
+K8S网络基础 K8S网络基础
+CNI插件 CNI实现方式 CNI有很多实现，在这里之列举熟悉的几个实现。并提供详细的说明文档。
+ Flannel
+ Kube-router
+Kube-router
+ OpenVSwitch
+ Calico
+Calico可以以非封装或非覆盖方式部署以支持高性能，高扩展扩展性数据中心网络需求
+CNI-Calico
+ Weave Net
+ 网桥
+CNI 网桥
+  </description>
+    </item>
+    
+    <item>
+      <title>kubeamd cheat sheet</title>
+      <link>https://wubigo.com/post/kubeamd-cheat-sheet/</link>
+      <pubDate>Mon, 11 Feb 2019 11:38:27 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kubeamd-cheat-sheet/</guid>
+      <description>version notes
+some only works on 1.13
+kubeadm version: &amp;amp;version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;13&amp;quot;, GitVersion:&amp;quot;v1.13.3&amp;quot;, GitCommit:&amp;quot;721bfa751924da8d1680787490c54b9179b1fed0&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2019-02-16T15:29:34Z&amp;quot;, GoVersion:&amp;quot;go1.11.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  Starting with Kubernetes 1.12, the K8S.gcr.io/kube-${ARCH}, K8S.gcr.io/etcd and K8S.gcr.io/pause images don’t require an -${ARCH} suffix
+ get all Pending pods
+kubectl get pods --field-selector=status.phase=Pending  images list
+kubeadm config images list -v 4 I0217 07:28:13.305268 14495 interface.go:384] Looking for default routes with IPv4 addresses I0217 07:28:13.307275 14495 interface.go:389] Default route transits interface &amp;quot;enp0s3&amp;quot; I0217 07:28:13.</description>
+    </item>
+    
+    <item>
+      <title>微服务安全：认证，授权和审计(AAA)</title>
+      <link>https://wubigo.com/post/microservice-security-aaa/</link>
+      <pubDate>Sat, 01 Dec 2018 08:01:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/microservice-security-aaa/</guid>
+      <description>微服务安全要点  通信链路加密 灵活的服务访问控制，包括细粒度访问策略 访问日志审计 服务提供方可替代性(batteries included)和可集成性  基本概念  安全标识  在K8S，安全标识(service account)代表一个用户，一个服务或一组服务。
+ 安全命名  安全命名定义可运行服务的安全标识
+微服务认证  传输层认证 终端用户认证  每一个终端请求通过JWT(JSON Web Token)校验, 支持Auth0, Firebase。
+https://medium.facilelogin.com/securing-microservices-with-oauth-2-0-jwt-and-xacml-d03770a9a838</description>
+    </item>
+    
+    <item>
+      <title>MicroK8S</title>
+      <link>https://wubigo.com/post/2018-11-24-microk8s/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-24-microk8s/</guid>
+      <description>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current. snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd
+$snap start microK8S $microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1 $microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1  for resource under namespace kube-system all-namespaces don&amp;rsquo;t include kube-system
+$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system  https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</description>
+    </item>
+    
+    <item>
+      <title>Choosing a CNI Network Provider for Kubernetes</title>
+      <link>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</link>
+      <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</guid>
+      <description>The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
+Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.</description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Calico实现</title>
+      <link>https://wubigo.com/post/k8s_cni_calico/</link>
+      <pubDate>Tue, 26 Jun 2018 11:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_calico/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>避开Tiller使用Helm部署K8S应用</title>
+      <link>https://wubigo.com/post/helm-without-tiller/</link>
+      <pubDate>Mon, 04 Jun 2018 21:02:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/helm-without-tiller/</guid>
+      <description>避开Tiller使用Helm部署K8S应用
+Tiller存在的问题  破坏RBAC访问机制  全局的Tiller拥有cluster-admin角色，所以在安装过程中，服务以cluster-admin 角色可以越权访问资源
+ 部署名字不能重复且唯一  部署名字唯一且很多chart中部署名字也添加到服务名中，导致服务名字混乱。
+独立使用helm  获取模板 使用配置修改模板 生产yaml文件
+git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6 helm template install/kubernetes/helm/istio --name istio --namespace istio-system \ --set security.enabled=false \ --set ingress.enabled=false \ --set gateways.istio-ingressgateway.enabled=false \ --set gateways.istio-egressgateway.enabled=false \ --set galley.enabled=false \ --set sidecarInjectorWebhook.enabled=false \ --set mixer.enabled=false \ --set prometheus.enabled=false \ --set global.proxy.envoyStatsd.enabled=false \ --set pilot.sidecar=false &amp;gt; $HOME/istio-minimal.yaml kubectl create namespace istio-system kubectl apply -f $HOME/istio-minimal.</description>
+    </item>
+    
+    <item>
+      <title>K8s External Services</title>
+      <link>https://wubigo.com/post/k8s-external-services/</link>
+      <pubDate>Thu, 10 May 2018 18:32:22 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-external-services/</guid>
+      <description>Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
+kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.</description>
+    </item>
+    
+    <item>
+      <title>GRPC Load Balancing on Kubernetes Without Tears</title>
+      <link>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/grpc-load-balancing-on-kubernetes-without-tears/</guid>
+      <description>https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</description>
+    </item>
+    
+    <item>
+      <title>K8s Envoy Example</title>
+      <link>https://wubigo.com/post/k8s-envoy-example/</link>
+      <pubDate>Mon, 02 Apr 2018 11:16:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-envoy-example/</guid>
+      <description>envoy.yaml.tmpl
+admin: access_log_path: /tmp/admin_access.log address: socket_address: { address: 0.0.0.0, port_value: 9901 } static_resources: listeners: - name: listener_0 address: socket_address: { address: 0.0.0.0, port_value: 80 } filter_chains: - filters: - name: envoy.http_connection_manager config: stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: local_service domains: [&amp;quot;*&amp;quot;] routes: - match: { prefix: &amp;quot;/&amp;quot; } route: { host_rewrite: nginx, cluster: nginx_cluster, timeout: 60s } http_filters: - name: envoy.router clusters: - name: nginx_cluster connect_timeout: 0.25s type: STRICT_DNS dns_lookup_family: V4_ONLY lb_policy: ${ENVOY_LB_ALG} hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]  docker-entrypoint.</description>
+    </item>
+    
+    <item>
+      <title>K8s Service Headless</title>
+      <link>https://wubigo.com/post/k8s-service-headless/</link>
+      <pubDate>Sun, 01 Apr 2018 17:20:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-service-headless/</guid>
+      <description>To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&amp;rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .</description>
+    </item>
+    
+    <item>
+      <title>Envoy NOTES</title>
+      <link>https://wubigo.com/post/envoy-notes/</link>
+      <pubDate>Sat, 31 Mar 2018 11:16:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/envoy-notes/</guid>
+      <description>术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</description>
+    </item>
+    
+    <item>
+      <title>K8s IDE Tool: code extension</title>
+      <link>https://wubigo.com/post/k8s-ide-tool/</link>
+      <pubDate>Sat, 24 Mar 2018 07:02:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-ide-tool/</guid>
+      <description>for developers building applications to run in Kubernetes clusters, and for DevOps staff troubleshooting Kubernetes applications. Features include:
+ View your clusters in an explorer tree view, and drill into workloads, services, pods and nodes. Browse Helm repos and install charts into your Kubernetes cluster. Intellisense for Kubernetes resources and Helm charts and templates. Edit Kubernetes resource manifests and apply them to your cluster. Build and run containers in your cluster from Dockerfiles in your project.</description>
+    </item>
+    
+    <item>
+      <title>K8s Openshift</title>
+      <link>https://wubigo.com/post/k8s-openshift/</link>
+      <pubDate>Tue, 20 Mar 2018 18:47:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-openshift/</guid>
+      <description>v3.11.0-&amp;gt;k8s 1.11
+openshift all-in-one curl https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz tar zxf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz cd openshift export PATH=&amp;quot;$(pwd)&amp;quot;:$PATH sudo ./openshift start master  oc setup export KUBECONFIG=&amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/admin.kubeconfig export CURL_CA_BUNDLE=&amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/ca.crt sudo chmod +r &amp;quot;$(pwd)&amp;quot;/openshift.local.config/master/admin.kubeconfig openshift complition bash &amp;gt; /usr/share/bash-completion/completions/openshift.complition.sh  master and node configuration after installation /etc/origin/master/master-config.yaml
+identityProviders: - name: my_allow_provider challenge: true login: true provider: apiVersion: v1 kind: AllowAllPasswordIdentityProvider corsAllowedOrigins  Identity Providers The OpenShift master includes a built-in OAuth server the Deny All identity provider is used by default, which denies access for all user names and passwords.</description>
+    </item>
+    
+    <item>
+      <title>K8S SDK Setup</title>
+      <link>https://wubigo.com/post/k8s-sdk-setup/</link>
+      <pubDate>Sat, 03 Mar 2018 20:45:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-sdk-setup/</guid>
+      <description> 安装Golang Dep go get -v github.com/tools/godep  安装client-go go get k8s.io/client-go/kubernetes cd $GOPATH/src/k8s.io/client-go git checkout v10.0.0 godep restore ./...  集群外开发 集群内开发 </description>
+    </item>
+    
+    <item>
+      <title>K8s CNI之Kube Router实现</title>
+      <link>https://wubigo.com/post/k8s_cni_kube-router/</link>
+      <pubDate>Mon, 26 Feb 2018 11:11:08 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_kube-router/</guid>
+      <description>准备  搭建测试环境  可以参考从源代码构件K8S开发环境</description>
+    </item>
+    
+    <item>
+      <title>K8s Development Streamline with draft</title>
+      <link>https://wubigo.com/post/k8s-development-streamline/</link>
+      <pubDate>Sat, 24 Feb 2018 07:30:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-development-streamline/</guid>
+      <description>准备  初始化
+draft init ... Installing default plugins... Preparing to install into /home/bigo/.draft/plugins/draft-pack-repo draft-pack-repo installed into /home/bigo/.draft/plugins/draft-pack-repo/draft-pack-repo Installed plugin: pack-repo Installation of default plugins complete Installing default pack repositories... Installing pack repo from https://github.com/Azure/draft Installed pack repository github.com/Azure/draft Installation of default pack repositories complete $DRAFT_HOME has been configured at /home/bigo/.draft. ...  设置docker镜像寄存器
+draft config set registry registry.cn-beijing.aliyuncs.com/k4s   or
+ skip the push process entirely using the &amp;ndash;skip-image-push flag</description>
+    </item>
+    
+    <item>
+      <title>K8S CSI</title>
+      <link>https://wubigo.com/post/k8s-csi/</link>
+      <pubDate>Sat, 24 Feb 2018 06:55:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-csi/</guid>
+      <description>PersistentVolume A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. Many cluster environments have a default StorageClass installed. When a StorageClass is not specified in the PersistentVolumeClaim, the cluster’s default StorageClass is used instead
+Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet</description>
+    </item>
+    
+    <item>
+      <title>kubectl cheat sheet</title>
+      <link>https://wubigo.com/post/k8s-kubectl-cheatsheet/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-kubectl-cheatsheet/</guid>
+      <description>Set namespace preference kubectl config set-context $(kubectl config current-context) --namespace=&amp;lt;bigo&amp;gt;  watch pod kubectl get pods pod1 --watch  Check Performance kubectl top node kubectl top pod  copy file between pod and local kubectl cp ~/f1 &amp;lt;namespace&amp;gt;/&amp;lt;pod-name&amp;gt;:/tmp/ kubectl cp &amp;lt;namespace&amp;gt;/&amp;lt;pod-name&amp;gt;:/tmp/ ~/  enable RBAC  kube-apiserver - --authorization-mode=RBAC  User CRUD openssl genrsa -out bigo.key 2048 openssl req -new -key bigo.key -out bigo.csr -subj &amp;quot;/CN=wubigo/O=bigo LLC&amp;quot; sudo openssl x509 -req -in bigo.</description>
+    </item>
+    
+    <item>
+      <title>K8S notes</title>
+      <link>https://wubigo.com/post/k8s-notes/</link>
+      <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-notes/</guid>
+      <description>节点维护 kubectl drain &amp;lt;node name&amp;gt;  维护有DaemonSet-managed pod的节点
+kubectl drain &amp;lt;node name&amp;gt; --delete-local-data --force --ignore-daemonsets kubectl delete node &amp;lt;node name&amp;gt; sudo iptables -F sudo iptables -S  create a regular pod 必须使用&amp;ndash;restart=Never
+kubectl run -it curl --image=curlimages/curl:7.72.0 --restart=Never -- sh   Never acts like a cronjob which is scheduled immediately. Always creates a deployment and the deployment monitors the pod and restarts in case of failure.  kubeadm install mirror in china apt-get update &amp;amp;&amp;amp; apt-get install -y apt-transport-https curl https://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>K8s Istio Pilot as envoy control place</title>
+      <link>https://wubigo.com/post/k8s-istio-discovery-proxy/</link>
+      <pubDate>Sun, 30 Apr 2017 15:04:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-istio-discovery-proxy/</guid>
+      <description># side car proxy
+ 方法1  Namespace labels
+kubectl label ns servicea istio-injection=enabled  Istio watches over all the deployments and adds the side car container to our pods.This is achieved by leveraging what is called MutatingAdmissionWebhooks, this feature was introduced in Kubernetes 1.9. So before the resources get created, the web hook intercepts the requests, checks if “Istio injection” is enabled for that namespace, and then adds the side car container to the pod</description>
+    </item>
+    
+    <item>
+      <title>K8s DNS</title>
+      <link>https://wubigo.com/post/k8s-dns/</link>
+      <pubDate>Sat, 01 Apr 2017 23:30:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-dns/</guid>
+      <description>Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
+Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
+ A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.</description>
+    </item>
+    
+    <item>
+      <title>K8s Kubelet</title>
+      <link>https://wubigo.com/post/k8s-kubelet/</link>
+      <pubDate>Thu, 30 Mar 2017 07:41:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-kubelet/</guid>
+      <description>PodUID kubectl get pod &amp;lt;PID_NAME&amp;gt; -o=jsonpath=&#39;{.metadata.uid}&#39;  POD on disk /var/lib/kubelet/pods/&amp;lt;PodUID&amp;gt;/
+/var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;
+ls -l /var/log/pods/&amp;lt;PodUID&amp;gt;/&amp;lt;container_name&amp;gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&amp;gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.</description>
+    </item>
+    
+    <item>
+      <title>K8s Helm Setup</title>
+      <link>https://wubigo.com/post/k8s-helm-setup/</link>
+      <pubDate>Sat, 18 Mar 2017 17:12:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-helm-setup/</guid>
+      <description>Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
+ Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
+ Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
+kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p &#39;{&amp;quot;spec&amp;quot;:{&amp;quot;template&amp;quot;:{&amp;quot;spec&amp;quot;:{&amp;quot;serviceAccount&amp;quot;:&amp;quot;tiller&amp;quot;}}}}&#39;  or</description>
+    </item>
+    
+    <item>
+      <title>K8s Private Registry</title>
+      <link>https://wubigo.com/post/k8s-private-registry/</link>
+      <pubDate>Fri, 17 Mar 2017 06:44:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-private-registry/</guid>
+      <description>Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
+ Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
+ {&amp;ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.</description>
+    </item>
+    
+    <item>
+      <title>K8s HA Setup With Kubeadm</title>
+      <link>https://wubigo.com/post/k8s-ha-setup-with-kubeadm/</link>
+      <pubDate>Thu, 16 Mar 2017 13:23:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-ha-setup-with-kubeadm/</guid>
+      <description>setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
+apiVersion: &amp;quot;kubeadm.k8s.io/v1beta1&amp;quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &amp;quot;192.168.1.10&amp;quot; peerCertSANs: - &amp;quot;192.168.1.10&amp;quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
+sudo kubeadm init phase certs etcd-ca export HOST0=&amp;quot;192.168.1.10&amp;quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.</description>
+    </item>
+    
+    <item>
+      <title>K8S微服务治理</title>
+      <link>https://wubigo.com/post/k8s-mesh-istio/</link>
+      <pubDate>Sat, 04 Mar 2017 16:38:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-mesh-istio/</guid>
+      <description>准备 docker pull istio/proxyv2:1.0.6 docker tag istio/proxyv2:1.0.6 gcr.io/istio-release/proxyv2:release-1.0-latest-daily docker push registry.cn-beijing.aliyuncs.com/co1/istio_proxyv2:1.0.6 docker pull istio/pilot:1.0.6 docker tag istio/pilot:1.0.6 gcr.io/istio-release/pilot:release-1.0-latest-daily docker pull istio/mixer:1.0.6 docker tag istio/mixer:1.0.6 gcr.io/istio-release/mixer:release-1.0-latest-daily docker pull istio/galley:1.0.6 docker tag istio/galley:1.0.6 gcr.io/istio-release/galley:release-1.0-latest-daily docker pull istio/citadel:1.0.6 docker tag istio/citadel:1.0.6 gcr.io/istio-release/citadel:release-1.0-latest-daily docker pull istio/sidecar_injector:1.0.6 docker tag istio/sidecar_injector:1.0.6 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.6  安装 Istio by default uses LoadBalancer service object types. Some platforms do not support LoadBalancer service objects.</description>
+    </item>
+    
+    <item>
+      <title>K8S Monitor</title>
+      <link>https://wubigo.com/post/k8s-monitor/</link>
+      <pubDate>Thu, 23 Feb 2017 20:28:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-monitor/</guid>
+      <description> setup prometheus  prepare pv for prometheus  https://wubigo.com/post/2018-01-11-kubectlcheatsheet/#pvc&amp;ndash;using-local-pv
+ install
+helm install --name prometheus1 stable/prometheus --set server.persistentVolume.storageClass=local-hdd,alertmanager.enabled=false   </description>
+    </item>
+    
+    <item>
+      <title>K8SCNI之L2 网络实现</title>
+      <link>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</link>
+      <pubDate>Thu, 26 Jan 2017 10:09:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s_cni_l2_network_on_bare_metal/</guid>
+      <description> 准备  搭建测试环境
+可以参考从源代码构件K8S开发环境
+  </description>
+    </item>
+    
+    <item>
+      <title>K8s日志EFK</title>
+      <link>https://wubigo.com/post/k8s-logging-efk/</link>
+      <pubDate>Sun, 17 Apr 2016 14:12:02 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-logging-efk/</guid>
+      <description>namespace  kube-logging.yaml
+kind: Namespace apiVersion: v1 metadata: name: kube-logging   headless service
+kubectl create -f kube-logging.yaml   elasticsearch_svc.yaml
+kind: Service apiVersion: v1 metadata: name: elasticsearch namespace: kube-logging labels: app: elasticsearch spec: selector: app: elasticsearch clusterIP: None ports: - port: 9200 name: rest - port: 9300 name: inter-node   PROVISION local PV for EFK  local PV
+ Creating the StatefulSet  elasticsearch_statefulset.yaml
+apiVersion: apps/v1 kind: StatefulSet metadata: name: es-cluster namespace: kube-logging spec: serviceName: elasticsearch replicas: 1 selector: matchLabels: app: elasticsearch template: metadata: labels: app: elasticsearch spec: containers: - name: elasticsearch image: docker.</description>
+    </item>
+    
+    <item>
+      <title>K8S网络基础</title>
+      <link>https://wubigo.com/post/k8s-network-basic/</link>
+      <pubDate>Wed, 24 Feb 2016 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-network-basic/</guid>
+      <description> K8S网络基础
+K8S简介 K8S是自动化部署和监控容器的容器编排和管理工具。各大云厂商和应用开发平台都提供基于K8S的容器服务。 如果觉得K8S托管服务不容易上手或者和本公司的业务场景不很匹配，现在也有很多工具帮助在自己的数据 中心或私有云平台搭建K8S运行环境。
+ Minikube kops kubeadm  如果你想搭建一个测试环境，请参考
+ 从K8S源代码构建容器集群(支持最新稳定版V1.13.3) 一个脚步部署K8S  Kubernetes主要构件:
+ 主节点： 主要的功能包括管理工作节点集群，服务部署，服务发现，工作调度，负载均衡等。 工作节点： 应用负载执行单元。 服务规范： 无状态服务，有状态服务，守护进程服务，定时任务等。   K8S网络基础 K8S网络模型
+ 每一个POD拥有独立的IP地址 任何两个POD之间都可以互相通信且不通过NAT 集群每个节点上的代理(KUBELET)可以和该节点上的所有POD通信  K8S网络模型从网络端口分配的角度为容器建立一个干净的，向后兼容的规范，极大的方便和简化应用从虚拟机往容器迁移的流程。
+K8S解决的网络问题：
+ 容器间通信问题： 由POD和localhost通信解决
+ POD间通信问题： 由CNI解决 POD和服务的通信问题： 由SERVICE解决 外部系统和SERVICE的通信问题： 由SERVICE解决  </description>
+    </item>
+    
+    <item>
+      <title>K8S local development setup from source code</title>
+      <link>https://wubigo.com/post/k8s-local-development-setup/</link>
+      <pubDate>Wed, 03 Feb 2016 11:38:27 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-local-development-setup/</guid>
+      <description>Setup a local development environment from source code with kubeadm</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on wubigo</title>
+    <link>https://wubigo.com/tags/sql/</link>
+    <description>Recent content in SQL on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Feb 2018 02:16:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据库无服务器架构</title>
+      <link>https://wubigo.com/post/serverless-database/</link>
+      <pubDate>Wed, 14 Feb 2018 02:16:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-database/</guid>
+      <description> 问题 长链接
+通过连接池和数据库保持长链接
+ Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions), where the database will automatically start up, shut down, and scale capacity up or down based on your application&amp;rsquo;s needs. It enables you to run your database in the cloud without managing any database instances. It&amp;rsquo;s a simple, cost-effective option for infrequent, intermittent, or unpredictable workloads.
+ </description>
+    </item>
+    
+    <item>
+      <title>Mysql High Performance</title>
+      <link>https://wubigo.com/post/mysql-high-performance/</link>
+      <pubDate>Mon, 08 Jan 2018 14:20:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-high-performance/</guid>
+      <description>InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario</description>
+    </item>
+    
+    <item>
+      <title>Having Multiple Tables in FROM and Using JOIN</title>
+      <link>https://wubigo.com/post/having-multiple-tables-in-from-and-using-join/</link>
+      <pubDate>Wed, 26 Aug 2015 09:40:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/having-multiple-tables-in-from-and-using-join/</guid>
+      <description> INNER JOIN = JOIN INNER JOIN is the default if you don&amp;rsquo;t specify the type when you use the word JOIN
+INNER JOIN is ANSI syntax that you should use.
+Why Use the New Syntax for SQL Joins?
+ Join conditions are separate from filtering conditions
+ Easier to join multiple tables
+  </description>
+    </item>
+    
+    <item>
+      <title>Mysql Relocate the Data Directory</title>
+      <link>https://wubigo.com/post/mysql-relocate-the-data-directory/</link>
+      <pubDate>Fri, 30 Jan 2015 19:44:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-relocate-the-data-directory/</guid>
+      <description>cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.</description>
+    </item>
+    
+    <item>
+      <title>Postgres Notes</title>
+      <link>https://wubigo.com/post/postgres-notes/</link>
+      <pubDate>Sat, 06 Apr 2013 15:46:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/postgres-notes/</guid>
+      <description>postgres in docker https://github.com/wubigo/docker-compose/blob/main/docker-compose-psql.yml
+启用pg_stat_statements docker volume inspect root_postgresql_data |grep &amp;quot;Mountpoint&amp;quot; echo &amp;quot;shared_preload_libraries = &#39;pg_stat_statements&#39;&amp;quot; &amp;gt; /var/lib/docker/volumes/root_postgresql_data/_data/pgdata/postgresql.conf  INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&amp;gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.</description>
+    </item>
+    
+    <item>
+      <title>install Mysql 5 on Ubuntu20</title>
+      <link>https://wubigo.com/post/mysql-5-on-ubuntu20/</link>
+      <pubDate>Fri, 20 Jan 2012 06:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/mysql-5-on-ubuntu20/</guid>
+      <description> select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;pass&#39; WITH GRANT OPTION  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CMP on wubigo</title>
+    <link>https://wubigo.com/tags/cmp/</link>
+    <description>Recent content in CMP on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jul 2020 05:27:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/cmp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Multi Cloud Serverless Platform</title>
+      <link>https://wubigo.com/post/multi-cloud-serverless-platform/</link>
+      <pubDate>Fri, 03 Jul 2020 05:27:46 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/multi-cloud-serverless-platform/</guid>
+      <description>The size of the market for multiparty, multicloud data and code aggregation is enormous and only grows larger as companies capture every last bit of data. Vendia’s serverless-based technology offers benefits such as ease of experimentation, no operational heavy lifting and a pay-as-you-go pricing model, making it both very consumable and highly disruptive</description>
+    </item>
+    
+    <item>
+      <title>Cmp Onecloud Region Code</title>
+      <link>https://wubigo.com/post/cmp-onecloud-region-code/</link>
+      <pubDate>Tue, 30 Jun 2020 12:49:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-region-code/</guid>
+      <description>config climc service-config-edit region2  or
+kubectl describe cm default-region -n onecloud  region.conf
+log_level: debug log_verbose_level: 10 enable_host_health_check: false enable_ssl: false port: 30888 port_v2: 30888  依赖的模块  HTTP web framework
+github.com/gin-gonic/gin  ORM
+https://github.com/go-gorm/gorm   region endpoint climc endpoint-show b0d33d8b370c42418cb3c6e51442c072 +--------------------+----------------------------------+ | Field | Value | +--------------------+----------------------------------+ | can_delete | false | | can_update | true | | created_at | 2020-06-23T03:03:20.000000Z | | deleted | false | | enabled | true | | id | b0d33d8b370c42418cb3c6e51442c072 | | interface | public | | is_emulated | false | | name | compute_v2-public | | public_key_bit_len | 0 | | region_id | region0 | | service_id | fb54a285aa3e4c848298148596011aa1 | | service_name | region2 | | service_type | compute_v2 | | update_version | 0 | | updated_at | 2020-06-23T03:03:20.</description>
+    </item>
+    
+    <item>
+      <title>从源代码构建Onecloud</title>
+      <link>https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/</link>
+      <pubDate>Fri, 19 Jun 2020 21:42:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-all-in-one-setup-from-source-code/</guid>
+      <description>系统设置 /etc/yum.conf
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
+安装kubelet
+OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &amp;quot;6443&amp;quot; as_host: true registry_mirrors: - https://lje6zxpk.</description>
+    </item>
+    
+    <item>
+      <title>Onecloud Source Code Dev Note</title>
+      <link>https://wubigo.com/post/cmp-onecloud-source-code-dev-note/</link>
+      <pubDate>Sun, 10 Jun 2018 11:13:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-onecloud-source-code-dev-note/</guid>
+      <description>删除 systemctl list-unit-files --all | grep yunion systemctl disable yunion-executor systemctl disable yunion-registry systemctl disable kubelet rm -rf /opt/yunion systemctl disable libvirtd.service ip link set virbr0 down brctl delbr virbr0  operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&amp;rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
+WEB 前端代码是很多 git 仓库组成的，需要用 &amp;lsquo;yarn sync release/3.</description>
+    </item>
+    
+  </channel>
+</rss>

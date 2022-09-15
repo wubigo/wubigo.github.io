@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IAAS on wubigo</title>
+    <link>https://wubigo.com/tags/iaas/</link>
+    <description>Recent content in IAAS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Nov 2021 20:00:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/iaas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Azure Config</title>
+      <link>https://wubigo.com/post/azure-config/</link>
+      <pubDate>Sun, 07 Nov 2021 20:00:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/azure-config/</guid>
+      <description>配置 &amp;rsquo;.azure/config`
+[defaults] location = westus [cloud] name = AzureCloud [core] output = table  az config set defaults.location=westus2 defaults.group=MyResourceGroup  az v2不支持config，直接修改配置文件</description>
+    </item>
+    
+    <item>
+      <title>免费使用公有云服务</title>
+      <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
+      <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/use-public-cloud-for-free/</guid>
+      <description>[TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).</description>
+    </item>
+    
+    <item>
+      <title>AWS云服务免费额度列表</title>
+      <link>https://wubigo.com/post/aws-free-tier-quota/</link>
+      <pubDate>Thu, 30 Nov 2017 17:51:29 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-free-tier-quota/</guid>
+      <description>AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB</description>
+    </item>
+    
+    <item>
+      <title>cdn note</title>
+      <link>https://wubigo.com/post/2014-04-03-cdn/</link>
+      <pubDate>Thu, 03 Apr 2014 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2014-04-03-cdn/</guid>
+      <description>The main point of a Content Distribution Network (CDN) is to put the content as close to the end-user as possible, thereby reducing the Distance component of the Round Trip Time (RTT) and speeding up the request. Simply serving static content from a s# sub-domain for CDN.
+The advantages of serving content from such a sub-domain, however, are that
+The sub-domain can be a cookie-less domain
+If you use your cookies correctly (ie.</description>
+    </item>
+    
+    <item>
+      <title>Kvm</title>
+      <link>https://wubigo.com/post/kvm/</link>
+      <pubDate>Tue, 05 Nov 2013 10:35:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/kvm/</guid>
+      <description>QEMU runs the guest code via the KVM kernel module. When working with KVM, QEMU also does I/O emulation, I/O device setup, live migration, and so on. QEMU opens the device file (/dev/kvm) exposed by the KVM kernel module and executes ioctls()on it
+KVM exposesa device file called /dev/kvmto applications to make use of the ioctls()provided. QEMU makes use of this device file to talk with KVM and to create, initialize, and manage the kernel mode context of virtual machines</description>
+    </item>
+    
+    <item>
+      <title>linux note</title>
+      <link>https://wubigo.com/post/linux-notes/</link>
+      <pubDate>Sun, 03 Jun 2012 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-notes/</guid>
+      <description>iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
+ dmidecode
+sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw</description>
+    </item>
+    
+    <item>
+      <title>Linux File System Read Write Performance Test</title>
+      <link>https://wubigo.com/post/2011-06-03-io-performance/</link>
+      <pubDate>Fri, 03 Jun 2011 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2011-06-03-io-performance/</guid>
+      <description>dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
+$ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
+Simply use the yum commands to search or install packages from EPEL repo:
+# yum search nethogs # yum update # yum --disablerepo=&amp;quot;*&amp;quot; --enablerepo=&amp;quot;epel&amp;quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&amp;rsquo;s performance.</description>
+    </item>
+    
+    <item>
+      <title>Hpcloud Notes</title>
+      <link>https://wubigo.com/post/hpcloud-notes/</link>
+      <pubDate>Thu, 24 Mar 2011 17:53:35 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/hpcloud-notes/</guid>
+      <description> 惠普混合云 惠普tripleO整体方案 惠普混合云主要模块 网络控制节点 授权认证部分源代码 医疗数据分析  医疗数据某业务流程  医疗数据处理图  医疗项目部分工作内容
+  部分任务 部分任务 部分源代码 </description>
+    </item>
+    
+  </channel>
+</rss>

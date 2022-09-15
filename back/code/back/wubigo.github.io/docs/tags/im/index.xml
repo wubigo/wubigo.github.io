@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IM on wubigo</title>
+    <link>https://wubigo.com/tags/im/</link>
+    <description>Recent content in IM on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Aug 2021 14:53:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/im/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Matrix Web Client Dev Setup</title>
+      <link>https://wubigo.com/post/matrix-web-client-dev-setup/</link>
+      <pubDate>Thu, 19 Aug 2021 14:53:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/matrix-web-client-dev-setup/</guid>
+      <description>准备环境 node -v v14.17.5 npm install -g yarn@1.22.11  链接SDK git clone https://github.com/matrix-org/matrix-js-sdk.git pushd matrix-js-sdk yarn link yarn install popd git clone https://github.com/matrix-org/matrix-react-sdk.git pushd matrix-react-sdk yarn link yarn link matrix-js-sdk yarn install popd git clone https://github.com/vector-im/element-web.git cd element-web yarn link matrix-js-sdk yarn link matrix-react-sdk yarn install yarn reskindex yarn start  启动 cp config.sample.json config.json curl http://127.0.0.1:8080/  登录 homeserver：http://192.168.43.16:8008/</description>
+    </item>
+    
+    <item>
+      <title>Decentralized Social Network: Federated VS P2P Protocol</title>
+      <link>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</link>
+      <pubDate>Wed, 18 Aug 2021 15:55:30 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/decentralized-social-network-federated-vs-p2p-protocol/</guid>
+      <description>Matrix Traditionally Matrix decentralises communication by replicating conversation history over a mesh of servers, so that no single server has ownership of a given conversation. Meanwhile, users connect to their given homeserver from clients via plain HTTPS + DNS. This has the significant disadvantage that for a user to have full control and ownership over their communication, they need to run their own server - which comes with a cost, and requires you to be a proficient sysadmin.</description>
+    </item>
+    
+    <item>
+      <title>Secure Messaging System</title>
+      <link>https://wubigo.com/post/secure-messaging-system/</link>
+      <pubDate>Thu, 06 May 2021 07:36:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/secure-messaging-system/</guid>
+      <description>A secure messaging system is a system where no one but the user and their intended recipients can read the messages or otherwise analyze their contents to infer what they are talking about. Despite messages passing through a server, an end-to-end encrypted message will not allow the server to know the contents of a message. When that same server has a channel for revealing information about the contents of a significant portion of messages, that’s not end-to-end encryption</description>
+    </item>
+    
+    <item>
+      <title>Matrix Homeserver</title>
+      <link>https://wubigo.com/post/matrix-homeserver/</link>
+      <pubDate>Sun, 18 Aug 2019 10:07:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/matrix-homeserver/</guid>
+      <description>注册用户 /etc/matrix-synapse/homeserver.yaml
+registration_shared_secret:  sudo systemctl restart matrix-synapse  配置代理 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt  server { listen 443 ssl http2; listen [::]:443 ssl http2; # For the federation port listen 8448 ssl http2 default_server; listen [::]:8448 ssl http2 default_server; ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt; ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; location ~* ^(\/_matrix|\/_synapse\/client) { proxy_pass http://localhost:8008; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header Host $host; # Nginx by default only allows file uploads up to 1M in size # Increase client_max_body_size to match max_upload_size defined in homeserver.</description>
+    </item>
+    
+  </channel>
+</rss>

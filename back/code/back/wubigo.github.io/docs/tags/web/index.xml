@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WEB on wubigo</title>
+    <link>https://wubigo.com/tags/web/</link>
+    <description>Recent content in WEB on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Aug 2020 15:25:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx Root vs Alias</title>
+      <link>https://wubigo.com/post/nginx-root-vs-alias/</link>
+      <pubDate>Thu, 20 Aug 2020 15:25:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nginx-root-vs-alias/</guid>
+      <description>There is a very important difference between the root and the alias directives. This difference exists in the way the path specified in the root or the alias is processed.
+In case of the root directive, full path is appended to the root including the location part, whereas in case of the alias directive, only the portion of the path NOT including the location part is appended to the alias.</description>
+    </item>
+    
+    <item>
+      <title>通过lynx浏览黑客新网</title>
+      <link>https://wubigo.com/post/lynx-ycombinator/</link>
+      <pubDate>Tue, 16 Jun 2020 13:20:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lynx-ycombinator/</guid>
+      <description>最近黑客新网也被墙了，WTF
+lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pingcap.com) 107 points by Bella-Xiang 4 hours ago | hide | 17 comments 2. Adobe to remove Flash Player from web site after December 2020 (adobe.com) 740 points by michaelhoffman 14 hours ago | hide | 412 comments 3. How many of you know that the team is working on something that no-one wants? (iism.org) 255 points by kiyanwang 8 hours ago | hide | 136 comments 4.</description>
+    </item>
+    
+    <item>
+      <title>HTTP/3</title>
+      <link>https://wubigo.com/post/2019-02-01-http3notes/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2019-02-01-http3notes/</guid>
+      <description>track http redirection  http://wubigo.com/post -&amp;gt; http://wubigo.com/post/ -&amp;gt; https://wubigo.com/post/
+curl -IL http://wubigo.com/post
+ HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post Via: 1.1 varnish X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Content-Length: 0 HTTP/1.1 301 Moved Permanently Strict-Transport-Security: max-age=31556952 Location: http://wubigo.com/post/ Access-Control-Allow-Origin: * X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 301 Moved Permanently Location: https://wubigo.com/post/ X-Cache: HIT X-Cache-Hits: 1 HTTP/1.1 200 OK Access-Control-Allow-Origin: * Cache-Control: max-age=600 X-Cache: HIT X-Cache-Hits: 1  main goal  HTTP/2&amp;rsquo;s multiplexed connections, allowing multiple streams of data to reach all the endpoints independently.</description>
+    </item>
+    
+    <item>
+      <title>域名名字服务器配置</title>
+      <link>https://wubigo.com/post/domain-nameserver-notes/</link>
+      <pubDate>Fri, 18 Jan 2019 08:14:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/domain-nameserver-notes/</guid>
+      <description>检查域名使用的名字服务器 https://lookup.icann.org/
+更改名字服务器 更改名字服务器需通过域名注册服务商进行更改</description>
+    </item>
+    
+    <item>
+      <title>Thingboard</title>
+      <link>https://wubigo.com/post/thingboard/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/thingboard/</guid>
+      <description>docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb:2.3.1  default credentials: Systen Administrator: sysadmin@thingsboard.org / sysadmin Tenant Administrator: tenant@thingsboard.org / tenant Customer User: customer@thingsboard.org / customer  Manage device credentials login as tenant</description>
+    </item>
+    
+    <item>
+      <title>Vue notes</title>
+      <link>https://wubigo.com/post/js-vue/</link>
+      <pubDate>Wed, 25 Apr 2018 12:02:41 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/js-vue/</guid>
+      <description>Single File Components single-file components with a .vue extension is build by tools
+such as Webpack or Browserify
+A single-file component consists of three parts:
+- &amp;lt;template&amp;gt; which contains the component’s markup in plain HTML - &amp;lt;script&amp;gt; which exports the component object constructor that consists of all the JS logic within that component - &amp;lt;style&amp;gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Windows</title>
+      <link>https://wubigo.com/post/tcpdump-windows/</link>
+      <pubDate>Tue, 24 Apr 2018 19:24:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/tcpdump-windows/</guid>
+      <description>install winpcap and windump https://www.winpcap.org
+list all interfaces windump -D  dump on interface windump -i 1 -n dst host 172.17.17.6  See entire packet payload using tcpdump windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6  [1] [The Secret To 10 Million Concurrent Connections]http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html
+[2] [A User-Level TCP Stack for Processing 40 Million Concurrent TCP Connections]https://ieeexplore.ieee.org/abstract/document/8422993</description>
+    </item>
+    
+    <item>
+      <title>Linux Chrome</title>
+      <link>https://wubigo.com/post/linux-chrome/</link>
+      <pubDate>Sat, 31 Mar 2018 06:20:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-chrome/</guid>
+      <description>禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
+ 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
+.config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
+Chrome Didn&amp;rsquo;t Shut Down Correctly Error Solved Windows 7
+ 方法2（不可靠）  Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring  方法1（可靠）
+ set password-store to basic
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
+    </item>
+    
+    <item>
+      <title>Web vue-cli Note</title>
+      <link>https://wubigo.com/post/js-vue-cli-note/</link>
+      <pubDate>Sat, 10 Feb 2018 22:21:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/js-vue-cli-note/</guid>
+      <description>webpack-simple Webpack is a module bundler for Javascript applications,
+it starts at the entrypoint and then build a dependency
+graph of the whole application, pulling those dependencies
+into one or more bundles that can be included in application.
+It supports multiple different file types through loaders,
+loaders will take files that have no concept of modules (e.g. css)
+and process them in a way that allows them to participate</description>
+    </item>
+    
+    <item>
+      <title>创业公司IT云服务系列之内容托管服务</title>
+      <link>https://wubigo.com/post/startup-it-cloud-hosting/</link>
+      <pubDate>Wed, 17 Jan 2018 21:48:53 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/startup-it-cloud-hosting/</guid>
+      <description> 邮枪Concept plan(免费用户并增加一张信用卡)额度介绍  每月免费发送1万封邮件，超过1万封的邮件开始收费，$0.5//1000封 接收邮件免费 支持一千个定制域名 可以向任何邮箱地址发送而不用授权  创建发送账号 接收邮件 </description>
+    </item>
+    
+  </channel>
+</rss>

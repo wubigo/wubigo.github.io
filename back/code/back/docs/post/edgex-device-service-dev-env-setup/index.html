@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="搭建EDGEX设备服务开发环境
+EDGEX简介 EdgeX Foundry 项目成立于2017年，由Linux 基金会主持，目前已经拥有75个会员， 包括重量级的SAMSUNG，Dell，AMD，ANALOG DEVICES &hellip; 但其中最重要的角色其实是戴尔。它为EdgeX Foundry提供该公司采用Apache 2.0许可证的FUSE源代码。FUSE包括10多种微服务和12500多万行代码，它们在连接标准、边缘分析、安全、系统管理和服务之间提供了互操作性。FUSE 是Dell 为了拓展边缘计算物联网服务而发展出来的，基于Java SPRING CLOUD 的微服务框架软件。这套软件最大的特征是中立于任何硬件平台和操作系统，高度模块化，可自由扩展。Dell 从私有化完成的那天开始，我们见到它一系列的并购，其中并购VMware，EMC 等动作，都直接剑指云计算和物联网技术。FUSE 的发布，更昭示了Dell谋求转型的决心。物联网的繁荣非常地依赖于物联网生态企业，全球大型IT 公司谋求物联网布局，都会提供框架软件，再培养生态伙伴来形成落地应用。而在生态伙伴的培养过程中，开源的基础框架软件是非常容易被理解和吸收的。 这也是Dell 选择跟Linux 基金会合作，并捐赠和完善代码的重要原因：Dell 需要庞大的生态伙伴，而Linux 具有开源软件界强大的号召力和影响力。
+EdgeX Foundry原来是用Java写的，导致平台体积庞大，占用资源，后来Linux基金会用Go语言对其进行了重构.
+EdgeX Foundry是一系列松耦合、开源的微服务集合。该微服务集合构成了四个微服务层及两个增强的基础系统服务，这四个微服务层包含了从物理域数据采集到信息域数据处理等一系列的服务，另外两个基础系统服务为该四个服务层提供支撑服务。
+四个微服务层分别是：
+ 设备服务负责采集数据及控制设备功能。 核心服务负责本地存储分析和转发数据，以及控制命令下发。 支持服务负责日志记录、任务调度、数据清理、规则引擎和告警通知。 应用服务/导出服务负责上传数据到云端或第三方信息系统，以及接收控制命令转发给核心服务。  两个增强基础系统服务：
+安全服务、管理服务这两个软件模块虽然不直接处理边缘计算的功能性业务，但是对于边缘计算的安全性和易用性来说很重要
+启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
+http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
+修改INFO为DEBUG
+在IDE里面启动设备服务 以IP摄像头设备服务为例
+打开WEBCAM webcam-to-ip-camera
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/edgex-device-service-dev-env-setup/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/edgex-device-service-dev-env-setup/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/edgex-device-service-dev-env-setup/">
+  <meta property="og:title" content="搭建Edgex设备服务开发环境 | wubigo">
+  <meta property="og:description" content="搭建EDGEX设备服务开发环境
+EDGEX简介 EdgeX Foundry 项目成立于2017年，由Linux 基金会主持，目前已经拥有75个会员， 包括重量级的SAMSUNG，Dell，AMD，ANALOG DEVICES &hellip; 但其中最重要的角色其实是戴尔。它为EdgeX Foundry提供该公司采用Apache 2.0许可证的FUSE源代码。FUSE包括10多种微服务和12500多万行代码，它们在连接标准、边缘分析、安全、系统管理和服务之间提供了互操作性。FUSE 是Dell 为了拓展边缘计算物联网服务而发展出来的，基于Java SPRING CLOUD 的微服务框架软件。这套软件最大的特征是中立于任何硬件平台和操作系统，高度模块化，可自由扩展。Dell 从私有化完成的那天开始，我们见到它一系列的并购，其中并购VMware，EMC 等动作，都直接剑指云计算和物联网技术。FUSE 的发布，更昭示了Dell谋求转型的决心。物联网的繁荣非常地依赖于物联网生态企业，全球大型IT 公司谋求物联网布局，都会提供框架软件，再培养生态伙伴来形成落地应用。而在生态伙伴的培养过程中，开源的基础框架软件是非常容易被理解和吸收的。 这也是Dell 选择跟Linux 基金会合作，并捐赠和完善代码的重要原因：Dell 需要庞大的生态伙伴，而Linux 具有开源软件界强大的号召力和影响力。
+EdgeX Foundry原来是用Java写的，导致平台体积庞大，占用资源，后来Linux基金会用Go语言对其进行了重构.
+EdgeX Foundry是一系列松耦合、开源的微服务集合。该微服务集合构成了四个微服务层及两个增强的基础系统服务，这四个微服务层包含了从物理域数据采集到信息域数据处理等一系列的服务，另外两个基础系统服务为该四个服务层提供支撑服务。
+四个微服务层分别是：
+ 设备服务负责采集数据及控制设备功能。 核心服务负责本地存储分析和转发数据，以及控制命令下发。 支持服务负责日志记录、任务调度、数据清理、规则引擎和告警通知。 应用服务/导出服务负责上传数据到云端或第三方信息系统，以及接收控制命令转发给核心服务。  两个增强基础系统服务：
+安全服务、管理服务这两个软件模块虽然不直接处理边缘计算的功能性业务，但是对于边缘计算的安全性和易用性来说很重要
+启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
+http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
+修改INFO为DEBUG
+在IDE里面启动设备服务 以IP摄像头设备服务为例
+打开WEBCAM webcam-to-ip-camera
+配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2022-03-11T15:39:42&#43;08:00">
+  
+  <meta property="article:modified_time" content="2022-03-11T15:39:42&#43;08:00">
+  
+
+  
+
+  
+
+  <title>搭建Edgex设备服务开发环境 | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">搭建Edgex设备服务开发环境</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 11, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e6%90%ad%e5%bb%baEdgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-service-dev-env-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-service-dev-env-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-service-dev-env-setup%2f&amp;title=%e6%90%ad%e5%bb%baEdgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-service-dev-env-setup%2f&amp;title=%e6%90%ad%e5%bb%baEdgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e6%90%ad%e5%bb%baEdgex%e8%ae%be%e5%a4%87%e6%9c%8d%e5%8a%a1%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fedgex-device-service-dev-env-setup%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>搭建EDGEX设备服务开发环境</p>
+
+<h1 id="edgex简介">EDGEX简介</h1>
+
+<p>EdgeX Foundry 项目成立于2017年，由Linux 基金会主持，目前已经拥有75个会员， 包括重量级的SAMSUNG，Dell，AMD，ANALOG DEVICES &hellip; 但其中最重要的角色其实是戴尔。它为EdgeX Foundry提供该公司采用Apache 2.0许可证的FUSE源代码。FUSE包括10多种微服务和12500多万行代码，它们在连接标准、边缘分析、安全、系统管理和服务之间提供了互操作性。FUSE 是Dell 为了拓展边缘计算物联网服务而发展出来的，基于Java SPRING CLOUD 的微服务框架软件。这套软件最大的特征是中立于任何硬件平台和操作系统，高度模块化，可自由扩展。Dell 从私有化完成的那天开始，我们见到它一系列的并购，其中并购VMware，EMC 等动作，都直接剑指云计算和物联网技术。FUSE 的发布，更昭示了Dell谋求转型的决心。物联网的繁荣非常地依赖于物联网生态企业，全球大型IT 公司谋求物联网布局，都会提供框架软件，再培养生态伙伴来形成落地应用。而在生态伙伴的培养过程中，开源的基础框架软件是非常容易被理解和吸收的。 这也是Dell 选择跟Linux 基金会合作，并捐赠和完善代码的重要原因：Dell 需要庞大的生态伙伴，而Linux 具有开源软件界强大的号召力和影响力。</p>
+
+<p>EdgeX Foundry原来是用Java写的，导致平台体积庞大，占用资源，后来Linux基金会用Go语言对其进行了重构.</p>
+
+<p>EdgeX Foundry是一系列松耦合、开源的微服务集合。该微服务集合构成了四个微服务层及两个增强的基础系统服务，这四个微服务层包含了从物理域数据采集到信息域数据处理等一系列的服务，另外两个基础系统服务为该四个服务层提供支撑服务。</p>
+
+<p>四个微服务层分别是：</p>
+
+<ul>
+<li>设备服务负责采集数据及控制设备功能。</li>
+<li>核心服务负责本地存储分析和转发数据，以及控制命令下发。</li>
+<li>支持服务负责日志记录、任务调度、数据清理、规则引擎和告警通知。</li>
+<li>应用服务/导出服务负责上传数据到云端或第三方信息系统，以及接收控制命令转发给核心服务。</li>
+</ul>
+
+<p>两个增强基础系统服务：</p>
+
+<p>安全服务、管理服务这两个软件模块虽然不直接处理边缘计算的功能性业务，但是对于边缘计算的安全性和易用性来说很重要</p>
+
+<p><img src="/img/post/edgex-svr.png" alt="" /></p>
+
+<h1 id="启动edgex核心服务">启动EDGEX核心服务</h1>
+
+<pre><code>wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml
+
+
+ docker-compose -f docker-compose-no-secty.yml up -d
+</code></pre>
+
+<h1 id="打开数据和控制服务调试开关">打开数据和控制服务调试开关</h1>
+
+<p>在consul里面配置应用：</p>
+
+<p><a href="http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit" target="_blank">http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit</a></p>
+
+<p>修改INFO为DEBUG</p>
+
+<h1 id="在ide里面启动设备服务">在IDE里面启动设备服务</h1>
+
+<p>以IP摄像头设备服务为例</p>
+
+<h2 id="打开webcam">打开WEBCAM</h2>
+
+<p><a href="https://wubigo.com/post/webcam-to-ip-camera/" target="_blank">webcam-to-ip-camera</a></p>
+
+<h2 id="配置开发环境">配置开发环境</h2>
+
+<pre><code>git clone git@github.com:edgexfoundry/device-camera-go.git
+git checkout jakarta
+cd device-camera-go
+go mod tidy
+set EDGEX_SECURITY_SECRET_STORE=false
+</code></pre>
+
+<p>调整IDE的当前工作目录为：device-camera-go\cmd
+否则，设备服务启动会找不到设备配置文件。</p>
+
+<p>或者移动资源文件到IDE当前工作目录</p>
+
+<pre><code>mv -rf cmd/res  .
+</code></pre>
+
+<h2 id="打开设备服务调试日志并启动设备服务">打开设备服务调试日志并启动设备服务</h2>
+
+<pre><code>res/configuration.toml
+@@ -1,5 +1,5 @@
+ [Writable]
+-LogLevel = &quot;INFO&quot;
++LogLevel = &quot;DEBUG&quot;
+
+
+
+level=INFO ts=2022-03-11T08:13:54.8106393Z app=device-camera source=devices.go:87 msg=&quot;Device Camera001 not found in Metadata, adding it ...&quot;        
+level=INFO ts=2022-03-11T08:13:54.8133486Z app=device-camera source=autodiscovery.go:33 msg=&quot;AutoDiscovery stopped: disabled by configuration&quot;       
+level=INFO ts=2022-03-11T08:13:54.813521Z app=device-camera source=autodiscovery.go:42 msg=&quot;AutoDiscovery stopped: ProtocolDiscovery not implemented&quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:50 msg=&quot;Service dependencies resolved...&quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:51 msg=&quot;Starting device-camera to be replaced by makefile &quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:55 msg=&quot;Camera device service started&quot;
+level=INFO ts=2022-03-11T08:13:54.8137182Z app=device-camera source=message.go:58 msg=&quot;Service started in: 649.0037ms&quot;
+
+</code></pre>
+
+<h2 id="在edgex-device-rest日志查看启动的设备服务">在edgex-device-rest日志查看启动的设备服务</h2>
+
+<pre><code>docker logs -f edgex-device-rest
+</code></pre>
+
+<h2 id="配置设备文件">配置设备文件</h2>
+
+<pre><code>[[DeviceList]]
+Name = &quot;Camera001&quot;
+ProfileName = &quot;camera-bosch&quot;
+Location = &quot;edgex lab&quot;
+  [DeviceList.Protocols]
+    [DeviceList.Protocols.HTTP]
+    Address = &quot;localhost:56000&quot;
+</code></pre>
+
+<h2 id="设备数据采集和控制">设备数据采集和控制</h2>
+
+<h3 id="查看设备所有的资源">查看设备所有的资源</h3>
+
+<p>通过EDGEX元数据服务查看设备资源</p>
+
+<pre><code>curl -X GET http://localhost:59882/api/v2/device/name/Camera001
+{
+    &quot;apiVersion&quot;: &quot;v2&quot;,
+    &quot;statusCode&quot;: 200,
+    &quot;deviceCoreCommand&quot;: {
+        &quot;deviceName&quot;: &quot;Camera001&quot;,
+        &quot;profileName&quot;: &quot;camera-bosch&quot;,
+        &quot;coreCommands&quot;: [
+            {
+                &quot;name&quot;: &quot;OnvifProfileInformation&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifProfileInformation&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifProfileInformation&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;TamperDetected&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/TamperDetected&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;TamperDetected&quot;,
+                        &quot;valueType&quot;: &quot;Bool&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;occupancy&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/occupancy&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;occupancy&quot;,
+                        &quot;valueType&quot;: &quot;Uint32&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifReboot&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifReboot&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifReboot&quot;,
+                        &quot;valueType&quot;: &quot;Bool&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;counter&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/counter&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;counter&quot;,
+                        &quot;valueType&quot;: &quot;Uint32&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifDeviceInformation&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifDeviceInformation&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifDeviceInformation&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifDateTime&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifDateTime&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifDateTime&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifDns&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifDns&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifDns&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifNetworkProtocols&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifNetworkProtocols&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifNetworkProtocols&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifNetworkDefaultGateway&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifNetworkDefaultGateway&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifNetworkDefaultGateway&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifNetworkInterfaces&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifNetworkInterfaces&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifNetworkInterfaces&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifNtp&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifNtp&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifNtp&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifUsers&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifUsers&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifUsers&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifSnapshot&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifSnapshot&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifSnapshot&quot;,
+                        &quot;valueType&quot;: &quot;Binary&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifUser&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifUser&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifUser&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifHostname&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifHostname&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifHostname&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;MotionDetected&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/MotionDetected&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;MotionDetected&quot;,
+                        &quot;valueType&quot;: &quot;Bool&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifStreamURI&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifStreamURI&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifStreamURI&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifHostnameFromDHCP&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifHostnameFromDHCP&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifHostnameFromDHCP&quot;,
+                        &quot;valueType&quot;: &quot;Bool&quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<h3 id="访问设备资源">访问设备资源</h3>
+
+<p>设备的资源地址为上面接口返回的信息：url+path  (设备控制服务)</p>
+
+<p>例如: <a href="http://edgex-core-command:59882/api/v2/device/name/Camera001/OnvifHostnameFromDHCP" target="_blank">OnvifHostnameFromDHCP</a></p>
+
+<p>设备控制服务会调用实际的设备服务的API:</p>
+
+<pre><code>docker logs -f edgex-core-command 
+
+edgex-core-command           | level=ERROR ts=2022-03-11T08:23:01.759949942Z app=core-command source=http.go:47 X-Correlation-ID=8a4c186d-6f40-464f-be03-b5e67c866d3b msg=&quot;failed to send a http request -&gt; Get \&quot;http://localhost:59985/api/v2/device/name/Camera001/OnvifHostname\&quot;: dial tcp 127.0.0.1:59985: connect: connection refused&quot;
+</code></pre>
+
+<p>因为设备服务启动的时候，配置的ip为LOCALHOST, 容器内现在无法访问到设备服务实例API, 所以连接拒绝</p>
+
+<p>在设备服务所在网络浏览器直接上面的地址即可</p>
+
+<h1 id="清理测试环境">清理测试环境</h1>
+
+<pre><code>docker-compose -f docker-compose-no-secty.yml down
+docker volume rm $(docker volume ls -q)
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/iot/">IOT</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/mainflux-dev-setup/">Mainflux Dev Setup</a></li>
+          
+          <li><a href="/post/connect-kepserver-to-ali-iot/">Connect KEPServer to Ali IoT</a></li>
+          
+          <li><a href="/post/webcam-to-ip-camera/">Webcam to IP Camera</a></li>
+          
+          <li><a href="/post/iot-building-blocks/">物联网核心构件</a></li>
+          
+          <li><a href="/post/iot-notes/">IOT Notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

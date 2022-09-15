@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-within-wsl/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/docker-within-wsl/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/docker-within-wsl/">
+  <meta property="og:title" content="在WSL中使用Docker | wubigo">
+  <meta property="og:description" content="在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-10-08T14:21:19&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-10-08T14:21:19&#43;08:00">
+  
+
+  
+
+  
+
+  <title>在WSL中使用Docker | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">在WSL中使用Docker</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 8, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e5%9c%a8WSL%e4%b8%ad%e4%bd%bf%e7%94%a8Docker&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-within-wsl%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-within-wsl%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-within-wsl%2f&amp;title=%e5%9c%a8WSL%e4%b8%ad%e4%bd%bf%e7%94%a8Docker"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-within-wsl%2f&amp;title=%e5%9c%a8WSL%e4%b8%ad%e4%bd%bf%e7%94%a8Docker"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e5%9c%a8WSL%e4%b8%ad%e4%bd%bf%e7%94%a8Docker&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-within-wsl%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>在windows中使用docker有多种方式：</p>
+
+<ul>
+<li><p>docker WIN10 desktop</p></li>
+
+<li><p>WSL</p></li>
+</ul>
+
+<p>本文主要介绍在WSL中使用docker</p>
+
+<h1 id="前提条件">前提条件</h1>
+
+<ul>
+<li><p>Windows 10 Version 1803以上(支持cgroups)</p></li>
+
+<li><p>Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)</p></li>
+
+<li><p>Docker 17.09</p></li>
+</ul>
+
+<h1 id="安装wsl">安装WSL</h1>
+
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">install WSL</a></p>
+
+<h1 id="wsl-命令行和默认-shell">WSL 命令行和默认 shell</h1>
+
+<pre><code>cmd:\&gt;wsl
+wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf
+[automount]
+root = /mnt/host
+crossDistro = true
+options = &quot;metadata&quot;
+</code></pre>
+
+<h1 id="wsl-docker磁盘卷路径">WSL DOCKER磁盘卷路径</h1>
+
+<pre><code>cmd:\&gt;docker volume inspect edgex_consul-config
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: {
+            &quot;com.docker.compose.project&quot;: &quot;edgex&quot;,
+            &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;,
+            &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot;
+        },
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;,
+        &quot;Name&quot;: &quot;edgex_consul-config&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+</code></pre>
+
+<p><code>\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</code></p>
+
+<h1 id="安装ubuntu-for-wsl-16-0-4-lts">安装Ubuntu for WSL 16.0.4 LTS</h1>
+
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual" target="_blank">install ubuntu in WSL</a></p>
+
+<h1 id="安装docker">安装DOCKER</h1>
+
+<ul>
+<li><p>启动ubuntu in WSL(以管理员身份运行)</p>
+
+<pre><code>c:\&gt;wsl -d Ubuntu-16.04
+</code></pre></li>
+
+<li><p>安装docker</p>
+
+<pre><code>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+$ sudo apt-get install docker-ce=17.09.0~ce-0~ubuntu
+$ sudo usermod -aG docker $USER
+</code></pre></li>
+
+<li><p>启动docker服务</p></li>
+</ul>
+
+<p><code>/usr/local/sbin/start_docker.sh</code></p>
+
+<pre><code>#!/usr/bin/env bash
+sudo cgroupfs-mount
+sudo service docker start
+</code></pre>
+
+<h1 id="在系统启动的时候运行docker服务">在系统启动的时候运行docker服务</h1>
+
+<p>在<strong>控制面版\管理工具\计划任务</strong>创建任务</p>
+
+<p><img src="./task-trigger.png" alt="" /></p>
+
+<p><img src="./action.png" alt="" /></p>
+
+<p>操作的参数如下：</p>
+
+<pre><code>-c &quot;sudo /bin/sh /usr/local/sbin/start_docker.sh&quot;
+</code></pre>
+
+<h1 id="备份wsl">备份WSL</h1>
+
+<p><strong>在备份前保存并关闭所有的WSL进程，否则正在运行的进程被强行关闭</strong></p>
+
+<pre><code>c:\&gt;wsl -l
+c:\&gt;wsl --export Ubuntu-16.04 Ubuntu-16.wsl.export.tar
+</code></pre>
+
+<h1 id="升级linux">升级linux</h1>
+
+<pre><code>d:\code\dapp&gt;wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Running         1
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+</code></pre>
+
+<p>升级Ubuntu  从WSL 1 到2</p>
+
+<pre><code>wsl --set-version Ubuntu 2
+
+d:\code\dapp&gt;wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Stopped         2
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+</code></pre>
+
+<h1 id="wsl-localhost-connection-refused">WSL localhost connection refused</h1>
+
+<p>运行之前先备份<code>/etc/hosts</code></p>
+
+<p><code>wsl2-ubuntu-map-win-localhost.sh</code></p>
+
+<pre><code>nameserver=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}')   # find nameserver
+[ -n &quot;$nameserver&quot; ] || &quot;unable to find nameserver&quot; || exit 1            # exit immediately if nameserver was not found
+echo &quot;##### nameserver found: '$nameserver'&quot;
+localhost_entry=$(grep -v &quot;127.0.0.1&quot; /etc/hosts | grep &quot;\slocalhost$&quot;)  # find localhost entry excluding 127.0.0.1
+if [ -n &quot;$localhost_entry&quot; ]; then                                       # if localhost entry was found
+    echo &quot;##### localhost entry found: '$localhost_entry'&quot;
+    sed -i &quot;s/$localhost_entry/$nameserver localhost/g&quot; /etc/hosts       # then update localhost entry with the new $nameserver
+else                                                                     # else if entry was not found
+    echo &quot;##### localhost entry not found&quot;
+    echo &quot;$nameserver localhost&quot; &gt;&gt; /etc/hosts                           # then append $nameserver mapping to localhost
+fi
+cat /etc/hosts                                              
+</code></pre>
+
+<p><a href="https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21" target="_blank">https://gist.github.com/toryano0820/6ee3bff2474cdf13e70d972da710996a#:~:text=For%20WSL2%3A%20Fixes%20%22Connection%20Refused%22%20issue%20when%20accessing,Remember%20to%20backup%20%22%2Fetc%2Fhosts%22%20just%20in%20case%20%21%21%21</a></p>
+
+<h1 id="在windows访问wsl文件系统">在windows访问wsl文件系统</h1>
+
+<pre><code>\\wsl$
+</code></pre>
+
+<p>REF</p>
+
+<p><a href="https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa" target="_blank">1</a></p>
+
+<h1 id="静态ip">静态IP</h1>
+
+<p><code>WSL-ip.bat</code></p>
+
+<pre><code>wsl -d Ubuntu -u root ip addr add 192.168.50.16/24 broadcast 192.168.50.255 dev eth0 label eth0:1
+
+netsh interface ip add address &quot;vEthernet (WSL)&quot; 192.168.50.88 255.255.255.0
+</code></pre>
+
+<p><a href="https://lifesaver.codes/answer/static-ip-on-wsl-2-418" target="_blank">https://lifesaver.codes/answer/static-ip-on-wsl-2-418</a></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
+  
+  <a class="badge badge-light" href="/tags/windows/">WINDOWS</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/docker-win10-volume/">WIN用户使用Docker卷</a></li>
+          
+          <li><a href="/post/docker-windows7-docker-toolbox/">Docker Windows7 Docker Toolbox</a></li>
+          
+          <li><a href="/post/docker-proxy/">Docker Proxy for daemon and client</a></li>
+          
+          <li><a href="/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/">Wireless and Wired Connection Both at a Same Time in Windows</a></li>
+          
+          <li><a href="/post/windows-application-information-service/">Windows Application Information Service</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

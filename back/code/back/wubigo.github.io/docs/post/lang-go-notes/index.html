@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="虚拟包版本 Untagged revisions can be referred to using a &ldquo;pseudo-version&rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&gt; v0.0.2-0.20211216162907-40b41ba86c5c  类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/lang-go-notes/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/lang-go-notes/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/lang-go-notes/">
+  <meta property="og:title" content="GO NOTES | wubigo">
+  <meta property="og:description" content="虚拟包版本 Untagged revisions can be referred to using a &ldquo;pseudo-version&rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has
+go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&gt; v0.0.2-0.20211216162907-40b41ba86c5c  类型转换操作  For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2017-02-11T20:24:49&#43;08:00">
+  
+  <meta property="article:modified_time" content="2017-02-11T20:24:49&#43;08:00">
+  
+
+  
+
+  
+
+  <title>GO NOTES | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">GO NOTES</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-02-11 20:24:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 11, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=GO%20NOTES&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2flang-go-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-notes%2f&amp;title=GO%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2flang-go-notes%2f&amp;title=GO%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=GO%20NOTES&amp;body=https%3a%2f%2fwubigo.com%2fpost%2flang-go-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="虚拟包版本">虚拟包版本</h2>
+
+<p>Untagged revisions can be referred to using a &ldquo;pseudo-version&rdquo; like v0.0.0-yyyymmddhhmmss-abcdefabcdef, where the time is the commit time in UTC and the final suffix is the prefix of the commit has</p>
+
+<pre><code>go get github.com/vladimirvivien/go4vl@40b41ba
+go get: upgraded github.com/vladimirvivien/go4vl v0.0.1 =&gt; v0.0.2-0.20211216162907-40b41ba86c5c
+</code></pre>
+
+<h2 id="类型转换操作">类型转换操作</h2>
+
+<blockquote>
+<p>For every type T, there is a corresponding conversion operation T(x) that converts the value x to &gt;type T. A conversion from one type to another is allowed if both have the same underlying type, or &gt;if both are unnamed pointer types that point to variables of the same underlying type; these &gt;conversions change the type but not the representation of the value. If x is assignable to T, a &gt;conversion is permitted but is usually redundant.</p>
+</blockquote>
+
+<h2 id="blank-identifier">blank identifier</h2>
+
+<p>To ignore one of the values, assign it to the blank identifier :</p>
+
+<pre><code>links, _ := findLinks(url) // errors ignored
+
+
+for _, url := range os.Args[1:] {
+</code></pre>
+
+<h2 id="import">import</h2>
+
+<pre><code>ImportDeclaration = &quot;import&quot; ImportSpec
+ImportSpec        = [ &quot;.&quot; | &quot;_&quot; | Identifier ] ImportPath
+</code></pre>
+
+<p>According to language spec it depends on the implementation how</p>
+
+<p>import path (string) is   interpreted but in real life it’s path</p>
+
+<p>relative package’s vendor directory or <code>go env GOPATH</code>/src</p>
+
+<ul>
+<li><p>定制的包名</p>
+
+<pre><code># github.com/mlowicki/main.go
+package main
+import (
+&quot;fmt&quot;
+&quot;github.com/mlowicki/b&quot;
+)
+func main() {
+fmt.Println(c.B)
+}
+# github.com/mlowicki/b/b.go
+package c
+var B = &quot;b&quot;
+</code></pre></li>
+
+<li><p>初始化</p>
+
+<pre><code>import _ &quot;math&quot;
+</code></pre></li>
+</ul>
+
+<p>doesn’t require to use package math in importing file but init function(s) from imported package will be executed anyway (package and it dependencies will be initialized). It’s useful if we’re interested only in bootstrapping work done by imported package but we don’t reference any exported identifiers from it.</p>
+
+<h2 id="how-to-check-if-a-map-contains-a-key">How to check if a map contains a key</h2>
+
+<pre><code>func TestMap(t *testing.T){
+	attended := map[string]string{
+		&quot;Ann&quot;: &quot;t&quot;,
+		&quot;Joe&quot;: &quot;r&quot;,
+	}
+	val, ok := attended[&quot;mm&quot;]
+	fmt.Print(val, ok)
+}
+
+</code></pre>
+
+<p>if statements in Go can include both a condition and an initialization statement. The example above uses both:</p>
+
+<ul>
+<li><p>initializes two variables - val will receive either the value of &ldquo;foo&rdquo; from the map or a &ldquo;zero value&rdquo; (in this case the empty string) and ok will receive a bool that will be set to true if &ldquo;foo&rdquo; was actually present in the map</p></li>
+
+<li><p>evaluates ok, which will be true if &ldquo;foo&rdquo; was in the map</p></li>
+</ul>
+
+<h2 id="constructors">Constructors</h2>
+
+<p>two accepted best practices:</p>
+
+<ul>
+<li>Make the zero value of your struct a sensible default. (While this looks strange to most people coming from &ldquo;traditional&rdquo; oop it often works and is really convenient).</li>
+<li>Provide a function func New() YourTyp or if you have several such types in your package functions func NewYourType1() YourType1 and so on.</li>
+</ul>
+
+<p>Document if a zero value of your type is usable or not (in which case it has to be set up by one of the New&hellip; functions</p>
+
+<h2 id="empty-interface-interface-is-an-empty-interface">empty interface (interface{} is an empty interface)</h2>
+
+<pre><code>An interface is two things:
+
+it is a set of methods,
+but it is also a type
+</code></pre>
+
+<p>The interface{} type, the empty interface is the interface that has no methods.</p>
+
+<p>Since there is no implements keyword, all types implement at least zero methods, and satisfying an interface is done automatically,all types satisfy the empty interface.</p>
+
+<p>That means that if you write a function that takes an interface{} value as a parameter, you can supply that function with any value.</p>
+
+<h1 id="method-s-receiver">Method&rsquo;s receiver</h1>
+
+<ul>
+<li><p>go don&rsquo;t user special name like( this or self ) for the receiver</p>
+
+<pre><code>func (p Point) MoveBy(factor float){
+	p.X += factor  //-&gt;  this.X += factor
+}
+</code></pre></li>
+
+<li><p>Pointer receiver</p></li>
+</ul>
+
+<h1 id="project-layout-internal-app-pkg-directory-clarification">project-layout Internal app/pkg Directory Clarification</h1>
+
+<p>Using /internal/pkg is about consistency if you use the /pkg pattern. The public shared code goes in &lsquo;/pkg&rsquo; and the private shared code goes in /internal/pkg</p>
+
+<p><a href="https://github.com/golang-standards/project-layout/issues/9" target="_blank">https://github.com/golang-standards/project-layout/issues/9</a></p>
+
+<h1 id="vendor-package">vendor package</h1>
+
+<pre><code>go help gopath
+
+find . -name grpc | xargs rm -rf
+
+/go/pkg/mod/google.golang.org$ ls
+
+genproto@v0.0.0-20180817151627-c66870c02cf8  genproto@v0.0.0-20190127191240-7cdc0b958d75  grpc@v1.19.0  grpc@v1.19.1
+
+
+
+</code></pre>
+
+<p>Vendor directories do not affect the placement of new repositories
+being checked out for the first time by &lsquo;go get&rsquo;: those are always
+placed in the main GOPATH, never in a vendor subtree</p>
+
+<h1 id="remove-installed-package">remove installed package</h1>
+
+<pre><code>go clean -i -n google.golang.org/grpc...
+
+cd /home/bigo/go/src/google.golang.org/grpc
+rm -f grpc.test grpc.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer
+rm -f balancer.test balancer.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc/balancer.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer/base
+rm -f base.test base.test.exe
+rm -f /home/bigo/go/pkg/linux_amd64/google.golang.org/grpc/balancer/base.a
+cd /home/bigo/go/src/google.golang.org/grpc/balancer/grpclb
+rm -f grpclb.test grpclb.test.exe
+
+</code></pre>
+
+<h1 id="identifier-export">identifier export</h1>
+
+<p>In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter</p>
+
+<p>Package-level names like the types and constants declared in one file of a package are visible to all the other files of the package, as if the source code were all in a single file</p>
+
+<h1 id="csp">CSP</h1>
+
+<p>“Another lineage among Go’s ancestors, and one that makes Go distinctive among recent programming languages,
+is a sequence of little-known research languages developed at Bell Labs, all inspired by the concept of
+communicating sequential processes (CSP) from Tony Hoare’s seminal 1978 paper on the foundations of concurrency. In CSP, a program is a parallel composition of processes that have no shared state; the processes communicate and synchronize using channels.”</p>
+
+<h1 id="hindsight">hindsight</h1>
+
+<p>“As a recent high-level language, Go has the benefit of hindsight, and the basics are done well: it has garbage collection, a package system, first-class functions, lexical scope, a system call interface, and immutable strings in which text is generally encoded in UTF-8. But it has comparatively few features and is unlikely to add more. For instance, it has no implicit numeric conversions, no constructors or destructors, no operator overloading, no default parameter values, no inheritance, no generics, no exceptions, no macros, no function annotations, and no thread-local storage”</p>
+
+<h1 id="gofmt">gofmt</h1>
+
+<p>Go does not require semicolons at the ends of statements or declarations, except where two or more appear on the same line. In effect, newlines following certain tokens are converted into semicolons, so where newlines are placed matters to proper parsing of Go code. For instance, the opening brace { of the function must be on the same line as the end of the func declaration, not on a line by itself, and in the expression x + y, a newline is permitted after but not before the + operator.</p>
+
+<h1 id="point-var">point var</h1>
+
+<ul>
+<li>“The variable to which p points is written *p. The expression *p yields the value of that variable, an int, but since *p denotes a variable, it may also appear on the left-hand side of an assignment, in which case the assignment updates the variable.”</li>
+<li>“Expressions that denote variables are the only expressions to which the address-of operator &amp; may be applied.”</li>
+<li>“Each time we take the address of a variable or copy a pointer, we create new aliases or ways to identify the same variable. For example, *p is an alias for v.”</li>
+</ul>
+
+<h1 id="function-values-have-types">Function Values have types</h1>
+
+<p>declare a var with function value as type
+* func(int) int -&gt; type</p>
+
+<pre><code>var f func(int) int
+</code></pre>
+
+<h1 id="nil-pointer-dereference">nil pointer dereference</h1>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+var f func(int) int
+
+func main() {
+	//fmt.Println(f(2))
+	fmt.Println(f(2))
+	f = func(i int) int {
+		if i == 0 {
+			return 1
+		}
+		return i * f(i-1)
+	}
+	fmt.Println(f(2))
+}
+
+
+
+panic: runtime error: invalid memory address or nil pointer dereference[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x4850f0]goroutine 1 [running]:main.main()	/home/bigo/go/src/github.com/gopl.io/ch5/t2/main.go:9 +0x30exit status 2Process exiting with code: 1
+</code></pre>
+
+<p><img src="/img/post/nil_pointer_dereference.png" alt="nil pointer dereference" /></p>
+
+<h1 id="capturing-iteration-variables">Capturing Iteration Variables</h1>
+
+<p><strong><em>“The problem of iteration variable capture is most often encountered when using the go statement or with defer since both may delay the execution of a function value until after the loop has finished. But the problem is not inherent to go or defer.”</em></strong></p>
+
+<pre><code>var s1 [3]int = [3]int{1, 2, 3}
+var fs []func()
+
+func main() {
+	for _, v := range s1 {
+		//fmt.Printf(&quot;%d\n&quot;, v)
+		fs = append(fs, func() {
+			fmt.Printf(&quot;%d\n&quot;, v) //v is caputed and shared
+		})
+	}
+
+	for _, f := range fs {
+		f()
+	}
+
+	fs = nil
+	for _, v := range s1 {
+		i := v
+		fs = append(fs, func() {
+			fmt.Printf(&quot;%d\n&quot;, i)
+		})
+	}
+
+	for _, f := range fs {
+		f()
+	}
+
+}
+
+</code></pre>
+
+<p>The reason is a consequence of the scope rules for loop variables. In the program immediately above, the for loop introduces a new lexical block in which the variable dir is declared. All function values created by this loop “capture” and share the same variable—an addressable storage location, not its value at that particular moment. The value of dir is updated in successive iterations, so by the time the cleanup functions are called, the dir variable has been updated several times by the now-completed for loop.</p>
+
+<h1 id="expression-in-go-defer-must-be-function-call">expression in go/defer must be function call</h1>
+
+<ul>
+<li><p>express anonymous function as function call()</p>
+
+<pre><code>var s1 [3]string = [3]string{&quot;go&quot;, &quot;func&quot;, &quot;value&quot;}
+
+func f(s string) {
+	fmt.Println(s)
+}
+
+func main() {
+	fmt.Println(&quot;s escapsed&quot;)
+	for _, s := range s1 {
+		defer func() { fmt.Println(s) }()
+	}
+
+	fmt.Println(&quot;work expected&quot;)
+
+	for _, s := range s1 {
+		defer func(s string) { fmt.Println(s) }(s)
+	}
+
+	for _, s := range s1 {
+		defer f(s)
+	}
+
+	for _, s := range s1 {
+		go func(s string) {
+			fmt.Println(&quot;h %s&quot;, s)
+		}(s)
+	}
+
+	for _, s := range s1 {
+		go f(s)
+	}
+
+}
+</code></pre></li>
+</ul>
+
+<h1 id="install-go-1-10">install go-1.10</h1>
+
+<p>***vscode will report go-runtime read-only error which has been installed via snap</p>
+
+<pre><code>sudo add-apt-repository ppa:gophers/archive
+sudo apt-get update
+sudo apt-get install golang-1.10-go
+export GOROOT=&quot;/usr/lib/go-1.10&quot;
+export GOPATH=$HOME/go
+export PATH=&quot;$PATH:$GOPATH/bin:$GOROOT/bin/&quot;
+go version
+</code></pre>
+
+<h1 id="gopath-directory">GOPATH directory</h1>
+
+<pre><code>cd $GOPATH
+ls
+src     bin    pkg
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">DIR</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">pkg</td>
+<td align="left">存放编译过的包</td>
+</tr>
+
+<tr>
+<td align="left">bin</td>
+<td align="left">存放可执行程序(package main)</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="import-path两个功能">import path两个功能</h1>
+
+<pre><code>go help importpath
+</code></pre>
+
+<ul>
+<li><p>在本地文件系统$GOPATH/pkg/$GOOS_$GOARCH/<import_path>查找</p>
+
+<pre><code>import &quot;github.com/google/go-github/github&quot;
+
+...
+go/src/wubigo.com/cloud/github_client/main.go:7:2: cannot find package &quot;github.com/google/go-github/github&quot; in any of:
+	/usr/lib/go-1.11/src/github.com/google/go-github/github (from $GOROOT)
+	/home/bigo/go/src/github.com/google/go-github/github (from $GOPATH)
+Process exiting with code: 1
+...
+</code></pre></li>
+
+<li><p>如果没找到，需要go get通过<import_path>安装</p>
+
+<pre><code>go get github.com/google/go-github/github
+</code></pre></li>
+
+<li><p>import path custom domain name</p>
+
+<pre><code>curl golang.org/x/tools/cmd/rename
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+&lt;meta name=&quot;go-import&quot; content=&quot;golang.org/x/tools git https://go.googlesource.com/tools&quot;&gt;
+&lt;meta name=&quot;go-source&quot; content=&quot;golang.org/x/tools https://github.com/golang/tools/ https://github.com/golang/tools/tree/master{/dir} https://github.com/golang/tools/blob/master{/dir}/{file}#L{line}&quot;&gt;
+&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=https://godoc.org/golang.org/x/tools/cmd/rename&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Nothing to see here; &lt;a href=&quot;https://godoc.org/golang.org/x/tools/cmd/rename&quot;&gt;move along&lt;/a&gt;.
+&lt;/body&gt;
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>Canonical import paths</p>
+</blockquote>
+
+<p>The syntax is simple: put an identifying comment on the package line</p>
+
+<p><a href="https://github.com/golang/tools/blob/master/cmd/gorename/main.go" target="_blank">https://github.com/golang/tools/blob/master/cmd/gorename/main.go</a></p>
+
+<pre><code>package main // import &quot;golang.org/x/tools/cmd/gorename&quot;
+</code></pre>
+
+<h1 id="struct-tags">struct tags</h1>
+
+<ul>
+<li>List of well-known struct tags</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Tag</th>
+<th align="left">Documentation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">xml</td>
+<td align="left"><a href="https://godoc.org/encoding/xml" target="_blank">https://godoc.org/encoding/xml</a></td>
+</tr>
+
+<tr>
+<td align="left">json</td>
+<td align="left"><a href="https://godoc.org/encoding/json" target="_blank">https://godoc.org/encoding/json</a></td>
+</tr>
+
+<tr>
+<td align="left">asn1</td>
+<td align="left"><a href="https://godoc.org/encoding/asn1" target="_blank">https://godoc.org/encoding/asn1</a></td>
+</tr>
+
+<tr>
+<td align="left">reform</td>
+<td align="left"><a href="https://godoc.org/gopkg.in/reform.v1" target="_blank">https://godoc.org/gopkg.in/reform.v1</a></td>
+</tr>
+
+<tr>
+<td align="left">bigquery</td>
+<td align="left"><a href="https://godoc.org/cloud.google.com/go/bigquery" target="_blank">https://godoc.org/cloud.google.com/go/bigquery</a></td>
+</tr>
+
+<tr>
+<td align="left">datastore</td>
+<td align="left"><a href="https://godoc.org/cloud.google.com/go/datastore" target="_blank">https://godoc.org/cloud.google.com/go/datastore</a></td>
+</tr>
+
+<tr>
+<td align="left">spanner</td>
+<td align="left"><a href="https://godoc.org/cloud.google.com/go/spanner" target="_blank">https://godoc.org/cloud.google.com/go/spanner</a></td>
+</tr>
+
+<tr>
+<td align="left">bson</td>
+<td align="left"><a href="https://godoc.org/labix.org/v2/mgo/bson" target="_blank">https://godoc.org/labix.org/v2/mgo/bson</a></td>
+</tr>
+
+<tr>
+<td align="left">gorm</td>
+<td align="left"><a href="https://godoc.org/github.com/jinzhu/gorm" target="_blank">https://godoc.org/github.com/jinzhu/gorm</a></td>
+</tr>
+
+<tr>
+<td align="left">yaml</td>
+<td align="left"><a href="https://godoc.org/gopkg.in/yaml.v2" target="_blank">https://godoc.org/gopkg.in/yaml.v2</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="field-tags">field tags</h2>
+
+<p>A field tag is a string of metadata
+associated at compile time with the field of a struct:</p>
+
+<pre><code>Year int `json:&quot;released&quot;`
+Color bool `json:&quot;color,omitempty&quot;`
+</code></pre>
+
+<p>A field tag may be any literal string , but it is conventionally interpreted as a space-separated
+list of key:&ldquo;value&rdquo; pairs; since they contain double quotation marks, field tags are usually
+written with raw string literals. The json key control s the behavior of the encoding/json
+package, and other encoding/&hellip; packages follow this convention. The first part of the json
+field tag specifies an alternative JSON name for the Go field</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/lang/">LANG</a>
+  
+  <a class="badge badge-light" href="/tags/go/">GO</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/effective-coding-java/">Effective Coding Java</a></li>
+          
+          <li><a href="/post/java-notes/">Java Notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

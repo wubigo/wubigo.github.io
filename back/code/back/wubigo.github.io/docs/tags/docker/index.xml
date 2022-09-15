@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DOCKER on wubigo</title>
+    <link>https://wubigo.com/tags/docker/</link>
+    <description>Recent content in DOCKER on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Dec 2020 10:11:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deprecate Dockershim</title>
+      <link>https://wubigo.com/post/k8s-deprecate-dockershim/</link>
+      <pubDate>Thu, 03 Dec 2020 10:11:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-deprecate-dockershim/</guid>
+      <description>Kubernetes is removing the &amp;ldquo;dockershim&amp;rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?</description>
+    </item>
+    
+    <item>
+      <title>Dapr Notes</title>
+      <link>https://wubigo.com/post/dapr-notes/</link>
+      <pubDate>Tue, 25 Aug 2020 14:46:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dapr-notes/</guid>
+      <description>重新安装 Ensure that Docker Desktop is set to Linux containers mode when you run Dapr in self hosted mode
+d:\code&amp;gt;dapr uninstall Removing Dapr from your machine... Removing directory: C:\Users\wubigo\.dapr\bin Removing container: dapr_placement Dapr has been removed successfully d:\code&amp;gt;dapr init Making the jump to hyperspace... Installing runtime version 1.6.0 Downloading binaries and setting up components... Downloaded binaries and completed components set up. daprd binary has been installed to C:\Users\wubigo\.dapr\bin. dapr_placement container is running.</description>
+    </item>
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&amp;gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &amp;quot;metadata&amp;quot;  WSL DOCKER磁盘卷路径 cmd:\&amp;gt;docker volume inspect edgex_consul-config [ { &amp;quot;CreatedAt&amp;quot;: &amp;quot;2022-03-07T08:04:34Z&amp;quot;, &amp;quot;Driver&amp;quot;: &amp;quot;local&amp;quot;, &amp;quot;Labels&amp;quot;: { &amp;quot;com.docker.compose.project&amp;quot;: &amp;quot;edgex&amp;quot;, &amp;quot;com.docker.compose.version&amp;quot;: &amp;quot;2.2.3&amp;quot;, &amp;quot;com.docker.compose.volume&amp;quot;: &amp;quot;consul-config&amp;quot; }, &amp;quot;Mountpoint&amp;quot;: &amp;quot;/var/lib/docker/volumes/edgex_consul-config/_data&amp;quot;, &amp;quot;Name&amp;quot;: &amp;quot;edgex_consul-config&amp;quot;, &amp;quot;Options&amp;quot;: null, &amp;quot;Scope&amp;quot;: &amp;quot;local&amp;quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</description>
+    </item>
+    
+    <item>
+      <title>Docker Proxy for daemon and client</title>
+      <link>https://wubigo.com/post/docker-proxy/</link>
+      <pubDate>Fri, 13 Sep 2019 07:07:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-proxy/</guid>
+      <description> DOCKER DEAMON PROXY  systemd level  /etc/systemd/system/docker.service.d/https-proxy.conf
+[Service] Environment=&amp;quot;http_proxy=http://127.0.0.1:8123&amp;quot; &amp;quot;https_proxy=https://127.0.0.1:8123&amp;quot; &amp;quot;NO_PROXY=registry-1.docker.io&amp;quot;  sudo systemctl daemon-reload sudo systemctl restart docker   service level  /etc/default/docker
+export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;   daemon level  /etc/docker/daemon
+DOCKER CLIENT PROXY ~/.docker/config.json
+ &amp;quot;proxies&amp;quot;:{ &amp;quot;default&amp;quot;:{} }  </description>
+    </item>
+    
+    <item>
+      <title>Choosing a CNI Network Provider for Kubernetes</title>
+      <link>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</link>
+      <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-22-cninetworkproviderforkubernetes/</guid>
+      <description>The Container Network Interface (CNI) is a library definition, and a set of tools under the umbrella of the Cloud Native Computing Foundation project. For more information visit their GitHub project. Kubernetes uses CNI as an interface between network providers and Kubernetes networking.
+Why Use CNI Kubernetes default networking provider, kubenet, is a simple network plugin that works with various cloud providers. Kubenet is a very basic network provider, and basic is good, but does not have very many features.</description>
+    </item>
+    
+    <item>
+      <title>Dockering Java 8</title>
+      <link>https://wubigo.com/post/dockering-java-8/</link>
+      <pubDate>Mon, 05 Nov 2018 09:33:48 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dockering-java-8/</guid>
+      <description>Improve docker container detection and resource configuration usage
+https://blog.softwaremill.com/docker-support-in-new-java-8-finally-fd595df0ca54
+https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</description>
+    </item>
+    
+    <item>
+      <title>WIN用户使用Docker卷</title>
+      <link>https://wubigo.com/post/docker-win10-volume/</link>
+      <pubDate>Wed, 26 Sep 2018 17:14:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-win10-volume/</guid>
+      <description> 在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &amp;quot;Settings&amp;quot; in Docker Desktop -&amp;gt; &amp;quot;Shared Drives&amp;quot; -&amp;gt; &amp;quot;Reset Credentials&amp;quot; -&amp;gt; select drive &amp;quot;D&amp;quot; -&amp;gt; &amp;quot;Apply&amp;quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  </description>
+    </item>
+    
+    <item>
+      <title>Docker Windows7 Docker Toolbox</title>
+      <link>https://wubigo.com/post/docker-windows7-docker-toolbox/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-windows7-docker-toolbox/</guid>
+      <description> docker proxy run cmd as administrator cmd&amp;gt;cd $GIT_HOME cmd&amp;gt;echo &amp;gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  </description>
+    </item>
+    
+    <item>
+      <title>Docker Image Timezone</title>
+      <link>https://wubigo.com/post/docker-image-timezone/</link>
+      <pubDate>Sat, 30 Dec 2017 15:38:16 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-image-timezone/</guid>
+      <description>FROM centos:7 RUN echo &amp;quot;ip_resolve=4&amp;quot; &amp;gt;&amp;gt; /etc/yum.conf RUN yum update -y &amp;amp;&amp;amp; yum install -y java-1.8.0-openjdk # 设置时区(日志、调用链) RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime RUN echo &amp;quot;Asia/Shanghai&amp;quot; &amp;gt; /etc/timezone ENV workdir /app/ ADD VERSION . WORKDIR ${workdir} # JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换 # 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。 CMD [&amp;quot;sh&amp;quot;, &amp;quot;-ec&amp;quot;, &amp;quot;exec java ${JAVA_OPTS} -jar ${jar}&amp;quot;]  </description>
+    </item>
+    
+    <item>
+      <title>容器多种方式链接宿主网络</title>
+      <link>https://wubigo.com/post/connect-container-to-host-network/</link>
+      <pubDate>Tue, 25 Apr 2017 07:10:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/connect-container-to-host-network/</guid>
+      <description>提示： 以下操作是在VirtualBox虚机环境，并做如下配置
+ 网络  下拉高级设置，在&amp;rdquo;Adapter Type&amp;rdquo;选择PCnet-FAST III&amp;rdquo;, 而不是默认的e1000 (Intel PRO/1000). 另外&amp;rdquo;Promiscuous Mode&amp;rdquo;必须设置为&amp;rdquo;Allow All&amp;rdquo;. 否则通过网桥连接的容器无法工作, 因为虚拟网卡 会过滤掉掉所有带有不同MAC的数据包。
+ 多网卡  每块网卡都要做上述调整
+准备  安装util-linux
+sudo apt install util-linux   /etc/network/interface
+cat interfaces # interfaces(5) file used by ifup(8) and ifdown(8) auto lo iface lo inet loopback auto enp0s3 iface enp0s3 inet static address 192.168.1.10 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 192.168.1.1 auto enp0s8 iface enp0s8 inet static address 192.168.1.16 netmask 255.</description>
+    </item>
+    
+    <item>
+      <title>Docker Alpine</title>
+      <link>https://wubigo.com/post/docker-alpine/</link>
+      <pubDate>Fri, 31 Mar 2017 15:07:18 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-alpine/</guid>
+      <description> set date FROM alpine:3.8 RUN apk add --no-cache tzdata &amp;amp;&amp;amp; rm -rf /var/cache/apk/* ENV TZ Asia/Shanghai RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;amp;&amp;amp; echo $TZ &amp;gt; /etc/timezone  docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash  创建/etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  </description>
+    </item>
+    
+    <item>
+      <title>Docker网络</title>
+      <link>https://wubigo.com/post/docker_network/</link>
+      <pubDate>Thu, 02 Mar 2017 11:10:51 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_network/</guid>
+      <description> 容器网络 容器网络方案 = 接入 + 流控 + 通道
+docker默认的网络 桥接网络
+Docker网络macvlan 网络macvlan
+Docker宿主网络 宿主网络
+Docker覆盖网络 宿主端口绑定 绑定方式： -p
+绑定形式
+ ip:hostPort:containerPort| ip::containerPort | hostPort:containerPort | containerPort
+ containerPort必须指定
+docker run --rm --name web -p 80:80 -v /home/bigo/site:/usr/share/nginx/html:ro -d nginx:1.14-alpine  docker 会为端口绑定的容器自动启动docker-proxy进程
+docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 80 -container-ip 172.17.0.2 -container-port 80  </description>
+    </item>
+    
+    <item>
+      <title>Docker网络macvlan</title>
+      <link>https://wubigo.com/post/docker_network_macvlan/</link>
+      <pubDate>Wed, 01 Mar 2017 10:49:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker_network_macvlan/</guid>
+      <description>介绍 Macvlan支持从一个上层物理接口创建子接口，每个子接口有自己独立的MAC和IP地址。 应用程序，容器或虚机可以绑定到子接口，用子接口的IP和物理网络直接通信。
+ 好处
+ 现有的很多网络监控设备还不支持虚拟网络设备的监控，Macvlan支持 不需要新建iptable，nat，route单独管理容器网络  不足
+ 交换机的每个端口上能连接的不同MAC有策略上限 网卡上过多的MAC会影响性能 Macvlan只支持LINUX   准备  需要4.0以上的内核
+uname -r 4.15.0-45-generic  加载macvlan模块
+sudo modprobe macvlan lsmod | grep macvlan ... macvlan 24576 0 ...  配置网卡为混杂模式
+     主机 IP     PC 192.168.1.5/24   VM1 192.168.1.10/24   Container1 192.168.1.128/25    MACVLAN四种工作模式  Macvlan VEPA Macvlan Bridge Macvlan Passthru  创建macvlan ip addr show enp0s3 enp0s3: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000 link/ether 08:00:27:c0:91:4c brd ff:ff:ff:ff:ff:ff inet 192.</description>
+    </item>
+    
+    <item>
+      <title>Docker日志</title>
+      <link>https://wubigo.com/post/docker-logging/</link>
+      <pubDate>Fri, 17 Feb 2017 08:24:25 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-logging/</guid>
+      <description>Everything a containerized application writes to stdout and stderr is handled and redirected somewhere by a container engine. For example, the Docker container engine redirects those two streams to a logging driver
+ The docker logs command is not available for drivers other than json-file and journald.
+docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging driver To configure the Docker daemon to default to a specific logging driver, set the value of log-driver to the name of the logging driver in the daemon.</description>
+    </item>
+    
+    <item>
+      <title>Docker Dockerfile ENTRYPOINT</title>
+      <link>https://wubigo.com/post/docker-dockerfile-entrypoint/</link>
+      <pubDate>Wed, 13 Apr 2016 09:23:00 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-dockerfile-entrypoint/</guid>
+      <description>Dockerfile ENTRYPOINT有两种形式
+ exec shell      exec(preferred) shell     ENTRYPOINT [&amp;ldquo;executable&amp;rdquo;, &amp;ldquo;param1&amp;rdquo;, &amp;ldquo;param2&amp;rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.</description>
+    </item>
+    
+    <item>
+      <title>Docker Check Config</title>
+      <link>https://wubigo.com/post/docker-check-config/</link>
+      <pubDate>Thu, 25 Feb 2016 17:58:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-check-config/</guid>
+      <description>#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &amp;quot;/boot/config-$(uname -r)&amp;quot; &amp;quot;/usr/src/linux-$(uname -r)/.config&amp;quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&amp;quot;$1&amp;quot; else : ${CONFIG:=&amp;quot;${possibleConfigs[0]}&amp;quot;} fi if ! command -v zgrep &amp;amp;&amp;gt; /dev/null; then zgrep() { zcat &amp;quot;$2&amp;quot; | grep &amp;quot;$1&amp;quot; } fi kernelVersion=&amp;quot;$(uname -r)&amp;quot; kernelMajor=&amp;quot;${kernelVersion%%.*}&amp;quot; kernelMinor=&amp;quot;${kernelVersion#$kernelMajor.}&amp;quot; kernelMinor=&amp;quot;${kernelMinor%%.*}&amp;quot; is_set() { zgrep &amp;quot;CONFIG_$1=[y|m]&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_in_kernel() { zgrep &amp;quot;CONFIG_$1=y&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_as_module() { zgrep &amp;quot;CONFIG_$1=m&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } color() { local codes=() if [ &amp;quot;$1&amp;quot; = &#39;bold&#39; ]; then codes=( &amp;quot;${codes[@]}&amp;quot; &#39;1&#39; ) shift fi if [ &amp;quot;$#&amp;quot; -gt 0 ]; then local code= case &amp;quot;$1&amp;quot; in # see https://en.</description>
+    </item>
+    
+    <item>
+      <title>Docker Notes</title>
+      <link>https://wubigo.com/post/docker-notes/</link>
+      <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-notes/</guid>
+      <description>端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &amp;ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world</description>
+    </item>
+    
+  </channel>
+</rss>

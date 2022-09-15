@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VPN on wubigo</title>
+    <link>https://wubigo.com/tags/vpn/</link>
+    <description>Recent content in VPN on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Aug 2020 12:41:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wireguad Vpn Client for Ubuntu</title>
+      <link>https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/</link>
+      <pubDate>Mon, 31 Aug 2020 12:41:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireguard-vpn-client-for-ubuntu/</guid>
+      <description> 安装 $lsb_release -a Distributor ID: Ubuntu Description: Ubuntu 20.04.1 LTS Release: 20.04 Codename: focal   sudo apt install wireguard wireguard-dkms -y wget algo/configs/localhost/wireguard/desktop.conf /etc/wireguard/wg0.conf sudo modprobe wireguard sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf sudo wg-quick up wg0  </description>
+    </item>
+    
+    <item>
+      <title>五分钟搭建VPN云服务</title>
+      <link>https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/</link>
+      <pubDate>Sat, 04 Jul 2020 21:23:10 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/</guid>
+      <description>在公有云厂商的新加坡或香港地区免费申请一台免费云主机(可选) 利用terraform创建一台云主机
+git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete! Resources: 2 added, 0 changed, 0 destroyed. Outputs: instance_id = i-069i247af71871dd9 public_ip = 13.113.195.66 ssh ubuntu@13.113.195.66 ubuntu@ip-10-12-0-247:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04 LTS Release: 20.04 Codename: focal  也可以直接在web控制台根据向导创建
+搭建VPN服务器 git clone https://github.com/wubigo/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&amp;quot;$(command -v python3)&amp;quot; .env &amp;amp;&amp;amp; source .env/bin/activate &amp;amp;&amp;amp; python3 -m pip install -U pip virtualenv &amp;amp;&amp;amp; python3 -m pip install -r requirements.</description>
+    </item>
+    
+    <item>
+      <title>KV-STORE</title>
+      <link>https://wubigo.com/project/vpn/</link>
+      <pubDate>Sat, 23 Feb 2019 16:45:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/project/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wireguard开发参考</title>
+      <link>https://wubigo.com/post/wireguard-dev-guide/</link>
+      <pubDate>Thu, 03 Jan 2019 06:53:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireguard-dev-guide/</guid>
+      <description>git clone https://git.zx2c4.com/wireguard-go  </description>
+    </item>
+    
+    <item>
+      <title>Shadowsocks Ubuntu Client</title>
+      <link>https://wubigo.com/post/shadowsocks-ubuntu-client/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/shadowsocks-ubuntu-client/</guid>
+      <description>install client pip install shadowsocks  client.json
+{ &amp;quot;server&amp;quot;:&amp;quot;server-ip&amp;quot;, &amp;quot;server_port&amp;quot;:8000, &amp;quot;local_port&amp;quot;:3050, &amp;quot;password&amp;quot;:&amp;quot;your-password&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; }  { &amp;quot;server&amp;quot;:&amp;quot;your_server_ip&amp;quot;, #ss服务器IP &amp;quot;server_port&amp;quot;:your_server_port, #端口 &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, #本地ip &amp;quot;local_port&amp;quot;:1080, #本地端口 &amp;quot;password&amp;quot;:&amp;quot;your_server_passwd&amp;quot;,#连接ss密码 &amp;quot;timeout&amp;quot;:300, #等待超时 &amp;quot;method&amp;quot;:&amp;quot;rc4-md5&amp;quot;, #加密方式 &amp;quot;fast_open&amp;quot;: false, # true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &amp;gt; /proc/sys/net/ipv4/tcp_fastopen 开启之后，将 fast_open 的配置设置为 true 即可 &amp;quot;workers&amp;quot;: 1 # 工作线程数 }  sudo apt-get install privoxy  /etc/privoxy/config
+listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl restart privoxy.</description>
+    </item>
+    
+    <item>
+      <title>Aws VPC之间或VPC与私有网络之间的连接方式汇总</title>
+      <link>https://wubigo.com/post/aws-vpc-connection/</link>
+      <pubDate>Mon, 29 Jan 2018 16:23:34 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-vpc-connection/</guid>
+      <description> VPC之间的连接方式  专线
+ VPN托管服务
+ VPN Peering
+ 自建或第三方VPN
+ PrivateLink
+  VPC与私有网络之间的连接方式  VPN托管服务
+ 专线
+ 专线+VPN
+ 自建或第三方VPN
+ Transit VPC
+ VPN Hub
+  </description>
+    </item>
+    
+    <item>
+      <title>Vpn With Wireguard</title>
+      <link>https://wubigo.com/post/vpn-with-wireguard/</link>
+      <pubDate>Tue, 02 Jan 2018 12:34:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-with-wireguard/</guid>
+      <description>安装 sudo add-apt-repository ppa:wireguard/wireguard sudo apt-get update sudo apt-get install wireguard -y   打开安全组  配置  创建key
+wg genkey | tee privatekey | wg pubkey &amp;gt; publickey private_key=$(wg genkey) public_key=$(echo $private_key | wg pubkey)  配置
+ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 inet 127.0.0.1/8 scope host lo valid_lft forever preferred_lft forever inet6 ::1/128 scope host valid_lft forever preferred_lft forever 2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 9001 qdisc pfifo_fast state UP group default qlen 1000 link/ether 0a:81:39:72:97:90 brd ff:ff:ff:ff:ff:ff inet 10.</description>
+    </item>
+    
+    <item>
+      <title>Vpn客户端设置参考</title>
+      <link>https://wubigo.com/post/vpn-win-setup/</link>
+      <pubDate>Tue, 02 Jan 2018 06:34:20 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vpn-win-setup/</guid>
+      <description>how-to-allow-local-network-when-using-wireguard-vpn-tunnel  允许非隧道流量
+Open the WireGaurd Windows client. In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel. Hit the Edit button. Uncheck Block untunneled traffic (kill-switch) option  增加本地的网络
+AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1   安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
+配置  更改公钥
+ Endpoint所在的vpn服务器地址
+  https://github.com/Nyr/openvpn-install
+https://github.com/hwdsl2/setup-ipsec-vpn
+https://wireguard.isystem.io/
+https://github.com/meshbird/meshbird
+https://www.tinc-vpn.org/
+https://github.com/isystem-io/wireguard-aws
+Download and install the TunSafe, which is a Wireguard client for Windows.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Vpn Client</title>
+      <link>https://wubigo.com/post/ubuntu-vpn-client/</link>
+      <pubDate>Mon, 23 May 2016 08:31:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/ubuntu-vpn-client/</guid>
+      <description>安装客户端 sudo apt-get install m2crypto pip install shadowsocks  /etc/shadowsocks.json
+{ &amp;quot;server&amp;quot;:&amp;quot;4.1.33.104&amp;quot;, &amp;quot;server_port&amp;quot;:8388, &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, &amp;quot;local_port&amp;quot;:1080, &amp;quot;password&amp;quot;:&amp;quot;&amp;quot;, &amp;quot;timeout&amp;quot;:600, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; }  sslocal -c /etc/shadowsocks.json # To run in the background sudo sslocal -c /etc/shadowsocks.json -d start  配置代理 sudo apt-get install polipo  /etc/polipo/config
+logSyslog = true logFile = /var/log/polipo/polipo.log logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &amp;quot;0.0.0.0&amp;quot; socksParentProxy = &amp;quot;127.0.0.1:1080&amp;quot; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32  sudo service polipo stop sudo service polipo start export http_proxy=http://127.</description>
+    </item>
+    
+  </channel>
+</rss>

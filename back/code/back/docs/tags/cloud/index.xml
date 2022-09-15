@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CLOUD on wubigo</title>
+    <link>https://wubigo.com/tags/cloud/</link>
+    <description>Recent content in CLOUD on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Aug 2020 14:46:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dapr Notes</title>
+      <link>https://wubigo.com/post/dapr-notes/</link>
+      <pubDate>Tue, 25 Aug 2020 14:46:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/dapr-notes/</guid>
+      <description>重新安装 Ensure that Docker Desktop is set to Linux containers mode when you run Dapr in self hosted mode
+d:\code&amp;gt;dapr uninstall Removing Dapr from your machine... Removing directory: C:\Users\wubigo\.dapr\bin Removing container: dapr_placement Dapr has been removed successfully d:\code&amp;gt;dapr init Making the jump to hyperspace... Installing runtime version 1.6.0 Downloading binaries and setting up components... Downloaded binaries and completed components set up. daprd binary has been installed to C:\Users\wubigo\.dapr\bin. dapr_placement container is running.</description>
+    </item>
+    
+    <item>
+      <title>云管平台(CMP)行业报告(2020)</title>
+      <link>https://wubigo.com/post/cmp-2020/</link>
+      <pubDate>Sat, 04 Apr 2020 13:31:38 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cmp-2020/</guid>
+      <description>云管平台赋能企业在多云环境下，对服务或资源自身和生命周期进行自动化的管理。
+当前行业主要聚焦在可用行，成本管理，云安全。
+平台支持要求  公有云
+ 私有云(openstack/VMWARE/K8S)
+  总概 https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/</description>
+    </item>
+    
+    <item>
+      <title>AWS Re:Invent 2019主题汇总-P1</title>
+      <link>https://wubigo.com/post/aws-reinvent-2019-keynote/</link>
+      <pubDate>Sun, 08 Dec 2019 11:37:33 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-reinvent-2019-keynote/</guid>
+      <description> 计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
+主要的新功能包括：
+ 基于Nitro平台的针对HPC和机器学习的负载的实例
+ 基于定制芯片Inferencia针对机器学习实例
+ 标准实例支持100Gb网络带宽
+  网络  传输网关支持多播
+ 加速的网络到网络的VPN链接
+  存储和数据分析  S3 Access Points和数据湖
+ ES搜索支持S3
+ 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
+ AQUA查询加速器
+ 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
+ 托管的Cassandra服务
+  函数计算  Provisioned Concurrency for Lambda Functions
+ EKS正式支持FARGATE
+ RDS PROXY
+ VPC支持更新
+  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate </description>
+    </item>
+    
+    <item>
+      <title>免费使用公有云服务</title>
+      <link>https://wubigo.com/post/use-public-cloud-for-free/</link>
+      <pubDate>Thu, 12 Sep 2019 07:46:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/use-public-cloud-for-free/</guid>
+      <description>[TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &amp;quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&amp;quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).</description>
+    </item>
+    
+    <item>
+      <title>函数计算Nodejs实例</title>
+      <link>https://wubigo.com/post/serverless-nodejs/</link>
+      <pubDate>Sat, 15 Dec 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-nodejs/</guid>
+      <description>restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
+    </item>
+    
+    <item>
+      <title>AWS云服务免费额度列表</title>
+      <link>https://wubigo.com/post/aws-free-tier-quota/</link>
+      <pubDate>Thu, 30 Nov 2017 17:51:29 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-free-tier-quota/</guid>
+      <description>AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB</description>
+    </item>
+    
+  </channel>
+</rss>

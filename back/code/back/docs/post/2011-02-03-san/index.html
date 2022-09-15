@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/2011-02-03-san/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/2011-02-03-san/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/2011-02-03-san/">
+  <meta property="og:title" content="NFS VS. SAN VS. lUSTRE | wubigo">
+  <meta property="og:description" content="NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2011-02-03T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2011-02-03T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>NFS VS. SAN VS. lUSTRE | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">NFS VS. SAN VS. lUSTRE</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2011-02-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2011</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    18 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=NFS%20VS.%20SAN%20VS.%20lUSTRE&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2011-02-03-san%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2f2011-02-03-san%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f2011-02-03-san%2f&amp;title=NFS%20VS.%20SAN%20VS.%20lUSTRE"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f2011-02-03-san%2f&amp;title=NFS%20VS.%20SAN%20VS.%20lUSTRE"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=NFS%20VS.%20SAN%20VS.%20lUSTRE&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f2011-02-03-san%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>NFS VS. SAN VS. lUSTRE
+NFS (Network File System)
+NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB. However, for high end HPC clusters, the NFS server can quickly become a major bottleneck as it does not scale well when used in large cluster environments. The NFS server also becomes a single point of failure, for which the consequences of it crashing can become severe.</p>
+
+<p>SAN (Storage Area Networks)
+SAN file systems are capable of very high performance, but are extremely expensive to scale up since they are implemented using Fibre Channel and therefore, each node that connects to the SAN must have a Fibre Channel card to connect to the Fibre channel switch.</p>
+
+<p>Lustre (a Global Parallel File System)
+The main advantage of Lustre, a global parallel file system, over NFS and SAN file systems is that it provides; wide scalability, both in performance and storage capacity; a global name space, and the ability to distribute very large files across many nodes. Because large files are shared across many nodes in the typical cluster environment, a parallel file system, such as Lustre, is ideal for high end HPC cluster I/O systems.</p>
+
+<p>A typical storage system consists of a variety of components, including disks, storage controllers, IO cards, storage servers, storage area network switches, and related management software. Fitting all these components together and tuning them to achieve optimal performance presents significant challenges.</p>
+
+<p>If you are managing your own infrastructure in your own private data center, then you are bound to go through a selection of different storage offerings. Selecting a storage solution pretty much depends on your requirement. Before finalizing a particular storage option for your use case, a little bit of understanding about the technology is always helpful.</p>
+
+<p>I was actually going to write an article about object storage (which is the current hottest storage option in the cloud). But before going and discussing that part of the storage arena, I thought its better to discuss the two main storage methods which co-exists together from a very long time, used by companies internally for their needs.</p>
+
+<p>The decision of your storage type will depend on many factors like the below ones.</p>
+
+<p>Type of data that you want to store</p>
+
+<p>Usage pattern</p>
+
+<p>Scaling concerns</p>
+
+<p>Finally your budget</p>
+
+<p>When you begin your career as a system administrator, you will often hear your colleagues talking about different storage methods like SAN, NAS, DAS etc. And without a little bit of digging, you are bound to get confused with different terms in storage. The confusion arises often because of the similarities between the different approaches in storage. The only hard and fast rule to stay up to date in technical terms, is to keep on reading stuffs (especially concepts behind a certain technology.)</p>
+
+<p>Today we will be discussing two different methods that defines the structure of storage in your environment. Your choice of the two in your architecture should only depend on your use case, and type of data that you store.</p>
+
+<p>By the end of this tutorial, I hope you will have a clear picture about the main two types of storage methods, and what to select for your need.</p>
+
+<p>SAN (Storage Area Network) and NAS(Network Attached Storage)</p>
+
+<p>The main things that differentiate each of these technologies are mentioned below.</p>
+
+<p>How a storage is connected to a system. In short how the connection is made between the accessing system and the storage component (directly attached or network attached)</p>
+
+<p>Type of cabling used to connect. In short this is the type of cabling done to connect a system to the storage component (eg. Ethernet &amp; Fiber channel)</p>
+
+<p>How are input and output requests done. In short this is the protocol used to conduct input and output requests (eg. SCSI, NFS, CIFS etc)</p>
+
+<p>Related: How to monitor IO on linux</p>
+
+<p>Let&rsquo;s discuss SAN first and then NAS, and at the end, let&rsquo;s compare each of these technologies to clear the differences between them.</p>
+
+<p>SAN(Storage Area Network)</p>
+
+<p>Today&rsquo;s applications are very much resource intensive, due to the kind of requests that needs to be processed simultaneously per second. Take example of an e-commerce website, where thousands of people are making orders per second, and all needs to be stored properly in the database for later retrieval. The storage technology used to store such high traffic data bases must be fast in request serving and response(in short it should be fast in Input and Output).</p>
+
+<p>Related: Web server Performance test</p>
+
+<p>In such cases(where you need high performance, and fast I/O ) we can use SAN.</p>
+
+<p>SAN is nothing but a high speed network that makes connections between storage devices and servers.</p>
+
+<p>Traditionally application servers used to have their own storage devices attached to them. Server&rsquo;s talk to these devices by a protocol known as SCSI(Small Computer System Interface). SCSI is nothing but a standard used to communicate between servers and storage devices. All normal hard disks, tape drives etc uses SCSI. In the beginning the storage needs of a server was fulfilled by a storage devices that was included inside the server(the server used to talk to those internal storage device, using SCSI. This is very much similar to how a normal desktop talks to its internal hard disk.).</p>
+
+<p>Devices like Compact Disk drives are attached to the server(which are part of the server) using SCSI. The main advantage of SCSI for connecting devices to a server was its high throughput. Although this architecture is sufficient for low end requirements, there are few limitations like the below mentioned ones.</p>
+
+<p>The server can only access data on the devices, which are directly attached to it.
+If something happens to the server, access to data will fail (because the storage device is part of the server and is attached to it using SCSI)
+There is a limit in the number of storage devices the server can access. In case the server needs more storage space, there will be no more space that can be attached, as the SCSI bus can accommodate only a finite number of devices.
+Also the server using the SCSI storage has to be near the storage device(because parallel SCSI, which is the normal implementation in most computer&rsquo;s and servers, has some distance limitations. It can work up to 25 meters.)</p>
+
+<p>Some of these limitations can be overcame using DAS (Directly Attached Storage). The media used to directly connect storage to the server can be any one of SCSI, Ethernet, Fiber channel etc.). Low complexity, Low investment, Simplicity in deployment caused DAS to be adopted by many for normal requirement&rsquo;s. The solution was good even performance wise, if used with faster mediums like fiber channel.</p>
+
+<p>Even an external USB drive attached to a server is also a DAS(well conceptually its DAS, as its directly attached to the server&rsquo;s USB bus). But USB drives are normally not used due to the speed limitation of USB bus. Normally for heavy and large DAS storage solutions, the media used are SAS(Serially attached SCSI). Internally the storage device can use RAID(which normally is the case) or anything to provide storage volumes to servers. SAS storage options provide 6Gb/s speed these days.</p>
+
+<p>An example of DAS storage device is Dell&rsquo;s MD1220</p>
+
+<p>To the server, a DAS storage will appear very much similar to its own internal drive or an external drive that you plugged in.</p>
+
+<p>Although DAS is good for normal needs and gives good performance, there are limitations like the number of servers that can access it. Storage device, or say DAS storage has to be near to the server (in the same rack or within the limits of the accepted distance of the medium used.).</p>
+
+<p>It can be argued that, directly attached storage(DAS) is faster than any other storage methods. This is because it does not involve any overhead of data transfer over the network (all data transfer occurs on a dedicated connection between the server and the storage device. Mostly its Serially attached SCSI or SAS). However due to latest improvement&rsquo;s in fiber channel and other caching mechanism&rsquo;s, SAN also provides better speed&rsquo;s similar to DAS, and in some cases, it surpasses the speed provided by a DAS.</p>
+
+<p>Before getting inside SAN, let&rsquo;s understand several media types and methods that are used to interconnect storage devices(when i say storage devices, please dont consider it as one single hard disk. Take it as an array of disk&rsquo;s, probably in some RAID level. Consider it as something like Dell&rsquo;s MD1200).</p>
+
+<p>what is SAS(Serially Attached SCSI), FC(Fibre Channel), and iSCSI (Internet Small Computer System Interface)?</p>
+
+<p>Traditionally the SCSI devices like the internal hard disk&rsquo;s are connected to a shared parallel SCSI bus. This means all devices attached, will be using the same bus to send/receive data.  But shared parallel connections are not good for high accuracy, and create issues during high speed transfers. However a serial connection between the device and the server can increase the overall throughput of the data transfer. SAS connections between storage devices and servers uses a dedicated 300 MB/Sec per disk. Think of SCSI bus that shares the same speed for all devices connected.</p>
+
+<p>SAS uses the same SCSI commands to send and receive data from a device.  Also please do not think that SCSI is only used for internal storage. It is also used for external storage device to be connected to the server.</p>
+
+<p>If data transfer performance and reliability is the choice, then using SAS is the best solution. In terms of reliability and error rate SAS disks are much better compared to the old SATA disks. SAS was designed by keeping performance in mind, due to which it is full-duplex. This means, data can be send and received simultaniously from a device using SAS. Also a single SAS host port can connect to multiple SAS drives using expanders. SAS uses point to point data transfer by using serial communication between devices (storage device, like disk drives &amp; disk array&rsquo;s) and hosts.</p>
+
+<p>The first generation of SAS provided around 3Gb/s of speed. The second generation of SAS improved this to 6Gb/s. And the third generation (which is currently used by many organization&rsquo;s for extremly high throughput) improved this to 12Gb/s.</p>
+
+<p>Fiber Channel Protocol
+Fiber Channel is a relatively new interconnection technology used for fast data transfer. The main purpose of its design is to enable transport of data at faster rates with a very less/negligible delay. It can be used to interconnect workstations, peripherals, storage array&rsquo;s etc.</p>
+
+<p>The major factor that distinguishes fiber channel from other interconnecting method is that, it can manage both networking and I/O communication over a single channel using the same adapters.</p>
+
+<p>ANSI (American National Standards Institute) standardized Fiber channel during 1988. When we say Fiber (in Fiber channel) do not think that it only supports optical fiber medium. Fiber is a term used for any medium used to interconnect in fiber channel protocol. You can even use copper wire for lower cost.</p>
+
+<p>Please note the fact that fiber channel standard from ANSI supports networking, storage and data transfer. Fiber channel is not aware of the type of data that you transfer. It can send SCSI commands encapsulated inside a fiber channel frame(it does not have its own I/O commands to send and receive storage). The main advantage is that it can incorporate widely adopted protocols like SCSI and IP inside.</p>
+
+<p>The components of making a fiber channel connection are mentioned below. The below requirement is very minimal to achieve a point to point connection. Typically this can be used for a direct connection between a storage array and a host.</p>
+
+<p>An HBA (Host Bus Adapter) with Fiber channel port</p>
+
+<p>Driver for the HBA card</p>
+
+<p>Cables to interconnect devices in HBA fiber channel port</p>
+
+<p>As mentioned earlier, SCSI protocol is encapsulated inside fiber channel. So normally SCSI data has to be modified to a different format that fiber channel can deliver to the destination. And when the destination receives the data it then retranslates it to SCSI.</p>
+
+<p>You might be thinking that why do we need this mapping and re-mapping, why cant we directly use SCSI to deliver data. Its because SCSI cannot deliver data to greater distances to large number of devices (or large number of hosts).</p>
+
+<p>Fiber cannel can be used to interconnect systems as far as 10KM (if used with optical fibers. You can increase this distance by having repeaters in between). And you can also transfer data to an extent of 30m using a copper wire for lower cost in fiber cannel.</p>
+
+<p>With the emergence of fiber channel switches from variety of major vendors, connecting many large number of storage devices and servers have now become an easy task(provided you have the budget to invest). The networking ability of fiber channel led to the advanced adoption of SAN(Storage Area Networks) for faster, long distance, and reliable data access. Most of the high computing environment&rsquo;s(which requires fast and large volume data transfers) uses fiber channel SAN with optical fiber cables.</p>
+
+<p>The current fiber channel standard (called as 16GFC) can transmit data  at the rate of 1600MB/s(dont forget the fact that this standard was released in 2011). The upcoming standards in the coming years are expected to provide  3200MB/s and 6400MB/s speed.</p>
+
+<p>iSCSI(Internet Small Computer System Interface )</p>
+
+<p>iSCSI is nothing but an IP based standard for interconnecting storage arrays and hosts. It is used to carry SCSI traffic over IP networks. This is the simplest and cheap solution(although not the best) to connect to a storage device.</p>
+
+<p>This is a nice technology for location independent storage. Because it can establish connection to a storage device using local area networks, Wide area network. Its a Storage Area Network interconnection standard. It does not require special cabling and equipments like the case of a fiber channel network.</p>
+
+<p>To the system using a storage array with iSCSI, the storage appears as a locally attached disk. This technology came after fiber channel and was widely adopted due to it low cost.</p>
+
+<p>Its a networking protocol which is made on top of TCP/IP. You can guess that its not at all good performance wise, when compared with fiber channel(simply because everything is running over TCP with no special hardware and modifications to your architecture.)</p>
+
+<p>iSCSI introduces a little bit of CPU load on the server, because the server has to do the extra processing for all storage requests over the network, with the regular TCP.</p>
+
+<p>Related: Linux CPU performance Monitoring</p>
+
+<p>iSCSI has the following disadvantages, compared to fiber channel</p>
+
+<p>iSCSI introduces a little bit more latency compared to fiber channel, due to the overhead of IP headers
+Database applications have small read and write operations, which when done on iSCSI will introduce more latency
+iSCSI when done on the same LAN, which contains other normal traffic (other infrastructure traffic other than iSCSI), it will introduce a read/write lag or say low performance.
+The maximum speed/bandwidth is limited to your ethernet and network speed. Even if you aggregate multiple links, it does not scal to the level of a fiber channel.</p>
+
+<p>NAS(Network Attached Storage)</p>
+
+<p>The simplest definition of NAS is &ldquo;Any server that shares its own storage with others on the network and acts as a file server is the simplest form NAS&rdquo;.</p>
+
+<p>Please make a note of the fact that Network Attached Storage shares files over the network. Not storage device over the network.</p>
+
+<p>NAS will be using an ethernet connection for sharing files over the network. The NAS device will have an IP address, and then will be accessible over the network through that IP address. When you access files on a file server on your windows system, its basically NAS.</p>
+
+<p>The main difference is in how your computer or the server treats a particular storage. If the computer treats a storage as part of itself(similar to how you attach a DAS to your server), in other words, if the server&rsquo;s processor is responsible for managing the storage attached, it will be some sort of DAS. And if the computer/server treats the storage attached as another computer, which is sharing its data through the network, then its a NAS.</p>
+
+<p>Directly attached storage(DAS) can be viewed as any other peripheral device like mouse keyboard etc. Because to the server/computer, its a directly attached storage device. However NAS is another server, or say an equipment having its own computing features that can share its own storage with others.</p>
+
+<p>Even SAN storage can also be considered as an equipment that has its own processing/computing power. So the main difference between NAS, SAN and DAS is how the server/computer accessing it sees. A DAS storage device appears to the server as part of itself. The server sees it as its own physical part. Although the DAS storage device might not be inside the server(its normally another device with its own storage array), the server sees it as its own internal part(DAS storage appears to the server as its own internal storage)</p>
+
+<p>When we talk about NAS, we need to call them shares rather than storage devices. Because NAS appears to a server as a shared folder instead of a shared device over the network. Please do not forget the fact that NAS devices are computers in themselves, who can share their storage space with others. When you share a folder with access control using SAMBA, its NAS.</p>
+
+<p>Although NAS is a cheaper option for your storage needs. It really does not suit for an enterprise level high performance application. Never ever think of using a database storage (which needs to be high performing) with a NAS. The main downside of using NAS is its performance issue, and dependency on network(most of the times, the LAN which is used for normal traffic is also used for sharing storage with NAS, which makes it more congested)</p>
+
+<p>Related: Linux Network Performance Tuning</p>
+
+<p>When you share an export with NFS over the network, its also a form of NAS.</p>
+
+<p>Related: NFS Tutorial in Linux</p>
+
+<p>A NAS is nothing but a device/equipmet/server attached to TCP/IP network, that shares its own storage with other&rsquo;s. If you dig a little deeper, when a file read/write request is send to a NAS share attached to a server, the request is sent in the form of a CIFS(Common internet file system) or NFS(Network File system) requests over the network. The receiving end(NAS device), on receiving the NFS, CIFS request, will then convert it into the local storage I/O command set. This is the reason, why a NAS device has its own processing and computing power.</p>
+
+<p>So NAS is file level storage(Because its basically a file sharing technology). This is because it hides the actual file system under the hood. It gives the users an interface to access its shared storage space using NFS, or CIFS.</p>
+
+<p>Related: How to do NFS Performance Tuning in Linux</p>
+
+<p>A common use of NAS you can find is to provide each user with a home directory. These home directories are stored in a NAS device, and mounted to the computer, where the user logs in. As the home directory is networkly accessible, the user can log in from any computer on the network.</p>
+
+<p>Advantages of NAS</p>
+
+<p>NAS has a less complex architecture compared to SAN
+Its cheaper to deploy in an existing architecture.
+No modification is required on your architecture, as a normal TCP/IP network is the only requirement</p>
+
+<p>Disadvantages of NAS
+NAS is slow
+Lowever throughput and high latency, due to which it cannot be used for high performance applications</p>
+
+<p>Getting Back to SAN</p>
+
+<p>Now let&rsquo;s get back to our discussion of SAN(Storage area network) which we started earlier in the beginning.</p>
+
+<p>The first and foremost thing to understand about SAN (apart from the things we already discussed in the beginning) is the fact that its a block level storage solution.  And SAN is optimized for high volume of block level data transfer. SAN is performs best when used with fiber channel medium (optical fibers, and a fiber channel switch )</p>
+
+<p>Both NAS and SAN solves the problem of keeping the storage device nearer to the server accessing it(which was the case with DAS). A SAN storage can be alloted to a server, which in tern can share it with other&rsquo;s using NAS.  Please do not forget the fact that the underlying disks on a DAS, NAS and a SAN can be in any form of a RAID (what makes the real difference is how the server access these storage  devices, using which protocol and media).</p>
+
+<p>The name Storage Area Network itself implies that the storage resides in its own dedicated network. Hosts can attach the storage device to itself using either Fiber channel, TCP/IP network (SAN uses iSCSI when used over tcp/ip network).</p>
+
+<p>SAN can be considered as a technology that combines the best features of both DAS and NAS. If you remember, DAS appears to the computer as its own storage device, and is known for good speed, DAS is also a block level storage solution(if you remember, we never talked of CIFS or NFS during DAS). NAS is known for its flexibility, primary access through network, access control etc. SAN combines the best features of both of these worlds together because&hellip;.</p>
+
+<p>SAN storage also appears to the server as its own storage device
+Its a block level storage solution
+Good performance/speed
+Networking features using iSCSI</p>
+
+<p>SAN and NAS are not competing technologies, but were designed for different needs and purposes. As SAN is a block level storage solution, its best suited for high performance data base storage, email storage etc. Most modern SAN solutions provide, disk mirroring, archiving backup and replication features as well.</p>
+
+<p>SAN is a dedicated network of storage devices(can include tape drives storages, raid disk arrays etc) all working together to provide an excellent block level storage. While NAS is a single device/server/computing appliance, sharing its own storage over the network.</p>
+
+<p>Major Differences between SAN and NAS</p>
+
+<p>SAN</p>
+
+<p>NAS</p>
+
+<p>Block level data access</p>
+
+<p>File Level Data access</p>
+
+<p>Fiber channel is the primary media used with SAN.</p>
+
+<p>Ethernet is the primary media used with NAS</p>
+
+<p>SCSI is the main I/O protocol</p>
+
+<p>NFS/CIFS is used as the main I/O protocol in NAS</p>
+
+<p>SAN storage appears to the computer as its own storage</p>
+
+<p>NAS appers as a shared folder to the computer</p>
+
+<p>It can have excellent speeds and performance when used with fiber channel media</p>
+
+<p>It can sometimes worsen the performance, if the network is being used for other things as well(which normally is the case)</p>
+
+<p>Used primarily for higher performance block level data storage</p>
+
+<p>Is used for long distance small read and write operations</p>
+
+<p>[1] <a href="http://www.slashroot.in/san-vs-nas-difference-between-storage-area-network-and-network-attached-storage" target="_blank">http://www.slashroot.in/san-vs-nas-difference-between-storage-area-network-and-network-attached-storage</a></p>
+
+<p>[2]<a href="http://www.intel.com/content/dam/www/public/us/en/documents/white-papers/architecting-lustre-storage-white-paper.pdf" target="_blank">http://www.intel.com/content/dam/www/public/us/en/documents/white-papers/architecting-lustre-storage-white-paper.pdf</a></p>
+
+    </div>
+
+    
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

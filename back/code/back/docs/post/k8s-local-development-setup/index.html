@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Setup a local development environment from source code with kubeadm">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/k8s-local-development-setup/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/k8s-local-development-setup/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/k8s-local-development-setup/">
+  <meta property="og:title" content="K8S local development setup from source code | wubigo">
+  <meta property="og:description" content="Setup a local development environment from source code with kubeadm"><meta property="og:image" content="https://wubigo.com/post/k8s-local-development-setup/featured.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2016-02-03T11:38:27&#43;08:00">
+  
+  <meta property="article:modified_time" content="2016-02-03T11:38:27&#43;08:00">
+  
+
+  
+
+  
+
+  <title>K8S local development setup from source code | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <div class="featured-image" style="background-image: url('/post/k8s-local-development-setup/featured_hu2d483f325133d26ebd762c54692b392c_108536_800x0_resize_q90_lanczos.jpg');"></div>
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">K8S local development setup from source code</h1>
+
+        
+        <p class="page-subtitle">K8S local development setup</p>
+        
+
+        
+
+
+
+<meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=K8S%20local%20development%20setup%20from%20source%20code&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f&amp;title=K8S%20local%20development%20setup%20from%20source%20code"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f&amp;title=K8S%20local%20development%20setup%20from%20source%20code"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=K8S%20local%20development%20setup%20from%20source%20code&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/k8s-local-development-setup/featured_hu2d483f325133d26ebd762c54692b392c_108536_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">K8S local development setup from source code</h1>
+
+  
+  <p class="page-subtitle">K8S local development setup</p>
+  
+
+  
+
+
+
+<meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-03 11:38:27 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 3, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=K8S%20local%20development%20setup%20from%20source%20code&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f&amp;title=K8S%20local%20development%20setup%20from%20source%20code"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f&amp;title=K8S%20local%20development%20setup%20from%20source%20code"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=K8S%20local%20development%20setup%20from%20source%20code&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fk8s-local-development-setup%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>更新到最新正式发布版<strong>V1.13.3</strong></p>
+
+<h1 id="main-external-dependencies">Main external dependencies</h1>
+
+<ul>
+<li>go</li>
+<li>docker</li>
+<li>cri</li>
+<li>cni</li>
+</ul>
+
+<p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#external-dependencies" target="_blank">external-dependencies</a></p>
+
+<p><img src="/img/post/kubernetes-release.png" alt="release/stable-1.11.txt" /></p>
+
+<p><strong><em>KUBEADM IS CURRENTLY IN BETA</em></strong></p>
+
+<h1 id="kubeadm-maturity">kubeadm maturity</h1>
+
+<p><img src="/img/post/kubeadm_maturiy.png" alt="kubeadm maturity" /></p>
+
+<h1 id="build-k8s">build k8s</h1>
+
+<ul>
+<li><p>docker v17.03</p>
+
+<pre><code>sudo apt-get install docker-ce=17.03.3~ce-0~ubuntu-xenial
+docker pull mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-apiserver-amd64:v1.11.7 k8s.gcr.io/kube-apiserver-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7
+docker tag  mirrorgooglecontainers/kube-controller-manager-amd64:v1.11.7 k8s.gcr.io/kube-controller-manager-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-scheduler-amd64:v1.11.7 k8s.gcr.io/kube-scheduler-amd64:v1.11.7
+docker pull mirrorgooglecontainers/kube-proxy-amd64:v1.11.7
+docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.11.7 k8s.gcr.io/kube-proxy-amd64:v1.11.7
+docker pull mirrorgooglecontainers/pause:3.1
+docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
+docker pull mirrorgooglecontainers/etcd-amd64:3.2.18
+docker tag mirrorgooglecontainers/etcd-amd64:3.2.18 k8s.gcr.io/etcd-amd64:3.2.18
+docker pull coredns/coredns:1.1.3
+docker tag coredns/coredns:1.1.3 k8s.gcr.io/coredns:1.1.3
+
+
+</code></pre></li>
+
+<li><p>cri-tools v1.11.0</p>
+
+<pre><code>git clone  https://github.com/kubernetes-sigs/cri-tools.git $GOPATH/src/github.com/kubernetes-sigs/
+git checkout tags/v1.13.0 -b v1.13.0
+make
+$GOPATH/bin/crictl -version
+cp $GOPATH/bin/cri* /usr/local/bin/
+</code></pre></li>
+
+<li><p><a href="https://wubigo.com/2018/02/go-notes/#install-go-110" target="_blank">install-go-1.10</a></p></li>
+
+<li><p>checkout v1.11.7</p>
+
+<pre><code>git clone https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/
+git fetch --all
+git checkout tags/v1.11.7 -b v1.11.7
+</code></pre>
+
+<p>or</p>
+
+<pre><code>git clone -b v1.11.7 https://github.com/kubernetes/kubernetes.git
+</code></pre></li>
+
+<li><p>LOCAL ETCD INTEGRATION</p>
+
+<pre><code>+++ source /home/bigo/go/src/k8s.io/kubernetes/hack/lib/etcd.sh
+++++ ETCD_VERSION=3.2.24
+++++ ETCD_HOST=127.0.0.1
+++++  
+++++ KUBE_INTEGRATION_ETCD_URL=http://127.0.0.1:2379
+</code></pre></li>
+
+<li><p>build v1.11.7</p>
+
+<pre><code>cd kubernetes
+git remote add upstream https://github.com/kubernetes/kubernetes.git
+git remote set-url --push upstream no_push
+git fetch upstream
+git tag|grep v1.11.7
+git checkout tags/v1.11.7 -b &lt;branch_name&gt;
+docker pull mirrorgooglecontainers/kube-cross:v1.10.7-1
+docker tag mirrorgooglecontainers/kube-cross:v1.10.7-1 k8s.gcr.io/kube-cross:v1.10.7-1
+</code></pre>
+
+<pre><code>export ETCD_HOST=192.168.1.9
+export KUBE_INTEGRATION_ETCD_URL=http://$ETCD_HOST:2379
+bash -x ./build/run.sh make &gt; run.log 2&gt;&amp;1
+./_output/dockerized/bin/linux/amd64/kubeadm version| grep v1.11.7
+</code></pre></li>
+</ul>
+
+<p>or</p>
+
+<pre><code>make  quick-release
+./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubeadm version| grep v1.11.7
+</code></pre>
+
+<h1 id="deploy-k8s-with-kubeadm">deploy K8S with kubeadm</h1>
+
+<ul>
+<li><p>install kubectl</p>
+
+<pre><code>sudo cp ./_output/release-stage/client/linux-amd64/kubernetes/client/bin/kubectl /usr/bin/
+sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubeadm /usr/bin/
+sudo cp ./_output/release-stage/server/linux-amd64/kubernetes/server/bin/kubelet /usr/bin/
+</code></pre></li>
+
+<li><p>kubeadm kubectl bash completion</p>
+
+<pre><code>kubeadm completion bash &gt; ~/.kube/kubeadm_completion.bash.inc
+echo &quot;source '$HOME/.kube/kubeadm_completion.bash.inc'\n&quot; &gt;&gt; $HOME/.bashrc
+</code></pre></li>
+
+<li><p>install kubelet service</p>
+
+<pre><code>sudo cp ./build/debs/kubelet.service /etc/systemd/system/kubelet.service
+sudo mkdir -p /etc/kubernetes/manifests
+sudo mkdir -p /etc/systemd/system/kubelet.service.d/
+sudo cp ./build/debs/10-kubeadm.conf /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet --now
+sudo systemctl start kubelet
+sudo useradd -G systemd-journal $USER
+journalctl -xeu kubelet
+</code></pre></li>
+
+<li><p>disable swap</p>
+
+<pre><code>sudo swapoff -a
+</code></pre></li>
+
+<li><p>build cni v0.6.0</p>
+
+<pre><code>git clone -b v0.6.0 https://github.com/containernetworking/cni.git
+cd cni
+./build.sh
+mkdir -p /opt/cni/bin
+cp bin/* /opt/cni/bin/
+</code></pre></li>
+
+<li><p>Configure NetworkManager for calio</p></li>
+</ul>
+
+<p>NetworkManager manipulates the routing table for interfaces in the default network namespace where Calico veth pairs are anchored for connections to containers. This can interfere with the Calico agent’s ability to route correctly.
+Create the following configuration file at <code>/etc/NetworkManager/conf.d/calico.conf</code> to prevent NetworkManager from interfering with the interfaces:</p>
+
+<pre><code>[keyfile]
+unmanaged-devices=interface-name:cali*;interface-name:tunl*
+</code></pre>
+
+<ul>
+<li><p>bootstrap a secure Kubernetes cluster
+debug level with -v</p>
+
+<pre><code>sudo kubeadm init --kubernetes-version=v1.11.7 --pod-network-cidr 10.2.0.0/16 -v 4
+</code></pre></li>
+
+<li><p>configure kubectl</p>
+
+<pre><code>mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre></li>
+
+<li><p>calico setup</p></li>
+</ul>
+
+<p><a href="https://wubigo.com/post/2011-01-01-shell-script#calico-etcd-setup" target="_blank">calico etcd setup</a></p>
+
+<pre><code>kubectl apply -f calico.yaml (https://docs.projectcalico.org/v3.7/getting-started/kubernetes/installation/hosted/calico.yaml)
+</code></pre>
+
+<ul>
+<li><p>kubectl completion code for bash</p>
+
+<pre><code># Installing bash completion on Linux
+kubectl completion bash &gt; ~/.kube/kubectl.bash.inc
+printf &quot;
+# Kubectl shell completion
+source '$HOME/.kube/kubectl.bash.inc'
+&quot; &gt;&gt; $HOME/.bashrc
+source $HOME/.bashrc
+</code></pre></li>
+
+<li><p>Control plane node isolation</p></li>
+</ul>
+
+<p>By default, the cluster will not schedule pods on the master for security reasons.
+If you want to be able to schedule pods on the master, e.g. for a single-machine
+Kubernetes cluster for development, run:</p>
+
+<pre><code>kubectl taint nodes --all node-role.kubernetes.io/master-
+</code></pre>
+
+<h1 id="view-cluster-config">view cluster config</h1>
+
+<pre><code>kubectl describe configmaps kubeadm-config -n kube-system
+journalctl -xe | grep -i etcd
+</code></pre>
+
+<p>or</p>
+
+<pre><code>cd /etc/kubernetes/manifests
+etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
+</code></pre>
+
+<h1 id="etcd-liveness-probe">ETCD liveness probe</h1>
+
+<pre><code>kubectl describe pods etcd-bigo-vm3 -n kube-system
+Liveness:       exec [/bin/sh -ec ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key get foo]
+sudo curl -v -l https://127.0.0.1:2379/v3/keys --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/healthcheck-client.crt --key /etc/kubernetes/pki/etcd/healthcheck-client.key 
+</code></pre>
+
+<pre><code>kubectl exec -it etcd-bigo-vm1 -n kube-system -- sh
+ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-cl
+ient.key member list
+</code></pre>
+
+<h1 id="join-a-node">join a node</h1>
+
+<ul>
+<li><a href="http://wubigo.com/2012/06/linux/#instll-docker-v1703" target="_blank">install docker v17.03</a></li>
+<li>IPVS proxier
+<a href="http://wubigo.com/2012/06/linux/#ipvs" target="_blank">load IPVS mod</a></li>
+
+<li><p>install  ebtables socat</p>
+
+<pre><code>apt install ebtables socat
+</code></pre></li>
+
+<li><p>install kubelet service</p></li>
+
+<li><p>get token</p>
+
+<pre><code>kubeadm token list
+</code></pre></li>
+
+<li><p>get token-ca-cert-hash</p>
+
+<pre><code>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | \
+openssl dgst -sha256 -hex | sed 's/^.* //'
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>all in one shell</p>
+</blockquote>
+
+<p><a href="http://wubigo.com/2011/01/shell-script/#deploy-K8S-working-node" target="_blank">deploy-work-node.sh</a></p>
+
+<ul>
+<li><p>token recreate
+By default, tokens expire after 24 hours. Joining a node to the cluster after the current token has expired, you can create a new token by running the following command on the master node:</p>
+
+<pre><code>kubeadm token create
+</code></pre></li>
+
+<li><p>Deploying the Dashboard</p></li>
+</ul>
+
+<p><code>sa-admin-user.yaml</code></p>
+
+<pre><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kube-system
+</code></pre>
+
+<p><code>rb-admin-user.yaml</code></p>
+
+<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kube-system
+</code></pre>
+
+<pre><code>kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+
+</code></pre>
+
+<p>Bearer Token</p>
+
+<pre><code>kubectl proxy
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+</code></pre>
+
+<ul>
+<li>depoly nginx and verify</li>
+</ul>
+
+<p>creates a Deployment object and an associated ReplicaSet object with 2 pods</p>
+
+<pre><code>kubectl run nginx1-14 --generator=run-pod/v1 --labels=&quot;run=nginx1.14&quot; --image=nginx:1.14-alpine  --port=80
+POD_IP=$(kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 1)
+curl $POD_IP
+kubectl get pods -o wide | grep nginx1-14 | awk '{print $6}' | head -n 2 |xargs printf -- 'http://%s\n'|xargs curl
+</code></pre>
+
+<h1 id="kubernetes-requires-a-none-stop-app-cmd">Kubernetes requires a none-stop app/CMD</h1>
+
+<p>Docker container stop automatically after running
+**K8S will restart it at default if a container stop **</p>
+
+<p>test/curl/Dockerfile</p>
+
+<p>***let kubectl never restart container</p>
+
+<pre><code>FROM alpine:3.8
+RUN apk add --no-cache curl
+CMD [&quot;sh&quot;]
+docker build .
+docker tag curl-alpine:1.0
+kubectl run curl -it --image=curl-alpine:1.0 --restart=Never sh
+</code></pre>
+
+<ul>
+<li><p>tear down cluster</p>
+
+<pre><code>kubectl drain &lt;node name&gt; --delete-local-data --force --ignore-daemonsets
+kubectl delete node &lt;node name&gt;
+</code></pre></li>
+</ul>
+
+<p>Then, on the node being removed, reset all kubeadm installed state:</p>
+
+<pre><code>kubeadm reset
+</code></pre>
+
+<p>The reset process does not reset or clean up iptables rules or IPVS tables.
+If you wish to reset iptables, you must do so manually:</p>
+
+<pre><code>iptables -F &amp;&amp; iptables -t nat -F &amp;&amp; iptables -t mangle -F &amp;&amp; iptables -X
+</code></pre>
+
+<p>If you want to reset the IPVS tables, you must run the following command:</p>
+
+<pre><code>ipvsadm -C
+</code></pre>
+
+<p>sudo kubeadm init phase etcd local &ndash;config=configfile.yaml -v4</p>
+
+<p>&ndash;kubernetes-version=v1.11.7</p>
+
+<p>kubeadm init &ndash;config</p>
+
+<pre><code>etcd:
+  local:
+     serverCertSANs:
+     - &quot;0.0.0.0&quot;
+     peerCertSANs:
+     - &quot;0.0.0.0&quot;     
+  extraArgs:
+    listen-client-urls: --listen-client-urls=https://0.0.0.0:2379
+</code></pre>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/paas/">PAAS</a>
+  
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

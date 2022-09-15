@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PSQL on wubigo</title>
+    <link>https://wubigo.com/tags/psql/</link>
+    <description>Recent content in PSQL on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Jul 2022 08:43:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/psql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postgres and Pgcli</title>
+      <link>https://wubigo.com/post/postgres-and-pgcli/</link>
+      <pubDate>Sat, 02 Jul 2022 08:43:54 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/postgres-and-pgcli/</guid>
+      <description> START PG version: &#39;2&#39; services: postgresql: container_name: pg image: postgres:12 ports: - &#39;5432:5432&#39; volumes: - &#39;postgresql_data:/var/lib/postgresql/data&#39; environment: - &#39;POSTGRES_PASSWORD=!Qsx4rgb&#39; - &#39;PGDATA=/var/lib/postgresql/data/pgdata&#39; # adminer: # image: adminer # restart: always # ports: # - 8080:8080 volumes: postgresql_data: driver: local  安装pgcli sudo apt install libpq-dev pip install -U pgcli export PATH=$PATH:/home/ubuntu/.local/bin pgcli -U postgres -h localhost  更改配置 postgres@localhost&amp;gt; alter system set autovacuum = off; postgres@localhost&amp;gt; SELECT pg_reload_conf(); postgres@localhost&amp;gt; show autovacuum;  </description>
+    </item>
+    
+  </channel>
+</rss>

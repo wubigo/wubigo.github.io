@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SCM on wubigo</title>
+    <link>https://wubigo.com/tags/scm/</link>
+    <description>Recent content in SCM on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Mar 2017 08:06:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/scm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>分叉拉取模式(fork and pull model)</title>
+      <link>https://wubigo.com/post/git-forkpull-model/</link>
+      <pubDate>Sat, 04 Mar 2017 08:06:21 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/git-forkpull-model/</guid>
+      <description>GITHUB两种主要的pull request的开发模式
+分叉拉取模式 任何开发人员可以在项目源仓库(upstream)分叉，然后仓库该分叉(origin)到本地文件系统进行开发 测试，测试完毕提交到分叉origin，并发送pull request到源仓库upstream, 源仓库维护人员评审 更改，并最终决定是否合并该更改到源仓库
+在发送pull request之前，好几个开发人员共同为一个特性协作开发， 互相从对方的仓库拉取代码。 这时，从对方的仓库拉取代码简化重新定义一个remote，该remote把本地的分叉指向对方仓库地址。
+ https://github.com/wubigo/wubigo.github.io 单击Fork按钮(右上角)
+ GITHUB把该仓库代码复制到自己的github账号，建立分叉仓库
+ 打开git命令行客户端，把分叉仓库克隆到本地环境
+git clone https://github.com/$USER_NAME/wubigo.github.io.git cd wubigo.github.io git remote add upstream git@github.com:wubigo/wubigo.github.io.git # Never push to upstream master git remote set-url --push upstream no_push # Confirm that your remotes make sense: git remote -v origin	https://github.com/Fuang/wubigo.github.io.git (fetch) origin	https://github.com/Fuang/wubigo.github.io.git (push) upstream	git@github.com:wubigo/wubigo.github.io.git (fetch) upstream	git@github.com:wubigo/wubigo.github.io.git (push)  同步本地代码到upstream
+git fetch upstream git checkout master git rebase upstream/master git push  查看各个分支的最新提交ID</description>
+    </item>
+    
+  </channel>
+</rss>

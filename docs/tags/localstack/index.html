@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/localstack/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/tags/localstack/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/tags/localstack/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/tags/localstack/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/tags/localstack/">
+  <meta property="og:title" content="LOCALSTACK | wubigo">
+  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="og:updated_time" content="2019-09-12T07:46:24&#43;08:00">
+  
+
+  
+
+  
+
+  <title>LOCALSTACK | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1 itemprop="name">LOCALSTACK</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></h2>
+    <div class="article-style">
+      
+      [TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lambda-apigateway/">函数＋网关</a></h2>
+    <div class="article-style">
+      
+      运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
+'use strict' exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '&lt;p&gt;Hello world!&lt;/p&gt;' } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
+resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-get-sqs-notification-on-s3-object-creation/">基于local stack的本地S3对象创建通知</a></h2>
+    <div class="article-style">
+      
+      get s3 object creation notification  create queue
+awslocal s3 mb s3://localstack awslocal sqs create-queue --queue-name localstack  get queue arn
+awslocal sqs get-queue-attributes --queue-url http://localhost:4576/queue/localstack --attribute-names All { &quot;Attributes&quot;: { &quot;ApproximateNumberOfMessagesNotVisible&quot;: &quot;0&quot;, &quot;ApproximateNumberOfMessagesDelayed&quot;: &quot;0&quot;, &quot;CreatedTimestamp&quot;: &quot;1574152022&quot;, &quot;ApproximateNumberOfMessages&quot;: &quot;1&quot;, &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;0&quot;, &quot;DelaySeconds&quot;: &quot;0&quot;, &quot;VisibilityTimeout&quot;: &quot;30&quot;, &quot;LastModifiedTimestamp&quot;: &quot;1574152022&quot;, &quot;QueueArn&quot;: &quot;arn:aws:sqs:us-east-1:000000000000:localstack&quot; } }  create s3 notification config
+cat notification.json { &quot;QueueConfigurations&quot;: [ { &quot;QueueArn&quot;: &quot;arn:aws:sqs:local:000000000000:localstack&quot;, &quot;Events&quot;: [ &quot;s3:ObjectCreated:*&quot; ] } ] }  make notification effect
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-log/">Aws Log</a></h2>
+    <div class="article-style">
+      
+      AWS Lambda By default, all native logs within a Lambda function are stored in the function execution result within Lambda. Additionally, if you would like to review log information immediately after executing a function, invoking the Lambda function with the LogType parameter will retrieve the last 4KB of log data generated by the function. This information is returned in the x-amz-log-results header in the HTTP response.
+While these methods are great ways to test and debug issues associated with individual function calls, they do not do much by way of analysis or alerting.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-serverless-localstack-examples/">基于Localstack的函数计算开发应用列表</a></h2>
+    <div class="article-style">
+      
+      serverless install -u https://github.com/serverless/examples/tree/master/aws-node-upload-to-s3-and-postprocess -n aws-node-upload-to-s3-and-postprocess sls deploy -s local awslocal logs describe-log-groups { &quot;logGroups&quot;: [ { &quot;arn&quot;: &quot;arn:aws:logs:us-east-1:1:log-group:/aws/lambda/uload-local-postprocess&quot;, &quot;creationTime&quot;: 1573867924377.624, &quot;metricFilterCount&quot;: 0, &quot;logGroupName&quot;: &quot;/aws/lambda/upload-local-postprocess&quot;, &quot;storedBytes&quot;: 0 } ] } awslocal logs describe-log-streams --log-group-name /aws/lambda/uload-local-postprocess { &quot;logStreams&quot;: [] }  serverless install -u https://github.com/serverless/examples/tree/master/aws-node-s3-file-replicator -n aws-node-s3-file-replicator sls deploy -s local awslocal s3api get-bucket-notification-configuration --bucket bbbb awslocal s3api get-bucket-acl --bucket output-bucket-12345  lambda_function.py
+import json def my_handler(event, context): print(&quot;Received event: &quot; + json.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-localstack-serverless/">基于Localstack的Serverless框架本地集成</a></h2>
+    <div class="article-style">
+      
+      install nodejs install serverless npm install -g serverless npm install serverless-localstack   check serverless version
+serverless -v Framework Core: 1.57.0 Plugin: 3.2.3 SDK: 2.2.1 Components Core: 1.1.2 Components CLI: 1.4.0   create serverless function  serverless create --template aws-nodejs --path my-service cd my-service  serverless.yml
+functions: hello: handler: handler.hello events: - http: path: ping method: get  plugins: - serverless-localstack custom: localstack: debug: true stages: - local - dev host: http://localhost endpoints: S3: http://localhost:4572 DynamoDB: http://localhost:4570 CloudFormation: http://localhost:4581 Elasticsearch: http://localhost:4571 ES: http://localhost:4578 SNS: http://localhost:4575 SQS: http://localhost:4576 Lambda: http://localhost:4574 Kinesis: http://localhost:4568 APIGateway: http://localhost:4567 CloudWatch: http://localhost:4582 CloudWatchLogs: http://localhost:4586 CloudWatchEvents: http://localhost:4587  deploy redeploy if all Functions, Events or Resources
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-lambda-notes/">Aws Lambda Notes</a></h2>
+    <div class="article-style">
+      
+      事件 事件源发送的事件是JSON格式，LAMBDA运行时把原始JSON事件转换为
+对象并发送给函数代码。
+事件的结构和内容由事件源决定
+支持事件源的服务
+ Kinesis DynamoDB Simple Queue Service  权限 通过权限策略(permissions policy)来管理IAM用户，组或者角色对lambda
+API和资源(函数或函数层）访问权限。
+权限策略也可以授权给资源本身，让资源或服务访问lambda。
+每一个lamdba函数都有一个执行角色(execution role), 该角色授权lamdba函数
+本身对其他资源和服务的访问。执行角色至少包含对CLOUDWATCH日志的访问权限。
+lambda也通过执行角色请求对事件源的读取权限。
+资源  函数 版本 别名 层级  举例：授权SNS 调用 my-function
+aws lambda add-permission --function-name my-function --action lambda:InvokeFunction --statement-id sns \ &gt; --principal sns.amazonaws.com --output text {&quot;Sid&quot;:&quot;sns&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;Service&quot;:&quot;sns.amazonaws.com&quot;},&quot;Action&quot;:&quot;lambda:InvokeFunction&quot;,&quot;Resource&quot;:&quot;arn:aws:lambda:ap-northeast-1:465691908928:function:my-function&quot;}  serveless backend Lambda allows to trigger execution of code
+in response to events in AWS, enabling
+serverless backend solutions.
+The Lambda Function itself includes source code
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-s3-upload-with-localstack/">Aws S3 Upload With Localstack</a></h2>
+    <div class="article-style">
+      
+      https://github.com/wubigo/localstack-examples
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-lambda-with-localstack/">基于Localstack的本地Lambda开发</a></h2>
+    <div class="article-style">
+      
+      Create function index.js
+exports.handler = async function(event, context) { console.log(&quot;ENVIRONMENT VARIABLES\n&quot; + JSON.stringify(process.env, null, 2)) console.log(&quot;EVENT\n&quot; + JSON.stringify(event, null, 2)) return context.logStreamName }   打包
+zip function.zip index.js  aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x --role arn:aws:iam::123456789012:role/lambda-cli-role --endpoint-url=http://localhost:4574  aws lambda get-function --function-name my-function --endpoint-url=http://localhost:4574 { &quot;Code&quot;: { &quot;Location&quot;: &quot;http://localhost:4574/2015-03-31/functions/my-function/code&quot; }, &quot;Configuration&quot;: { &quot;TracingConfig&quot;: { &quot;Mode&quot;: &quot;PassThrough&quot; }, &quot;Version&quot;: &quot;$LATEST&quot;, &quot;CodeSha256&quot;: &quot;3d149vplmMjIEgZuPhQgnFJ+tndL4I9D11GL1qdgT6M=&quot;, &quot;FunctionName&quot;: &quot;my-function&quot;, &quot;LastModified&quot;: &quot;2019-09-29T01:16:43.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-step-function-with-local-lambda/">基于local stack的Step Function本地化开发</a></h2>
+    <div class="article-style">
+      
+      安装AWS CLI
+(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
+(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-cloudformation-with-localstack/">基于Localstack的本地云服务编排</a></h2>
+    <div class="article-style">
+      
+       https://stackoverflow.com/questions/44547574/create-api-gateway-in-localstack/48682628
+https://github.com/localstack/localstack/issues/632
+AWS SAM is an extension for the AWS CloudFormation template language that lets you define serverless applications at a higher level
+localstack default regrion us-east-1
+create stack file path has to be in file URL format(file:///home/user/&hellip;)
+func.yaml
+AWSTemplateFormatVersion: '2010-09-09' Description: Simple CloudFormation Test Template Resources: S3Bucket: Type: AWS::S3::Bucket Properties: AccessControl: PublicRead BucketName: test-bucket-1  aws cloudformation create-stack --stack-name funstack --template-body file:///data/func.yaml --endpoint-url=http://localhost:4581 --region us-east-1  aws cloudformation describe-stacks --endpoint-url=http://localhost:4581 --region us-east-1  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></h2>
+    <div class="article-style">
+      
+      AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/terraform-notes/">Terraform Notes</a></h2>
+    <div class="article-style">
+      
+      前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+
+
+

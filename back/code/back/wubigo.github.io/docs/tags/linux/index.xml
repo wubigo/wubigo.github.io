@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LINUX on wubigo</title>
+    <link>https://wubigo.com/tags/linux/</link>
+    <description>Recent content in LINUX on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Jun 2020 17:03:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos Notes</title>
+      <link>https://wubigo.com/post/centos-notes/</link>
+      <pubDate>Sat, 13 Jun 2020 17:03:30 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/centos-notes/</guid>
+      <description>自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
+DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network   set the default route on interface
+DEFROUTE=&amp;quot;yes&amp;quot;   删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
+sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.</description>
+    </item>
+    
+    <item>
+      <title>Linux删除Python3.5</title>
+      <link>https://wubigo.com/post/linux-python3.5-remove/</link>
+      <pubDate>Sun, 24 Mar 2019 14:04:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-python3.5-remove/</guid>
+      <description>之前一直用pycharm,今天把code升级到1.3.2的时候， 突然提示我安装python扩展，决定试试。 结果发现python的解释器设置有问题， 总是设置为系统的解释器， 而虚拟环境的解释器不起作用。
+apt remove --purge python3.5 reboot  结果ubuntu桌面启动不了。好多应用程序例如chrome，virtualbox都消失了， 造成了很大的麻烦。
+Ctrl+Alt+F1进入虚拟控制台登录
+apt install python3.5 apt install ubuntu-desktop  重新安装chrome和virtualbox
+cd /etc/apt/sources.list.d sudo mv google-chrome.list.save google-chrome.list apt update apt install google-chrome-stable  </description>
+    </item>
+    
+    <item>
+      <title>Vxlan on Linux</title>
+      <link>https://wubigo.com/post/vxlan-on-linux/</link>
+      <pubDate>Thu, 03 Jan 2019 11:31:17 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vxlan-on-linux/</guid>
+      <description> 端到端VXLAN(unicast) ip a ip link add vxlan0 type vxlan \ id 42 \ dstport 4789 \ remote 10.12.0.172 \ local 10.12.2.95 \ dev eth0 ip -d link show dev vxlan0 ip addr add 192.168.8.101/24 dev vxlan0 ip link set vxlan0 up ip r default via 10.12.0.1 dev eth0 10.12.0.0/21 dev eth0 proto kernel scope link src 10.12.2.95 192.168.8.0/24 dev vxlan0 proto kernel scope link src 192.168.8.101 bridge fdb | grep vxlan0 ip neigh  多播vxlan(multicast) </description>
+    </item>
+    
+    <item>
+      <title>Linux performance</title>
+      <link>https://wubigo.com/post/2018-11-07-linuxperformancetuning/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubigo.com/post/2018-11-07-linuxperformancetuning/</guid>
+      <description>putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
+Interrupt Coalescence ubuntu 16 default
+Interrupt Coalescence (IC)
+$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
+$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
+use Jumbo frames
+ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
+ip -s link show eth0  stop irqbalance for home user</description>
+    </item>
+    
+    <item>
+      <title>常用的网络工具</title>
+      <link>https://wubigo.com/post/network-tools/</link>
+      <pubDate>Sat, 31 Mar 2018 06:29:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/network-tools/</guid>
+      <description>常用命令 常用命令
+bandwidth utilization tool wget -qO- https://github.com/imsnif/bandwhich/releases/download/${WHAT_VERSION}/bandwhich-v${WHAT_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar xvz -C ~/bin/ bandwhich  TCP tcpdump-windows
+TCP DUMP</description>
+    </item>
+    
+    <item>
+      <title>Linux Chrome</title>
+      <link>https://wubigo.com/post/linux-chrome/</link>
+      <pubDate>Sat, 31 Mar 2018 06:20:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-chrome/</guid>
+      <description>禁止启动时候恢复页面提示 Version 73.0.3683.86 (Official Build) (64-bit)
+ 方法1（可靠）  首先关闭chrome，然后修改下面的设置，修改完后重启
+.config/google-chrome/Default/Preferences
+sed -i &#39;/exit_type:Crashed/exit_type:Normal/`  windows用户请参考下面的视频
+Chrome Didn&amp;rsquo;t Shut Down Correctly Error Solved Windows 7
+ 方法2（不可靠）  Type in address bar (Crtl+L).
+chrome://flags/#infinite-session-restore  Click on the right drop-down menu and change the &amp;lsquo;Default&amp;rsquo; value to &amp;lsquo;Disable&amp;rsquo;. Then restart Chrome to apply that setting
+enter password to unlock your keyring  方法1（可靠）
+ set password-store to basic
+dpkg -L google-chrome-stable |grep desktop | xargs cp {1} ~/.</description>
+    </item>
+    
+    <item>
+      <title>Linux中的虚拟网络设施</title>
+      <link>https://wubigo.com/post/virtual-networking-on-linux/</link>
+      <pubDate>Sat, 11 Nov 2017 09:42:42 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/virtual-networking-on-linux/</guid>
+      <description>标准设备  Bridge: A Linux bridge behaves like a network switch. It forwards packets between interfaces that are connected to it. It&amp;rsquo;s usually used for forwarding packets on routers, on gateways, or between VMs and network namespaces on a host. It also supports STP, VLAN filter, and multicast snooping. TUN: TUN (network Tunnel) devices work at the IP level or layer three level of the network stack and are usually point-to-point connections.</description>
+    </item>
+    
+    <item>
+      <title>Linux SSH</title>
+      <link>https://wubigo.com/post/linux-ssh/</link>
+      <pubDate>Thu, 16 Mar 2017 17:21:24 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-ssh/</guid>
+      <description>ssh client config ~/.ssh/config
+host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
+ForwardAgent yes  Enable ssh-agent on main device
+  .bashrc
+SSH_ENV=&amp;quot;$HOME/.ssh/environment&amp;quot; function start_agent { echo &amp;quot;Initialising new SSH agent...&amp;quot; /usr/bin/ssh-agent | sed &#39;s/^echo/#echo/&#39; &amp;gt; &amp;quot;${SSH_ENV}&amp;quot; echo succeeded chmod 600 &amp;quot;${SSH_ENV}&amp;quot; . &amp;quot;${SSH_ENV}&amp;quot; &amp;gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &amp;quot;${SSH_ENV}&amp;quot; ]; then .</description>
+    </item>
+    
+    <item>
+      <title>通过SSH远程修复linux</title>
+      <link>https://wubigo.com/post/reinstall-a-running-linux-system-via-ssh/</link>
+      <pubDate>Sat, 11 Mar 2017 22:35:16 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/reinstall-a-running-linux-system-via-ssh/</guid>
+      <description>tl;dr
+uget https://osdn.net/projects/systemrescuecd/storage/releases/6.0.2/systemrescuecd-6.0.2.iso sudo mount -t tmpfs tmpfs /takeover/ sudo mount -o loop,ro -t iso9660 ~/systemrescuecd-6.0.2.iso /mnt/cd cp -rf /mnt/cd/* /takeover/ curl -L https://www.busybox.net/downloads/binaries/1.26.2-defconfig-multiarch/busybox-x86_64 &amp;gt; busybox chmod u+x /takeover/busybox git clone https://github.com/marcan/takeover.sh.git gcc takeover.sh/fakeinit.c -o ./fakeinit  </description>
+    </item>
+    
+    <item>
+      <title>Ubungu Chinese locale</title>
+      <link>https://wubigo.com/post/ubungu-chinese/</link>
+      <pubDate>Thu, 23 Feb 2017 07:21:31 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/ubungu-chinese/</guid>
+      <description>/etc/default/locale
+update-locale LANG=zh_CN.UTF-8 # File generated by update-locale LANG=&amp;quot;en_US.UTF-8&amp;quot; LC_NUMERIC=&amp;quot;zh_CN.UTF-8&amp;quot; LC_TIME=&amp;quot;zh_CN.UTF-8&amp;quot; LC_MONETARY=&amp;quot;zh_CN.UTF-8&amp;quot; LC_PAPER=&amp;quot;zh_CN.UTF-8&amp;quot; LC_NAME=&amp;quot;zh_CN.UTF-8&amp;quot; LC_ADDRESS=&amp;quot;zh_CN.UTF-8&amp;quot; LC_TELEPHONE=&amp;quot;zh_CN.UTF-8&amp;quot; LC_MEASUREMENT=&amp;quot;zh_CN.UTF-8&amp;quot; LC_IDENTIFICATION=&amp;quot;zh_CN.UTF-8&amp;quot; LANGUAGE=&amp;quot;zh_CN:en_US:en&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>linux note</title>
+      <link>https://wubigo.com/post/linux-notes/</link>
+      <pubDate>Sun, 03 Jun 2012 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/linux-notes/</guid>
+      <description>iptables规则配置  表与链   调用链顺序   检查内存 ram speed and type
+ dmidecode
+sudo dmidecode --type memory # dmidecode 3.0 Getting SMBIOS data from sysfs. SMBIOS 2.6 present. Handle 0x003E, DMI type 17, 28 bytes Memory Device Array Handle: 0x003C Error Information Handle: Not Provided Total Width: Unknown Data Width: Unknown Size: No Module Installed Form Factor: DIMM Set: 1 Locator: XMM1 Bank Locator: Not Specified Type: DDR3 Type Detail: Synchronous Speed: Unknown Manufacturer: JEDEC ID: Serial Number: Asset Tag: Not Specified Part Number: Rank: Unknown  lshw</description>
+    </item>
+    
+    <item>
+      <title>Linux File System Read Write Performance Test</title>
+      <link>https://wubigo.com/post/2011-06-03-io-performance/</link>
+      <pubDate>Fri, 03 Jun 2011 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2011-06-03-io-performance/</guid>
+      <description>dstat $dstat -d -nt $dstat -nt $dstat -N eth2,eth3  pkstat sudo apt-get install pktstat sudo pktstat -i eth0 -nt  nethogs sudo apt-get install nethogs sudo nethogs  EPEL http://www.cyberciti.biz/faq/fedora-sl-centos-redhat6-enable-epel-repo/
+$ cd /tmp $ wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm  How do I use EPEL repo?
+Simply use the yum commands to search or install packages from EPEL repo:
+# yum search nethogs # yum update # yum --disablerepo=&amp;quot;*&amp;quot; --enablerepo=&amp;quot;epel&amp;quot; install nethogs  System administrators responsible for handling Linux servers get confused at times when they are told to benchmark a file system&amp;rsquo;s performance.</description>
+    </item>
+    
+    <item>
+      <title>shell script</title>
+      <link>https://wubigo.com/post/2011-01-01-shell-script/</link>
+      <pubDate>Sat, 01 Jan 2011 19:39:03 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2011-01-01-shell-script/</guid>
+      <description>push docker images to ali  registry-mirrors   https://cr.console.aliyun.com
+ #!/usr/bin/env bash docker login --username=wubigo registry.cn-beijing.aliyuncs.com docker images | grep v1.13 | awk &#39;{ print $1 }&#39; | sed --expression=s&#39;/K8S.gcr.io\///&#39; | xargs -i -t docker tag K8S.gcr.io/{}:v1.13.3 registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3 docker images |grep &amp;quot;registry.cn-beijing.aliyuncs.com&amp;quot;| awk &#39;{ print $1 }&#39;| sed --expression=s&#39;/registry.cn-beijing.aliyuncs.com\/co1\///&#39; | xargs -i -t docker push registry.cn-beijing.aliyuncs.com/co1/{}:v1.13.3  docker push through cache #!/usr/bin/env bash if [ -z &amp;quot;$VM&amp;quot; ]; then VM = t1 echo &amp;quot;VAR VM is not set&amp;quot; exit fi tee daemon.</description>
+    </item>
+    
+  </channel>
+</rss>

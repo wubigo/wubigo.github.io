@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/aws/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/tags/aws/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/tags/aws/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/tags/aws/">
+  <meta property="og:title" content="AWS | wubigo">
+  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="og:updated_time" content="2019-12-08T11:37:33&#43;08:00">
+  
+
+  
+
+  
+
+  <title>AWS | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1 itemprop="name">AWS</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/aws-reinvent-2019-keynote/">AWS Re:Invent 2019主题汇总-P1</a></h2>
+    <div class="article-style">
+      
+       计算 尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，
+主要的新功能包括：
+ 基于Nitro平台的针对HPC和机器学习的负载的实例
+ 基于定制芯片Inferencia针对机器学习实例
+ 标准实例支持100Gb网络带宽
+  网络  传输网关支持多播
+ 加速的网络到网络的VPN链接
+  存储和数据分析  S3 Access Points和数据湖
+ ES搜索支持S3
+ 联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据
+ AQUA查询加速器
+ 数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)
+ 托管的Cassandra服务
+  函数计算  Provisioned Concurrency for Lambda Functions
+ EKS正式支持FARGATE
+ RDS PROXY
+ VPC支持更新
+  先锋基金IT迁移架构图 私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年) 数据仓库和PaaS迁移到AWS PaaS实施基于EDA架构的改造 PaaS迁移到Fargate 
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-s3-access-point/">Aws S3 Access Point</a></h2>
+    <div class="article-style">
+      
+      aws sts get-caller-identity aws s3control list-access-points --account-id 46569194568 aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point { &quot;Name&quot;: &quot;my-access-point&quot;, &quot;PublicAccessBlockConfiguration&quot;: { &quot;IgnorePublicAcls&quot;: true, &quot;BlockPublicPolicy&quot;: true, &quot;BlockPublicAcls&quot;: true, &quot;RestrictPublicBuckets&quot;: true }, &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;, &quot;Bucket&quot;: &quot;wubigo&quot;, &quot;NetworkOrigin&quot;: &quot;Internet&quot; }  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/use-public-cloud-for-free/">免费使用公有云服务</a></h2>
+    <div class="article-style">
+      
+      [TOC]
+AWS领先的设计理念和强大的技术生态
+使你身陷其中，学习你要用它，开发你要
+用它，上线还要用它。 一年下来项目还没有
+正式商用，已经有十几万的研发费用。
+今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
+让你使用AWS免费，至少在项目POC或开发测试阶段免费。
+有了它， 你不用再焦急的等待老板审批公有云的
+计算，存储，数据库资源开发申请。
+是不是这个项目听起来很激动？
+那如何使用localstack呢？
+安装localstack localstack是一个非常活跃的正在快速成长中的项目，
+建议通过源代码安装
+ 下载源代码
+git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
+  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
+注意服务的名字必须来自服务名字列表， 否则不识别
+启用服务就是修改下边的配置文件
+localstack\docker-compose.yml
+ SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
+docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-lambda-dynamodb/">Lambda订阅SNS通知(下)</a></h2>
+    <div class="article-style">
+      
+       创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-lambda-as-a-subscriber-of-sns/">Lambda订阅SNS通知(上)</a></h2>
+    <div class="article-style">
+      
+      发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name '/aws/lambda/my-function' --query logStreams[*].logStreamName aws logs get-log-events --log-group-name '/aws/lambda/my-function' --log-stream-name '2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c' { &quot;ingestionTime&quot;: 1577764111252, &quot;timestamp&quot;: 1577764096184, &quot;message&quot;: &quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&quot;Records\&quot;: [\n {\n \&quot;EventSource\&quot;: \&quot;aws:sns\&quot;,\n \&quot;EventVersion\&quot;: \&quot;1.0\&quot;,\n \&quot;EventSubscriptionArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&quot;,\n \&quot;Sns\&quot;: {\n \&quot;Type\&quot;: \&quot;Notification\&quot;,\n \&quot;MessageId\&quot;: \&quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&quot;,\n \&quot;TopicArn\&quot;: \&quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&quot;,\n \&quot;Subject\&quot;: null,\n \&quot;Message\&quot;: \&quot;MESSAGE_TEXT\&quot;,\n \&quot;Timestamp\&quot;: \&quot;2019-12-31T03:48:15.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-s3-data-lake/">Aws S3 Data Lake</a></h2>
+    <div class="article-style">
+      
+      https://medium.com/people-ai-engineering/building-a-data-lake-in-aws-9c1fb3876e23
+https://towardsdatascience.com/building-a-data-pipeline-from-scratch-on-aws-35f139420ebc
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/serverless-nodejs/">函数计算Nodejs实例</a></h2>
+    <div class="article-style">
+      
+      restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &lt;&lt;-'EOF' complete -C '/home/ubuntu/.local/bin/aws_completer' aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-iam-policy/">Aws IAM Policy</a></h2>
+    <div class="article-style">
+      
+      AWS leverages a standard JSON Identity and Access Management (IAM)
+policy document format across many services to control authorization
+to resources and API actions
+terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
+resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-ec2-macvaln/">Aws EC2 MACVLAN</a></h2>
+    <div class="article-style">
+      
+      Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers
+through bridges or macvlan. Dedicating a network interface to a
+container makes it directly unreachable from the host.
+docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net docker run -d --network pub_net --ip 172.30.80.10 busybox  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-vpc-connection/">Aws VPC之间或VPC与私有网络之间的连接方式汇总</a></h2>
+    <div class="article-style">
+      
+       VPC之间的连接方式  专线
+ VPN托管服务
+ VPN Peering
+ 自建或第三方VPN
+ PrivateLink
+  VPC与私有网络之间的连接方式  VPN托管服务
+ 专线
+ 专线+VPN
+ 自建或第三方VPN
+ Transit VPC
+ VPN Hub
+  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-sr-iov/">Aws SR IOV</a></h2>
+    <div class="article-style">
+      
+      Enabling Enhanced Networking on Ubuntu sudo apt-get update &amp;&amp; sudo apt-get upgrade -y linux-aws  https://docs.aws.amazon.com/AWSEC2/latest/UserGuide//sriov-networking.html#enhanced-networking-ubuntu
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-s3-web-hosting/">Aws S3 Web Hosting</a></h2>
+    <div class="article-style">
+      
+       创建BUCKET 使用两种方式之一创建BUCKET
+ terraform
+git clone https://github.com/wubigo/iaas cd s3 terraform apply  awscli
+aws s3 website s3://s.wubigo.com/ --index-document index.html --error-document 404.html aws s3api put-bucket-policy --bucket s.wubigo.com --policy file://policy.json   确认配置 aws s3api get-bucket-website --bucket s.wubigo.com { &quot;IndexDocument&quot;: { &quot;Suffix&quot;: &quot;index.html&quot; }, &quot;ErrorDocument&quot;: { &quot;Key&quot;: &quot;404.html&quot; } }  配置DNS C记录 查看S3 Website Endpoints: s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com
+CNAME Record	s s.wubigo.com.s3-website-ap-northeast-1.amazonaws.com  上传站点内容 aws s3 cp wubigo.github.io s3://s.wubigo.com/ --recursive  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-free-tier-quota/">AWS云服务免费额度列表</a></h2>
+    <div class="article-style">
+      
+      AWS免费类型  首次注册后的12个月免费
+ 永久免费
+ 试用
+  aws永久免费的服务 计算服务  Lambda
+1百万请求/月
+400,000 GB-seconds of compute time per month
+ Step
+4000/月
+  存储  DynamoDB
+25GB
+ S3
+  The S3 free tier allows users to store 5 GB of data with standard storage, issue
+20,000 GET requests and 2,000 PUT requests, and transfer 15 GB of data out each
+month
+ Glacier
+10GB
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/2014-02-03-aws-notes/">Aws Notes</a></h2>
+    <div class="article-style">
+      
+      查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-ec2-secondary-network-interface/">Aws EC2 多网卡配置</a></h2>
+    <div class="article-style">
+      
+      We can no longer assign a public IP address to your instance
+The auto-assign public IP address feature for this instance is disabled because you specified multiple network interfaces. Public IPs can only be assigned to instances with one network interface. To re-enable the auto-assign public IP address feature, please specify only the eth0 network interface.
+ ip MAC=`curl http://169.254.169.254/latest/meta-data/mac` curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${MAC}/local-ipv4s  配置第二块网卡 ip a | grep ^[[:digit:]] tee -a /etc/network/interfaces.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-dynamodb-notes/">Aws Dynamodb Notes</a></h2>
+    <div class="article-style">
+      
+       QUERY aws dynamodb scan --table-name &quot;orders&quot;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-new-guy-cheat-sheet/">公有云羊毛党使用秘籍(新手篇)</a></h2>
+    <div class="article-style">
+      
+      本文所说的新手是指还在12个月免费期内的用户
+只要有一张信用卡，就可以注册一个AWS账号。
+对于AWS新注册账号，有12个月的免费使用额度
+具体额度如下：
+服务
+   服务 额度 当月使用统计     服务器 750小时 t2.micro    硬盘 30GB    硬盘快照 1GB    网盘 5G    数据库 25G    函数计算 1百万次调用     下图我这个月的使用额度
+计算和存储 从上面的图可以看出，AWS免费额度里面比较鸡肋的是
+网盘快照的额度太少，走常规的操作系统镜像备份是要
+花钱的，因为一个最小的ubuntu实例镜像就是8G，
+如何做到保存自己的最新工作成果，而又额外使用快照从而
+节省存储费用呢？
+解决办法如下：
+硬盘外挂  创建EC2
+ 创建一块硬盘，小于20G即可，并把该硬盘外挂到EC2
+ 在外挂的硬盘里面保存自己的操作数据
+ 使用user_data初始化包括安装常用软件包，自动外挂硬盘等
+ 使用完EC2销毁即可(卸载外挂硬盘千万不要销毁外挂的硬盘)
+  上面的操作可以使用基础设施配置工具(ansible, terraform, pupport等)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-iam-notes/">Aws Iam Notes</a></h2>
+    <div class="article-style">
+      
+      REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &quot;log-writer&quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-billing-notes/">Aws Billing Notes</a></h2>
+    <div class="article-style">
+      
+      NAT GATEWAY 数据备份S3 Infrequent Access Tier, All Storage / Month $0.0125 per GB
+ Archive 50 TB into Amazon S3  If you perform a one-time migration of 50 TB of 16 MB files into Amazon S3 in US East (Ohio), it costs you the following to use DataSync: (50 TB copied into S3 * 1024 GB * $0.0125/GB) + (1 S3 LIST request * $0.005 / 1000) + (50 TB / 16 MB S3 PUT requests * $0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/aws-vpc-notes/">Aws VPC 基础</a></h2>
+    <div class="article-style">
+      
+      典型使用场景  单一公开子网   公开子网和私有子网   企业数据中心+公开子网   企业数据中心  公网网关 An Internet gateway is a fully managed AWS service that performs bi-direction source and destination network address translation for your EC2 instances. Optionally, a VPC may use a virtual private gateway to grant instances secure access to a user’s corporate network via VPN or direct connect links. Instances in a subnet can also be granted outbound only Internet access through a NAT gateway.
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+
+
+

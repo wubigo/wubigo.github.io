@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ARCHITECTURE on wubigo</title>
+    <link>https://wubigo.com/tags/architecture/</link>
+    <description>Recent content in ARCHITECTURE on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Sep 2019 07:48:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>虚拟机 -&gt; 容器 -&gt; 函数计算</title>
+      <link>https://wubigo.com/post/from-vm-to-container-to-serverless/</link>
+      <pubDate>Thu, 26 Sep 2019 07:48:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/from-vm-to-container-to-serverless/</guid>
+      <description>昨天看到AWS STEP FUNCTIONS支持嵌套的工作流
+，当时就被震惊了。 AWS早些年推出SWF框架提供工作流服务，
+后来工作流服务就没有大的工作，SWF框架的核心开发者一部分
+离职去了UBER开发Cadence。没想到沉寂了多年的AWS会在STEP FUNCTIONS
+支持工作流，看来这个千亿规模的市场又快被颠覆了。
+20多年来，工作流都是超大型企业的配置专利，而STEP function的推出
+可以预计，高大上的工作流服务会很快走进很多中小企业工作台并被普及应用。
+回顾一下自己的工作历史：
+从以前的数据中心服务器SA(2006), 到虚拟主机ESX，
+再到OPENSTACK(2010)搭建混合云，
+然后利用K8S(2014)搭建PaaS，现在SERVERLESS,
+计算架构正在发生快速的演进。本文梳理了算力演进历史和未来
+内容
+ 从虚拟主机到容器
+ 从容器到unikernel
+ 函数计算的蓬勃发展
+  什么是虚拟计算 hypervisor分类  Type-1 裸机  KVM, QEMU, VMWare, Virtualbox
+ Type-2 托管  XenServer， Hyper-v， KVM, ESX, Xen
+虚拟机的问题  贵  一台云主机(8G/4Core/500MBps)在2017年的超过6000元/年
+ 操作慢  一个普通的镜像在2G左右，再加上JAVA应用，一个镜像需要10G.
+启动，备份非常不便。
+容器计算 |虚拟机| 容器 |:&amp;mdash;|:&amp;mdash;|:&amp;mdash;| 构件| 完整的操作系统和应用| 微内核和应用 虚拟技术| 硬件虚拟化| 操作系统虚拟化
+容器计算带来什么好处  容器镜像小  alpine的容量是2M</description>
+    </item>
+    
+  </channel>
+</rss>

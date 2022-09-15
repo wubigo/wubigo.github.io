@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/mysql/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/tags/mysql/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/tags/mysql/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/tags/mysql/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/tags/mysql/">
+  <meta property="og:title" content="MYSQL | wubigo">
+  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="og:updated_time" content="2018-04-28T17:08:07&#43;08:00">
+  
+
+  
+
+  
+
+  <title>MYSQL | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1 itemprop="name">MYSQL</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/data-lake/">Data Lake</a></h2>
+    <div class="article-style">
+      
+      设计目标  存取（入库和分析）高效
+ 节省存储空间
+  评估单台设备基于采集评率的每年存储成本
+http://mysql.rjweb.org/doc.php/datawarehouse
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-high-performance/">Mysql High Performance</a></h2>
+    <div class="article-style">
+      
+      InnoDB MySQL 5.1 shipping the older version of InnoDB, If you’re using MySQL 5.1, please ensure that you’re using the InnoDB plugin. It’s much better than the older version of InnoDB.
+It now scales well to 24 CPU cores, and arguably up to 32 or even more cores depending on the scenario
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/spring-oauth2/">Spring Oauth2</a></h2>
+    <div class="article-style">
+      
+       http://localhost:8080/oauth/token
+curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
+access protected resource 
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-relocate-the-data-directory/">Mysql Relocate the Data Directory</a></h2>
+    <div class="article-style">
+      
+      cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
+/data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-tuning-on-many-tables/">Mysql Tuning on Many Tables</a></h2>
+    <div class="article-style">
+      
+      mysqladmin status  MySQL is multithreaded, so there may be many clients issuing queries for a given table simultaneously. To minimize the problem with multiple client sessions having different states on the same table, the table is opened independently by each concurrent session. This uses additional memory but normally increases performance
+The table_open_cache and max_connections system variables affect the maximum number of files the server keeps open. If you increase one or both of these values, you may run up against a limit imposed by your operating system on the per-process number of open file descriptors.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-tuning-on-query/">Mysql Tuning on Query</a></h2>
+    <div class="article-style">
+      
+      innodb-memcached-multiple-get-range-query  native partitioning in-place APIs
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/redis-install-ubuntu/">Redis Install Ubuntu</a></h2>
+    <div class="article-style">
+      
+      install curl -O http://download.redis.io/redis-stable.tar.gz tar xzvf redis-stable.tar.gz cd redis-stable make make test sudo make install  config sudo mkdir /etc/redis sudo cp redis-stable/redis.conf /etc/redis sudo adduser --system --group --no-create-home redis sudo mkdir /var/lib/redis sudo chown redis:redis /var/lib/redis sudo chmod 770 /var/lib/redis  /etc/redis/redis.conf
+supervised systemd dir /var/lib/redis # bind localhost  start redis-server /etc/redis/redis.conf  shutdown redis-cli shutdown redis-cli 127.0.0.1:6379&gt; shutdown  run in docker docker run --name redis -network host -v /var/lib/redis:/data /etc/redis/redis.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-slave/">Mysql Slave</a></h2>
+    <div class="article-style">
+      
+       [mysqld] server-id = 2 relay-log-index = slave-relay-bin.index relay-log = slave-relay-bin  mysql&gt;CHANGE MASTER TO MASTER_HOST = 'db2',MASTER_PORT = 3306, MASTER_USER = 'repl_user', MASTER_PASSWORD = 'xyzzy';  Connecting the Master mysql&gt; START SLAVE;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-tuning-on-os/">Mysql Tuning on OS</a></h2>
+    <div class="article-style">
+      
+      Server and Operating System  Kernel – vm.swappiness  Disables swapping completely while 1 causes the kernel to perform the minimum amount of swapping
+# Set the swappiness value as root echo 1 &gt; /proc/sys/vm/swappiness # Alternatively, using sysctl sysctl -w vm.swappiness=1 # Verify the change cat /proc/sys/vm/swappiness 1 # Alternatively, using sysctl sysctl vm.swappiness vm.swappiness = 1  Filesystems – XFS/ext4/ZFS     FILE SIZE mount option     EXT4 16TB noatime,data=writeback,barrier=0,nobh,errors=remount-ro   XFS 8EiB defaults,nobarrier    Disk Subsystem – I/O scheduler Most modern Linux distributions come with noop or deadline I/O schedulers by default, both providing better performance than the cfq and anticipatory ones
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-innodb/">Mysql 5.7 InnoDB</a></h2>
+    <div class="article-style">
+      
+      mysql 8 测试环境快速搭建(WSL/root远程访问) sudo apt install -y mysql-server mysql --version sudo mysql mysql&gt;CREATE USER 'root'@'%' IDENTIFIED BY '123'; mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; mysql&gt;flush PRIVILEGES  mysql.conf.d/mysqld.cnf :32:bind-address = 0.0.0.0
+sudo service mysql restart  Create the root user (yes, a new user because what exists is &lsquo;root@localhost&rsquo; which is local access only)
+root用户本地登录 本地登录使用系统认证(auth_socket)
+sudo mysql  root用户远程登录 mysql -u root -p'123' -h 192.168.168.128  mysql&gt; select user,host,plugin from mysql.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql5.7/">Mysql5.7</a></h2>
+    <div class="article-style">
+      
+      mysql install ubuntu 16.04 install mysql 5.7 at default
+sudo apt-get update sudo apt-get install mysql-server   Enable root remote connection
+mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '&lt;password&gt;' WITH GRANT OPTION; mysql&gt;FLUSH PRIVILEGES;   SHOW current setting mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'innodb%';  MySQL 5.7 has significantly better default values. the following variables are set by default:
+[mysqld] innodb_buffer_pool_instances=8 innodb_flush_method=O_DIRECT  setting of mysql 5.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-partition/">Mysql Partition</a></h2>
+    <div class="article-style">
+      
+       whether MySQL Server supports partitioning
+mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition   
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-sql-mode/">Mysql 5.7 SQL MODE</a></h2>
+    <div class="article-style">
+      
+       show the last queries mysql&gt;SET GLOBAL log_output = 'FILE'; mysql&gt;SET GLOBAL general_log = 'ON'; mysql&gt;SHOW VARIABLES WHERE Variable_name LIKE 'general_log_file'  Disable ONLY_FULL_GROUP_BY SHOW VARIABLES WHERE Variable_name LIKE 'sql_mode'; +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | Variable_name | Value | +---------------+-------------------------------------------------------------------------------------------------------------------------------------------+ | sql_mode | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |  [mysqld] sql_mode = &quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;  mysql&gt; SHOW CREATE TABLE &lt;tablename&gt;;  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-master/">Mysql Master</a></h2>
+    <div class="article-style">
+      
+      [mysqld] log-bin = master-bin log-bin-index = master-bin.index server-id = 1  Grant the user to retrieve the binary log from the master
+mysql&gt;CREATE USER repl_user; GRANT REPLICATION SLAVE ON *.* TO repl_user IDENTIFIED BY 'xyzzy';  
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-notes/">Mysql Notes</a></h2>
+    <div class="article-style">
+      
+      查看表状态 show table status FROM redis_db like 'point_value'; +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ | point_value | InnoDB | 10 | Dynamic | 316755485 | 143 | 45420118016 | 0 | 0 | 3145728 | NULL | 2022-01-30 18:55:44 | 2022-02-06 18:17:56 | NULL | utf8_general_ci | NULL | | | +-------------+--------+---------+------------+-----------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+ 1 row in set (0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5.7-myisam/">Mysql 5.7 MyISAM</a></h2>
+    <div class="article-style">
+      
+      key_buffer_size  the size of the index buffers held in memory, which affects the speed of index reads
+recommend: 25% or more of the available server memory
+A good way to determine whether to adjust the value is to compare the key_read_requests value, which is the total value of requests to read an index, and the key_reads values, the total number of requests that had to be read from disk.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/mysql-5-on-ubuntu20/">install Mysql 5 on Ubuntu20</a></h2>
+    <div class="article-style">
+      
+       select myql 5.7 wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb dpkg -i mysql-apt-config_0.8.12-1_all.deb  turns off the GPG check sources.list.d/mysql.list
+deb [trusted=yes] http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7  install mysql and create admin user sudo apt update apt-cache policy mysql-server | grep 5.7 sudo apt install mysql-client=5.7.37-1ubuntu18.04 mysql-community-server=5.7.37-1ubuntu18.04 mysql -u root -p GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' IDENTIFIED BY 'pass' WITH GRANT OPTION  
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+
+
+

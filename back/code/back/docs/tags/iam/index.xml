@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IAM on wubigo</title>
+    <link>https://wubigo.com/tags/iam/</link>
+    <description>Recent content in IAM on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Nov 2020 16:10:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/iam/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS SSO Connect to External SAML Identity Provider</title>
+      <link>https://wubigo.com/post/aws-sso-connect-to-external-identity-provider/</link>
+      <pubDate>Sat, 21 Nov 2020 16:10:31 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-sso-connect-to-external-identity-provider/</guid>
+      <description>Create an external identity provider in AWS IAM/Access management/identity_providers/
+create a SAML type identity_providers
+Set up an external identity provider in AWS AWS SSO/Settings
+Configure SAML SSO in your own identity provider Create AWS IAM role Access Management/SAML 2.0 Federation
+set the provider you created above as the SAML provider. Select Allow programmatic and AWS Management Console access.
+On the Attach Permission Policies page, select the appropriate policies to attach to the role.</description>
+    </item>
+    
+    <item>
+      <title>Aws IAM Policy</title>
+      <link>https://wubigo.com/post/aws-iam-policy/</link>
+      <pubDate>Fri, 30 Nov 2018 23:54:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-policy/</guid>
+      <description>AWS leverages a standard JSON Identity and Access Management (IAM)
+policy document format across many services to control authorization
+to resources and API actions
+terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
+resource &amp;quot;aws_iam_role_policy&amp;quot; &amp;quot;s3_policy&amp;quot; { name = &amp;quot;s3_policy&amp;quot; role = &amp;quot;${aws_iam_role.lambda_s3_role.id}&amp;quot; policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Sid&amp;quot;: &amp;quot;ListObjectsInBucket&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: [&amp;quot;s3:ListBucket&amp;quot;], &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name&amp;quot;] }, { &amp;quot;Sid&amp;quot;: &amp;quot;AllObjectActions&amp;quot;, &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;, &amp;quot;Action&amp;quot;: &amp;quot;s3:*Object&amp;quot;, &amp;quot;Resource&amp;quot;: [&amp;quot;arn:aws:s3:::bucket-name/*&amp;quot;] } ] } EOF } resource &amp;quot;aws_iam_role&amp;quot; &amp;quot;lambda_s3_role&amp;quot; { name = &amp;quot;lambda_s3_role&amp;quot; assume_role_policy = &amp;lt;&amp;lt;EOF { &amp;quot;Version&amp;quot;: &amp;quot;2012-10-17&amp;quot;, &amp;quot;Statement&amp;quot;: [ { &amp;quot;Action&amp;quot;: &amp;quot;sts:AssumeRole&amp;quot;, &amp;quot;Principal&amp;quot;: { &amp;quot;Service&amp;quot;: &amp;quot;lambda.</description>
+    </item>
+    
+    <item>
+      <title>Aws Iam Notes</title>
+      <link>https://wubigo.com/post/aws-iam-notes/</link>
+      <pubDate>Sat, 20 Feb 2016 14:30:23 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-iam-notes/</guid>
+      <description>REMOVE ROLE delete policy before delete role
+aws iam list-roles aws iam list-role-policies --role-name api-executor aws iam delete-role-policy --role-name api-executor -policy-name &amp;quot;log-writer&amp;quot; aws iam delete-role --role-name pizza-api-executor  ADD ROLE POLICY aws iam put-role-policy \ --role-name pizza-api-executor \ --policy-name PizzaApiDynamoDB \ --policy-document file://./roles/dynamodb.json  You need to provide a path to dynamodb.json with the file:// prefix. If you are providing an absolute path, keep in mind that you will have three slashes after file:.</description>
+    </item>
+    
+  </channel>
+</rss>

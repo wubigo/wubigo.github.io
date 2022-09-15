@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = &#39;bold&#39; ]; then codes=( &quot;${codes[@]}&quot; &#39;1&#39; ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-check-config/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/docker-check-config/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/docker-check-config/">
+  <meta property="og:title" content="Docker Check Config | wubigo">
+  <meta property="og:description" content="#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = &#39;bold&#39; ]; then codes=( &quot;${codes[@]}&quot; &#39;1&#39; ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2016-02-25T17:58:37&#43;08:00">
+  
+  <meta property="article:modified_time" content="2016-02-25T17:58:37&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Docker Check Config | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Docker Check Config</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 25, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Docker%20Check%20Config&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-check-config%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-check-config%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-check-config%2f&amp;title=Docker%20Check%20Config"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-check-config%2f&amp;title=Docker%20Check%20Config"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Docker%20Check%20Config&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-check-config%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <pre><code>#!/usr/bin/env bash
+set -e
+
+EXITCODE=0
+
+# bits of this were adapted from lxc-checkconfig
+# see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in
+
+possibleConfigs=(
+	'/proc/config.gz'
+	&quot;/boot/config-$(uname -r)&quot;
+	&quot;/usr/src/linux-$(uname -r)/.config&quot;
+	'/usr/src/linux/.config'
+)
+
+if [ $# -gt 0 ]; then
+	CONFIG=&quot;$1&quot;
+else
+	: ${CONFIG:=&quot;${possibleConfigs[0]}&quot;}
+fi
+
+if ! command -v zgrep &amp;&gt; /dev/null; then
+	zgrep() {
+		zcat &quot;$2&quot; | grep &quot;$1&quot;
+	}
+fi
+
+kernelVersion=&quot;$(uname -r)&quot;
+kernelMajor=&quot;${kernelVersion%%.*}&quot;
+kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot;
+kernelMinor=&quot;${kernelMinor%%.*}&quot;
+
+is_set() {
+	zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null
+}
+is_set_in_kernel() {
+	zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null
+}
+is_set_as_module() {
+	zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null
+}
+
+color() {
+	local codes=()
+	if [ &quot;$1&quot; = 'bold' ]; then
+		codes=( &quot;${codes[@]}&quot; '1' )
+		shift
+	fi
+	if [ &quot;$#&quot; -gt 0 ]; then
+		local code=
+		case &quot;$1&quot; in
+			# see https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+			black) code=30 ;;
+			red) code=31 ;;
+			green) code=32 ;;
+			yellow) code=33 ;;
+			blue) code=34 ;;
+			magenta) code=35 ;;
+			cyan) code=36 ;;
+			white) code=37 ;;
+		esac
+		if [ &quot;$code&quot; ]; then
+			codes=( &quot;${codes[@]}&quot; &quot;$code&quot; )
+		fi
+	fi
+	local IFS=';'
+	echo -en '\033['&quot;${codes[*]}&quot;'m'
+}
+wrap_color() {
+	text=&quot;$1&quot;
+	shift
+	color &quot;$@&quot;
+	echo -n &quot;$text&quot;
+	color reset
+	echo
+}
+
+wrap_good() {
+	echo &quot;$(wrap_color &quot;$1&quot; white): $(wrap_color &quot;$2&quot; green)&quot;
+}
+wrap_bad() {
+	echo &quot;$(wrap_color &quot;$1&quot; bold): $(wrap_color &quot;$2&quot; bold red)&quot;
+}
+wrap_warning() {
+	wrap_color &gt;&amp;2 &quot;$*&quot; red
+}
+
+check_flag() {
+	if is_set_in_kernel &quot;$1&quot;; then
+		wrap_good &quot;CONFIG_$1&quot; 'enabled'
+	elif is_set_as_module &quot;$1&quot;; then
+		wrap_good &quot;CONFIG_$1&quot; 'enabled (as module)'
+	else
+		wrap_bad &quot;CONFIG_$1&quot; 'missing'
+		EXITCODE=1
+	fi
+}
+
+check_flags() {
+	for flag in &quot;$@&quot;; do
+		echo -n &quot;- &quot;; check_flag &quot;$flag&quot;
+	done
+}
+
+check_command() {
+	if command -v &quot;$1&quot; &gt;/dev/null 2&gt;&amp;1; then
+		wrap_good &quot;$1 command&quot; 'available'
+	else
+		wrap_bad &quot;$1 command&quot; 'missing'
+		EXITCODE=1
+	fi
+}
+
+check_device() {
+	if [ -c &quot;$1&quot; ]; then
+		wrap_good &quot;$1&quot; 'present'
+	else
+		wrap_bad &quot;$1&quot; 'missing'
+		EXITCODE=1
+	fi
+}
+
+check_distro_userns() {
+	source /etc/os-release 2&gt;/dev/null || /bin/true
+	if [[ &quot;${ID}&quot; =~ ^(centos|rhel)$ &amp;&amp; &quot;${VERSION_ID}&quot; =~ ^7 ]]; then
+		# this is a CentOS7 or RHEL7 system
+		grep -q &quot;user_namespace.enable=1&quot; /proc/cmdline || {
+			# no user namespace support enabled
+			wrap_bad &quot;  (RHEL7/CentOS7&quot; &quot;User namespaces disabled; add 'user_namespace.enable=1' to boot command line)&quot;
+			EXITCODE=1
+		}
+	fi
+}
+
+if [ ! -e &quot;$CONFIG&quot; ]; then
+	wrap_warning &quot;warning: $CONFIG does not exist, searching other paths for kernel config ...&quot;
+	for tryConfig in &quot;${possibleConfigs[@]}&quot;; do
+		if [ -e &quot;$tryConfig&quot; ]; then
+			CONFIG=&quot;$tryConfig&quot;
+			break
+		fi
+	done
+	if [ ! -e &quot;$CONFIG&quot; ]; then
+		wrap_warning &quot;error: cannot find kernel config&quot;
+		wrap_warning &quot;  try running this script again, specifying the kernel config:&quot;
+		wrap_warning &quot;    CONFIG=/path/to/kernel/.config $0 or $0 /path/to/kernel/.config&quot;
+		exit 1
+	fi
+fi
+
+wrap_color &quot;info: reading kernel config from $CONFIG ...&quot; white
+echo
+
+echo 'Generally Necessary:'
+
+echo -n '- '
+cgroupSubsystemDir=&quot;$(awk '/[, ](cpu|cpuacct|cpuset|devices|freezer|memory)[, ]/ &amp;&amp; $3 == &quot;cgroup&quot; { print $2 }' /proc/mounts | head -n1)&quot;
+cgroupDir=&quot;$(dirname &quot;$cgroupSubsystemDir&quot;)&quot;
+if [ -d &quot;$cgroupDir/cpu&quot; -o -d &quot;$cgroupDir/cpuacct&quot; -o -d &quot;$cgroupDir/cpuset&quot; -o -d &quot;$cgroupDir/devices&quot; -o -d &quot;$cgroupDir/freezer&quot; -o -d &quot;$cgroupDir/memory&quot; ]; then
+	echo &quot;$(wrap_good 'cgroup hierarchy' 'properly mounted') [$cgroupDir]&quot;
+else
+	if [ &quot;$cgroupSubsystemDir&quot; ]; then
+		echo &quot;$(wrap_bad 'cgroup hierarchy' 'single mountpoint!') [$cgroupSubsystemDir]&quot;
+	else
+		echo &quot;$(wrap_bad 'cgroup hierarchy' 'nonexistent??')&quot;
+	fi
+	EXITCODE=1
+	echo &quot;    $(wrap_color '(see https://github.com/tianon/cgroupfs-mount)' yellow)&quot;
+fi
+
+if [ &quot;$(cat /sys/module/apparmor/parameters/enabled 2&gt;/dev/null)&quot; = 'Y' ]; then
+	echo -n '- '
+	if command -v apparmor_parser &amp;&gt; /dev/null; then
+		echo &quot;$(wrap_good 'apparmor' 'enabled and tools installed')&quot;
+	else
+		echo &quot;$(wrap_bad 'apparmor' 'enabled, but apparmor_parser missing')&quot;
+		echo -n '    '
+		if command -v apt-get &amp;&gt; /dev/null; then
+			echo &quot;$(wrap_color '(use &quot;apt-get install apparmor&quot; to fix this)')&quot;
+		elif command -v yum &amp;&gt; /dev/null; then
+			echo &quot;$(wrap_color '(your best bet is &quot;yum install apparmor-parser&quot;)')&quot;
+		else
+			echo &quot;$(wrap_color '(look for an &quot;apparmor&quot; package for your distribution)')&quot;
+		fi
+		EXITCODE=1
+	fi
+fi
+
+flags=(
+	NAMESPACES {NET,PID,IPC,UTS}_NS
+	CGROUPS CGROUP_CPUACCT CGROUP_DEVICE CGROUP_FREEZER CGROUP_SCHED CPUSETS MEMCG
+	KEYS
+	VETH BRIDGE BRIDGE_NETFILTER
+	NF_NAT_IPV4 IP_NF_FILTER IP_NF_TARGET_MASQUERADE
+	NETFILTER_XT_MATCH_{ADDRTYPE,CONNTRACK,IPVS}
+	IP_NF_NAT NF_NAT NF_NAT_NEEDED
+
+	# required for bind-mounting /dev/mqueue into containers
+	POSIX_MQUEUE
+)
+check_flags &quot;${flags[@]}&quot;
+if [ &quot;$kernelMajor&quot; -lt 4 ] || [ &quot;$kernelMajor&quot; -eq 4 -a &quot;$kernelMinor&quot; -lt 8 ]; then
+        check_flags DEVPTS_MULTIPLE_INSTANCES
+fi
+
+echo
+
+echo 'Optional Features:'
+{
+	check_flags USER_NS
+	check_distro_userns
+}
+{
+	check_flags SECCOMP
+}
+{
+	check_flags CGROUP_PIDS
+}
+{
+	CODE=${EXITCODE}
+	check_flags MEMCG_SWAP MEMCG_SWAP_ENABLED
+	if [ -e /sys/fs/cgroup/memory/memory.memsw.limit_in_bytes ]; then
+		echo &quot;    $(wrap_color '(cgroup swap accounting is currently enabled)' bold black)&quot;
+		EXITCODE=${CODE}
+	elif is_set MEMCG_SWAP &amp;&amp; ! is_set MEMCG_SWAP_ENABLED; then
+		echo &quot;    $(wrap_color '(cgroup swap accounting is currently not enabled, you can enable it by setting boot option &quot;swapaccount=1&quot;)' bold black)&quot;
+	fi
+}
+{
+	if is_set LEGACY_VSYSCALL_NATIVE; then
+		echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NATIVE&quot; 'enabled'
+		echo &quot;    $(wrap_color '(dangerous, provides an ASLR-bypassing target with usable ROP gadgets.)' bold black)&quot;
+	elif is_set LEGACY_VSYSCALL_EMULATE; then
+		echo -n &quot;- &quot;; wrap_good &quot;CONFIG_LEGACY_VSYSCALL_EMULATE&quot; 'enabled'
+	elif is_set LEGACY_VSYSCALL_NONE; then
+		echo -n &quot;- &quot;; wrap_bad &quot;CONFIG_LEGACY_VSYSCALL_NONE&quot; 'enabled'
+		echo &quot;    $(wrap_color '(containers using eglibc &lt;= 2.13 will not work. Switch to' bold black)&quot;
+		echo &quot;    $(wrap_color ' &quot;CONFIG_VSYSCALL_[NATIVE|EMULATE]&quot; or use &quot;vsyscall=[native|emulate]&quot;' bold black)&quot;
+		echo &quot;    $(wrap_color ' on kernel command line. Note that this will disable ASLR for the,' bold black)&quot;
+		echo &quot;    $(wrap_color ' VDSO which may assist in exploiting security vulnerabilities.)' bold black)&quot;
+	# else Older kernels (prior to 3dc33bd30f3e, released in v4.40-rc1) do
+	#      not have these LEGACY_VSYSCALL options and are effectively
+	#      LEGACY_VSYSCALL_EMULATE. Even older kernels are presumably
+	#      effectively LEGACY_VSYSCALL_NATIVE.
+	fi
+}
+
+if [ &quot;$kernelMajor&quot; -lt 4 ] || [ &quot;$kernelMajor&quot; -eq 4 -a &quot;$kernelMinor&quot; -le 5 ]; then
+	check_flags MEMCG_KMEM
+fi
+
+if [ &quot;$kernelMajor&quot; -lt 3 ] || [ &quot;$kernelMajor&quot; -eq 3 -a &quot;$kernelMinor&quot; -le 18 ]; then
+	check_flags RESOURCE_COUNTERS
+fi
+
+if [ &quot;$kernelMajor&quot; -lt 3 ] || [ &quot;$kernelMajor&quot; -eq 3 -a &quot;$kernelMinor&quot; -le 13 ]; then
+	netprio=NETPRIO_CGROUP
+else
+	netprio=CGROUP_NET_PRIO
+fi
+
+flags=(
+	BLK_CGROUP BLK_DEV_THROTTLING IOSCHED_CFQ CFQ_GROUP_IOSCHED
+	CGROUP_PERF
+	CGROUP_HUGETLB
+	NET_CLS_CGROUP $netprio
+	CFS_BANDWIDTH FAIR_GROUP_SCHED RT_GROUP_SCHED
+	IP_NF_TARGET_REDIRECT
+	IP_VS
+	IP_VS_NFCT
+	IP_VS_PROTO_TCP
+	IP_VS_PROTO_UDP
+ 	IP_VS_RR
+)
+check_flags &quot;${flags[@]}&quot;
+
+if ! is_set EXT4_USE_FOR_EXT2; then
+	check_flags EXT3_FS EXT3_FS_XATTR EXT3_FS_POSIX_ACL EXT3_FS_SECURITY
+	if ! is_set EXT3_FS || ! is_set EXT3_FS_XATTR || ! is_set EXT3_FS_POSIX_ACL || ! is_set EXT3_FS_SECURITY; then
+		echo &quot;    $(wrap_color '(enable these ext3 configs if you are using ext3 as backing filesystem)' bold black)&quot;
+	fi
+fi
+
+check_flags EXT4_FS EXT4_FS_POSIX_ACL EXT4_FS_SECURITY
+if ! is_set EXT4_FS || ! is_set EXT4_FS_POSIX_ACL || ! is_set EXT4_FS_SECURITY; then
+	if is_set EXT4_USE_FOR_EXT2; then
+		echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext3 or ext4 as backing filesystem' bold black)&quot;
+	else
+		echo &quot;    $(wrap_color 'enable these ext4 configs if you are using ext4 as backing filesystem' bold black)&quot;
+	fi
+fi
+
+echo '- Network Drivers:'
+echo '  - &quot;'$(wrap_color 'overlay' blue)'&quot;:'
+check_flags VXLAN | sed 's/^/    /'
+echo '      Optional (for encrypted networks):'
+check_flags CRYPTO CRYPTO_AEAD CRYPTO_GCM CRYPTO_SEQIV CRYPTO_GHASH \
+            XFRM XFRM_USER XFRM_ALGO INET_ESP INET_XFRM_MODE_TRANSPORT | sed 's/^/      /'
+echo '  - &quot;'$(wrap_color 'ipvlan' blue)'&quot;:'
+check_flags IPVLAN | sed 's/^/    /'
+echo '  - &quot;'$(wrap_color 'macvlan' blue)'&quot;:'
+check_flags MACVLAN DUMMY | sed 's/^/    /'
+echo '  - &quot;'$(wrap_color 'ftp,tftp client in container' blue)'&quot;:'
+check_flags NF_NAT_FTP NF_CONNTRACK_FTP NF_NAT_TFTP NF_CONNTRACK_TFTP | sed 's/^/    /'
+
+# only fail if no storage drivers available
+CODE=${EXITCODE}
+EXITCODE=0
+STORAGE=1
+
+echo '- Storage Drivers:'
+echo '  - &quot;'$(wrap_color 'aufs' blue)'&quot;:'
+check_flags AUFS_FS | sed 's/^/    /'
+if ! is_set AUFS_FS &amp;&amp; grep -q aufs /proc/filesystems; then
+	echo &quot;      $(wrap_color '(note that some kernels include AUFS patches but not the AUFS_FS flag)' bold black)&quot;
+fi
+[ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
+EXITCODE=0
+
+echo '  - &quot;'$(wrap_color 'btrfs' blue)'&quot;:'
+check_flags BTRFS_FS | sed 's/^/    /'
+check_flags BTRFS_FS_POSIX_ACL | sed 's/^/    /'
+[ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
+EXITCODE=0
+
+echo '  - &quot;'$(wrap_color 'devicemapper' blue)'&quot;:'
+check_flags BLK_DEV_DM DM_THIN_PROVISIONING | sed 's/^/    /'
+[ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
+EXITCODE=0
+
+echo '  - &quot;'$(wrap_color 'overlay' blue)'&quot;:'
+check_flags OVERLAY_FS | sed 's/^/    /'
+[ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
+EXITCODE=0
+
+echo '  - &quot;'$(wrap_color 'zfs' blue)'&quot;:'
+echo -n &quot;    - &quot;; check_device /dev/zfs
+echo -n &quot;    - &quot;; check_command zfs
+echo -n &quot;    - &quot;; check_command zpool
+[ &quot;$EXITCODE&quot; = 0 ] &amp;&amp; STORAGE=0
+EXITCODE=0
+
+EXITCODE=$CODE
+[ &quot;$STORAGE&quot; = 1 ] &amp;&amp; EXITCODE=1
+
+echo
+
+check_limit_over()
+{
+	if [ $(cat &quot;$1&quot;) -le &quot;$2&quot; ]; then
+		wrap_bad &quot;- $1&quot; &quot;$(cat $1)&quot;
+		wrap_color &quot;    This should be set to at least $2, for example set: sysctl -w kernel/keys/root_maxkeys=1000000&quot; bold black
+		EXITCODE=1
+	else
+		wrap_good &quot;- $1&quot; &quot;$(cat $1)&quot;
+	fi
+}
+
+echo 'Limits:'
+check_limit_over /proc/sys/kernel/keys/root_maxkeys 10000
+echo
+
+exit $EXITCODE
+</code></pre>
+
+<blockquote>
+<p>curl <a href="https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh" target="_blank">https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh</a> &gt; check-config.sh</p>
+</blockquote>
+
+<p><a href="https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh" target="_blank">https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh</a></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/docker-notes/">Docker Notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

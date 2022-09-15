@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: &#39;44471&#39; [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/helm-chart-istio/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/helm-chart-istio/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/helm-chart-istio/">
+  <meta property="og:title" content="Helm Chart Istio | wubigo">
+  <meta property="og:description" content="helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false [debug] Created tunnel using local port: &#39;44471&#39; [debug] SERVER: &quot;127.0.0.1:44471&quot; [debug] Original chart version: &quot;&quot; [debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio NAME: istio REVISION: 1 RELEASED: Sat Mar 30 06:30:03 2019 CHART: istio-1.0.6 USER-SUPPLIED VALUES: galley: enabled: false gateways: istio-egressgateway: enabled: false istio-ingressgateway: enabled: false global: proxy: envoyStatsd: enabled: false ingress: enabled: false mixer: enabled: false pilot: sidecar: false prometheus: enabled: false security: enabled: false sidecarInjectorWebhook: enabled: false COMPUTED VALUES: certmanager: enabled: false hub: quay."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-03-30T06:33:03&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-03-30T06:33:03&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Helm Chart Istio | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Helm Chart Istio</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-30 06:33:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 30, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    13 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Helm%20Chart%20Istio&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fhelm-chart-istio%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fhelm-chart-istio%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fhelm-chart-istio%2f&amp;title=Helm%20Chart%20Istio"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fhelm-chart-istio%2f&amp;title=Helm%20Chart%20Istio"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Helm%20Chart%20Istio&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fhelm-chart-istio%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <pre><code>helm install --debug install/kubernetes/helm/istio --name istio --namespace istio-system --set security.enabled=false --set ingress.enabled=false --set gateways.istio-ingressgateway.enabled=false --set gateways.istio-egressgateway.enabled=false --set galley.enabled=false --set mixer.enabled=false --set prometheus.enabled=false --set global.proxy.envoyStatsd.enabled=false --set pilot.sidecar=false --set sidecarInjectorWebhook.enabled=false
+[debug] Created tunnel using local port: '44471'
+
+[debug] SERVER: &quot;127.0.0.1:44471&quot;
+
+[debug] Original chart version: &quot;&quot;
+[debug] CHART PATH: /home/bigo/istio/install/kubernetes/helm/istio
+
+NAME:   istio
+REVISION: 1
+RELEASED: Sat Mar 30 06:30:03 2019
+CHART: istio-1.0.6
+USER-SUPPLIED VALUES:
+galley:
+  enabled: false
+gateways:
+  istio-egressgateway:
+    enabled: false
+  istio-ingressgateway:
+    enabled: false
+global:
+  proxy:
+    envoyStatsd:
+      enabled: false
+ingress:
+  enabled: false
+mixer:
+  enabled: false
+pilot:
+  sidecar: false
+prometheus:
+  enabled: false
+security:
+  enabled: false
+sidecarInjectorWebhook:
+  enabled: false
+
+COMPUTED VALUES:
+certmanager:
+  enabled: false
+  hub: quay.io/jetstack
+  resources: {}
+  tag: v0.3.1
+galley:
+  enabled: false
+  image: galley
+  replicaCount: 1
+gateways:
+  enabled: true
+  global:
+    arch:
+      amd64: 2
+      ppc64le: 2
+      s390x: 2
+    configValidation: true
+    controlPlaneSecurityEnabled: false
+    crds: true
+    defaultResources:
+      requests:
+        cpu: 10m
+    disablePolicyChecks: false
+    enableTracing: true
+    hub: gcr.io/istio-release
+    hyperkube:
+      hub: quay.io/coreos
+      tag: v1.7.6_coreos.0
+    imagePullPolicy: IfNotPresent
+    imagePullSecrets: null
+    k8sIngressHttps: false
+    k8sIngressSelector: ingress
+    meshExpansion: false
+    meshExpansionILB: false
+    mtls:
+      enabled: false
+    oneNamespace: false
+    policyCheckFailOpen: false
+    priorityClassName: &quot;&quot;
+    proxy:
+      accessLogFile: /dev/stdout
+      autoInject: enabled
+      concurrency: 0
+      discoveryDomain: &quot;&quot;
+      enableCoreDump: false
+      envoyStatsd:
+        enabled: false
+        host: null
+        port: null
+      excludeIPRanges: &quot;&quot;
+      excludeInboundPorts: &quot;&quot;
+      image: proxyv2
+      includeIPRanges: '*'
+      includeInboundPorts: '*'
+      privileged: false
+      proxyDomain: &quot;&quot;
+      readinessFailureThreshold: 30
+      readinessInitialDelaySeconds: 1
+      readinessPeriodSeconds: 2
+      resources:
+        requests:
+          cpu: 10m
+      stats:
+        prometheusPort: 15090
+      statusPort: 0
+    proxy_init:
+      image: proxy_init
+    tag: release-1.0-latest-daily
+  istio-egressgateway:
+    autoscaleMax: 5
+    autoscaleMin: 1
+    cpu:
+      targetAverageUtilization: 80
+    enabled: false
+    labels:
+      app: istio-egressgateway
+      istio: egressgateway
+    ports:
+    - name: http2
+      port: 80
+    - name: https
+      port: 443
+    replicaCount: 1
+    secretVolumes:
+    - mountPath: /etc/istio/egressgateway-certs
+      name: egressgateway-certs
+      secretName: istio-egressgateway-certs
+    - mountPath: /etc/istio/egressgateway-ca-certs
+      name: egressgateway-ca-certs
+      secretName: istio-egressgateway-ca-certs
+    serviceAnnotations: {}
+    type: ClusterIP
+  istio-ilbgateway:
+    autoscaleMax: 5
+    autoscaleMin: 1
+    cpu:
+      targetAverageUtilization: 80
+    enabled: false
+    labels:
+      app: istio-ilbgateway
+      istio: ilbgateway
+    loadBalancerIP: &quot;&quot;
+    ports:
+    - name: grpc-pilot-mtls
+      port: 15011
+    - name: grpc-pilot
+      port: 15010
+    - name: tcp-citadel-grpc-tls
+      port: 8060
+      targetPort: 8060
+    - name: tcp-dns
+      port: 853
+    replicaCount: 1
+    resources:
+      requests:
+        cpu: 800m
+        memory: 512Mi
+    secretVolumes:
+    - mountPath: /etc/istio/ilbgateway-certs
+      name: ilbgateway-certs
+      secretName: istio-ilbgateway-certs
+    - mountPath: /etc/istio/ilbgateway-ca-certs
+      name: ilbgateway-ca-certs
+      secretName: istio-ilbgateway-ca-certs
+    serviceAnnotations:
+      cloud.google.com/load-balancer-type: internal
+    type: LoadBalancer
+  istio-ingressgateway:
+    autoscaleMax: 5
+    autoscaleMin: 1
+    cpu:
+      targetAverageUtilization: 80
+    enabled: false
+    labels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+    loadBalancerIP: &quot;&quot;
+    ports:
+    - name: http2
+      nodePort: 31380
+      port: 80
+      targetPort: 80
+    - name: https
+      nodePort: 31390
+      port: 443
+    - name: tcp
+      nodePort: 31400
+      port: 31400
+    - name: tcp-pilot-grpc-tls
+      port: 15011
+      targetPort: 15011
+    - name: tcp-citadel-grpc-tls
+      port: 8060
+      targetPort: 8060
+    - name: tcp-dns-tls
+      port: 853
+      targetPort: 853
+    - name: http2-prometheus
+      port: 15030
+      targetPort: 15030
+    - name: http2-grafana
+      port: 15031
+      targetPort: 15031
+    replicaCount: 1
+    resources: {}
+    secretVolumes:
+    - mountPath: /etc/istio/ingressgateway-certs
+      name: ingressgateway-certs
+      secretName: istio-ingressgateway-certs
+    - mountPath: /etc/istio/ingressgateway-ca-certs
+      name: ingressgateway-ca-certs
+      secretName: istio-ingressgateway-ca-certs
+    serviceAnnotations: {}
+    type: LoadBalancer
+global:
+  arch:
+    amd64: 2
+    ppc64le: 2
+    s390x: 2
+  configValidation: true
+  controlPlaneSecurityEnabled: false
+  crds: true
+  defaultResources:
+    requests:
+      cpu: 10m
+  disablePolicyChecks: false
+  enableTracing: true
+  hub: gcr.io/istio-release
+  hyperkube:
+    hub: quay.io/coreos
+    tag: v1.7.6_coreos.0
+  imagePullPolicy: IfNotPresent
+  imagePullSecrets: null
+  k8sIngressHttps: false
+  k8sIngressSelector: ingress
+  meshExpansion: false
+  meshExpansionILB: false
+  mtls:
+    enabled: false
+  oneNamespace: false
+  policyCheckFailOpen: false
+  priorityClassName: &quot;&quot;
+  proxy:
+    accessLogFile: /dev/stdout
+    autoInject: enabled
+    concurrency: 0
+    discoveryDomain: &quot;&quot;
+    enableCoreDump: false
+    envoyStatsd:
+      enabled: false
+      host: null
+      port: null
+    excludeIPRanges: &quot;&quot;
+    excludeInboundPorts: &quot;&quot;
+    image: proxyv2
+    includeIPRanges: '*'
+    includeInboundPorts: '*'
+    privileged: false
+    proxyDomain: &quot;&quot;
+    readinessFailureThreshold: 30
+    readinessInitialDelaySeconds: 1
+    readinessPeriodSeconds: 2
+    resources:
+      requests:
+        cpu: 10m
+    stats:
+      prometheusPort: 15090
+    statusPort: 0
+  proxy_init:
+    image: proxy_init
+  tag: release-1.0-latest-daily
+grafana:
+  accessMode: ReadWriteMany
+  enabled: false
+  image:
+    repository: grafana/grafana
+    tag: 5.2.3
+  persist: false
+  replicaCount: 1
+  security:
+    enabled: false
+    passphraseKey: passphrase
+    secretName: grafana
+    usernameKey: username
+  service:
+    annotations: {}
+    externalPort: 3000
+    internalPort: 3000
+    name: http
+    type: ClusterIP
+  storageClassName: &quot;&quot;
+ingress:
+  autoscaleMax: 5
+  autoscaleMin: 1
+  enabled: false
+  replicaCount: 1
+  service:
+    annotations: {}
+    loadBalancerIP: &quot;&quot;
+    ports:
+    - name: http
+      nodePort: 32000
+      port: 80
+    - name: https
+      port: 443
+    selector:
+      istio: ingress
+    type: LoadBalancer
+kiali:
+  dashboard:
+    passphraseKey: passphrase
+    secretName: kiali
+    usernameKey: username
+  enabled: false
+  hub: docker.io/kiali
+  ingress:
+    annotations: null
+    enabled: false
+    tls: null
+  replicaCount: 1
+  tag: v0.12
+mixer:
+  autoscaleMax: 5
+  autoscaleMin: 1
+  enabled: false
+  env:
+    GODEBUG: gctrace=2
+  image: mixer
+  istio-policy:
+    autoscaleEnabled: true
+    autoscaleMax: 5
+    autoscaleMin: 1
+    cpu:
+      targetAverageUtilization: 80
+  istio-telemetry:
+    autoscaleEnabled: true
+    autoscaleMax: 5
+    autoscaleMin: 1
+    cpu:
+      targetAverageUtilization: 80
+  prometheusStatsdExporter:
+    hub: docker.io/prom
+    tag: v0.6.0
+  replicaCount: 1
+pilot:
+  autoscaleMax: 5
+  autoscaleMin: 1
+  cpu:
+    targetAverageUtilization: 80
+  enabled: true
+  env:
+    GODEBUG: gctrace=2
+    PILOT_PUSH_THROTTLE_COUNT: 100
+  global:
+    arch:
+      amd64: 2
+      ppc64le: 2
+      s390x: 2
+    configValidation: true
+    controlPlaneSecurityEnabled: false
+    crds: true
+    defaultResources:
+      requests:
+        cpu: 10m
+    disablePolicyChecks: false
+    enableTracing: true
+    hub: gcr.io/istio-release
+    hyperkube:
+      hub: quay.io/coreos
+      tag: v1.7.6_coreos.0
+    imagePullPolicy: IfNotPresent
+    imagePullSecrets: null
+    k8sIngressHttps: false
+    k8sIngressSelector: ingress
+    meshExpansion: false
+    meshExpansionILB: false
+    mtls:
+      enabled: false
+    oneNamespace: false
+    policyCheckFailOpen: false
+    priorityClassName: &quot;&quot;
+    proxy:
+      accessLogFile: /dev/stdout
+      autoInject: enabled
+      concurrency: 0
+      discoveryDomain: &quot;&quot;
+      enableCoreDump: false
+      envoyStatsd:
+        enabled: false
+        host: null
+        port: null
+      excludeIPRanges: &quot;&quot;
+      excludeInboundPorts: &quot;&quot;
+      image: proxyv2
+      includeIPRanges: '*'
+      includeInboundPorts: '*'
+      privileged: false
+      proxyDomain: &quot;&quot;
+      readinessFailureThreshold: 30
+      readinessInitialDelaySeconds: 1
+      readinessPeriodSeconds: 2
+      resources:
+        requests:
+          cpu: 10m
+      stats:
+        prometheusPort: 15090
+      statusPort: 0
+    proxy_init:
+      image: proxy_init
+    tag: release-1.0-latest-daily
+  image: pilot
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  sidecar: false
+  traceSampling: 1
+prometheus:
+  enabled: false
+  hub: docker.io/prom
+  replicaCount: 1
+  service:
+    annotations: {}
+    nodePort:
+      enabled: false
+      port: 32090
+  tag: v2.3.1
+security:
+  enabled: false
+  image: citadel
+  replicaCount: 1
+  selfSigned: true
+servicegraph:
+  enabled: false
+  image: servicegraph
+  ingress:
+    annotations: null
+    enabled: false
+    hosts:
+    - servicegraph.local
+    tls: null
+  prometheusAddr: http://prometheus:9090
+  replicaCount: 1
+  service:
+    annotations: {}
+    externalPort: 8088
+    internalPort: 8088
+    name: http
+    type: ClusterIP
+sidecarInjectorWebhook:
+  enableNamespacesByDefault: false
+  enabled: false
+  image: sidecar_injector
+  replicaCount: 1
+telemetry-gateway:
+  gatewayName: ingressgateway
+  global:
+    arch:
+      amd64: 2
+      ppc64le: 2
+      s390x: 2
+    configValidation: true
+    controlPlaneSecurityEnabled: false
+    crds: true
+    defaultResources:
+      requests:
+        cpu: 10m
+    disablePolicyChecks: false
+    enableTracing: true
+    hub: gcr.io/istio-release
+    hyperkube:
+      hub: quay.io/coreos
+      tag: v1.7.6_coreos.0
+    imagePullPolicy: IfNotPresent
+    imagePullSecrets: null
+    k8sIngressHttps: false
+    k8sIngressSelector: ingress
+    meshExpansion: false
+    meshExpansionILB: false
+    mtls:
+      enabled: false
+    oneNamespace: false
+    policyCheckFailOpen: false
+    priorityClassName: &quot;&quot;
+    proxy:
+      accessLogFile: /dev/stdout
+      autoInject: enabled
+      concurrency: 0
+      discoveryDomain: &quot;&quot;
+      enableCoreDump: false
+      envoyStatsd:
+        enabled: false
+        host: null
+        port: null
+      excludeIPRanges: &quot;&quot;
+      excludeInboundPorts: &quot;&quot;
+      image: proxyv2
+      includeIPRanges: '*'
+      includeInboundPorts: '*'
+      privileged: false
+      proxyDomain: &quot;&quot;
+      readinessFailureThreshold: 30
+      readinessInitialDelaySeconds: 1
+      readinessPeriodSeconds: 2
+      resources:
+        requests:
+          cpu: 10m
+      stats:
+        prometheusPort: 15090
+      statusPort: 0
+    proxy_init:
+      image: proxy_init
+    tag: release-1.0-latest-daily
+  grafanaEnabled: false
+  prometheusEnabled: false
+tracing:
+  enabled: false
+  ingress:
+    annotations: null
+    enabled: false
+    hosts:
+    - tracing.local
+    tls: null
+  jaeger:
+    hub: docker.io/jaegertracing
+    ingress:
+      annotations: null
+      enabled: false
+      hosts:
+      - jaeger.local
+      tls: null
+    memory:
+      max_traces: 50000
+    tag: 1.5
+    ui:
+      port: 16686
+  provider: jaeger
+  replicaCount: 1
+  service:
+    annotations: {}
+    externalPort: 9411
+    internalPort: 9411
+    name: http
+    type: ClusterIP
+
+HOOKS:
+---
+# virtualservices.networking.istio.io
+# 
+# these CRDs only make sense when pilot is enabled
+#
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: virtualservices.networking.istio.io
+  annotations:
+    &quot;helm.sh/hook&quot;: crd-install
+  labels:
+    app: istio-pilot
+spec:
+  group: networking.istio.io
+  names:
+    kind: VirtualService
+    listKind: VirtualServiceList
+    plural: virtualservices
+    singular: virtualservice
+    categories:
+    - istio-io
+    - networking-istio-io
+  scope: Namespaced
+  version: v1alpha3
+---
+# destinationrules.networking.istio.io
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: destinationrules.networking.istio.io
+  annotations:
+    &quot;helm.sh/hook&quot;: crd-install
+  labels:
+    app: istio-pilot
+spec:
+  group: networking.istio.io
+  names:
+    kind: DestinationRule
+    listKind: DestinationRuleList
+    plural: destinationrules
+    singular: destinationrule
+    categories:
+    - istio-io
+    - networking-istio-io
+  scope: Namespaced
+  version: v1alpha3
+---
+# serviceentries.networking.istio.io
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: serviceentries.networking.istio.io
+  annotations:
+    &quot;helm.sh/hook&quot;: crd-install
+  labels:
+    app: istio-pilot
+spec:
+  group: networking.istio.io
+  names:
+    kind: ServiceEntry
+    listKind: ServiceEntryList
+    plural: serviceentries
+    singular: serviceentry
+    categories:
+    - istio-io
+    - networking-istio-io
+  scope: Namespaced
+  version: v1alpha3
+---
+# gateways.networking.istio.io
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: gateways.networking.istio.io
+  annotations:
+    &quot;helm.sh/hook&quot;: crd-install
+    &quot;helm.sh/hook-weight&quot;: &quot;-5&quot;
+  labels:
+    app: istio-pilot
+spec:
+  group: networking.istio.io
+  names:
+    kind: Gateway
+    plural: gateways
+    singular: gateway
+    categories:
+    - istio-io
+    - networking-istio-io
+  scope: Namespaced
+  version: v1alpha3
+---
+# envoyfilters.networking.istio.io
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: envoyfilters.networking.istio.io
+  annotations:
+    &quot;helm.sh/hook&quot;: crd-install
+  labels:
+    app: istio-pilot
+spec:
+  group: networking.istio.io
+  names:
+    kind: EnvoyFilter
+    plural: envoyfilters
+    singular: envoyfilter
+    categories:
+    - istio-io
+    - networking-istio-io
+  scope: Namespaced
+  version: v1alpha3
+MANIFEST:
+
+---
+# Source: istio/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio
+  namespace: istio-system
+  labels:
+    app: istio
+    chart: istio-1.0.6
+    release: istio
+    heritage: Tiller
+data:
+  mesh: |-
+    # Set the following variable to true to disable policy checks by the Mixer.
+    # Note that metrics will still be reported to the Mixer.
+    disablePolicyChecks: false
+
+    # Set enableTracing to false to disable request tracing.
+    enableTracing: true
+
+    # Set accessLogFile to empty string to disable access log.
+    accessLogFile: &quot;/dev/stdout&quot;
+    #
+    # Deprecated: mixer is using EDS
+
+    # Unix Domain Socket through which envoy communicates with NodeAgent SDS to get
+    # key/cert for mTLS. Use secret-mount files instead of SDS if set to empty. 
+    sdsUdsPath: &quot;&quot;
+    
+    # How frequently should Envoy fetch key/cert from NodeAgent.
+    sdsRefreshDelay: 15s
+
+    #
+    defaultConfig:
+      #
+      # TCP connection timeout between Envoy &amp; the application, and between Envoys.
+      connectTimeout: 10s
+      #
+      ### ADVANCED SETTINGS #############
+      # Where should envoy's configuration be stored in the istio-proxy container
+      configPath: &quot;/etc/istio/proxy&quot;
+      binaryPath: &quot;/usr/local/bin/envoy&quot;
+      # The pseudo service name used for Envoy.
+      serviceCluster: istio-proxy
+      # These settings that determine how long an old Envoy
+      # process should be kept alive after an occasional reload.
+      drainDuration: 45s
+      parentShutdownDuration: 1m0s
+      #
+      # The mode used to redirect inbound connections to Envoy. This setting
+      # has no effect on outbound traffic: iptables REDIRECT is always used for
+      # outbound connections.
+      # If &quot;REDIRECT&quot;, use iptables REDIRECT to NAT and redirect to Envoy.
+      # The &quot;REDIRECT&quot; mode loses source addresses during redirection.
+      # If &quot;TPROXY&quot;, use iptables TPROXY to redirect to Envoy.
+      # The &quot;TPROXY&quot; mode preserves both the source and destination IP
+      # addresses and ports, so that they can be used for advanced filtering
+      # and manipulation.
+      # The &quot;TPROXY&quot; mode also configures the sidecar to run with the
+      # CAP_NET_ADMIN capability, which is required to use TPROXY.
+      #interceptionMode: REDIRECT
+      #
+      # Port where Envoy listens (on local host) for admin commands
+      # You can exec into the istio-proxy container in a pod and
+      # curl the admin port (curl http://localhost:15000/) to obtain
+      # diagnostic information from Envoy. See
+      # https://lyft.github.io/envoy/docs/operations/admin.html
+      # for more details
+      proxyAdminPort: 15000
+      #
+      # Set concurrency to a specific number to control the number of Proxy worker threads.
+      # If set to 0 (default), then start worker thread for each CPU thread/core.
+      concurrency: 0
+      #
+      # Zipkin trace collector
+      zipkinAddress: zipkin.istio-system:9411
+      #
+      # Mutual TLS authentication between sidecars and istio control plane.
+      controlPlaneAuthPolicy: NONE
+      #
+      # Address where istio Pilot service is running
+      discoveryAddress: istio-pilot.istio-system:15007
+---
+# Source: istio/templates/sidecar-injector-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-sidecar-injector
+  namespace: istio-system
+  labels:
+    app: istio
+    chart: istio-1.0.6
+    release: istio
+    heritage: Tiller
+    istio: sidecar-injector
+data:
+  config: |-
+    policy: enabled
+    template: |-
+      initContainers:
+      - name: istio-init
+        image: &quot;gcr.io/istio-release/proxy_init:release-1.0-latest-daily&quot;
+        args:
+        - &quot;-p&quot;
+        - [[ .MeshConfig.ProxyListenPort ]]
+        - &quot;-u&quot;
+        - 1337
+        - &quot;-m&quot;
+        - [[ annotation .ObjectMeta `sidecar.istio.io/interceptionMode` .ProxyConfig.InterceptionMode ]]
+        - &quot;-i&quot;
+        - &quot;[[ annotation .ObjectMeta `traffic.sidecar.istio.io/includeOutboundIPRanges`  &quot;*&quot;  ]]&quot;
+        - &quot;-x&quot;
+        - &quot;[[ annotation .ObjectMeta `traffic.sidecar.istio.io/excludeOutboundIPRanges`  &quot;&quot;  ]]&quot;
+        - &quot;-b&quot;
+        - &quot;[[ annotation .ObjectMeta `traffic.sidecar.istio.io/includeInboundPorts` (includeInboundPorts .Spec.Containers) ]]&quot;
+        - &quot;-d&quot;
+        - &quot;[[ excludeInboundPort (annotation .ObjectMeta `status.sidecar.istio.io/port`  0 ) (annotation .ObjectMeta `traffic.sidecar.istio.io/excludeInboundPorts`  &quot;&quot; ) ]]&quot;
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+          privileged: true
+        restartPolicy: Always
+      containers:
+      - name: istio-proxy
+        image: [[ annotation .ObjectMeta `sidecar.istio.io/proxyImage`  &quot;gcr.io/istio-release/proxyv2:release-1.0-latest-daily&quot;  ]]
+
+        ports:
+        - containerPort: 15090
+          protocol: TCP
+          name: http-envoy-prom
+
+        args:
+        - proxy
+        - sidecar
+        - --configPath
+        - [[ .ProxyConfig.ConfigPath ]]
+        - --binaryPath
+        - [[ .ProxyConfig.BinaryPath ]]
+        - --serviceCluster
+        [[ if ne &quot;&quot; (index .ObjectMeta.Labels &quot;app&quot;) -]]
+        - [[ index .ObjectMeta.Labels &quot;app&quot; ]]
+        [[ else -]]
+        - &quot;istio-proxy&quot;
+        [[ end -]]
+        - --drainDuration
+        - [[ formatDuration .ProxyConfig.DrainDuration ]]
+        - --parentShutdownDuration
+        - [[ formatDuration .ProxyConfig.ParentShutdownDuration ]]
+        - --discoveryAddress
+        - [[ annotation .ObjectMeta `sidecar.istio.io/discoveryAddress` .ProxyConfig.DiscoveryAddress ]]
+        - --discoveryRefreshDelay
+        - [[ formatDuration .ProxyConfig.DiscoveryRefreshDelay ]]
+        - --zipkinAddress
+        - [[ .ProxyConfig.ZipkinAddress ]]
+        - --connectTimeout
+        - [[ formatDuration .ProxyConfig.ConnectTimeout ]]
+        - --proxyAdminPort
+        - [[ .ProxyConfig.ProxyAdminPort ]]
+        [[ if gt .ProxyConfig.Concurrency 0 -]]
+        - --concurrency
+        - [[ .ProxyConfig.Concurrency ]]
+        [[ end -]]
+        - --controlPlaneAuthPolicy
+        - [[ annotation .ObjectMeta `sidecar.istio.io/controlPlaneAuthPolicy` .ProxyConfig.ControlPlaneAuthPolicy ]]
+      [[- if (ne (annotation .ObjectMeta `status.sidecar.istio.io/port`  0 ) &quot;0&quot;) ]]
+        - --statusPort
+        - [[ annotation .ObjectMeta `status.sidecar.istio.io/port`  0  ]]
+        - --applicationPorts
+        - &quot;[[ annotation .ObjectMeta `readiness.status.sidecar.istio.io/applicationPorts` (applicationPorts .Spec.Containers) ]]&quot;
+      [[- end ]]
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: INSTANCE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: ISTIO_META_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: ISTIO_META_INTERCEPTION_MODE
+          value: [[ or (index .ObjectMeta.Annotations &quot;sidecar.istio.io/interceptionMode&quot;) .ProxyConfig.InterceptionMode.String ]]
+        [[ if .ObjectMeta.Annotations ]]
+        - name: ISTIO_METAJSON_ANNOTATIONS
+          value: |
+                 [[ toJson .ObjectMeta.Annotations ]]
+        [[ end ]]
+        [[ if .ObjectMeta.Labels ]]
+        - name: ISTIO_METAJSON_LABELS
+          value: |
+                 [[ toJson .ObjectMeta.Labels ]]
+        [[ end ]]
+        imagePullPolicy: IfNotPresent
+        [[ if (ne (annotation .ObjectMeta `status.sidecar.istio.io/port`  0 ) &quot;0&quot;) ]]
+        readinessProbe:
+          httpGet:
+            path: /healthz/ready
+            port: [[ annotation .ObjectMeta `status.sidecar.istio.io/port`  0  ]]
+          initialDelaySeconds: [[ annotation .ObjectMeta `readiness.status.sidecar.istio.io/initialDelaySeconds`  1  ]]
+          periodSeconds: [[ annotation .ObjectMeta `readiness.status.sidecar.istio.io/periodSeconds`  2  ]]
+          failureThreshold: [[ annotation .ObjectMeta `readiness.status.sidecar.istio.io/failureThreshold`  30  ]]
+        [[ end -]]securityContext:
+          
+          readOnlyRootFilesystem: true
+          [[ if eq (annotation .ObjectMeta `sidecar.istio.io/interceptionMode` .ProxyConfig.InterceptionMode) &quot;TPROXY&quot; -]]
+          capabilities:
+            add:
+            - NET_ADMIN
+          runAsGroup: 1337
+          [[ else -]]
+          runAsUser: 1337
+          [[ end -]]
+        restartPolicy: Always
+        resources:
+          [[ if (isset .ObjectMeta.Annotations `sidecar.istio.io/proxyCPU`) -]]
+          requests:
+            cpu: &quot;[[ index .ObjectMeta.Annotations `sidecar.istio.io/proxyCPU` ]]&quot;
+            memory: &quot;[[ index .ObjectMeta.Annotations `sidecar.istio.io/proxyMemory` ]]&quot;
+        [[ else -]]
+          requests:
+            cpu: 10m
+          
+        [[ end -]]
+        volumeMounts:
+        - mountPath: /etc/istio/proxy
+          name: istio-envoy
+        - mountPath: /etc/certs/
+          name: istio-certs
+          readOnly: true
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: istio-envoy
+      - name: istio-certs
+        secret:
+          optional: true
+          [[ if eq .Spec.ServiceAccountName &quot;&quot; -]]
+          secretName: istio.default
+          [[ else -]]
+          secretName: [[ printf &quot;istio.%s&quot; .Spec.ServiceAccountName ]]
+          [[ end -]]
+---
+# Source: istio/charts/pilot/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: istio-pilot-service-account
+  namespace: istio-system
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    heritage: Tiller
+    release: istio
+---
+# Source: istio/charts/pilot/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: istio-pilot-istio-system
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    heritage: Tiller
+    release: istio
+rules:
+- apiGroups: [&quot;config.istio.io&quot;]
+  resources: [&quot;*&quot;]
+  verbs: [&quot;*&quot;]
+- apiGroups: [&quot;rbac.istio.io&quot;]
+  resources: [&quot;*&quot;]
+  verbs: [&quot;get&quot;, &quot;watch&quot;, &quot;list&quot;]
+- apiGroups: [&quot;networking.istio.io&quot;]
+  resources: [&quot;*&quot;]
+  verbs: [&quot;*&quot;]
+- apiGroups: [&quot;authentication.istio.io&quot;]
+  resources: [&quot;*&quot;]
+  verbs: [&quot;*&quot;]
+- apiGroups: [&quot;apiextensions.k8s.io&quot;]
+  resources: [&quot;customresourcedefinitions&quot;]
+  verbs: [&quot;*&quot;]
+- apiGroups: [&quot;extensions&quot;]
+  resources: [&quot;thirdpartyresources&quot;, &quot;thirdpartyresources.extensions&quot;, &quot;ingresses&quot;, &quot;ingresses/status&quot;]
+  verbs: [&quot;*&quot;]
+- apiGroups: [&quot;&quot;]
+  resources: [&quot;configmaps&quot;]
+  verbs: [&quot;create&quot;, &quot;get&quot;, &quot;list&quot;, &quot;watch&quot;, &quot;update&quot;]
+- apiGroups: [&quot;&quot;]
+  resources: [&quot;endpoints&quot;, &quot;pods&quot;, &quot;services&quot;]
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+- apiGroups: [&quot;&quot;]
+  resources: [&quot;namespaces&quot;, &quot;nodes&quot;, &quot;secrets&quot;]
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+---
+# Source: istio/charts/pilot/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: istio-pilot-istio-system
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    heritage: Tiller
+    release: istio
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: istio-pilot-istio-system
+subjects:
+  - kind: ServiceAccount
+    name: istio-pilot-service-account
+    namespace: istio-system
+---
+# Source: istio/charts/pilot/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-pilot
+  namespace: istio-system
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    release: istio
+    heritage: Tiller
+spec:
+  ports:
+  - port: 15010
+    name: grpc-xds # direct
+  - port: 15011
+    name: https-xds # mTLS
+  - port: 8080
+    name: http-legacy-discovery # direct
+  - port: 9093
+    name: http-monitoring
+  selector:
+    istio: pilot
+---
+# Source: istio/charts/pilot/templates/deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: istio-pilot
+  namespace: istio-system
+  # TODO: default template doesn't have this, which one is right ?
+  labels:
+    app: istio-pilot
+    chart: pilot-1.0.6
+    release: istio
+    heritage: Tiller
+    istio: pilot
+  annotations:
+    checksum/config-volume: f8da08b6b8c170dde721efd680270b2901e750d4aa186ebb6c22bef5b78a43f9
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        istio: pilot
+        app: pilot
+      annotations:
+        sidecar.istio.io/inject: &quot;false&quot;
+        scheduler.alpha.kubernetes.io/critical-pod: &quot;&quot;
+    spec:
+      serviceAccountName: istio-pilot-service-account
+      containers:
+        - name: discovery
+          image: &quot;gcr.io/istio-release/pilot:release-1.0-latest-daily&quot;
+          imagePullPolicy: IfNotPresent
+          args:
+          - &quot;discovery&quot;
+          - --secureGrpcAddr
+          - &quot;:15011&quot;
+          ports:
+          - containerPort: 8080
+          - containerPort: 15010
+          - containerPort: 15011
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
+          env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: PILOT_CACHE_SQUASH
+            value: &quot;5&quot;
+          - name: GODEBUG
+            value: &quot;gctrace=2&quot;
+          - name: PILOT_PUSH_THROTTLE_COUNT
+            value: &quot;100&quot;
+          - name: PILOT_TRACE_SAMPLING
+            value: &quot;1&quot;
+          resources:
+            requests:
+              cpu: 500m
+              memory: 2048Mi
+            
+          volumeMounts:
+          - name: config-volume
+            mountPath: /etc/istio/config
+          - name: istio-certs
+            mountPath: /etc/certs
+            readOnly: true
+      volumes:
+      - name: config-volume
+        configMap:
+          name: istio
+      - name: istio-certs
+        secret:
+          secretName: istio.istio-pilot-service-account
+          optional: true   
+      affinity:      
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - ppc64le
+                - s390x
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 2
+            preference:
+              matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+          - weight: 2
+            preference:
+              matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - ppc64le
+          - weight: 2
+            preference:
+              matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - s390x
+---
+# Source: istio/templates/crds.yaml
+#
+
+# these CRDs only make sense when security is enabled
+#
+
+#
+#
+---
+# Source: istio/charts/pilot/templates/gateway.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: istio-autogenerated-k8s-ingress
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingress
+  servers:
+  - port:
+      number: 80
+      protocol: HTTP2
+      name: http
+    hosts:
+    - &quot;*&quot;
+---
+# Source: istio/charts/pilot/templates/autoscale.yaml
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+    name: istio-pilot
+    namespace: istio-system
+spec:
+    maxReplicas: 5
+    minReplicas: 1
+    scaleTargetRef:
+      apiVersion: apps/v1beta1
+      kind: Deployment
+      name: istio-pilot
+    metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 80
+LAST DEPLOYED: Sat Mar 30 06:30:03 2019
+NAMESPACE: istio-system
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/ConfigMap
+NAME                    DATA  AGE
+istio                   1     4s
+istio-sidecar-injector  1     4s
+
+==&gt; v1/Service
+NAME         TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)                                AGE
+istio-pilot  ClusterIP  10.106.159.203  &lt;none&gt;       15010/TCP,15011/TCP,8080/TCP,9093/TCP  3s
+
+==&gt; v1beta1/Deployment
+NAME         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+istio-pilot  1        1        1           0          3s
+
+==&gt; v1alpha3/Gateway
+NAME                             AGE
+istio-autogenerated-k8s-ingress  2s
+
+==&gt; v2beta1/HorizontalPodAutoscaler
+NAME         REFERENCE               TARGETS        MINPODS  MAXPODS  REPLICAS  AGE
+istio-pilot  Deployment/istio-pilot  &lt;unknown&gt;/80%  1        5        0         2s
+
+==&gt; v1/Pod(related)
+NAME                          READY  STATUS             RESTARTS  AGE
+istio-pilot-754ccc994f-t7wg2  0/1    ContainerCreating  0         3s
+
+==&gt; v1/ServiceAccount
+NAME                         SECRETS  AGE
+istio-pilot-service-account  1        5s
+
+==&gt; v1beta1/ClusterRole
+NAME                      AGE
+istio-pilot-istio-system  4s
+
+==&gt; v1beta1/ClusterRoleBinding
+NAME                      AGE
+istio-pilot-istio-system  4s
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

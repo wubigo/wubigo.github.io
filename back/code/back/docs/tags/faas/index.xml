@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FAAS on wubigo</title>
+    <link>https://wubigo.com/tags/faas/</link>
+    <description>Recent content in FAAS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Mar 2017 08:45:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/faas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>无服务器计算环境OPENFAAS搭建</title>
+      <link>https://wubigo.com/post/serverless-computing-why-how/</link>
+      <pubDate>Fri, 03 Mar 2017 08:45:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-computing-why-how/</guid>
+      <description>准备  创建角色和授权
+kubectl create clusterrolebinding &amp;quot;cluster-admin-faas&amp;quot; \ --clusterrole=cluster-admin \ --user=&amp;quot;cluster-admin-faas&amp;quot;  分别为FAAS核心服务和函数创建名字空间
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml  创建凭证
+# generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d&#39; &#39; -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&amp;quot;$PASSWORD&amp;quot;  在本地helm仓库增加openfaas
+helm repo add openfaas https://openfaas.github.io/faas-netes/ &amp;quot;openfaas&amp;quot; has been added to your repositories   开始安装 helm repo update \ &amp;amp;&amp;amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台</description>
+    </item>
+    
+  </channel>
+</rss>

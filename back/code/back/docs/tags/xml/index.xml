@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XML on wubigo</title>
+    <link>https://wubigo.com/tags/xml/</link>
+    <description>Recent content in XML on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Feb 2018 15:45:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/xml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nodejs Xpath名字空间</title>
+      <link>https://wubigo.com/post/nodejs-xpath/</link>
+      <pubDate>Wed, 21 Feb 2018 15:45:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/nodejs-xpath/</guid>
+      <description>如果xml文件带有名字空间，XPATH支持
+还不够完善。下面介绍两种可以工作的方式
+namespace for XML documents http.get(&amp;quot;https://wubigo.com/en/sitemap.xml&amp;quot;, function(res) {  useNamespaces const select = xpath.useNamespaces({&amp;quot;ns0&amp;quot;: &amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;}); const nodes = select(&amp;quot;//ns0:loc&amp;quot;, doc); nodes.forEach((value) =&amp;gt; console.log(&amp;quot;ns0:&amp;quot;+value));  Implementing a Default Namespace Resolver const nsResolver = function nsResolver(prefix) { const ns = { &#39;ns0&#39; : &#39;http://www.sitemaps.org/schemas/sitemap/0.9&#39;, &#39;mathml&#39;: &#39;http://www.w3.org/1998/Math/MathML&#39; }; return ns[prefix] || null; }; nsResolver.lookupNamespaceURI = nsResolver; var result = xpath.evaluate( &amp;quot;//ns0:loc&amp;quot;, // xpathExpression doc, // contextNode nsResolver, // namespaceResolver xpath.XPathResult.ANY_TYPE, // resultType null // result ) node = result.</description>
+    </item>
+    
+  </channel>
+</rss>

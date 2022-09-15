@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SLS on wubigo</title>
+    <link>https://wubigo.com/tags/sls/</link>
+    <description>Recent content in SLS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Oct 2021 11:59:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/sls/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lambda Redeploy Across Region</title>
+      <link>https://wubigo.com/post/lambda-redeploy-across-region/</link>
+      <pubDate>Fri, 22 Oct 2021 11:59:36 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-redeploy-across-region/</guid>
+      <description>计算时间 vs 请求数量 平均计算时长 427586 / 27386 = 15.6 (秒)
+设置默认配置 aws configure list-profiles default us-east-1 us-east-2 us-west-2 us-west-1 eu eu-west-1 af-south-1 ap-east-1 ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ca-central-1 eu-west-2 eu-south-1 eu-west-3 eu-north-1 me-south-1 sa-east-1 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &amp;quot;Code&amp;quot;: { &amp;quot;RepositoryType&amp;quot;: &amp;quot;S3&amp;quot;, &amp;quot;Location&amp;quot;: &amp;quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&amp;quot;  从Location下载部署包
+PROF = &amp;quot;eu-central-1&amp;quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.</description>
+    </item>
+    
+    <item>
+      <title>V8 Isolates</title>
+      <link>https://wubigo.com/post/v8-isolates/</link>
+      <pubDate>Wed, 29 Jul 2020 15:28:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/v8-isolates/</guid>
+      <description>Isolate represents an isolated instance of the V8 engine. V8 isolates have completely separate states. Objects from one isolate must not be used in other isolates. When V8 is initialized a default isolate is implicitly created and entered. The embedder can create additional isolates and use them in parallel in multiple threads. An isolate can be entered by at most one thread at any given time. The Locker/Unlocker API must be used to synchronize.</description>
+    </item>
+    
+    <item>
+      <title>网关授权之函数实现</title>
+      <link>https://wubigo.com/post/api-gateway-lambda-authorizer/</link>
+      <pubDate>Sun, 26 Jul 2020 07:39:23 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/api-gateway-lambda-authorizer/</guid>
+      <description>Setting Up the Hosted UI with the Amazon Cognito Unless required by your authorization flow, clear the option Generate client secret. The client secret is used by applications that have a server-side component that can secure the client secret</description>
+    </item>
+    
+    <item>
+      <title>Lambda Proxy vs Lambda Integration</title>
+      <link>https://wubigo.com/post/lambda-proxy-vs-lambda-integration/</link>
+      <pubDate>Sat, 18 Jul 2020 20:34:43 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-proxy-vs-lambda-integration/</guid>
+      <description>Lambda Proxy vs Lambda Integration https://github.com/vaquarkhan/vaquarkhan/wiki/Lambda-Proxy-vs-Lambda-Integration-in-AWS-API-Gateway
+PYTHON https://realpython.com/code-evaluation-with-aws-lambda-and-api-gateway/
+JAVA https://www.baeldung.com/aws-lambda-api-gateway
+git clone https://github.com/eugenp/tutorials.git cd tutorials/aws-lambda mvn clean package shade:shade aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/  从S3上传文件到lambad
+ handler
+com.baeldung.lambda.apigateway.APIDemoHandler::handleRequest   NODEJS https://itnext.io/how-to-build-a-serverless-app-with-s3-and-lambda-in-15-minutes-b14eecd4ea89</description>
+    </item>
+    
+    <item>
+      <title>Lambda之任务定时调度</title>
+      <link>https://wubigo.com/post/lambda-schedule-event/</link>
+      <pubDate>Wed, 15 Jul 2020 19:23:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/lambda-schedule-event/</guid>
+      <description>函数计算有很多使用场景，今天介绍定时任务调度
+例如每周六生成业务报表
+事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events</description>
+    </item>
+    
+    <item>
+      <title>Serveless Python Zappa</title>
+      <link>https://wubigo.com/post/serveless-python-zappy/</link>
+      <pubDate>Tue, 14 Jul 2020 14:02:13 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serveless-python-zappy/</guid>
+      <description> python3  改变操作系统的地区为美国  否则报UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode
+python-3.6.8-amd64
+py -3.6 -m pip install virtualenv py -3.6 -m virtualenv venv3 .\venv3\script\activate pip install zappa git clone https://github.com/Miserlou/Zappa.git cd zappy/example pip install flask zappa deploy dev_event   检查状态
+zappa status dev_api   FAQ  IllegalLocationConstraintException
+get this error if you&#39;re trying to create a bucket with a name that&#39;s already been taken   https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception
+--create-bucket-configuration LocationConstraint=eu-west-1  </description>
+    </item>
+    
+    <item>
+      <title>函数计算VPC支持更新</title>
+      <link>https://wubigo.com/post/serverless-vpc/</link>
+      <pubDate>Mon, 30 Dec 2019 06:33:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-vpc/</guid>
+      <description>IN VPC 更新前VPC
+更新后VPC
+While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
+ Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.</description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(下)</title>
+      <link>https://wubigo.com/post/aws-lambda-dynamodb/</link>
+      <pubDate>Mon, 31 Dec 2018 14:44:32 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-dynamodb/</guid>
+      <description> 创建函数  分配角色
+zip function.zip index.js aws lambda create-function --function-name sns-db-function \ --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role arn:aws:iam::465691908928:role/fn-case-role   </description>
+    </item>
+    
+    <item>
+      <title>Lambda订阅SNS通知(上)</title>
+      <link>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</link>
+      <pubDate>Mon, 31 Dec 2018 11:04:37 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aws-lambda-as-a-subscriber-of-sns/</guid>
+      <description>发布测试消息到SNS git clone https://github.com/wubigo/node-fn/blob/master/fn-case/sns_publishtotopic.js node sns_publishtotopic.js Message MESSAGE_TEXT send sent to the topic arn:aws:sns:ap-northeast-1:465691908928:func-topic MessageID is 8b5c90f2-0c74-5985-8a34-c676c0370f73  根据MessageID查看函数执行结果 The $ in [$LATEST] needs to be escaped&amp;hellip;[\$LATEST].
+aws logs describe-log-groups --query logGroups[*].logGroupName aws logs describe-log-streams --log-group-name &#39;/aws/lambda/my-function&#39; --query logStreams[*].logStreamName aws logs get-log-events --log-group-name &#39;/aws/lambda/my-function&#39; --log-stream-name &#39;2019/12/31/[$LATEST]7467497f9cdb4078a876ab889797793c&#39; { &amp;quot;ingestionTime&amp;quot;: 1577764111252, &amp;quot;timestamp&amp;quot;: 1577764096184, &amp;quot;message&amp;quot;: &amp;quot;2019-12-31T03:48:16.183Z\tc01c9f5e-6c33-40a1-a6d9-c11ab248ab48\tINFO\tEVENT\n{\n \&amp;quot;Records\&amp;quot;: [\n {\n \&amp;quot;EventSource\&amp;quot;: \&amp;quot;aws:sns\&amp;quot;,\n \&amp;quot;EventVersion\&amp;quot;: \&amp;quot;1.0\&amp;quot;,\n \&amp;quot;EventSubscriptionArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic:2e0e0d95-f1c8-47bd-90ff-40ca4129794b\&amp;quot;,\n \&amp;quot;Sns\&amp;quot;: {\n \&amp;quot;Type\&amp;quot;: \&amp;quot;Notification\&amp;quot;,\n \&amp;quot;MessageId\&amp;quot;: \&amp;quot;5f80d26e-bdeb-579f-bc81-84ea7ad4e2ae\&amp;quot;,\n \&amp;quot;TopicArn\&amp;quot;: \&amp;quot;arn:aws:sns:ap-northeast-1:465691908928:func-topic\&amp;quot;,\n \&amp;quot;Subject\&amp;quot;: null,\n \&amp;quot;Message\&amp;quot;: \&amp;quot;MESSAGE_TEXT\&amp;quot;,\n \&amp;quot;Timestamp\&amp;quot;: \&amp;quot;2019-12-31T03:48:15.</description>
+    </item>
+    
+    <item>
+      <title>函数计算Nodejs实例</title>
+      <link>https://wubigo.com/post/serverless-nodejs/</link>
+      <pubDate>Sat, 15 Dec 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/serverless-nodejs/</guid>
+      <description>restore snapshot shell snapshot.sh
+!#/bin/bash wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz tar xvf node-v12.13.1-linux-x64.tar.xz export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH wget https://manning-content.s3.amazonaws.com/download/0/ddbbd36-251d-42ef-9934-55e5a881a336/FinalSourceCode.zip sudo apt update sudo apt install unzip unzip FinalSourceCode.zip mv Final\ Source\ Code/ sls sudo apt install python-pip pip install awscli which aws_completer cp ~/.bashrc ~/.bashrc_orig tee -a ~/.bashrc &amp;lt;&amp;lt;-&#39;EOF&#39; complete -C &#39;/home/ubuntu/.local/bin/aws_completer&#39; aws export PATH=/home/ubuntu/node-v12.13.1-linux-x64/bin:$PATH EOF  aws configure npm install claudia -g claudia -v 5.11.0 cd chapter-03 npm install claudia create \ --region ap-northeast-1 \ --api-module api packaging files npm install -q --no-audit --production npm WARN pizza-api@1.</description>
+    </item>
+    
+  </channel>
+</rss>

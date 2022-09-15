@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WINDOWS on wubigo</title>
+    <link>https://wubigo.com/tags/windows/</link>
+    <description>Recent content in WINDOWS on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Apr 2020 19:42:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows Update Corruption</title>
+      <link>https://wubigo.com/post/windows-update-corruption/</link>
+      <pubDate>Fri, 10 Apr 2020 19:42:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/windows-update-corruption/</guid>
+      <description>4月8号的更新，出现了如下问题
+https://answers.microsoft.com/en-us/windows/forum/all/input-indicator-doesnt-work-well-and-icon-missing
+通过卸载更新把更新删除后，系统恢复正常
+删除本地下载的更新文件 https://winaero.com/blog/delete-downloaded-windows-update-files-in-windows-10/
+C:\Windows\SoftwareDistribution\Download</description>
+    </item>
+    
+    <item>
+      <title>在WSL中使用Docker</title>
+      <link>https://wubigo.com/post/docker-within-wsl/</link>
+      <pubDate>Tue, 08 Oct 2019 14:21:19 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-within-wsl/</guid>
+      <description>在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&amp;gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &amp;quot;metadata&amp;quot;  WSL DOCKER磁盘卷路径 cmd:\&amp;gt;docker volume inspect edgex_consul-config [ { &amp;quot;CreatedAt&amp;quot;: &amp;quot;2022-03-07T08:04:34Z&amp;quot;, &amp;quot;Driver&amp;quot;: &amp;quot;local&amp;quot;, &amp;quot;Labels&amp;quot;: { &amp;quot;com.docker.compose.project&amp;quot;: &amp;quot;edgex&amp;quot;, &amp;quot;com.docker.compose.version&amp;quot;: &amp;quot;2.2.3&amp;quot;, &amp;quot;com.docker.compose.volume&amp;quot;: &amp;quot;consul-config&amp;quot; }, &amp;quot;Mountpoint&amp;quot;: &amp;quot;/var/lib/docker/volumes/edgex_consul-config/_data&amp;quot;, &amp;quot;Name&amp;quot;: &amp;quot;edgex_consul-config&amp;quot;, &amp;quot;Options&amp;quot;: null, &amp;quot;Scope&amp;quot;: &amp;quot;local&amp;quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</description>
+    </item>
+    
+    <item>
+      <title>Wireless and Wired Connection Both at a Same Time in Windows</title>
+      <link>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</link>
+      <pubDate>Fri, 10 May 2019 16:57:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/</guid>
+      <description>give the wireless network higher priority than the wired WIRELESS CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot; &amp;gt; advanced TCP/IP setting &amp;gt; Automatic metric  Uncheck it. That will enable a text box named &amp;ldquo;Interface metric&amp;rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.
+WIRED CONNECTION &amp;gt; &amp;quot;Internet Protocol Version 4 (TCP/IPv4) Properties&amp;quot; &amp;gt; advanced TCP/IP setting &amp;gt; Automatic metric  Again Uncheck &amp;ldquo;Automatic metric&amp;rdquo;, and fill in a number in the &amp;ldquo;Interface metric&amp;rdquo; box.</description>
+    </item>
+    
+    <item>
+      <title>Windows Application Information Service</title>
+      <link>https://wubigo.com/post/windows-application-information-service/</link>
+      <pubDate>Mon, 06 May 2019 11:51:54 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/windows-application-information-service/</guid>
+      <description>AppInfo 启动类型必须是自动或手动，
+否则，msinstaller， services.msc， regedit
+等都会报错：
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.</description>
+    </item>
+    
+    <item>
+      <title>WIN用户使用Docker卷</title>
+      <link>https://wubigo.com/post/docker-win10-volume/</link>
+      <pubDate>Wed, 26 Sep 2018 17:14:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-win10-volume/</guid>
+      <description> 在windows，启动卷必须线启用共享驱动
+启用共享驱动 1: Open &amp;quot;Settings&amp;quot; in Docker Desktop -&amp;gt; &amp;quot;Shared Drives&amp;quot; -&amp;gt; &amp;quot;Reset Credentials&amp;quot; -&amp;gt; select drive &amp;quot;D&amp;quot; -&amp;gt; &amp;quot;Apply&amp;quot;  检查测试卷 docker run --rm -v d:/tmp:/data alpine ls /data  </description>
+    </item>
+    
+    <item>
+      <title>Docker Windows7 Docker Toolbox</title>
+      <link>https://wubigo.com/post/docker-windows7-docker-toolbox/</link>
+      <pubDate>Sat, 28 Apr 2018 17:08:07 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-windows7-docker-toolbox/</guid>
+      <description> docker proxy run cmd as administrator cmd&amp;gt;cd $GIT_HOME cmd&amp;gt;echo &amp;gt; .bash_profile export HTTP_PROXY=http://127.0.0.1:1080 export HTTPS_PROXY=http://127.0.0.1:1080 export no_proxy=localhost,127.0.0.1,192.168.99.100  </description>
+    </item>
+    
+    <item>
+      <title>Win10 Customize</title>
+      <link>https://wubigo.com/post/win10-customize/</link>
+      <pubDate>Fri, 29 Sep 2017 15:26:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/win10-customize/</guid>
+      <description>disable Taskbar thumbnail preview on Windows https://www.windowscentral.com/how-disable-taskbar-thumbnail-preview-windows-10</description>
+    </item>
+    
+    <item>
+      <title>购买笔记本电脑的正确打开姿势</title>
+      <link>https://wubigo.com/post/wins-turn-off-windows-activation/</link>
+      <pubDate>Mon, 04 Apr 2016 07:23:27 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wins-turn-off-windows-activation/</guid>
+      <description> 关闭网络连接 个性化设置  性能模式
+ 任务栏
+ 通知
+ 文件夹
+  关闭激活服务 禁用激活服务 https://www.wikihow.com/Turn-Off-Windows-Activation
+关闭自动激活 https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/
+注意 个性化设置必须在关闭激活服务之前完成
+禁止用户修改密码 net users net user user_cmp /PasswordChg:No  关闭后台服务 turn off the background app functionality
+Start &amp;gt; Settings &amp;gt; Privacy &amp;gt; Background apps  </description>
+    </item>
+    
+    <item>
+      <title>windows notes</title>
+      <link>https://wubigo.com/post/2010-01-03-windows-note/</link>
+      <pubDate>Sat, 10 Apr 2010 19:42:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/2010-01-03-windows-note/</guid>
+      <description> 常用工具  cport  https://www.nirsoft.net/utils/cports.html
+turn on IE proxy @ECHO OFF ECHO Turn on proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 1 /f  turn off IE proxy @ECHO OFF ECHO Turn off IE Proxy! please wait... REG ADD &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyEnable /t REG_DWORD /d 0 /f  禁止用户修改密码 net users net user /add cmp cmp net user cmp /PasswordChg:No WMIC USERACCOUNT WHERE Name=&#39;cmp&#39; SET PasswordExpires=FALSE  </description>
+    </item>
+    
+  </channel>
+</rss>

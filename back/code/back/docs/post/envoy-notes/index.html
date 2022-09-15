@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/envoy-notes/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/envoy-notes/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/envoy-notes/">
+  <meta property="og:title" content="Envoy NOTES | wubigo">
+  <meta property="og:description" content="术语  端点 Envoy discovers the cluster members via EDS Management server: A logical server implementing the v2 Envoy APIs Upstream: An upstream host receives connections and requests from Envoy and returns responses xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs. Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys  The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-03-31T11:16:50&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-03-31T11:16:50&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Envoy NOTES | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Envoy NOTES</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-03-31 11:16:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 31, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Envoy%20NOTES&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f&amp;title=Envoy%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f&amp;title=Envoy%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Envoy%20NOTES&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fenvoy-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="术语">术语</h1>
+
+<ul>
+<li>端点 Envoy discovers the cluster members via EDS</li>
+<li>Management server: A logical server implementing the v2 Envoy APIs</li>
+<li>Upstream: An upstream host receives connections and requests from Envoy and returns responses</li>
+<li>xDS: CDS/EDS/HDS/LDS/RLS/RDS/SDS APIs.</li>
+<li>Configuration Cache: cache Envoy configurations in memory in an attempt to provide fast response to consumer Envoys</li>
+</ul>
+
+<p>The simplest way to use Envoy without providing the control plane in the form of a dynamic API is to add the hardcoded configuration to a static yaml file.</p>
+
+<h1 id="参数化定制envoy镜像">参数化定制Envoy镜像</h1>
+
+<pre><code>clusters:
+  - name: myapp_cluster
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    dns_lookup_family: V4_ONLY
+    lb_policy: ${ENVOY_LB_ALG}
+    hosts: [{ socket_address: { address: ${SERVICE_NAME}, port_value: 80 }}]
+</code></pre>
+
+<p><code>docker-entrypoint.shin</code> 做环境变量替换</p>
+
+<pre><code>#!/bin/sh
+set -e
+
+echo &quot;Generating envoy.yaml config file...&quot;
+cat /tmpl/envoy.yaml.tmpl | envsubst \$ENVOY_LB_ALG,\$SERVICE_NAME &gt; /etc/envoy.yaml
+
+echo &quot;Starting Envoy...&quot;
+/usr/local/bin/envoy -c /etc/envoy.yaml
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy:latest
+
+COPY envoy.yaml /tmpl/envoy.yaml.tmpl
+COPY docker-entrypoint.sh /
+
+RUN chmod 500 /docker-entrypoint.sh
+
+RUN apt-get update &amp;&amp; \
+    apt-get install gettext -y
+
+ENTRYPOINT [&quot;/docker-entrypoint.sh&quot;]
+</code></pre>
+
+<h1 id="设置时间">设置时间</h1>
+
+<pre><code>docker history  --no-trunc envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+</code></pre>
+
+<p><code>Dockerfile</code></p>
+
+<pre><code>FROM envoyproxy/envoy-dev:48082bcd22fe9165eb73bed6d27857f578df63b5
+COPY envoy.yaml /etc/envoy/envoy.yaml
+RUN  apt-get update &amp;&amp; apt-get install -y curl ethtool tzdata &amp;&amp; rm -rf /var/cache/apk/*
+ENV TZ Asia/Shanghai
+# CMD  [&quot;envoy&quot;, &quot;-c&quot;, &quot;/etc/envoy/envoy.yaml&quot;, &quot;-l&quot;, &quot;debug&quot;]
+</code></pre>
+
+<pre><code>docker build -t envoy:v1 .
+</code></pre>
+
+<pre><code>docker run -d --rm --name envoy -p 9901:9901 -p 10000:10000 envoy:v1 envoy -c /etc/envoy/envoy.yaml -l debug
+
+docker exec -it envoy bash
+#ps fax
+1 ?        Ssl    0:00 envoy -c /etc/envoy/envoy.yaml -l debug
+</code></pre>
+
+<h1 id="envoy配置">ENVOY配置</h1>
+
+<p>Envoy supports multiple configurations:</p>
+
+<ul>
+<li>static configuration</li>
+<li>API-based configuration</li>
+<li>service-discovery-based configuration</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">资源类别</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">listeners</td>
+<td align="left">暴露给外部客户的端点</td>
+</tr>
+
+<tr>
+<td align="left">cluster</td>
+<td align="left">后台服务集群</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>集群</li>
+</ul>
+
+<p>Clusters are composed of endpoints – a set of network locations that can serve requests for the cluster.  Endpoints can also be defined directly as socket addresses, or read dynamically via the Endpoint Discovery Service</p>
+
+<h1 id="监听器">监听器</h1>
+
+<ul>
+<li><p>监听过滤器（内置）</p>
+
+<ul>
+<li>envoy.client_ssl_auth</li>
+<li>envoy.echo</li>
+<li>envoy.http_connection_manager(代理HTTP请求)
+
+<ul>
+<li>http_connection_manager.v2.HttpFilter
+
+<ul>
+<li>envoy.buffer</li>
+<li>envoy.cors</li>
+<li>envoy.fault</li>
+<li>envoy.gzip</li>
+<li>envoy.http_dynamo_filter</li>
+<li>envoy.grpc_http1_bridge</li>
+<li>envoy.grpc_json_transcoder</li>
+<li>envoy.grpc_web</li>
+<li>envoy.health_check</li>
+<li>envoy.header_to_metadata</li>
+<li>envoy.ip_tagging</li>
+<li>envoy.lua</li>
+<li>envoy.rate_limit</li>
+<li>envoy.router</li>
+<li>envoy.squash</li>
+</ul></li>
+</ul></li>
+<li>envoy.mongo_proxy</li>
+<li>envoy.ratelimit</li>
+<li>envoy.redis_proxy</li>
+
+<li><p>envoy.tcp_proxy</p>
+
+<pre><code>route_config:
+virtual_hosts:
+domains: -&gt; matched against the http requests Host header
+</code></pre></li>
+</ul></li>
+</ul>
+
+<p>config envoy by following its api
+<strong>api document is automatically generated from protocol buffers</strong></p>
+
+<p><a href="https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api" target="_blank">https://www.envoyproxy.io/docs/envoy/v1.8.0/api-v2/api</a></p>
+
+<p>以上都是静态资源配置，但是在K8S环境，容器是动态分配的，手动配置无法
+保证配置信息同步。于是就需要服务发现功能。ENVOY所需的发现服务包括:</p>
+
+<ul>
+<li>routes (“what cluster should requests with this HTTP header go to”)[RDS]</li>
+<li>clusters (“what backends does this service have?”)[CDS]</li>
+<li>listener (the filters for a port)[LDS]</li>
+
+<li><p>endpoints[EDS]</p></li>
+
+<li><p>v1</p>
+
+<pre><code>XDS = [ RDS, CDS, LDS, and EDS] 
+</code></pre></li>
+
+<li><p>v2</p></li>
+</ul>
+
+<p>Health Discovery Service (HDS)</p>
+
+<p>Aggregated Discovery Service (ADS)</p>
+
+<p>Secret Discovery Service (SDS)</p>
+
+<ul>
+<li><p>CDS type</p>
+
+<p>Cluster.DiscoveryType</p>
+
+<ul>
+<li>STATIC</li>
+<li>STRICT_DNS</li>
+<li>LOGICAL_DNS<br /></li>
+<li>EDS    ⁣</li>
+
+<li><p>ORIGINAL_DST</p>
+
+<pre><code>clusters:
+- name: service_backend
+type: []
+</code></pre></li>
+</ul></li>
+</ul>
+
+<p>istio-pilot是ENVOY发现服务提供者之一，istio-pilot根据K8S API为envoy提供配置routes和clusters服务</p>
+
+<pre><code>/envoy/examples/front-proxy$ git diff --word-diff
+
+
+diff --git a/examples/front-proxy/Dockerfile-frontenvoy b/examples/front-proxy/Dockerfile-frontenvoy
+index 83b5ba806..2e203a204 100644
+--- a/examples/front-proxy/Dockerfile-frontenvoy
++++ b/examples/front-proxy/Dockerfile-frontenvoy
+@@ -1,5 +1,5 @@
+FROM envoyproxy/envoy-dev:latest
+
+RUN apt-get update &amp;&amp; apt-get -q install -y \
+    curl {+tzdata+}
+CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml {+-l debug+} --service-cluster front-proxy
+
+
+
+
+diff --git a/examples/front-proxy/Dockerfile-service b/examples/front-proxy/Dockerfile-service
+index c3f5bafef..987b21814 100644
+--- a/examples/front-proxy/Dockerfile-service
++++ b/examples/front-proxy/Dockerfile-service
+@@ -1,6 +1,6 @@
+FROM envoyproxy/envoy-alpine-dev:latest
+
+RUN apk update &amp;&amp; apk add python3 bash curl {+tzdata+}
+RUN pip3 install -q Flask==0.11.1 requests==2.18.4
+RUN mkdir /code
+ADD ./service.py /code
+
+
+
+
+diff --git a/examples/front-proxy/docker-compose.yml b/examples/front-proxy/docker-compose.yml
+index 2c121d598..05d7eb844 100644
+--- a/examples/front-proxy/docker-compose.yml
++++ b/examples/front-proxy/docker-compose.yml
+@@ -15,6 +15,8 @@ services:
+    ports:
+      - &quot;8000:80&quot;
+      - &quot;8001:8001&quot;
+    {+environment:+}
+{+      - TZ=Asia/Shanghai+}
+
+  service1:
+    build:
+@@ -28,8 +30,10 @@ services:
+          - service1
+    environment:
+      - SERVICE_NAME=1
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+      
+
+  service2:
+    build:
+@@ -43,6 +47,7 @@ services:
+          - service2
+    environment:
+      - SERVICE_NAME=2
+      {+- TZ=Asia/Shanghai+}
+    expose:
+      - &quot;80&quot;
+
+
+
+
+
+
+diff --git a/examples/front-proxy/start_service.sh b/examples/front-proxy/start_service.sh
+index cc529bcf2..57176eff3 100644
+--- a/examples/front-proxy/start_service.sh
++++ b/examples/front-proxy/start_service.sh
+@@ -1,3 +1,3 @@
+#!/bin/sh
+python3 /code/service.py &amp;
+envoy -c /etc/service-envoy.yaml {+-l debug+} --service-cluster service${SERVICE_NAME}
+</code></pre>
+
+<p><a href="https://jvns.ca/blog/2018/10/27/envoy-basics/" target="_blank">https://jvns.ca/blog/2018/10/27/envoy-basics/</a></p>
+
+<p><a href="https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a" target="_blank">https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a</a></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/k8s/">K8S</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/k8s-ide-tool/">K8s IDE Tool: code extension</a></li>
+          
+          <li><a href="/post/k8s-openshift/">K8s Openshift</a></li>
+          
+          <li><a href="/post/k8s-sdk-setup/">K8S SDK Setup</a></li>
+          
+          <li><a href="/post/k8s_cni_kube-router/">K8s CNI之Kube Router实现</a></li>
+          
+          <li><a href="/post/k8s-development-streamline/">K8s Development Streamline with draft</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+

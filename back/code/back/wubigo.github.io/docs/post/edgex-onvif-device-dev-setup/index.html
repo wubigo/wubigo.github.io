@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
+networks: edgex-network: {}  为
+network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
+environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
+10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
+注册服务，消息队列，核心服务的所在的主机配置
+[Registry] Type = &quot;consul&quot; Host = &quot;10.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/edgex-onvif-device-dev-setup/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/edgex-onvif-device-dev-setup/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/edgex-onvif-device-dev-setup/">
+  <meta property="og:title" content="Edgex Onvif Device Dev Setup | wubigo">
+  <meta property="og:description" content="启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
+networks: edgex-network: {}  为
+network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
+environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
+10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
+注册服务，消息队列，核心服务的所在的主机配置
+[Registry] Type = &quot;consul&quot; Host = &quot;10."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2022-03-18T10:58:46&#43;08:00">
+  
+  <meta property="article:modified_time" content="2022-03-18T10:58:46&#43;08:00">
+  
+
+  
+
+  
+
+  <title>Edgex Onvif Device Dev Setup | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Edgex Onvif Device Dev Setup</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 18, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Edgex%20Onvif%20Device%20Dev%20Setup&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-onvif-device-dev-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fedgex-onvif-device-dev-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-onvif-device-dev-setup%2f&amp;title=Edgex%20Onvif%20Device%20Dev%20Setup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fedgex-onvif-device-dev-setup%2f&amp;title=Edgex%20Onvif%20Device%20Dev%20Setup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Edgex%20Onvif%20Device%20Dev%20Setup&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fedgex-onvif-device-dev-setup%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="启动edgex核心服务">启动EDGEX核心服务</h1>
+
+<h2 id="使用容器主机网络">使用容器主机网络</h2>
+
+<pre><code>wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml
+</code></pre>
+
+<p>在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换</p>
+
+<pre><code>networks:
+      edgex-network: {}
+</code></pre>
+
+<p>为</p>
+
+<pre><code>network_mode: host
+</code></pre>
+
+<h3 id="consul">CONSUL</h3>
+
+<p>配置CONSUL绑定到指定以太网卡</p>
+
+<pre><code>environment:
+      CONSUL_BIND_INTERFACE: ens3
+</code></pre>
+
+<h2 id="配置dns">配置DNS</h2>
+
+<p><code>/etc/hosts</code></p>
+
+<pre><code>10.166.44.182 edgex-core-consul
+10.166.44.182 edgex-core-command
+10.166.44.182 edgex-redis
+10.166.44.182 edgex-core-metadata
+10.166.44.182 edgex-core-data
+10.166.44.182 edgex-support-notifications
+10.166.44.182 edgex-support-scheduler
+10.166.44.182 edgex-ui-go
+10.166.44.182 edgex-kuiper
+10.166.44.182 edgex-app-rules-engine
+</code></pre>
+
+<h2 id="启动核心服务">启动核心服务</h2>
+
+<pre><code>docker-compose -f docker-compose-no-secty.yml up -d 
+</code></pre>
+
+<h2 id="检查核心服务启动正常">检查核心服务启动正常</h2>
+
+<pre><code>docker logs -f edgex-core-command edgex-core-data edgex-core-metadata
+</code></pre>
+
+<h1 id="在本地启动设备服务">在本地启动设备服务</h1>
+
+<pre><code>git clone git@github.com:edgexfoundry/device-camera-go.git
+</code></pre>
+
+<p>修改<code>cmd\res\configuration.toml</code></p>
+
+<p>注册服务，消息队列，核心服务的所在的主机配置</p>
+
+<pre><code>[Registry]
+Type = &quot;consul&quot;
+Host = &quot;10.166.44.182&quot;
+Port = 8500
+
+[MessageQueue]
+Protocol = &quot;redis&quot;
+Host = &quot;10.166.44.182&quot;
+
+[Clients.core-data]
+  Protocol = &quot;http&quot;
+  Host = &quot;10.166.44.182&quot;
+  Port = 59880
+
+  [Clients.core-metadata]
+  Protocol = &quot;http&quot;
+  Host = &quot;10.166.44.182&quot;
+  Port = 59881
+</code></pre>
+
+<h2 id="连接onvif摄像头">连接ONVIF摄像头</h2>
+
+<h2 id="启动onvif摄像头服务">启动ONVIF摄像头服务</h2>
+
+<h2 id="启动设备服务">启动设备服务</h2>
+
+<pre><code>cd device-camera-go/cmd
+set EDGEX_SECURITY_SECRET_STORE=false
+go run main.go
+</code></pre>
+
+<h2 id="查看设备资源">查看设备资源</h2>
+
+<p>curl -X GET <a href="http://10.166.44.182:59882/api/v2/device/name/Camera001" target="_blank">http://10.166.44.182:59882/api/v2/device/name/Camera001</a></p>
+
+<p>建议：请使用postman测试，</p>
+
+<pre><code>            {
+                &quot;name&quot;: &quot;OnvifSnapshot&quot;,
+                &quot;get&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifSnapshot&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifSnapshot&quot;,
+                        &quot;valueType&quot;: &quot;Binary&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;OnvifHostname&quot;,
+                &quot;get&quot;: true,
+                &quot;set&quot;: true,
+                &quot;path&quot;: &quot;/api/v2/device/name/Camera001/OnvifHostname&quot;,
+                &quot;url&quot;: &quot;http://edgex-core-command:59882&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;resourceName&quot;: &quot;OnvifHostname&quot;,
+                        &quot;valueType&quot;: &quot;String&quot;
+                    }
+                ]
+            }
+````
+
+postmana返回的路径可以直接点击，并直接调用相应的资源
+
+</code></pre>
+
+<p><a href="http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot" target="_blank">http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot</a>
+```</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/iot/">IOT</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/edgex-device-service-onvif/">如何实现Edgex设备服务</a></li>
+          
+          <li><a href="/post/edgex-device-service-dev-env-setup/">搭建Edgex设备服务开发环境</a></li>
+          
+          <li><a href="/post/mainflux-dev-setup/">Mainflux Dev Setup</a></li>
+          
+          <li><a href="/post/connect-kepserver-to-ali-iot/">Connect KEPServer to Ali IoT</a></li>
+          
+          <li><a href="/post/webcam-to-ip-camera/">Webcam to IP Camera</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+
