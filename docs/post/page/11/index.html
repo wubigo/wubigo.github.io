@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-07-22T22:05:52&#43;08:00">
+  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 16, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/rocksdb-notes/" itemprop="url">Rocksdb Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    表分区 主键=((分区键) + [簇键])
+create table kvstor ( k_part_one text, k_part_two int, k_clust_one text, k_clust_two int, k_clust_three uuid, data text, PRIMARY KEY((k_part_one, k_part_two), k_clust_one, k_clust_two, k_clust_three) );  分区键 分区键决定数据在集群内的分布在哪个分区
+簇键 簇建决定数据的在分区内的排列顺序
+Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2146,95 +2231,6 @@ https://github.com/meshbird/meshbird
 https://www.tinc-vpn.org/
 https://github.com/isystem-io/wireguard-aws
 Download and install the TunSafe, which is a Wireguard client for Windows.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-01-01-hacknewsfavorites2018/" itemprop="url">Hacknews favorites 2018</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Hijack of Amazon’s domain service used to reroute web traffic for two hours https://doublepulsar.com/hijack-of-amazons-internet-domain-service-used-to-reroute-web-traffic-for-two-hours-unnoticed-3a6f0dda6a6f
-Socioeconomic group classification based on user features http://pimg-faiw.uspto.gov/fdd/83/2018/28/003/0.pdf
-The long, tortuous and fascinating process of creating a Chinese font (qz.com) https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/
-Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service https://blog.cloudflare.com/announcing-1111/
-Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology https://cloudplatform.googleblog.com/2018/03/introducing-Cloud-Text-to-Speech-powered-by-Deepmind-WaveNet-technology.html
-Announcing gRPC Support in NGINX https://www.nginx.com/blog/nginx-1-13-10-grpc/
-ACME v2 and Wildcard Certificate Support is Live https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live
-PIXAR’S 22 RULES OF STORYTELLING https://www.
   </div>
   
 

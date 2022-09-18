@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-07-22T22:05:52&#43;08:00">
+  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
   
 
   
@@ -398,6 +398,132 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serveless-python-zappy/" itemprop="url">Serveless Python Zappa</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="python3">python3</h2>
+
+<ul>
+<li>改变操作系统的地区为美国</li>
+</ul>
+
+<p>否则报UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode</p>
+
+<p><code>python-3.6.8-amd64</code></p>
+
+<pre><code>py -3.6 -m pip install virtualenv
+py -3.6 -m virtualenv venv3
+.\venv3\script\activate
+pip install zappa
+
+git clone https://github.com/Miserlou/Zappa.git
+cd zappy/example
+pip install flask
+zappa deploy dev_event
+</code></pre>
+
+<ul>
+<li><p>检查状态</p>
+
+<pre><code>zappa  status dev_api
+</code></pre></li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<ul>
+<li><p>IllegalLocationConstraintException</p>
+
+<pre><code>get this error if you're trying to create a bucket with a name that's already been taken
+
+</code></pre></li>
+</ul>
+
+<p><a href="https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception" target="_blank">https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception</a></p>
+
+<pre><code>--create-bucket-configuration LocationConstraint=eu-west-1
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2212,91 +2338,6 @@ java跳表 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Concur
 跳表结构  多条链构成，是关键字升序排列的数据结构； 包含多个级别，一个head引用指向最高的级别，最低（底部）的级别，包含所有的key； 每一个级别都是其更低级别的子集，并且是有序的； 如果关键字key在级别level=i中出现，则level&lt;=i的链表中都会包含该关键字key；  ConcurrentSkipListMap和TreeMap类似，它们虽然都是有序的哈希表。但是，第一，它们的线程安全机制不同，TreeMap是非线程安全的，而ConcurrentSkipListMap是线程安全的。第二，ConcurrentSkipListMap是通过跳表实现的，而TreeMap是通过红黑树实现的
 跳表分为许多层(level)，每一层都可以看作是数据的索引，这些索引的意义就是加快跳表查找数据速度。每一层的数据都是有序的，上一层数据是下一层数据的子集，并且第一层(level 1)包含了全部的数据；层次越高，跳跃性越大，包含的数据越少。跳表包含一个表头，它查找数据时，是从上往下，从左往右进行查找。
 ConcurrentSkipListMap优点：
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-30 06:33:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serverless-vpc/" itemprop="url">函数计算VPC支持更新</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    IN VPC 更新前VPC
-更新后VPC
-While Hyperplane still uses a cross account network interface, it provides the following benefits for Lambda within a VPC:
- Reduced latency when a function is invoked by using pre-created network interfaces. The network interface is created when the Lambda function is initially created. Network interfaces are shared across functions with the same security group:subnet combination Function scaling is no longer bound to the number of network interfaces  While the new changes make it more conducive for developers to connect Lambda functions to VPCs, the basic architecture doesn’t change in terms of your VPC.
   </div>
   
 

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-07-22T22:05:52&#43;08:00">
+  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-04-01 17:20:32 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 1, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-service-headless/" itemprop="url">K8s Service Headless</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    To ensure stable network ID , need to define a headless service for stateful applications
+StatefulSets are valuable for applications that require one or more of the following.
+ Stable, unique network identifiers. Stable, persistent storage. Ordered, graceful deployment and scaling. Ordered, automated rolling updates  `headless-nginx.yaml&rsquo;
+apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2143,91 +2228,6 @@ https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
 [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
 git换行设置(line endings) 换行设置的3个选项:
  Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&ldquo;core.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-02-16 15:05:34 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Feb 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/rocksdb-notes/" itemprop="url">Rocksdb Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    表分区 主键=((分区键) + [簇键])
-create table kvstor ( k_part_one text, k_part_two int, k_clust_one text, k_clust_two int, k_clust_three uuid, data text, PRIMARY KEY((k_part_one, k_part_two), k_clust_one, k_clust_two, k_clust_three) );  分区键 分区键决定数据在集群内的分布在哪个分区
-簇键 簇建决定数据的在分区内的排列顺序
-Cassandra DB 主要缺点  Cassandra has big issue with Data Read Latency Hard to tune-up for both latency and throughput Highly depended on Work load and type Max 20 % P99 latency drop Most memory consumed by storage engine To store huge amount of data, JVM is required to manage the memory to clean up garbage collection that is not done by the application but by a language in Cassandra  Cassandra is not recommended if you have following use cases :
   </div>
   
 

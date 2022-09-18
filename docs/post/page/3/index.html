@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-07-22T22:05:52&#43;08:00">
+  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
   
 
   
@@ -398,6 +398,117 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 7, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/an-in-depth-analysis-of-distributed-transaction-solutions/" itemprop="url">Distributed Transaction Solutions</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="requirements-on-distributed-transactions">requirements on distributed transactions</h1>
+
+<ul>
+<li><p>database sharding</p></li>
+
+<li><p>service-oriented transformation and more cross-service transactions</p></li>
+</ul>
+
+<h1 id="three-scenarios-for-distributed-transactions">three scenarios for distributed transactions</h1>
+
+<ul>
+<li>Cross-database distributed transactions</li>
+<li>Cross-service distributed transactions</li>
+<li>Hybrid distributed transactions</li>
+</ul>
+
+<h1 id="five-distributed-transaction-solutions">five distributed transaction solutions</h1>
+
+<ul>
+<li>XA Specification</li>
+<li>TCC</li>
+<li>Saga</li>
+<li>Local-Message-Based Distributed Transactions</li>
+<li>Transactional-Message-Based Distributed Transactions</li>
+</ul>
+
+<p><a href="https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions" target="_blank">https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2067,132 +2178,6 @@ ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
 <pre><code>python -m pip uninstall pip
 python -m ensurepip
 python -m pip install -U pip
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-07-14 14:02:13 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 14, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/serveless-python-zappy/" itemprop="url">Serveless Python Zappa</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="python3">python3</h2>
-
-<ul>
-<li>改变操作系统的地区为美国</li>
-</ul>
-
-<p>否则报UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode</p>
-
-<p><code>python-3.6.8-amd64</code></p>
-
-<pre><code>py -3.6 -m pip install virtualenv
-py -3.6 -m virtualenv venv3
-.\venv3\script\activate
-pip install zappa
-
-git clone https://github.com/Miserlou/Zappa.git
-cd zappy/example
-pip install flask
-zappa deploy dev_event
-</code></pre>
-
-<ul>
-<li><p>检查状态</p>
-
-<pre><code>zappa  status dev_api
-</code></pre></li>
-</ul>
-
-<h2 id="faq">FAQ</h2>
-
-<ul>
-<li><p>IllegalLocationConstraintException</p>
-
-<pre><code>get this error if you're trying to create a bucket with a name that's already been taken
-
-</code></pre></li>
-</ul>
-
-<p><a href="https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception" target="_blank">https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception</a></p>
-
-<pre><code>--create-bucket-configuration LocationConstraint=eu-west-1
 </code></pre>
 
   </div>
