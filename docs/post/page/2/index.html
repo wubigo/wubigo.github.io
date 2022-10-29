@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
+  <meta property="og:updated_time" content="2022-10-29T16:04:45&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-06 11:59:57 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 6, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-in-azure-with-sls/" itemprop="url">Lambda in Azure with sls</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d '{&quot;name&quot;: &quot;Azure&quot;}'  清理 empty.json
+{ &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }   az group deployment create --mode complete --template-file .
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2158,97 +2241,6 @@ curl http://127.0.0.1:8080/
 <p>但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。</p>
 
 <p>而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/year-end-review-2020/" itemprop="url">2020年终总结</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="项目">项目</h2>
-
-<p>2020承接的是一个银行数据中心智能运营平台项目，这个项目需求之前由公司的售前</p>
-
-<p>和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。</p>
-
-<p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
 
   </div>
   

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2022-09-18T15:08:18&#43;08:00">
+  <meta property="og:updated_time" content="2022-10-29T16:04:45&#43;08:00">
   
 
   
@@ -398,6 +398,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-19 18:32:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-19 18:32:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 19, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/leveldb-port-in-java-dev/" itemprop="url">在windows上搭建Leveldb的开发环境</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    在windows上搭建Leveldb的开发环境
+Leveldb使用了checkstyle
+https://github.com/wubigo/leveldb/blob/master/src/checkstyle/checks.xml
+&lt;module name=&quot;RegexpMultiline&quot;&gt; &lt;property name=&quot;format&quot; value=&quot;\r&quot;/&gt; &lt;property name=&quot;message&quot; value=&quot;Line contains carriage return&quot;/&gt; &lt;/module&gt;  使用git默认设置拣出代码的时候，换行设置编译的时候会报错如下
+[ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[6] (regexp) RegexpMultiline: Line contains carriage return [ERROR] src\main\java\org\iq80\leveldb\WriteOptions.java:[7] (regexp) RegexpMultiline: Line contains carriage return  解决办法之一是调整git换行设置
+git换行设置(line endings) 换行设置的3个选项:
+ Checkout Windows-style, commit Unix-style  Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows (&ldquo;core.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2138,99 +2226,6 @@ wg genkey | tee privatekey | wg pubkey &gt; publickey private_key=$(wg genkey) p
 
 <p><a href="http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/" target="_blank">http://www.dwmkerr.com/the-death-of-microservice-madness-in-2018/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-02 06:34:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 2, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    12 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vpn-win-setup/" itemprop="url">Vpn客户端设置参考</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    how-to-allow-local-network-when-using-wireguard-vpn-tunnel  允许非隧道流量
-Open the WireGaurd Windows client. In the left pane, select the tunnel that you want local network routing to work, if you have more than one tunnel. Hit the Edit button. Uncheck Block untunneled traffic (kill-switch) option  增加本地的网络
-AllowedIPs = 192.168.0.0/16, 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1   安装 https://download.wireguard.com/windows-client/wireguard-amd64-0.0.38.msi
-配置  更改公钥
- Endpoint所在的vpn服务器地址
-  https://github.com/Nyr/openvpn-install
-https://github.com/hwdsl2/setup-ipsec-vpn
-https://wireguard.isystem.io/
-https://github.com/meshbird/meshbird
-https://www.tinc-vpn.org/
-https://github.com/isystem-io/wireguard-aws
-Download and install the TunSafe, which is a Wireguard client for Windows.
   </div>
   
 
