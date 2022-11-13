@@ -1,5 +1,5 @@
 +++
-title = "Docker Offline Install on Centos7"
+title = "Docker在Centos7离线安装"
 date = 2022-11-11T20:45:11+08:00
 draft = false
 
@@ -21,7 +21,7 @@ categories = []
 
 
 
-#. 下载 Docker 二进制文件（离线安装包）
+# 下载 Docker 二进制文件（离线安装包）
 
 下载地址：https://download.docker.com/linux/static/stable/x86_64/
 
