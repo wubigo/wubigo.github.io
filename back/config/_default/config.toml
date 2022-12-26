@@ -68,3 +68,20 @@ preserveTaxonomyNames = true
   category = "categories"
   publication_type = "publication_types"
   author = "authors"
+
+
+[params]
+  enableGitalk = true
+[params.gitalk] 
+    clientID = "Iv1.eb83edf6490b8a33" # 您刚才创建Github Application 的 Client ID
+    clientSecret = "f8411bc2ead9c4a84665abb296c3f1d2842b8aef" # 您刚才创建Github Application 的 Client Secret
+    repo = "https://github.com/wubigo/feedback" # 您的博客的github地址Repository name，例如：xxxx.github.io
+    owner = "wubigo" # 您的GitHub ID
+    admin= "wubigo" # 您的GitHub ID
+    id= "wubigo.com" # 文章页面的链接地址就是ID
+    labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+    perPage= 15 # Pagination size, with maximum 100.
+    pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
+    createIssueManually= true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
+    distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
+
