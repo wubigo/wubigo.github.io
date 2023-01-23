@@ -802,6 +802,30 @@ languageCode = &quot;zh-Hans&quot;
     
 
 
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
   </div>
 </article>
 
