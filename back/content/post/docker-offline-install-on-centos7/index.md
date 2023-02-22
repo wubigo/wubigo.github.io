@@ -28,6 +28,23 @@ categories = []
 注：本文使用 /x86_64/docker-18.06.1-ce.tgz，注意对应操作系统类型。
 
 ```
+tar tf docker-20.10.9.tgz
+
+docker/
+docker/containerd-shim-runc-v2
+docker/dockerd
+docker/docker-proxy
+docker/ctr
+docker/docker
+docker/runc
+docker/containerd-shim
+docker/docker-init
+docker/containerd
+```
+
+
+
+```
 tar zxf docker-18.06.1-ce.tgz
 sudo cp docker/* /usr/bin/
 sudo dockerd &
