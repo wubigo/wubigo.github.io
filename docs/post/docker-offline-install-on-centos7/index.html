@@ -30,7 +30,7 @@
   
   <meta name="description" content="下载 Docker 二进制文件（离线安装包） 下载地址：https://download.docker.com/linux/static/stable/x86_64/
 注：本文使用 /x86_64/docker-18.06.1-ce.tgz，注意对应操作系统类型。
-tar zxf docker-18.06.1-ce.tgz sudo cp docker/* /usr/bin/ sudo dockerd &amp;  验证是否安装成功，执行docker info命令
+tar tf docker-20.10.9.tgz docker/ docker/containerd-shim-runc-v2 docker/dockerd docker/docker-proxy docker/ctr docker/docker docker/runc docker/containerd-shim docker/docker-init docker/containerd  tar zxf docker-18.06.1-ce.tgz sudo cp docker/* /usr/bin/ sudo dockerd &amp;  验证是否安装成功，执行docker info命令
 docker info  注册成系统服务 /etc/systemd/system/docker.service
 [Unit] Description=Docker Application Container Engine Documentation=https://docs.docker.com After=network-online.target docker.socket firewalld.service Wants=network-online.target Requires=docker.socket [Service] Type=notify # the default is not to use systemd for cgroups because the delegate issues still # exists and systemd currently does not support the cgroup feature set required # for containers run by docker ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.">
 
@@ -143,7 +143,7 @@ docker info  注册成系统服务 /etc/systemd/system/docker.service
   <meta property="og:title" content="Docker在Centos7离线安装 | wubigo">
   <meta property="og:description" content="下载 Docker 二进制文件（离线安装包） 下载地址：https://download.docker.com/linux/static/stable/x86_64/
 注：本文使用 /x86_64/docker-18.06.1-ce.tgz，注意对应操作系统类型。
-tar zxf docker-18.06.1-ce.tgz sudo cp docker/* /usr/bin/ sudo dockerd &amp;  验证是否安装成功，执行docker info命令
+tar tf docker-20.10.9.tgz docker/ docker/containerd-shim-runc-v2 docker/dockerd docker/docker-proxy docker/ctr docker/docker docker/runc docker/containerd-shim docker/docker-init docker/containerd  tar zxf docker-18.06.1-ce.tgz sudo cp docker/* /usr/bin/ sudo dockerd &amp;  验证是否安装成功，执行docker info命令
 docker info  注册成系统服务 /etc/systemd/system/docker.service
 [Unit] Description=Docker Application Container Engine Documentation=https://docs.docker.com After=network-online.target docker.socket firewalld.service Wants=network-online.target Requires=docker.socket [Service] Type=notify # the default is not to use systemd for cgroups because the delegate issues still # exists and systemd currently does not support the cgroup feature set required # for containers run by docker ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -514,6 +514,20 @@ docker info  注册成系统服务 /etc/systemd/system/docker.service
 <p>下载地址：<a href="https://download.docker.com/linux/static/stable/x86_64/" target="_blank">https://download.docker.com/linux/static/stable/x86_64/</a></p>
 
 <p>注：本文使用 /x86_64/docker-18.06.1-ce.tgz，注意对应操作系统类型。</p>
+
+<pre><code>tar tf docker-20.10.9.tgz
+
+docker/
+docker/containerd-shim-runc-v2
+docker/dockerd
+docker/docker-proxy
+docker/ctr
+docker/docker
+docker/runc
+docker/containerd-shim
+docker/docker-init
+docker/containerd
+</code></pre>
 
 <pre><code>tar zxf docker-18.06.1-ce.tgz
 sudo cp docker/* /usr/bin/
