@@ -131,7 +131,7 @@ WantedBy=sockets.target
 ```
 sudo groupadd docker
 usermod -aG docker $USER
-systemctl reload deamon
+systemctl daemon-reload
 ```
 
 ##  修改docker配置
