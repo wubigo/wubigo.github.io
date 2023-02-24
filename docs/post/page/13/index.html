@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-01-23T14:48:44&#43;08:00">
+  <meta property="og:updated_time" content="2023-01-24T17:29:08&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 20:52:46 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-02-03-aws-notes/" itemprop="url">Aws Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    查看本月费用  The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment   Linux
+aws ce get-cost-and-usage --time-period Start=$(date -u -d &quot;$TODAY&quot; '+%Y-%m-01'),End=$(date -u +&quot;%Y-%m-%d&quot; --date=&quot;+1 day&quot;) --granularity MONTHLY --metrics UnblendedCost --output text   注意：CE服务是按api调用次数收费
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2167,105 +2250,6 @@ kubectl config set-context istio --cluster=istio kubectl config set-cluster isti
     Before Kubernetes version 1.11, the Kubernetes DNS service was based on kube-dns. Version 1.11 introduced CoreDNS to address some security and stability concerns with kube-dns.
 Regardless of the software handling the actual DNS records, both implementations work in a similar manner:
  A service named kube-dns and one or more pods are created. The kube-dns service listens for service and endpoint events from the Kubernetes API and updates its DNS records as needed.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-31 15:07:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 31, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-alpine/" itemprop="url">Docker Alpine</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="set-date">set date</h1>
-
-<pre><code>FROM alpine:3.8
-RUN apk add --no-cache tzdata &amp;&amp; rm -rf /var/cache/apk/*
-ENV TZ Asia/Shanghai
-RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
-</code></pre>
-
-<pre><code>docker run -it --rm -e TZ=Asia/Shanghai alpine:3.8 ash
-</code></pre>
-
-<p>创建<code>/etc/localtime</code></p>
-
-<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre>
-
   </div>
   
 
