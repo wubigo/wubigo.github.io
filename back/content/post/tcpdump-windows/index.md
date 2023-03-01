@@ -24,6 +24,10 @@ categories = []
 
 https://www.winpcap.org
 
+```
+mv windump tcpdump
+```
+
 
 
 
@@ -32,20 +36,34 @@ https://www.winpcap.org
 # list all interfaces
 
 ```
-windump -D
+tcpdump -D
 ```
 
 # dump on interface
 
 ```
-windump -i 1 -n dst host 172.17.17.6
+tcpdump -i 1 -n dst host 172.17.17.6
 ```
 
+```
+tcpdump -i 3 tcp port 8100
+
+tcpdump: listening on \Device\NPF_{BE2B782C-98A1-49A3-8F59-25C5A41A4B41}
+10:08:11.958366 IP loaclhost.49692 > wu-pc.8100: S 2181860964:2181860964(0) win 64240 <mss 1460,nop,wscale 8,nop,nop,sackOK>
+10:08:11.958513 IP wu-pc.8100 > loaclhost.49692: S 2062460989:2062460989(0) ack 2181860965 win 65535 <mss 1460,nop,wscale 8,nop,nop,sackOK>
+10:08:11.979568 IP loaclhost.49692 > wu-pc.8100: . ack 1 win 513
+10:08:11.982906 IP loaclhost.49692 > wu-pc.8100: P 1:217(216) ack 1 win 513
+10:08:11.985277 IP wu-pc.8100 > loaclhost.49692: P 1:478(477) ack 217 win 1025
+10:08:11.985537 IP wu-pc.8100 > loaclhost.49692: F 478:478(0) ack 217 win 1025
+10:08:12.006760 IP loaclhost.49692 > wu-pc.8100: . ack 479 win 511
+10:08:12.007554 IP loaclhost.49692 > wu-pc.8100: F 217:217(0) ack 479 win 511
+10:08:12.007621 IP wu-pc.8100 > loaclhost.49692: . ack 218 win 1025
+```
 
 # See entire packet payload using tcpdump
 
 ```
-windump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
+tcpdump -nnvvXSs 1514 -i 1 -n dst host 172.17.17.6
 ```
 
 
