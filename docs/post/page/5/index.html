@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-01-24T17:29:08&#43;08:00">
+  <meta property="og:updated_time" content="2023-03-11T23:44:41&#43;08:00">
   
 
   
@@ -398,6 +398,121 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-04-05 18:30:06 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-05 18:30:06 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 5, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/b2-cmd-line-notes/" itemprop="url">B2命令行工具</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>B2提供免费的10G存储空间, 而且不需要预先设置支付信息例如信用卡认证等。</p>
+
+<p>而且文件上传下载快速</p>
+
+<h2 id="安装">安装</h2>
+
+<pre><code>pip install --upgrade b2
+</code></pre>
+
+<h2 id="配置">配置</h2>
+
+<pre><code>b2 authorize-account [&lt;applicationKeyId&gt;] [&lt;applicationKey&gt;]
+</code></pre>
+
+<p><img src="/img/post/b2-key.png" alt="" /></p>
+
+<h2 id="上传">上传</h2>
+
+<pre><code>b2 upload-file cmp000 &quot;Commander 8.1.0 Installer (x64).zip&quot; cmp_commander_810_x86.zip
+
+Commander 8.1.0 Installer (x64).zip: 100%|███████████████████████████| 835M/835M [06:14&lt;00:00, 2.23MB/s]
+URL by file name: https://f000.backblazeb2.com/file/cmp000/cmp_commander_810_x86.zip
+URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?fileId=4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051
+{
+  &quot;action&quot;: &quot;upload&quot;,
+  &quot;fileId&quot;: &quot;4_z5fb65c33d39d419a79180f12_f20359e5b85eeada6_d20200405_m102029_c000_v0001066_t0051&quot;,
+  &quot;fileName&quot;: &quot;cmp_commander_810_x86.zip&quot;,
+  &quot;size&quot;: 835119744,
+  &quot;uploadTimestamp&quot;: 1586082029000
+}
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2355,108 +2470,6 @@ sudo systemctl restart docker
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-12 07:46:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 12, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/use-public-cloud-for-free/" itemprop="url">免费使用公有云服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    [TOC]
-AWS领先的设计理念和强大的技术生态
-使你身陷其中，学习你要用它，开发你要
-用它，上线还要用它。 一年下来项目还没有
-正式商用，已经有十几万的研发费用。
-今天向你推荐 localstack（与openstack啥关系？私有云+公有云），
-让你使用AWS免费，至少在项目POC或开发测试阶段免费。
-有了它， 你不用再焦急的等待老板审批公有云的
-计算，存储，数据库资源开发申请。
-是不是这个项目听起来很激动？
-那如何使用localstack呢？
-安装localstack localstack是一个非常活跃的正在快速成长中的项目，
-建议通过源代码安装
- 下载源代码
-git clone git@github.com:localstack/localstack.git git fetch --all git checkout tags/v0.10.3 -b v0.10.3  启用需要使用的AWS服务
-  修改配置文件，启用你需要使用的AWS服务:ec2,s3,iot,kafka等。
-注意服务的名字必须来自服务名字列表， 否则不识别
-启用服务就是修改下边的配置文件
-localstack\docker-compose.yml
- SERVICES=${SERVICES-ec2,ecs,stepfunctions,iam,lambda,dynamodb,apigateway,s3,sns} DATA_DIR=${DATA_DIR-/tmp/localstack/data } volumes: - &quot;${TMPDIR:-d:/tmp/localstack}:/tmp/localstack&quot;  make sure driver D is shared in docker desktop daemon
-docker-compose up localstack_1 | Starting mock S3 (http port 4572)... localstack_1 | Starting mock SNS (http port 4575).
   </div>
   
 
