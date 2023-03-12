@@ -1,5 +1,5 @@
 +++
-title = "Traditional Chinese Medicine"
+title = "中医养生八字"
 date = 2023-03-11T23:44:41+08:00
 draft = false
 
@@ -25,6 +25,7 @@ categories = []
 
 ## 食物
 
+粥：
 薏米一把，绿豆一把，莲子一把
 
 ## 脾
@@ -44,6 +45,10 @@ categories = []
 ## 心血
 
 空心拳叩击膻中穴
+
+## 运动
+
+双手并排保持端平，向下做深蹲，然后站立
 
 ## 养生八字
 
