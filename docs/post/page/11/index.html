@@ -423,6 +423,184 @@
 
 
 
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-macvaln/" itemprop="url">Aws EC2 MACVLAN</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
+
+<p>through bridges or macvlan. Dedicating a network interface to a</p>
+
+<p>container makes it directly unreachable from the host.</p>
+
+<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
+
+
+docker run -d --network pub_net --ip 172.30.80.10 busybox
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/effective-coding-go/" itemprop="url">Effective Coding Go</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Understanding Real-World Concurrency Bugs in Go</p>
+
+<p><a href="https://songlh.github.io/paper/go-study.pdf" target="_blank">https://songlh.github.io/paper/go-study.pdf</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-28 15:18:09 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-28 15:18:09 &#43;0800 CST" itemprop="dateModified">
 
@@ -2050,183 +2228,6 @@ and process them in a way that allows them to participate
 
 <p><img src="/img/post/pop3-forward.png" alt="" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-contribution-note/" itemprop="url">Minio开发笔记</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="依赖">依赖</h2>
-
-<pre><code>go list -m all
-go list -m -versions github.com/minio/cli
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-12 07:42:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 12, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/golang-first-app-as-module/" itemprop="url">Go语言第一个基于模块应用</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    模块初始化 mkdir -p $GOPATH/src/github.com cd $GOPATH/src/github.com mkdir -p wubigo/API/go/hello cd wubigo/API/go/hello go mod init github.com/wubigo/API/go/hello   检查go.mod
-ll go.mod cat go.mod module github.com/wubigo/API/go/hello go 1.13   创建程序 hello.go
-package main import ( &quot;fmt&quot; &quot;github.com/google/go-cmp/cmp&quot; ) func main() { fmt.Println(cmp.Diff(&quot;Hello World&quot;, &quot;Hello Go&quot;)) }  package main声明该模块是一个可执行程序而不是共享库
-编译测试 go install github.com/wubigo/API/go/hello  或者
-go install .  或者
-go install -n   检查go.mod  go.mod
-module github.com/wubigo/API/go/hello go 1.
   </div>
   
 

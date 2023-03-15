@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="BIM BIM software is used by individuals, businesses and government agencies who plan, design, construct, operate and maintain buildings and diverse physical infrastructures, such as water, refuse, electricity, gas, communication utilities, roads, railways, bridges, ports and tunnels.S
+BIM设计， BIM施工
+CAD建模范式对比 - 直接建模 vs. 参数化建模 参数化设计涉及工程师逐个构建 3D 几何图形。 2D 草图变成 3D 特征， 并适当地应用约束和关系以符合设计师的意图。
+导出和导入模型会删除其特征历史并将其转换为所谓的“哑几何体”。
+参数化建模的另一个弱点是，随着特征数量的增加，更新模型所需的计算量也会增加。“如果历史树中有一个具有 1000 个特征的零件，当你编辑该树中的最后一个功能时，它会非常快速地进行，”Siemens PLM 主流工程副总裁 Dan Staples 解释道。 “但是当你编辑该树中的第一个特征时，可能需要很长时间，因为它必须在到达第 1,001 个特征之前计算其间的所有 1,000 个特征。
+使用场景 施工管理是一项非常复杂的工作，随着时代的发展与各项信息技术的提升， 也给当下的建筑企业管理提出了更高的要求。保证工程质量、施工管理 数字化、降本增效成为了建筑企业的第一竞争力，也是建筑施工企业在 建筑市场上得以立足的基石。为了实现这一目标，越来越多的建筑企业 选择“智慧工地”的3D可视化管理模式。">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/bim-notes/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/bim-notes/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/bim-notes/">
+  <meta property="og:title" content="BIM Notes | wubigo">
+  <meta property="og:description" content="BIM BIM software is used by individuals, businesses and government agencies who plan, design, construct, operate and maintain buildings and diverse physical infrastructures, such as water, refuse, electricity, gas, communication utilities, roads, railways, bridges, ports and tunnels.S
+BIM设计， BIM施工
+CAD建模范式对比 - 直接建模 vs. 参数化建模 参数化设计涉及工程师逐个构建 3D 几何图形。 2D 草图变成 3D 特征， 并适当地应用约束和关系以符合设计师的意图。
+导出和导入模型会删除其特征历史并将其转换为所谓的“哑几何体”。
+参数化建模的另一个弱点是，随着特征数量的增加，更新模型所需的计算量也会增加。“如果历史树中有一个具有 1000 个特征的零件，当你编辑该树中的最后一个功能时，它会非常快速地进行，”Siemens PLM 主流工程副总裁 Dan Staples 解释道。 “但是当你编辑该树中的第一个特征时，可能需要很长时间，因为它必须在到达第 1,001 个特征之前计算其间的所有 1,000 个特征。
+使用场景 施工管理是一项非常复杂的工作，随着时代的发展与各项信息技术的提升， 也给当下的建筑企业管理提出了更高的要求。保证工程质量、施工管理 数字化、降本增效成为了建筑企业的第一竞争力，也是建筑施工企业在 建筑市场上得以立足的基石。为了实现这一目标，越来越多的建筑企业 选择“智慧工地”的3D可视化管理模式。"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-12T09:36:41&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-03-12T09:36:41&#43;08:00">
+  
+
+  
+
+  
+
+  <title>BIM Notes | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">BIM Notes</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-03-12 09:36:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-03-12 09:36:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=BIM%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fbim-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fbim-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fbim-notes%2f&amp;title=BIM%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fbim-notes%2f&amp;title=BIM%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=BIM%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fbim-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="bim">BIM</h1>
+
+<p>BIM software is used by individuals, businesses and government agencies who plan, design, construct, operate and maintain buildings and diverse physical infrastructures, such as water, refuse, electricity, gas, communication utilities, roads, railways, bridges, ports and tunnels.S</p>
+
+<p>BIM设计，
+BIM施工</p>
+
+<h2 id="cad建模范式对比-直接建模-vs-参数化建模">CAD建模范式对比 - 直接建模 vs. 参数化建模</h2>
+
+<p>参数化设计涉及工程师逐个构建 3D 几何图形。 2D 草图变成 3D 特征，
+并适当地应用约束和关系以符合设计师的意图。</p>
+
+<p>导出和导入模型会删除其特征历史并将其转换为所谓的“哑几何体”。</p>
+
+<p>参数化建模的另一个弱点是，随着特征数量的增加，更新模型所需的计算量也会增加。“如果历史树中有一个具有 1000 个特征的零件，当你编辑该树中的最后一个功能时，它会非常快速地进行，”Siemens PLM 主流工程副总裁 Dan Staples 解释道。 “但是当你编辑该树中的第一个特征时，可能需要很长时间，因为它必须在到达第 1,001 个特征之前计算其间的所有 1,000 个特征。</p>
+
+<h2 id="使用场景">使用场景</h2>
+
+<p>施工管理是一项非常复杂的工作，随着时代的发展与各项信息技术的提升，
+也给当下的建筑企业管理提出了更高的要求。保证工程质量、施工管理
+数字化、降本增效成为了建筑企业的第一竞争力，也是建筑施工企业在
+建筑市场上得以立足的基石。为了实现这一目标，越来越多的建筑企业
+选择“智慧工地”的3D可视化管理模式。</p>
+
+<h3 id="行业痛点">行业痛点</h3>
+
+<p>1、监管难度大
+建筑工程体量大、工地环境复杂、项目涉及环节多，如施工质量、安全、进度、材料、设备、环境、人员等，
+多种元素交叉造成工地全局监管难度大，各环节管控要求极高。
+2、人员管理难
+工地项目人员数量多、流动性大，缺乏有效的组织、监管不到位易导致人员管理混乱、劳务纠纷多、现场
+违规操作多发，给企业用工管理带来很大难度，同时存在着极大的风险。
+3、安全事故频发
+施工作业属于高风险，工地现场人、车、物安全隐患多，工地缺乏针对施工作业的智能监管手段，无法做
+到对安全事故进行防范预警，导致安全事故频发，造成巨大损失。
+4、信息孤岛严重
+工地点多面广，协作方多，数据分散不共享、应用碎片化，容易形成信息孤岛，导致业务流程割裂，各方
+对接难，协同工作效率低，施工作业效率低，项目管理盲区多、漏洞多。
+5、信息化水平弱
+传统粗放式监管信息化水平弱，工地数字化、智慧化需求迫切，急需跨域数据融合，全面感知人、车、物、环境
+等，实现业务智能联动，实现项目可视可管可控。</p>
+
+<p>智慧工地智慧在哪儿？</p>
+
+<p>1、人员管理
+能够及时记录和掌握工人情况，通过人员管理系统实时统计现场劳务用工情况，监控人员流动情况，这些都可以通过3D可视化智慧工地实现。通过人脸识别技术对岗位人员和劳务人员进行实名认证，形成人员实名基础库，有条件实施封闭式管理的项目通过人脸识别终端与门禁系统结合实现现场考勤，不具备封闭式管理的工程项目，采用手机移动定位、电子围栏等技术实施考勤管理，采集的现场考勤为岗位人员在岗、劳务人员工资支付等提供数据支撑。</p>
+
+<p>2、智慧监控
+智慧工地3D可视化可对接各种各样的监控摄像头，尤其是对车辆、机械设备的监控等。这些监控同样可以通过智慧工地的接口形成统一的集成化展示，管理者通过手机、电脑即可实时查看工地实际施工情况，想看哪里点哪里。</p>
+
+<p>3、安全管理
+施工现场涉及面广，状况较为复杂，人员出入、机械运行、物料运输等，工程项目管理在一定程度上存在着决策层看不清、管理层管不住、执行层做不好的问题，信息难掌握不及时，管理不到位，事故隐患易发。智慧工地3D可视化可分时预警，实时监管工人佩戴安全帽情况、反光衣穿着情况等，减少安全事件发生。</p>
+
+<p>4、进度管理
+利用导入项目的轻量化BIM模型，将施工现场的各种问题进行汇聚呈现。通过与现场视频与3D可视化场景相结合，充分掌握施工进度、质量、安全等问题，为项目推进决策提供数据支撑。
+智慧工地3D可视化平台可以从任务分解、计划制定、进度跟踪到进度纠偏，提供可视化、可预知、可分析的进度管控工具，实现工地数据自动采集、远程控制、信息存储和分析、历史图像的检索和回收，确保工程施工进程的可视、可查、可溯、可控，有效支持现场作业人员、项目管理者提高施工质量、成本和进度水平，保证工程项目成功。</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/bim/">BIM</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/glodon-biz/">Glodon Biz</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://bigo.goatcounter.com/count'
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+    
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins)
+      })();
+    </script>
+  </body>
+</html>
+
