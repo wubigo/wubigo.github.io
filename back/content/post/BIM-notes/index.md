@@ -106,3 +106,24 @@ BIM施工
 
 
 
+
+## 云点
+
+BIM data is very different from a regular 3D model. In fact, geometry is optional, and most data is non-geometric. This means that it is not simply a 3D format that you can import or export from and expect meaningful results.
+
+
+3D Building Models from Point Clouds。
+
+
+https://patents.google.com/patent/CN104573231A/zh
+
+建筑运维管理——FM(Facility Management，设施管理)，根据IFMA(International Facility Management Association，国际设施管理协会)对其的定义：FM是运用多学科专业，集成人、场地、流程和技术来确保楼宇良好运行的活动。人们通常理解的建筑运维管理，就是物业管理。但是现代的建筑运维管理(FM)与物业管理有着本质的区别，其中最重要的区别在于：面向的对象不同。物业管理面向建筑设施，而现代建筑运维管理面向的则是企业的管理有机体。
+
+
+
+针对现有技术中的缺陷，本发明的目的是提供一种基于BIM的智慧楼宇系统，其解决了如何解决如下技术问题：
+1)基于BIM的智慧楼宇系统沿用了建筑设计、施工阶段所生成的BIM竣工模型；
+2)基于BIM的智慧楼宇系统以BIM模型中的构件联接各类数据，将各种零碎、分散、割裂的信息数据，以及建筑运维阶段所需的各种机电设备参数进行一体化整合；
+3)基于BIM的智慧楼宇系统接入物联网数据流，完善建筑的日常设备运维管理功能，并简化操作，降低人力成本；
+4)基于BIM的智慧楼宇系统通过与物联网的通信，智能控制楼宇的各建筑设备，实现绿色节能，创建安全、舒适、便捷的环境。
+
