@@ -423,6 +423,104 @@
 
 
 
+<meta content="2019-02-22 11:38:27 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-02-22 11:38:27 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 22, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/blog_on_hugo/">
+      <img src="/post/blog_on_hugo/featured_hu284695fc8e59587d70e5b2d7df491030_200937_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/blog_on_hugo/" itemprop="url">Blog on hugo way</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Decide to gave hugo a shot after many years of being jekyll
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="dateModified">
 
@@ -2255,90 +2353,6 @@ policy document format across many services to control authorization
 to resources and API actions
 terraform https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html
 resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3_policy&quot; role = &quot;${aws_iam_role.lambda_s3_role.id}&quot; policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;ListObjectsInBucket&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [&quot;s3:ListBucket&quot;], &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name&quot;] }, { &quot;Sid&quot;: &quot;AllObjectActions&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;s3:*Object&quot;, &quot;Resource&quot;: [&quot;arn:aws:s3:::bucket-name/*&quot;] } ] } EOF } resource &quot;aws_iam_role&quot; &quot;lambda_s3_role&quot; { name = &quot;lambda_s3_role&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-11-28 23:38:18 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-apigateway/" itemprop="url">函数＋网关</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
-'use strict' exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '&lt;p&gt;Hello world!&lt;/p&gt;' } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
-resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.
   </div>
   
 
