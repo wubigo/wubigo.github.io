@@ -1,5 +1,5 @@
 +++
-title = "Llm Notes"
+title = "LLM Notes"
 date = 2023-04-18T11:00:40+08:00
 draft = false
 
@@ -28,7 +28,7 @@ Aligning large language models (LLMs) with human preferences has proven to drast
 
 
 
-## dataset  for open-source model
+## 训练数据集for open-source model
 
 
 [RedPajama-Data-1T](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)
