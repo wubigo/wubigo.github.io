@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-08T18:39:31&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-18T11:00:40&#43;08:00">
   
 
   
@@ -398,6 +398,95 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-07-02 08:57:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-07-02 08:57:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 2, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/software-estimation/" itemprop="url">软件产品开发工时评估技巧</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    软件项目开发时间线很难做到精确的评估，但在项目管理的时候，
+我们必须要提供这个数字。
+重要特征：时间和不确定性 一个只包含时间的评估隐含了一定程度的不确定性。 如果你告诉我一个任务需要花10天时间，
+我会假设进度在控制之中。但如果你告诉我一个任务花10到15天，那这个期限就有很高的风险。
+项目工期评估技巧  任务分解 评估不确定性 分别做最好和最坏情况的评估 任务跟踪并优化  任务分解    复杂度 时间(人天)     小 1   中等 3   大 5   特别大 10    不用追求一步到位完成工时评估， 开始的时候做粗略的评估，
+该评估可能包含一些复杂度比较大的任务。
+评估不确定性 20-30人日与5-45人日的工时评估是完全不同的，即便两者的中位数都是25人天
+   不确定性级别 乘数效应     低 1.1   中等 1.5   大 2   特别大 5    计算工时    任务 复杂度 不确定性 期望工时 最坏情况     计量支付私有化部署 低 大 20 40    这个任务预计20天完成，最坏情况需求40天。或者工时可以表示为20-40人日
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2147,107 +2236,6 @@ ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10.
   <div class="article-style" itemprop="articleBody">
     开发环境准备 git version 2.34.1.windows.1 cmd&gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
 # binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&gt;make -v GNU Make 4.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/wireguard-vpn-client-for-ubuntu/" itemprop="url">Wireguad Vpn Client for Ubuntu</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="安装">安装</h2>
-
-<pre><code>$lsb_release -a
-
-Distributor ID: Ubuntu
-Description:    Ubuntu 20.04.1 LTS
-Release:        20.04
-Codename:       focal
-</code></pre>
-
-<pre><code>
-sudo apt install wireguard  wireguard-dkms -y
-wget algo/configs/localhost/wireguard/desktop.conf  /etc/wireguard/wg0.conf
-sudo modprobe wireguard
-sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
-sudo wg-quick up wg0
-</code></pre>
-
   </div>
   
 

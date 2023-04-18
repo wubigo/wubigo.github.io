@@ -5,8 +5,24 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Apr 2023 18:39:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Apr 2023 11:00:40 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Llm Notes</title>
+      <link>https://wubigo.com/post/llm-notes/</link>
+      <pubDate>Tue, 18 Apr 2023 11:00:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/llm-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;openassistant&#34;&gt;OpenAssistant&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ykilcher.com/OA_Paper_2023_04_15.pdf&#34; target=&#34;_blank&#34;&gt;Democratizing Large Language Model Alignment&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Aligning large language models (LLMs) with human preferences has proven to drastically improve usability and has driven rapid adoption as demonstrated by ChatGPT. Alignment techniques such as supervised fine-tuning (SFT) and reinforcement learning from human feedback (RLHF) greatly reduce the required skill and domain knowledge to effectively harness the capabilities of LLMs, increasing their accessibility and utility across various domains.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Penpot Dev Setup</title>
@@ -2485,148 +2501,6 @@ assets that rely on a particular field or integration job before making a change
 define who the data steward is for each data asset. Data stew‐
 ards are responsible for making sure the data assets are correct, documenting their
 purpose and lineage, and defining access and lifecycle management policies for them&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Edgex Onvif Device Dev Setup</title>
-      <link>https://wubigo.com/post/edgex-onvif-device-dev-setup/</link>
-      <pubDate>Fri, 18 Mar 2022 10:58:46 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/edgex-onvif-device-dev-setup/</guid>
-      <description>
-
-&lt;h1 id=&#34;启动edgex核心服务&#34;&gt;启动EDGEX核心服务&lt;/h1&gt;
-
-&lt;h2 id=&#34;使用容器主机网络&#34;&gt;使用容器主机网络&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;networks:
-      edgex-network: {}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;为&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;network_mode: host
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;consul&#34;&gt;CONSUL&lt;/h3&gt;
-
-&lt;p&gt;配置CONSUL绑定到指定以太网卡&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;environment:
-      CONSUL_BIND_INTERFACE: ens3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;配置dns&#34;&gt;配置DNS&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;10.166.44.182 edgex-core-consul
-10.166.44.182 edgex-core-command
-10.166.44.182 edgex-redis
-10.166.44.182 edgex-core-metadata
-10.166.44.182 edgex-core-data
-10.166.44.182 edgex-support-notifications
-10.166.44.182 edgex-support-scheduler
-10.166.44.182 edgex-ui-go
-10.166.44.182 edgex-kuiper
-10.166.44.182 edgex-app-rules-engine
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;启动核心服务&#34;&gt;启动核心服务&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;docker-compose -f docker-compose-no-secty.yml up -d 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;检查核心服务启动正常&#34;&gt;检查核心服务启动正常&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;docker logs -f edgex-core-command edgex-core-data edgex-core-metadata
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;在本地启动设备服务&#34;&gt;在本地启动设备服务&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:edgexfoundry/device-camera-go.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;修改&lt;code&gt;cmd\res\configuration.toml&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;注册服务，消息队列，核心服务的所在的主机配置&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[Registry]
-Type = &amp;quot;consul&amp;quot;
-Host = &amp;quot;10.166.44.182&amp;quot;
-Port = 8500
-
-[MessageQueue]
-Protocol = &amp;quot;redis&amp;quot;
-Host = &amp;quot;10.166.44.182&amp;quot;
-
-[Clients.core-data]
-  Protocol = &amp;quot;http&amp;quot;
-  Host = &amp;quot;10.166.44.182&amp;quot;
-  Port = 59880
-
-  [Clients.core-metadata]
-  Protocol = &amp;quot;http&amp;quot;
-  Host = &amp;quot;10.166.44.182&amp;quot;
-  Port = 59881
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;连接onvif摄像头&#34;&gt;连接ONVIF摄像头&lt;/h2&gt;
-
-&lt;h2 id=&#34;启动onvif摄像头服务&#34;&gt;启动ONVIF摄像头服务&lt;/h2&gt;
-
-&lt;h2 id=&#34;启动设备服务&#34;&gt;启动设备服务&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;cd device-camera-go/cmd
-set EDGEX_SECURITY_SECRET_STORE=false
-go run main.go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;查看设备资源&#34;&gt;查看设备资源&lt;/h2&gt;
-
-&lt;p&gt;curl -X GET &lt;a href=&#34;http://10.166.44.182:59882/api/v2/device/name/Camera001&#34; target=&#34;_blank&#34;&gt;http://10.166.44.182:59882/api/v2/device/name/Camera001&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;建议：请使用postman测试，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;            {
-                &amp;quot;name&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
-                &amp;quot;get&amp;quot;: true,
-                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifSnapshot&amp;quot;,
-                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
-                &amp;quot;parameters&amp;quot;: [
-                    {
-                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifSnapshot&amp;quot;,
-                        &amp;quot;valueType&amp;quot;: &amp;quot;Binary&amp;quot;
-                    }
-                ]
-            },
-            {
-                &amp;quot;name&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
-                &amp;quot;get&amp;quot;: true,
-                &amp;quot;set&amp;quot;: true,
-                &amp;quot;path&amp;quot;: &amp;quot;/api/v2/device/name/Camera001/OnvifHostname&amp;quot;,
-                &amp;quot;url&amp;quot;: &amp;quot;http://edgex-core-command:59882&amp;quot;,
-                &amp;quot;parameters&amp;quot;: [
-                    {
-                        &amp;quot;resourceName&amp;quot;: &amp;quot;OnvifHostname&amp;quot;,
-                        &amp;quot;valueType&amp;quot;: &amp;quot;String&amp;quot;
-                    }
-                ]
-            }
-````
-
-postmana返回的路径可以直接点击，并直接调用相应的资源
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot&#34; target=&#34;_blank&#34;&gt;http://10.166.44.182:59882/api/v2/device/name/Camera001/OnvifSnapshot&lt;/a&gt;
-```&lt;/p&gt;
 </description>
     </item>
     
