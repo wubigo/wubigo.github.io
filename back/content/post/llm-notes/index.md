@@ -25,3 +25,11 @@ categories = []
 [Democratizing Large Language Model Alignment](https://www.ykilcher.com/OA_Paper_2023_04_15.pdf)
 
 Aligning large language models (LLMs) with human preferences has proven to drastically improve usability and has driven rapid adoption as demonstrated by ChatGPT. Alignment techniques such as supervised fine-tuning (SFT) and reinforcement learning from human feedback (RLHF) greatly reduce the required skill and domain knowledge to effectively harness the capabilities of LLMs, increasing their accessibility and utility across various domains.
+
+
+
+## dataset  for open-source model
+
+
+[RedPajama-Data-1T](https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T)
+
