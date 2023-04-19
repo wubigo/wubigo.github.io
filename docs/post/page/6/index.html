@@ -423,6 +423,127 @@
 
 
 
+<meta content="2019-10-12 16:19:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-12 16:19:59 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/no.-1-work-skill-of-the-future/" itemprop="url">心理学家：21世纪最重要的工作技能</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="./orca.jpg" alt="" /></p>
+
+<p>心理学家：21世纪最重要的工作技能</p>
+
+<p>专注是21世纪最重要的工作技能，</p>
+
+<p>可是很多人没有意识到这一点。</p>
+
+<p>1971年的时候心理学家<a href="https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/5625/dessein_rational.pdf" target="_blank">西蒙</a>就说过：“大量的信息</p>
+
+<p>意味着另一种东西变得很稀缺：注意力”。 几十年之前这是个事实，</p>
+
+<p>在21世纪，注意力变的更加珍贵。</p>
+
+<p>工作环境正在发生快速的变化，在不远的将来，</p>
+
+<p>在这个世界只存在两种人：</p>
+
+<ul>
+<li><p>一种注意力被别人完全控制和操纵的人</p></li>
+
+<li><p>一种注意力不可被打扰的人</p></li>
+</ul>
+
+<p>研究人员告诉我们专注和注意力人们创新发展的原材料</p>
+
+<p>下面是一些常见的工作干扰：</p>
+
+<ul>
+<li><p>聊天群</p></li>
+
+<li><p>会议</p></li>
+
+<li><p>电话</p></li>
+
+<li><p>邮件</p></li>
+
+<li><p>同事</p></li>
+</ul>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-10-11 17:39:50 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-10-11 17:39:50 &#43;0800 CST" itemprop="dateModified">
 
@@ -2160,118 +2281,6 @@ git branch -av|grep 1.13
 
 <pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dev-on-tencent-cloud-sdk-in-go/" itemprop="url">通过SDK操纵公有云</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>基于腾讯云Go SDK开发</p>
-
-<h1 id="下载开发工具集">下载开发工具集</h1>
-
-<pre><code>go get -u github.com/tencentcloud/tencentcloud-sdk-go
-</code></pre>
-
-<h1 id="为集群准备cvm">为集群准备CVM</h1>
-
-<p>从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
-然后把安全凭证传送给SDK客户端</p>
-
-<pre><code>secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;)
-credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;)
-client, _ := cvm.NewClient(credential, regions.Beijing)
-</code></pre>
-
-<pre><code>request := cvm.NewAllocateHostsRequest()
-request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;))
-response, err := client.AllocateHosts(request)
-</code></pre>
-
-<h1 id="通过ansible在cvm搭建k8s集群">通过ANSIBLE在CVM搭建K8S集群</h1>
-
-<pre><code>Ansible.Hosts().Get(response.ToJsonString())
-</code></pre>
-
-<p>调用ANSIBLE开始在CVM部署K8S集群</p>
 
   </div>
   
