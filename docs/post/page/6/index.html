@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-18T11:00:40&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-24T15:56:48&#43;08:00">
   
 
   
@@ -398,6 +398,117 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-27 11:26:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 27, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/digital-evolution-of-open-source-business-process-management/" itemprop="url">开源的工作流引擎技术演进历史</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    第一代 2003年， jBPM 1.0发布。
+运行环境：J2EE
+过程定义语言：jPDL(当时工作流厂商都有各自的过程定义语言和建模工具)
+当时的主流的技术： applets, Swing桌面和EJB
+第二代 2004年，jBPM 2.0发布
+同时jBPM加入JBoss基金会.
+运行环境：任何JAVA环境(POJO实现过程运行时)，不需要应用服务器
+第三代 2005年, jBPM 3.0发布，支持BPEL
+过程定义语言：过程虚拟机
+架构： 与二代相比，架构发生了巨大变化。可以操作的业务功能大范围扩展，不仅通
+过JAVA实现状态机，而且支持建模
+HIBERNETE作为持久机制并同时提供会话对象的概念，
+工作流引擎所有的相关性交互都纳入contextual block范畴
+这为以后的工作流命令设计模式和命令拦截设计模式的广泛应用打下良好的基础
+第四代 2009年， jBPM 4.0 alpha版发布.
+过程虚拟机成功工作流引擎的核心。
+过程定义语言：BPMN, jPDL 和 BPEL
+因为团队人员离开并启动Activiti，正式版没能发布。
+主要改进：
+ 无状态的服务API 运行时和历史数据的分离： 保证运行时持久的性能  第五代 2010年, Activiti 1发布
+改变：
+ 版权从LGPL转到APACHE.
+ 过程定义语言：BPMN(唯一)
+ 从性能和扩展性加强PVM
+ 多租户支持
+ 轻量级架构
+  第六代 2017年，flowable 6.0发布。
+改变：
+ 过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移
+ 数据远完全抽象：支持NoSQL
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2184,104 +2295,6 @@ BIM设计， BIM施工
 CAD建模范式对比 - 直接建模 vs. 参数化建模 参数化设计涉及工程师逐个构建 3D 几何图形。 2D 草图变成 3D 特征， 并适当地应用约束和关系以符合设计师的意图。
 导出和导入模型会删除其特征历史并将其转换为所谓的“哑几何体”。
 参数化建模的另一个弱点是，随着特征数量的增加，更新模型所需的计算量也会增加。“如果历史树中有一个具有 1000 个特征的零件，当你编辑该树中的最后一个功能时，它会非常快速地进行，”Siemens PLM 主流工程副总裁 Dan Staples 解释道。 “但是当你编辑该树中的第一个特征时，可能需要很长时间，因为它必须在到达第 1,001 个特征之前计算其间的所有 1,000 个特征。
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-04 11:13:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-04 11:13:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 4, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-core-development/" itemprop="url">K8S CORE DEVELOPMENT</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<pre><code>git clone git@github.com:wubigo/kubernetes.git
-git remote add upstream https://github.com/kubernetes/kubernetes.git
-git fetch --all
-git checkout tags/v1.13.3 -b v1.13.3 
-git branch -av|grep 1.13
-* fix-1.13                            4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
-  remotes/origin/release-1.13         4807084f79 Add/Update CHANGELOG-1.13.md for v1.13.2.
-
-</code></pre>
-
-<h1 id="管理pod">管理POD</h1>
-
-<pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
-</code></pre>
-
   </div>
   
 

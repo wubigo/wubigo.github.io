@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-18T11:00:40&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-24T15:56:48&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-09-28 10:26:04 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-09-28 10:26:04 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 28, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/dapr-component-dev-setup/" itemprop="url">Dapr组件开发环境搭建</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    开发环境准备 git version 2.34.1.windows.1 cmd&gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
+# binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&gt;make -v GNU Make 4.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2128,92 +2211,6 @@ lynx https://news.ycombinator.com/news 1. Generics and Compile-Time in Rust (pin
 net start vmnetdhcp
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-06-13 17:03:30 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 13, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/centos-notes/" itemprop="url">Centos Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    自动启动网卡 CENTOS安装完后，网卡默认没有激活，无法分配IP地址
-/etc/sysconfig/network-scripts/ifcfg-enp0s3
-DEVICE=enp0s3 BOOTPROTO=dhcp ONBOOT=yes  systemctl restart network   set the default route on interface
-DEFROUTE=&quot;yes&quot;   删除MariaDB rpm -qa | grep mariadb sudo yum remove -y mariadb mariadb-server rpm -qa | grep mariadb yum remove -y mariadb-libs-5.5.65-1.el7.x86_64 rm -rf /var/log/mariadb rm -f /var/log/mariadb/mariadb.log.rpmsave rm -rf /var/lib/mysql rm -rf /usr/lib64/mysql rm -rf /usr/share/mysql   install
-sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装polipo git clone https://github.
   </div>
   
 
