@@ -25,7 +25,7 @@ WebGPU is the new GPU API that available in browser. It's one of the only 2 APIs
 WebGPU is the successor to WebGL, providing better compatibility with modern GPUs, support for general-purpose GPU computations, faster operations, and access to more advanced GPU features.
 
 
-https://github.com/microsoft/onnxruntime/pull/14579
+
 
 
 
@@ -43,3 +43,11 @@ WebGL has some fundamental issues that needed addressing:
 - 集成GPU: 和CPU集成在一块主板上，共享内存
 - 独立GPU
 - 虚拟GPU: 在CPU上实现GPU
+
+
+# ONNX Runtime Web
+
+ONNX(Open Neural Network Exchange) Runtime Web enables you to run and deploy machine learning models in your web application using JavaScript APIs and libraries.
+
+[WebGPU backend via JSEP](https://github.com/microsoft/onnxruntime/pull/14579)
+
