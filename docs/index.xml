@@ -5,8 +5,42 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Apr 2023 15:56:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Apr 2023 15:41:55 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>WebGPU Notes</title>
+      <link>https://wubigo.com/post/webgpu-notes/</link>
+      <pubDate>Tue, 25 Apr 2023 15:41:55 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/webgpu-notes/</guid>
+      <description>
+
+&lt;p&gt;WebGPU is the new GPU API that available in browser. It&amp;rsquo;s one of the only 2 APIs that currently available to access the GPU from browser (the other is WebGL).&lt;/p&gt;
+
+&lt;p&gt;WebGPU is the successor to WebGL, providing better compatibility with modern GPUs, support for general-purpose GPU computations, faster operations, and access to more advanced GPU features.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/onnxruntime/pull/14579&#34; target=&#34;_blank&#34;&gt;https://github.com/microsoft/onnxruntime/pull/14579&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;webgl基本问题&#34;&gt;WebGL基本问题&lt;/h1&gt;
+
+&lt;p&gt;WebGL has some fundamental issues that needed addressing:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Since WebGL&amp;rsquo;s release, a new generation of native GPU APIs have appeared — the most popular being Microsoft&amp;rsquo;s Direct3D 12, Apple&amp;rsquo;s Metal, and The Khronos Group&amp;rsquo;s Vulkan — which provide a multitude of new features. There are no more updates planned to OpenGL (and therefore WebGL), so it won&amp;rsquo;t get any of these new features. WebGPU on the other hand will have new features added to it going forwards.&lt;/li&gt;
+&lt;li&gt;WebGL is based wholly around the use case of drawing graphics and rendering them to a canvas. It does not handle general-purpose GPU (GPGPU) computations very well. GPGPU computations are becoming more and more important for many different use cases, for example those based on machine learning models.&lt;/li&gt;
+&lt;li&gt;3D graphics apps are becoming increasingly demanding, both in terms of the number of objects to be rendered simultaneously, and usage of new rendering features.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;gpu类型&#34;&gt;GPU类型&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;集成GPU: 和CPU集成在一块主板上，共享内存&lt;/li&gt;
+&lt;li&gt;独立GPU&lt;/li&gt;
+&lt;li&gt;虚拟GPU: 在CPU上实现GPU&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Output Based Learning</title>
@@ -2458,38 +2492,6 @@ postgres@localhost&amp;gt; show autovacuum;
 &lt;p&gt;导致无法打开系统高级设置，SERVICES.MSC&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&#34; target=&#34;_blank&#34;&gt;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>CAN总线消息格式DBC_Format</title>
-      <link>https://wubigo.com/post/iov-can-msg-dbc_format/</link>
-      <pubDate>Sun, 22 May 2022 16:30:53 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/iov-can-msg-dbc_format/</guid>
-      <description>
-
-&lt;h1 id=&#34;can消息总线格式&#34;&gt;CAN消息总线格式&lt;/h1&gt;
-
-&lt;h2 id=&#34;dbc格式&#34;&gt;DBC格式&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;BO_ 500 IO_DEBUG: 4 IO
- SG_ IO_DEBUG_test_unsigned : 0|8@1+ (1,0) [0|0] &amp;quot;&amp;quot; DBG
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;说明：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The message name is IO_DEBUG and MID is 500 (decimal), and the length is 4 bytes (though we only need 1 for 8-bit signal)&lt;/li&gt;
-&lt;li&gt;The sender is IO&lt;/li&gt;
-&lt;li&gt;0|8: The unsigned signal starts at bit position 0, and the size of this signal is 8&lt;/li&gt;
-&lt;li&gt;(1,0): The scale and offset (discussed later)&lt;/li&gt;
-&lt;li&gt;[0|0]: Min and Max is not defined (discussed later)&lt;/li&gt;
-&lt;li&gt;&amp;rdquo;&amp;rdquo;: There are no units (it could be, for instance &amp;ldquo;inches&amp;rdquo;)&lt;/li&gt;
-&lt;li&gt;@1+: Defines that the signal is little-endian, and unsigned: Never change this!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://socialledge.com/sjsu/index.php/DBC_Format&#34; target=&#34;_blank&#34;&gt;CAN DBC&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

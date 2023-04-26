@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-24T15:56:48&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-25T15:41:55&#43;08:00">
   
 
   
@@ -398,6 +398,103 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/java-last-2-years/">
+      <img src="/post/java-last-2-years/featured_hu3ae4e81a60560e1b764b586b4e2f8e78_497631_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/java-last-2-years/" itemprop="url">JAVA这两年</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    JAVA 这两年最重要的项目就是GRAAL的正式版发布。
+GRAAL能做什么？
+ 让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,  启动时间小于100ms， 像C, GO, ERLANG一样的执行速度
+ 更低的内存占用：只占用传统的JVM应用20%的内存
+  听起来是不是该项目为函数计算做准备的？
+是，但不完全是。
+GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
+ JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
+安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
+js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
+gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2205,96 +2302,6 @@ apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: overr
     Node-level Logging  System component logs      RUN IN CONTAINER(Y/N) Systemd(W/WO) LOGGER LOCATION     kubelet and container runtime  W/O /var/log   kubelet and container runtime  W journald   scheduler Y  /var/log   kube-proxy Y  /var/log    /var/lib/kubelet/pods/&lt;PodUID&gt;/
 /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
 ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  Cluster-level logging  Use a node-level logging agent that runs on every node.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-12 09:36:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-12 09:36:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 12, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/bim-notes/" itemprop="url">BIM Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    建筑工程施工图 具有图纸齐全、表达准确、要求具体的特点。它是设计工作的最后成果，是进行工程施工、编制施工图预算和施工组织设计的依据，也是进行施工技术管理的重要技术文件。一套完整的建筑工程施工图，一般包括建筑施工图、结构施工图、给排水、采暖通风施工图及电气施工图等专业图纸，也可将给排水、采暖通风和电气施工图合在一起统称设备施工图。
-建筑施工图 简称“建施”。它一般由设计部门的建筑专业人员进行设计绘图。建筑施工图主要反映一个工程的总体布局，表明建筑物的外部形状、内部布置情况以及建筑构造、装修、材料、施工要求等，用来作为施工定位放线、内外装饰做法的依据，同时也是结构施工图和设备施工图的依据。建筑施工图包括设备说明和建筑总平面图、建筑平面图、立体图、剖面图等基本图纸以及墙身剖面图、楼梯、门窗、台阶、散水、浴厕等详图和材料做法说明等等。
-结构施工图 结构施工图指的是关于承重构件的布置，使用的材料，形状，大小，及内部构造的工程图样，是承重构件以及其他受力构件施工的依据。
-结构施工图包含以下内容： 结构总说明、基础布置图、承台配筋图、地梁布置图、各层柱布置图、各层柱配筋图、各层梁配筋图、屋面梁配筋图、楼梯屋面梁配筋图、各层板配筋图、屋面板配筋图、楼梯大样、节点大样
-BIM BIM software is used by individuals, businesses and government agencies who plan, design, construct, operate and maintain buildings and diverse physical infrastructures, such as water, refuse, electricity, gas, communication utilities, roads, railways, bridges, ports and tunnels.S
-BIM设计， BIM施工
-CAD建模范式对比 - 直接建模 vs. 参数化建模 参数化设计涉及工程师逐个构建 3D 几何图形。 2D 草图变成 3D 特征， 并适当地应用约束和关系以符合设计师的意图。
-导出和导入模型会删除其特征历史并将其转换为所谓的“哑几何体”。
-参数化建模的另一个弱点是，随着特征数量的增加，更新模型所需的计算量也会增加。“如果历史树中有一个具有 1000 个特征的零件，当你编辑该树中的最后一个功能时，它会非常快速地进行，”Siemens PLM 主流工程副总裁 Dan Staples 解释道。 “但是当你编辑该树中的第一个特征时，可能需要很长时间，因为它必须在到达第 1,001 个特征之前计算其间的所有 1,000 个特征。
   </div>
   
 

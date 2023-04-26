@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-24T15:56:48&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-25T15:41:55&#43;08:00">
   
 
   
@@ -398,6 +398,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vmware-vm-static-ip/" itemprop="url">分配Vmware虚机静态IP</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="虚机网卡地址">虚机网卡地址</h2>
+
+<p><img src="/img/post/vmare-static-ip.png" alt="" /></p>
+
+<h2 id="配置静态ip">配置静态IP</h2>
+
+<p><code>C:\Documents and Settings\All Users\Application Data\VMware\vmnetdhcp.conf</code></p>
+
+<pre><code>host VMnet8 {
+    hardware ethernet 00:0C:29:23:AV:67;
+    fixed-address 192.168.137.170;
+}
+</code></pre>
+
+<h2 id="重启vmware-dhcp服务">重启VMWARE DHCP服务</h2>
+
+<pre><code>net stop vmnetdhcp
+net start vmnetdhcp
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2327,103 +2430,6 @@ aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-ac
 
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-29 10:17:03 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 29, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/java-last-2-years/">
-      <img src="/post/java-last-2-years/featured_hu3ae4e81a60560e1b764b586b4e2f8e78_497631_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/java-last-2-years/" itemprop="url">JAVA这两年</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    JAVA 这两年最重要的项目就是GRAAL的正式版发布。
-GRAAL能做什么？
- 让解释性程序例如JAVA, JS 运行的更快: AOT编译为宿主二进制可执行文件,  启动时间小于100ms， 像C, GO, ERLANG一样的执行速度
- 更低的内存占用：只占用传统的JVM应用20%的内存
-  听起来是不是该项目为函数计算做准备的？
-是，但不完全是。
-GRAAL的官方目标是提供一个统一的虚拟机执行平台，支持如下运行环境：
- JavaScrip Python Ruby R JVM 语言（Java, Scala, Groovy, Kotlin, Clojure） LLVM语言 (C , C++)  而且不同语言之间零成本互相调用
-安装 wget https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz tar zxvf graalvm-ce-linux-amd64-19.2.1.tar.gz export PATH=$PATH:$GRAAL_HOME/bin   检查
-js --version GraalVM JavaScript (GraalVM CE Native 19.2.1)  安装native-image
-gu install native-image  gu available Downloading: Component catalog from www.graalvm.org ComponentId Version Component name Origin -------------------------------------------------------------------------------- llvm-toolchain 19.
   </div>
   
 
