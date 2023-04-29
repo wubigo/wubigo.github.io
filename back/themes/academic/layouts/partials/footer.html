@@ -147,6 +147,6 @@
     {{ $js_bundle := slice $js_bundle_head $js_bundle | resources.Concat "js/academic.min.js" | fingerprint "md5" }}
     <script src="{{ $js_bundle.RelPermalink }}"></script>
 
-    <script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="fa41a6ca-0588-4c9b-9693-51e6390babf8" async></script>
+    
   </body>
 </html>
