@@ -39,7 +39,8 @@ It now scales well to 24 CPU cores, and arguably up to 32 or even more cores dep
       <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/spring-oauth2/</guid>
-      <description> http://localhost:8080/oauth/token
+      <description> hasRole a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) and in Spring security 4 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;XYZ&amp;rsquo;)&amp;rdquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;).
+http://localhost:8080/oauth/token
 curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
 access protected resource </description>
     </item>
