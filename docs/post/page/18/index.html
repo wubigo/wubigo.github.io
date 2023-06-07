@@ -423,6 +423,92 @@
 
 
 
+<meta content="2014-05-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2014-05-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 3, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2014-05-03-doing_on_ubuntu/" itemprop="url">doing_on_ubuntu</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    TZ $ export TZ=:/etc/localtime locale /etc/environment: LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8  1: set TZ=:/etc/localtime https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
+mysql utf8 For the recent version of MySQL,
+default-character-set = utf8 causes a problem. It&rsquo;s deprecated I think.
+As Justin Ball says in &ldquo;Upgrade to MySQL 5.5.12 and now MySQL won’t start, you should:
+Remove that directive and you should be good. Then your configuration file (&lsquo;/etc/my.cnf&rsquo; for example) should look like that: [mysqld] collation-server = utf8_unicode_ci init-connect=&lsquo;SET NAMES utf8&rsquo; character-set-server = utf8 Restart MySQL.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="datePublished">
 <meta content="2014-04-03 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
@@ -2214,94 +2300,6 @@ mysql -u root -p mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED B
   <div class="article-style" itemprop="articleBody">
     postgres in docker https://github.com/wubigo/docker-compose/blob/main/docker-compose-psql.yml
 启用pg_stat_statements docker volume inspect root_postgresql_data |grep &quot;Mountpoint&quot; echo &quot;shared_preload_libraries = 'pg_stat_statements'&quot; &gt; /var/lib/docker/volumes/root_postgresql_data/_data/pgdata/postgresql.conf  INSTALL sudo apt-get install -y postgresql-client psql --version  TEST psql -h cmp.clv6a9yh.ap-northeast-1.rds.amazonaws.com -U postgres postgres=&gt; \list List of databases Name | Owner | Encoding | Collate | Ctype | Access privileges -----------+----------+----------+-------------+-------------+----------------------- postgres | postgres | UTF8 | en_US.UTF-8 | en_US.UTF-8 | rdsadmin | rdsadmin | UTF8 | en_US.UTF-8 | en_US.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2013-03-22 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 22, 2013</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/mysql-partition/" itemprop="url">Mysql Partition</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <ul>
-<li><p>whether MySQL Server supports partitioning</p>
-
-<pre><code>mysql -u root -p123456 -e &quot;SHOW PLUGINS;&quot; |grep partition
-</code></pre></li>
-</ul>
-
   </div>
   
 

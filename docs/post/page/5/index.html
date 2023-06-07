@@ -423,6 +423,95 @@
 
 
 
+<meta content="2020-06-16 05:36:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-16 05:36:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 16, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/webauthn-fido/" itemprop="url">Webauthn notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="fido">FIDO</h2>
+
+<p>Fast Identity Online (FIDO)</p>
+
+<p>WebAuthn was officially recognized as a W3C web standard in March 2019. Today, WebAuthn is part of the FIDO Alliance’s FIDO2 specifications and the FIDO Alliance runs certification programs to ensure compliance</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-06-14 08:14:18 &#43;0800 CST" itemprop="dateModified">
 
@@ -2327,109 +2416,6 @@ As a machine learning algorithm accumulates more experience, typically in the fo
   
   <div class="article-style" itemprop="articleBody">
     Provisioned Concurrency for Lambda Functions To provide customers with improved control over their mission-critical app performance on serverless, AWS introduces Provisioned Concurrency, which is a Lambda feature and works with any trigger. For example, you can use it with WebSockets APIs, GraphQL resolvers, or IoT Rules. This feature gives you more control when building serverless applications that require low latency, such as web and mobile apps, games, or any service that is part of a complex transaction.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 4, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-s3-access-point/" itemprop="url">Aws S3 Access Point</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code>aws sts get-caller-identity
-
-aws s3control list-access-points --account-id 46569194568
-
-aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
-
-aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point
-{
-    &quot;Name&quot;: &quot;my-access-point&quot;,
-    &quot;PublicAccessBlockConfiguration&quot;: {
-        &quot;IgnorePublicAcls&quot;: true,
-        &quot;BlockPublicPolicy&quot;: true,
-        &quot;BlockPublicAcls&quot;: true,
-        &quot;RestrictPublicBuckets&quot;: true
-    },
-    &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;,
-    &quot;Bucket&quot;: &quot;wubigo&quot;,
-    &quot;NetworkOrigin&quot;: &quot;Internet&quot;
-}
-
-</code></pre>
-
   </div>
   
 
