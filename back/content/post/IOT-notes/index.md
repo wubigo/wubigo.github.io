@@ -20,8 +20,6 @@ categories = []
 +++
 
 
-
-
 The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together --- say a fleet of railcars --- are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT. IoT devices operate outside of the enterprise network security and operational perimeter and the corporate LAN firewall can’t protect them. Dispatching technicians is expensive, so manual provisioning and configuration doesn’t scale. Devices connect to the Internet via a variety of last-mile ISPs, so many devices won’t share share a common IP prefix and addresses will change at arbitrary times. Any configuration based on these IPs will require continued upkeep and will often be out-of-date, exposing hosts and devices to external threats.
 
 
@@ -47,3 +45,14 @@ The dispersed nature of the Internet of Things (IoT) presents a major operationa
 常用的接入协议包括蓝牙、ZigBee、LoRa、NB-IoT、Wifi、RS485、RS232、NFC、RFID等；常用的通讯协议包括HTTP、CoAP、MQTT、XMPP、AMQP、JMS等。
 
 
+#  MQTT管理
+
+## 订阅所有的消息主题
+
+topic：#
+
+## 获取所有系统主题消息
+
+topoc：$SYS/# 
+
+[系统主题]https://github.com/mqtt/mqtt.org/wiki/SYS-Topics
