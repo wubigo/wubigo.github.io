@@ -423,6 +423,88 @@
 
 
 
+<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-02-25 17:58:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 25, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-check-config/" itemprop="url">Docker Check Config</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    #!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( '/proc/config.gz' &quot;/boot/config-$(uname -r)&quot; &quot;/usr/src/linux-$(uname -r)/.config&quot; '/usr/src/linux/.config' ) if [ $# -gt 0 ]; then CONFIG=&quot;$1&quot; else : ${CONFIG:=&quot;${possibleConfigs[0]}&quot;} fi if ! command -v zgrep &amp;&gt; /dev/null; then zgrep() { zcat &quot;$2&quot; | grep &quot;$1&quot; } fi kernelVersion=&quot;$(uname -r)&quot; kernelMajor=&quot;${kernelVersion%%.*}&quot; kernelMinor=&quot;${kernelVersion#$kernelMajor.}&quot; kernelMinor=&quot;${kernelMinor%%.*}&quot; is_set() { zgrep &quot;CONFIG_$1=[y|m]&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_in_kernel() { zgrep &quot;CONFIG_$1=y&quot; &quot;$CONFIG&quot; &gt; /dev/null } is_set_as_module() { zgrep &quot;CONFIG_$1=m&quot; &quot;$CONFIG&quot; &gt; /dev/null } color() { local codes=() if [ &quot;$1&quot; = 'bold' ]; then codes=( &quot;${codes[@]}&quot; '1' ) shift fi if [ &quot;$#&quot; -gt 0 ]; then local code= case &quot;$1&quot; in # see https://en.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2016-02-24 19:39:03 &#43;0800 CST" itemprop="datePublished">
 <meta content="2016-02-24 19:39:03 &#43;0800 CST" itemprop="dateModified">
 
@@ -2089,88 +2171,6 @@ ubuntu@ip-192-168-133-137:/etc/nginx$ nginx -V nginx version: nginx/1.12.1 built
   <div class="article-style" itemprop="articleBody">
     cp data file cp /var/lib/mysql /data -Rf chown -R mysql:mysql /data/mysql  AppArmor /etc/apparmor.d/local/usr.sbin.mysqld
 /data/mysql r, /data/mysql/** rwk,  sudo systemctl reload apparmor  sudo as myql sudo -s -u mysql  mysql 时间类型支持微秒 MySQL permits fractional seconds for TIME, DATETIME, and TIMESTAMP values, with up to microseconds (6 digits) Mysql DATETIME(6) DATETIME[(fsp)] The fsp value, if given, must be in the range 0 to 6. A value of 0 signifies that there is no fractional part.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2014-06-07 14:44:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2014-06-07 14:44:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 7, 2014</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/anycast-with-ipv4/" itemprop="url">泛播IPV4</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    What is anycast? Anycast, also known as IP anycast, is a networking technique that allows for multiple machines to share the same IP address. Based on the location of the user request, the routers send it to the machine in the network that is closest. This is beneficial since, among other things, it reduces latency and increases redundancy. If a particular data center were to go offline, an anycasted IP would choose the best path for users and automatically redirect them to the next closest data center.
   </div>
   
 

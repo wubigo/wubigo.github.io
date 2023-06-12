@@ -1723,6 +1723,89 @@ minio gateway b2
 
 
 
+<meta content="2019-06-12 19:13:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-06-12 19:13:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/vue-deployed-in-no-root-nginx-location/" itemprop="url">Vue Deployed in Non-Root Nginx Location</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    deploy VUE app under myweb context path
+server { listen 80; server_name 127.0.0.1; #listen 443 ssl; location /ibms/api/ { proxy_pass http://127.0.0.1:8080/; #proxy_set_header Host $http_host; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; proxy_connect_timeout 200s; proxy_send_timeout 200s; proxy_read_timeout 200s; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header sn $http_sn; #405 重新代理 error_page 405 =200 http://$host$request_uri; } location /ibms { root /var/www/html; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; #try_files $uri $uri/ @router; try_files $uri $uri/ /ibms/index.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-05-26 17:26:24 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-05-26 17:26:24 &#43;0800 CST" itemprop="dateModified">
 
@@ -2235,92 +2318,6 @@ apt install google-chrome-stable
 
 <p><a href="/post/k8s-ide-tool">IDE</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-18 14:49:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 18, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-pod-command-override/" itemprop="url">K8s Pod Command Override</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    K8S POD Command Override OCR
-docker Entrypoint vs k8s command     docker k8s     entry ENTRYPOINT command   arguments CMD args    k8s command and args override the default OCR Entrypoint and Cmd
-Dockerfile
-FROM alpine:3.8 RUN apk add --no-cache curl ethtool &amp;&amp; rm -rf /var/cache/apk/* CMD [&quot;--version&quot;] ENTRYPOINT [&quot;curl&quot;]  cmd-override-pod.yaml
-apiVersion: v1 kind: Pod metadata: name: command-override labels: purpose: override-command spec: containers: - name: command-override-container image: bigo/curl:v1 command: [&quot;curl&quot;] args: [&quot;--help&quot;] restartPolicy: Never  docker run -it bigo/curl:v1 curl 7.
   </div>
   
 

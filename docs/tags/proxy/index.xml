@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PROXY on wubigo</title>
+    <link>https://wubigo.com/tags/proxy/</link>
+    <description>Recent content in PROXY on wubigo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jun 2019 19:13:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://wubigo.com/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue Deployed in Non-Root Nginx Location</title>
+      <link>https://wubigo.com/post/vue-deployed-in-no-root-nginx-location/</link>
+      <pubDate>Wed, 12 Jun 2019 19:13:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vue-deployed-in-no-root-nginx-location/</guid>
+      <description>deploy VUE app under myweb context path
+server { listen 80; server_name 127.0.0.1; #listen 443 ssl; location /ibms/api/ { proxy_pass http://127.0.0.1:8080/; #proxy_set_header Host $http_host; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; proxy_connect_timeout 200s; proxy_send_timeout 200s; proxy_read_timeout 200s; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header sn $http_sn; #405 重新代理 error_page 405 =200 http://$host$request_uri; } location /ibms { root /var/www/html; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; #try_files $uri $uri/ @router; try_files $uri $uri/ /ibms/index.</description>
+    </item>
+    
+  </channel>
+</rss>

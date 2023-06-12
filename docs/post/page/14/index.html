@@ -423,6 +423,97 @@
 
 
 
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Some things worth noting in br_add_if:</p>
+
+<ul>
+<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
+<li>Bridges cannot be added to a bridge.</li>
+<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
+</ul>
+
+<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2017-07-13 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2150,90 +2241,6 @@ host * StrictHostKeyChecking no  Enables forwarding of the authentication agent 
 ForwardAgent yes  Enable ssh-agent on main device
   .bashrc
 SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-16 13:23:32 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 16, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-ha-setup-with-kubeadm/" itemprop="url">K8s HA Setup With Kubeadm</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    setup external ETCD  install docker, kubelet, and kubeadm Configure the kubelet to be a service manager for etcd Create configuration files for kubeadm  /tmp/${HOST0}/kubeadmcfg.yaml
-apiVersion: &quot;kubeadm.k8s.io/v1beta1&quot; kind: ClusterConfiguration etcd: local: serverCertSANs: - &quot;192.168.1.10&quot; peerCertSANs: - &quot;192.168.1.10&quot; extraArgs: initial-cluster: infra0=https://192.168.1.10:2380 initial-cluster-state: new name: infra0 listen-peer-urls: https://192.168.1.10:2380 listen-client-urls: https://192.168.1.10:2379 advertise-client-urls: https://192.168.1.10:2379 initial-advertise-peer-urls: https://192.168.1.10:2380   Generate the certificate authority
-sudo kubeadm init phase certs etcd-ca export HOST0=&quot;192.168.1.10&quot; sudo kubeadm init phase certs etcd-server --config=/tmp/${HOST0}/kubeadmcfg.
   </div>
   
 

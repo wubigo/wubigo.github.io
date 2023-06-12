@@ -1546,6 +1546,16 @@ openssl s_client -showcerts -connect api.backblazeb2.com:443 &amp;gt; b2.crt mv 
     </item>
     
     <item>
+      <title>Vue Deployed in Non-Root Nginx Location</title>
+      <link>https://wubigo.com/post/vue-deployed-in-no-root-nginx-location/</link>
+      <pubDate>Wed, 12 Jun 2019 19:13:09 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/vue-deployed-in-no-root-nginx-location/</guid>
+      <description>deploy VUE app under myweb context path
+server { listen 80; server_name 127.0.0.1; #listen 443 ssl; location /ibms/api/ { proxy_pass http://127.0.0.1:8080/; #proxy_set_header Host $http_host; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; proxy_connect_timeout 200s; proxy_send_timeout 200s; proxy_read_timeout 200s; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header sn $http_sn; #405 重新代理 error_page 405 =200 http://$host$request_uri; } location /ibms { root /var/www/html; add_header Cache-Control no-cache; add_header Pragma no-cache; add_header Expires 0; #try_files $uri $uri/ @router; try_files $uri $uri/ /ibms/index.</description>
+    </item>
+    
+    <item>
       <title>Secucity Micro Segmentation</title>
       <link>https://wubigo.com/post/secucity-micro-segmentation/</link>
       <pubDate>Sun, 26 May 2019 17:26:24 +0800</pubDate>
