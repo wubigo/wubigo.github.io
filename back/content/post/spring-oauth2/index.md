@@ -20,6 +20,12 @@ categories = []
   focal_point = ""
 +++
 
+# 为什么要使用OIDC
+
+只使用基本OAUTH2认证是不安全因为无法保证与用户的访问令牌是真实的。使用
+OIDC可以做到这一点
+
+https://security.stackexchange.com/questions/37818/why-use-openid-connect-instead-of-plain-oauth2/260519#260519
 
 
 # hasRole
