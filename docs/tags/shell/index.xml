@@ -37,7 +37,9 @@ listen-address 127.0.0.1:8118 forward-socks5 / 127.0.0.1:1080 .  systemctl resta
       <pubDate>Fri, 28 Apr 2017 17:08:07 +0800</pubDate>
       
       <guid>https://wubigo.com/post/spring-oauth2/</guid>
-      <description> hasRole a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) and in Spring security 4 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;XYZ&amp;rsquo;)&amp;rdquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;).
+      <description> 为什么要使用OIDC 只使用基本OAUTH2认证是不安全因为无法保证与用户的访问令牌是真实的。使用 OIDC可以做到这一点
+https://security.stackexchange.com/questions/37818/why-use-openid-connect-instead-of-plain-oauth2/260519#260519
+hasRole a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;) and in Spring security 4 @PreAuthorize(&amp;ldquo;hasRole(&amp;lsquo;XYZ&amp;rsquo;)&amp;rdquo;) is the same as @PreAuthorize(&amp;ldquo;hasAuthority(&amp;lsquo;ROLE_XYZ&amp;rsquo;)&amp;ldquo;).
 http://localhost:8080/oauth/token
 curl -u eagleeye:thisissecret -i -H &amp;lsquo;Accept:application/json&amp;rsquo; -d &amp;ldquo;grant_type=password&amp;amp;scope=webclient&amp;amp;username=will&amp;amp;password=pass&amp;rdquo; -H &amp;ldquo;Content-Type: application/x-www-form-urlencoded&amp;rdquo; -X POST http://localhost:8080/oauth/token
 access protected resource </description>

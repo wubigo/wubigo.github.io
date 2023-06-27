@@ -426,7 +426,9 @@ It now scales well to 24 CPU cores, and arguably up to 32 or even more cores dep
     <h2><a href="/post/spring-oauth2/">Spring Oauth2</a></h2>
     <div class="article-style">
       
-       hasRole a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&ldquo;hasRole(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) and in Spring security 4 @PreAuthorize(&ldquo;hasRole(&lsquo;XYZ&rsquo;)&rdquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;).
+       为什么要使用OIDC 只使用基本OAUTH2认证是不安全因为无法保证与用户的访问令牌是真实的。使用 OIDC可以做到这一点
+https://security.stackexchange.com/questions/37818/why-use-openid-connect-instead-of-plain-oauth2/260519#260519
+hasRole a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&ldquo;hasRole(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) and in Spring security 4 @PreAuthorize(&ldquo;hasRole(&lsquo;XYZ&rsquo;)&rdquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;).
 http://localhost:8080/oauth/token
 curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo; -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST http://localhost:8080/oauth/token
 access protected resource 
