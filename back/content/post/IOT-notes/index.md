@@ -19,6 +19,14 @@ categories = []
   focal_point = ""
 +++
 
+#  EMQX单节点吞吐量
+
+EMQX 5.0 23个节点的集群支持：(100 million MQTT连接 + 1 million message)每秒
+
+每个节点的吞吐量为4万每秒
+
+
+
 
 The dispersed nature of the Internet of Things (IoT) presents a major operational challenge that is uncommon in the traditional Internet or enterprise networks[5]. Devices that are managed together --- say a fleet of railcars --- are not physically colocated. Instead, they are widely geographically distributed. The operational approaches for management and security used in enterprise networks, where most hosts are densely contained in buildings or campuses, do not translate to the IoT. IoT devices operate outside of the enterprise network security and operational perimeter and the corporate LAN firewall can’t protect them. Dispatching technicians is expensive, so manual provisioning and configuration doesn’t scale. Devices connect to the Internet via a variety of last-mile ISPs, so many devices won’t share share a common IP prefix and addresses will change at arbitrary times. Any configuration based on these IPs will require continued upkeep and will often be out-of-date, exposing hosts and devices to external threats.
 
