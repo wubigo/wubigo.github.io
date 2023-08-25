@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-25T15:41:55&#43;08:00">
+  <meta property="og:updated_time" content="2023-08-25T15:10:44&#43;08:00">
   
 
   
@@ -398,6 +398,95 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-30 16:02:06 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 30, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/overlay-vs-underlay-networks/" itemprop="url">Overlay vs Underlay Networks</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="overlay-vs-underlay-in-summary">Overlay vs underlay in summary</h1>
+
+<p>An Underlay network is the physical network responsible for the delivery of packets like DWDM, L2, L3, MPLS, or internet, etc. while an overlay is a logical network that uses network virtualization to built connectivity on top of physical infrastructure using tunneling encapsulations such as VXLAN, GRE, IPSec.</p>
+
+<p><a href="https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/" target="_blank">https://telcocloudbridge.com/blog/overlay-vs-underlay-networks/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2162,92 +2251,6 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
     Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
  Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
  {&ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 16, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-ssh/" itemprop="url">Linux SSH</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
-ForwardAgent yes  Enable ssh-agent on main device
-  .bashrc
-SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
   </div>
   
 

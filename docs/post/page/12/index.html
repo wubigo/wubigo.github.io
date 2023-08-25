@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-25T15:41:55&#43;08:00">
+  <meta property="og:updated_time" content="2023-08-25T15:10:44&#43;08:00">
   
 
   
@@ -398,6 +398,105 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-14 02:16:59 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 14, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/serverless-database/" itemprop="url">数据库无服务器架构</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="问题">问题</h2>
+
+<p>长链接</p>
+
+<p>通过连接池和数据库保持长链接</p>
+
+<blockquote>
+<p>Amazon Aurora Serverless is an on-demand, auto-scaling configuration for
+Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions),
+where the database will automatically start up, shut down, and scale
+capacity up or down based on your application&rsquo;s needs. It enables you
+to run your database in the cloud without managing any database instances.
+It&rsquo;s a simple, cost-effective option for infrequent, intermittent, or
+unpredictable workloads.</p>
+</blockquote>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2138,102 +2237,6 @@ Introducing Cloud Text-to-Speech powered by DeepMind WaveNet technology https://
 Announcing gRPC Support in NGINX https://www.nginx.com/blog/nginx-1-13-10-grpc/
 ACME v2 and Wildcard Certificate Support is Live https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live
 PIXAR’S 22 RULES OF STORYTELLING https://www.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-12-30 15:38:16 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-image-timezone/" itemprop="url">Docker Image Timezone</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code>FROM centos:7
-RUN echo &quot;ip_resolve=4&quot; &gt;&gt; /etc/yum.conf
-RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
-# 设置时区(日志、调用链)
-RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
-ENV workdir /app/
-ADD VERSION .
-
-WORKDIR ${workdir}
-# JAVA_OPTS环境变量JVM 启动参数，在运行时 bash 替换
-# 使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
-CMD [&quot;sh&quot;, &quot;-ec&quot;, &quot;exec java ${JAVA_OPTS} -jar ${jar}&quot;]
-</code></pre>
-
   </div>
   
 

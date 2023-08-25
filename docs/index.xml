@@ -5,8 +5,36 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 15:41:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Aug 2023 15:10:44 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Opc Notes</title>
+      <link>https://wubigo.com/post/opc-notes/</link>
+      <pubDate>Fri, 25 Aug 2023 15:10:44 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/opc-notes/</guid>
+      <description>
+
+&lt;h1 id=&#34;工业物联网osi参考模型&#34;&gt;工业物联网OSI参考模型&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;软件接口	            OPC
+应用层	              ModBus
+数据链路层	          CAN，ProfiBus
+物理层	              RS232，RS485
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;opc服务器&#34;&gt;OPC服务器&lt;/h1&gt;
+
+&lt;p&gt;OPC SERVER = OPC驱动器&lt;/p&gt;
+
+&lt;h1 id=&#34;opc&#34;&gt;OPC&lt;/h1&gt;
+
+&lt;p&gt;简单来说，OPC是一套标准，其目的是把PLC特定的协议（如Modbus，Profibus等）抽象成为标准化的接口，作为“中间人”的角色把通用的OPC“读写”请求转换成具体的设备协议来与HMI/SCADA系统直接对接&lt;/p&gt;
+
+&lt;p&gt;When the standard was first released in 1996, its purpose was to abstract PLC specific protocols (such as Modbus, Profibus, etc.) into a standardized interface allowing HMI/SCADA systems to interface with a “middle-man” who would convert generic-OPC read/write requests into device-specific requests and vice-versa.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>WebGPU Notes</title>
@@ -2480,22 +2508,6 @@ pgcli -U postgres -h localhost
 postgres@localhost&amp;gt; SELECT pg_reload_conf();
 postgres@localhost&amp;gt; show autovacuum;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Windows 11核心系统服务列表</title>
-      <link>https://wubigo.com/post/default-services-in-windows-11/</link>
-      <pubDate>Tue, 28 Jun 2022 11:09:12 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/default-services-in-windows-11/</guid>
-      <description>&lt;p&gt;因为禁用了下列服务：&lt;/p&gt;
-
-&lt;p&gt;Application Information                Appinfo&lt;/p&gt;
-
-&lt;p&gt;导致无法打开系统高级设置，SERVICES.MSC&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&#34; target=&#34;_blank&#34;&gt;https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
