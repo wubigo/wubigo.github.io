@@ -23,12 +23,10 @@ email = ""
 
 # List (academic) interests or hobbies
 interests = [
-  "WEB架构",
-  "NFV",
-  "分布式计算",
-  "应用系统集成",
-  "AT2C",
-  "IaaS/PaaS"
+  "BIM",
+  "IIOT",
+  "PLC",
+  "PaaS"
 ]
 
 # Organizational groups that you belong to (for People widget)
@@ -71,7 +69,7 @@ user_groups = ["Researchers", "Visitors"]
 
 +++
 
-- 超过10年的公有云/混合云/PaaS/SaaS/系统开发运营经验，实施过建筑，金融，医疗，教育, 媒体等行业AT2C案例
-- 管理超过60PB的数据中心，并提供基于hadoop生态的数仓一体化平台
-- 精通软件系统架构(ToGAF, CS/BS, DDA, SOA, EDA, 微服务，函数计算)
-- 构建轻量级，高性能的分布式应用架构和PaaS平台，支持云端边部署和运营
+- 超过10年的公有云/混合云/PaaS/SaaS/系统开发运营经验，实施过建筑，医疗等行业AT2C案例
+- 智慧楼宇，智慧医院，智慧园区运营专家
+- 工业设备数据采集，高性能物联网采集云边一体化平台，BA,FM,能源管理平台和智慧楼宇数字孪生
+
