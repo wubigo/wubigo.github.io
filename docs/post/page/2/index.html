@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-08-25T15:10:44&#43;08:00">
+  <meta property="og:updated_time" content="2023-04-25T15:41:55&#43;08:00">
   
 
   
@@ -398,100 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-03-11 15:39:42 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 11, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/edgex-device-service-dev-env-setup/" itemprop="url">搭建Edgex设备服务开发环境</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    搭建EDGEX设备服务开发环境
-EDGEX简介 EdgeX Foundry 项目成立于2017年，由Linux 基金会主持，目前已经拥有75个会员， 包括重量级的SAMSUNG，Dell，AMD，ANALOG DEVICES &hellip; 但其中最重要的角色其实是戴尔。它为EdgeX Foundry提供该公司采用Apache 2.0许可证的FUSE源代码。FUSE包括10多种微服务和12500多万行代码，它们在连接标准、边缘分析、安全、系统管理和服务之间提供了互操作性。FUSE 是Dell 为了拓展边缘计算物联网服务而发展出来的，基于Java SPRING CLOUD 的微服务框架软件。这套软件最大的特征是中立于任何硬件平台和操作系统，高度模块化，可自由扩展。Dell 从私有化完成的那天开始，我们见到它一系列的并购，其中并购VMware，EMC 等动作，都直接剑指云计算和物联网技术。FUSE 的发布，更昭示了Dell谋求转型的决心。物联网的繁荣非常地依赖于物联网生态企业，全球大型IT 公司谋求物联网布局，都会提供框架软件，再培养生态伙伴来形成落地应用。而在生态伙伴的培养过程中，开源的基础框架软件是非常容易被理解和吸收的。 这也是Dell 选择跟Linux 基金会合作，并捐赠和完善代码的重要原因：Dell 需要庞大的生态伙伴，而Linux 具有开源软件界强大的号召力和影响力。
-EdgeX Foundry原来是用Java写的，导致平台体积庞大，占用资源，后来Linux基金会用Go语言对其进行了重构.
-EdgeX Foundry是一系列松耦合、开源的微服务集合。该微服务集合构成了四个微服务层及两个增强的基础系统服务，这四个微服务层包含了从物理域数据采集到信息域数据处理等一系列的服务，另外两个基础系统服务为该四个服务层提供支撑服务。
-四个微服务层分别是：
- 设备服务负责采集数据及控制设备功能。 核心服务负责本地存储分析和转发数据，以及控制命令下发。 支持服务负责日志记录、任务调度、数据清理、规则引擎和告警通知。 应用服务/导出服务负责上传数据到云端或第三方信息系统，以及接收控制命令转发给核心服务。  两个增强基础系统服务：
-安全服务、管理服务这两个软件模块虽然不直接处理边缘计算的功能性业务，但是对于边缘计算的安全性和易用性来说很重要
-启动EDGEX核心服务 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml docker-compose -f docker-compose-no-secty.yml up -d  打开数据和控制服务调试开关 在consul里面配置应用：
-http://localhost:8500/ui/dc1/kv/edgex/appservices/2.0/app-rules-engine/Writable/LogLevel/edit
-修改INFO为DEBUG
-在IDE里面启动设备服务 以IP摄像头设备服务为例
-打开WEBCAM webcam-to-ip-camera
-配置开发环境 git clone git@github.com:edgexfoundry/device-camera-go.git git checkout jakarta cd device-camera-go go mod tidy set EDGEX_SECURITY_SECRET_STORE=false  调整IDE的当前工作目录为：device-camera-go\cmd 否则，设备服务启动会找不到设备配置文件。
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2177,6 +2083,135 @@ S3 Support in Apache Hadoop Apache Hadoop ships with a connector to S3 called &l
   <div class="article-style" itemprop="articleBody">
     升级YARN npm install -g yarn@1.22.11 &gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
 ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&gt; .
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 19, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/matrix-web-client-dev-setup/" itemprop="url">Matrix Web Client Dev Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="准备环境">准备环境</h1>
+
+<pre><code>node -v
+v14.17.5
+npm install -g yarn@1.22.11
+</code></pre>
+
+<h1 id="链接sdk">链接SDK</h1>
+
+<pre><code>git clone https://github.com/matrix-org/matrix-js-sdk.git
+pushd matrix-js-sdk
+yarn link
+yarn install
+popd
+
+
+git clone https://github.com/matrix-org/matrix-react-sdk.git
+pushd matrix-react-sdk
+yarn link
+yarn link matrix-js-sdk
+yarn install
+popd
+
+
+
+git clone https://github.com/vector-im/element-web.git
+cd element-web
+yarn link matrix-js-sdk
+yarn link matrix-react-sdk
+yarn install
+yarn reskindex
+yarn start
+
+</code></pre>
+
+<h1 id="启动">启动</h1>
+
+<pre><code>cp config.sample.json config.json
+
+curl http://127.0.0.1:8080/
+</code></pre>
+
+<h1 id="登录">登录</h1>
+
+<p>homeserver：<a href="http://192.168.43.16:8008/" target="_blank">http://192.168.43.16:8008/</a></p>
+
   </div>
   
 
