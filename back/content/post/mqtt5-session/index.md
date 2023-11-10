@@ -53,4 +53,13 @@ Session Expiry Interval 同样位于 CONNECT 报文的可变报头，不过它�
 用于集群内节点间的消息派发。在EMQX的实现中，路由数据存在于集群中的所有节点上。客户端的主题订阅数据，则只保存在连接所在的节点上，
 用于节点内部派发消息到客户端。当客户端连接到集群某个节点订阅某个新的主题时，就会生成一条路由数据，该数据最终会同步到集群所有节点上，
 每个节点都可以通过本地查询找到任意主题对应的订阅节点列表。当客户端发布消息时，连接所在节点会根据消息主题检索路由数据得到所有订阅
-节点的信息，然后将消息派发到这些节点上
+节点的信息，然后将消息派发到这些节点上.
+
+# OPC
+
+OPC UA 是一种面向工业自动化的机器到机器通信协议，由 OPC 基金会开发维护。OPC UA 提供一种标准化的方式， 使不同的设备和系统能够互相通信。
+Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OPC Server、Prosys Simulation Server、Ignition 等 OPC UA 服务器，
+也可以直接访问硬件设备的内置 OPC UA Server，如西门子 S7-1200 型 PLC 的内置 Server、 欧姆龙 NJ 系列 PLC 的内置 Server 等。
+
+Neuron 可通过外部辅助程序 neuopc.exe 间接访问运行于 Windows 操作系统的 OPC DA 服务器。NeuOPC 通过将 DA 协议转换为 UA 协议，再通过
+Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位都被映射至 UA 的"命名空间2"当中，点位的 ID 则与 DA 保持一致。
