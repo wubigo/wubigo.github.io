@@ -15,7 +15,7 @@ git commit -a  -s -m %MSG%
 git push
 
 REM build static resource to docs and config github page publish from docs
-hugo -s back -d e:/code/wubigo.github.io/docs
+hugo -s back -d %~dp0/docs
 git status
 git add .
 set MSG=deploy:%MSG%
