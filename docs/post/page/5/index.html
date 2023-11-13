@@ -423,6 +423,93 @@
 
 
 
+<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-06-19 21:42:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 19, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    49 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-onecloud-all-in-one-setup-from-source-code/" itemprop="url">从源代码构建Onecloud</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    系统设置 /etc/yum.conf
+obsoletes=0  obsoletes=1: 安装k8s 1.15.8会报一个依赖错误
+安装ansible sudo yum install epel-release sudo yum install python-pip pip install ansible  安装kubelet（可选） OCADM创建K8S的前提条件是kebelet正常工作
+安装kubelet
+OCBOOT git clone https://github.com/yunionio/ocboot.git cd ocboot ./run.py ./config-allinone.yml  allinone.yml
+mariadb_node: use_local: true hostname: 192.168.137.190 user: root db_user: root db_password: qwe123 primary_master_node: #master_node: use_local: true hostname: 192.168.137.190 user: root db_host: 192.168.137.190 db_user: root db_password: qwe123 onecloud_user: demo onecloud_user_password: demo@123 controlplane_host: 192.168.137.190 controlplane_port: &quot;6443&quot; as_host: true registry_mirrors: - https://lje6zxpk.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-06-16 13:20:58 &#43;0800 CST" itemprop="dateModified">
 
@@ -2275,147 +2362,6 @@ While Hyperplane still uses a cross account network interface, it provides the f
   <div class="article-style" itemprop="articleBody">
     <p>Machine learning is the study of powerful techniques that can learn from experience.
 As a machine learning algorithm accumulates more experience, typically in the form of observational data or interactions with an environment, its performance improves</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-12-08 11:37:33 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-reinvent-2019-keynote/" itemprop="url">AWS Re:Invent 2019主题汇总-P1</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="计算">计算</h2>
-
-<p>尽管函数计算和容器的快速崛起，EC2依然是AWS的业务焦点，</p>
-
-<p>主要的新功能包括：</p>
-
-<ul>
-<li><p>基于Nitro平台的针对HPC和机器学习的负载的实例</p></li>
-
-<li><p>基于定制芯片Inferencia针对机器学习实例</p></li>
-
-<li><p>标准实例支持100Gb网络带宽</p></li>
-</ul>
-
-<h2 id="网络">网络</h2>
-
-<ul>
-<li><p>传输网关支持多播</p></li>
-
-<li><p>加速的网络到网络的VPN链接</p></li>
-</ul>
-
-<h2 id="存储和数据分析">存储和数据分析</h2>
-
-<ul>
-<li><p>S3 Access Points和数据湖</p></li>
-
-<li><p>ES搜索支持S3</p></li>
-
-<li><p>联合查询支持关系数据库，REDSHIFT数据仓库，S3数据湖，而不需要移动数据</p></li>
-
-<li><p>AQUA查询加速器</p></li>
-
-<li><p>数据湖导出(REDSHIFT数据仓库查询结果能直接导出到S3，并以Parquet格式存放)</p></li>
-
-<li><p>托管的Cassandra服务</p></li>
-</ul>
-
-<h2 id="函数计算">函数计算</h2>
-
-<ul>
-<li><p><a href="/post/lambda-provisioned-concurrency/">Provisioned Concurrency for Lambda Functions</a></p></li>
-
-<li><p>EKS正式支持FARGATE</p></li>
-
-<li><p>RDS PROXY</p></li>
-
-<li><p><a href="/post/serverless-vpc">VPC支持更新</a></p></li>
-</ul>
-
-<h2 id="先锋基金it迁移架构图">先锋基金IT迁移架构图</h2>
-
-<p><img src="./varguard-stage-0.png" alt="第一阶段" /><em>私有云架构包括4千万行的单体应用，hadoop数据仓库(20PB)和PaaS(2015年)</em>
-<img src="./varguard-stage-1.png" alt="第一阶段" /><em>数据仓库和PaaS迁移到AWS</em>
-<img src="./varguard-stage-2.png" alt="第二阶段" /><em>PaaS实施基于EDA架构的改造</em>
-<img src="./varguard-stage-3.png" alt="第三阶段" /><em>PaaS迁移到Fargate</em>
-<img src="./varguard-result.png" alt="结果" /></p>
 
   </div>
   

@@ -434,6 +434,16 @@ Data lakes are the do-it-yourself version of a data warehouse, allowing data eng
     </item>
     
     <item>
+      <title>K8s 多租户</title>
+      <link>https://wubigo.com/post/k8s-multi-tenancy/</link>
+      <pubDate>Fri, 12 Nov 2021 10:07:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/k8s-multi-tenancy/</guid>
+      <description>多租户的运行 不同的应用运行在同一个集群 相同应用的多个实例运行在同一个集群 敏感数据应用独享实例，非敏感数据共享实例 hybrid architectures are also possible, such as a SaaS provider using a combination of per-customer workloads for sensitive data, combined with multi-tenant shared services.
+隔离方式 控制面隔离机制 名字空间 访问控制 资源配额 数据面隔离机制 网络隔离 Pod-to-pod communication can be controlled using Network Policies, which restrict communication between pods using namespace labels or IP address ranges. In a multi-tenant environment where strict network isolation between tenants is required, starting with a default policy that denies communication between pods is recommended with another rule that allows all pods to query the DNS server for name resolution</description>
+    </item>
+    
+    <item>
       <title>Azure Config</title>
       <link>https://wubigo.com/post/azure-config/</link>
       <pubDate>Sun, 07 Nov 2021 20:00:24 +0800</pubDate>
@@ -4780,8 +4790,9 @@ The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliab
       <pubDate>Fri, 01 Jan 2010 15:06:20 +0800</pubDate>
       
       <guid>https://wubigo.com/post/java-notes/</guid>
-      <description>Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &amp;quot;main&amp;quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
-echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc source ~/.bashrc  访问可见性    修饰符 类 包 子类 所有人     public 是 是 是 是   protected 是 是 是 否   没有修饰符 是 是 否 否   private 是 否 否 否    方法签名 方法签名包括</description>
+      <description>线程同步模式：用户态和内核态 线程间的同步方法大体可分为两类：用户模式和内核模式。顾名思义，内核模式 就是指利用系统内核对象的单一性来进行同步，使用时需要切换内核态与用户态， 而用户模式就是不需要切换到内核态，只在用户态完成操作。
+ 用户模式下的方法有：原子操作（例如一个单一的全局变量），临界区。 内核模式下的方法有：事件，信号量，互斥量  Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &amp;quot;main&amp;quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.8, because url use old TLS1.0
+echo &#39;export JAVA_TOOL_OPTIONS=&amp;quot;-Dhttps.protocols=TLSv1.2&amp;quot;&#39; &amp;gt;&amp;gt; ~/.</description>
     </item>
     
     <item>

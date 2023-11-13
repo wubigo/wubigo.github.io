@@ -1180,6 +1180,89 @@ Data lakes are the do-it-yourself version of a data warehouse, allowing data eng
 
 
 
+<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 12, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-multi-tenancy/" itemprop="url">K8s 多租户</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    多租户的运行 不同的应用运行在同一个集群 相同应用的多个实例运行在同一个集群 敏感数据应用独享实例，非敏感数据共享实例 hybrid architectures are also possible, such as a SaaS provider using a combination of per-customer workloads for sensitive data, combined with multi-tenant shared services.
+隔离方式 控制面隔离机制 名字空间 访问控制 资源配额 数据面隔离机制 网络隔离 Pod-to-pod communication can be controlled using Network Policies, which restrict communication between pods using namespace labels or IP address ranges. In a multi-tenant environment where strict network isolation between tenants is required, starting with a default policy that denies communication between pods is recommended with another rule that allows all pods to query the DNS server for name resolution
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="datePublished">
 <meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="dateModified">
 
@@ -2094,89 +2177,6 @@ S3 Support in Apache Hadoop Apache Hadoop ships with a connector to S3 called &l
 
 <p>Reader Mode in Chrome is mad-easy to use. When you’re on a page that you’d like to push into the reader view, click on the three-dot menu button in the upper right, and then choose “Distill page.”</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-08-20 21:19:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 20, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/yarn2-note/" itemprop="url">YARN2 Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    升级YARN npm install -g yarn@1.22.11 &gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
-ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&gt; .
   </div>
   
 
