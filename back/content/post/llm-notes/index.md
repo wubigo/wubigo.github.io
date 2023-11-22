@@ -19,15 +19,32 @@ categories = []
   focal_point = ""
 +++
 
+# 词编码
+
+## 传统的词编码：one-hot
+## 分布式词编码：word embedding
+
+- word2vec
+
+CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空；
+而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。
+
+对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量：
+Hierarchical Softmax和Negative Sampling
+
+
+
 
 # 安装Tensor2Tensor
 
 ## 内存较小的环境安装
 
 ```
-pip install tensorflow==1.12 tensor2tensor --no-cache-dir
+pip install tensorflow==2.12 tensor2tensor --no-cache-dir
 ```
 
+
+***You must be using python <=3.7 to install Tensorflow 1.15***
 
 ## 	OpenAssistant 
 
