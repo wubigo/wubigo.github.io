@@ -20,6 +20,15 @@ categories = []
 +++
 
 
+# 安装Tensor2Tensor
+
+## 内存较小的环境安装
+
+```
+pip install tensorflow==1.12 tensor2tensor --no-cache-dir
+```
+
+
 ## 	OpenAssistant 
 
 [Democratizing Large Language Model Alignment](https://www.ykilcher.com/OA_Paper_2023_04_15.pdf)
