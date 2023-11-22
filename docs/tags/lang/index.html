@@ -497,8 +497,8 @@ go get github.com/vladimirvivien/go4vl@40b41ba go get: upgraded github.com/vladi
       
       线程同步模式：用户态和内核态 线程间的同步方法大体可分为两类：用户模式和内核模式。顾名思义，内核模式 就是指利用系统内核对象的单一性来进行同步，使用时需要切换内核态与用户态， 而用户模式就是不需要切换到内核态，只在用户态完成操作。
  用户模式下的方法有：原子操作（例如一个单一的全局变量），临界区。 内核模式下的方法有：事件，信号量，互斥量  volatile 关键字 volatile 提供多线程共享变量可见性和禁止指令重排序优化：
- 对于可见性，Java 提供了 volatile 关键字来保证可见性。 当一个共享变量被 volatile 修饰时，它会保证修改的值会立即被更新到主存，当 有其他线程需要读取时，它会去内存中读取新值 禁止指令重排序优化，写操作一定在读操作之后
-Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &quot;main&quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)   JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.0. I get this error on Java 1.
+ 对于可见性，Java 提供了 volatile 关键字来保证可见性。 当一个共享变量被 volatile 修饰时，它会保证修改的值会立即被更新到主存，当 有其他线程需要读取时，它会去内存中读取新值 禁止指令重排序优化，写操作一定在读操作之后  值传递 当一个对象被当作参数传递到一个方法后，此方法可改变 这个对象的属性，并可返回变化后的结果
+Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &quot;main&quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.
       
     </div>
   </div>
