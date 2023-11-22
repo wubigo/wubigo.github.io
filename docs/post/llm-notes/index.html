@@ -28,7 +28,10 @@
   
     
   
-  <meta name="description" content="安装Tensor2Tensor 内存较小的环境安装 pip install tensorflow==1.12 tensor2tensor --no-cache-dir  OpenAssistant Democratizing Large Language Model Alignment
+  <meta name="description" content="词编码 传统的词编码：one-hot 分布式词编码：word embedding  word2vec  CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空； 而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。
+对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量： Hierarchical Softmax和Negative Sampling
+安装Tensor2Tensor 内存较小的环境安装 pip install tensorflow==2.12 tensor2tensor --no-cache-dir  You must be using python &lt;=3.7 to install Tensorflow 1.15
+OpenAssistant Democratizing Large Language Model Alignment
 Aligning large language models (LLMs) with human preferences has proven to drastically improve usability and has driven rapid adoption as demonstrated by ChatGPT. Alignment techniques such as supervised fine-tuning (SFT) and reinforcement learning from human feedback (RLHF) greatly reduce the required skill and domain knowledge to effectively harness the capabilities of LLMs, increasing their accessibility and utility across various domains.">
 
   
@@ -138,7 +141,10 @@ Aligning large language models (LLMs) with human preferences has proven to drast
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/llm-notes/">
   <meta property="og:title" content="LLM Notes | wubigo">
-  <meta property="og:description" content="安装Tensor2Tensor 内存较小的环境安装 pip install tensorflow==1.12 tensor2tensor --no-cache-dir  OpenAssistant Democratizing Large Language Model Alignment
+  <meta property="og:description" content="词编码 传统的词编码：one-hot 分布式词编码：word embedding  word2vec  CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空； 而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。
+对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量： Hierarchical Softmax和Negative Sampling
+安装Tensor2Tensor 内存较小的环境安装 pip install tensorflow==2.12 tensor2tensor --no-cache-dir  You must be using python &lt;=3.7 to install Tensorflow 1.15
+OpenAssistant Democratizing Large Language Model Alignment
 Aligning large language models (LLMs) with human preferences has proven to drastically improve usability and has driven rapid adoption as demonstrated by ChatGPT. Alignment techniques such as supervised fine-tuning (SFT) and reinforcement learning from human feedback (RLHF) greatly reduce the required skill and domain knowledge to effectively harness the capabilities of LLMs, increasing their accessibility and utility across various domains."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -503,12 +509,30 @@ Aligning large language models (LLMs) with human preferences has proven to drast
     <div class="article-style" itemprop="articleBody">
       
 
+<h1 id="词编码">词编码</h1>
+
+<h2 id="传统的词编码-one-hot">传统的词编码：one-hot</h2>
+
+<h2 id="分布式词编码-word-embedding">分布式词编码：word embedding</h2>
+
+<ul>
+<li>word2vec</li>
+</ul>
+
+<p>CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空；
+而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。</p>
+
+<p>对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量：
+Hierarchical Softmax和Negative Sampling</p>
+
 <h1 id="安装tensor2tensor">安装Tensor2Tensor</h1>
 
 <h2 id="内存较小的环境安装">内存较小的环境安装</h2>
 
-<pre><code>pip install tensorflow==1.12 tensor2tensor --no-cache-dir
+<pre><code>pip install tensorflow==2.12 tensor2tensor --no-cache-dir
 </code></pre>
+
+<p><strong><em>You must be using python &lt;=3.7 to install Tensorflow 1.15</em></strong></p>
 
 <h2 id="openassistant">OpenAssistant</h2>
 

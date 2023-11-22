@@ -122,12 +122,30 @@ Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位�
       <guid>https://wubigo.com/post/llm-notes/</guid>
       <description>
 
+&lt;h1 id=&#34;词编码&#34;&gt;词编码&lt;/h1&gt;
+
+&lt;h2 id=&#34;传统的词编码-one-hot&#34;&gt;传统的词编码：one-hot&lt;/h2&gt;
+
+&lt;h2 id=&#34;分布式词编码-word-embedding&#34;&gt;分布式词编码：word embedding&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;word2vec&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空；
+而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。&lt;/p&gt;
+
+&lt;p&gt;对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量：
+Hierarchical Softmax和Negative Sampling&lt;/p&gt;
+
 &lt;h1 id=&#34;安装tensor2tensor&#34;&gt;安装Tensor2Tensor&lt;/h1&gt;
 
 &lt;h2 id=&#34;内存较小的环境安装&#34;&gt;内存较小的环境安装&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;pip install tensorflow==1.12 tensor2tensor --no-cache-dir
+&lt;pre&gt;&lt;code&gt;pip install tensorflow==2.12 tensor2tensor --no-cache-dir
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;You must be using python &amp;lt;=3.7 to install Tensorflow 1.15&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;openassistant&#34;&gt;OpenAssistant&lt;/h2&gt;
 
