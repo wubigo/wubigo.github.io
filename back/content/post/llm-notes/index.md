@@ -19,7 +19,15 @@ categories = []
   focal_point = ""
 +++
 
-# 词编码
+
+# 分词器(Tokenizer)
+
+tokenization算法大致经历了从word/char到subword的进化.
+
+目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
+
+
+Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.
 
 ## 传统的词编码：one-hot
 ## 分布式词编码：word embedding
@@ -31,6 +39,8 @@ CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)�
 
 对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量：
 Hierarchical Softmax和Negative Sampling
+
+- BERT(Bidirectional Encoder Representations from Transformers)
 
 
 
