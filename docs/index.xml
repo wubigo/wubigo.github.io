@@ -122,7 +122,13 @@ Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位�
       <guid>https://wubigo.com/post/llm-notes/</guid>
       <description>
 
-&lt;h1 id=&#34;词编码&#34;&gt;词编码&lt;/h1&gt;
+&lt;h1 id=&#34;分词器-tokenizer&#34;&gt;分词器(Tokenizer)&lt;/h1&gt;
+
+&lt;p&gt;tokenization算法大致经历了从word/char到subword的进化.&lt;/p&gt;
+
+&lt;p&gt;目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model&lt;/p&gt;
+
+&lt;p&gt;Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.&lt;/p&gt;
 
 &lt;h2 id=&#34;传统的词编码-one-hot&#34;&gt;传统的词编码：one-hot&lt;/h2&gt;
 
@@ -137,6 +143,10 @@ Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位�
 
 &lt;p&gt;对于两个模型，word2vec给出了两套框架，用于训练快而好的词向量：
 Hierarchical Softmax和Negative Sampling&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BERT(Bidirectional Encoder Representations from Transformers)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&#34;安装tensor2tensor&#34;&gt;安装Tensor2Tensor&lt;/h1&gt;
 
