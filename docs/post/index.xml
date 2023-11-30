@@ -6,10 +6,20 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Nov 2023 15:38:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Nov 2023 13:55:30 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基于TRANSFORMER的生成式通用人工智能(AIGC WITH TRANSFORMER)</title>
+      <link>https://wubigo.com/post/aigc-with-transformer/</link>
+      <pubDate>Fri, 24 Nov 2023 13:55:30 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/aigc-with-transformer/</guid>
+      <description>生成式通用人工智能的主要推动力 transformer transformer在长序列文本数据模式提取和海量数据处理方面碾压RNN
+预训练模型 预训练模型成功的应用到NLP领域</description>
+    </item>
     
     <item>
       <title>EMQX会话保持</title>
@@ -147,6 +157,18 @@ ipconfig Windows IP 配置 以太网适配器 以太网: 连接特定的 DNS 后
 　正当一筹莫展的时候，那天，我们走出原定的龙华文体中心，一扭头，就看见了这座深圳书城，也就是我今天站的这个地方。一打听，这里居然还是全国首家5G智慧书城。
 　灵光一闪，一个新想法就冒出来了：今年能不能干脆不用大舞台?也不搞大集会?我就在这个书城里，边走边讲。观众也不用多，因为这里有书香的加持，更重要的是，我可以走到真实的观众中间。
 　过去这三年，我们多缺和真实的人近距离、面对面相处的机会啊。</description>
+    </item>
+    
+    <item>
+      <title>Pytorch multinominal采样函数</title>
+      <link>https://wubigo.com/post/torch-multinominal-notes/</link>
+      <pubDate>Wed, 30 Nov 2022 14:35:01 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/torch-multinominal-notes/</guid>
+      <description>torch.multinominal方法可以根据给定权重对数组进行多次采样，返回采样后的元素下标
+参数说明 input ：权重，也就是取每个值的概率，可以是1维或2维。可以不进行归一化。 num_samples ： 采样的次数。如果input是二维的，则表示每行的采样次数 replacement ：默认值值是False，即不放回采样。如果replacement =False，则num_samples必须小于input中非零元素的数目
+按权重采样 从四个元素中随机选择两个，每个元素被选择到的概率分别为：[0.2, 0.2, 0.3, 0.3]：
+&amp;gt;&amp;gt;&amp;gt; weights = torch.Tensor([0.9, 0.25, 0.1, 0.15]) # 采样权重 &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([0, 1]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([1, 3]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([0, 3]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([3, 1]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([1, 0]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([1, 0]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([0, 1]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([0, 2]) &amp;gt;&amp;gt;&amp;gt; torch.multinomial(weights, 2) tensor([3, 0]) &amp;gt;&amp;gt;&amp;gt; torch.</description>
     </item>
     
     <item>

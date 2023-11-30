@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-11-08T15:38:31&#43;08:00">
+  <meta property="og:updated_time" content="2023-11-24T13:55:30&#43;08:00">
   
 
   
@@ -398,6 +398,99 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2023-11-24 13:55:30 &#43;0800 CST" itemprop="datePublished">
+<meta content="2023-11-24 13:55:30 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 24, 2023</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aigc-with-transformer/" itemprop="url">基于TRANSFORMER的生成式通用人工智能(AIGC WITH TRANSFORMER)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="生成式通用人工智能的主要推动力">生成式通用人工智能的主要推动力</h1>
+
+<h2 id="transformer">transformer</h2>
+
+<p>transformer在长序列文本数据模式提取和海量数据处理方面碾压RNN</p>
+
+<h2 id="预训练模型">预训练模型</h2>
+
+<p>预训练模型成功的应用到NLP领域</p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -1240,6 +1333,91 @@ ipconfig Windows IP 配置 以太网适配器 以太网: 连接特定的 DNS 后
 　正当一筹莫展的时候，那天，我们走出原定的龙华文体中心，一扭头，就看见了这座深圳书城，也就是我今天站的这个地方。一打听，这里居然还是全国首家5G智慧书城。
 　灵光一闪，一个新想法就冒出来了：今年能不能干脆不用大舞台?也不搞大集会?我就在这个书城里，边走边讲。观众也不用多，因为这里有书香的加持，更重要的是，我可以走到真实的观众中间。
 　过去这三年，我们多缺和真实的人近距离、面对面相处的机会啊。
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-11-30 14:35:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-11-30 14:35:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 30, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/torch-multinominal-notes/" itemprop="url">Pytorch multinominal采样函数</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    torch.multinominal方法可以根据给定权重对数组进行多次采样，返回采样后的元素下标
+参数说明 input ：权重，也就是取每个值的概率，可以是1维或2维。可以不进行归一化。 num_samples ： 采样的次数。如果input是二维的，则表示每行的采样次数 replacement ：默认值值是False，即不放回采样。如果replacement =False，则num_samples必须小于input中非零元素的数目
+按权重采样 从四个元素中随机选择两个，每个元素被选择到的概率分别为：[0.2, 0.2, 0.3, 0.3]：
+&gt;&gt;&gt; weights = torch.Tensor([0.9, 0.25, 0.1, 0.15]) # 采样权重 &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 2]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 0]) &gt;&gt;&gt; torch.
   </div>
   
 
@@ -2136,176 +2314,6 @@ postgres@localhost&gt; show autovacuum;
     three main use cases for metadata repositories:  Finding data assets For example, a data architect may want to know which tables in which databases contain a Customer_ID.
  Tracking lineage (provenance) Many regulations require enterprises to document the lineage of data assets—in other words, where the data for those assets came from and how it was generated or transformed.
  Impact analysis If developers are making changes in a complex ecosystem, there is always a dan‐ ger of breaking something.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-03-18 10:58:46 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 18, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/edgex-onvif-device-dev-setup/" itemprop="url">Edgex Onvif Device Dev Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    启动EDGEX核心服务 使用容器主机网络 wget https://raw.githubusercontent.com/edgexfoundry/edgex-compose/jakarta/docker-compose-no-secty.yml  在开发环境使用host网络，便于核心服务和各种设备能在同一个子网，替换
-networks: edgex-network: {}  为
-network_mode: host  CONSUL 配置CONSUL绑定到指定以太网卡
-environment: CONSUL_BIND_INTERFACE: ens3  配置DNS /etc/hosts
-10.166.44.182 edgex-core-consul 10.166.44.182 edgex-core-command 10.166.44.182 edgex-redis 10.166.44.182 edgex-core-metadata 10.166.44.182 edgex-core-data 10.166.44.182 edgex-support-notifications 10.166.44.182 edgex-support-scheduler 10.166.44.182 edgex-ui-go 10.166.44.182 edgex-kuiper 10.166.44.182 edgex-app-rules-engine  启动核心服务 docker-compose -f docker-compose-no-secty.yml up -d  检查核心服务启动正常 docker logs -f edgex-core-command edgex-core-data edgex-core-metadata  在本地启动设备服务 git clone git@github.com:edgexfoundry/device-camera-go.git  修改cmd\res\configuration.toml
-注册服务，消息队列，核心服务的所在的主机配置
-[Registry] Type = &quot;consul&quot; Host = &quot;10.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-03-17 17:29:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-03-17 17:29:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 17, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/edgex-device-service-onvif/" itemprop="url">如何实现Edgex设备服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    加载设备配置文件 device-sdk-go: service.init.go: driver.Initialize initializeOnvifClient onvif4go.NewOnvifDevice.Initialize() provision.LoadProfiles(ds.config.Device.ProfilesDir, dic) provision.LoadDevices  驱动服务客户端初始化与核心数据和命令服务 clients.BootstrapHandler -&gt; InitDependencyClients // InitDependencyClients triggers Service Client Initializer to establish connection to Metadata and Core Data Services // through Metadata Client and Core Data Client. // Service Client Initializer also needs to check the service status of Metadata and Core Data Services, // because they are important dependencies of Device Service. // The initialization process should be pending until Metadata Service and Core Data Service are both available.
   </div>
   
 

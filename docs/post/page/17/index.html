@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-11-08T15:38:31&#43;08:00">
+  <meta property="og:updated_time" content="2023-11-24T13:55:30&#43;08:00">
   
 
   
@@ -398,6 +398,217 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 13, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-dockerfile-entrypoint/" itemprop="url">Docker Dockerfile ENTRYPOINT</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Dockerfile ENTRYPOINT有两种形式
+ exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-04-04 07:23:27 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-04-04 07:23:27 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wins-turn-off-windows-activation/" itemprop="url">购买笔记本电脑的正确打开姿势</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h2 id="关闭网络连接">关闭网络连接</h2>
+
+<h2 id="个性化设置">个性化设置</h2>
+
+<ul>
+<li><p>性能模式</p></li>
+
+<li><p>任务栏</p></li>
+
+<li><p>通知</p></li>
+
+<li><p>文件夹</p></li>
+</ul>
+
+<h2 id="关闭激活服务">关闭激活服务</h2>
+
+<hr />
+
+<h3 id="禁用激活服务">禁用激活服务</h3>
+
+<p><a href="https://www.wikihow.com/Turn-Off-Windows-Activation" target="_blank">https://www.wikihow.com/Turn-Off-Windows-Activation</a></p>
+
+<h3 id="关闭自动激活">关闭自动激活</h3>
+
+<p><a href="https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/" target="_blank">https://www.intowindows.com/how-to-turn-off-automatic-activation-in-windows-10/</a></p>
+
+<h2 id="注意">注意</h2>
+
+<p>个性化设置必须在关闭激活服务之前完成</p>
+
+<p><img src="/img/post/win-activation.png" alt="" /></p>
+
+<h2 id="禁止用户修改密码">禁止用户修改密码</h2>
+
+<pre><code>net users
+net user user_cmp /PasswordChg:No
+</code></pre>
+
+<h2 id="关闭后台服务">关闭后台服务</h2>
+
+<p>turn off the background app functionality</p>
+
+<pre><code>Start &gt; Settings &gt; Privacy &gt; Background apps
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2001,175 +2212,6 @@ wubigo.com.		285	IN	A	185.199.109.153
   <div class="article-style" itemprop="articleBody">
     NGINX 1.12 ON UBUNTU 16 https://launchpad.net/~nginx/+archive/ubuntu/stable
 ubuntu@ip-192-168-133-137:/etc/nginx$ nginx -V nginx version: nginx/1.12.1 built with OpenSSL 1.0.2g 1 Mar 2016 TLS SNI support enabled configure arguments: --with-cc-opt='-g -O2 -fPIE -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wdate-time -D_FORTIFY_SOURCE=2' --with-ld-opt='-Wl,-Bsymbolic-functions -fPIE -pie -Wl,-z,relro -Wl,-z,now -fPIC' --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --modules-path=/usr/lib/nginx/modules --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_auth_request_module --with-http_v2_module --with-http_dav_module --with-http_slice_module --with-threads --with-http_addition_module --with-http_geoip_module=dynamic --with-http_gunzip_module --with-http_gzip_static_module --with-http_image_filter_module=dynamic --with-http_sub_module --with-http_xslt_module=dynamic --with-stream=dynamic --with-stream_ssl_module --with-stream_ssl_preread_module --with-mail=dynamic --with-mail_ssl_module --add-dynamic-module=/build/nginx-aqArPM/nginx-1.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-06-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2015-06-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 3, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2015-06-03-git-notes/" itemprop="url">git note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    update a fork on GitHub with upstream git fetch upstream git rebase upstream/master (sync upstream update to local master branch) git push (update the fork by push)  Moving a git repository $ git remote show origin $ git remote rm origin $ git remote add origin https://github.com/wubigo/wubigo.github.io.git $ git remote show origin $ git pull origin master  Branch from a previous commit using Git The magic can be done by git reset.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2015-04-03 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 3, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2015-04-03-hbase-notes/" itemprop="url">HBase notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="understand-of-the-hbase-data-model">understand of the HBase data model</h1>
-
-<p><a href="http://jimbojw.com/#understanding%20hbase" target="_blank">http://jimbojw.com/#understanding hbase</a></p>
-
   </div>
   
 

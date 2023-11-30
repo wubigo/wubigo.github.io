@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-11-08T15:38:31&#43;08:00">
+  <meta property="og:updated_time" content="2023-11-24T13:55:30&#43;08:00">
   
 
   
@@ -398,6 +398,174 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-05-10 16:57:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-05-10 16:57:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wireless-and-wired-connection-both-at-a-same-time-in-windows/" itemprop="url">Wireless and Wired Connection Both at a Same Time in Windows</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    give the wireless network higher priority than the wired WIRELESS CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Uncheck it. That will enable a text box named &ldquo;Interface metric&rdquo;. Fill in a number. It needs to be larger than 1 (reserved for loopback) and the number(30) you choose for the wired network.
+WIRED CONNECTION &gt; &quot;Internet Protocol Version 4 (TCP/IPv4) Properties&quot; &gt; advanced TCP/IP setting &gt; Automatic metric  Again Uncheck &ldquo;Automatic metric&rdquo;, and fill in a number in the &ldquo;Interface metric&rdquo; box.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-05-06 11:51:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 6, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/windows-application-information-service/" itemprop="url">Windows Application Information Service</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    AppInfo 启动类型必须是自动或手动，
+否则，msinstaller， services.msc， regedit
+等都会报错：
+The Service command cannot be started, either because it is disabled or because it has no enabled devices associated with it  AppInfo	svchost.exe	Facilitates the running of interactive applications with additional administrative privileges.	Users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks. These tools include regedit. Although safe to disable, this is not recommended since you need to boot into safe mode to enable again.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2243,207 +2411,6 @@ signature_v2 = False
 <p>更改名字服务器需通过域名注册服务商进行更改</p>
 
 <p><img src="/img/post/custom-dns.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-03 11:31:17 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/vxlan-on-linux/" itemprop="url">Vxlan on Linux</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="端到端vxlan-unicast">端到端VXLAN(unicast)</h2>
-
-<pre><code>ip a
-
-ip link add vxlan0 type vxlan \
-    id 42 \
-    dstport 4789 \
-    remote 10.12.0.172 \
-    local 10.12.2.95 \
-    dev eth0
-
-
-ip -d link show dev vxlan0
-
-
-
-ip addr add 192.168.8.101/24 dev vxlan0
-ip link set vxlan0 up
-
-
-ip r
-default via 10.12.0.1 dev eth0
-10.12.0.0/21 dev eth0  proto kernel  scope link  src 10.12.2.95
-192.168.8.0/24 dev vxlan0  proto kernel  scope link  src 192.168.8.101
-
-
-bridge fdb | grep vxlan0
-
-ip neigh
-</code></pre>
-
-<h2 id="多播vxlan-multicast">多播vxlan(multicast)</h2>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-01-03 06:53:55 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/wireguard-dev-guide/" itemprop="url">Wireguard开发参考</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <pre><code>git clone https://git.zx2c4.com/wireguard-go
-
-</code></pre>
 
   </div>
   
