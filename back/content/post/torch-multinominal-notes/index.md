@@ -135,3 +135,7 @@ tensor([[0.0110],
         [0.0833],
         [0.6563]])
 ```
+
+ T[ row_start : row_end , column_start:column_end]
+
+ 
