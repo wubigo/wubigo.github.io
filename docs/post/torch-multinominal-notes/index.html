@@ -615,6 +615,62 @@ tensor([[0.0110],
 
 <p>T[ row_start : row_end , column_start:column_end]</p>
 
+<p># 张量的维度</p>
+
+<p>有以下几张方法能快速看出张量的维度
+ - 维度要看张量的最左边有多少个左中括号，有n个，则这个张量就是n维张量</p>
+
+<ul>
+<li><p>t.shape 在形状的中括号中有多少个数字，就代表这个张量是多少维的张量</p>
+
+<pre><code>&gt;&gt;&gt; a = torch.randint(10,(2,2,3))
+&gt;&gt;&gt; a
+tensor([[[2, 6, 8],
+     [7, 3, 3]],
+
+    [[2, 0, 0],
+     [2, 5, 9]]])
+&gt;&gt;&gt; a.shape
+torch.Size([2, 2, 3])
+&gt;&gt;&gt; a.size(dim=0)
+2
+&gt;&gt;&gt; a.size(dim=1)
+2
+&gt;&gt;&gt; a.size(dim=2)
+3
+</code></pre></li>
+</ul>
+
+<p># 张量的形状</p>
+
+<p>形状的第一个元素要看张量最外边的中括号中有几个元素
+ 形状的第二个元素要看张量中最左边的第二个中括号中有几个被逗号隔开的元素
+ 形状的第二个元素之后的第3,4…n个元素依次类推，分别看第n个中括号中有几个元素即可</p>
+
+<pre><code> &gt;&gt;&gt;a = torch.tensor([[[2, 6, 8], [7, 3, 3]],[[2, 0, 0],[2, 5, 9]]])
+ &gt;&gt;&gt; a.sum(dim=0)
+tensor([[ 4,  6,  8],
+        [ 9,  8, 12]])
+&gt;&gt;&gt; a.sum(dim=1)
+tensor([[ 9,  9, 11],
+        [ 4,  5,  9]])
+&gt;&gt;&gt; a.sum(dim=2)
+tensor([[16, 13],
+        [ 2, 16]])
+
+&gt;&gt;&gt; a[:,0:1]
+tensor([[[2, 6, 8]],
+
+        [[2, 0, 0]]])
+&gt;&gt;&gt; a[:,1:2]
+tensor([[[7, 3, 3]],
+
+        [[2, 5, 9]]])
+&gt;&gt;&gt; a.sum(dim=1)
+tensor([[ 9,  9, 11],
+        [ 4,  5,  9]])
+</code></pre>
+
     </div>
 
     
