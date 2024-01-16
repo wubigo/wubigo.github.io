@@ -2450,6 +2450,20 @@ tensor([[0.0110],
 
 &lt;p&gt;T[ row_start : row_end , column_start:column_end]&lt;/p&gt;
 
+&lt;p&gt;## 使用select&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; a1 = torch.randint(10,(2,2,3))
+&amp;gt;&amp;gt;&amp;gt; a1
+tensor([[[5, 2, 7],
+         [3, 8, 0]],
+
+        [[7, 7, 8],
+         [6, 5, 5]]])
+&amp;gt;&amp;gt;&amp;gt; a1.select(dim=1,index=0)
+tensor([[5, 2, 7],
+        [7, 7, 8]])
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;# 张量的维度&lt;/p&gt;
 
 &lt;p&gt;有以下几张方法能快速看出张量的维度

@@ -615,6 +615,20 @@ tensor([[0.0110],
 
 <p>T[ row_start : row_end , column_start:column_end]</p>
 
+<p>## 使用select</p>
+
+<pre><code>&gt;&gt;&gt; a1 = torch.randint(10,(2,2,3))
+&gt;&gt;&gt; a1
+tensor([[[5, 2, 7],
+         [3, 8, 0]],
+
+        [[7, 7, 8],
+         [6, 5, 5]]])
+&gt;&gt;&gt; a1.select(dim=1,index=0)
+tensor([[5, 2, 7],
+        [7, 7, 8]])
+</code></pre>
+
 <p># 张量的维度</p>
 
 <p>有以下几张方法能快速看出张量的维度
@@ -679,6 +693,8 @@ tensor([[ 9,  9, 11],
 <div class="article-tags">
   
   <a class="badge badge-light" href="/tags/ai/">AI</a>
+  
+  <a class="badge badge-light" href="/tags/tensor/">TENSOR</a>
   
 </div>
 
