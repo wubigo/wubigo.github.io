@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["AI"]
+tags = ["AI", "TENSOR"]
 categories = []
 
 # Featured image
@@ -137,6 +137,22 @@ tensor([[0.0110],
 ```
 
  T[ row_start : row_end , column_start:column_end]
+
+
+ ## 使用select
+
+ ```
+>>> a1 = torch.randint(10,(2,2,3))
+>>> a1
+tensor([[[5, 2, 7],
+         [3, 8, 0]],
+
+        [[7, 7, 8],
+         [6, 5, 5]]])
+>>> a1.select(dim=1,index=0)
+tensor([[5, 2, 7],
+        [7, 7, 8]])
+ ```
 
  # 张量的维度
 

@@ -1,5 +1,5 @@
 +++
-title = "函数计算"
+title = "智慧枢纽"
 date = 2019-02-23T16:45:49+08:00
 draft = false
 

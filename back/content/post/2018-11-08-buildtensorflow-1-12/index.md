@@ -31,4 +31,6 @@ $pip list | grep tensorflow
 [https://github.com/tensorflow/tensorflow/issues/23402](https://github.com/tensorflow/tensorflow/issues/23402)
 
 
+# 矩阵
 
+矩阵一般用大写字母表示
