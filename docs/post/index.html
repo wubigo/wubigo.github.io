@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-11-24T13:55:30&#43;08:00">
+  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
   
 
   
@@ -398,6 +398,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2024-01-31 16:59:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2024-01-31 16:59:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 31, 2024</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/bacnet-vs-modbus/" itemprop="url">Bacnet vs Modbus工控协议对比</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    BACnet简介 BACnet协议(A Data Communication Protocol for Building Automation and Control Networks)，是由美国采暖、制冷和空调工程师协会（ASHRAE）制定的一个楼宇自动控制技术标准文件，BACnet协议最根本的目的是提供一种楼宇自动控制系统实现互操作的方法。BACnet协议并不能简单的认为是一种应用层的协议，而是包含四个层次的简化分层体系结构，这四层相当于OSI模型中的物理层、数据链路层、网络层和应用层。BACnet是用于楼宇自动化和控制网络的简短形式的数据通信协议。BACnet是主要行业供应商产品中常用的自动化和控制协议之一.BACnet应用包括照明控制，安全，消防，报警，HVAC（加热，通风，空调和与公用事业公司的接口）
+BACnet物理层 BACnet上层不依赖于物理层。BACnet物理层使BACnet可以在不同的网络上实现。BACnet物理层已指定用于以下内容： - ARCNET - 以太网 - IP隧道 - BACnet / IP - RS-232 (RS232用于点对点通信。RS485支持最多32个节点，距离为1200米，速率为76Kbps) - RS485 - Lonworks / LonTalk
+服务原语 与ISO服务中的约定用法一致，BACnet中两个对等应用进程间的信息交换，被表示成抽象服务原语的交换。这些服务原语用来传递一些特定的服务参数，本协议定义了四种服务原语：请求（request）、指示（indication）、响应（response）和证实（confirm）。 同样，本协议定义了下列几种服务：有证实（confirmed）服务：用CONF_SERV标记，表示客户方通过具体的服务请求实例向服务器方请求服务，服务器方通过响应请求来为客户方提供服务。存在客户/服务器模型、区分“请求方BACnet用户”和“响应方BACnet用户”等。 无证实（unconfirmed）服务：用UNCONF_SERV标记，只有“发送方BACnet用户”和“接收方BACnet用户”的概念，不存在客户/服务器模型，只有发送方和接收方，而不是请求-响应对。 分段确认（segment acknowledge）服务：用SEGMENT_ACK标记，为了实现长报文（长度大于通信网络、收/发设备所支持的长度）的传输，BACnet采取了应用层报文分段的机制来对报文进行分段。在BACnet中只有有证实请求（Confirmed-Request）和复杂确认（Complex-ACK）报文可能需要分段，因此分段还是BACnet的一个可选特性。 另外，还有差错（ERROR）服务，拒绝（REJECT）服务，中止（ABORT）服务。 因此，根据不同的服务类型和原语类型，据有下表所示的服务原语。这些原语中的信息，由各种协议数据单元（PDU：Protocol Data Unit）传递。
+服务选择 BACnet定义了以下几类可选择的服务，用于两个对等实体之间的交互。
+文件访问服务 定义一组访问和操作在BACnet设备中的文件的服务。文件只是一个抽象的概念,表示一个任意长度和意义的字节集合的网络可见形式。 基本读文件（AtomicReadFile）服务：一个客户端的BACnet用户使用基本读文件服务对某个文件进行一个“打开－读出－关闭”的操作。 基本写文件（AtomicWriteFile）服务：一个客户端的BACnet用户使用基本写文件服务对某个字节流进行一个“打开－写入－关闭”的操作，将它写入到文件的某个位置。
+对象访问服务 远程设备管理服务 定义一组远程设备管理服务。 - 设备通信控制（DeviceCommunicationControl）服务。 - 有证实专有传输（ConfirmedPrivateTransfer）服务。 - 无证实专有传输（UnconfirmedPrivateTransfer）服务。 - 重新初始化设备（ReinitializeDevice）服务。 - 有证实文本报文（ConfirmedTextMessage）服务。 - 无证实文本报文（UnconfirmedTextMessage）服务。 - 时间同步（TimeSynchronization）服务。
+ModBus简介 Modbus 协议广泛应用于工业自动化、建筑自动化、环境监测、能源管理等领域，以下是一些常见的应用场景：工业自动化：Modbus 是一种常用的通信协议，可以实现工厂中各种设备的数据采集、控制和监测，如传感器、PLC、变频器、电机驱动器、控制器等设备。建筑自动化：Modbus 可以用于建筑自动化系统中 modbus 是工业现场较为常用的总线协议，是应用层报文传输协议（OSI模型第7层），支持1对1传输、1对多传输。支持的模式有：modbus-TCP、modbus-RTU、modbus-ASCII。其中modbus-TCP是基于TCP/IP之上的应用协议。modbus-RTU、modbus-ASCII 是串口协议，主要的电气接口有：RS232、RS485。
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2230,90 +2318,6 @@ postgres@localhost&gt; show autovacuum;
   <div class="article-style" itemprop="articleBody">
     CAN消息总线格式 DBC格式 BO_ 500 IO_DEBUG: 4 IO SG_ IO_DEBUG_test_unsigned : 0|8@1+ (1,0) [0|0] &quot;&quot; DBG  说明：
  The message name is IO_DEBUG and MID is 500 (decimal), and the length is 4 bytes (though we only need 1 for 8-bit signal) The sender is IO 0|8: The unsigned signal starts at bit position 0, and the size of this signal is 8 (1,0): The scale and offset (discussed later) [0|0]: Min and Max is not defined (discussed later) &rdquo;&rdquo;: There are no units (it could be, for instance &ldquo;inches&rdquo;) @1+: Defines that the signal is little-endian, and unsigned: Never change this!
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-05-11 19:59:38 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-05-11 19:59:38 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 11, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/data-lake-notes/" itemprop="url">Data Lake Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    three main use cases for metadata repositories:  Finding data assets For example, a data architect may want to know which tables in which databases contain a Customer_ID.
- Tracking lineage (provenance) Many regulations require enterprises to document the lineage of data assets—in other words, where the data for those assets came from and how it was generated or transformed.
- Impact analysis If developers are making changes in a complex ecosystem, there is always a dan‐ ger of breaking something.
   </div>
   
 

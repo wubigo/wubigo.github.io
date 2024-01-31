@@ -5,8 +5,132 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Nov 2023 13:55:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jan 2024 16:59:12 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bacnet vs Modbus工控协议对比</title>
+      <link>https://wubigo.com/post/bacnet-vs-modbus/</link>
+      <pubDate>Wed, 31 Jan 2024 16:59:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/bacnet-vs-modbus/</guid>
+      <description>
+
+&lt;h1 id=&#34;bacnet简介&#34;&gt;BACnet简介&lt;/h1&gt;
+
+&lt;p&gt;BACnet协议(A Data Communication Protocol for Building Automation and Control Networks)，是由美国采暖、制冷和空调工程师协会（ASHRAE）制定的一个楼宇自动控制技术标准文件，BACnet协议最根本的目的是提供一种楼宇自动控制系统实现互操作的方法。BACnet协议并不能简单的认为是一种应用层的协议，而是包含四个层次的简化分层体系结构，这四层相当于OSI模型中的物理层、数据链路层、网络层和应用层。BACnet是用于楼宇自动化和控制网络的简短形式的数据通信协议。BACnet是主要行业供应商产品中常用的自动化和控制协议之一.BACnet应用包括照明控制，安全，消防，报警，HVAC（加热，通风，空调和与公用事业公司的接口）&lt;/p&gt;
+
+&lt;h2 id=&#34;bacnet物理层&#34;&gt;BACnet物理层&lt;/h2&gt;
+
+&lt;p&gt;BACnet上层不依赖于物理层。BACnet物理层使BACnet可以在不同的网络上实现。BACnet物理层已指定用于以下内容：
+- ARCNET
+- 以太网
+- IP隧道
+- BACnet / IP
+- RS-232 (RS232用于点对点通信。RS485支持最多32个节点，距离为1200米，速率为76Kbps)
+- RS485
+- Lonworks / LonTalk&lt;/p&gt;
+
+&lt;h2 id=&#34;服务原语&#34;&gt;服务原语&lt;/h2&gt;
+
+&lt;p&gt;与ISO服务中的约定用法一致，BACnet中两个对等应用进程间的信息交换，被表示成抽象服务原语的交换。这些服务原语用来传递一些特定的服务参数，本协议定义了四种服务原语：请求（request）、指示（indication）、响应（response）和证实（confirm）。
+同样，本协议定义了下列几种服务：有证实（confirmed）服务：用CONF_SERV标记，表示客户方通过具体的服务请求实例向服务器方请求服务，服务器方通过响应请求来为客户方提供服务。存在客户/服务器模型、区分“请求方BACnet用户”和“响应方BACnet用户”等。
+无证实（unconfirmed）服务：用UNCONF_SERV标记，只有“发送方BACnet用户”和“接收方BACnet用户”的概念，不存在客户/服务器模型，只有发送方和接收方，而不是请求-响应对。
+分段确认（segment acknowledge）服务：用SEGMENT_ACK标记，为了实现长报文（长度大于通信网络、收/发设备所支持的长度）的传输，BACnet采取了应用层报文分段的机制来对报文进行分段。在BACnet中只有有证实请求（Confirmed-Request）和复杂确认（Complex-ACK）报文可能需要分段，因此分段还是BACnet的一个可选特性。
+另外，还有差错（ERROR）服务，拒绝（REJECT）服务，中止（ABORT）服务。
+因此，根据不同的服务类型和原语类型，据有下表所示的服务原语。这些原语中的信息，由各种协议数据单元（PDU：Protocol Data Unit）传递。&lt;/p&gt;
+
+&lt;h2 id=&#34;服务选择&#34;&gt;服务选择&lt;/h2&gt;
+
+&lt;p&gt;BACnet定义了以下几类可选择的服务，用于两个对等实体之间的交互。&lt;/p&gt;
+
+&lt;h3 id=&#34;文件访问服务&#34;&gt;文件访问服务&lt;/h3&gt;
+
+&lt;p&gt;定义一组访问和操作在BACnet设备中的文件的服务。文件只是一个抽象的概念,表示一个任意长度和意义的字节集合的网络可见形式。
+基本读文件（AtomicReadFile）服务：一个客户端的BACnet用户使用基本读文件服务对某个文件进行一个“打开－读出－关闭”的操作。
+基本写文件（AtomicWriteFile）服务：一个客户端的BACnet用户使用基本写文件服务对某个字节流进行一个“打开－写入－关闭”的操作，将它写入到文件的某个位置。&lt;/p&gt;
+
+&lt;h3 id=&#34;对象访问服务&#34;&gt;对象访问服务&lt;/h3&gt;
+
+&lt;h3 id=&#34;远程设备管理服务&#34;&gt;远程设备管理服务&lt;/h3&gt;
+
+&lt;p&gt;定义一组远程设备管理服务。
+- 设备通信控制（DeviceCommunicationControl）服务。
+- 有证实专有传输（ConfirmedPrivateTransfer）服务。
+- 无证实专有传输（UnconfirmedPrivateTransfer）服务。
+- 重新初始化设备（ReinitializeDevice）服务。
+- 有证实文本报文（ConfirmedTextMessage）服务。
+- 无证实文本报文（UnconfirmedTextMessage）服务。
+- 时间同步（TimeSynchronization）服务。&lt;/p&gt;
+
+&lt;h1 id=&#34;modbus简介&#34;&gt;ModBus简介&lt;/h1&gt;
+
+&lt;p&gt;Modbus 协议广泛应用于工业自动化、建筑自动化、环境监测、能源管理等领域，以下是一些常见的应用场景：工业自动化：Modbus 是一种常用的通信协议，可以实现工厂中各种设备的数据采集、控制和监测，如传感器、PLC、变频器、电机驱动器、控制器等设备。建筑自动化：Modbus 可以用于建筑自动化系统中
+modbus 是工业现场较为常用的总线协议，是应用层报文传输协议（OSI模型第7层），支持1对1传输、1对多传输。支持的模式有：modbus-TCP、modbus-RTU、modbus-ASCII。其中modbus-TCP是基于TCP/IP之上的应用协议。modbus-RTU、modbus-ASCII 是串口协议，主要的电气接口有：RS232、RS485。&lt;/p&gt;
+
+&lt;p&gt;Modbus通信协议已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式（一种行业规范）。此外，还具有三大特点：
+- 公开发表并且无版权要求
+- 易于部署和维护
+- 修改移动本地的比特或字节没有很多限制&lt;/p&gt;
+
+&lt;p&gt;概括来讲，Modbus协议就是一种用于工业控制的协议，Modbus具有免费使用、上手简单、需改方便三大特点，已经被广泛使用。&lt;/p&gt;
+
+&lt;p&gt;Modbus协议主要分为Modbus TCP、Modbus RTU、Modbus ASCII、Modbus Plus四种&lt;/p&gt;
+
+&lt;p&gt;Modbus协议是主从方式通信，也就是说，不能同步进行通信，总线上每次只有一个数据进行传输，即主机发送，从机应答，主机不发送，从机应答完毕后，总线上就没有数据通信。&lt;/p&gt;
+
+&lt;h2 id=&#34;modbus-tcp协议&#34;&gt;Modbus TCP协议&lt;/h2&gt;
+
+&lt;p&gt;Modbus TCP协议是用于管理和控制自动化设备的，它覆盖了使用TCP/IP协议的“Intranet”和“Internet”环境中Modbus报文的用途，Modbus RTU协议运行于以太网。&lt;/p&gt;
+
+&lt;p&gt;Modbus TCP使用TCP/IP和以太网在站点间传送Modbus报文，Modbus TCP结合了以太网物理网络和网络标准TCP/IP以及以Modbus作为应用协议标准的数据表示方法。Modbus TCP通信报文被封装于以太网TCP/IP数据包中。与传统的串口方式，Modbus TCP插入一个标准Modbus报文到TCP报文中，不再带有数据校验和地址。&lt;/p&gt;
+
+&lt;h2 id=&#34;modbus-rtu协议&#34;&gt;Modbus RTU协议&lt;/h2&gt;
+
+&lt;p&gt;Modbus协议是运行于设备间的协议，或者说设备间必须要有Modbus RTU协议！这是Modbus协议上规定的，且默认模式必须是RTU协议。帧结构一般由地址、功能码、数据、校验组成。&lt;/p&gt;
+
+&lt;p&gt;地址用于区分设备，占用一个字节，范围0-255，其中有效范围是1-247，其他有特殊用途，比如255是广播地址(广播地址就是应答所有地址，正常的需要两个设备的地址一样才能进行查询和回复)。&lt;/p&gt;
+
+&lt;p&gt;功能码占用一个字节，意义在于指示这个指令的功能。&lt;/p&gt;
+
+&lt;p&gt;数据根据功能码确认，不同的功能码有不同的数据结构。&lt;/p&gt;
+
+&lt;p&gt;校验位是为了保证数据不出现错误而增加的。校验位将前面的数据进行计算，看数据是否一致，如果一致，就说明这帧数据是正确的，再进行回复;如果不一样，说明数据在传输过程中出了问题，数据产生错误。&lt;/p&gt;
+
+&lt;h2 id=&#34;modbus-ascii协议&#34;&gt;Modbus ASCII协议&lt;/h2&gt;
+
+&lt;p&gt;Modbus ASCII协议是建立在Modbus RTU协议上的，是将指令转换为ASCII字符进行传输的。比如Modbus RTU协议需要传输“12”，只需要一个字节；Modbus ASCII协议需要将“1”转换为“31”，“2”转化为“32”，再进行传输，需要占用两个字节，因此Modbus ASCII效率不高，使用率较低。&lt;/p&gt;
+
+&lt;p&gt;总的来看，Modbus RTU协议和Modbus ACSII协议都是基于232和485链路的，所以其通讯模式半双工，一般是主机和从机的模式。其差别就是其字节的格式不同，一个是16进制的数据，一个是ASCII数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;modbus-plus协议&#34;&gt;Modbus PLUS协议&lt;/h2&gt;
+
+&lt;p&gt;Modbus PLUS协议一般被称为MB+，是一种高速现场总线网络，也是一种典型的令牌总线网，针对工业控制应用的本地局域网系统。它允许计算机、可编程序控制器和其他数据源以对等方式进行通信，设备通过&amp;rdquo;令牌&amp;rdquo;的方式实现数据的交换，严格定义了令牌的传递方式、数据校验以及通信接口等方面的参数。数据传送速率达1Mbit/s，传输介质一般为为双绞线、同轴电缆或光纤。&lt;/p&gt;
+
+&lt;h1 id=&#34;bacnet-vs-modbus&#34;&gt;BACnet  vs  Modbus&lt;/h1&gt;
+
+&lt;h2 id=&#34;bacnet优势&#34;&gt;BACnet优势&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;支持更多的应用领域：BACnet协议不仅可以用于楼宇自动化系统，还可以应用于工业自动化、能源管理、物流管理等领域，而modbus协议主要应用于工业自动化领域。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;更好的可扩展性：BACnet协议支持多种通信介质;如以太网、RS-485、无线网络等;可以根据实际需求进行扩展和升级。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;更高的互操作性：BACnet协议是一种开放的标准协议，可以与不同厂商的设备进行互操作，而modbus协议则存在一些兼容性问题。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;更强的安全性：BACnet协议支持多种安全机制，如身份认证、数据加密等，可以提高系统的安全性和可靠性。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;综上所述，BACnet协议在应用范围、可扩展性、互操作性、安全性和数据传输精度等方面都具有优势，适用于更多的应用场景和需求。&lt;/p&gt;
+
+&lt;h2 id=&#34;modbus的优势&#34;&gt;Modbus的优势&lt;/h2&gt;
+
+&lt;p&gt;概括来讲，Modbus协议就是一种用于工业控制的协议，Modbus具有如下特性：
+- 免费使用、
+- 上手简单、
+- 需改方便三大特点，已经被广泛使用。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>基于TRANSFORMER的生成式通用人工智能(AIGC WITH TRANSFORMER)</title>
@@ -2696,20 +2820,6 @@ wsl --unregister docker-desktop-data
   docker-desktop-data    Running         2
   docker-desktop         Running         2
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>成功只有一个</title>
-      <link>https://wubigo.com/post/only-one-success/</link>
-      <pubDate>Sun, 18 Sep 2022 15:08:18 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/only-one-success/</guid>
-      <description>&lt;p&gt;每隔几年 ，我总要把《明朝那些事儿》最后一章拿来读读，给自己的人生纠偏，而唯一的准星，就是自己本心。最后一章内容如下：&lt;/p&gt;
-
-&lt;p&gt;“其实历史和小说不一样，因为历史的答案，所有人都知道，崇祯同志终究是要死的，而且肯定是吊死，他不会撞墙，不会抹脖子，不会喝敌敌畏，总而言之，我不说，你们都知道。&lt;/p&gt;&lt;p data-pid=&#34;gX2GDJMy&#34;&gt;　　所以结局应该是固定的，没有支线。&lt;/p&gt;&lt;p data-pid=&#34;WP1jaMT5&#34;&gt;　　但是，我的结局，并不是这个。换句话说，我的文章，有两个结局，这只是第一个。&lt;/p&gt;&lt;p data-pid=&#34;hfUOea-l&#34;&gt;　　我读了十五年历史，尊重历史，所以这篇文章从头至尾，不能说无一字无来历，但大多数，都是有出处的。我不敢瞎编。&lt;/p&gt;&lt;p data-pid=&#34;D5KuRAK2&#34;&gt;　　所以第二个结局，也是真实的，只不过比较奇特，它一直在我的脑海里，最后，我决定把这个比较奇特的结局写出来。&lt;/p&gt;&lt;p data-pid=&#34;5fyG3Be0&#34;&gt;　　第二个结局徐宏祖出生的时候，是万历十五年。&lt;/p&gt;&lt;p data-pid=&#34;PYURh63a&#34;&gt;　　在这个特定的年龄出生，真是缘分，但外面的世界，跟徐宏祖并没有多大关系，他的老家在江阴，山清水秀，不用搞政治，也不怕被人砍，比较清净。&lt;/p&gt;&lt;p data-pid=&#34;GQ-PgfC9&#34;&gt;　　当然，清净归清净，在那年头，要想出人头地，青史留名，只有一条路——考试（似乎今天也是）。&lt;/p&gt;&lt;p data-pid=&#34;dg8vEUEH&#34;&gt;　　徐宏祖不想考试，不想出人头地，不想青史留名，他只想玩。&lt;/p&gt;&lt;p data-pid=&#34;W2EU1pBz&#34;&gt;　　按史籍说，是从小就玩，且玩得比较狠，比较特别，不扔沙包，不滚铁环，只是四处瞎转悠，遇到山就爬，遇到河就下，人极小，胆子极大。&lt;/p&gt;&lt;p data-pid=&#34;dIU22eyL&#34;&gt;　　此外，他极其讨厌考试，长大后，让他去考科举，死都不去。该情节，放在现在，大致相当于抗拒高考。&lt;/p&gt;&lt;p data-pid=&#34;8WKi4J74&#34;&gt;　　这号人，当年跟今天的下场，估计是差不多，被拉回家打一半死不活，绝无幸免。&lt;/p&gt;&lt;p data-pid=&#34;HG5rG36Z&#34;&gt;　　然而徐宏祖的父母没有打他，非但没有打他，还告诉他，你要想玩，就玩吧，做自己喜欢做的事情就行。&lt;/p&gt;&lt;p data-pid=&#34;wPlxp31w&#34;&gt;　　这种看似惊世骇俗的思想，似乎很不合理，但对徐家人而言，很合理。&lt;/p&gt;&lt;p data-pid=&#34;aRuoGDCX&#34;&gt;　　对了，应该介绍一下徐宏祖同志的家世，虽然他的父母，并非什么大人物，也没名气，但他有一位祖先，还算是很有名的，当然，不是好名。&lt;/p&gt;&lt;p data-pid=&#34;Va1uKN_b&#34;&gt;　　在徐宏祖出生前九十年，徐家的一位先辈进京赶考，路上遇到了一位同伴，叫做唐寅，又叫唐伯虎。&lt;/p&gt;&lt;p data-pid=&#34;RYfyH5Vi&#34;&gt;　　没错，他就是徐经。&lt;/p&gt;&lt;p data-pid=&#34;tgoH9jYJ&#34;&gt;　　后来的事情，之前讲过，据说是徐经作弊，结果拉上了唐伯虎，大家一起完蛋，进士没考上，连举人都没了，所以徐经同志痛定思痛，对坑害了无数人（主要是他）的科举制度深恶痛绝，教育子孙，要与这个万恶的制度决裂，爱考不考，去他娘的。&lt;/p&gt;&lt;p data-pid=&#34;uol5AM5r&#34;&gt;　　对这段百年恩怨，徐宏祖是否了解，不清楚，但他会用，那是肯定的。更重要的是，徐家虽说没有级别，还有点钱，所以他决定，索性不考了，出去旅游。&lt;/p&gt;&lt;p data-pid=&#34;imNcawXE&#34;&gt;　　刚开始，他旅游的范围，主要是江浙一带，比如紫金山、太湖、普陀山等等。后来愈发勇猛，又去了雁荡山、九华山、黄山、武夷山、庐山等等。&lt;/p&gt;&lt;p data-pid=&#34;V4_cmLwh&#34;&gt;　　但这里，存在着一个问题——钱。&lt;/p&gt;&lt;p data-pid=&#34;CXmhLqWh&#34;&gt;　　旅行家和大侠的区别在于，旅行家是要花钱的，列一下，大致包括以下费用：交通费、住宿费、导游费、餐饮费、门票费，如果地方不地道，还有个挨宰费。&lt;/p&gt;&lt;p data-pid=&#34;oekI76Dx&#34;&gt;　　我说过，徐家是有钱的，但只是有点钱，没有很多钱，大约也就是个中产阶级。按今天的标准，一年去旅游一次，也就够了，但徐宏祖的旅行日程是：一年休息一次。&lt;/p&gt;&lt;p data-pid=&#34;Ll8B_8AQ&#34;&gt;　　他除了年底回家照顾父母外，一年到头都在外面，但就这么个搞法，他家竟然还过得去。&lt;/p&gt;&lt;p data-pid=&#34;45vYEKuY&#34;&gt;　　原因很简单，比如交通费，他不坐火车、也不坐汽车（想坐也没），少数骑马，多靠步行（骑马爬山试试）。&lt;/p&gt;&lt;p data-pid=&#34;Zx53atfC&#34;&gt;　　住宿费，基本不需要，徐宏祖去的地方，当年大都没有人去，别说三星级，连孙二娘的黑店都没有，树林里、悬崖上，打个地铺，也就睡了。&lt;/p&gt;&lt;p data-pid=&#34;fx7SpwHV&#34;&gt;　　餐饮费，也没有，我考察过，徐宏祖同志去的地方，也没什么餐馆，每次他出发的时候，都是带着干粮，而且他很扛饿，据说能扛七八天，至于喝水，山里面，那都是矿泉水。&lt;/p&gt;&lt;p data-pid=&#34;gMY-pQzv&#34;&gt;　　门票费也是不用了，当年谁要能在徐宏祖同志去的地方，设个点收门票，那只能说明，他比徐宏祖还牛，该收。&lt;/p&gt;&lt;p data-pid=&#34;7jNqChf9&#34;&gt;　　挨宰费是没有的，但挨宰是可能的，且比较敞亮，从没有暗地加价坑钱，都是拿刀，明着来抢。要知道，没门票的地方，固然没有奸商，却很可能有强盗。&lt;/p&gt;&lt;p data-pid=&#34;aoIeNtRM&#34;&gt;　　据本人考证，徐宏祖最大的花销，是导游费用。作为一个旅行家，徐宏祖很清楚，什么都能省，这笔钱是不能省的，否则走到半山腰，给你挖个坑，让你钻个洞，那就休息了。&lt;/p&gt;&lt;p data-pid=&#34;yoA0mNGV&#34;&gt;　　就这样，家境并不十分富裕的徐宏祖，穿着俭朴的衣服，没有随从，没有护卫，带着干粮，独自前往名山大川，风餐露宿，不怕吃苦，不怕挨饿，一年只回一次家，只为攀登。&lt;/p&gt;&lt;p data-pid=&#34;priHLxeD&#34;&gt;　　从俗世的角度，徐宏祖是个怪人，这人不考功名，不求做官，不成家立业，按很多人的说法，是毁了。&lt;/p&gt;&lt;p data-pid=&#34;goXMOHKb&#34;&gt;　　我知道，很多人还会说，这种生活荒谬，是不符合常规的，是不正常的，是缺根弦的，是精神有问题的。&lt;/p&gt;&lt;p data-pid=&#34;HqoI1uV2&#34;&gt;　　我认为，说这些话的人，是吃饱了，撑的，人只活一辈子，如何生活，都是自己的事，自己这辈子浑浑噩噩地没活好，厚着脸皮还来指责别人，有多远，就去滚多远。&lt;/p&gt;&lt;p data-pid=&#34;KJh1JJnc&#34;&gt;　　徐宏祖旅行的唯一阻力，是他的父母。他的父亲去世较早，只剩他的母亲无人照料。圣人曾经教导我们：父母在，不远游。&lt;/p&gt;&lt;p data-pid=&#34;2ZLa6ycG&#34;&gt;　　所以在出发前，徐宏祖总是很犹豫，然而他的母亲找到他，对他说了这样一番话：“男儿志在四方，当往天地间一展胸怀！”&lt;/p&gt;&lt;p data-pid=&#34;IOuFO71a&#34;&gt;　　就这样，徐宏祖开始了他伟大的历程。&lt;/p&gt;&lt;p data-pid=&#34;jJ1DpFdh&#34;&gt;　　他二十岁离家，穿着布衣，没有政府支持，没有朋友帮助，独自一人，游历天下二十余年，他去过的地方，包括湖广、四川、辽东、西北，简单地说，全国十三省，全部走遍。&lt;/p&gt;&lt;p data-pid=&#34;3BQv-3-j&#34;&gt;　　他爬过的山，包括泰山、华山、衡山、嵩山、终南山、峨眉山，简单地说，你听过的，他都去过，你没听过的，他也去过。&lt;/p&gt;&lt;p data-pid=&#34;22oihnTz&#34;&gt;　　此外，黄河、长江、洞庭湖、鄱阳湖，金沙江、汉江，几乎所有江河湖泊，全部游历。&lt;/p&gt;&lt;p data-pid=&#34;lZqWZyMd&#34;&gt;　　在游历的过程中，他曾三次遭遇强盗，被劫去财物，身负刀伤，还由于走进大山，无法找到出路，数次断粮，几乎饿死。最悬的一次，是在西南。&lt;/p&gt;&lt;p data-pid=&#34;BWXjMMn7&#34;&gt;　　当时，他前往云贵一带，结果走到半路，突然发现交通中断，住处被当地土著围，过了几天，外面又来了明军，又开始围，围了几天，就开始打，打了几天，就开始乱。徐宏祖好歹是见过世面的，跑得快，总算顺利脱身。&lt;/p&gt;&lt;p data-pid=&#34;D_jxQUCr&#34;&gt;　　在旅行的过程中，他还开始记笔记，每天的经历，他都详细记录下来，鉴于他本人除姓名外，还有个号，叫做霞客，所以后来，他的这本笔记，就被称为《徐霞客游记》。&lt;/p&gt;&lt;p data-pid=&#34;BaDJYatg&#34;&gt;　　崇祯九年（1636），五十岁的徐宏祖决定，再次出游，这也是他的最后一次出游，虽然他自己没有想到。&lt;/p&gt;&lt;p data-pid=&#34;t_MovUTB&#34;&gt;　　正当他考虑出游方向的时候，一个和尚找到了他。&lt;/p&gt;&lt;p data-pid=&#34;5jqy1cEs&#34;&gt;  　  这个和尚的法号，叫做静闻，家住南京，他十分虔诚，非常崇敬鸡足山迦叶寺的菩萨，还曾刺破手指，血写过一本法华经。&lt;/p&gt;&lt;p data-pid=&#34;Sb_8VPeS&#34;&gt;　　鸡足山在云南。&lt;/p&gt;&lt;p data-pid=&#34;heCmIoDW&#34;&gt;　　当时的云南鸡足山，算是蛮荒之地，啥也不通，要去，只能走着去。&lt;/p&gt;&lt;p data-pid=&#34;yy2AODbS&#34;&gt;　　很明显，静闻是个明白人，他知道自己要一个人去，估计到半路就歇了，必须找一个同伴。&lt;/p&gt;&lt;p data-pid=&#34;ESH3HyNC&#34;&gt;　　徐宏祖的名气，在当时已经很大了，所以他专门找上门来，要跟他一起走。&lt;/p&gt;&lt;p data-pid=&#34;NahsOclx&#34;&gt;　　对徐宏祖而言，去哪里，倒是个无所谓的事，就答应了他，两个人一起出发了。&lt;/p&gt;&lt;p data-pid=&#34;JGww-DLK&#34;&gt;　　他们的路线是这样的，先从南直隶出发，过湖广，到广西，进入四川，最后到达云贵。&lt;/p&gt;&lt;p data-pid=&#34;WQdoLd6N&#34;&gt;　　不用到达云贵，因为到湖广，就出事了。&lt;/p&gt;&lt;p data-pid=&#34;ZBP96L_g&#34;&gt;　　走到湖广湘江（今湖南），没法走了，两人坐船准备渡江。&lt;/p&gt;&lt;p data-pid=&#34;ydKkYd7r&#34;&gt;　　渡到一半，遇上了强盗。&lt;/p&gt;&lt;p data-pid=&#34;dHPCWRv_&#34;&gt;　　对徐宏祖而言，从事这种职业的人，他已经遇到好几次了，但静闻大师，应该是第一次。此后的具体细节不太清楚，反正徐宏祖赶跑了强盗，但静闻在这场风波中受了伤，加上他的体质较弱，刚撑到广西，就圆寂了。&lt;/p&gt;&lt;p data-pid=&#34;BINPjpaB&#34;&gt;　　徐宏祖停了下来，办理静闻的后事。&lt;/p&gt;&lt;p data-pid=&#34;U_tCJ-qk&#34;&gt;　　由于路上遭遇强盗，此时，徐宏祖的路费已经不足了，如果继续往前走，后果难以预料。&lt;/p&gt;&lt;p data-pid=&#34;76s2k-WF&#34;&gt;　　所以当地人劝他，放弃前进念头，回家。&lt;/p&gt;&lt;p data-pid=&#34;ipD4AzLE&#34;&gt;　　徐宏祖跟静闻，是素不相识的，说到底，也就是个伴，各有各的想法，静闻没打算写游记，徐宏祖也没打算去礼佛，实在没有什么交情。而且我还查过，他此前去过鸡足山，这次旅行对他而言，并没有太大的意义。&lt;/p&gt;&lt;p data-pid=&#34;SM45IKTF&#34;&gt;　　然而他说，我要继续前进，去鸡足山。&lt;/p&gt;&lt;p data-pid=&#34;qcQ6FmTh&#34;&gt;　　当地人问：为什么要去。&lt;/p&gt;&lt;p data-pid=&#34;iEI9sqdM&#34;&gt;　　徐宏祖答：我答应了他，要带他去鸡足山。&lt;/p&gt;&lt;p data-pid=&#34;I-J-TaKe&#34;&gt;　　可是，他已经去世了。&lt;/p&gt;&lt;p data-pid=&#34;OdBnjaTI&#34;&gt;　　我带着他的骨灰去。答应他的事情，我要帮他做到。&lt;/p&gt;&lt;p data-pid=&#34;j1hSct2E&#34;&gt;　　徐宏祖出发了，为了一个逝去者的愿望，为了实现自己的承诺，虽然这个逝去者，他并不熟悉。&lt;/p&gt;&lt;p data-pid=&#34;UwK2nmA_&#34;&gt;　　旅程很艰苦，没有路费的徐宏祖背着静闻的骨灰，没有任何资助，他只能住在荒野，靠野菜干粮充饥，为了能够继续前行，他还当掉了自己所能当掉的东西，只是为了一个承诺。&lt;/p&gt;&lt;p data-pid=&#34;ss57psm0&#34;&gt;　　就这样，他按照原定路线，带着静闻，翻阅了广西十万大山，然后进入四川，越过峨眉山，沿着岷江，到达甘孜松潘。&lt;/p&gt;&lt;p data-pid=&#34;d0mEoZ6v&#34;&gt;　　渡过金沙江，渡过澜沧江，经过丽江、经过西双版纳，到达鸡足山。&lt;/p&gt;&lt;p data-pid=&#34;G_xzX_x4&#34;&gt;　　迦叶寺里，他解开了背上的包裹，拿出了静闻的骨灰。&lt;/p&gt;&lt;p data-pid=&#34;q8O0nfz4&#34;&gt;　　到了。&lt;/p&gt;&lt;p data-pid=&#34;NCFFPx2Z&#34;&gt;　　我们到了。&lt;/p&gt;&lt;p data-pid=&#34;T2hSf7CZ&#34;&gt;　　他郑重地把骨灰埋在了迦叶寺里，在这里，他兑现了承诺。&lt;/p&gt;&lt;p data-pid=&#34;dyPSgLvi&#34;&gt;　　然后，他应该回家了。&lt;/p&gt;&lt;p data-pid=&#34;cbB2x7yZ&#34;&gt;　　但他没有。&lt;/p&gt;&lt;p data-pid=&#34;6FRkOP12&#34;&gt;　　从某个角度讲，这是上天对他的恩赐，因为这将是他的最后一次旅途，能走多远，就走多远吧。&lt;/p&gt;&lt;p data-pid=&#34;Pl8x0NYb&#34;&gt;　　他离开鸡足山，又继续前行，行进半年，翻越了昆仑山，又行进半年，进入藏区，游历几个月后，踏上归途。&lt;/p&gt;&lt;p data-pid=&#34;gMNryFfk&#34;&gt;　　回去没多久，就病了。&lt;/p&gt;&lt;p data-pid=&#34;n58T3yWk&#34;&gt;　　喜欢锻炼的人，身体应该比较好，天天锻炼的人（比如运动员），就不一定好，旅游也是如此。&lt;/p&gt;&lt;p data-pid=&#34;2oWZgJN-&#34;&gt;　　估计是长年劳累，徐宏祖终究是病倒了，没能再次出行。崇祯十四年（1641），病重逝世，年五十四。&lt;/p&gt;&lt;p data-pid=&#34;iqgpqEJA&#34;&gt;　　他所留下的笔记，据说总共有两百多万字，可惜没有保留下来，剩余的部分，大约几十万字，被后人编成《徐霞客游记》。&lt;/p&gt;&lt;p data-pid=&#34;4AzHH-X4&#34;&gt;　　在这本书里，记载了祖国山川的详细情况，涉及地理、水利、地貌等情况，被誉为十七世纪最伟大的地理学著作，翻译成几十国语言，流传世界。&lt;/p&gt;&lt;p data-pid=&#34;PyuAx7Pc&#34;&gt;        好的，总结应该出来了，这是一个伟大的地理学家的故事，他为了研究地理，四处游历，为地理学的发展做出了突出贡献，是中华民族的骄傲。&lt;/p&gt;&lt;p data-pid=&#34;c0PcFaGZ&#34;&gt;       是这样吗？&lt;/p&gt;&lt;p data-pid=&#34;QDEVePWz&#34;&gt;　　不是的。&lt;/p&gt;&lt;p data-pid=&#34;kZW2omW-&#34;&gt;　　其实讲述这人的故事，只想探讨一个问题，他为何要这样做。&lt;/p&gt;&lt;p data-pid=&#34;6eL49ZFZ&#34;&gt;　　没有资助，没有承认（至少生前没有），没有利益，没有前途，放弃一切，用一生的时间，只是为了游历？&lt;/p&gt;&lt;p data-pid=&#34;bo1dCA2L&#34;&gt;　　究竟为了什么？&lt;/p&gt;&lt;p data-pid=&#34;o3aXUlz7&#34;&gt;　　我很疑惑，很不解，于是我想起另一个故事。&lt;/p&gt;&lt;p data-pid=&#34;vOmIdg85&#34;&gt;　　新西兰登山家希拉里，在登上珠穆朗玛峰后，经常被记者问一个问题：你为什么要爬？&lt;/p&gt;&lt;p data-pid=&#34;UOIJwDmI&#34;&gt;　　他总不回答，于是记者总问，终于有一次，他答出了一个让所有人都无法再问的答案：因为它（指珠峰），就在那里！&lt;/p&gt;&lt;p data-pid=&#34;pIqidYdB&#34;&gt;　　因为它就在那里。&lt;/p&gt;&lt;p data-pid=&#34;yMrFql7_&#34;&gt;　　其实这个世上很多事，本不需要理由，之所以需要理由，是因为很多人喜欢找抽，抽久了，就需要理由了。&lt;/p&gt;&lt;p data-pid=&#34;_5jYmryZ&#34;&gt;　　正如徐霞客临终前，所说的那句话：“汉代的张骞，唐代的玄奘，元代的耶律楚材，他们都曾游历天下，然而，他们都是接受了皇帝的命令，受命前往四方。”&lt;/p&gt;&lt;p data-pid=&#34;TFxJQxR_&#34;&gt;　　“我只是个平民，没有受命，只是穿着布衣，拿着拐杖，穿着草鞋，凭借自己，游历天下，故虽死，无憾。”&lt;/p&gt;&lt;p data-pid=&#34;dgbrp0IH&#34;&gt;　　说完了。&lt;/p&gt;&lt;p data-pid=&#34;37Z_TiMy&#34;&gt;　　我要讲的那样东西，就在这个故事里。&lt;/p&gt;&lt;p data-pid=&#34;LFYsh9mG&#34;&gt;　　我相信，很多人会问，你讲了什么？&lt;/p&gt;&lt;p data-pid=&#34;EJ1F0tzU&#34;&gt;　　用如此之多的篇幅，讲述一个王朝的兴起和衰落，在终结的时候，却说了这样一个故事，你到底想说什么？&lt;/p&gt;&lt;p data-pid=&#34;Gb7VACJv&#34;&gt;　　我重复一遍，我要讲的那样东西，就在这个故事里，已经讲完了。&lt;/p&gt;&lt;p data-pid=&#34;v7si1j3_&#34;&gt;　　所以后面的话，是讲给那些不明白的人，明白的人，就不用继续看了。&lt;/p&gt;&lt;p data-pid=&#34;CkhR5585&#34;&gt;　　此前，我讲过很多东西，很多兴衰起落、很多王侯将相、很多无奈更替、很多风云变幻，但这件东西，我个人认为，是最重要的。&lt;/p&gt;&lt;p data-pid=&#34;GxuSeMx5&#34;&gt;　　因为我要告诉你，所谓千秋霸业，万古流芳，以及一切的一切，只是粪土。先变成粪，再变成土。&lt;/p&gt;&lt;p data-pid=&#34;msXzEKLY&#34;&gt;　　现在你不明白，将来你会明白，将来不明白，就再等将来，如果一辈子都不明白，也行。&lt;/p&gt;&lt;p data-pid=&#34;2wON-Eq_&#34;&gt;　　而最后讲述的这件东西，它超越上述的一切，至少在我看来。&lt;/p&gt;&lt;p data-pid=&#34;jDG3Qb3p&#34;&gt;　　但这件东西，我想了很久，也无法用准确的语言，或是词句来表达，用最欠揍的话说，是只可意会，不可言传。&lt;/p&gt;&lt;p data-pid=&#34;1CEcPZRE&#34;&gt;　　然而我终究是不欠揍的，在遍阅群书，却无从开口之后，我终于从一本不起眼，且无甚价值的读物上，找到了这句适合的话。&lt;/p&gt;&lt;p data-pid=&#34;-MJgUG1D&#34;&gt;　　这是一本台历，一本放在我面前，不知过了多久，却从未翻过，早已过期的台历。&lt;/p&gt;&lt;p data-pid=&#34;r6pls3k1&#34;&gt;　　我知道，是上天把这本台历放在了我的桌前，它看着几年来我每天的努力，始终的坚持，它静静地，耐心地等待着终结。&lt;/p&gt;&lt;p data-pid=&#34;fo_u-YfV&#34;&gt;　　它等待着，在即将结束的那一天，我将翻开这本陪伴我始终，却始终未曾翻开的台历，在上面，有着最后的答案。&lt;/p&gt;&lt;p data-pid=&#34;6Hw_86zv&#34;&gt;　　我翻开了它，在这本台历上，写着一句连名人是谁都没说明白的名人名言。&lt;/p&gt;&lt;p data-pid=&#34;3Z_p4FGx&#34;&gt;　　是的，这就是我想说的，这就是我想通过徐霞客所表达的，足以藐视所有王侯将相，最完美的结束语：成功只有一个——按照自己的方式，去度过人生。”&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/zvideo/1485710503079546880&#34; target=&#34;_blank&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

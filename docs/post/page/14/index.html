@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-11-24T13:55:30&#43;08:00">
+  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-11-23 15:11:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/terraform-notes/" itemprop="url">Terraform Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    前提条件 配置AWS aws configure list Name Value Type Location ---- ----- ---- -------- profile &lt;not set&gt; None None access_key ****************s-ok shared-credentials-file secret_key ****************-key shared-credentials-file region local config-file ~/.aws/config  ~/.aws/config
+[default] output = json region = local  ~/.aws/credentials
+[default] aws_access_key_id = any-id-is-ok aws_secret_access_key = fake-key  启动aws本地服务 localstack start  创建EC2 配置 mkdir ec2 cd ec2 touch ec2.tf  ec2.tf
+provider &quot;aws&quot; { profile = &quot;default&quot; region = &quot;us-east-1&quot; endpoints { ec2 = &quot;http://localhost:4597&quot; sts = &quot;http://localhost:4592&quot; } } resource &quot;aws_instance&quot; &quot;example&quot; { ami = &quot;ami-2757f631&quot; instance_type = &quot;t2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2192,90 +2277,6 @@ RUN ln -s /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/t
 <pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-30 07:41:36 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-kubelet/" itemprop="url">K8s Kubelet</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    PodUID kubectl get pod &lt;PID_NAME&gt; -o=jsonpath='{.metadata.uid}'  POD on disk /var/lib/kubelet/pods/&lt;PodUID&gt;/
-/var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;
-ls -l /var/log/pods/&lt;PodUID&gt;/&lt;container_name&gt;/ lrwxrwxrwx 1 root root 165 3月 30 06:52 0.log -&gt; /var/lib/docker/containers/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021/e74eafc4b3f0cfe2e4e0462c93101244414eb3048732f409c29cc54527b4a021-json.log  In a production cluster, logs are usually collected, aggregated, and shipped to a remote store where advanced analysis/search/archiving functions are supported. In kubernetes, the default cluster-addons includes a per-node log collection daemon, fluentd. To facilitate the log collection, kubelet creates symbolic links to all the docker containers logs under /var/log/containers with pod and container metadata embedded in the filename.
   </div>
   
 
