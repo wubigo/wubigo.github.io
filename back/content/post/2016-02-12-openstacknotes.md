@@ -38,6 +38,12 @@ neutron：可以支持bridge、ovs等众多插件，并且通过ml2技术可以�
 - Linux bridge：历史悠久，稳定性值得信赖，但是当vm个数过多，二层交换出现问题时，目前没有特别好的定位手段。
 - ovs：可以针对每个vm做流量限制、流量监控、数据包分析，同时可以引入openflow，引入sdn controller，使控制逻辑和物理交换相分离，并且sdn controller可以实现vxlan的跨机房大二层通信，但是业界普遍认为其性能是个大问题。
 
+
+### 网络性能评估
+
+OpenStack is an open source cloud solution which aims at removing vendor locking by providing a virtualized environment in a production environment. OpenStack's networking module i.e. Neutron provides a centralized routing service, where L3 packets are redirected to a central network node. A single network node is incapable of handling overlapping IP addresses for multiple networks, which in turn, greatly decreases network bandwidth and throughput of production environments. This paper introduces two technologies that can alleviate the network performance issues as faced by Neutron. Furthermore, these two technologies namely OpenDaylight (ODL) and Distributed Virtual Routing (DVR) are then presented together with a set of benchmarks which showcase their performance in a production environment. The performance results show ODL and DVR out perform Neutron in every layer 3 case, making them as an upgrade for any traditional OpenStack based environment.
+
+
 # cost effective network solutions
 In general , commercial product is better. Nuage is software-based ,while
 华为，华三 are hardware-based. Nuage support container, bare metal and VM
