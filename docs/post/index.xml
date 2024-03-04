@@ -1053,7 +1053,7 @@ get this error if you&#39;re trying to create a bucket with a name that&#39;s al
       <guid>https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/</guid>
       <description>在公有云厂商的新加坡或香港地区免费申请一台免费云主机(可选) 利用terraform创建一台云主机
 git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete! Resources: 2 added, 0 changed, 0 destroyed. Outputs: instance_id = i-069i247af71871dd9 public_ip = 13.113.195.66 ssh ubuntu@13.113.195.66 ubuntu@ip-10-12-0-247:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04 LTS Release: 20.04 Codename: focal  也可以直接在web控制台根据向导创建
-搭建VPN服务器 git clone https://github.com/wubigo/algo.git git clone https://github.com/trailofbits/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&amp;quot;$(command -v python3)&amp;quot; .env &amp;amp;&amp;amp; source .</description>
+搭建VPN服务器  git clone https://github.com/wubigo/algo.git git clone https://github.com/trailofbits/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&amp;quot;$(command -v python3)&amp;quot; .env &amp;amp;&amp;amp; source .</description>
     </item>
     
     <item>
@@ -4742,7 +4742,8 @@ Now we have the newest version of OpenSSH installed and patched with the improve
       <pubDate>Thu, 03 Feb 2011 00:00:00 +0000</pubDate>
       
       <guid>https://wubigo.com/post/2011-02-03-san/</guid>
-      <description>NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.</description>
+      <description>大二层的网络架构 随着云计算的发展，计算资源被池化，为了使得计算资源可以任意分配，需要一个大二层的网络架构。即整个数据中心网络都是一个L2广播域，这样，服务器可以在任意地点创建，迁移，而不需要对IP地址或者默认网关做修改。大二层网络架构，L2/L3分界在核心交换机，核心交换机以下，也就是整个数据中心，是L2网络（当然，可以包含多个VLAN，VLAN之间通过核心交换机做路由进行连通）
+NFS VS. SAN VS. lUSTRE NFS (Network File System) NFS has been around for over 20 years, is very stable, easy to use and most systems administrators, as well as users, are generally familiar with its strengths and weaknesses. In low end HPC storage environments, NFS can still be a very effective medium for distributing data, where low end HPC storage systems are defined as capacity under 100TB and high end generally above 1PB.</description>
     </item>
     
     <item>
