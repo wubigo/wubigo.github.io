@@ -9,6 +9,18 @@ tags = ["DOCKER"]
 categories = []
 
 # Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+![](/img/post/container-docker.png)
+
 
 # 工具
 ## 查看容器启动命令行
@@ -25,17 +37,6 @@ systemd-cgls
 
 pstree -s -p -a <pid>
 ```
-# To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
-  # Caption (optional)
-  caption = ""
-
-  # Focal point (optional)
-  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
-
-![](/img/post/container-docker.png)
 
 # 端口绑定
 
