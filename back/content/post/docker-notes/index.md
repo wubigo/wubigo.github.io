@@ -9,6 +9,24 @@ tags = ["DOCKER"]
 categories = []
 
 # Featured image
+
+# 工具
+
+## 查看容器启动命令行
+
+
+```
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    assaflavie/runlike   <container-id>
+``` 
+
+## 查看容器对应的主机PID
+
+```
+systemd-cgls
+
+pstree -s -p -a <pid>
+```
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
