@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 10, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-onecloud-source-code-dev-note/" itemprop="url">Onecloud Source Code Dev Note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    删除 systemctl list-unit-files --all | grep yunion systemctl disable yunion-executor systemctl disable yunion-registry systemctl disable kubelet rm -rf /opt/yunion systemctl disable libvirtd.service ip link set virbr0 down brctl delbr virbr0  operator kubectl logs -n onecloud default-region- -c init  kubectl edit deployments. -n onecloud onecloud-operator containers: - command: - /bin/onecloud-controller-manager - -sync-user  onecloud-operator，加上‘-sync-user&rsquo; 会自动修改用户密码， 然后再 kubectl delete deployments -n onecloud default-region 等待重建再试试
+WEB 前端代码是很多 git 仓库组成的，需要用 &lsquo;yarn sync release/3.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2096,113 +2179,6 @@ A single-file component consists of three parts:
   <div class="article-style" itemprop="articleBody">
     install winpcap and windump https://www.winpcap.org
 mv windump tcpdump  list all interfaces tcpdump -D  dump on interface tcpdump -i 1 -n dst host 172.17.17.6  tcpdump -i 3 tcp port 8100 tcpdump: listening on \Device\NPF_{BE2B782C-98A1-49A3-8F59-25C5A41A4B41} 10:08:11.958366 IP loaclhost.49692 &gt; wu-pc.8100: S 2181860964:2181860964(0) win 64240 &lt;mss 1460,nop,wscale 8,nop,nop,sackOK&gt; 10:08:11.958513 IP wu-pc.8100 &gt; loaclhost.49692: S 2062460989:2062460989(0) ack 2181860965 win 65535 &lt;mss 1460,nop,wscale 8,nop,nop,sackOK&gt; 10:08:11.979568 IP loaclhost.49692 &gt; wu-pc.8100: . ack 1 win 513 10:08:11.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-12 06:21:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 12, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lang-java-spring-cloud/" itemprop="url">Lang Java Spring Cloud</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="spring-cloud-greenwich-release">spring-cloud-greenwich-release</h1>
-
-<p>To get started with Maven with a BOM (dependency management only):</p>
-
-<pre><code>&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
-            &lt;version&gt;Greenwich.RELEASE&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-            &lt;scope&gt;import&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
-    &lt;/dependency&gt;    
-&lt;/dependencies&gt;
-
-</code></pre>
-
   </div>
   
 

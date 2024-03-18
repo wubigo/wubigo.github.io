@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
   
 
   
@@ -398,6 +398,93 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 9, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/maximum-number-files-hdfs/" itemprop="url">Maximum Number Files Hdfs</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    HDFS The maximum number of files in HDFS depends on two things:
+ total storage space in the cluster
+ the heap size of the NameNode.
+  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
+2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
+Each file object and each block object takes about 150 bytes of the memory.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2210,90 +2297,6 @@ curl http://127.0.0.1:8080/
 
 <p><a href="https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions" target="_blank">https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 3, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-deprecate-dockershim/" itemprop="url">Deprecate Dockershim</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
-However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
-Does that mean using docker as your runtime is deprecated?
   </div>
   
 

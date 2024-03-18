@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world">
+  <meta name="description" content="工具 查看容器启动命令行 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \ assaflavie/runlike &lt;container-id&gt;  查看容器对应的主机PID systemd-cgls pstree -s -p -a &lt;pid&gt;  端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-notes/">
@@ -137,7 +137,7 @@
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/docker-notes/">
   <meta property="og:title" content="Docker Notes | wubigo">
-  <meta property="og:description" content="端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="工具 查看容器启动命令行 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \ assaflavie/runlike &lt;container-id&gt;  查看容器对应的主机PID systemd-cgls pstree -s -p -a &lt;pid&gt;  端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &ndash;publish or -p flag."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2016-01-25T17:11:05&#43;08:00">
@@ -502,6 +502,21 @@
       
 
 <p><img src="/img/post/container-docker.png" alt="" /></p>
+
+<h1 id="工具">工具</h1>
+
+<h2 id="查看容器启动命令行">查看容器启动命令行</h2>
+
+<pre><code>docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    assaflavie/runlike   &lt;container-id&gt;
+</code></pre>
+
+<h2 id="查看容器对应的主机pid">查看容器对应的主机PID</h2>
+
+<pre><code>systemd-cgls
+
+pstree -s -p -a &lt;pid&gt;
+</code></pre>
 
 <h1 id="端口绑定">端口绑定</h1>
 

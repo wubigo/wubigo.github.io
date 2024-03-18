@@ -6,10 +6,20 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jan 2024 16:59:12 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Mar 2024 00:02:59 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CUDA内存不足</title>
+      <link>https://wubigo.com/post/cuda-out-of-memory/</link>
+      <pubDate>Tue, 19 Mar 2024 00:02:59 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cuda-out-of-memory/</guid>
+      <description>运行GLM报错
+RuntimeError: CUDA out of memory. Tried to allocate 30.00 MiB (GPU 0; 7.43 GiB total capacity; 6.58 GiB already allocated; 30.94 MiB free; 6.79 GiB reserved in total by PyTorch)  检查GPU内存使用情况 nvidia-smi Mon Mar 18 23:59:31 2024 +---------------------------------------------------------------------------------------+ | NVIDIA-SMI 535.161.07 Driver Version: 535.161.07 CUDA Version: 12.2 | |-----------------------------------------+----------------------+----------------------+ | GPU Name Persistence-M | Bus-Id Disp.A | Volatile Uncorr. ECC | | Fan Temp Perf Pwr:Usage/Cap | Memory-Usage | GPU-Util Compute M.</description>
+    </item>
     
     <item>
       <title>Bacnet vs Modbus工控协议对比</title>
@@ -4214,6 +4224,15 @@ Linux bridge和ovs的选择： 这两种插件是目前业界使用最多的，�
 securing microservice with UAA
 user accounting and authorizing service(UAA) Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it’s not possible to cleanly separate user and machine authentication.
 JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.</description>
+    </item>
+    
+    <item>
+      <title>Docker Notes</title>
+      <link>https://wubigo.com/post/docker-notes/</link>
+      <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/docker-notes/</guid>
+      <description>工具 查看容器启动命令行 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \ assaflavie/runlike &amp;lt;container-id&amp;gt;  查看容器对应的主机PID systemd-cgls pstree -s -p -a &amp;lt;pid&amp;gt;  端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &amp;ndash;publish or -p flag.</description>
     </item>
     
     <item>

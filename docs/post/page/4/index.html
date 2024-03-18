@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-12-03 10:11:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 3, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-deprecate-dockershim/" itemprop="url">Deprecate Dockershim</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Kubernetes is removing the &ldquo;dockershim&rdquo;, which is special in-process support the kubelet has for docker.
+However, the kubelet still has the CRI (container runtime interface) to support arbitrary runtimes. containerd is currently supported via the CRI, as is every runtime except docker. Docker is being moved from having special-case support to being the same in terms of support as other runtimes.
+Does that mean using docker as your runtime is deprecated?
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2111,90 +2195,6 @@ zappa deploy dev_event
 <pre><code>--create-bucket-configuration LocationConstraint=eu-west-1
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-07-04 21:23:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-07-04 21:23:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 4, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/set-up-a-personal-vpn-in-the-cloud/" itemprop="url">五分钟搭建VPN云服务</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    在公有云厂商的新加坡或香港地区免费申请一台免费云主机(可选) 利用terraform创建一台云主机
-git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete! Resources: 2 added, 0 changed, 0 destroyed. Outputs: instance_id = i-069i247af71871dd9 public_ip = 13.113.195.66 ssh ubuntu@13.113.195.66 ubuntu@ip-10-12-0-247:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04 LTS Release: 20.04 Codename: focal  也可以直接在web控制台根据向导创建
-搭建VPN服务器  git clone https://github.com/wubigo/algo.git git clone https://github.com/trailofbits/algo.git sudo apt install -y python3-virtualenv cd algo python3 -m virtualenv --python=&quot;$(command -v python3)&quot; .env &amp;&amp; source .
   </div>
   
 

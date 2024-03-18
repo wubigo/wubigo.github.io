@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-01-31T16:59:12&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-05-22 16:30:53 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-05-22 16:30:53 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 22, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/iov-can-msg-dbc_format/" itemprop="url">CAN总线消息格式DBC_Format</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    CAN消息总线格式 DBC格式 BO_ 500 IO_DEBUG: 4 IO SG_ IO_DEBUG_test_unsigned : 0|8@1+ (1,0) [0|0] &quot;&quot; DBG  说明：
+ The message name is IO_DEBUG and MID is 500 (decimal), and the length is 4 bytes (though we only need 1 for 8-bit signal) The sender is IO 0|8: The unsigned signal starts at bit position 0, and the size of this signal is 8 (1,0): The scale and offset (discussed later) [0|0]: Min and Max is not defined (discussed later) &rdquo;&rdquo;: There are no units (it could be, for instance &ldquo;inches&rdquo;) @1+: Defines that the signal is little-endian, and unsigned: Never change this!
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2087,93 +2170,6 @@ PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdr
   <div class="article-style" itemprop="articleBody">
     aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
 { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-10-09 09:55:08 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 9, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/maximum-number-files-hdfs/" itemprop="url">Maximum Number Files Hdfs</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    HDFS The maximum number of files in HDFS depends on two things:
- total storage space in the cluster
- the heap size of the NameNode.
-  1) You can find out what percentage of storage has been used from HDFS NameNode UI.
-2) The basic rule of thumb is that 1 GB heap is needed for every million of files.
-Each file object and each block object takes about 150 bytes of the memory.
   </div>
   
 

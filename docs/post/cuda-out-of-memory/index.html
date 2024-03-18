@@ -28,11 +28,11 @@
   
     
   
-  <meta name="description" content="Dockerfile ENTRYPOINT有两种形式
- exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3.">
+  <meta name="description" content="运行GLM报错
+RuntimeError: CUDA out of memory. Tried to allocate 30.00 MiB (GPU 0; 7.43 GiB total capacity; 6.58 GiB already allocated; 30.94 MiB free; 6.79 GiB reserved in total by PyTorch)  检查GPU内存使用情况 nvidia-smi Mon Mar 18 23:59:31 2024 &#43;---------------------------------------------------------------------------------------&#43; | NVIDIA-SMI 535.161.07 Driver Version: 535.161.07 CUDA Version: 12.2 | |-----------------------------------------&#43;----------------------&#43;----------------------&#43; | GPU Name Persistence-M | Bus-Id Disp.A | Volatile Uncorr. ECC | | Fan Temp Perf Pwr:Usage/Cap | Memory-Usage | GPU-Util Compute M.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/docker-dockerfile-entrypoint/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/cuda-out-of-memory/">
 
   
 
@@ -121,7 +121,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/docker-dockerfile-entrypoint/">
+  <link rel="canonical" href="https://wubigo.com/post/cuda-out-of-memory/">
 
   
   
@@ -136,22 +136,22 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/docker-dockerfile-entrypoint/">
-  <meta property="og:title" content="Docker Dockerfile ENTRYPOINT | wubigo">
-  <meta property="og:description" content="Dockerfile ENTRYPOINT有两种形式
- exec shell      exec(preferred) shell     ENTRYPOINT [&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;] command param1 param2   Command line arguments to docker run  appended not being used     ENTRYPOINT will be started as a subcommand of /bin/sh -c   default N/A /bin/sh -c (start it with exec to sned stop signal)   CMD [“exec_cmd”, “p1_cmd”] exec_entry p1_entry exec_cmd p1_cmd /bin/sh -c exec_entry p1_entry    ENTRYPOINT exec FROM alpine:3."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/cuda-out-of-memory/">
+  <meta property="og:title" content="CUDA内存不足 | wubigo">
+  <meta property="og:description" content="运行GLM报错
+RuntimeError: CUDA out of memory. Tried to allocate 30.00 MiB (GPU 0; 7.43 GiB total capacity; 6.58 GiB already allocated; 30.94 MiB free; 6.79 GiB reserved in total by PyTorch)  检查GPU内存使用情况 nvidia-smi Mon Mar 18 23:59:31 2024 &#43;---------------------------------------------------------------------------------------&#43; | NVIDIA-SMI 535.161.07 Driver Version: 535.161.07 CUDA Version: 12.2 | |-----------------------------------------&#43;----------------------&#43;----------------------&#43; | GPU Name Persistence-M | Bus-Id Disp.A | Volatile Uncorr. ECC | | Fan Temp Perf Pwr:Usage/Cap | Memory-Usage | GPU-Util Compute M."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2016-04-13T09:23:00&#43;08:00">
+  <meta property="article:published_time" content="2024-03-19T00:02:59&#43;08:00">
   
-  <meta property="article:modified_time" content="2016-04-13T09:23:00&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2024-03-19T00:02:59&#43;08:00">
   
 
   
 
-  <title>Docker Dockerfile ENTRYPOINT | wubigo</title>
+  
+
+  <title>CUDA内存不足 | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -388,7 +388,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Docker Dockerfile ENTRYPOINT</h1>
+  <h1 itemprop="name">CUDA内存不足</h1>
 
   
 
@@ -397,8 +397,8 @@
 
 
 
-<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-04-13 09:23:00 &#43;0800 CST" itemprop="dateModified">
+<meta content="2024-03-19 00:02:59 &#43;0800 CST" itemprop="datePublished">
+<meta content="2024-03-19 00:02:59 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -411,7 +411,7 @@
     
       
     
-    <time>Apr 13, 2016</time>
+    <time>Mar 19, 2024</time>
   </span>
   
 
@@ -435,35 +435,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Docker%20Dockerfile%20ENTRYPOINT&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f"
+         href="https://twitter.com/intent/tweet?text=CUDA%e5%86%85%e5%ad%98%e4%b8%8d%e8%b6%b3&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fcuda-out-of-memory%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fcuda-out-of-memory%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f&amp;title=Docker%20Dockerfile%20ENTRYPOINT"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fcuda-out-of-memory%2f&amp;title=CUDA%e5%86%85%e5%ad%98%e4%b8%8d%e8%b6%b3"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f&amp;title=Docker%20Dockerfile%20ENTRYPOINT"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fcuda-out-of-memory%2f&amp;title=CUDA%e5%86%85%e5%ad%98%e4%b8%8d%e8%b6%b3"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Docker%20Dockerfile%20ENTRYPOINT&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fdocker-dockerfile-entrypoint%2f">
+         href="mailto:?subject=CUDA%e5%86%85%e5%ad%98%e4%b8%8d%e8%b6%b3&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fcuda-out-of-memory%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -503,115 +503,46 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>Dockerfile ENTRYPOINT有两种形式</p>
+<p>运行GLM报错</p>
 
-<ul>
-<li>exec</li>
-<li>shell</li>
-</ul>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">exec(preferred)</th>
-<th align="left">shell</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left">ENTRYPOINT</td>
-<td align="left">[&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;]</td>
-<td align="left">command param1 param2</td>
-</tr>
-
-<tr>
-<td align="left">Command line arguments to docker run <image></td>
-<td align="left">appended</td>
-<td align="left">not being used</td>
-</tr>
-
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">ENTRYPOINT will be started as a subcommand of /bin/sh -c</td>
-</tr>
-
-<tr>
-<td align="left">default</td>
-<td align="left">N/A</td>
-<td align="left">/bin/sh -c (start it with exec to sned stop signal)</td>
-</tr>
-
-<tr>
-<td align="left">CMD [“exec_cmd”, “p1_cmd”]</td>
-<td align="left">exec_entry p1_entry exec_cmd p1_cmd</td>
-<td align="left">/bin/sh -c exec_entry p1_entry</td>
-</tr>
-</tbody>
-</table>
-
-<h1 id="entrypoint-exec">ENTRYPOINT exec</h1>
-
-<pre><code>FROM alpine:3.8
-ENTRYPOINT [&quot;top&quot;, &quot;-b&quot;]
+<pre><code>RuntimeError: CUDA out of memory. Tried to allocate 30.00 MiB (GPU 0; 7.43 GiB
+total capacity; 6.58 GiB already allocated; 30.94 MiB free; 6.79 GiB reserved in 
+total by PyTorch)
 </code></pre>
 
-<p>因为没有sh进程，所以命令行没有环境变量替换。</p>
+<h1 id="检查gpu内存使用情况">检查GPU内存使用情况</h1>
 
-<p>可以增加sh</p>
+<pre><code>nvidia-smi
+Mon Mar 18 23:59:31 2024
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.161.07             Driver Version: 535.161.07   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off | 00000000:3B:00.0 Off |                  N/A |
+|  0%   39C    P8              24W / 350W |  12288MiB / 24576MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
 
-<pre><code>FROM alpine:3.8
-ENTRYPOINT [&quot;/bin/sh&quot;, &quot;-c&quot;]
-CMD [&quot;exec top -b -u $UID&quot;]
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A     32326      C   /usr/bin/python3                          12276MiB |
++---------------------------------------------------------------------------------------+
+
 </code></pre>
 
-<h1 id="entrypoint-shell">ENTRYPOINT shell</h1>
-
-<p>CMD无效</p>
-
-<pre><code>FROM alpine:3.8
-ENTRYPOINT exec top -b
-</code></pre>
-
-<p>ENTRYPOINT作为sh的子命令执行即</p>
-
-<p>实际执行<code>/bin/sh -c &quot;exec top -b&quot;</code></p>
-
-<p>验证</p>
-
-<pre><code>docker build -t cmd .
-docker run -it --rm cmd cmd1 cmd2 cmd3
-
-
-Mem: 4750556K used, 4318692K free, 555320K shrd, 176952K buff, 1907592K cached
-CPU:   0% usr   0% sys   0% nic  99% idle   0% io   0% irq   0% sirq
-Load average: 0.40 0.28 0.22 4/973 5
-  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
-    1     0 root     R     1524   0%   1   0% top -b
-</code></pre>
-
-<pre><code>ENTRYPOINT [&quot;sh&quot;, &quot;-c&quot;]
-CMD [&quot;exec java -jar $APP_FILE&quot;]
-</code></pre>
-
-<p>类似执行如下指令</p>
-
-<pre><code>/bin/sh -c &quot;exec java -jar $APP_FILE&quot;
-</code></pre>
+<h2 id="查找进程">查找进程</h2>
 
     </div>
 
     
 
 
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/docker/">DOCKER</a>
-  
-</div>
-
 
 
 
@@ -632,18 +563,6 @@ CMD [&quot;exec java -jar $APP_FILE&quot;]
 
 
       
-      
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/docker-check-config/">Docker Check Config</a></li>
-          
-          <li><a href="/post/docker-notes/">Docker Notes</a></li>
-          
-        </ul>
-      </div>
       
     
 
