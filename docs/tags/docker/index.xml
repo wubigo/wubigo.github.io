@@ -207,14 +207,5 @@ docker-compose日志 docker-compose -f docker-compose-0.7.1.yml logs -f  logging
       <description>#!/usr/bin/env bash set -e EXITCODE=0 # bits of this were adapted from lxc-checkconfig # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in possibleConfigs=( &#39;/proc/config.gz&#39; &amp;quot;/boot/config-$(uname -r)&amp;quot; &amp;quot;/usr/src/linux-$(uname -r)/.config&amp;quot; &#39;/usr/src/linux/.config&#39; ) if [ $# -gt 0 ]; then CONFIG=&amp;quot;$1&amp;quot; else : ${CONFIG:=&amp;quot;${possibleConfigs[0]}&amp;quot;} fi if ! command -v zgrep &amp;amp;&amp;gt; /dev/null; then zgrep() { zcat &amp;quot;$2&amp;quot; | grep &amp;quot;$1&amp;quot; } fi kernelVersion=&amp;quot;$(uname -r)&amp;quot; kernelMajor=&amp;quot;${kernelVersion%%.*}&amp;quot; kernelMinor=&amp;quot;${kernelVersion#$kernelMajor.}&amp;quot; kernelMinor=&amp;quot;${kernelMinor%%.*}&amp;quot; is_set() { zgrep &amp;quot;CONFIG_$1=[y|m]&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_in_kernel() { zgrep &amp;quot;CONFIG_$1=y&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } is_set_as_module() { zgrep &amp;quot;CONFIG_$1=m&amp;quot; &amp;quot;$CONFIG&amp;quot; &amp;gt; /dev/null } color() { local codes=() if [ &amp;quot;$1&amp;quot; = &#39;bold&#39; ]; then codes=( &amp;quot;${codes[@]}&amp;quot; &#39;1&#39; ) shift fi if [ &amp;quot;$#&amp;quot; -gt 0 ]; then local code= case &amp;quot;$1&amp;quot; in # see https://en.</description>
     </item>
     
-    <item>
-      <title>Docker Notes</title>
-      <link>https://wubigo.com/post/docker-notes/</link>
-      <pubDate>Mon, 25 Jan 2016 17:11:05 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/docker-notes/</guid>
-      <description>端口绑定 By default, when you create or run a container using docker create or docker run, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the &amp;ndash;publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host to the outside world</description>
-    </item>
-    
   </channel>
 </rss>
