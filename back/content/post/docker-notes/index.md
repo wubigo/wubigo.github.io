@@ -13,7 +13,6 @@ categories = []
 # 工具
 ## 查看容器启动命令行
 
-
 ```
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
     assaflavie/runlike   <container-id>
