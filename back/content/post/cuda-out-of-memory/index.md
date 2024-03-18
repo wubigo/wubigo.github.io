@@ -57,3 +57,56 @@ Mon Mar 18 23:59:31 2024
 
 ## 查找进程
 
+
+```
+pstree -s -p -a 32326
+
+systemd,1 splash
+  └─containerd-shim,31855 -namespace moby -id ac4d7b87c5f8d8ce59ff8b57d816ad118aa393bd1a75e1a2c59d9b13f024261d -address/run/con
+      └─bash,31876
+          └─python3,32085 startup.py -a
+              └─python3,32326 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=24) 
+```
+
+可以看到该进程是从容器启动
+
+### 查找该容器ID
+
+```
+systemd-cgls
+
+Control group /:
+-.slice
+├─1692 bpfilter_umh
+├─docker
+│ ├─8c7291a66fc7b1300d984dcc902fcd0c309d1e2c9da5607f52ab05ea1d3fdeae
+│ │ ├─41064 /bin/bash /home/aisp-cloud-release/run.sh
+│ │ └─41087 java -Dloader.path=.,config,lib -Xms2g -Xmx2g -jar aisp-auth-0.0.1-SNAPSHOT.jar --spring.config.location=./config/applicat>
+│ ├─ac4d7b87c5f8d8ce59ff8b57d816ad118aa393bd1a75e1a2c59d9b13f024261d
+│ │ ├─31876 /bin/bash
+│ │ ├─32085 python3 startup.py -a
+│ │ ├─32135 /usr/bin/python3 -c from multiprocessing.resource_tracker import main;main(16)
+│ │ ├─32136 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=19) --multiprocess>
+│ │ ├─32237 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=18) --multiprocess>
+│ │ ├─32325 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=22) --multiprocess>
+│ │ ├─32326 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=24) --multiprocess>
+│ │ ├─32327 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=26) --multiprocess>
+│ │ ├─32611 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=28) --multiprocess>
+│ │ ├─32737 /usr/bin/python3 -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=17, pipe_handle=30) --multiprocess>
+│ │ └─32819 /usr/bin/python3 /usr/local/bin/streamlit run webui.py --server.address 0.0.0.0 --server.port 8501 --theme.base light --th>
+│ ├─f339cff950b499ecdeb0b6f51758cc734253feb523f366a0b44178571e173316
+
+```
+
+```
+docker ps |grep ac4d7b
+ac4d7b87c5f8   45d060720b46     "/opt/nvidia/nvidia_…"   12 days ago    Up              chat_v1
+```
+
+
+### 查找容器的启动命名
+
+```
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    assaflavie/runlike   <container-id>
+```
