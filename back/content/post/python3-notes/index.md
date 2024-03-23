@@ -19,6 +19,17 @@ categories = []
   focal_point = ""
 +++
 
+# 安装镜像
+
+```
+mkdir ~/.pip
+cat <<EOF > ~/.pip/pip.conf
+ [global]
+ trusted-host =  mirrors.aliyun.com
+ index-url = http://mirrors.aliyun.com/pypi/simple
+EOF
+```
+
 ## PYTHON 镜像
 
 

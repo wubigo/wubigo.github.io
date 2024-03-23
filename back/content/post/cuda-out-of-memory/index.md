@@ -104,7 +104,7 @@ ac4d7b87c5f8   45d060720b46     "/opt/nvidia/nvidia_…"   12 days ago    Up    
 ```
 
 
-### 查找容器的启动命名
+### 查找容器的启动命令
 
 ```
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
