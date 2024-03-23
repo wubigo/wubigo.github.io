@@ -2038,6 +2038,16 @@ aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
   <div class="article-style" itemprop="articleBody">
     
 
+<h1 id="安装镜像">安装镜像</h1>
+
+<pre><code>mkdir ~/.pip
+cat &lt;&lt;EOF &gt; ~/.pip/pip.conf
+ [global]
+ trusted-host =  mirrors.aliyun.com
+ index-url = http://mirrors.aliyun.com/pypi/simple
+EOF
+</code></pre>
+
 <h2 id="python-镜像">PYTHON 镜像</h2>
 
 <blockquote>
