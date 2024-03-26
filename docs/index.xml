@@ -359,6 +359,18 @@ Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位�
       <guid>https://wubigo.com/post/llm-notes/</guid>
       <description>
 
+&lt;h1 id=&#34;大模型下载&#34;&gt;大模型下载&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install modelscope
+
+from modelscope.hub.snapshot_download import snapshot_download
+
+model_dir = snapshot_download(&#39;ZhipuAI/chatglm2-6b&#39;, cache_dir=&#39;./model&#39;, revision=&#39;master&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载
+&lt;a href=&#34;https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b&#34; target=&#34;_blank&#34;&gt;https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b&lt;/a&gt;&lt;/p&gt;
+
 &lt;h1 id=&#34;分词器-tokenizer&#34;&gt;分词器(Tokenizer)&lt;/h1&gt;
 
 &lt;p&gt;tokenization算法大致经历了从word/char到subword的进化.&lt;/p&gt;

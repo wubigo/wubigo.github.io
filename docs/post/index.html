@@ -999,10 +999,10 @@ WebGL基本问题 WebGL has some fundamental issues that needed addressing:
 
   
   <div class="article-style" itemprop="articleBody">
-    分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
+    大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm2-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
+分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
 目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.
-传统的词编码：one-hot 分布式词编码：word embedding  word2vec  CBOW模型是在已知当前词上下文context的前提下预测当前词w(t)，类似阅读理解中的完形填空； 而Skip-Gram模型恰恰相反，是在已知当前词w(t)的前提下，预测上下文context。
   </div>
   
 
