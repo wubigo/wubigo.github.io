@@ -20,6 +20,19 @@ categories = []
 +++
 
 
+# 大模型下载
+
+```
+pip install modelscope
+
+from modelscope.hub.snapshot_download import snapshot_download
+
+model_dir = snapshot_download('ZhipuAI/chatglm2-6b', cache_dir='./model', revision='master')
+```
+
+下载
+[https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b](https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b)
+
 # 分词器(Tokenizer)
 
 tokenization算法大致经历了从word/char到subword的进化.

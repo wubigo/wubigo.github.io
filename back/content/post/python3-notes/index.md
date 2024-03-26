@@ -19,7 +19,7 @@ categories = []
   focal_point = ""
 +++
 
-# 安装镜像
+# PIP安装镜像
 
 ```
 mkdir ~/.pip
