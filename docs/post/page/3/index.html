@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-09 10:15:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-09 10:15:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 9, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/web-test-automation-in-lambda-way/" itemprop="url">Web Test Automation in Lambda Way</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    aws客户端环境准备 git clone pip install awscli https://github.com/wubigo/API.git python API/python/aws/aws.py cp API/python/aws/cred.json ~/.aws/credentials cp API/python/aws/config ~/.aws/config  创建函数部署包 mkdir lambda_web wget https://github.com/wubigo/API/blob/master/nodejs/lambda/aws/index.js -P lambda_web zip -r webdriver.zip lambda_web/*  配置 policy.json
+{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [&quot;lambda.amazonaws.com&quot;, &quot;s3.amazonaws.com&quot;] }, &quot;Action&quot;: &quot;sts:AssumeRole&quot; } ] }  export ACCOUNT_ID=820934811997 aws iam create-role --role-name lambda-s3 --assume-role-policy-document file://policy.json aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole aws iam attach-role-policy --role-name lambda-s3 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess  复制 aws lambda create-function --function-name webdriver --runtime nodejs12.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2185,117 +2268,6 @@ curl http://127.0.0.1:8080/
 <p>和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。</p>
 
 <p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-07 14:28:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 7, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/an-in-depth-analysis-of-distributed-transaction-solutions/" itemprop="url">Distributed Transaction Solutions</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="requirements-on-distributed-transactions">requirements on distributed transactions</h1>
-
-<ul>
-<li><p>database sharding</p></li>
-
-<li><p>service-oriented transformation and more cross-service transactions</p></li>
-</ul>
-
-<h1 id="three-scenarios-for-distributed-transactions">three scenarios for distributed transactions</h1>
-
-<ul>
-<li>Cross-database distributed transactions</li>
-<li>Cross-service distributed transactions</li>
-<li>Hybrid distributed transactions</li>
-</ul>
-
-<h1 id="five-distributed-transaction-solutions">five distributed transaction solutions</h1>
-
-<ul>
-<li>XA Specification</li>
-<li>TCC</li>
-<li>Saga</li>
-<li>Local-Message-Based Distributed Transactions</li>
-<li>Transactional-Message-Based Distributed Transactions</li>
-</ul>
-
-<p><a href="https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions" target="_blank">https://www.alibabacloud.com/blog/an-in-depth-analysis-of-distributed-transaction-solutions</a></p>
 
   </div>
   

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-19T00:02:59&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
   
 
   
@@ -398,6 +398,114 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2024-03-27 09:43:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2024-03-27 09:43:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 27, 2024</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/chatchat-llm-notes/" itemprop="url">本地大模型知识库问答</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="本地部署">本地部署</h1>
+
+<h2 id="下载大模型">下载大模型</h2>
+
+<p><a href="https://wubigo.com/post/llm-notes/" target="_blank">大模型下载</a></p>
+
+<ul>
+<li><a href="https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5" target="_blank">https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5</a></li>
+<li><a href="https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b" target="_blank">https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b</a></li>
+</ul>
+
+<h2 id="初始化知识库">初始化知识库</h2>
+
+<pre><code>git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git
+cd Langchain-Chatchat
+pip install -r requirements.txt
+python copy_config_example.py
+python init_database.py --recreate-vs
+</code></pre>
+
+<h2 id="启动服务">启动服务</h2>
+
+<pre><code>python startup.py -a
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -999,7 +1107,7 @@ WebGL基本问题 WebGL has some fundamental issues that needed addressing:
 
   
   <div class="article-style" itemprop="articleBody">
-    大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm2-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
+    大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm3-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
 分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
 目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.
@@ -2228,95 +2336,6 @@ pgcli -U postgres -h localhost
 postgres@localhost&gt; SELECT pg_reload_conf();
 postgres@localhost&gt; show autovacuum;
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-06-28 11:09:12 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-06-28 11:09:12 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 28, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/default-services-in-windows-11/" itemprop="url">Windows 11核心系统服务列表</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>因为禁用了下列服务：</p>
-
-<p>Application Information                Appinfo</p>
-
-<p>导致无法打开系统高级设置，SERVICES.MSC</p>
-
-<p><a href="https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/" target="_blank">https://www.elevenforum.com/t/restore-default-services-in-windows-11.3109/</a></p>
 
   </div>
   

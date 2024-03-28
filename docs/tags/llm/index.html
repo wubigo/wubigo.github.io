@@ -142,7 +142,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2023-04-18T11:00:40&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
   
 
   
@@ -401,10 +401,20 @@
   
   
   <div>
+    <h2><a href="/post/chatchat-llm-notes/">本地大模型知识库问答</a></h2>
+    <div class="article-style">
+      
+       本地部署 下载大模型 大模型下载
+ https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5 https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b  初始化知识库 git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git cd Langchain-Chatchat pip install -r requirements.txt python copy_config_example.py python init_database.py --recreate-vs  启动服务 python startup.py -a  
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/llm-notes/">LLM Notes</a></h2>
     <div class="article-style">
       
-      大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm2-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
+      大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm3-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
 分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
 目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.

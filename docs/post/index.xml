@@ -6,10 +6,20 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Mar 2024 00:02:59 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2024 09:43:56 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>本地大模型知识库问答</title>
+      <link>https://wubigo.com/post/chatchat-llm-notes/</link>
+      <pubDate>Wed, 27 Mar 2024 09:43:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/chatchat-llm-notes/</guid>
+      <description> 本地部署 下载大模型 大模型下载
+ https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5 https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b  初始化知识库 git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git cd Langchain-Chatchat pip install -r requirements.txt python copy_config_example.py python init_database.py --recreate-vs  启动服务 python startup.py -a  </description>
+    </item>
     
     <item>
       <title>CUDA内存不足</title>
@@ -89,7 +99,7 @@ WebGL基本问题 WebGL has some fundamental issues that needed addressing:
       <pubDate>Tue, 18 Apr 2023 11:00:40 +0800</pubDate>
       
       <guid>https://wubigo.com/post/llm-notes/</guid>
-      <description>大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download(&#39;ZhipuAI/chatglm2-6b&#39;, cache_dir=&#39;./model&#39;, revision=&#39;master&#39;)  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
+      <description>大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download(&#39;ZhipuAI/chatglm3-6b&#39;, cache_dir=&#39;./model&#39;, revision=&#39;master&#39;)  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
 分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
 目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.</description>

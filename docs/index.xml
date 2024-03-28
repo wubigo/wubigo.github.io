@@ -5,8 +5,43 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Mar 2024 00:02:59 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2024 09:43:56 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>本地大模型知识库问答</title>
+      <link>https://wubigo.com/post/chatchat-llm-notes/</link>
+      <pubDate>Wed, 27 Mar 2024 09:43:56 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/chatchat-llm-notes/</guid>
+      <description>
+
+&lt;h1 id=&#34;本地部署&#34;&gt;本地部署&lt;/h1&gt;
+
+&lt;h2 id=&#34;下载大模型&#34;&gt;下载大模型&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wubigo.com/post/llm-notes/&#34; target=&#34;_blank&#34;&gt;大模型下载&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5&#34; target=&#34;_blank&#34;&gt;https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b&#34; target=&#34;_blank&#34;&gt;https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;初始化知识库&#34;&gt;初始化知识库&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git
+cd Langchain-Chatchat
+pip install -r requirements.txt
+python copy_config_example.py
+python init_database.py --recreate-vs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;启动服务&#34;&gt;启动服务&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;python startup.py -a
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>CUDA内存不足</title>
@@ -365,7 +400,7 @@ Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位�
 
 from modelscope.hub.snapshot_download import snapshot_download
 
-model_dir = snapshot_download(&#39;ZhipuAI/chatglm2-6b&#39;, cache_dir=&#39;./model&#39;, revision=&#39;master&#39;)
+model_dir = snapshot_download(&#39;ZhipuAI/chatglm3-6b&#39;, cache_dir=&#39;./model&#39;, revision=&#39;master&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;下载
@@ -2760,135 +2795,6 @@ tensor([[ 9,  9, 11],
       <description>&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/Netfilter-packet-flow.svg&#34; alt=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; target=&#34;_blank&#34;&gt;XDP&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Docker在Centos7离线安装</title>
-      <link>https://wubigo.com/post/docker-offline-install-on-centos7/</link>
-      <pubDate>Fri, 11 Nov 2022 20:45:11 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/docker-offline-install-on-centos7/</guid>
-      <description>
-
-&lt;h1 id=&#34;下载-docker-二进制文件-离线安装包&#34;&gt;下载 Docker 二进制文件（离线安装包）&lt;/h1&gt;
-
-&lt;p&gt;下载地址：&lt;a href=&#34;https://download.docker.com/linux/static/stable/x86_64/&#34; target=&#34;_blank&#34;&gt;https://download.docker.com/linux/static/stable/x86_64/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;注：本文使用 /x86_64/docker-18.06.1-ce.tgz，注意对应操作系统类型。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tar tf docker-20.10.9.tgz
-
-docker/
-docker/containerd-shim-runc-v2
-docker/dockerd
-docker/docker-proxy
-docker/ctr
-docker/docker
-docker/runc
-docker/containerd-shim
-docker/docker-init
-docker/containerd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;tar zxf docker-18.06.1-ce.tgz
-sudo cp docker/* /usr/bin/
-sudo dockerd &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;验证是否安装成功，执行docker info命令&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker info
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;注册成系统服务&#34;&gt;注册成系统服务&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/systemd/system/docker.service&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[Unit]
-Description=Docker Application Container Engine
-Documentation=https://docs.docker.com
-After=network-online.target docker.socket firewalld.service
-Wants=network-online.target
-Requires=docker.socket
-
-[Service]
-Type=notify
-# the default is not to use systemd for cgroups because the delegate issues still
-# exists and systemd currently does not support the cgroup feature set required
-# for containers run by docker
-ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock
-ExecReload=/bin/kill -s HUP $MAINPID
-LimitNOFILE=infinity
-# Having non-zero Limit*s causes performance problems due to accounting overhead
-# in the kernel. We recommend using cgroups to do container-local accounting.
-LimitNPROC=infinity
-LimitCORE=infinity
-# Uncomment TasksMax if your systemd version supports it.
-# Only systemd 226 and above support this version.
-#TasksMax=infinity
-TimeoutStartSec=0
-# set delegate yes so that systemd does not reset the cgroups of docker containers
-Delegate=yes
-# kill only the docker process, not all processes in the cgroup
-KillMode=process
-# restart the docker process if it exits prematurely
-Restart=on-failure
-StartLimitBurst=20
-StartLimitInterval=60s
-
-[Install]
-WantedBy=multi-user.target
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/systemd/system/docker.socket&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[Unit]
-Description=Docker Socket for the API
-PartOf=docker.service
-
-[Socket]
-# If /var/run is not implemented as a symlink to /run, you may need to
-# specify ListenStream=/var/run/docker.sock instead.
-ListenStream=/var/run/docker.sock
-SocketMode=0660
-SocketUser=root
-SocketGroup=docker
-
-[Install]
-WantedBy=sockets.target
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;启用&#34;&gt;启用&lt;/h2&gt;
-
-&lt;p&gt;注意：没有docker用户组docker.socket服务启动报错&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo groupadd docker
-usermod -aG docker $USER
-systemctl daemon-reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;修改docker配置&#34;&gt;修改docker配置&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-  &amp;quot;insecure-registries&amp;quot;: [&amp;quot;127.0.0.1:5001&amp;quot;, &amp;quot;harbor.cn&amp;quot;],
-  &amp;quot;bip&amp;quot;: &amp;quot;172.18.18.1/24&amp;quot;,
-  &amp;quot;data-root&amp;quot;: &amp;quot;/var/lib/docker&amp;quot;,
-  &amp;quot;storage-driver&amp;quot;: &amp;quot;overlay2&amp;quot;,
-  &amp;quot;live-restore&amp;quot;: true,
-  &amp;quot;log-opts&amp;quot;: {
-    &amp;quot;max-size&amp;quot;: &amp;quot;500m&amp;quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;修改host文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#BEGIN --generated by Harbor
-172.16.1.114 harbor.cn
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
