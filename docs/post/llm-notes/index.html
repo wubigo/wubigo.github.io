@@ -424,7 +424,7 @@ Back in the ancient times, before 2013, we usually encoded basic unigram tokens 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -528,6 +528,40 @@ model_dir = snapshot_download('ZhipuAI/chatglm3-6b', cache_dir='./model', revisi
 <p>Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.</p>
 
 <h2 id="传统的词编码-one-hot">传统的词编码：one-hot</h2>
+
+<p>Embedding层，在某种程度上，就是用来降维的，降维的原理就是矩阵乘法</p>
+
+<pre><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; a = torch.randint(20,(2,6))
+&gt;&gt;&gt; a
+tensor([[17, 15,  9, 18,  2, 17],
+        [12, 10,  2, 14,  6, 11]])
+&gt;&gt;&gt; b = torch.randint(20,(6,3))
+&gt;&gt;&gt; b
+tensor([[ 3,  5,  4],
+        [13,  7, 10],
+        [19, 18,  5],
+        [12, 12,  5],
+        [ 6, 14,  4],
+        [17, 13, 11]])
+
+
+&gt;&gt;&gt; c= torch.mm(a,b)
+&gt;&gt;&gt; c
+tensor([[934, 817, 548],
+        [595, 561, 373]])
+
+
+
+&gt;&gt;&gt; a.shape
+torch.Size([2, 6])
+&gt;&gt;&gt; b.shape
+torch.Size([6, 3])
+
+&gt;&gt;&gt; c.shape
+torch.Size([2, 3])
+
+</code></pre>
 
 <h2 id="分布式词编码-word-embedding">分布式词编码：word embedding</h2>
 

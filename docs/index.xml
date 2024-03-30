@@ -416,6 +416,40 @@ model_dir = snapshot_download(&#39;ZhipuAI/chatglm3-6b&#39;, cache_dir=&#39;./mo
 
 &lt;h2 id=&#34;传统的词编码-one-hot&#34;&gt;传统的词编码：one-hot&lt;/h2&gt;
 
+&lt;p&gt;Embedding层，在某种程度上，就是用来降维的，降维的原理就是矩阵乘法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import torch
+&amp;gt;&amp;gt;&amp;gt; a = torch.randint(20,(2,6))
+&amp;gt;&amp;gt;&amp;gt; a
+tensor([[17, 15,  9, 18,  2, 17],
+        [12, 10,  2, 14,  6, 11]])
+&amp;gt;&amp;gt;&amp;gt; b = torch.randint(20,(6,3))
+&amp;gt;&amp;gt;&amp;gt; b
+tensor([[ 3,  5,  4],
+        [13,  7, 10],
+        [19, 18,  5],
+        [12, 12,  5],
+        [ 6, 14,  4],
+        [17, 13, 11]])
+
+
+&amp;gt;&amp;gt;&amp;gt; c= torch.mm(a,b)
+&amp;gt;&amp;gt;&amp;gt; c
+tensor([[934, 817, 548],
+        [595, 561, 373]])
+
+
+
+&amp;gt;&amp;gt;&amp;gt; a.shape
+torch.Size([2, 6])
+&amp;gt;&amp;gt;&amp;gt; b.shape
+torch.Size([6, 3])
+
+&amp;gt;&amp;gt;&amp;gt; c.shape
+torch.Size([2, 3])
+
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;分布式词编码-word-embedding&#34;&gt;分布式词编码：word embedding&lt;/h2&gt;
 
 &lt;ul&gt;
