@@ -43,6 +43,45 @@ tokenization算法大致经历了从word/char到subword的进化.
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding. word2vec improved things by expanding these 1’s and 0’s into full vectors (aka word embeddings). BERT improved things further by using transformers and self-attention heads to create full contextual sentence embeddings.
 
 ## 传统的词编码：one-hot
+
+Embedding层，在某种程度上，就是用来降维的，降维的原理就是矩阵乘法
+
+
+```
+>>> import torch
+>>> a = torch.randint(20,(2,6))
+>>> a
+tensor([[17, 15,  9, 18,  2, 17],
+        [12, 10,  2, 14,  6, 11]])
+>>> b = torch.randint(20,(6,3))
+>>> b
+tensor([[ 3,  5,  4],
+        [13,  7, 10],
+        [19, 18,  5],
+        [12, 12,  5],
+        [ 6, 14,  4],
+        [17, 13, 11]])
+
+
+>>> c= torch.mm(a,b)
+>>> c
+tensor([[934, 817, 548],
+        [595, 561, 373]])
+
+
+
+>>> a.shape
+torch.Size([2, 6])
+>>> b.shape
+torch.Size([6, 3])
+
+>>> c.shape
+torch.Size([2, 3])
+
+```
+
+
+
 ## 分布式词编码：word embedding
 
 - word2vec
