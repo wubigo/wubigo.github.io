@@ -1,9 +1,34 @@
----
-layout: post
-title: openstack notes
-date: 2016-02-12
-tag: architecture
----
++++
+title = "openstack notes"
+date = 2016-03-27T09:43:56+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["CMP","CLOUD", "OPENSTACK"]
+categories = []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+
+
+# multiple neutron nodes with only one node attached to external network
+
+In a typical OpenStack deployment you do not bind Nova instances directly to the external network. As you have already surmised, this won't work because that network isn't provisioned on the compute hosts.
+
+Instead, you attach your instances to an internal network, and then you assign floating ip addresses from the external network using,e.g., nova floating-ip-create and nova floating-ip-associate.
+
+An alternative solution is to use "provider external networks", an arrangement in which your nova instances are attached directly to L2 networks with external connectivity, rather than relying on the floating-ip NAT solution described in the previous paragraphs.
+
 
 
 # 控制器
