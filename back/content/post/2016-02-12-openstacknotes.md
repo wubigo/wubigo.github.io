@@ -29,7 +29,15 @@ Instead, you attach your instances to an internal network, and then you assign f
 
 An alternative solution is to use "provider external networks", an arrangement in which your nova instances are attached directly to L2 networks with external connectivity, rather than relying on the floating-ip NAT solution described in the previous paragraphs.
 
+## The four types explained
 
+
+|router-external |shared	|network type |	name in this exercise |	description|
+|----------|:-------------:|------:|:-------------:|------:|
+|false|	false	|vxlan|	private1-demo|	Typical tenant network, which is only usable by members of the tenant. Typically an overlay (vxlan, gre).|
+|false	|true|	vxlan	|admin1-shared|	This can be shared by multiple tenants with RBAC on who can use it. Typically an overlay (vxlan, gre).|
+|true|	false	|flat	|external1|	Typical external network, where the scope is all tenants. Can only be created by administrators. Tenants connect their router for external access. Typically a ‘flat’ or ‘vlan’ network.|
+|true	|true	|flat	|external2-shared	|Scope is all tenants. Can only be created by administrators. Tenants can connect directly to it. Typically known as a ‘provider’ network and is ‘flat’ or ‘vlan.’  |
 
 # 控制器
 
