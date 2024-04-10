@@ -420,7 +420,7 @@ Instead, you attach your instances to an internal network, and then you assign f
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -508,6 +508,54 @@ Instead, you attach your instances to an internal network, and then you assign f
 <p>Instead, you attach your instances to an internal network, and then you assign floating ip addresses from the external network using,e.g., nova floating-ip-create and nova floating-ip-associate.</p>
 
 <p>An alternative solution is to use &ldquo;provider external networks&rdquo;, an arrangement in which your nova instances are attached directly to L2 networks with external connectivity, rather than relying on the floating-ip NAT solution described in the previous paragraphs.</p>
+
+<h2 id="the-four-types-explained">The four types explained</h2>
+
+<table>
+<thead>
+<tr>
+<th>router-external</th>
+<th align="center">shared</th>
+<th align="right">network type</th>
+<th align="center">name in this exercise</th>
+<th align="right">description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>false</td>
+<td align="center">false</td>
+<td align="right">vxlan</td>
+<td align="center">private1-demo</td>
+<td align="right">Typical tenant network, which is only usable by members of the tenant. Typically an overlay (vxlan, gre).</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td align="center">true</td>
+<td align="right">vxlan</td>
+<td align="center">admin1-shared</td>
+<td align="right">This can be shared by multiple tenants with RBAC on who can use it. Typically an overlay (vxlan, gre).</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td align="center">false</td>
+<td align="right">flat</td>
+<td align="center">external1</td>
+<td align="right">Typical external network, where the scope is all tenants. Can only be created by administrators. Tenants connect their router for external access. Typically a ‘flat’ or ‘vlan’ network.</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td align="center">true</td>
+<td align="right">flat</td>
+<td align="center">external2-shared</td>
+<td align="right">Scope is all tenants. Can only be created by administrators. Tenants can connect directly to it. Typically known as a ‘provider’ network and is ‘flat’ or ‘vlan.’</td>
+</tr>
+</tbody>
+</table>
 
 <h1 id="控制器">控制器</h1>
 
