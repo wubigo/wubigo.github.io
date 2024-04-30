@@ -18,7 +18,7 @@
       
       <guid>https://wubigo.com/post/chatchat-llm-notes/</guid>
       <description> 本地部署 下载大模型 大模型下载
- https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5 https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b  初始化知识库 git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git cd Langchain-Chatchat pip install -r requirements.txt python copy_config_example.py python init_database.py --recreate-vs  启动服务 python startup.py -a  </description>
+ https://www.modelscope.cn/models/AI-ModelScope/bge-large-zh-v1.5 https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b  ChatGLM3 git clone https://github.com/THUDM/ChatGLM3 cd ChatGLM3 pip install -r requirements.txt python from transformers import AutoTokenizer, AutoModel tokenizer = AutoTokenizer.from_pretrained(&amp;quot;/home/wubigo/model/ZhipuAI/chatglm3-6b&amp;quot;, trust_remote_code=True) model = AutoModel.from_pretrained(&amp;quot;/home/wubigo/model/ZhipuAI/chatglm3-6b&amp;quot;, trust_remote_code=True, device=&#39;cuda&#39;) model = model.eval() response, history = model.chat(tokenizer, &amp;quot;你好&amp;quot;, history=[])  初始化知识库 git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git cd Langchain-Chatchat pip install -r requirements.txt python copy_config_example.py python init_database.py --recreate-vs  启动服务 python startup.py -a  </description>
     </item>
     
   </channel>

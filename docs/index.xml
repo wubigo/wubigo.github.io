@@ -27,6 +27,19 @@
 &lt;li&gt;&lt;a href=&#34;https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b&#34; target=&#34;_blank&#34;&gt;https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;chatglm3&#34;&gt;ChatGLM3&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/THUDM/ChatGLM3
+cd ChatGLM3
+pip install -r requirements.txt
+python
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained(&amp;quot;/home/wubigo/model/ZhipuAI/chatglm3-6b&amp;quot;, trust_remote_code=True)
+model = AutoModel.from_pretrained(&amp;quot;/home/wubigo/model/ZhipuAI/chatglm3-6b&amp;quot;, trust_remote_code=True, device=&#39;cuda&#39;)
+model = model.eval()
+response, history = model.chat(tokenizer, &amp;quot;你好&amp;quot;, history=[])
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;初始化知识库&#34;&gt;初始化知识库&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone --recursive https://github.com/chatchat-space/Langchain-Chatchat.git
@@ -405,6 +418,24 @@ model_dir = snapshot_download(&#39;ZhipuAI/chatglm3-6b&#39;, cache_dir=&#39;./mo
 
 &lt;p&gt;下载
 &lt;a href=&#34;https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b&#34; target=&#34;_blank&#34;&gt;https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;nvidia-smi-failed-to-initialize-nvml-driver-library-version-mismatch&#34;&gt;nvidia-smi  Failed to initialize NVML: Driver/library version mismatch&lt;/h1&gt;
+
+&lt;p&gt;这个问题出现的原因是kernel mod 的 Nvidia driver 的版本没有更新，一般情况下，重启机器就能够解决，
+如果因为某些原因不能够重启的话，也有办法reload kernel mod。&lt;/p&gt;
+
+&lt;p&gt;简单来看，就两步&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;unload nvidia kernel mod&lt;/li&gt;
+&lt;li&gt;reload nvidia kernel mod&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;执行起来就是&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo rmmod nvidia
+sudo nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;分词器-tokenizer&#34;&gt;分词器(Tokenizer)&lt;/h1&gt;
 
