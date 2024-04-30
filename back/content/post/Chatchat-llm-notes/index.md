@@ -29,6 +29,20 @@ categories = []
 - https://www.modelscope.cn/models/ZhipuAI/chatglm3-6b
 
 
+## ChatGLM3
+
+```
+git clone https://github.com/THUDM/ChatGLM3
+cd ChatGLM3
+pip install -r requirements.txt
+python
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("/home/wubigo/model/ZhipuAI/chatglm3-6b", trust_remote_code=True)
+model = AutoModel.from_pretrained("/home/wubigo/model/ZhipuAI/chatglm3-6b", trust_remote_code=True, device='cuda')
+model = model.eval()
+response, history = model.chat(tokenizer, "你好", history=[])
+```
+
 ## 初始化知识库
 
 ```
