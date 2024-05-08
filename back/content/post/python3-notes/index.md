@@ -30,6 +30,12 @@ cat <<EOF > ~/.pip/pip.conf
 EOF
 ```
 
+或者
+
+```
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+```
+
 ## PYTHON 镜像
 
 
