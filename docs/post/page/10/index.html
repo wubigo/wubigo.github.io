@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
+  <meta property="og:updated_time" content="2024-05-10T17:59:50&#43;08:00">
   
 
   
@@ -398,6 +398,88 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-07-23 17:17:44 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-07-23 17:17:44 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 23, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/terraform-aws-s3-resource-example/" itemprop="url">Terraform Aws S3 Resource Example</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Add notification configuration to SNS Topic resource &quot;aws_sns_topic&quot; &quot;topic&quot; { name = &quot;s3-event-notification-topic&quot; policy = &lt;&lt;POLICY { &quot;Version&quot;:&quot;2012-10-17&quot;, &quot;Statement&quot;:[{ &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: {&quot;AWS&quot;:&quot;*&quot;}, &quot;Action&quot;: &quot;SNS:Publish&quot;, &quot;Resource&quot;: &quot;arn:aws:sns:*:*:s3-event-notification-topic&quot;, &quot;Condition&quot;:{ &quot;ArnLike&quot;:{&quot;aws:SourceArn&quot;:&quot;${aws_s3_bucket.bucket.arn}&quot;} } }] } POLICY } resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; { bucket = &quot;your_bucket_name&quot; } resource &quot;aws_s3_bucket_notification&quot; &quot;bucket_notification&quot; { bucket = &quot;${aws_s3_bucket.bucket.id}&quot; topic { topic_arn = &quot;${aws_sns_topic.topic.arn}&quot; events = [&quot;s3:ObjectCreated:*&quot;] filter_suffix = &quot;.log&quot; } }  Add notification configuration to Lambda Function resource &quot;aws_iam_role&quot; &quot;iam_for_lambda&quot; { name = &quot;iam_for_lambda&quot; assume_role_policy = &lt;&lt;EOF { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Action&quot;: &quot;sts:AssumeRole&quot;, &quot;Principal&quot;: { &quot;Service&quot;: &quot;lambda.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2102,91 +2184,6 @@ Customer User: customer@thingsboard.org / customer
 
 <p>login as tenant</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-25 12:02:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 25, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/js-vue/" itemprop="url">Vue notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Single File Components single-file components with a .vue extension is build by tools
-such as Webpack or Browserify
-A single-file component consists of three parts:
-- &lt;template&gt; which contains the component’s markup in plain HTML - &lt;script&gt; which exports the component object constructor that consists of all the JS logic within that component - &lt;style&gt; which contains all the component styles  CORE  Virtual DOM Component-based UI Focus on the view library—separate concerns for routing, state management Official component library for building mobile apps
   </div>
   
 

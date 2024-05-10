@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
+  <meta property="og:updated_time" content="2024-05-10T17:59:50&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2016-05-23 08:31:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2016-05-23 08:31:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 23, 2016</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/ubuntu-vpn-client/" itemprop="url">Ubuntu Vpn Client</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装客户端 sudo apt-get install m2crypto pip install shadowsocks  /etc/shadowsocks.json
+{ &quot;server&quot;:&quot;4.1.33.104&quot;, &quot;server_port&quot;:8388, &quot;local_address&quot;: &quot;127.0.0.1&quot;, &quot;local_port&quot;:1080, &quot;password&quot;:&quot;&quot;, &quot;timeout&quot;:600, &quot;method&quot;:&quot;aes-256-cfb&quot; }  sslocal -c /etc/shadowsocks.json # To run in the background sudo sslocal -c /etc/shadowsocks.json -d start  配置代理 sudo apt-get install polipo  /etc/polipo/config
+logSyslog = true logFile = /var/log/polipo/polipo.log logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &quot;0.0.0.0&quot; socksParentProxy = &quot;127.0.0.1:1080&quot; socksProxyType = socks5 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32  sudo service polipo stop sudo service polipo start export http_proxy=http://127.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2097,103 +2181,6 @@ JWT (JSON Web Token) JWT (JSON Web Token) is an industry standard, easy-to-use m
   
   <div class="article-style" itemprop="articleBody">
     git-changelog-maven-plugin &lt;plugin&gt; &lt;groupId&gt;se.bjurr.gitchangelog&lt;/groupId&gt; &lt;artifactId&gt;git-changelog-maven-plugin&lt;/artifactId&gt; &lt;version&gt;1.50&lt;/version&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;GenerateGitChangelog&lt;/id&gt; &lt;phase&gt;generate-sources&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;git-changelog&lt;/goal&gt; &lt;/goals&gt; &lt;configuration&gt; &lt;!-- A file on filesystem //--&gt; &lt;file&gt;CHANGELOG.md&lt;/file&gt; &lt;toRef&gt;HEAD&lt;/toRef&gt; &lt;/configuration&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt;  get a copy of mustache template and save as changelog.mustache under the project home directory https://github.com/tomasbjerre/git-changelog-lib/tree/master/src/test/resources/templates  mvn compile to create the CHANGELOG.md mvn compile  upload the CHANGELOG.md to nginx as a release not config nginx support browser MD mime.types text/markdown md;  reload nginx and check the release note as text use template with StrapDown.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2015-08-26 09:40:44 &#43;0800 CST" itemprop="datePublished">
-<meta content="2015-08-26 09:40:44 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 26, 2015</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/having-multiple-tables-in-from-and-using-join/" itemprop="url">Having Multiple Tables in FROM and Using JOIN</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="inner-join-join">INNER JOIN = JOIN</h1>
-
-<p>INNER JOIN is the default if you don&rsquo;t specify the type when you use the word JOIN</p>
-
-<p>INNER JOIN is ANSI syntax that you should use.</p>
-
-<p>Why Use the New Syntax for SQL Joins?</p>
-
-<ul>
-<li><p>Join conditions are separate from filtering conditions</p></li>
-
-<li><p>Easier to join multiple tables</p></li>
-</ul>
-
   </div>
   
 

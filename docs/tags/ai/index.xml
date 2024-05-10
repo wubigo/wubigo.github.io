@@ -6,10 +6,22 @@
     <description>Recent content in AI on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Nov 2022 14:35:01 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2024 17:59:50 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>图像处理中的卷积核kernel</title>
+      <link>https://wubigo.com/post/cnn-kernel-notes/</link>
+      <pubDate>Fri, 10 May 2024 17:59:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cnn-kernel-notes/</guid>
+      <description>图像处理中的卷积核kernel
+简介 卷积核（kernel），也叫卷积矩阵（convolution matrix）或者掩膜（mask），本质上是一个非常小的矩阵，最常用的是 3×3 矩阵。主要是利用核与图像之间进行卷积运算来实现图像处理，能做出模糊、锐化、凹凸、边缘检测等效果。
+卷积运算 第一个矩阵是卷积核（其中的每个元素都是权重），第二个矩阵是被处理的矩阵，这里的并不是真正矩阵运算中，而是将卷积核中的行和列都反转再*，将计算得到的加权结果赋值给[2, 2]位置处. 将一个比较大的原始矩阵的每一个位置处都根据核进行上述的运算，就得到整个原始矩阵的加权平均结果，也就是原始矩阵卷积运算后的结果
+[1]https://blog.csdn.net/i_silence/article/details/116483732</description>
+    </item>
     
     <item>
       <title>Pytorch multinominal采样函数</title>

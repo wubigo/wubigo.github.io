@@ -5,8 +5,33 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Mar 2024 09:43:56 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2024 17:59:50 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>图像处理中的卷积核kernel</title>
+      <link>https://wubigo.com/post/cnn-kernel-notes/</link>
+      <pubDate>Fri, 10 May 2024 17:59:50 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/cnn-kernel-notes/</guid>
+      <description>
+
+&lt;p&gt;图像处理中的卷积核kernel&lt;/p&gt;
+
+&lt;h1 id=&#34;简介&#34;&gt;简介&lt;/h1&gt;
+
+&lt;p&gt;卷积核（kernel），也叫卷积矩阵（convolution matrix）或者掩膜（mask），本质上是一个非常小的矩阵，最常用的是 3×3 矩阵。主要是利用核与图像之间进行卷积运算来实现图像处理，能做出模糊、锐化、凹凸、边缘检测等效果。&lt;/p&gt;
+
+&lt;h1 id=&#34;卷积运算&#34;&gt;卷积运算&lt;/h1&gt;
+
+&lt;p&gt;第一个矩阵是卷积核（其中的每个元素都是权重），第二个矩阵是被处理的矩阵，这里的并不是真正矩阵运算中，而是将卷积核中的行和列都反转再*，将计算得到的加权结果赋值给[2, 2]位置处.
+将一个比较大的原始矩阵的每一个位置处都根据核进行上述的运算，就得到整个原始矩阵的加权平均结果，也就是原始矩阵卷积运算后的结果&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/cnn-kernel.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&#34;https://blog.csdn.net/i_silence/article/details/116483732&#34; target=&#34;_blank&#34;&gt;https://blog.csdn.net/i_silence/article/details/116483732&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>本地大模型知识库问答</title>
@@ -2848,18 +2873,6 @@ tensor([[[7, 3, 3]],
 tensor([[ 9,  9, 11],
         [ 4,  5,  9]])
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>XDP Note</title>
-      <link>https://wubigo.com/post/xdp-note/</link>
-      <pubDate>Sun, 13 Nov 2022 08:58:23 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/xdp-note/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/Netfilter-packet-flow.svg&#34; alt=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; target=&#34;_blank&#34;&gt;XDP&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
