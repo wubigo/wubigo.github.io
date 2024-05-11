@@ -1,6 +1,6 @@
 +++
 title = "图像处理中的卷积核kernel"
-date = 2024-05-10T17:59:50+08:00
+date = 2020-05-10T17:59:50+08:00
 draft = false
 
 # Tags and categories
