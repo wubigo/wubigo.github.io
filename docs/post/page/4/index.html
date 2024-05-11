@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-05-10T17:59:50&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
   
 
   
@@ -398,97 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/year-end-review-2020/" itemprop="url">2020年终总结</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="项目">项目</h2>
-
-<p>2020承接的是一个银行数据中心智能运营平台项目，这个项目需求之前由公司的售前</p>
-
-<p>和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。</p>
-
-<p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -2157,6 +2066,135 @@ aws s3 cp ./target/aws-lambda-0.1.0-SNAPSHOT.jar s3://wubigo/
     函数计算有很多使用场景，今天介绍定时任务调度
 例如每周六生成业务报表
 事件类别  资源生命周期事件 HTTP请求 消息队列 调度  调度事件 define event rules that self-trigger regularly and configure a target action to do some regular work. So you can define an Amazon Lambda function or AWS Step Functions state machine as scheduled targets. Hence, when this event is triggered at the specified time or interval you defined, your function or state machine is executed. These types of events are called scheduled Amazon CloudWatch Events
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/python3-notes/" itemprop="url">Python3 Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="pip安装镜像">PIP安装镜像</h1>
+
+<pre><code>mkdir ~/.pip
+cat &lt;&lt;EOF &gt; ~/.pip/pip.conf
+ [global]
+ trusted-host =  mirrors.aliyun.com
+ index-url = http://mirrors.aliyun.com/pypi/simple
+EOF
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+<h2 id="python-镜像">PYTHON 镜像</h2>
+
+<blockquote>
+<p>ERROR: Could not install packages due to an EnvironmentError:
+HTTPSConnectionPool(host=&lsquo;files.pythonhosted.org&rsquo;, port=443)</p>
+</blockquote>
+
+<p><code>$HOME/.config/pip/pip.conf</code></p>
+
+<pre><code>[global]
+
+trusted-host=mirrors.aliyun.com
+
+index-url=http://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+<h2 id="windows-10">WINDOWS 10</h2>
+
+<pre><code>Python 3.6.8
+</code></pre>
+
+<pre><code>  File &quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&quot;, line 383, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+</code></pre>
+
+<pre><code>python -m pip uninstall pip
+python -m ensurepip
+python -m pip install -U pip
+</code></pre>
+
   </div>
   
 

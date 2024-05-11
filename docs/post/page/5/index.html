@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-05-10T17:59:50&#43;08:00">
+  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
   
 
   
@@ -398,135 +398,6 @@
   
 
   
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jul 14, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/python3-notes/" itemprop="url">Python3 Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="pip安装镜像">PIP安装镜像</h1>
-
-<pre><code>mkdir ~/.pip
-cat &lt;&lt;EOF &gt; ~/.pip/pip.conf
- [global]
- trusted-host =  mirrors.aliyun.com
- index-url = http://mirrors.aliyun.com/pypi/simple
-EOF
-</code></pre>
-
-<p>或者</p>
-
-<pre><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
-</code></pre>
-
-<h2 id="python-镜像">PYTHON 镜像</h2>
-
-<blockquote>
-<p>ERROR: Could not install packages due to an EnvironmentError:
-HTTPSConnectionPool(host=&lsquo;files.pythonhosted.org&rsquo;, port=443)</p>
-</blockquote>
-
-<p><code>$HOME/.config/pip/pip.conf</code></p>
-
-<pre><code>[global]
-
-trusted-host=mirrors.aliyun.com
-
-index-url=http://mirrors.aliyun.com/pypi/simple/
-</code></pre>
-
-<h2 id="windows-10">WINDOWS 10</h2>
-
-<pre><code>Python 3.6.8
-</code></pre>
-
-<pre><code>  File &quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&quot;, line 383, in _get_launcher
-    raise ValueError(msg)
-ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
-</code></pre>
-
-<pre><code>python -m pip uninstall pip
-python -m ensurepip
-python -m pip install -U pip
-</code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
   
     
       
@@ -1508,6 +1379,104 @@ sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装pol
     准备  iptables
 cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system  install container runtime
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu sudo usermod -aG docker bigo  setup vpn and proxy
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cnn-kernel-notes/" itemprop="url">图像处理中的卷积核kernel</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>图像处理中的卷积核kernel</p>
+
+<h1 id="简介">简介</h1>
+
+<p>卷积核（kernel），也叫卷积矩阵（convolution matrix）或者掩膜（mask），本质上是一个非常小的矩阵，最常用的是 3×3 矩阵。主要是利用核与图像之间进行卷积运算来实现图像处理，能做出模糊、锐化、凹凸、边缘检测等效果。</p>
+
+<h1 id="卷积运算">卷积运算</h1>
+
+<p>第一个矩阵是卷积核（其中的每个元素都是权重），第二个矩阵是被处理的矩阵，这里的并不是真正矩阵运算中，而是将卷积核中的行和列都反转再*，将计算得到的加权结果赋值给[2, 2]位置处.
+将一个比较大的原始矩阵的每一个位置处都根据核进行上述的运算，就得到整个原始矩阵的加权平均结果，也就是原始矩阵卷积运算后的结果</p>
+
+<p><img src="/img/post/cnn-kernel.png" alt="" /></p>
+
+<p>[1]<a href="https://blog.csdn.net/i_silence/article/details/116483732" target="_blank">https://blog.csdn.net/i_silence/article/details/116483732</a></p>
+
   </div>
   
 
