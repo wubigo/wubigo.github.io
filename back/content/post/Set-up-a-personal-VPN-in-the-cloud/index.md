@@ -1,5 +1,5 @@
 +++
-title = "五分钟搭建VPN云服务"
+title = "五分钟搭建隧道云服务"
 date = 2020-07-04T21:23:10+08:00
 draft = false
 
@@ -47,7 +47,7 @@ Codename:       focal
 
 也可以直接在web控制台根据向导创建
 
-## 搭建VPN服务器
+## 搭建隧道服务器
 
 ```
 
@@ -103,7 +103,7 @@ Certificates and configuration files that users will need are placed in the conf
 - update dns to '1.1.1.1'  if the local dns doesn't work
 
 
-## 停止VPN服务
+## 停止隧道服务
 
 ```
 systemctl stop wg-quick@wg0
