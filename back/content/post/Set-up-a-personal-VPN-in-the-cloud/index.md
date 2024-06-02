@@ -47,6 +47,12 @@ Codename:       focal
 
 也可以直接在web控制台根据向导创建
 
+
+## 设置安全组
+
+[https://wubigo.com/post/vpn-with-wireguard/](https://wubigo.com/post/vpn-with-wireguard/)
+
+
 ## 搭建隧道服务器
 
 ```

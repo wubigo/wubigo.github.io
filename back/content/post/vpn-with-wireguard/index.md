@@ -30,6 +30,9 @@ sudo apt-get install wireguard -y
 
 - 打开安全组
 
+南向Inbound rules(udp:51820)
+
+
 ![](/img/post/wireguard-sg.png)
 
 ## 配置
