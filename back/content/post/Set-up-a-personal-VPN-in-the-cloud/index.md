@@ -53,13 +53,13 @@ Codename:       focal
 [https://wubigo.com/post/vpn-with-wireguard/](https://wubigo.com/post/vpn-with-wireguard/)
 
 
-## 搭建隧道服务器
+## 搭建隧道服务器(定制的端口)
 
 ```
 
 git clone https://github.com/wubigo/algo.git 
 git clone https://github.com/trailofbits/algo.git 
-
+sed -i 's/51820/1820/' config.cfg
 sudo apt install -y python3-virtualenv
 
 cd algo
