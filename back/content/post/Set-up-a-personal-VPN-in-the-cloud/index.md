@@ -59,10 +59,11 @@ Codename:       focal
 
 git clone https://github.com/wubigo/algo.git 
 git clone https://github.com/trailofbits/algo.git 
-sed -i 's/51820/8080/' config.cfg
+
 sudo apt install -y python3-virtualenv
 
 cd algo
+sed -i 's/51820/8080/' config.cfg
 
 python3 -m virtualenv --python="$(command -v python3)" .env &&
   source .env/bin/activate &&
