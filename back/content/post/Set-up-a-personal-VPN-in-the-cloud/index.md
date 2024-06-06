@@ -53,6 +53,16 @@ Codename:       focal
 [https://wubigo.com/post/vpn-with-wireguard/](https://wubigo.com/post/vpn-with-wireguard/)
 
 
+
+## stop ubuntu pop-up "Daemons using outdated libraries" when using apt
+
+
+`/etc/needrestart/needrestart.conf`
+
+```
+$nrconf{restart} = 'a'
+```
+
 ## 搭建隧道服务器(定制的端口)
 
 ```
