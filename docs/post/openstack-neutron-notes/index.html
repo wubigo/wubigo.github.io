@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -30,10 +28,20 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="ML2插件 ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制
+ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2
+ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动
+ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展
+不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理
+不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理
+neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
+类型驱动负责维护网络类型的状态;执行验证、创建网络等工作
+目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre
+目前neutron已经实现的网络机制有三种类型:
+ 基于代理(agent-based): 包括linux bridge、open vswitch 基于控制器(controller-based): 包括open daylight、vmwavre NSX等 基于物理交换: 包括cisco nexus、arista、mellanox等  Mechanism drivers and L2 agents    Mechanism Driver L2 agent     Open vSwitch Open vSwitch agent   Linux bridge Linux bridge agent   SRIOV SRIOV nic switch agent   MacVTap MacVTap agent    linux bridge 代理 linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/tags/openstack/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/openstack-neutron-notes/">
 
   
 
@@ -114,15 +122,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/tags/openstack/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/tags/openstack/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/tags/openstack/">
+  <link rel="canonical" href="https://wubigo.com/post/openstack-neutron-notes/">
 
   
   
@@ -137,19 +145,31 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/tags/openstack/">
-  <meta property="og:title" content="OPENSTACK | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/openstack-neutron-notes/">
+  <meta property="og:title" content="Openstack Neutron Notes | wubigo">
+  <meta property="og:description" content="ML2插件 ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制
+ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2
+ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动
+ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展
+不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理
+不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理
+neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
+类型驱动负责维护网络类型的状态;执行验证、创建网络等工作
+目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre
+目前neutron已经实现的网络机制有三种类型:
+ 基于代理(agent-based): 包括linux bridge、open vswitch 基于控制器(controller-based): 包括open daylight、vmwavre NSX等 基于物理交换: 包括cisco nexus、arista、mellanox等  Mechanism drivers and L2 agents    Mechanism Driver L2 agent     Open vSwitch Open vSwitch agent   Linux bridge Linux bridge agent   SRIOV SRIOV nic switch agent   MacVTap MacVTap agent    linux bridge 代理 linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-06-11T17:38:12&#43;08:00">
+  <meta property="article:published_time" content="2018-06-11T17:38:12&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-06-11T17:38:12&#43;08:00">
   
 
   
 
   
 
-  <title>OPENSTACK | wubigo</title>
+  <title>Openstack Neutron Notes | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -365,7 +385,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -382,57 +404,264 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Openstack Neutron Notes</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">OPENSTACK</h1>
+
+
+
+<meta content="2018-06-11 17:38:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-11 17:38:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Openstack%20Neutron%20Notes&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fopenstack-neutron-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fopenstack-neutron-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fopenstack-neutron-notes%2f&amp;title=Openstack%20Neutron%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fopenstack-neutron-notes%2f&amp;title=Openstack%20Neutron%20Notes"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Openstack%20Neutron%20Notes&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fopenstack-neutron-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/openstack-neutron-notes/">Openstack Neutron Notes</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      ML2插件 ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制
-ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2
-ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动
-ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展
-不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理
-不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理
-neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
-类型驱动负责维护网络类型的状态;执行验证、创建网络等工作
-目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre
-目前neutron已经实现的网络机制有三种类型:
- 基于代理(agent-based): 包括linux bridge、open vswitch 基于控制器(controller-based): 包括open daylight、vmwavre NSX等 基于物理交换: 包括cisco nexus、arista、mellanox等  Mechanism drivers and L2 agents    Mechanism Driver L2 agent     Open vSwitch Open vSwitch agent   Linux bridge Linux bridge agent   SRIOV SRIOV nic switch agent   MacVTap MacVTap agent    linux bridge 代理 linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre
-      
+
+<h2 id="ml2插件">ML2插件</h2>
+
+<p>ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制</p>
+
+<p>ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2</p>
+
+<p>ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动</p>
+
+<p>ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展</p>
+<p>不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理</p>
+<p>不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理</p>
+<p>neutron 支持的每一种网络类型都有一个对应的ML2类型驱动</p>
+<p>类型驱动负责维护网络类型的状态;执行验证、创建网络等工作</p>
+<p>目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre</p></p>
+
+<p>目前neutron已经实现的网络机制有三种类型:</p>
+
+<ul>
+<li>基于代理(agent-based): 包括linux bridge、open vswitch</li>
+<li>基于控制器(controller-based): 包括open daylight、vmwavre NSX等</li>
+<li>基于物理交换: 包括cisco nexus、arista、mellanox等</li>
+</ul>
+
+<h2 id="mechanism-drivers-and-l2-agents">Mechanism drivers and L2 agents</h2>
+
+<table>
+<thead>
+<tr>
+<th>Mechanism Driver</th>
+<th>L2 agent</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Open vSwitch</td>
+<td>Open vSwitch agent</td>
+</tr>
+
+<tr>
+<td>Linux bridge</td>
+<td>Linux bridge agent</td>
+</tr>
+
+<tr>
+<td>SRIOV</td>
+<td>SRIOV nic switch agent</td>
+</tr>
+
+<tr>
+<td>MacVTap</td>
+<td>MacVTap agent</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="linux-bridge-代理">linux bridge 代理</h2>
+
+<p>linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre</p>
+
+<h2 id="open-vswitch代理">open vswitch代理</h2>
+
+<p>open vswitch可简称OVS,具有几种管控功能,而且性能更加优化,支持更多的功能,目前在openstack领域被称为主流。</p>
+<p>它支持local、flat、vlan、vxlan、gre、geneve等所有网络类型</p></p>
+
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/2016-02-12-openstacknotes/">openstack notes</a></h2>
-    <div class="article-style">
-      
-      multiple neutron nodes with only one node attached to external network In a typical OpenStack deployment you do not bind Nova instances directly to the external network. As you have already surmised, this won&rsquo;t work because that network isn&rsquo;t provisioned on the compute hosts.
-Instead, you attach your instances to an internal network, and then you assign floating ip addresses from the external network using,e.g., nova floating-ip-create and nova floating-ip-associate.
-      
-    </div>
-  </div>
-  
 
-  
+    
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/openstack/">OPENSTACK</a>
+  
 </div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2016-02-12-openstacknotes/">openstack notes</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 
@@ -595,6 +824,4 @@ Instead, you attach your instances to an internal network, and then you assign f
     
   </body>
 </html>
-
-
 

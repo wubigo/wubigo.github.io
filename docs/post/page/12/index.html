@@ -423,6 +423,99 @@
 
 
 
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-02-28 16:56:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 28, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-ec2-macvaln/" itemprop="url">Aws EC2 MACVLAN</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Amazon EC2 networking doesn&rsquo;t allow to use private ips in the containers</p>
+
+<p>through bridges or macvlan. Dedicating a network interface to a</p>
+
+<p>container makes it directly unreachable from the host.</p>
+
+<pre><code>docker network create -d macvlan --subnet 172.30.80.0/20 --gateway 172.30.80.1 -o parent=eth0 pub_net
+
+
+docker run -d --network pub_net --ip 172.30.80.10 busybox
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-02-28 15:22:27 &#43;0800 CST" itemprop="dateModified">
 
@@ -2136,95 +2229,6 @@ The dispersed nature of the Internet of Things (IoT) presents a major operationa
 <h2 id="接收邮件">接收邮件</h2>
 
 <p><img src="/img/post/pop3-forward.png" alt="" /></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-01-16 07:10:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 16, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/minio-contribution-note/" itemprop="url">Minio开发笔记</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="依赖">依赖</h2>
-
-<pre><code>go list -m all
-go list -m -versions github.com/minio/cli
-</code></pre>
 
   </div>
   

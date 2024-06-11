@@ -6,10 +6,29 @@
     <description>Recent content in OPENSTACK on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Mar 2016 09:43:56 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jun 2018 17:38:12 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Openstack Neutron Notes</title>
+      <link>https://wubigo.com/post/openstack-neutron-notes/</link>
+      <pubDate>Mon, 11 Jun 2018 17:38:12 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/openstack-neutron-notes/</guid>
+      <description>ML2插件 ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制
+ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2
+ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动
+ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展
+不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理
+不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理
+neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
+类型驱动负责维护网络类型的状态;执行验证、创建网络等工作
+目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre
+目前neutron已经实现的网络机制有三种类型:
+ 基于代理(agent-based): 包括linux bridge、open vswitch 基于控制器(controller-based): 包括open daylight、vmwavre NSX等 基于物理交换: 包括cisco nexus、arista、mellanox等  Mechanism drivers and L2 agents    Mechanism Driver L2 agent     Open vSwitch Open vSwitch agent   Linux bridge Linux bridge agent   SRIOV SRIOV nic switch agent   MacVTap MacVTap agent    linux bridge 代理 linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre</description>
+    </item>
     
     <item>
       <title>openstack notes</title>

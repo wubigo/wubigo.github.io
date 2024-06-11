@@ -596,6 +596,98 @@
 
 
 
+<meta content="2018-06-11 17:38:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-06-11 17:38:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 11, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/openstack-neutron-notes/" itemprop="url">Openstack Neutron Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    ML2插件 ML2插件允许openstack网络中同时使用多种二层的网络技术;不同的节点可以使用不同的网络机制
+ML2能够与现在所有的代理无缝集成;以前使用的代理无需变更，只要将传统的core plugin替换ML2
+ML2使得对新的网络技术支持更为简单;无需重新开发新的core plugin插件;只需开发相应的机制驱动
+ML2对二层的网络进行抽象;解锁了neutron所支持的网络类型(type)与访问这些网络类型的虚拟网络实现机制(mechansim);并通过驱动的形式进行扩展
+不同的网络类型对应不同的类型驱动(type driver);由类型管理器(type manager)进行管理
+不同的网络实现机制对应不同的机制驱动(mechansim);由机制管理器(mechansim manager)进行管理
+neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
+类型驱动负责维护网络类型的状态;执行验证、创建网络等工作
+目前neutron已经实现的网络类型包括：flat、local、vlan、vxlan、gre
+目前neutron已经实现的网络机制有三种类型:
+ 基于代理(agent-based): 包括linux bridge、open vswitch 基于控制器(controller-based): 包括open daylight、vmwavre NSX等 基于物理交换: 包括cisco nexus、arista、mellanox等  Mechanism drivers and L2 agents    Mechanism Driver L2 agent     Open vSwitch Open vSwitch agent   Linux bridge Linux bridge agent   SRIOV SRIOV nic switch agent   MacVTap MacVTap agent    linux bridge 代理 linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、flat、vlan、vxlan这四种网络类型,目前不支持gre
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-06-10 11:13:09 &#43;0800 CST" itemprop="dateModified">
 
@@ -2087,103 +2179,6 @@ By default, all endpoints except for shutdown are enabled.
  enable all endpoints accessed by web
 management: endpoints: enabled-by-default: true web: exposure: include: &quot;*&quot;   https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
 WebApplicationType  spring: main: web-application-type: reactive   NONE  The application should not run as a web application and should not start an embedded web server.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/thingboard/" itemprop="url">Thingboard</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<pre><code>docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb:2.3.1
-</code></pre>
-
-<h1 id="default-credentials">default credentials:</h1>
-
-<pre><code>Systen Administrator: sysadmin@thingsboard.org / sysadmin
-Tenant Administrator: tenant@thingsboard.org / tenant
-Customer User: customer@thingsboard.org / customer
-</code></pre>
-
-<h1 id="manage-device-credentials">Manage device credentials</h1>
-
-<p>login as tenant</p>
-
   </div>
   
 
