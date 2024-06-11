@@ -60,3 +60,10 @@ linux bridge 是成熟可靠的neutron二层网络虚拟化技术,支持local、
 
 open vswitch可简称OVS,具有几种管控功能,而且性能更加优化,支持更多的功能,目前在openstack领域被称为主流。</p> 
 <p>它支持local、flat、vlan、vxlan、gre、geneve等所有网络类型</p> 
+
+
+
+
+
+
+[openstack——Neutron基本架构详解](https://blog.csdn.net/Lfwthotpt/article/details/104698764)
