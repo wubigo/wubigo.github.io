@@ -1,9 +1,30 @@
----
-layout: post
-title: machine learning basic
-date: 2017-01-03
-tag: DeepLearning
----
++++
+title = "machine learning basic"
+date = 2017-04-25T15:41:55+08:00
+draft = false
+
+# Tags and categories
+# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
+tags = ["DeepLearning", "RNN", "LLM", "AI"]
+categories = []
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+[image]
+  # Caption (optional)
+  caption = ""
+
+  # Focal point (optional)
+  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  focal_point = ""
++++
+
+
+# 机器学习是统计模型
+
+对文本标签配对进行统计模型训练，使模型能够使用代表消息意图的预定义标签对未知输入文本进行分类
+
+a statistical model is trained on text-label pairings, enabling the model to classify unknown input text with a pre-defined label representing the intention of the message
 
 # Early neural networks
 Although the core ideas of neural networks were investigated in toy
