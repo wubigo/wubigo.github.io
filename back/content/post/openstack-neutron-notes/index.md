@@ -62,8 +62,19 @@ open vswitch可简称OVS,具有几种管控功能,而且性能更加优化,支�
 <p>它支持local、flat、vlan、vxlan、gre、geneve等所有网络类型</p> 
 
 
+## the key differences between neutron  ML2/ovs and ML2/ovn
+
+| Detail      | ml2/ovs |  ml2/ovn  |
+| ----------- | ----------- |----------- |
+|agent/server communication| rabbit mq messaging + RPC.|ovsdb protocol on the NorthBound and SouthBound databases.|
+|E/W traffic|goes through network nodes when the router is not distributed (DVR).|completely distributed in all cases.|
+|Trunk Ports|Trunk ports are built by creating br-trunk-xxx bridges and patch ports.|Trunk ports live in br-int as OpenFlow rules, while subports are directly attached to br-int.|
 
 
+
+
+
+[https://docs.openstack.org/neutron/latest/ovn/faq/index.html](https://docs.openstack.org/neutron/latest/ovn/faq/index.html)
 
 
 [openstack——Neutron基本架构详解](https://blog.csdn.net/Lfwthotpt/article/details/104698764)
