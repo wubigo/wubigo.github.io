@@ -586,6 +586,40 @@ neutron 支持的每一种网络类型都有一个对应的ML2类型驱动
 <p>open vswitch可简称OVS,具有几种管控功能,而且性能更加优化,支持更多的功能,目前在openstack领域被称为主流。</p>
 <p>它支持local、flat、vlan、vxlan、gre、geneve等所有网络类型</p></p>
 
+<h2 id="the-key-differences-between-neutron-ml2-ovs-and-ml2-ovn">the key differences between neutron  ML2/ovs and ML2/ovn</h2>
+
+<table>
+<thead>
+<tr>
+<th>Detail</th>
+<th>ml2/ovs</th>
+<th>ml2/ovn</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>agent/server communication</td>
+<td>rabbit mq messaging + RPC.</td>
+<td>ovsdb protocol on the NorthBound and SouthBound databases.</td>
+</tr>
+
+<tr>
+<td>E/W traffic</td>
+<td>goes through network nodes when the router is not distributed (DVR).</td>
+<td>completely distributed in all cases.</td>
+</tr>
+
+<tr>
+<td>Trunk Ports</td>
+<td>Trunk ports are built by creating br-trunk-xxx bridges and patch ports.</td>
+<td>Trunk ports live in br-int as OpenFlow rules, while subports are directly attached to br-int.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://docs.openstack.org/neutron/latest/ovn/faq/index.html" target="_blank">https://docs.openstack.org/neutron/latest/ovn/faq/index.html</a></p>
+
 <p><a href="https://blog.csdn.net/Lfwthotpt/article/details/104698764" target="_blank">openstack——Neutron基本架构详解</a></p>
 
     </div>
