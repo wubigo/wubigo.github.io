@@ -6,10 +6,21 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Mar 2024 09:43:56 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Apr 2025 14:10:47 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Security Analysis Llm Agent</title>
+      <link>https://wubigo.com/post/security-analysis-llm-agent/</link>
+      <pubDate>Wed, 16 Apr 2025 14:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/security-analysis-llm-agent/</guid>
+      <description>以下是构建证券投资Agent的系统化设计方案，涵盖架构设计、核心功能与技术实现路径，结合自动化分析与决策优势：
+一、股票投资Agent架构设计 graph TD A[数据源] --&amp;gt; B[数据采集层] B --&amp;gt; C[数据处理层] C --&amp;gt; D[分析决策层] D --&amp;gt; E[执行层] D --&amp;gt; F[监控反馈层] E --&amp;gt; G[交易平台] F --&amp;gt; D G --&amp;gt; H[用户终端]  1. 数据采集层  数据源类型：  市场行情：实时K线/Tick数据（通过CTP接口或Wind API） 基本面数据：财务报表、行业研报（Tushare/同花顺iFinD） 另类数据：社交媒体情绪（Twitter/雪球情感分析）、供应链数据（海关进出口）  技术实现：  使用Python异步框架（如Celery）实现多源数据并行抓取 部署增量更新机制（如记录最后采集时间戳）   2. 数据处理层  关键处理模块：
+# 示例：技术指标计算引擎 def compute_technical(df): df[&#39;MA20&#39;] = ta.SMA(df[&#39;close&#39;], timeperiod=20) df[&#39;RSI&#39;] = ta.RSI(df[&#39;close&#39;], timeperiod=14) df[&#39;MACD&#39;],_,_ = ta.MACD(df[&#39;close&#39;], fastperiod=12, slowperiod=26, signalperiod=9) return df  特征工程：</description>
+    </item>
     
     <item>
       <title>本地大模型知识库问答</title>

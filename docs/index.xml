@@ -5,8 +5,298 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Mar 2024 09:43:56 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Apr 2025 14:10:47 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Security Analysis Llm Agent</title>
+      <link>https://wubigo.com/post/security-analysis-llm-agent/</link>
+      <pubDate>Wed, 16 Apr 2025 14:10:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/security-analysis-llm-agent/</guid>
+      <description>
+
+&lt;p&gt;以下是构建&lt;strong&gt;证券投资Agent&lt;/strong&gt;的系统化设计方案，涵盖架构设计、核心功能与技术实现路径，结合自动化分析与决策优势：&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;一-股票投资agent架构设计&#34;&gt;&lt;strong&gt;一、股票投资Agent架构设计&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph TD
+    A[数据源] --&amp;gt; B[数据采集层]
+    B --&amp;gt; C[数据处理层]
+    C --&amp;gt; D[分析决策层]
+    D --&amp;gt; E[执行层]
+    D --&amp;gt; F[监控反馈层]
+    E --&amp;gt; G[交易平台]
+    F --&amp;gt; D
+    G --&amp;gt; H[用户终端]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;1-数据采集层&#34;&gt;&lt;strong&gt;1. 数据采集层&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据源类型&lt;/strong&gt;：
+
+&lt;ul&gt;
+&lt;li&gt;市场行情：实时K线/Tick数据（通过CTP接口或Wind API）&lt;/li&gt;
+&lt;li&gt;基本面数据：财务报表、行业研报（Tushare/同花顺iFinD）&lt;/li&gt;
+&lt;li&gt;另类数据：社交媒体情绪（Twitter/雪球情感分析）、供应链数据（海关进出口）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术实现&lt;/strong&gt;：
+
+&lt;ul&gt;
+&lt;li&gt;使用Python异步框架（如Celery）实现多源数据并行抓取&lt;/li&gt;
+&lt;li&gt;部署增量更新机制（如记录最后采集时间戳）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;2-数据处理层&#34;&gt;&lt;strong&gt;2. 数据处理层&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;关键处理模块&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# 示例：技术指标计算引擎
+def compute_technical(df):
+  df[&#39;MA20&#39;] = ta.SMA(df[&#39;close&#39;], timeperiod=20)
+  df[&#39;RSI&#39;] = ta.RSI(df[&#39;close&#39;], timeperiod=14)
+  df[&#39;MACD&#39;],_,_ = ta.MACD(df[&#39;close&#39;], fastperiod=12, slowperiod=26, signalperiod=9)
+  return df
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;特征工程&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;滞后特征（如前5日收益率）&lt;/li&gt;
+&lt;li&gt;波动率特征（布林带宽度）&lt;/li&gt;
+&lt;li&gt;行业相对强弱（个股RSI vs 行业ETF RSI）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;3-分析决策层&#34;&gt;&lt;strong&gt;3. 分析决策层&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多策略融合框架&lt;/strong&gt;
+| 策略类型       | 模型示例                  | 适用场景               |
+|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
+| 趋势跟踪       | 双均线交叉策略            | 单边行情              |
+| 均值回归       | RSI超买超卖策略           | 震荡行情              |
+| 事件驱动       | 财报公布后跳空缺口策略    | 特定时间窗口          |
+| 机器学习       | LSTM价格预测+随机森林分类 | 非线性关系捕捉        |&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;4-执行层&#34;&gt;&lt;strong&gt;4. 执行层&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;智能订单算法&lt;/strong&gt;：
+
+&lt;ul&gt;
+&lt;li&gt;TWAP（时间加权平均）：适用于大单拆解&lt;/li&gt;
+&lt;li&gt;VWAP（成交量加权）：匹配市场交易节奏&lt;/li&gt;
+&lt;li&gt;冰山订单：隐藏真实交易量&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;风险检查模块&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def risk_check(order):
+  if order.amount &amp;gt; position_limit * 0.1:  # 单笔交易不超过仓位10%
+      return False
+  if volatility &amp;gt; 0.05 and order.type == &#39;market&#39;:  # 高波动时禁止市价单
+      return &#39;switch_to_limit_order&#39;
+  return True
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;5-监控反馈层&#34;&gt;&lt;strong&gt;5. 监控反馈层&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实时仪表盘指标&lt;/strong&gt;：
+
+&lt;ul&gt;
+&lt;li&gt;策略胜率/盈亏比&lt;/li&gt;
+&lt;li&gt;最大回撤/夏普比率&lt;/li&gt;
+&lt;li&gt;行业集中度预警&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在线学习机制&lt;/strong&gt;：
+
+&lt;ul&gt;
+&lt;li&gt;使用强化学习框架（如Ray RLlib）动态优化参数&lt;/li&gt;
+&lt;li&gt;异常检测（Isolation Forest识别策略失效）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;二-核心功能实现&#34;&gt;&lt;strong&gt;二、核心功能实现&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-智能选股引擎&#34;&gt;&lt;strong&gt;1. 智能选股引擎&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;多因子筛选模板&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT stock_code 
+FROM fundamental_data 
+WHERE 
+pe_ratio &amp;lt; industry_median * 0.7 AND 
+roe &amp;gt; 15 AND 
+debt_to_equity &amp;lt; 1 AND 
+revenue_growth_3y &amp;gt; 20%
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;产业链图谱分析&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;构建行业上下游关联矩阵（如锂矿→正极材料→电池→整车）&lt;/li&gt;
+&lt;li&gt;计算传导时滞（如碳酸锂价格变动对电池成本影响的滞后周期）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;2-自动化交易系统&#34;&gt;&lt;strong&gt;2. 自动化交易系统&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;高频策略示例&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def HFT_strategy(tick_data):
+  if (tick_data[&#39;bid1&#39;] &amp;gt; EMA10) and (tick_data[&#39;ask_volume&#39;] &amp;lt; 10000):
+      send_order(side=&#39;buy&#39;, price=tick_data[&#39;bid1&#39;], quantity=500)
+      set_stop_loss(price=EMA10 * 0.995)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;套利策略&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ETF一二级市场折溢价套利&lt;/li&gt;
+&lt;li&gt;期现基差回归策略&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;3-风险控制系统&#34;&gt;&lt;strong&gt;3. 风险控制系统&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;压力测试场景&lt;/strong&gt;：
+| 风险类型       | 测试方法                  | 应对措施              |
+|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|
+| 流动性风险     | 模拟大单冲击成本测试      | 动态调整订单类型      |
+| 极端行情       | 历史回撤（如2015年股灾） | 启动熔断机制         |
+| 模型失效       | 监测策略夏普比率骤降      | 切换备用策略         |&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;4-自然语言处理模块&#34;&gt;&lt;strong&gt;4. 自然语言处理模块&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;舆情分析流程&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;新闻抓取 → 情感分类（BERT模型） → 事件类型标注 → 影响评分计算
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;检测到&amp;rdquo;某光伏企业获得200亿大单&amp;rdquo; → 自动调高营收预测&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;监管层调查财务造假&amp;rdquo;新闻 → 触发持仓股扫描&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;三-技术栈选型建议&#34;&gt;&lt;strong&gt;三、技术栈选型建议&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模块&lt;/th&gt;
+&lt;th&gt;推荐工具&lt;/th&gt;
+&lt;th&gt;优势说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;数据存储&lt;/td&gt;
+&lt;td&gt;ClickHouse + Redis&lt;/td&gt;
+&lt;td&gt;高频写入与实时查询&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;回测引擎&lt;/td&gt;
+&lt;td&gt;Backtrader / Qlib&lt;/td&gt;
+&lt;td&gt;支持多资产类别与复杂事件驱动&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;机器学习&lt;/td&gt;
+&lt;td&gt;PyTorch + Optuna&lt;/td&gt;
+&lt;td&gt;动态超参数优化&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;实时计算&lt;/td&gt;
+&lt;td&gt;Flink&lt;/td&gt;
+&lt;td&gt;低延迟流处理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;可视化&lt;/td&gt;
+&lt;td&gt;Grafana + Plotly Dash&lt;/td&gt;
+&lt;td&gt;交互式分析仪表盘&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;四-关键挑战与解决方案&#34;&gt;&lt;strong&gt;四、关键挑战与解决方案&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;过拟合问题&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用Walk Forward Analysis（滚动窗口回测）&lt;/li&gt;
+&lt;li&gt;加入随机噪声测试策略鲁棒性&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;实盘延迟&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;部署FPGA加速订单处理（延迟&amp;lt;1微秒）&lt;/li&gt;
+&lt;li&gt;使用托管机房（交易所同城部署）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;监管合规&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;接入券商PB系统（如华泰证券MATIC）&lt;/li&gt;
+&lt;li&gt;设置单账户日交易限额&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;五-实践案例参考&#34;&gt;&lt;strong&gt;五、实践案例参考&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;头部量化私募架构&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;数据中台 → 因子库（3000+因子） → 组合优化器 → 风险模型 → 执行系统
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;个人投资者轻量级方案&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用聚宽JoinQuant平台策略模板&lt;/li&gt;
+&lt;li&gt;通过TradingView警报触发Python脚本交易&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;结语&#34;&gt;&lt;strong&gt;结语&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;股票投资Agent的构建需要平衡&lt;strong&gt;策略有效性&lt;/strong&gt;与&lt;strong&gt;系统稳定性&lt;/strong&gt;。建议从模拟交易开始（如使用米筐RQData），逐步验证策略逻辑，再通过Docker容器化部署实现生产环境迁移。关键是要建立持续迭代机制——根据2023年的实践数据，每周更新因子权重的Agent比静态策略收益可提升27%以上。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(注：实际开发需遵守当地金融监管规定，算法交易需向交易所报备)&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>本地大模型知识库问答</title>
@@ -2848,18 +3138,6 @@ tensor([[[7, 3, 3]],
 tensor([[ 9,  9, 11],
         [ 4,  5,  9]])
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>XDP Note</title>
-      <link>https://wubigo.com/post/xdp-note/</link>
-      <pubDate>Sun, 13 Nov 2022 08:58:23 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/xdp-note/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://wubigo.com/img/post/Netfilter-packet-flow.svg&#34; alt=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg&#34; target=&#34;_blank&#34;&gt;XDP&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

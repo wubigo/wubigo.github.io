@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
+  <meta property="og:updated_time" content="2025-04-16T14:10:47&#43;08:00">
   
 
   
@@ -398,6 +398,135 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-07-14 19:44:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 14, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/python3-notes/" itemprop="url">Python3 Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="pip安装镜像">PIP安装镜像</h1>
+
+<pre><code>mkdir ~/.pip
+cat &lt;&lt;EOF &gt; ~/.pip/pip.conf
+ [global]
+ trusted-host =  mirrors.aliyun.com
+ index-url = http://mirrors.aliyun.com/pypi/simple
+EOF
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+<h2 id="python-镜像">PYTHON 镜像</h2>
+
+<blockquote>
+<p>ERROR: Could not install packages due to an EnvironmentError:
+HTTPSConnectionPool(host=&lsquo;files.pythonhosted.org&rsquo;, port=443)</p>
+</blockquote>
+
+<p><code>$HOME/.config/pip/pip.conf</code></p>
+
+<pre><code>[global]
+
+trusted-host=mirrors.aliyun.com
+
+index-url=http://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+
+<h2 id="windows-10">WINDOWS 10</h2>
+
+<pre><code>Python 3.6.8
+</code></pre>
+
+<pre><code>  File &quot;C:\code\venv3\lib\site-packages\pip\_vendor\distlib\scripts.py&quot;, line 383, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+</code></pre>
+
+<pre><code>python -m pip uninstall pip
+python -m ensurepip
+python -m pip install -U pip
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2185,109 +2314,6 @@ URL by fileId: https://f000.backblazeb2.com/b2api/v2/b2_download_file_by_id?file
 <p>根据我们以前的经验，可以分为两个模式进行系统集成和管控：
 第一个模式是，利用我们的信息网络平台并通过数据通信、协议转换和控制模块将各弱电工程子系统运行数据和控制集成，在中央监控管理机上实现对整个建筑物的监控和管理操作。另一种建设方式是在5A集成之上的系统集成即一体化建设，与楼宇设备自控系统工程，保安监控及防盗报警系统工程，通讯系统工程，物业管理，综合布线系统工程，火灾报警系统工程等通过通信网络系统、信息网络系统实现更高层的建筑集成管理系统。需要根据医院的现有情况选择合理的建设模式。
 在集成过程中遇到的普遍问题是通信协议，数据格式，系统兼容上会出问题，或者有些专业系统不提供开放接口，另一方面经常遇到问题的各个专业的子系统提供的数据上报和设备控制接口不稳定，不兼容；还有一个重要的问题我们集成本身的数据处理也会是一个瓶颈。</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-03-30 02:27:21 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-03-30 02:27:21 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 30, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/ad-blocking/" itemprop="url">广告拦截</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>上网，最让人无法忍受的是大量的广告影响自己的有限的注意力。</p>
-
-<p>以前的做法是尽量避免浏览带有大量广告的网站。</p>
-
-<p>今天介绍几款可以主动屏蔽商业广告的工具。</p>
-
-<h2 id="基于操作系统">基于操作系统</h2>
-
-<hr />
-
-<p><a href="https://github.com/pi-hole/pi-hole" target="_blank">https://github.com/pi-hole/pi-hole</a></p>
-
-<h2 id="基于浏览器">基于浏览器</h2>
-
-<hr />
-
-<p>Adblock Plus | The world&rsquo;s # 1 free ad blocker</p>
-
-<p><img src="/img/post/ad-blocking.png" alt="" /></p>
 
   </div>
   

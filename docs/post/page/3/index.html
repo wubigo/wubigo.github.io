@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2024-03-27T09:43:56&#43;08:00">
+  <meta property="og:updated_time" content="2025-04-16T14:10:47&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-22 11:59:36 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 22, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/lambda-redeploy-across-region/" itemprop="url">Lambda Redeploy Across Region</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    计算时间 vs 请求数量 平均计算时长 427586 / 27386 = 15.6 (秒)
+设置默认配置 aws configure list-profiles default us-east-1 us-east-2 us-west-2 us-west-1 eu eu-west-1 af-south-1 ap-east-1 ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ca-central-1 eu-west-2 eu-south-1 eu-west-3 eu-north-1 me-south-1 sa-east-1 export AWS_PROFILE=us  下载部署包 aws lambda get-function --function-name webdriver &quot;Code&quot;: { &quot;RepositoryType&quot;: &quot;S3&quot;, &quot;Location&quot;: &quot;https://awslambda-ap-ne-1-tasks.s3.ap-northeast-1.amazonaws.com/snapshots/webdriver-aeb2eb63-9baf-4d06-9d3a-79459b172200?versionId=a71tk2dwwmvW1lPNB5VHKq8SbGS3laqE&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHIaDmFwLW5vcnRoZWFzdC0xIkcwRQIhAMRkIxPh1Fkd2nlCzgiDbsrmnCZEVunHibw2Cm6cyRIUAiB5t60IO6iESPDeUsTuQEjGyLfI73QyMK1mJY9Al70yECqNBAj8%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAIaDDkxOTk4MDkyNTEzOSIMjVD0S8e1HGmJujr6KuEDO8SCL9OcolFOwL4IKMbE3euJLEtiGjSxH6c8jRPbnjp07Zf%2BxrOfJmWT2MORQs0RAQSLJV5nOFfRWTIPI4dSNhI3Q628XqklZ8%2BF1UktvA5vRdEU3LhDvOSsDCmL19k&amp;X-Amz-Signature=7f876918ec5283db390a3037512e7ad62e434330ec3e406db18b25f25f3da0fe&quot;  从Location下载部署包
+PROF = &quot;eu-central-1&quot; aws lambda create-function --function-name webdriver --runtime nodejs12.x --zip-file fileb:///home/ubuntu/webdriver.zip --handler index.handler --role arn:aws:iam::762491489154:role/service-role/webdriver-role-3hxi35t5 --timeout 63 --memory-size 1024 --layers arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:25 --profile us  配置 role-policy.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2177,97 +2261,6 @@ curl http://127.0.0.1:8080/
 <p>但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。</p>
 
 <p>而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:34:27 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/year-end-review-2020/" itemprop="url">2020年终总结</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="项目">项目</h2>
-
-<p>2020承接的是一个银行数据中心智能运营平台项目，这个项目需求之前由公司的售前</p>
-
-<p>和银行的运维部门沟通了一年多确定下来。我以技术负责人的身份在年初加入这个项目。</p>
-
-<p>加入不到半个月，客户就要求我们提供智能运营平台项目产品架构说明书和产品开发规划</p>
 
   </div>
   
