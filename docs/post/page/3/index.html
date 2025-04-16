@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T14:10:47&#43;08:00">
+  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
   
 
   
@@ -398,6 +398,89 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 28, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/quasar-app-flow/" itemprop="url">Quasar App Flow</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    CQuasar App Flow In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:
+Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets) Quasar Extras get imported (Roboto font – if used, icons, animations, …) Quasar CSS &amp; your app’s global CSS are imported App.vue is loaded (not yet being used) Store is imported (if using Vuex Store in src/store) Router is imported (in src/router) Boot files are imported Router default export function executed Boot files get their default export function executed (if on Electron mode) Electron is imported and injected into Vue prototype (if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps Instantiating Vue with root component and attaching to DOM
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2173,95 +2256,6 @@ curl http://127.0.0.1:8080/
 想来想去，还真有一个地方也是这样。学校给我带来的最大的收益——而且时间越长就看得越清楚的那部分收益——是同学。
 就像我自己，1990年到1994年，在武汉的华中科技大学新闻系上学。当时一看周围，一群灰头土脸的同学，十几岁的毛孩子，“谁的青春不迷茫”。
 但是，毕业之后，将近30年，大家分头奋斗。突然有一天就发现，我的同学们都成长为了各行各业的中坚力量。大家互相帮忙、守望相助的能力都在提高。
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-12-31 18:59:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-12-31 18:59:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/container-support-for-lambda/" itemprop="url">函数服务容器化</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>函数计算最大的卖点是只用交付业务代码，业务代码在预定义的被托管的可执行环境执行。</p>
-
-<p>由可执行环境管理基础架构，网络，操作系统。</p>
-
-<p>但问题是可执行环境包含一个特定的运行时。有可能业务需要的类库在该运行时并不存在。</p>
-
-<p>而函数服务容器支持任意容器镜像作为函数服务的可执行环境能很好的解决这一问题。</p>
-
   </div>
   
 

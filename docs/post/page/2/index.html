@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T14:10:47&#43;08:00">
+  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
   
 
   
@@ -398,6 +398,84 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-07-22 22:05:52 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-07-22 22:05:52 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 22, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/kvm-over-ip/" itemprop="url">KVM(Keyboard, Video, and Mouse) Over IP</a>
+  </h3>
+
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2136,89 +2214,6 @@ node_modules/playwright-chromium/.local-browsers/chromium-792639
   <div class="article-style" itemprop="articleBody">
     创建函数 npm install -g serverless@2.65.0 sls -v Framework Core: 2.65.0 Plugin: 5.5.1 SDK: 4.3.0 Components: 3.17.2 sls create -t azure-nodejs -p azure-fn cd azure-fn npm install  npm list |grep serverless-azure-functions └─┬ serverless-azure-functions@2.1.3  部署函数 set AZURE_SUBSCRIPTION_ID=02a23ad5- set AZURE_TENANT_ID=e9950462 set AZURE_CLIENT_ID=39258bc8 set AZURE_CLIENT_SECRET=hYdvD0 sls deploy --dryrun  测试 sls invoke -f hello -d '{&quot;name&quot;: &quot;Azure&quot;}'  清理 empty.json
 { &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&quot;, &quot;contentVersion&quot;: &quot;1.0.0.0&quot;, &quot;parameters&quot;: { }, &quot;variables&quot;: { }, &quot;resources&quot;: [ ], &quot;outputs&quot;: { } }   az group deployment create --mode complete --template-file .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-10-28 15:53:54 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 28, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/quasar-app-flow/" itemprop="url">Quasar App Flow</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    CQuasar App Flow In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:
-Quasar is initialized (components, directives, plugins, Quasar i18n, Quasar icon sets) Quasar Extras get imported (Roboto font – if used, icons, animations, …) Quasar CSS &amp; your app’s global CSS are imported App.vue is loaded (not yet being used) Store is imported (if using Vuex Store in src/store) Router is imported (in src/router) Boot files are imported Router default export function executed Boot files get their default export function executed (if on Electron mode) Electron is imported and injected into Vue prototype (if on Cordova mode) Listening for “deviceready” event and only then continuing with following steps Instantiating Vue with root component and attaching to DOM
   </div>
   
 
