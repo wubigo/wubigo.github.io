@@ -1,4 +1,4 @@
-echo off
+echo oN
 
 set NAME=%1
 
