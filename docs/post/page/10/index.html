@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
   
 
   
@@ -398,6 +398,94 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
+<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 26, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-step-function-with-local-lambda/" itemprop="url">基于local stack的Step Function本地化开发</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装AWS CLI
+(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
+可以安装到系统环境
+ 配置AWS CLI
+(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
+$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
+(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2097,91 +2185,6 @@ export no_proxy=localhost,127.0.0.1,192.168.99.100
   <div class="article-style" itemprop="articleBody">
     <p><a href="https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/" target="_blank">https://kubernetes.io/blog/2018/11/07/grpc-load-balancing-on-kubernetes-without-tears/</a></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 28, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/groovy-notes/" itemprop="url">Groovy Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Allow more ways of creating objects using literals
- Introduce new datatypes together with their operators and expressions.
-  Closure simple abbreviated syntax of closures: after a method call, put code in braces with parameters delimited from the closure body by an arrow.
-log = '' (1..10).each{ log += it } assert log == '12345678910' log = '' (1..10).each{ counter -&gt; log += counter } assert log == '12345678910'  A second way of declaring a closure is to directly assign it to a variable:
   </div>
   
 

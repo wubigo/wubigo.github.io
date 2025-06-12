@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
   
 
   
@@ -398,6 +398,106 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 23, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
+snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
+
+<pre><code>$snap start microK8S
+$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
+$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
+
+
+</code></pre>
+
+<p>for resource under namespace kube-system
+all-namespaces don&rsquo;t include kube-system</p>
+
+<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
+
+</code></pre>
+
+<p><a href="https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf" target="_blank">https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2163,94 +2263,6 @@ zip function.zip index.js  aws lambda create-function --function-name my-functio
 <pre><code>docker run --rm -v d:/tmp:/data alpine ls /data
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-09-26 14:43:54 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 26, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/aws-step-function-with-local-lambda/" itemprop="url">基于local stack的Step Function本地化开发</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装AWS CLI
-(venv) d:\code\venv&gt;pip install awscli pip install awscli-local   awslocal = aws &ndash;endpoint-url=http://localhost:
-可以安装到系统环境
- 配置AWS CLI
-(venv) d:\code\venv&gt;aws configure AWS Access Key ID [None]: any-id-is-ok AWS Secret Access Key [None]: fake-key Default region name [local]: local Default output format [None]:   命令行自动完成
-$which aws_completer ~/code/venv/bin/aws_completer   tee ~/.bashrc &lt;&lt;-'EOF' complete -C '~/code/venv/bin/aws_completer' aws EOF   安装AWS SAM CLI
-(venv) d:\code&gt;pip install aws-sam-cli (venv) d:\code&gt;sam --version SAM CLI, version 0.
   </div>
   
 

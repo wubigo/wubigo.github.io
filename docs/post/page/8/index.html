@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
   
 
   
@@ -398,6 +398,95 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-02-16 07:00:41 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 16, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/file-system-notes/" itemprop="url">文件系统的持久化特性</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>大多数重要的应用程序都是在文件系统的基础上构建，而不是在原始磁盘上
+构建。例如LEVELDB.</p>
+
+<p>文件系统在系统崩溃恢复所表现的行为，我们称之为持久化属性，大概分为
+两类：原子操作和顺序操作</p>
+
+<p>[1] <a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-pillai.pdf" target="_blank">All File Systems Are Not Created Equal</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2250,106 +2339,6 @@ resource &quot;aws_iam_role_policy&quot; &quot;s3_policy&quot; { name = &quot;s3
     运行环境 terraform -v Terraform v0.12.16 + provider.aws v2.39.0  创建函数 main.js
 'use strict' exports.handler = function(event, context, callback) { var response = { statusCode: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body: '&lt;p&gt;Hello world!&lt;/p&gt;' } callback(null, response) }  zip ../example.zip main.js  上传 awslocal s3api create-bucket --bucket=terraform-serverless-example awslocal s3 cp example.zip s3://terraform-serverless-example/v1.0.0/example.zip  创建资源 lambda.tf
 resource &quot;aws_lambda_function&quot; &quot;example&quot; { function_name = &quot;ServerlessExample&quot; # The bucket name as created earlier with &quot;aws s3api create-bucket&quot; s3_bucket = &quot;terraform-serverless-example&quot; s3_key = &quot;v1.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2018-11-23 00:00:00 &#43;0000 UTC" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 23, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/2018-11-24-microk8s/" itemprop="url">MicroK8S</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>Normally, ${SNAP_DATA} points to /var/snap/microK8S/current.
-snap.microK8S.daemon-docker, is the docker daemon started using the arguments in ${SNAP_DATA}/args/dockerd</p>
-
-<pre><code>$snap start microK8S
-$microK8S.docker pull registry.cn-beijing.aliyuncs.com/google_containers/pause:3.1
-$microK8S.docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 K8S.gcr.io/pause:3.1
-
-
-</code></pre>
-
-<p>for resource under namespace kube-system
-all-namespaces don&rsquo;t include kube-system</p>
-
-<pre><code>$microK8S.kubectl describe po calico-node-4sq5r --namespace=kube-system
-
-</code></pre>
-
-<p><a href="https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf" target="_blank">https://events.static.linuxfound.org/sites/events/files/slides/2016%20-%20Linux%20Networking%20explained_0.pdf</a></p>
-
   </div>
   
 

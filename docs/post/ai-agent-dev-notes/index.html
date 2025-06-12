@@ -28,10 +28,17 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="AI智能体开发&ndash;环境搭建
+通过modelscope加速大模型下载 要检查 ModelScope SDK 的版本，可以使用以下方法（根据你的使用环境选择）：
+🔧 方法一：命令行检查（推荐）  打开终端（CMD/PowerShell/Terminal） 输入以下命令：
+pip show modelscope  查看输出中的 &ldquo;Version&rdquo; 字段：
+Name: modelscope Version: 1.26.0 # ← 这就是当前版本 Summary: ModelScope: bring the notion of Model-as-a-Service to life. ...   🐍 方法二：Python 代码检查 在 Python 环境中运行：
+import modelscope print(f&quot;ModelScope SDK 版本: {modelscope.__version__}&quot;)  输出示例：
+ModelScope SDK 版本: 1.26.0  📦 方法三：pip 列表查看 pip list | grep modelscope  输出：
+modelscope 1.26.0  🔍 版本兼容性参考表    SDK 版本 主要特性 Python 要求 重要变更     ≥ 1.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/ai-agent-dev-notes/">
 
   
 
@@ -112,15 +119,15 @@
   
 
   
-  <link rel="alternate" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="wubigo">
-  <link rel="feed" href="https://wubigo.com/post/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/post/">
+  <link rel="canonical" href="https://wubigo.com/post/ai-agent-dev-notes/">
 
   
   
@@ -135,19 +142,28 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/post/">
-  <meta property="og:title" content="Posts | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/ai-agent-dev-notes/">
+  <meta property="og:title" content="AI AGENT DEV NOTES | wubigo">
+  <meta property="og:description" content="AI智能体开发&ndash;环境搭建
+通过modelscope加速大模型下载 要检查 ModelScope SDK 的版本，可以使用以下方法（根据你的使用环境选择）：
+🔧 方法一：命令行检查（推荐）  打开终端（CMD/PowerShell/Terminal） 输入以下命令：
+pip show modelscope  查看输出中的 &ldquo;Version&rdquo; 字段：
+Name: modelscope Version: 1.26.0 # ← 这就是当前版本 Summary: ModelScope: bring the notion of Model-as-a-Service to life. ...   🐍 方法二：Python 代码检查 在 Python 环境中运行：
+import modelscope print(f&quot;ModelScope SDK 版本: {modelscope.__version__}&quot;)  输出示例：
+ModelScope SDK 版本: 1.26.0  📦 方法三：pip 列表查看 pip list | grep modelscope  输出：
+modelscope 1.26.0  🔍 版本兼容性参考表    SDK 版本 主要特性 Python 要求 重要变更     ≥ 1."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
+  <meta property="article:published_time" content="2025-06-12T10:23:07&#43;08:00">
+  
+  <meta property="article:modified_time" content="2025-06-12T10:23:07&#43;08:00">
   
 
   
 
   
 
-  <title>Posts | wubigo</title>
+  <title>AI AGENT DEV NOTES | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -363,7 +379,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -381,50 +399,18 @@
   
   
   
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Posts</h1>
+<div class="article-container pt-3">
+  <h1 itemprop="name">AI AGENT DEV NOTES</h1>
 
   
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
 
   
     
 
 
 
-<meta content="2009-03-29 15:09:22 &#43;0800 CST" itemprop="datePublished">
-<meta content="2009-03-29 15:09:22 &#43;0800 CST" itemprop="dateModified">
+<meta content="2025-06-12 10:23:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2025-06-12 10:23:07 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -437,7 +423,7 @@
     
       
     
-    <time>Mar 29, 2009</time>
+    <time>Jun 12, 2025</time>
   </span>
   
 
@@ -456,430 +442,277 @@
   
 
   
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/insurance/" itemprop="url">保险通识指南</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
     
-
-<h2 id="保险本质">保险本质</h2>
-
-<p>购买保险是为了减少预期以外的事件对被保险人的财务状况造成冲击，
-为受益人提供经济补偿减轻负担。也就是，
-用经济学原理来解释就是被保险人通过缴纳保费换取未来财务状况更大的确定性。</p>
-
-<p>打个比方，没买保险前，你未来财富现值的范围可能是 [-50万元, 200万元]，
-有负值的原因可能是各种财富损失，比如家里大火，比如治病过程中支付的高额医疗费用
-；而通过购买保险，你的未来财富现值的范围可能变成[80万, 190万]，
-虽然最大值因为要交保费而变小了，但是更加确定了
-（这个例子中波动范围从250万缩小到110万，所以未来更确定了，当然我这里举例简化了很多统计学上的东西，大家知道我想表达的意思就好)。</p>
-
-<p>保险核心是保障和转移风险。连投、万能、分红、两全是理财</p>
-
-<p>保险最大的风险是你购买的保障并不是你真正需要的保障</p>
-
-<p>国内根据保险业务类别一共有4种牌照：人寿保险、健康险、养老险和财产险。
-其中前3种牌照在目前情况下大部分经营范围实际是重叠的，
-所以可以认为是同一种，即人身险牌照。
-也就是我们常说的保险公司只分为两种：
-寿险（说人身险、人寿保险也是一个意思）公司和财险公司</p>
-
-<p>以大家熟知的“中国平安”为例，“中国平安”旗下有非常多的业务，
-其中由“平安保险”负责集团的保险业务，
-而平安保险实际再分为：平安人寿、平安健康险、平安养老和平安财险四家保险子公司负责。
-这四家公司各持有一块牌照，也就是中国平安一共有持有4块牌照经营保险业务。
-每家子公司都需单独接受偿付能力监管，集团还有总的偿付能力监管。</p>
-
-<h2 id="保险条款">保险条款</h2>
-
-<p>保险条款着重看“保险责任”和“除外责任”那两节即可</p>
-
-<h2 id="购买保险顺序">购买保险顺序</h2>
-
-<p>社保-意外险-寿险-重疾险</p>
-
-<h2 id="参考">参考</h2>
-
-<p><a href="https://post.smzdm.com/p/568110/" target="_blank">https://post.smzdm.com/p/568110/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/letsencrypt/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    certbot  Congratulations! Your certificate and chain have been saved at: /etc/letsencrypt/live/et.com/fullchain.pem Your key file has been saved at: /etc/letsencrypt/live/et.com/privkey.pem Your cert will expire on 2018-02-19. To obtain a new or tweaked version of this certificate in the future, simply run certbot again with the &ldquo;certonly&rdquo; option. To non-interactively renew all of your certificates, run &ldquo;certbot renew&rdquo;  If you like Certbot, please consider supporting our work by:   Donating to ISRG / Let&rsquo;s Encrypt: https://letsencrypt.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/piwik/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Configuring Piwik accessed via an Nginx reverse proxy public Nginx server configured as
-location ^~ /piwik/ { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Host $host; proxy_pass http://192.168.79.4/piwik/; }  config.ini.php config on piwi nginx site
-[General] proxy_client_headers[] = &quot;HTTP_X_FORWARDED_FOR&quot; proxy_client_headers[] = &quot;X-Real-IP&quot; proxy_host_headers[] = &quot;HTTP_X_FORWARDED_HOST&quot; proxy_ips[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;192.168.79.4&quot; trusted_hosts[] = &quot;&lt;public-domain-server&gt;&quot;  Configure GeoIP (PECL) With Piwik check php version
-curl http://localhost/info.php PHP Version 7.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/psql/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Basic Server Setup To start off, we need to set the password of the PostgreSQL user (role) called &ldquo;postgres&rdquo;; we will not be able to access the server externally otherwise. As the local “postgres” Linux user, we are allowed to connect and manipulate the server using the psql command.
-In a terminal, type:
-sudo -u postgres psql postgres this connects as a role with same name as the local user, i.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="" itemprop="datePublished">
-<meta content="" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 0001</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/smtp_ec2/" itemprop="url"></a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><a href="https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance" target="_blank">https://stackoverflow.com/questions/21087564/gmail-smtp-is-not-working-in-ec2-instance</a></p>
-
-<p><a href="https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay" target="_blank">https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay</a></p>
-
-<p>Go to <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a> and set Access for less secure apps to On</p>
-
-<p>goto : <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">https://accounts.google.com/DisplayUnlockCaptcha</a></p>
-
-<p>and click continue this going to allow access from other servers.</p>
-
-<p><a href="https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/" target="_blank">https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/20/">&laquo;</a></li>
-    
-    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=AI%20AGENT%20DEV%20NOTES&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fai-agent-dev-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fai-agent-dev-notes%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fai-agent-dev-notes%2f&amp;title=AI%20AGENT%20DEV%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fai-agent-dev-notes%2f&amp;title=AI%20AGENT%20DEV%20NOTES"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=AI%20AGENT%20DEV%20NOTES&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fai-agent-dev-notes%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
 
+  
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>AI智能体开发&ndash;环境搭建</p>
+
+<h1 id="通过modelscope加速大模型下载">通过modelscope加速大模型下载</h1>
+
+<p>要检查 ModelScope SDK 的版本，可以使用以下方法（根据你的使用环境选择）：</p>
+
+<hr />
+
+<h3 id="方法一-命令行检查-推荐">🔧 方法一：命令行检查（推荐）</h3>
+
+<ol>
+<li><strong>打开终端</strong>（CMD/PowerShell/Terminal）</li>
+
+<li><p>输入以下命令：</p>
+
+<pre><code class="language-bash">pip show modelscope
+</code></pre></li>
+
+<li><p>查看输出中的 <strong>&ldquo;Version&rdquo;</strong> 字段：</p>
+
+<pre><code>Name: modelscope
+Version: 1.26.0  # ← 这就是当前版本
+Summary: ModelScope: bring the notion of Model-as-a-Service to life.
+...
+</code></pre></li>
+</ol>
+
+<hr />
+
+<h3 id="方法二-python-代码检查">🐍 方法二：Python 代码检查</h3>
+
+<p>在 Python 环境中运行：</p>
+
+<pre><code class="language-python">import modelscope
+print(f&quot;ModelScope SDK 版本: {modelscope.__version__}&quot;)
+</code></pre>
+
+<p>输出示例：</p>
+
+<pre><code>ModelScope SDK 版本: 1.26.0
+</code></pre>
+
+<hr />
+
+<h3 id="方法三-pip-列表查看">📦 方法三：pip 列表查看</h3>
+
+<pre><code class="language-bash">pip list | grep modelscope
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>modelscope               1.26.0
+</code></pre>
+
+<hr />
+
+<h3 id="版本兼容性参考表">🔍 版本兼容性参考表</h3>
+
+<table>
+<thead>
+<tr>
+<th>SDK 版本</th>
+<th>主要特性</th>
+<th>Python 要求</th>
+<th>重要变更</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>≥ 1.13.0</td>
+<td>支持多模态大模型</td>
+<td>≥ 3.8</td>
+<td>优化了 HuggingFace 兼容性</td>
+</tr>
+
+<tr>
+<td>1.10 - 1.12</td>
+<td>增强训练加速支持</td>
+<td>≥ 3.7</td>
+<td>重构了模型部署接口</td>
+</tr>
+
+<tr>
+<td>&lt; 1.9.0</td>
+<td>基础推理功能</td>
+<td>≥ 3.6</td>
+<td>旧版API（已不推荐）</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3 id="常见问题解决">⚠️ 常见问题解决</h3>
+
+<ol>
+<li><p><strong>找不到包</strong>：</p>
+
+<pre><code class="language-bash"># 先安装 ModelScope SDK
+pip install modelscope -U
+</code></pre></li>
+
+<li><p><strong>权限错误</strong>（Linux/macOS）：</p>
+
+<pre><code class="language-bash">sudo pip install modelscope --upgrade
+</code></pre></li>
+
+<li><p><strong>版本冲突</strong>：</p>
+
+<pre><code class="language-bash"># 创建虚拟环境
+python -m venv ms-env
+source ms-env/bin/activate  # Linux/macOS
+ms-env\Scripts\activate    # Windows
+pip install modelscope==1.13.1
+</code></pre></li>
+</ol>
+
+<hr />
+
+<h3 id="升级建议">💡 升级建议</h3>
+
+<ul>
+<li><p><strong>最新稳定版</strong>（2025年6月）：</p>
+
+<pre><code class="language-bash">pip install modelscope==1.13.1 -U
+</code></pre></li>
+
+<li><p><strong>特定版本安装</strong>：</p>
+
+<pre><code class="language-bash">pip install modelscope==1.12.3
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>📌 <strong>提示</strong>：推荐保持 SDK ≥ 1.10.0 以获得完整的大模型支持（如 DeepSeek-VL, Qwen1.5-72B 等）。可通过 <code>pip list --outdated</code> 检查可升级包。</p>
+</blockquote>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

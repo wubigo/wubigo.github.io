@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-04-16T15:40:50&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
   
 
   
@@ -398,6 +398,107 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-04 13:31:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 4, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cmp-2020/" itemprop="url">云管平台(CMP)行业报告(2020)</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>云管平台赋能企业在多云环境下，对服务或资源自身和生命周期进行自动化的管理。</p>
+
+<p>当前行业主要聚焦在可用行，成本管理，云安全。</p>
+
+<h2 id="平台支持要求">平台支持要求</h2>
+
+<ul>
+<li><p>公有云</p></li>
+
+<li><p>私有云(openstack/VMWARE/K8S)</p></li>
+</ul>
+
+<h2 id="总概">总概</h2>
+
+<p><img src="/img/post/Gartner-Magic-Quadrant-for-Cloud-Management-Platforms-Chart-2020.jpg" alt="" /></p>
+
+<p><a href="https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/" target="_blank">https://solutionsreview.com/cloud-platforms/whats-changed-2020-gartner-magic-quadrant-for-cloud-management-platforms/</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2356,130 +2457,6 @@ WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/ho
 <p><a href="https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution" target="_blank">https://www.huawei.com/en/press-events/news/2019/1/huawei-releases-wireless-fiber-solution</a></p>
 
 <p><a href="https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml" target="_blank">https://www.techdirt.com/articles/20190904/08392642916/colorado-town-offers-1-gbps-60-after-years-battling-comcast.shtml</a></p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-09-13 07:07:56 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Sep 13, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-proxy/" itemprop="url">Docker Proxy for daemon and client</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="docker-deamon-proxy">DOCKER DEAMON PROXY</h1>
-
-<ul>
-<li>systemd level</li>
-</ul>
-
-<p><code>/etc/systemd/system/docker.service.d/https-proxy.conf</code></p>
-
-<pre><code>[Service]
-Environment=&quot;http_proxy=http://127.0.0.1:8123&quot; &quot;https_proxy=https://127.0.0.1:8123&quot; &quot;NO_PROXY=registry-1.docker.io&quot;
-</code></pre>
-
-<pre><code>sudo systemctl daemon-reload
-sudo systemctl restart docker
-</code></pre>
-
-<ul>
-<li>service level</li>
-</ul>
-
-<p><code>/etc/default/docker</code></p>
-
-<pre><code>export http_proxy=&quot;http://127.0.0.1:3128/&quot;
-</code></pre>
-
-<ul>
-<li>daemon level</li>
-</ul>
-
-<p><code>/etc/docker/daemon</code></p>
-
-<h1 id="docker-client-proxy">DOCKER CLIENT PROXY</h1>
-
-<p><code>~/.docker/config.json</code></p>
-
-<pre><code>       &quot;proxies&quot;:{
-                &quot;default&quot;:{}
-        }
-
-</code></pre>
 
   </div>
   
