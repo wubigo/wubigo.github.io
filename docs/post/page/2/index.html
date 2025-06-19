@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-17T16:42:02&#43;08:00">
   
 
   
@@ -398,6 +398,115 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-10-29 16:04:45 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-10-29 16:04:45 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 29, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/change-images-and-containers-directory-for-docker-desktop-with-wsl2-backend/" itemprop="url">Change Images and Containers Directory for Docker Desktop With WSL2 Backend</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="quit-docker-desktop">Quit docker-desktop</h1>
+
+<pre><code>wsl --shutdown
+
+</code></pre>
+
+<h1 id="export-docker-desktop-data">Export Docker Desktop data</h1>
+
+<pre><code>wsl --export docker-desktop-data D:\data.tar
+wsl --unregister docker-desktop-data
+</code></pre>
+
+<h1 id="import-the-exported-data-to-your-desired-location">Import the exported data to your desired location</h1>
+
+<pre><code>wsl --import docker-desktop-data D:\wsl\docker-desktop-data  d:\data.tar --version 2
+</code></pre>
+
+<h1 id="restart-docker-desktop">restart docker-desktop</h1>
+
+<pre><code>λ wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu2                Running         2
+  docker-desktop-data    Running         2
+  docker-desktop         Running         2
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2200,92 +2309,6 @@ output = table
   
   <div class="article-style" itemprop="articleBody">
     AZURE REGION az account list-locations --query &quot;sort_by([].{DisplayName:displayName, Name:name}, &amp;DisplayName)&quot; --output table  创建函数APP #!/bin/bash # Function app and storage account names must be unique. storageName=mystorageaccount$RANDOM functionAppName=myserverlessfunc$RANDOM region=westeurope # Create a resource group. az group create --name myResourceGroup --location $region # Create an Azure storage account in the resource group. az storage account create \ --name $storageName \ --location $region \ --resource-group myResourceGroup \ --sku Standard_LRS # Create a serverless function app in the resource group.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-11-06 23:07:10 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-11-06 23:07:10 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 6, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/lambda-in-azure-with-azure-functions-core-tools/" itemprop="url">Lambda in Azure With Azure Functions Core Tools</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    安装FUNC npm i -D azure-functions-core-tools@3 export PATH=./ export CLI_DEBUG=1 func host start --verbose  安装playwright-chromium export PLAYWRIGHT_BROWSERS_PATH=0 npm install playwright-chromium@1.3.0  确认chrome的存放路径
-node_modules/playwright-chromium/.local-browsers/chromium-792639
-创建函数 /home/ubuntu/sls/azure-sls/node_modules/.bin/func init func new func start  本地测试 export CLI_DEBUG=1 func host start --verbose  host.json
-{ &quot;version&quot;: &quot;2.0&quot;, &quot;logging&quot;: { &quot;applicationInsights&quot;: { &quot;samplingSettings&quot;: { &quot;isEnabled&quot;: true, &quot;excludedTypes&quot;: &quot;Request&quot; } } }, &quot;extensionBundle&quot;: { &quot;id&quot;: &quot;Microsoft.Azure.Functions.ExtensionBundle&quot;, &quot;version&quot;: &quot;[2.*, 3.0.0)&quot; } }  如果遇到如下问题
- Value cannot be null.
   </div>
   
 

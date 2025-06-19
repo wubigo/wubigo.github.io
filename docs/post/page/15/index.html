@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-17T16:42:02&#43;08:00">
   
 
   
@@ -398,6 +398,112 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-04-28 17:08:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/spring-oauth2/" itemprop="url">Spring Oauth2</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="为什么要使用oidc">为什么要使用OIDC</h1>
+
+<p>只使用基本OAUTH2认证是不安全因为无法保证与用户的访问令牌是真实的。使用
+OIDC可以做到这一点</p>
+
+<p><a href="https://security.stackexchange.com/questions/37818/why-use-openid-connect-instead-of-plain-oauth2/260519#260519" target="_blank">https://security.stackexchange.com/questions/37818/why-use-openid-connect-instead-of-plain-oauth2/260519#260519</a></p>
+
+<h1 id="hasrole">hasRole</h1>
+
+<p>a role is just an authority with a special ROLE_ prefix. So in Spring security 3 @PreAuthorize(&ldquo;hasRole(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;) and in Spring security 4 @PreAuthorize(&ldquo;hasRole(&lsquo;XYZ&rsquo;)&rdquo;) is the same as @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_XYZ&rsquo;)&ldquo;).</p>
+
+<p><a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+
+<p>curl -u eagleeye:thisissecret -i -H &lsquo;Accept:application/json&rsquo;  -d &ldquo;grant_type=password&amp;scope=webclient&amp;username=will&amp;password=pass&rdquo; -H &ldquo;Content-Type: application/x-www-form-urlencoded&rdquo; -X POST <a href="http://localhost:8080/oauth/token" target="_blank">http://localhost:8080/oauth/token</a></p>
+
+<p><img src="./basic-auth.png" alt="" /></p>
+
+<p><img src="./post-form.png" alt="" /></p>
+
+<h1 id="access-protected-resource">access protected resource</h1>
+
+<p><img src="./res.png" alt="" /></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2133,84 +2239,6 @@ kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/na
 # generate a random password PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1) kubectl -n openfaas create secret generic basic-auth \ --from-literal=basic-auth-user=admin \ --from-literal=basic-auth-password=&quot;$PASSWORD&quot;  在本地helm仓库增加openfaas
 helm repo add openfaas https://openfaas.github.io/faas-netes/ &quot;openfaas&quot; has been added to your repositories   开始安装 helm repo update \ &amp;&amp; helm upgrade openfaas --install openfaas/openfaas \ --namespace openfaas \ --set basic_auth=true \ --set functionNamespace=openfaas-fn  默认通过NodePorts方式访问openfaas控制台
   </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-02 17:45:14 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 2, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    0 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-network-host/" itemprop="url">Docker Network Host</a>
-  </h3>
-
   
 
   

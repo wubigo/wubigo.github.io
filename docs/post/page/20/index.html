@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-06-12T10:23:07&#43;08:00">
+  <meta property="og:updated_time" content="2025-06-17T16:42:02&#43;08:00">
   
 
   
@@ -398,6 +398,90 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2012-08-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 4, 2012</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2012-08-04-ansible/" itemprop="url">ansible note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    update python to 2.7.11 on ubuntu apt_repository need python &gt;2.7.9 ansible_galaxy has bug on ansible1.9.4 on proxy https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
+$sudo -E apt-add-repository ppa:fkrull/deadsnakes-python2.7 (deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu trusty main) $sudo -E apt-get install --only-upgrade python2.7 $python --version Python 2.7.11  Install $ sudo -E apt-get install software-properties-common $ sudo -E apt-add-repository ppa:ansible/ansible $ sudo -E apt-get update $ sudo -E apt-get install &ndash;only-upgrade ansible Install latest ansible $git clone git://github.com/ansible/ansible.git &ndash;recursive
+$virtualenv -p /home/whg/python2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2202,91 +2286,6 @@ The Stream Control Transmission Protocol (SCTP) [RFC 4960, RFC 3286] is a reliab
 真正有益于世界的做法不是除恶，而是行善；不是打击负能量，而是弘扬正能量
 </code></pre>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="datePublished">
-<meta content="2010-01-01 15:06:20 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jan 1, 2010</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/java-notes/" itemprop="url">Java Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    线程同步模式：用户态和内核态 线程间的同步方法大体可分为两类：用户模式和内核模式。顾名思义，内核模式 就是指利用系统内核对象的单一性来进行同步，使用时需要切换内核态与用户态， 而用户模式就是不需要切换到内核态，只在用户态完成操作。
- 用户模式下的方法有：原子操作（例如一个单一的全局变量），临界区。 内核模式下的方法有：事件，信号量，互斥量  volatile 关键字 volatile 提供多线程共享变量可见性和禁止指令重排序优化：
- 对于可见性，Java 提供了 volatile 关键字来保证可见性。 当一个共享变量被 volatile 修饰时，它会保证修改的值会立即被更新到主存，当 有其他线程需要读取时，它会去内存中读取新值 禁止指令重排序优化，写操作一定在读操作之后  值传递 当一个对象被当作参数传递到一个方法后，此方法可改变 这个对象的属性，并可返回变化后的结果
-Java诊断利器Arthas curl -O https://arthas.aliyun.com/arthas-boot.jar java -jar arthas-boot.jar [arthas@9208]$ thread 1 &quot;main&quot; Id=1 TIMED_WAITING at java.base@8.0.12/java.lang.Thread.sleep(Native Method) at java.base@8.0.12/java.lang.Thread.sleep(Thread.java:339) at java.base@8.0.12/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)  JVM MEMORY MODEL javax.net.ssl.SSLException: Received fatal alert: protocol_version On Java 1.8 default TLS protocol is v1.2. On Java 1.6 and 1.7 default is obsoleted TLS1.
   </div>
   
 
