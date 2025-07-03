@@ -68,6 +68,8 @@ $nrconf{restart} = 'a'
 ```
 
 git clone https://github.com/wubigo/algo.git 
+
+sudo apt update
 git clone https://github.com/trailofbits/algo.git 
 
 sudo apt install -y python3-virtualenv
