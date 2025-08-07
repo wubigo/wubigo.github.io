@@ -77,20 +77,8 @@ sudo apt install -y python3-virtualenv
 cd algo
 sed -i 's/51820/8080/' config.cfg
 
-python3 -m virtualenv --python="$(command -v python3)" .env &&
-  source .env/bin/activate &&
-  python3 -m pip install -U pip virtualenv &&
-  python3 -m pip install -r requirements.txt
-
-ansible-playbook main.yml -e "provider=local
-                                server_name=algo
-                                ondemand_cellular=false
-                                ondemand_wifi=false
-                                dns_adblocking=true
-                                ssh_tunneling=true
-                                store_pki=true
-                                region=ams3
-                                do_token=token"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv run ansible-playbook main.yml
 
 
 
