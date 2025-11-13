@@ -32,7 +32,7 @@
 git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete! Resources: 2 added, 0 changed, 0 destroyed. Outputs: instance_id = i-069i247af71871dd9 public_ip = 13.113.195.66 ssh ubuntu@13.113.195.66 ubuntu@ip-10-12-0-247:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04 LTS Release: 20.04 Codename: focal  也可以直接在web控制台根据向导创建
 设置安全组 https://wubigo.com/post/vpn-with-wireguard/
 stop ubuntu pop-up &ldquo;Daemons using outdated libraries&rdquo; when using apt /etc/needrestart/needrestart.conf
-$nrconf{restart} = &#39;a&#39;  搭建隧道服务器(定制的端口)  git clone https://github.com/wubigo/algo.git sudo apt update git clone https://github.">
+$nrconf{restart} = &#39;a&#39;  搭建隧道服务器(定制的端口)  git clone https://github.com/wubigo/algo.git sudo apt update sudo apt install -y python3-virtualenv sudo apt install -y libffi-dev git clone https://github.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/set-up-a-personal-vpn-in-the-cloud/">
@@ -145,7 +145,7 @@ $nrconf{restart} = &#39;a&#39;  搭建隧道服务器(定制的端口)  git clon
 git clone git@github.com:wubigo/iaas.git cd iaas\aws\ec2 .\apply Apply complete! Resources: 2 added, 0 changed, 0 destroyed. Outputs: instance_id = i-069i247af71871dd9 public_ip = 13.113.195.66 ssh ubuntu@13.113.195.66 ubuntu@ip-10-12-0-247:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04 LTS Release: 20.04 Codename: focal  也可以直接在web控制台根据向导创建
 设置安全组 https://wubigo.com/post/vpn-with-wireguard/
 stop ubuntu pop-up &ldquo;Daemons using outdated libraries&rdquo; when using apt /etc/needrestart/needrestart.conf
-$nrconf{restart} = &#39;a&#39;  搭建隧道服务器(定制的端口)  git clone https://github.com/wubigo/algo.git sudo apt update git clone https://github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+$nrconf{restart} = &#39;a&#39;  搭建隧道服务器(定制的端口)  git clone https://github.com/wubigo/algo.git sudo apt update sudo apt install -y python3-virtualenv sudo apt install -y libffi-dev git clone https://github."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-07-04T21:23:10&#43;08:00">
@@ -553,12 +553,15 @@ Codename:       focal
 git clone https://github.com/wubigo/algo.git 
 
 sudo apt update
+sudo apt install -y python3-virtualenv
+sudo apt install -y libffi-dev
 git clone https://github.com/trailofbits/algo.git 
 
-sudo apt install -y python3-virtualenv
-
 cd algo
+git checkout 938cb0b5af460810277b2a434b62bac478917b07
 sed -i 's/51820/8080/' config.cfg
+
+
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
