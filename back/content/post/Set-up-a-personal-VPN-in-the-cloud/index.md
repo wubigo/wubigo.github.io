@@ -70,13 +70,16 @@ $nrconf{restart} = 'a'
 git clone https://github.com/wubigo/algo.git 
 
 sudo apt update
-sudo apt install -y python3-virtualenv
-sudo apt install -y libffi-dev
+
 git clone https://github.com/trailofbits/algo.git 
 
 cd algo
 git checkout 938cb0b5af460810277b2a434b62bac478917b07
 sed -i 's/51820/8080/' config.cfg
+
+
+sudo apt install -y python3-virtualenv
+sudo apt install -y libffi-dev
 
 
 
