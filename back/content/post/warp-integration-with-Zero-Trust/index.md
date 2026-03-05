@@ -47,7 +47,7 @@ cmd\>type conf.json
     "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG\n7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==\n-----END PUBLIC KEY-----\n",
     "account": {
         "account_type": "free",
-        "id": "6fc1743e-fe50-44e9-b46a-58f52d1f",
+        "id": "6fc1743e-fe50-b46a-58f52d1f",
         "license": "9VI4p0o6-h7T04t3P"
     },
     "policy": {
@@ -80,7 +80,7 @@ cmd\>type conf.json
         "dns": null,
         "network_health_thresholds": null
     },
-    "valid_until": "2026-03-06T11:24:19.193386Z",
+    "valid_until": "2025-12-06T11:24:19.193386Z",
     "alternate_networks": null,
     "dex_tests": null,
     "install_root_ca": false,
