@@ -90,6 +90,24 @@
 
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h1 id=&#34;dns-处理&#34;&gt;DNS 处理&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;创建本地 DNS 拦截：把系统 DNS 修改指向 ::ffff:127.0.2.2 / 127.0.2.2（WARP 内置 DNS 转发器）&lt;/li&gt;
+&lt;li&gt;实际 DNS 请求通过 DoH（DNS over HTTPS）发出，且 DoH 本身走 WARP 隧道 内（加密且受策略控制）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;典型数据流-traffic-dns-模式&#34;&gt;典型数据流（Traffic + DNS 模式）&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;应用程序发包 → Windows 协议栈&lt;/li&gt;
+&lt;li&gt;路由表指向 CloudflareWARP 接口&lt;/li&gt;
+&lt;li&gt;warp-svc 捕获包&lt;/li&gt;
+&lt;li&gt;MASQUE 加密 → UDP/QUIC 发出到 Cloudflare Edge&lt;/li&gt;
+&lt;li&gt;Cloudflare Gateway 做零信任策略（Web 过滤、DLP、CASB、SASE 等）&lt;/li&gt;
+&lt;li&gt;出站到目标服务器&lt;/li&gt;
+&lt;/ol&gt;
+
 &lt;h1 id=&#34;warp诊断&#34;&gt;WARP诊断&lt;/h1&gt;
 
 &lt;p&gt;运行warp-diag，warp把所有诊断信息及其日志信息打包，并默认发送到桌面，&lt;/p&gt;
