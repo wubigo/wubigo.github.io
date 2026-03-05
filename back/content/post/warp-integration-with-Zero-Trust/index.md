@@ -94,6 +94,20 @@ cmd\>type conf.json
 
 ```
 
+# DNS 处理
+
+- 创建本地 DNS 拦截：把系统 DNS 修改指向 ::ffff:127.0.2.2 / 127.0.2.2（WARP 内置 DNS 转发器）
+- 实际 DNS 请求通过 DoH（DNS over HTTPS）发出，且 DoH 本身走 WARP 隧道 内（加密且受策略控制）
+
+# 典型数据流（Traffic + DNS 模式）
+
+1. 应用程序发包 → Windows 协议栈
+2. 路由表指向 CloudflareWARP 接口
+3. warp-svc 捕获包
+4. MASQUE 加密 → UDP/QUIC 发出到 Cloudflare Edge
+5. Cloudflare Gateway 做零信任策略（Web 过滤、DLP、CASB、SASE 等）
+6. 出站到目标服务器
+
 # WARP诊断
 
 
