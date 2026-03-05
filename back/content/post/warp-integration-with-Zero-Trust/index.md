@@ -5,7 +5,7 @@ draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["VPN"]
+tags = ["LLM", "SDN"]
 categories = []
 
 # Featured image
@@ -19,6 +19,80 @@ categories = []
   focal_point = ""
 +++
 
+# WARP配置
+
+```
+cmd\>type conf.json
+
+{
+
+   "interface": {
+        "v4": "172.16.0.2",
+        
+    },
+    "endpoints": [
+        {
+            "v4": "13.179.198.2:443",
+        },        
+        
+        {
+            "v4": "13.179.198.2:8443",
+            
+        },
+        {
+            "v4": "13.179.198.2:8095",
+            
+        }
+    ],
+    "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG\n7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==\n-----END PUBLIC KEY-----\n",
+    "account": {
+        "account_type": "free",
+        "id": "6fc1743e-fe50-44e9-b46a-58f52d1f",
+        "license": "9VI4p0o6-h7T04t3P"
+    },
+    "policy": {
+        "onboarding": null,
+        "operation_mode": null,
+        "disable_auto_fallback": null,
+        "fallback_domains": null,
+        "proxy_port": null,
+        "exclude": null,
+        "gateway_id": null,
+        "support_url": null,
+        "allow_mode_switch": null,
+        "switch_locked": null,
+        "auto_connect": null,
+        "captive_portal": null,
+        "organization": null,
+        "allow_updates": null,
+        "allowed_to_leave": null,
+        "profile_id": null,
+        "lan_allow_minutes": null,
+        "lan_allow_subnet_size": 24,
+        "tunnel_protocol": "masque",
+        "register_interface_ip_with_dns": null,
+        
+        "sccm_vpn_boundary_support": null,
+        "speed_test_settings": null,
+        "post_quantum": "enabled_with_downgrades",
+        "doh_outside_tunnel": null,
+        "enable_pmtud": null,
+        "dns": null,
+        "network_health_thresholds": null
+    },
+    "valid_until": "2026-03-06T11:24:19.193386Z",
+    "alternate_networks": null,
+    "dex_tests": null,
+    "install_root_ca": false,
+    "subnet_cidrs": null,
+    "tunnel_key_data": {
+        "key_type": "secp256r1",
+        "tunnel_type": "masque"
+    },
+    "device_identifiers": "system_user"
+}
+
+```
 
 # WARP诊断
 
@@ -33,7 +107,7 @@ cmd\>warp-diag
 cmd\>type warp-tunnel-stats.txt
 
 Tunnel Protocol: MASQUE (HTTP/3)
-Endpoints: 162.159.198.2, ::
+Endpoints: 13.179.198.2, ::
 Time since last handshake: 2002s
 Sent: 17.7MB; Received: 59.2MB
 Estimated latency: 212ms
