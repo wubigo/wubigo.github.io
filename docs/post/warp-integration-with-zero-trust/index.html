@@ -28,9 +28,7 @@
   
     
   
-  <meta name="description" content=" WARP诊断 运行warp-diag，warp把所有诊断信息及其日志信息打包，并默认发送到桌面，
-解压分析诊断信息。
-cmd\&gt;warp-diag cmd\&gt;type warp-tunnel-stats.txt Tunnel Protocol: MASQUE (HTTP/3) Endpoints: 162.159.198.2, :: Time since last handshake: 2002s Sent: 17.7MB; Received: 59.2MB Estimated latency: 212ms Estimated loss: 0.47% TLS Handshake: Version: TLSv1.3 Post-Quantum enabled: true Elliptic curve: P256Kyber65erDraft00 Cipher suite: TLS_AES_256_GCM_SHA384  ">
+  <meta name="description" content="WARP配置 cmd\&gt;type conf.json { &quot;interface&quot;: { &quot;v4&quot;: &quot;172.16.0.2&quot;, }, &quot;endpoints&quot;: [ { &quot;v4&quot;: &quot;13.179.198.2:443&quot;, }, { &quot;v4&quot;: &quot;13.179.198.2:8443&quot;, }, { &quot;v4&quot;: &quot;13.179.198.2:8095&quot;, } ], &quot;public_key&quot;: &quot;-----BEGIN PUBLIC KEY-----\nMFkwEwIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r&#43;/h4mcG\n7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu&#43;ox&#43;k3dr6w==\n-----END PUBLIC KEY-----\n&quot;, &quot;account&quot;: { &quot;account_type&quot;: &quot;free&quot;, &quot;id&quot;: &quot;6fc1743e-fe50-44e9-b46a-58f52d1f&quot;, &quot;license&quot;: &quot;9VI4p0o6-h7T04t3P&quot; }, &quot;policy&quot;: { &quot;onboarding&quot;: null, &quot;operation_mode&quot;: null, &quot;disable_auto_fallback&quot;: null, &quot;fallback_domains&quot;: null, &quot;proxy_port&quot;: null, &quot;exclude&quot;: null, &quot;gateway_id&quot;: null, &quot;support_url&quot;: null, &quot;allow_mode_switch&quot;: null, &quot;switch_locked&quot;: null, &quot;auto_connect&quot;: null, &quot;captive_portal&quot;: null, &quot;organization&quot;: null, &quot;allow_updates&quot;: null, &quot;allowed_to_leave&quot;: null, &quot;profile_id&quot;: null, &quot;lan_allow_minutes&quot;: null, &quot;lan_allow_subnet_size&quot;: 24, &quot;tunnel_protocol&quot;: &quot;masque&quot;, &quot;register_interface_ip_with_dns&quot;: null, &quot;sccm_vpn_boundary_support&quot;: null, &quot;speed_test_settings&quot;: null, &quot;post_quantum&quot;: &quot;enabled_with_downgrades&quot;, &quot;doh_outside_tunnel&quot;: null, &quot;enable_pmtud&quot;: null, &quot;dns&quot;: null, &quot;network_health_thresholds&quot;: null }, &quot;valid_until&quot;: &quot;2026-03-06T11:24:19.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/warp-integration-with-zero-trust/">
@@ -139,9 +137,7 @@ cmd\&gt;warp-diag cmd\&gt;type warp-tunnel-stats.txt Tunnel Protocol: MASQUE (HT
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/warp-integration-with-zero-trust/">
   <meta property="og:title" content="Warp Integration With Zero Trust | wubigo">
-  <meta property="og:description" content=" WARP诊断 运行warp-diag，warp把所有诊断信息及其日志信息打包，并默认发送到桌面，
-解压分析诊断信息。
-cmd\&gt;warp-diag cmd\&gt;type warp-tunnel-stats.txt Tunnel Protocol: MASQUE (HTTP/3) Endpoints: 162.159.198.2, :: Time since last handshake: 2002s Sent: 17.7MB; Received: 59.2MB Estimated latency: 212ms Estimated loss: 0.47% TLS Handshake: Version: TLSv1.3 Post-Quantum enabled: true Elliptic curve: P256Kyber65erDraft00 Cipher suite: TLS_AES_256_GCM_SHA384  "><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:description" content="WARP配置 cmd\&gt;type conf.json { &quot;interface&quot;: { &quot;v4&quot;: &quot;172.16.0.2&quot;, }, &quot;endpoints&quot;: [ { &quot;v4&quot;: &quot;13.179.198.2:443&quot;, }, { &quot;v4&quot;: &quot;13.179.198.2:8443&quot;, }, { &quot;v4&quot;: &quot;13.179.198.2:8095&quot;, } ], &quot;public_key&quot;: &quot;-----BEGIN PUBLIC KEY-----\nMFkwEwIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r&#43;/h4mcG\n7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu&#43;ox&#43;k3dr6w==\n-----END PUBLIC KEY-----\n&quot;, &quot;account&quot;: { &quot;account_type&quot;: &quot;free&quot;, &quot;id&quot;: &quot;6fc1743e-fe50-44e9-b46a-58f52d1f&quot;, &quot;license&quot;: &quot;9VI4p0o6-h7T04t3P&quot; }, &quot;policy&quot;: { &quot;onboarding&quot;: null, &quot;operation_mode&quot;: null, &quot;disable_auto_fallback&quot;: null, &quot;fallback_domains&quot;: null, &quot;proxy_port&quot;: null, &quot;exclude&quot;: null, &quot;gateway_id&quot;: null, &quot;support_url&quot;: null, &quot;allow_mode_switch&quot;: null, &quot;switch_locked&quot;: null, &quot;auto_connect&quot;: null, &quot;captive_portal&quot;: null, &quot;organization&quot;: null, &quot;allow_updates&quot;: null, &quot;allowed_to_leave&quot;: null, &quot;profile_id&quot;: null, &quot;lan_allow_minutes&quot;: null, &quot;lan_allow_subnet_size&quot;: 24, &quot;tunnel_protocol&quot;: &quot;masque&quot;, &quot;register_interface_ip_with_dns&quot;: null, &quot;sccm_vpn_boundary_support&quot;: null, &quot;speed_test_settings&quot;: null, &quot;post_quantum&quot;: &quot;enabled_with_downgrades&quot;, &quot;doh_outside_tunnel&quot;: null, &quot;enable_pmtud&quot;: null, &quot;dns&quot;: null, &quot;network_health_thresholds&quot;: null }, &quot;valid_until&quot;: &quot;2026-03-06T11:24:19."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2025-12-05T21:26:35&#43;08:00">
@@ -505,6 +501,80 @@ cmd\&gt;warp-diag cmd\&gt;type warp-tunnel-stats.txt Tunnel Protocol: MASQUE (HT
     <div class="article-style" itemprop="articleBody">
       
 
+<h1 id="warp配置">WARP配置</h1>
+
+<pre><code>cmd\&gt;type conf.json
+
+{
+
+   &quot;interface&quot;: {
+        &quot;v4&quot;: &quot;172.16.0.2&quot;,
+        
+    },
+    &quot;endpoints&quot;: [
+        {
+            &quot;v4&quot;: &quot;13.179.198.2:443&quot;,
+        },        
+        
+        {
+            &quot;v4&quot;: &quot;13.179.198.2:8443&quot;,
+            
+        },
+        {
+            &quot;v4&quot;: &quot;13.179.198.2:8095&quot;,
+            
+        }
+    ],
+    &quot;public_key&quot;: &quot;-----BEGIN PUBLIC KEY-----\nMFkwEwIKoZIzj0DAQcDQgAEIaU7MToJm9NKp8YfGxR6r+/h4mcG\n7SxI8tsW8OR1A5tv/zCzVbCRRh2t87/kxnP6lAy0lkr7qYwu+ox+k3dr6w==\n-----END PUBLIC KEY-----\n&quot;,
+    &quot;account&quot;: {
+        &quot;account_type&quot;: &quot;free&quot;,
+        &quot;id&quot;: &quot;6fc1743e-fe50-44e9-b46a-58f52d1f&quot;,
+        &quot;license&quot;: &quot;9VI4p0o6-h7T04t3P&quot;
+    },
+    &quot;policy&quot;: {
+        &quot;onboarding&quot;: null,
+        &quot;operation_mode&quot;: null,
+        &quot;disable_auto_fallback&quot;: null,
+        &quot;fallback_domains&quot;: null,
+        &quot;proxy_port&quot;: null,
+        &quot;exclude&quot;: null,
+        &quot;gateway_id&quot;: null,
+        &quot;support_url&quot;: null,
+        &quot;allow_mode_switch&quot;: null,
+        &quot;switch_locked&quot;: null,
+        &quot;auto_connect&quot;: null,
+        &quot;captive_portal&quot;: null,
+        &quot;organization&quot;: null,
+        &quot;allow_updates&quot;: null,
+        &quot;allowed_to_leave&quot;: null,
+        &quot;profile_id&quot;: null,
+        &quot;lan_allow_minutes&quot;: null,
+        &quot;lan_allow_subnet_size&quot;: 24,
+        &quot;tunnel_protocol&quot;: &quot;masque&quot;,
+        &quot;register_interface_ip_with_dns&quot;: null,
+        
+        &quot;sccm_vpn_boundary_support&quot;: null,
+        &quot;speed_test_settings&quot;: null,
+        &quot;post_quantum&quot;: &quot;enabled_with_downgrades&quot;,
+        &quot;doh_outside_tunnel&quot;: null,
+        &quot;enable_pmtud&quot;: null,
+        &quot;dns&quot;: null,
+        &quot;network_health_thresholds&quot;: null
+    },
+    &quot;valid_until&quot;: &quot;2026-03-06T11:24:19.193386Z&quot;,
+    &quot;alternate_networks&quot;: null,
+    &quot;dex_tests&quot;: null,
+    &quot;install_root_ca&quot;: false,
+    &quot;subnet_cidrs&quot;: null,
+    &quot;tunnel_key_data&quot;: {
+        &quot;key_type&quot;: &quot;secp256r1&quot;,
+        &quot;tunnel_type&quot;: &quot;masque&quot;
+    },
+    &quot;device_identifiers&quot;: &quot;system_user&quot;
+}
+
+</code></pre>
+
 <h1 id="warp诊断">WARP诊断</h1>
 
 <p>运行warp-diag，warp把所有诊断信息及其日志信息打包，并默认发送到桌面，</p>
@@ -516,7 +586,7 @@ cmd\&gt;warp-diag cmd\&gt;type warp-tunnel-stats.txt Tunnel Protocol: MASQUE (HT
 cmd\&gt;type warp-tunnel-stats.txt
 
 Tunnel Protocol: MASQUE (HTTP/3)
-Endpoints: 162.159.198.2, ::
+Endpoints: 13.179.198.2, ::
 Time since last handshake: 2002s
 Sent: 17.7MB; Received: 59.2MB
 Estimated latency: 212ms
@@ -536,7 +606,9 @@ TLS Handshake:
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/vpn/">VPN</a>
+  <a class="badge badge-light" href="/tags/llm/">LLM</a>
+  
+  <a class="badge badge-light" href="/tags/sdn/">SDN</a>
   
 </div>
 
@@ -566,15 +638,15 @@ TLS Handshake:
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/wireguard-vpn-client-for-ubuntu/">Wireguad Vpn Client for Ubuntu</a></li>
+          <li><a href="/post/llama-cpp-python-setup-on-windows/">在 Windows 上安装 llama-cpp-python 完整指南</a></li>
           
-          <li><a href="/post/set-up-a-personal-vpn-in-the-cloud/">五分钟搭建隧道云服务</a></li>
+          <li><a href="/post/chatchat-llm-notes/">本地大模型知识库问答</a></li>
           
-          <li><a href="/project/vpn/">工业物联网云端边一体化平台</a></li>
+          <li><a href="/post/llm-notes/">LLM Notes</a></li>
           
-          <li><a href="/post/wireguard-dev-guide/">Wireguard开发参考</a></li>
+          <li><a href="/post/cloud-native-data-center-network/">Cloud Native Data Center Network</a></li>
           
-          <li><a href="/post/shadowsocks-ubuntu-client/">Shadowsocks Ubuntu Client</a></li>
+          <li><a href="/post/aws-ec2-macvaln/">Aws EC2 MACVLAN</a></li>
           
         </ul>
       </div>
