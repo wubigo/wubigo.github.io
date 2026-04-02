@@ -5,8 +5,77 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Dec 2025 21:26:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 22:52:47 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Claude Code Router Setup With Free Tier Llm</title>
+      <link>https://wubigo.com/post/claude-code-router-setup-with-free-tier-llm/</link>
+      <pubDate>Fri, 02 Jan 2026 22:52:47 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/claude-code-router-setup-with-free-tier-llm/</guid>
+      <description>
+
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+
+&lt;h2 id=&#34;安装claude-code&#34;&gt;安装claude code&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;PS C:\&amp;gt;irm https://claude.ai/install.ps1 | iex
+
+PS C:\&amp;gt;claude -v
+2.1.90 (Claude Code)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;安装claude-code-router&#34;&gt;安装claude-code-router&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;c:\&amp;gt;npm install -g @musistudio/claude-code-router
+c:\&amp;gt;ccr -v
+claude-code-router version: 2.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;配置&#34;&gt;配置&lt;/h1&gt;
+
+&lt;p&gt;创建配置文件&lt;code&gt;~/.claude-code-router/config.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;LOG&amp;quot;: true,
+  &amp;quot;PORT&amp;quot;: 3456,
+  &amp;quot;LOG_LEVEL&amp;quot;: &amp;quot;info&amp;quot;,
+  &amp;quot;Providers&amp;quot;: [{
+    &amp;quot;name&amp;quot;: &amp;quot;gemini&amp;quot;,
+    &amp;quot;api_base_url&amp;quot;: &amp;quot;https://generativelanguage.googleapis.com/v1beta/models/&amp;quot;,
+    &amp;quot;api_key&amp;quot;: &amp;quot;${GEMINI_API_KEY}&amp;quot;,
+    &amp;quot;models&amp;quot;: [&amp;quot;gemini-2.5-flash&amp;quot;, &amp;quot;gemini-2.5-pro&amp;quot;],
+    &amp;quot;transformer&amp;quot;: { &amp;quot;use&amp;quot;: [&amp;quot;gemini&amp;quot;] }
+  }],
+  &amp;quot;Router&amp;quot;: {
+    &amp;quot;default&amp;quot;: &amp;quot;gemini,gemini-2.5-flash&amp;quot;,
+    &amp;quot;background&amp;quot;: &amp;quot;gemini,gemini-2.5-flash&amp;quot;,
+    &amp;quot;image&amp;quot;: &amp;quot;gemini,gemini-2.5-flash&amp;quot;,
+    &amp;quot;think&amp;quot;: &amp;quot;gemini,gemini-2.5-flash&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置环境变量&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;C:\Users\bigo\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$env:ANTHROPIC_BASE_URL = &amp;quot;http://127.0.0.1:3456&amp;quot;
+$env:ANTHROPIC_AUTH_TOKEN = &amp;quot;ccr-local-key&amp;quot;
+$env:ANTHROPIC_API_KEY = &amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;ccr code
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;检查错误日志&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;C:\Users\bigo\.claude-code-router\logs&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Warp Integration With Zero Trust</title>
@@ -1411,22 +1480,6 @@ pushd penpot
 root@87691e4f990c:/home# sudo -EH -u penpot tmux ls
 penpot: 4 windows (created Sat Apr  8 10:27:39 2023) (attached)
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ESP8266 DEV NOTES</title>
-      <link>https://wubigo.com/post/esp8266-dev-notes/</link>
-      <pubDate>Thu, 16 Mar 2023 17:48:08 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/esp8266-dev-notes/</guid>
-      <description>
-
-&lt;h1 id=&#34;arduino开发板包默认安装位置&#34;&gt;Arduino开发板包默认安装位置&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;C:\Users\bigo\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.1&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Arduino&lt;/p&gt;
 </description>
     </item>
     

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-12-05T21:26:35&#43;08:00">
+  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 13, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/xdp-note/" itemprop="url">XDP Note</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="/img/post/Netfilter-packet-flow.svg" alt="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg" /></p>
+
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg" target="_blank">XDP</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2211,108 +2296,6 @@ Data lakes are the do-it-yourself version of a data warehouse, allowing data eng
   <div class="article-style" itemprop="articleBody">
     多租户的运行 不同的应用运行在同一个集群 相同应用的多个实例运行在同一个集群 敏感数据应用独享实例，非敏感数据共享实例 hybrid architectures are also possible, such as a SaaS provider using a combination of per-customer workloads for sensitive data, combined with multi-tenant shared services.
 隔离方式 控制面隔离机制 名字空间 访问控制 资源配额 数据面隔离机制 网络隔离 Pod-to-pod communication can be controlled using Network Policies, which restrict communication between pods using namespace labels or IP address ranges. In a multi-tenant environment where strict network isolation between tenants is required, starting with a default policy that denies communication between pods is recommended with another rule that allows all pods to query the DNS server for name resolution
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 7, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/azure-config/" itemprop="url">Azure Config</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="配置">配置</h1>
-
-<p>&rsquo;.azure/config`</p>
-
-<pre><code>[defaults]
-location = westus
-
-[cloud]
-name = AzureCloud
-
-[core]
-output = table
-</code></pre>
-
-<pre><code>az config set defaults.location=westus2 defaults.group=MyResourceGroup
-</code></pre>
-
-<p>az v2不支持config，直接修改配置文件</p>
-
   </div>
   
 

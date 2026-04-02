@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2025-12-05T21:26:35&#43;08:00">
+  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2026-01-02 22:52:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-01-02 22:52:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 2, 2026</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/claude-code-router-setup-with-free-tier-llm/" itemprop="url">Claude Code Router Setup With Free Tier Llm</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装 安装claude code PS C:\&gt;irm https://claude.ai/install.ps1 | iex PS C:\&gt;claude -v 2.1.90 (Claude Code)  安装claude-code-router c:\&gt;npm install -g @musistudio/claude-code-router c:\&gt;ccr -v claude-code-router version: 2.0.0  配置 创建配置文件~/.claude-code-router/config.json
+{ &quot;LOG&quot;: true, &quot;PORT&quot;: 3456, &quot;LOG_LEVEL&quot;: &quot;info&quot;, &quot;Providers&quot;: [{ &quot;name&quot;: &quot;gemini&quot;, &quot;api_base_url&quot;: &quot;https://generativelanguage.googleapis.com/v1beta/models/&quot;, &quot;api_key&quot;: &quot;${GEMINI_API_KEY}&quot;, &quot;models&quot;: [&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;], &quot;transformer&quot;: { &quot;use&quot;: [&quot;gemini&quot;] } }], &quot;Router&quot;: { &quot;default&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;background&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;image&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;think&quot;: &quot;gemini,gemini-2.5-flash&quot; } }  配置环境变量
+C:\Users\bigo\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+$env:ANTHROPIC_BASE_URL = &quot;http://127.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2137,91 +2222,6 @@ ipconfig Windows IP 配置 以太网适配器 以太网: 连接特定的 DNS 后
 参数说明 input ：权重，也就是取每个值的概率，可以是1维或2维。可以不进行归一化。 num_samples ： 采样的次数。如果input是二维的，则表示每行的采样次数 replacement ：默认值值是False，即不放回采样。如果replacement =False，则num_samples必须小于input中非零元素的数目
 按权重采样 从四个元素中随机选择两个，每个元素被选择到的概率分别为：[0.2, 0.2, 0.3, 0.3]：
 &gt;&gt;&gt; weights = torch.Tensor([0.9, 0.25, 0.1, 0.15]) # 采样权重 &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 2]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 0]) &gt;&gt;&gt; torch.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="datePublished">
-<meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 13, 2022</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/xdp-note/" itemprop="url">XDP Note</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><img src="/img/post/Netfilter-packet-flow.svg" alt="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg" /></p>
-
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg" target="_blank">XDP</a></p>
-
   </div>
   
 
