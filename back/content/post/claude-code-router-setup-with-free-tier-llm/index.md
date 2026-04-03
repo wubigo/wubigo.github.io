@@ -85,3 +85,73 @@ ccr code
 `C:\Users\bigo\.claude-code-router\logs`
 
 
+## 检查CCR日志
+
+转换ccr日志时间为可读格式
+
+```
+env:ANTHROPIC_BASE_URL = "http://127.0.0.1:3456"
+$env:ANTHROPIC_AUTH_TOKEN = "ccr-local-key"   # 很多配置默认用这个，或留空看日志
+$env:ANTHROPIC_API_KEY = ""
+$env:GEMINI_API_KEY="AIzaSyA_rcsZyiELNglSjx34lhmLwvBOiQcPaDI"
+
+
+
+# Claude Code Router 美化日志函数
+function ccr-log {
+    param([int]$Tail = 100)
+
+    $logPath = "$HOME\.claude-code-router\logs\ccr-*.log"
+    $latestLog = Get-ChildItem $logPath -ErrorAction SilentlyContinue | 
+                 Sort-Object LastWriteTime -Descending | 
+                 Select-Object -First 1
+
+    if (-not $latestLog) {
+        Write-Host "未找到 claude-code-router 日志文件" -ForegroundColor Red
+        return
+    }
+
+    Write-Host "日志文件: $($latestLog.Name)  (最近 $Tail 行)" -ForegroundColor Green
+
+    Get-Content $latestLog.FullName -Tail $Tail | ForEach-Object {
+        if ($_ -match '"time":\s*(\d+)') {
+            $unixMs = [long]$matches[1]
+            $readableTime = [DateTimeOffset]::FromUnixTimeMilliseconds($unixMs).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss.fff")
+            # 正确转义后的替换
+            $_ -replace '"time":\s*\d+', "`"time`": `"$readableTime`""
+        } 
+        else {
+            $_
+        }
+    }
+}
+```
+
+
+```
+PS1 c:\>ccr-log |more
+
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: Anthropic (endpoint: /v1/messages)"}       
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: gemini (endpoint: /v1beta/models/:modelAndAction)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: vertex-gemini (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: vertex-claude (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: deepseek (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: tooluse (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: openrouter (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: OpenAI (endpoint: /v1/chat/completions)"}
+{"level":30,"time": "2026-04-03 16:12:23.332","pid":10396,"hostname":"wu-pc","msg":"register transformer: maxtoken (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: groq (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: cleancache (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: enhancetool (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: reasoning (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: sampling (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: maxcompletiontokens (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: cerebras (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: streamoptions (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: customparams (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: vercel (no endpoint)"}
+{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: openai-responses (endpoint: /v1/responses)"}{"level":30,"time": "2026-04-03 16:12:23.333","pid":10396,"hostname":"wu-pc","msg":"register transformer: forcereasoning (no endpoint)"}
+```
+
+
+
