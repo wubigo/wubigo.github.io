@@ -424,7 +424,7 @@ $env:ANTHROPIC_BASE_URL = &quot;http://127."><meta property="og:image" content="
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -565,6 +565,71 @@ $env:ANTHROPIC_API_KEY = &quot;&quot;
 <p>检查错误日志</p>
 
 <p><code>C:\Users\bigo\.claude-code-router\logs</code></p>
+
+<h2 id="检查ccr日志">检查CCR日志</h2>
+
+<p>转换ccr日志时间为可读格式</p>
+
+<pre><code>env:ANTHROPIC_BASE_URL = &quot;http://127.0.0.1:3456&quot;
+$env:ANTHROPIC_AUTH_TOKEN = &quot;ccr-local-key&quot;   # 很多配置默认用这个，或留空看日志
+$env:ANTHROPIC_API_KEY = &quot;&quot;
+$env:GEMINI_API_KEY=&quot;AIzaSyA_rcsZyiELNglSjx34lhmLwvBOiQcPaDI&quot;
+
+
+
+# Claude Code Router 美化日志函数
+function ccr-log {
+    param([int]$Tail = 100)
+
+    $logPath = &quot;$HOME\.claude-code-router\logs\ccr-*.log&quot;
+    $latestLog = Get-ChildItem $logPath -ErrorAction SilentlyContinue | 
+                 Sort-Object LastWriteTime -Descending | 
+                 Select-Object -First 1
+
+    if (-not $latestLog) {
+        Write-Host &quot;未找到 claude-code-router 日志文件&quot; -ForegroundColor Red
+        return
+    }
+
+    Write-Host &quot;日志文件: $($latestLog.Name)  (最近 $Tail 行)&quot; -ForegroundColor Green
+
+    Get-Content $latestLog.FullName -Tail $Tail | ForEach-Object {
+        if ($_ -match '&quot;time&quot;:\s*(\d+)') {
+            $unixMs = [long]$matches[1]
+            $readableTime = [DateTimeOffset]::FromUnixTimeMilliseconds($unixMs).ToLocalTime().ToString(&quot;yyyy-MM-dd HH:mm:ss.fff&quot;)
+            # 正确转义后的替换
+            $_ -replace '&quot;time&quot;:\s*\d+', &quot;`&quot;time`&quot;: `&quot;$readableTime`&quot;&quot;
+        } 
+        else {
+            $_
+        }
+    }
+}
+</code></pre>
+
+<pre><code>PS1 c:\&gt;ccr-log |more
+
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: Anthropic (endpoint: /v1/messages)&quot;}       
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: gemini (endpoint: /v1beta/models/:modelAndAction)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: vertex-gemini (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: vertex-claude (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: deepseek (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: tooluse (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: openrouter (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: OpenAI (endpoint: /v1/chat/completions)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.332&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: maxtoken (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: groq (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: cleancache (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: enhancetool (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: reasoning (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: sampling (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: maxcompletiontokens (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: cerebras (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: streamoptions (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: customparams (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: vercel (no endpoint)&quot;}
+{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: openai-responses (endpoint: /v1/responses)&quot;}{&quot;level&quot;:30,&quot;time&quot;: &quot;2026-04-03 16:12:23.333&quot;,&quot;pid&quot;:10396,&quot;hostname&quot;:&quot;wu-pc&quot;,&quot;msg&quot;:&quot;register transformer: forcereasoning (no endpoint)&quot;}
+</code></pre>
 
     </div>
 
