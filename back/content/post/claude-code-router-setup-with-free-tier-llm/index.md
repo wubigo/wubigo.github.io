@@ -93,7 +93,7 @@ ccr code
 env:ANTHROPIC_BASE_URL = "http://127.0.0.1:3456"
 $env:ANTHROPIC_AUTH_TOKEN = "ccr-local-key"   # 很多配置默认用这个，或留空看日志
 $env:ANTHROPIC_API_KEY = ""
-$env:GEMINI_API_KEY="AIzaSyA_rcsZyiELNglSjx34lhmLwvBOiQcPaDI"
+$env:GEMINI_API_KEY="gemini-key-aistudio"
 
 
 
