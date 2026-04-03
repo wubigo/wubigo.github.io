@@ -95,7 +95,9 @@ ccr code
 
 ## 检查CCR日志
 
-转换ccr日志时间为可读格式
+通过PS转换ccr日志时间为可读格式
+
+`C:\Users\bigo\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
 ```
 env:ANTHROPIC_BASE_URL = "http://127.0.0.1:3456"
