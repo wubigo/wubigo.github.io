@@ -29,6 +29,14 @@ PS C:\>irm https://claude.ai/install.ps1 | iex
 PS C:\>claude -v
 2.1.90 (Claude Code)
 ```
+## 安装指定版本或稳定版
+
+```
+& ([scriptblock]::Create((irm https://claude.ai/install.ps1))) 2.1.90
+& ([scriptblock]::Create((irm https://claude.ai/install.ps1))) stable
+
+```
+
 
 ## 安装claude-code-router
 
