@@ -423,6 +423,96 @@
 
 
 
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 8, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/docker-within-wsl/" itemprop="url">在WSL中使用Docker</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    在windows中使用docker有多种方式：
+ docker WIN10 desktop
+ WSL
+  本文主要介绍在WSL中使用docker
+前提条件  Windows 10 Version 1803以上(支持cgroups)
+ Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
+ Docker 17.09
+  安装WSL install WSL
+WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-09-26 07:48:37 &#43;0800 CST" itemprop="dateModified">
 
@@ -2171,118 +2261,6 @@ git branch -av|grep 1.13
 
 <pre><code>func (kl *Kubelet) syncPod(o syncPodOptions) error {
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-03 20:24:49 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 3, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/dev-on-tencent-cloud-sdk-in-go/" itemprop="url">通过SDK操纵公有云</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>基于腾讯云Go SDK开发</p>
-
-<h1 id="下载开发工具集">下载开发工具集</h1>
-
-<pre><code>go get -u github.com/tencentcloud/tencentcloud-sdk-go
-</code></pre>
-
-<h1 id="为集群准备cvm">为集群准备CVM</h1>
-
-<p>从本地开发集群K8S读取安全凭证secretId和secretKey配置信息，
-然后把安全凭证传送给SDK客户端</p>
-
-<pre><code>secretId, secretKey:= K8SClient.Secrets(&quot;namespace=tencent&quot;).Get(&quot;cloud-pass&quot;)
-credential := CloudCommon.NewCredential(&quot;secretId&quot;, &quot;secretKey&quot;)
-client, _ := cvm.NewClient(credential, regions.Beijing)
-</code></pre>
-
-<pre><code>request := cvm.NewAllocateHostsRequest()
-request.FromJsonString(K8SClient.Configs(&quot;namespace=tencent&quot;).Get(&quot;K8S-TENCENT-PROD&quot;))
-response, err := client.AllocateHosts(request)
-</code></pre>
-
-<h1 id="通过ansible在cvm搭建k8s集群">通过ANSIBLE在CVM搭建K8S集群</h1>
-
-<pre><code>Ansible.Hosts().Get(response.ToJsonString())
-</code></pre>
-
-<p>调用ANSIBLE开始在CVM部署K8S集群</p>
 
   </div>
   

@@ -423,6 +423,91 @@
 
 
 
+<meta content="2022-11-30 14:35:01 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-11-30 14:35:01 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 30, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/torch-multinominal-notes/" itemprop="url">Pytorch multinominal采样函数</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    torch.multinominal方法可以根据给定权重对数组进行多次采样，返回采样后的元素下标
+参数说明 input ：权重，也就是取每个值的概率，可以是1维或2维。可以不进行归一化。 num_samples ： 采样的次数。如果input是二维的，则表示每行的采样次数 replacement ：默认值值是False，即不放回采样。如果replacement =False，则num_samples必须小于input中非零元素的数目
+按权重采样 从四个元素中随机选择两个，每个元素被选择到的概率分别为：[0.2, 0.2, 0.3, 0.3]：
+&gt;&gt;&gt; weights = torch.Tensor([0.9, 0.25, 0.1, 0.15]) # 采样权重 &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 3]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([1, 0]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 1]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([0, 2]) &gt;&gt;&gt; torch.multinomial(weights, 2) tensor([3, 0]) &gt;&gt;&gt; torch.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="datePublished">
 <meta content="2022-11-13 08:58:23 &#43;0800 CST" itemprop="dateModified">
 
@@ -2213,89 +2298,6 @@ Core back to KEPServerEX
   <div class="article-style" itemprop="articleBody">
     Data catalogs solve the problem by tagging fields and data sets with consistent business terms and providing a shopping-type interface that allows the users to find data sets by describing what they are looking for using the business terms that they are used to, and to understand the data in those data sets through tags and descriptions that use business terms.
 Data lakes are the do-it-yourself version of a data warehouse, allowing data engineering teams to pick and choose the various metadata, storage, and compute technologies they want to use depending on the needs of their systems.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Nov 12, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-multi-tenancy/" itemprop="url">K8s 多租户</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    多租户的运行 不同的应用运行在同一个集群 相同应用的多个实例运行在同一个集群 敏感数据应用独享实例，非敏感数据共享实例 hybrid architectures are also possible, such as a SaaS provider using a combination of per-customer workloads for sensitive data, combined with multi-tenant shared services.
-隔离方式 控制面隔离机制 名字空间 访问控制 资源配额 数据面隔离机制 网络隔离 Pod-to-pod communication can be controlled using Network Policies, which restrict communication between pods using namespace labels or IP address ranges. In a multi-tenant environment where strict network isolation between tenants is required, starting with a default policy that denies communication between pods is recommended with another rule that allows all pods to query the DNS server for name resolution
   </div>
   
 

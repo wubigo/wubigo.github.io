@@ -423,6 +423,89 @@
 
 
 
+<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-11-12 10:07:12 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 12, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/k8s-multi-tenancy/" itemprop="url">K8s 多租户</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    多租户的运行 不同的应用运行在同一个集群 相同应用的多个实例运行在同一个集群 敏感数据应用独享实例，非敏感数据共享实例 hybrid architectures are also possible, such as a SaaS provider using a combination of per-customer workloads for sensitive data, combined with multi-tenant shared services.
+隔离方式 控制面隔离机制 名字空间 访问控制 资源配额 数据面隔离机制 网络隔离 Pod-to-pod communication can be controlled using Network Policies, which restrict communication between pods using namespace labels or IP address ranges. In a multi-tenant environment where strict network isolation between tenants is required, starting with a default policy that denies communication between pods is recommended with another rule that allows all pods to query the DNS server for name resolution
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="datePublished">
 <meta content="2021-11-07 20:00:24 &#43;0800 CST" itemprop="dateModified">
 
@@ -2114,89 +2197,6 @@ curl http://127.0.0.1:8080/
 </tr>
 </tbody>
 </table>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-05-06 07:36:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-05-06 07:36:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 6, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/secure-messaging-system/" itemprop="url">Secure Messaging System</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>A secure messaging system is a system where no one but the user and their intended recipients can read the messages or otherwise analyze their contents to infer what they are talking about. Despite messages passing through a server, an end-to-end encrypted message will not allow the server to know the contents of a message. When that same server has a channel for revealing information about the contents of a significant portion of messages, that’s not end-to-end encryption</p>
 
   </div>
   

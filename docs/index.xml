@@ -1022,6 +1022,125 @@ revenue_growth_3y &amp;gt; 20%
     </item>
     
     <item>
+      <title>Stock Future Simulate Trading</title>
+      <link>https://wubigo.com/post/stock-future-simulate-trading/</link>
+      <pubDate>Mon, 07 Apr 2025 11:43:40 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/stock-future-simulate-trading/</guid>
+      <description>
+
+&lt;p&gt;要在 Python 中进行 A股股指期货的模拟交易，最标准且专业的方式是使用 &lt;strong&gt;CTP (Comprehensive Transaction Platform) 接口&lt;/strong&gt;。CTP 是国内期货公司普遍支持的交易系统。&lt;/p&gt;
+
+&lt;p&gt;以下是实现 Python 模拟下单的三个主要途径，按从易到难排序：&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;1-使用开源量化交易框架-vn-py-最推荐&#34;&gt;1. 使用开源量化交易框架：vn.py（最推荐）&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;vn.py&lt;/code&gt; 是国内最流行的 Python 开源量化交易系统，它已经封装好了 CTP 接口，提供了完整的图形界面和脚本接口。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;官方支持：&lt;/strong&gt; 提供专用的 &lt;a href=&#34;https://www.google.com/search?q=http://www.simnow.com.cn/&#34; target=&#34;_blank&#34;&gt;SimNow&lt;/a&gt;（中继交易平台）模拟环境对接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;如何操作：&lt;/strong&gt;
+
+&lt;ol&gt;
+&lt;li&gt;前往 &lt;strong&gt;SimNow官网&lt;/strong&gt; 注册模拟账号（获取投资人账号、密码、BrokerID）。&lt;/li&gt;
+&lt;li&gt;安装 vn.py：&lt;code&gt;pip install vnpy&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;通过 &lt;code&gt;vnpy_ctp&lt;/code&gt; 模块连接 SimNow 环境。&lt;/li&gt;
+&lt;li&gt;调用 &lt;code&gt;send_order&lt;/code&gt; 函数即可下单。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;2-使用原生-ctp-接口的-python-封装-适合进阶&#34;&gt;2. 使用原生 CTP 接口的 Python 封装（适合进阶）&lt;/h3&gt;
+
+&lt;p&gt;如果你不想使用庞大的框架，可以只安装 CTP 的 Python 封装库（如 &lt;code&gt;tqsdk&lt;/code&gt; 或 &lt;code&gt;open_ctp&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;天勤量化 (TqSdk)&lt;/strong&gt; 是目前上手最快的 Python 期货库，它的模拟交易环境（TqSim）非常稳定。&lt;/p&gt;
+
+&lt;h4 id=&#34;示例代码-使用-tqsdk-进行模拟下单&#34;&gt;示例代码：使用 TqSdk 进行模拟下单&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from tqsdk import TqApi, TqAuth, TqAccount
+
+# 1. 注册天勤账号并认证
+api = TqApi(auth=TqAuth(&amp;quot;你的手机号&amp;quot;, &amp;quot;密码&amp;quot;))
+
+# 2. 获取沪深300指数期货主力合约
+quote = api.get_quote(&amp;quot;CFFEX.IF2406&amp;quot;)
+
+# 3. 开启模拟交易账户（TqSim会自动分配虚拟资金）
+# 也可以绑定真实的期货公司模拟账号
+account = TqAccount(&amp;quot;SIM&amp;quot;, &amp;quot;123456&amp;quot;) 
+
+# 4. 下单：买入开仓 1 手 IF2406 合约，价格为当前买一价
+order = api.insert_order(symbol=&amp;quot;CFFEX.IF2406&amp;quot;, direction=&amp;quot;BUY&amp;quot;, offset=&amp;quot;OPEN&amp;quot;, volume=1, limit_price=quote.bid_price1)
+
+print(f&amp;quot;模拟订单已提交，订单ID: {order.order_id}&amp;quot;)
+
+# 5. 循环检查订单状态
+while True:
+    api.wait_update()
+    if order.status == &amp;quot;FINISHED&amp;quot;:
+        print(&amp;quot;模拟交易下单测试成功！&amp;quot;)
+        break
+
+api.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;3-三大核心模拟环境对比&#34;&gt;3. 三大核心模拟环境对比&lt;/h3&gt;
+
+&lt;p&gt;如果你准备编写 Python 代码，需要先拥有一个提供 API 接入的模拟账户：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;平台名称&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;接入方式&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;优点&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;缺点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;SimNow&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;CTP 接口&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;最接近实盘&lt;/strong&gt;，支持全品种&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;仅在交易日晚上和特定时间段维护，有时不稳定&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;天勤 (TqSdk)&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TqApi&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;代码最简洁&lt;/strong&gt;，无需处理复杂的 CTP 回调&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;部分高级功能可能收费&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;聚宽 (JoinQuant)&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;云端 Python&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;适合策略回测 + 模拟，无需配置本地环境&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;订单执行逻辑较理想化，与真实撮合有差异&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;技术避坑指南&#34;&gt;🛠️ 技术避坑指南&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;合约代码格式：&lt;/strong&gt; 股指期货在不同平台代码不同。中金所原始代码是 &lt;code&gt;IF2406&lt;/code&gt;，但在 TqSdk 中是 &lt;code&gt;CFFEX.IF2406&lt;/code&gt;，在 vn.py 中通常是 &lt;code&gt;IF2406.CFFEX&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交易时间：&lt;/strong&gt; 模拟系统通常只在&lt;strong&gt;实盘交易时间&lt;/strong&gt;（周一至周五 9:30-11:30, 13:00-15:00）或&lt;strong&gt;夜盘模拟时段&lt;/strong&gt;才接受指令。非交易时间下单会报错。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AppID 与 授权码：&lt;/strong&gt; 即使是模拟 CTP 交易，现在很多环境也要求提供 &lt;code&gt;AppID&lt;/code&gt; 和 &lt;code&gt;AuthCode&lt;/code&gt;，这些通常可以在模拟平台公告中找到。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>本地大模型知识库问答</title>
       <link>https://wubigo.com/post/chatchat-llm-notes/</link>
       <pubDate>Wed, 27 Mar 2024 09:43:56 +0800</pubDate>
@@ -1530,30 +1649,6 @@ Hierarchical Softmax和Negative Sampling&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://huggingface.co/datasets/togethercomputer/RedPajama-Data-1T&#34; target=&#34;_blank&#34;&gt;RedPajama-Data-1T&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;large-transformer-model-inference-optimization&#34;&gt;Large Transformer Model Inference Optimization&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Penpot Dev Setup</title>
-      <link>https://wubigo.com/post/penpot-dev-setup/</link>
-      <pubDate>Sat, 08 Apr 2023 18:39:31 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/penpot-dev-setup/</guid>
-      <description>
-
-&lt;h1 id=&#34;启动开发环境&#34;&gt;启动开发环境&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:penpot/penpot.git
-pushd penpot
-./manage.sh run-devenv
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;检查进程运行状态&#34;&gt;检查进程运行状态&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;docker exec -ti penpot-devenv-main bash
-root@87691e4f990c:/home# sudo -EH -u penpot tmux ls
-penpot: 4 windows (created Sat Apr  8 10:27:39 2023) (attached)
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

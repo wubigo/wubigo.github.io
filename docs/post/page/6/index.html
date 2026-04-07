@@ -423,6 +423,92 @@
 
 
 
+<meta content="2020-04-19 10:23:33 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-04-19 10:23:33 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 19, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mqtt-vs-http-for-iot/" itemprop="url">MQTT vs HTTP for IoT</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    While HTTP is a good choice for displaying information only once, MQTT is the solution whenever you want to enable communication (exchanging messages (data) ) frequently.
+MQTT points out its ability to hold connections open and its way of handling data formats. Both enable successful, reliable message transfer.
+On the other hand, if you do not exchange messages frequently, HTTP should be your choice.
+连接 keep-connection-open vs request-response
+MQTT is superior to HTTP if you have devices that communicate regularly.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-04-10 19:42:44 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-04-10 19:42:44 &#43;0800 CST" itemprop="dateModified">
 
@@ -2370,96 +2456,6 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
   <div class="article-style" itemprop="articleBody">
     <p><img src="./uaa-serverless.png" alt="uaa-on-serverless" /></p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-08 14:21:19 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 8, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/docker-within-wsl/" itemprop="url">在WSL中使用Docker</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    在windows中使用docker有多种方式：
- docker WIN10 desktop
- WSL
-  本文主要介绍在WSL中使用docker
-前提条件  Windows 10 Version 1803以上(支持cgroups)
- Ubuntu for WSL 16.0.4 LTS(WSL支持的最新版本)
- Docker 17.09
-  安装WSL install WSL
-WSL 命令行和默认 shell cmd:\&gt;wsl wubigo:/tmp/docker-desktop-root/mnt/host/d/code#/etc# cat /etc/wsl.conf [automount] root = /mnt/host crossDistro = true options = &quot;metadata&quot;  WSL DOCKER磁盘卷路径 cmd:\&gt;docker volume inspect edgex_consul-config [ { &quot;CreatedAt&quot;: &quot;2022-03-07T08:04:34Z&quot;, &quot;Driver&quot;: &quot;local&quot;, &quot;Labels&quot;: { &quot;com.docker.compose.project&quot;: &quot;edgex&quot;, &quot;com.docker.compose.version&quot;: &quot;2.2.3&quot;, &quot;com.docker.compose.volume&quot;: &quot;consul-config&quot; }, &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/edgex_consul-config/_data&quot;, &quot;Name&quot;: &quot;edgex_consul-config&quot;, &quot;Options&quot;: null, &quot;Scope&quot;: &quot;local&quot; } ]  \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\
   </div>
   
 
