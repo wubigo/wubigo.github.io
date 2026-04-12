@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Wu Bigo">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="贴水扩大的空头信号 高警觉
+前5空头席位净空连续3日增加 新资金进入空头（新席位出现） 中警觉
+融券余额持续上升（对冲需求增） 雪球产品密集触及敲入价位附近 远月贴水 &gt; 近月（结构性深贴水 总持仓放量但基差无明显收敛 观察
+总持仓放量但基差无明显收敛 贴水收敛 / 转升水的多头信号 强信号
+空头席位大幅减仓（平仓行为） 政策限制量化做空 / 融券收紧 市场急速上涨（空头被迫回补） 中信号
+融券余额显著下降 周期性
+季末换月前空头集中平仓 需辨别
+近月升水但远月仍贴水（结构分裂） 三类空头主体的监控重点 量化对冲基金&ndash;持续性空头 最大空头来源。监控其α策略规模变化 —— 量化备案规模（协会数据）、量化指数增强产品规模、龙虎榜机构席位净空变化。规模扩张 → 贴水加深。
+雪球产品对冲盘&ndash;事件驱动空头 敲入触发时集中对冲。监控：中证500当前点位距敲入价比例（通常−15%~−25%为敲入线）、新发雪球规模、已发产品到期时间分布。
+DMA策略杠杆盘&ndash;隐性空头 通过IC期货加杠杆做空对冲，监控更难（席位不透明）。参考：中金所席位报告中异常新增大额空头、量化DMA产品规模估算（非公开）。
+监控 盘后 下载中金所持仓龙虎榜，记录前20席位多空净头寸变化
+当日 计算IC当月合约年化贴水率，与5日/20日均值对比
+每周 查上交所融券余额变化，判断做空对冲需求趋势
+决策 多信号共振（净空增&#43;贴水深&#43;融券升）= 谨慎；反向共振 = 关注收敛
+实操细节 龙虎榜的解读 每个交易日收盘后约1小时，中金所官网（cffex.com.cn）公布各合约前20名会员的多头持仓量、空头持仓量及当日增减。关键不是绝对数字，而是连续几日的方向性变化——空头席位持续净增，即使基差当天没动，也是贴水即将扩大的领先信号
+净空比的计算 用（总空头持仓 − 总多头持仓）/ 总持仓量。这个比率在−10%附近通常属于正常对冲需求；超过−20%往往意味着方向性空头力量在累积，贴水大概率继续扩大
+雪球敲入距离的估算方法 中证500指数当前点位，与过去12个月内发行的雪球产品约定敲入价（通常是发行时指数的75%~85%）做比较。当前点位距大批产品敲入线在5%~8%以内时，市场会对潜在集中对冲形成预期，本身就会拉大贴水。这个位置可以通过各大财富管理机构定期发布的雪球存续规模报告来估算。
+融券余额的局限 融券余额是对冲需求的间接指标，但因为T&#43;1结算和证券池限制，它滞后于IC空头持仓约1~2个交易日，更适合做趋势确认而非实时跟踪">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/%E7%A9%BA%E5%A4%B4%E6%8C%81%E4%BB%93%E7%BB%93%E6%9E%84%E5%8F%98%E5%8C%96/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#4caf50">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-7621966-10', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  <link rel="feed" href="https://wubigo.com/index.xml" type="application/rss+xml" title="wubigo">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://wubigo.com/post/%E7%A9%BA%E5%A4%B4%E6%8C%81%E4%BB%93%E7%BB%93%E6%9E%84%E5%8F%98%E5%8C%96/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@wubigo">
+  <meta property="twitter:creator" content="@wubigo">
+  
+  <meta property="og:site_name" content="wubigo">
+  <meta property="og:url" content="https://wubigo.com/post/%E7%A9%BA%E5%A4%B4%E6%8C%81%E4%BB%93%E7%BB%93%E6%9E%84%E5%8F%98%E5%8C%96/">
+  <meta property="og:title" content="空头持仓结构变化 | wubigo">
+  <meta property="og:description" content="贴水扩大的空头信号 高警觉
+前5空头席位净空连续3日增加 新资金进入空头（新席位出现） 中警觉
+融券余额持续上升（对冲需求增） 雪球产品密集触及敲入价位附近 远月贴水 &gt; 近月（结构性深贴水 总持仓放量但基差无明显收敛 观察
+总持仓放量但基差无明显收敛 贴水收敛 / 转升水的多头信号 强信号
+空头席位大幅减仓（平仓行为） 政策限制量化做空 / 融券收紧 市场急速上涨（空头被迫回补） 中信号
+融券余额显著下降 周期性
+季末换月前空头集中平仓 需辨别
+近月升水但远月仍贴水（结构分裂） 三类空头主体的监控重点 量化对冲基金&ndash;持续性空头 最大空头来源。监控其α策略规模变化 —— 量化备案规模（协会数据）、量化指数增强产品规模、龙虎榜机构席位净空变化。规模扩张 → 贴水加深。
+雪球产品对冲盘&ndash;事件驱动空头 敲入触发时集中对冲。监控：中证500当前点位距敲入价比例（通常−15%~−25%为敲入线）、新发雪球规模、已发产品到期时间分布。
+DMA策略杠杆盘&ndash;隐性空头 通过IC期货加杠杆做空对冲，监控更难（席位不透明）。参考：中金所席位报告中异常新增大额空头、量化DMA产品规模估算（非公开）。
+监控 盘后 下载中金所持仓龙虎榜，记录前20席位多空净头寸变化
+当日 计算IC当月合约年化贴水率，与5日/20日均值对比
+每周 查上交所融券余额变化，判断做空对冲需求趋势
+决策 多信号共振（净空增&#43;贴水深&#43;融券升）= 谨慎；反向共振 = 关注收敛
+实操细节 龙虎榜的解读 每个交易日收盘后约1小时，中金所官网（cffex.com.cn）公布各合约前20名会员的多头持仓量、空头持仓量及当日增减。关键不是绝对数字，而是连续几日的方向性变化——空头席位持续净增，即使基差当天没动，也是贴水即将扩大的领先信号
+净空比的计算 用（总空头持仓 − 总多头持仓）/ 总持仓量。这个比率在−10%附近通常属于正常对冲需求；超过−20%往往意味着方向性空头力量在累积，贴水大概率继续扩大
+雪球敲入距离的估算方法 中证500指数当前点位，与过去12个月内发行的雪球产品约定敲入价（通常是发行时指数的75%~85%）做比较。当前点位距大批产品敲入线在5%~8%以内时，市场会对潜在集中对冲形成预期，本身就会拉大贴水。这个位置可以通过各大财富管理机构定期发布的雪球存续规模报告来估算。
+融券余额的局限 融券余额是对冲需求的间接指标，但因为T&#43;1结算和证券池限制，它滞后于IC空头持仓约1~2个交易日，更适合做趋势确认而非实时跟踪"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2025-04-12T20:44:38&#43;08:00">
+  
+  <meta property="article:modified_time" content="2025-04-12T20:44:38&#43;08:00">
+  
+
+  
+
+  
+
+  <title>空头持仓结构变化 | wubigo</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">wubigo</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index.xml">
+            
+            <span>RSS</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">空头持仓结构变化</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2025-04-12 20:44:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2025-04-12 20:44:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 12, 2025</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e7%a9%ba%e5%a4%b4%e6%8c%81%e4%bb%93%e7%bb%93%e6%9e%84%e5%8f%98%e5%8c%96&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f%25E7%25A9%25BA%25E5%25A4%25B4%25E6%258C%2581%25E4%25BB%2593%25E7%25BB%2593%25E6%259E%2584%25E5%258F%2598%25E5%258C%2596%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2f%25E7%25A9%25BA%25E5%25A4%25B4%25E6%258C%2581%25E4%25BB%2593%25E7%25BB%2593%25E6%259E%2584%25E5%258F%2598%25E5%258C%2596%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2f%25E7%25A9%25BA%25E5%25A4%25B4%25E6%258C%2581%25E4%25BB%2593%25E7%25BB%2593%25E6%259E%2584%25E5%258F%2598%25E5%258C%2596%2f&amp;title=%e7%a9%ba%e5%a4%b4%e6%8c%81%e4%bb%93%e7%bb%93%e6%9e%84%e5%8f%98%e5%8c%96"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2f%25E7%25A9%25BA%25E5%25A4%25B4%25E6%258C%2581%25E4%25BB%2593%25E7%25BB%2593%25E6%259E%2584%25E5%258F%2598%25E5%258C%2596%2f&amp;title=%e7%a9%ba%e5%a4%b4%e6%8c%81%e4%bb%93%e7%bb%93%e6%9e%84%e5%8f%98%e5%8c%96"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e7%a9%ba%e5%a4%b4%e6%8c%81%e4%bb%93%e7%bb%93%e6%9e%84%e5%8f%98%e5%8c%96&amp;body=https%3a%2f%2fwubigo.com%2fpost%2f%25E7%25A9%25BA%25E5%25A4%25B4%25E6%258C%2581%25E4%25BB%2593%25E7%25BB%2593%25E6%259E%2584%25E5%258F%2598%25E5%258C%2596%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="贴水扩大的空头信号">贴水扩大的空头信号</h1>
+
+<p><strong><em>高警觉</em></strong></p>
+
+<h2 id="前5空头席位净空连续3日增加">前5空头席位净空连续3日增加</h2>
+
+<h2 id="新资金进入空头-新席位出现">新资金进入空头（新席位出现）</h2>
+
+<p><strong><em>中警觉</em></strong></p>
+
+<h2 id="融券余额持续上升-对冲需求增">融券余额持续上升（对冲需求增）</h2>
+
+<h2 id="雪球产品密集触及敲入价位附近">雪球产品密集触及敲入价位附近</h2>
+
+<h2 id="远月贴水-近月-结构性深贴水">远月贴水 &gt; 近月（结构性深贴水</h2>
+
+<h2 id="总持仓放量但基差无明显收敛">总持仓放量但基差无明显收敛</h2>
+
+<p><strong><em>观察</em></strong></p>
+
+<h2 id="总持仓放量但基差无明显收敛-1">总持仓放量但基差无明显收敛</h2>
+
+<h1 id="贴水收敛-转升水的多头信号">贴水收敛 / 转升水的多头信号</h1>
+
+<p><strong><em>强信号</em></strong></p>
+
+<h2 id="空头席位大幅减仓-平仓行为">空头席位大幅减仓（平仓行为）</h2>
+
+<h2 id="政策限制量化做空-融券收紧">政策限制量化做空 / 融券收紧</h2>
+
+<h2 id="市场急速上涨-空头被迫回补">市场急速上涨（空头被迫回补）</h2>
+
+<p><strong><em>中信号</em></strong></p>
+
+<h2 id="融券余额显著下降">融券余额显著下降</h2>
+
+<p><strong><em>周期性</em></strong></p>
+
+<h2 id="季末换月前空头集中平仓">季末换月前空头集中平仓</h2>
+
+<p><strong><em>需辨别</em></strong></p>
+
+<h2 id="近月升水但远月仍贴水-结构分裂">近月升水但远月仍贴水（结构分裂）</h2>
+
+<h1 id="三类空头主体的监控重点">三类空头主体的监控重点</h1>
+
+<h2 id="量化对冲基金-持续性空头">量化对冲基金&ndash;持续性空头</h2>
+
+<p>最大空头来源。监控其α策略规模变化 —— 量化备案规模（协会数据）、量化指数增强产品规模、龙虎榜机构席位净空变化。规模扩张 → 贴水加深。</p>
+
+<h2 id="雪球产品对冲盘-事件驱动空头">雪球产品对冲盘&ndash;事件驱动空头</h2>
+
+<p>敲入触发时集中对冲。监控：中证500当前点位距敲入价比例（通常−15%~−25%为敲入线）、新发雪球规模、已发产品到期时间分布。</p>
+
+<h2 id="dma策略杠杆盘-隐性空头">DMA策略杠杆盘&ndash;隐性空头</h2>
+
+<p>通过IC期货加杠杆做空对冲，监控更难（席位不透明）。参考：中金所席位报告中异常新增大额空头、量化DMA产品规模估算（非公开）。</p>
+
+<h1 id="监控">监控</h1>
+
+<h2 id="盘后">盘后</h2>
+
+<p>下载中金所持仓龙虎榜，记录前20席位多空净头寸变化</p>
+
+<h2 id="当日">当日</h2>
+
+<p>计算IC当月合约年化贴水率，与5日/20日均值对比</p>
+
+<h2 id="每周">每周</h2>
+
+<p>查上交所融券余额变化，判断做空对冲需求趋势</p>
+
+<h2 id="决策">决策</h2>
+
+<p>多信号共振（净空增+贴水深+融券升）= 谨慎；反向共振 = 关注收敛</p>
+
+<h1 id="实操细节">实操细节</h1>
+
+<h2 id="龙虎榜的解读">龙虎榜的解读</h2>
+
+<p>每个交易日收盘后约1小时，中金所官网（cffex.com.cn）公布各合约前20名会员的多头持仓量、空头持仓量及当日增减。关键不是绝对数字，而是连续几日的方向性变化——空头席位持续净增，即使基差当天没动，也是贴水即将扩大的领先信号</p>
+
+<h2 id="净空比的计算">净空比的计算</h2>
+
+<p>用（总空头持仓 − 总多头持仓）/ 总持仓量。这个比率在−10%附近通常属于正常对冲需求；超过−20%往往意味着方向性空头力量在累积，贴水大概率继续扩大</p>
+
+<h2 id="雪球敲入距离的估算方法">雪球敲入距离的估算方法</h2>
+
+<p>中证500指数当前点位，与过去12个月内发行的雪球产品约定敲入价（通常是发行时指数的75%~85%）做比较。当前点位距大批产品敲入线在5%~8%以内时，市场会对潜在集中对冲形成预期，本身就会拉大贴水。这个位置可以通过各大财富管理机构定期发布的雪球存续规模报告来估算。</p>
+
+<h2 id="融券余额的局限">融券余额的局限</h2>
+
+<p>融券余额是对冲需求的间接指标，但因为T+1结算和证券池限制，它滞后于IC空头持仓约1~2个交易日，更适合做趋势确认而非实时跟踪</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/ic/">IC</a>
+  
+  <a class="badge badge-light" href="/tags/im/">IM</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/stock-future-simulate-trading/">Stock Future Simulate Trading</a></li>
+          
+          <li><a href="/post/matrix-web-client-dev-setup/">Matrix Web Client Dev Setup</a></li>
+          
+          <li><a href="/post/decentralized-social-network-federated-vs-p2p-protocol/">Decentralized Social Network: Federated VS P2P Protocol</a></li>
+          
+          <li><a href="/post/secure-messaging-system/">Secure Messaging System</a></li>
+          
+          <li><a href="/post/matrix-homeserver/">Matrix Homeserver</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+
+
+     
+  
+  
+  
+  
+
+  
+
+  <p class="powered-by">
+
+    
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+      
+    </span>
+    
+    
+  </p>
+   
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.6e3f6df706f5e1819f516bc13278decb.js"></script>
+
+    
+  </body>
+</html>
+
