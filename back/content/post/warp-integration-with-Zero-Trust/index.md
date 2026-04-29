@@ -102,10 +102,10 @@ cmd\>type conf.json
 # 典型数据流（Traffic + DNS 模式）
 
 1. 应用程序发包 → Windows 协议栈
-2. 路由表指向 CloudflareWARP 接口
+2. 路由表指向 WARP 接口
 3. warp-svc 捕获包
-4. MASQUE 加密 → UDP/QUIC 发出到 Cloudflare Edge
-5. Cloudflare Gateway 做零信任策略（Web 过滤、DLP、CASB、SASE 等）
+4. MASQUE 加密 → UDP/QUIC 发出到  Edge
+5. Gateway 做零信任策略（Web 过滤、DLP、CASB、SASE 等）
 6. 出站到目标服务器
 
 # WARP诊断
