@@ -423,6 +423,105 @@
 
 
 
+<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 10, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/cnn-kernel-notes/" itemprop="url">图像处理中的卷积核kernel</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<p>图像处理中的卷积核kernel</p>
+
+<h1 id="简介">简介</h1>
+
+<p>卷积核（kernel），也叫卷积矩阵（convolution matrix）或者掩膜（mask），本质上是一个非常小的矩阵，最常用的是 3×3 矩阵。主要是利用核与图像之间进行卷积运算来实现图像处理，能做出模糊、锐化、凹凸、边缘检测等效果。</p>
+
+<h1 id="卷积运算">卷积运算</h1>
+
+<p>第一个矩阵是卷积核（其中的每个元素都是权重），第二个矩阵是被处理的矩阵，这里的并不是真正矩阵运算中，而是将卷积核中的行和列都反转再*，将计算得到的加权结果赋值给[2, 2]位置处.
+<img src="/img/post/cnn-matrix-trans.png" alt="" />
+将一个比较大的原始矩阵的每一个位置处都根据核进行上述的运算，就得到整个原始矩阵的加权平均结果，也就是原始矩阵卷积运算后的结果</p>
+
+<p><img src="/img/post/cnn-kernel.png" alt="" /></p>
+
+<p>[1]<a href="https://blog.csdn.net/i_silence/article/details/116483732" target="_blank">https://blog.csdn.net/i_silence/article/details/116483732</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-04-19 14:15:21 &#43;0800 CST" itemprop="dateModified">
 
@@ -2365,127 +2464,6 @@ HIBERNETE作为持久机制并同时提供会话对象的概念，
 改变：
  过程模型：放弃PVM,使用原生BPMN， 实现真正的动态过程执行和复杂的过程迁移
  数据远完全抽象：支持NoSQL
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-10-12 16:19:59 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-10-12 16:19:59 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Oct 12, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/no.-1-work-skill-of-the-future/" itemprop="url">心理学家：21世纪最重要的工作技能</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p><img src="./orca.jpg" alt="" /></p>
-
-<p>心理学家：21世纪最重要的工作技能</p>
-
-<p>专注是21世纪最重要的工作技能，</p>
-
-<p>可是很多人没有意识到这一点。</p>
-
-<p>1971年的时候心理学家<a href="https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/5625/dessein_rational.pdf" target="_blank">西蒙</a>就说过：“大量的信息</p>
-
-<p>意味着另一种东西变得很稀缺：注意力”。 几十年之前这是个事实，</p>
-
-<p>在21世纪，注意力变的更加珍贵。</p>
-
-<p>工作环境正在发生快速的变化，在不远的将来，</p>
-
-<p>在这个世界只存在两种人：</p>
-
-<ul>
-<li><p>一种注意力被别人完全控制和操纵的人</p></li>
-
-<li><p>一种注意力不可被打扰的人</p></li>
-</ul>
-
-<p>研究人员告诉我们专注和注意力人们创新发展的原材料</p>
-
-<p>下面是一些常见的工作干扰：</p>
-
-<ul>
-<li><p>聊天群</p></li>
-
-<li><p>会议</p></li>
-
-<li><p>电话</p></li>
-
-<li><p>邮件</p></li>
-
-<li><p>同事</p></li>
-</ul>
-
   </div>
   
 

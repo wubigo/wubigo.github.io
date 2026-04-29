@@ -423,6 +423,89 @@
 
 
 
+<meta content="2020-08-25 14:46:47 &#43;0800 CST" itemprop="datePublished">
+<meta content="2020-08-25 14:46:47 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 25, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/dapr-notes/" itemprop="url">Dapr Notes</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    重新安装 Ensure that Docker Desktop is set to Linux containers mode when you run Dapr in self hosted mode
+d:\code&gt;dapr uninstall Removing Dapr from your machine... Removing directory: C:\Users\wubigo\.dapr\bin Removing container: dapr_placement Dapr has been removed successfully d:\code&gt;dapr init Making the jump to hyperspace... Installing runtime version 1.6.0 Downloading binaries and setting up components... Downloaded binaries and completed components set up. daprd binary has been installed to C:\Users\wubigo\.dapr\bin. dapr_placement container is running.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="datePublished">
 <meta content="2020-08-20 15:25:18 &#43;0800 CST" itemprop="dateModified">
 
@@ -2131,105 +2214,6 @@ sudo yum install MariaDB-server sudo systemctl start mariadb.service   安装pol
     准备  iptables
 cat &lt;&lt;EOF | sudo tee /etc/modules br_netfilter EOF sudo modprobe br_netfilter lsmod | grep br_netfilter cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 EOF sudo sysctl --system  install container runtime
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update apt-cache madison docker-ce sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu sudo usermod -aG docker bigo  setup vpn and proxy
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-05-10 17:59:50 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 10, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/cnn-kernel-notes/" itemprop="url">图像处理中的卷积核kernel</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>图像处理中的卷积核kernel</p>
-
-<h1 id="简介">简介</h1>
-
-<p>卷积核（kernel），也叫卷积矩阵（convolution matrix）或者掩膜（mask），本质上是一个非常小的矩阵，最常用的是 3×3 矩阵。主要是利用核与图像之间进行卷积运算来实现图像处理，能做出模糊、锐化、凹凸、边缘检测等效果。</p>
-
-<h1 id="卷积运算">卷积运算</h1>
-
-<p>第一个矩阵是卷积核（其中的每个元素都是权重），第二个矩阵是被处理的矩阵，这里的并不是真正矩阵运算中，而是将卷积核中的行和列都反转再*，将计算得到的加权结果赋值给[2, 2]位置处.
-<img src="/img/post/cnn-matrix-trans.png" alt="" />
-将一个比较大的原始矩阵的每一个位置处都根据核进行上述的运算，就得到整个原始矩阵的加权平均结果，也就是原始矩阵卷积运算后的结果</p>
-
-<p><img src="/img/post/cnn-kernel.png" alt="" /></p>
-
-<p>[1]<a href="https://blog.csdn.net/i_silence/article/details/116483732" target="_blank">https://blog.csdn.net/i_silence/article/details/116483732</a></p>
-
   </div>
   
 
