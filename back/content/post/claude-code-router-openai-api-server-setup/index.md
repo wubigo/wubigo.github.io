@@ -56,6 +56,11 @@ Claude's native Anthropic requests into standard OpenAI API payloads
 
 # 启动服务
 
+```
+ccr start
+ccr status
+```
+
 # 测试
 
 ```
