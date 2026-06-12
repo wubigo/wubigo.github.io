@@ -67,7 +67,7 @@ ccr status
 import os
 
 from openai import OpenAI
-import os
+
 
 client = OpenAI(
     api_key=os.getenv("GEMINI_API_KEY"),          # 从 https://aistudio.google.com/apikey 获取
