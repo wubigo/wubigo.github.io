@@ -6,10 +6,23 @@
     <description>Recent content in Posts on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Jan 2026 22:52:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 16:40:58 +0800</lastBuildDate>
     
 	<atom:link href="https://wubigo.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Claude Code Router setup as an Openai API Server</title>
+      <link>https://wubigo.com/post/claude-code-router-openai-api-server-setup/</link>
+      <pubDate>Fri, 12 Jun 2026 16:40:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/claude-code-router-openai-api-server-setup/</guid>
+      <description>To set up Claude Code to run through an OpenAI-compatible API server using a tool
+like Claude Code Router (CCR), you need to configure a local proxy that translates
+Claude&amp;rsquo;s native Anthropic requests into standard OpenAI API payloads
+配置CCR 创建配置文件~/.claude-code-router/config.json
+{ &amp;quot;LOG&amp;quot;: true, &amp;quot;PORT&amp;quot;: 3456, &amp;quot;LOG_LEVEL&amp;quot;: &amp;quot;info&amp;quot;, &amp;quot;Providers&amp;quot;: [{ &amp;quot;name&amp;quot;: &amp;quot;gemini&amp;quot;, &amp;quot;api_base_url&amp;quot;: &amp;quot;https://generativelanguage.googleapis.com/v1beta/openai/&amp;quot;, &amp;quot;api_key&amp;quot;: &amp;quot;${GEMINI_API_KEY}&amp;quot;, &amp;quot;models&amp;quot;: [&amp;quot;gemini-2.5-flash&amp;quot;, &amp;quot;gemini-2.5-pro&amp;quot;], &amp;quot;transformer&amp;quot;: { &amp;quot;use&amp;quot;: [&amp;quot;gemini&amp;quot;] } }], &amp;quot;Router&amp;quot;: { &amp;quot;default&amp;quot;: &amp;quot;gemini,gemini-2.5-flash&amp;quot;, &amp;quot;background&amp;quot;: &amp;quot;gemini,gemini-2.</description>
+    </item>
     
     <item>
       <title>Claude Code Router Setup With Free Tier Llm</title>

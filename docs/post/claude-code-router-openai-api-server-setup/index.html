@@ -28,10 +28,14 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="To set up Claude Code to run through an OpenAI-compatible API server using a tool
+like Claude Code Router (CCR), you need to configure a local proxy that translates
+Claude&rsquo;s native Anthropic requests into standard OpenAI API payloads
+配置CCR 创建配置文件~/.claude-code-router/config.json
+{ &quot;LOG&quot;: true, &quot;PORT&quot;: 3456, &quot;LOG_LEVEL&quot;: &quot;info&quot;, &quot;Providers&quot;: [{ &quot;name&quot;: &quot;gemini&quot;, &quot;api_base_url&quot;: &quot;https://generativelanguage.googleapis.com/v1beta/openai/&quot;, &quot;api_key&quot;: &quot;${GEMINI_API_KEY}&quot;, &quot;models&quot;: [&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;], &quot;transformer&quot;: { &quot;use&quot;: [&quot;gemini&quot;] } }], &quot;Router&quot;: { &quot;default&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;background&quot;: &quot;gemini,gemini-2.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/404.html">
+  <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/claude-code-router-openai-api-server-setup/">
 
   
 
@@ -120,7 +124,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://wubigo.com/404.html">
+  <link rel="canonical" href="https://wubigo.com/post/claude-code-router-openai-api-server-setup/">
 
   
   
@@ -135,19 +139,25 @@
   <meta property="twitter:creator" content="@wubigo">
   
   <meta property="og:site_name" content="wubigo">
-  <meta property="og:url" content="https://wubigo.com/404.html">
-  <meta property="og:title" content="404 Page not found | wubigo">
-  <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+  <meta property="og:url" content="https://wubigo.com/post/claude-code-router-openai-api-server-setup/">
+  <meta property="og:title" content="Claude Code Router setup as an Openai API Server | wubigo">
+  <meta property="og:description" content="To set up Claude Code to run through an OpenAI-compatible API server using a tool
+like Claude Code Router (CCR), you need to configure a local proxy that translates
+Claude&rsquo;s native Anthropic requests into standard OpenAI API payloads
+配置CCR 创建配置文件~/.claude-code-router/config.json
+{ &quot;LOG&quot;: true, &quot;PORT&quot;: 3456, &quot;LOG_LEVEL&quot;: &quot;info&quot;, &quot;Providers&quot;: [{ &quot;name&quot;: &quot;gemini&quot;, &quot;api_base_url&quot;: &quot;https://generativelanguage.googleapis.com/v1beta/openai/&quot;, &quot;api_key&quot;: &quot;${GEMINI_API_KEY}&quot;, &quot;models&quot;: [&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;], &quot;transformer&quot;: { &quot;use&quot;: [&quot;gemini&quot;] } }], &quot;Router&quot;: { &quot;default&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;background&quot;: &quot;gemini,gemini-2."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2026-06-12T16:40:58&#43;08:00">
   
+  <meta property="article:modified_time" content="2026-06-12T16:40:58&#43;08:00">
+  
+
   
 
   
 
-  
-
-  <title>404 Page not found | wubigo</title>
+  <title>Claude Code Router setup as an Openai API Server | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -362,62 +372,262 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Perhaps you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
-  
-  <h2>Posts</h2>
-  
-  <ul>
-    <li><a href="/post/claude-code-router-openai-api-server-setup/">Claude Code Router setup as an Openai API Server</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/claude-code-router-setup-with-free-tier-llm/">Claude Code Router Setup With Free Tier Llm</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/warp-integration-with-zero-trust/">Warp Integration With Zero Trust</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/llama-cpp-python-setup-on-windows/">在 Windows 上安装 llama-cpp-python 完整指南</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/post/ai-agent-dev-notes/">AI智能体开发实战--开发环境搭建</a></li>
-  </ul>
-  
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Claude Code Router setup as an Openai API Server</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2026-06-12 16:40:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-06-12 16:40:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
   
 
   
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 12, 2026</time>
+  </span>
   
-  <h2>Projects</h2>
+
   
-  <ul>
-    <li><a href="/project/sds/">AI分布式大模型</a></li>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Claude%20Code%20Router%20setup%20as%20an%20Openai%20API%20Server&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fclaude-code-router-openai-api-server-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fwubigo.com%2fpost%2fclaude-code-router-openai-api-server-setup%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fclaude-code-router-openai-api-server-setup%2f&amp;title=Claude%20Code%20Router%20setup%20as%20an%20Openai%20API%20Server"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fclaude-code-router-openai-api-server-setup%2f&amp;title=Claude%20Code%20Router%20setup%20as%20an%20Openai%20API%20Server"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Claude%20Code%20Router%20setup%20as%20an%20Openai%20API%20Server&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fclaude-code-router-openai-api-server-setup%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-  
-  <ul>
-    <li><a href="/project/vpn/">工业物联网云端边一体化平台</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="/project/noserver/">智慧枢纽</a></li>
-  </ul>
-  
+</div>
+
+
   
 
 </div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>To set up Claude Code to run through an OpenAI-compatible API server using a tool</p>
+
+<p>like Claude Code Router (CCR), you need to configure a local proxy that translates</p>
+
+<p>Claude&rsquo;s native Anthropic requests into standard OpenAI API payloads</p>
+
+<h1 id="配置ccr">配置CCR</h1>
+
+<p>创建配置文件<code>~/.claude-code-router/config.json</code></p>
+
+<pre><code>{
+  &quot;LOG&quot;: true,
+  &quot;PORT&quot;: 3456,
+  &quot;LOG_LEVEL&quot;: &quot;info&quot;,
+  &quot;Providers&quot;: [{
+    &quot;name&quot;: &quot;gemini&quot;,
+    &quot;api_base_url&quot;: &quot;https://generativelanguage.googleapis.com/v1beta/openai/&quot;,
+    &quot;api_key&quot;: &quot;${GEMINI_API_KEY}&quot;,
+    &quot;models&quot;: [&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;],
+    &quot;transformer&quot;: { &quot;use&quot;: [&quot;gemini&quot;] }
+  }],
+  &quot;Router&quot;: {
+    &quot;default&quot;: &quot;gemini,gemini-2.5-flash&quot;,
+    &quot;background&quot;: &quot;gemini,gemini-2.5-flash&quot;,
+    &quot;image&quot;: &quot;gemini,gemini-2.5-flash&quot;,
+    &quot;think&quot;: &quot;gemini,gemini-2.5-flash&quot;
+  }
+}
+</code></pre>
+
+<h1 id="启动服务">启动服务</h1>
+
+<h1 id="测试">测试</h1>
+
+<pre><code>import os
+
+from openai import OpenAI
+import os
+
+client = OpenAI(
+    api_key=os.getenv(&quot;GEMINI_API_KEY&quot;),          # 从 https://aistudio.google.com/apikey 获取
+    base_url=&quot;https://generativelanguage.googleapis.com/v1beta/openai/&quot;
+)
+
+response = client.chat.completions.create(
+    # model=&quot;gemini-2.5-pro-exp-03-25&quot;,      # 常用模型推荐
+    model=&quot;gemini-3-flash-preview&quot;,            # 速度快、免费额度高
+    # model=&quot;gemini-1.5-pro&quot;,              # 老模型
+    messages=[
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个有帮助的AI助手。&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;介绍一下你自己&quot;}
+    ],
+    temperature=0.7,
+    max_tokens=2048
+)
+
+print(response.choices[0].message.content)
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Iv1.eb83edf6490b8a33',
+    clientSecret: 'f8411bc2ead9c4a84665abb296c3f1d2842b8aef',
+    repo: 'https:\/\/github.com\/wubigo\/feedback',
+    owner: 'wubigo',
+    admin: ['wubigo'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
 

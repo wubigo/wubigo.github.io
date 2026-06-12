@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
+  <meta property="og:updated_time" content="2026-06-12T16:40:58&#43;08:00">
   
 
   
@@ -398,6 +398,97 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="datePublished">
+<meta content="2017-07-28 08:36:18 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 28, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/linux-bridge/" itemprop="url">Linux Bridge</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Some things worth noting in br_add_if:</p>
+
+<ul>
+<li>Only ethernet like devices can be added to bridge, as bridge is a layer 2 device.</li>
+<li>Bridges cannot be added to a bridge.</li>
+<li>New interface is set to promiscuous mode: dev_set_promiscuity(dev, 1)</li>
+</ul>
+
+<p><a href="https://goyalankit.com/blog/linux-bridge" target="_blank">https://goyalankit.com/blog/linux-bridge</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2155,92 +2246,6 @@ kubectl create serviceaccount tiller --namespace kube-system kubectl create clus
     Configuring Nodes to Authenticate to a Private Registry  Note: Kubernetes as of now only supports the auths and HttpHeaders section of docker config. This means credential helpers (credHelpers or credsStore) are not supported.
  Docker stores keys for private registries in the $HOME/.dockercfg or $HOME/.docker/config.json file. If there are files in the search paths list below, kubelet uses it as the credential provider when pulling images.
  {&ndash;root-dir:-/var/lib/kubelet}/config.json {cwd of kubelet}/config.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-16 17:21:24 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 16, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/linux-ssh/" itemprop="url">Linux SSH</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    ssh client config ~/.ssh/config
-host * StrictHostKeyChecking no  Enables forwarding of the authentication agent connection  client config .ssh/config
-ForwardAgent yes  Enable ssh-agent on main device
-  .bashrc
-SSH_ENV=&quot;$HOME/.ssh/environment&quot; function start_agent { echo &quot;Initialising new SSH agent...&quot; /usr/bin/ssh-agent | sed 's/^echo/#echo/' &gt; &quot;${SSH_ENV}&quot; echo succeeded chmod 600 &quot;${SSH_ENV}&quot; . &quot;${SSH_ENV}&quot; &gt; /dev/null /usr/bin/ssh-add; } # Source SSH settings, if applicable if [ -f &quot;${SSH_ENV}&quot; ]; then .
   </div>
   
 

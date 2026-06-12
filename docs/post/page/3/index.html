@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
+  <meta property="og:updated_time" content="2026-06-12T16:40:58&#43;08:00">
   
 
   
@@ -398,6 +398,115 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-12-20 17:04:37 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-12-20 17:04:37 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 20, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/mainflux-dev-setup/" itemprop="url">Mainflux Dev Setup</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="build">BUILD</h1>
+
+<pre><code>mkdir -p $GOPATH/src/github.com/mailflux
+git clone https://github.com/wubigo/mainflux.git
+cd github.com/mailflux/mailflux/
+make
+make dockers_dev
+make run
+</code></pre>
+
+<h1 id="provision-the-system">Provision the System</h1>
+
+<pre><code>mainflux-cli provision test
+</code></pre>
+
+<h1 id="get-token">GET TOKEN</h1>
+
+<pre><code>curl -k https://172.21.53.253/tokens
+
+{
+  &quot;email&quot;: &quot;bold_gould@email.com&quot;,
+  &quot;password&quot;: &quot;12345678&quot;
+}
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2056,106 +2165,6 @@ curl http://127.0.0.1:8080/
 该评估可能包含一些复杂度比较大的任务。
 评估不确定性 20-30人日与5-45人日的工时评估是完全不同的，即便两者的中位数都是25人天
    不确定性级别 乘数效应     低 1.1   中等 1.5   大 2   特别大 5    计算工时    任务 复杂度 不确定性 期望工时 最坏情况     计量支付私有化部署 低 大 20 40    这个任务预计20天完成，最坏情况需求40天。或者工时可以表示为20-40人日
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-06-07 11:05:22 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-06-07 11:05:22 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Jun 7, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/form-data-vs-json-of-backend-api/" itemprop="url">Form Data vs Json of Backend Api</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="通过浏览器提交表单">通过浏览器提交表单</h1>
-
-<h1 id="通过curl提交表单">通过curl提交表单</h1>
-
-<h1 id="spring-boot">spring-boot</h1>
-
-<p>map HTTP request header Content-Type, handle request body.</p>
-
-<pre><code>@RequestParam ← application/x-www-form-urlencoded,
-
-@RequestBody ← application/json,
-
-@RequestPart ← multipart/form-data,
-</code></pre>
-
-<p><a href="https://www.baeldung.com/spring-url-encoded-form-data" target="_blank">form-data</a></p>
-
   </div>
   
 

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
+  <meta property="og:updated_time" content="2026-06-12T16:40:58&#43;08:00">
   
 
   
@@ -398,6 +398,92 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2026-06-12 16:40:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-06-12 16:40:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 12, 2026</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/claude-code-router-openai-api-server-setup/" itemprop="url">Claude Code Router setup as an Openai API Server</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    To set up Claude Code to run through an OpenAI-compatible API server using a tool
+like Claude Code Router (CCR), you need to configure a local proxy that translates
+Claude&rsquo;s native Anthropic requests into standard OpenAI API payloads
+配置CCR 创建配置文件~/.claude-code-router/config.json
+{ &quot;LOG&quot;: true, &quot;PORT&quot;: 3456, &quot;LOG_LEVEL&quot;: &quot;info&quot;, &quot;Providers&quot;: [{ &quot;name&quot;: &quot;gemini&quot;, &quot;api_base_url&quot;: &quot;https://generativelanguage.googleapis.com/v1beta/openai/&quot;, &quot;api_key&quot;: &quot;${GEMINI_API_KEY}&quot;, &quot;models&quot;: [&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;], &quot;transformer&quot;: { &quot;use&quot;: [&quot;gemini&quot;] } }], &quot;Router&quot;: { &quot;default&quot;: &quot;gemini,gemini-2.5-flash&quot;, &quot;background&quot;: &quot;gemini,gemini-2.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2174,122 +2260,6 @@ penpot: 4 windows (created Sat Apr  8 10:27:39 2023) (attached)
 <p><code>C:\Users\bigo\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.1</code></p>
 
 <p>Arduino</p>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2023-03-11 23:44:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2023-03-11 23:44:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 11, 2023</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/traditional-chinese-medicine/" itemprop="url">中医养生八字</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<p>来源：索钧&ndash;同仁堂主任医师，索延昌之子，师从国医方和谦</p>
-
-<h2 id="食物">食物</h2>
-
-<p>粥：
-薏米一把，绿豆一把，莲子一把</p>
-
-<h2 id="脾">脾</h2>
-
-<p>七成饱，饮食有节，细嚼慢咽，每口嚼二十到三十下。</p>
-
-<p>按摩：三阴交，中脘，足三里</p>
-
-<h2 id="肺">肺</h2>
-
-<p>腹式呼吸</p>
-
-<h2 id="肾">肾</h2>
-
-<p>丹田撞树，一定要是树，感受到和大自然的直接互动</p>
-
-<h2 id="心血">心血</h2>
-
-<p>空心拳叩击膻中穴</p>
-
-<h2 id="运动">运动</h2>
-
-<p>双手并排保持端平，向下做深蹲，然后站立</p>
-
-<h2 id="养生八字">养生八字</h2>
-
-<p>童心，蚁食，鬼欲，猴行</p>
 
   </div>
   

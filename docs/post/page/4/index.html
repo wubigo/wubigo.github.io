@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-01-02T22:52:47&#43;08:00">
+  <meta property="og:updated_time" content="2026-06-12T16:40:58&#43;08:00">
   
 
   
@@ -398,6 +398,106 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2021-06-07 11:05:22 &#43;0800 CST" itemprop="datePublished">
+<meta content="2021-06-07 11:05:22 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 7, 2021</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/form-data-vs-json-of-backend-api/" itemprop="url">Form Data vs Json of Backend Api</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="通过浏览器提交表单">通过浏览器提交表单</h1>
+
+<h1 id="通过curl提交表单">通过curl提交表单</h1>
+
+<h1 id="spring-boot">spring-boot</h1>
+
+<p>map HTTP request header Content-Type, handle request body.</p>
+
+<pre><code>@RequestParam ← application/x-www-form-urlencoded,
+
+@RequestBody ← application/json,
+
+@RequestPart ← multipart/form-data,
+</code></pre>
+
+<p><a href="https://www.baeldung.com/spring-url-encoded-form-data" target="_blank">form-data</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2147,107 +2247,6 @@ ENV DISABLE_DEBUGGER=1 ENV DISABLE_PROFILER=1  skaffold run --default-repo=10.
   <div class="article-style" itemprop="articleBody">
     开发环境准备 git version 2.34.1.windows.1 cmd&gt;docker version Client: Cloud integration: v1.0.22 Version: 20.10.12 API version: 1.41 Go version: go1.16.12 Git commit: e91ed57 Built: Mon Dec 13 11:44:07 2021 OS/Arch: windows/amd64 Context: default Experimental: true go version go1.17.5 windows/amd64  golangci-lint 在windows上启动git Bash执行如下sh命令安装golangci-lint
 # binary will be $(go env GOPATH)/bin/golangci-lint curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2 golangci-lint --version  安装make choco install mingw --version 8.1.0 cmd&gt;make -v GNU Make 4.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2020-08-31 12:41:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 31, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/wireguard-vpn-client-for-ubuntu/" itemprop="url">Wireguad Vpn Client for Ubuntu</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h2 id="安装">安装</h2>
-
-<pre><code>$lsb_release -a
-
-Distributor ID: Ubuntu
-Description:    Ubuntu 20.04.1 LTS
-Release:        20.04
-Codename:       focal
-</code></pre>
-
-<pre><code>
-sudo apt install wireguard  wireguard-dkms -y
-wget algo/configs/localhost/wireguard/desktop.conf  /etc/wireguard/wg0.conf
-sudo modprobe wireguard
-sudo ln -s /usr/bin/resolvectl /usr/local/bin/resolvconf
-sudo wg-quick up wg0
-</code></pre>
-
   </div>
   
 
