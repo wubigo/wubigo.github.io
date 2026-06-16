@@ -5,8 +5,61 @@
     <description>Recent content in wubigo on wubigo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2026 16:40:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 16:09:49 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Web Testing Automation With Playwright in CDP Mode</title>
+      <link>https://wubigo.com/post/web-testing-automation-with-playwright-in-cdp-mode/</link>
+      <pubDate>Tue, 16 Jun 2026 16:09:49 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/web-testing-automation-with-playwright-in-cdp-mode/</guid>
+      <description>
+
+&lt;h1 id=&#34;cdp&#34;&gt;CDP&lt;/h1&gt;
+
+&lt;p&gt;在 Playwright 中使用 Browser CDP（Chrome DevTools Protocol）模式，通常是连接到已经
+启动的 Chrome，而不是让 Playwright 自己启动浏览器&lt;/p&gt;
+
+&lt;p&gt;这种方式特别适合：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;手工登录保存长期登录态&lt;/li&gt;
+&lt;li&gt;降低自动化特征&lt;/li&gt;
+&lt;li&gt;复用真实 Chrome 用户数据目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;启动-chrome-开启-cdp&#34;&gt;启动 Chrome 开启 CDP&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;chrome.exe ^
+ --remote-debugging-port=9222 ^
+ --user-data-dir=~\chrome-profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;访问验证&#34;&gt;访问验证&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://127.0.0.1:9222/json/version&#34; target=&#34;_blank&#34;&gt;http://127.0.0.1:9222/json/version&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;开始自动化测试&#34;&gt;开始自动化测试&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+
+    browser = p.chromium.connect_over_cdp(
+        &amp;quot;http://127.0.0.1:9222&amp;quot;
+    )
+
+    context = browser.contexts[0]
+
+    page = context.new_page()
+
+    page.goto(&amp;quot;https://facebook.com&amp;quot;)
+
+    print(page.title())
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Claude Code Router setup as an Openai API Server</title>
@@ -1649,231 +1702,6 @@ Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OP
 
 &lt;p&gt;Neuron 可通过外部辅助程序 neuopc.exe 间接访问运行于 Windows 操作系统的 OPC DA 服务器。NeuOPC 通过将 DA 协议转换为 UA 协议，再通过
 Neuron 已有的 OPC UA 插件进行数据获取，DA 的所有可访问点位都被映射至 UA 的&amp;rdquo;命名空间2&amp;rdquo;当中，点位的 ID 则与 DA 保持一致。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to Speak</title>
-      <link>https://wubigo.com/post/how-to-speak/</link>
-      <pubDate>Sat, 29 Apr 2023 12:34:37 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/how-to-speak/</guid>
-      <description>
-
-&lt;p&gt;《How to Speak》（MIT OpenCourseWare，Patrick Winston教授演讲）的要点总结。
-这是MIT持续40多年的经典演讲课，Patrick Winston教授分享如何在关键场合（如求职演讲、学术报告、口试）有效提升公众演讲能力，通过一些实用启发式规则（heuristics）来实践。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;一-核心结论-最重要的三句话&#34;&gt;一、核心结论（最重要的三句话）&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;人生成功排序：表达能力 &amp;gt; 写作能力 &amp;gt; 思想质量&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;演讲能力 = &lt;strong&gt;知识（K） + 练习（P） + 天赋（T）&lt;/strong&gt;，其中&lt;strong&gt;知识最关键&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;演讲的本质：&lt;strong&gt;让你的想法被理解、被记住、被认可&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;二-如何开场-90-的人做错&#34;&gt;二、如何开场（90%的人做错）&lt;/h2&gt;
-
-&lt;p&gt;❌ 不要一上来讲笑话
-✔ 正确方式：&lt;strong&gt;“赋能式承诺（Empowerment Promise）”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;👉 模板：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;“听完这场演讲，你将学会 X，并且其中某一点会改变你的结果”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;本质：告诉听众“为什么要听你讲”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;三-信息传达的核心技巧-非常实用&#34;&gt;三、信息传达的核心技巧（非常实用）&lt;/h2&gt;
-
-&lt;h3 id=&#34;1-循环表达-cycle&#34;&gt;1️⃣ 循环表达（Cycle）&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;重要内容讲 &lt;strong&gt;3遍&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;因为任何时刻都有 ~20% 的人走神&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;👉 类似：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;先说结构 → 讲内容 → 再总结&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;2-建立-边界-build-a-fence&#34;&gt;2️⃣ 建立“边界”（Build a Fence）&lt;/h3&gt;
-
-&lt;p&gt;让你的观点&lt;strong&gt;不被混淆&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;👉 方法：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;说明“这是什么”&lt;/li&gt;
-&lt;li&gt;同时说明“这不是什么”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;👉 本质：&lt;strong&gt;降低认知歧义&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;3-语言标点-verbal-punctuation&#34;&gt;3️⃣ 语言标点（Verbal Punctuation）&lt;/h3&gt;
-
-&lt;p&gt;给听众“重新跟上的机会”&lt;/p&gt;
-
-&lt;p&gt;👉 技巧：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“第一点…第二点…第三点…”&lt;/li&gt;
-&lt;li&gt;明确结构提示&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;👉 本质：&lt;strong&gt;帮助听众在走神后重新进入&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;四-时间-场地-很多人忽略&#34;&gt;四、时间 &amp;amp; 场地（很多人忽略）&lt;/h2&gt;
-
-&lt;h3 id=&#34;时间&#34;&gt;时间&lt;/h3&gt;
-
-&lt;p&gt;✔ 最佳：&lt;strong&gt;上午中段（如 11 点）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;不困&lt;/li&gt;
-&lt;li&gt;不刚吃饭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;场地&#34;&gt;场地&lt;/h3&gt;
-
-&lt;p&gt;✔ 三个关键：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;灯光要亮（防止困）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;提前踩点（避免意外）&lt;/li&gt;
-&lt;li&gt;人数要“看起来合理”（避免冷场）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;五-工具使用-黑板-ppt&#34;&gt;五、工具使用（黑板 &amp;gt; PPT）&lt;/h2&gt;
-
-&lt;h3 id=&#34;为什么黑板更好&#34;&gt;🎯 为什么黑板更好&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;速度 = 思考速度（更容易理解）&lt;/li&gt;
-&lt;li&gt;有“视觉构建过程”&lt;/li&gt;
-&lt;li&gt;手有事做（避免尴尬）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;ppt-使用三大铁律&#34;&gt;PPT 使用三大铁律&lt;/h3&gt;
-
-&lt;p&gt;❌ 常见错误：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;字太多&lt;/li&gt;
-&lt;li&gt;字太小&lt;/li&gt;
-&lt;li&gt;念PPT&lt;/li&gt;
-&lt;li&gt;滥用激光笔&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;✔ 正确做法：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;PPT是“调料”，不是主菜&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;每页只放核心信息&lt;/li&gt;
-&lt;li&gt;字体 ≥ 40pt&lt;/li&gt;
-&lt;li&gt;用箭头代替激光笔&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;六-如何让内容-被记住&#34;&gt;六、如何让内容“被记住”&lt;/h2&gt;
-
-&lt;p&gt;提出一个非常关键的模型：&lt;/p&gt;
-
-&lt;p&gt;👉 想被记住，你需要 4 个元素：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Symbol（符号）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Slogan（口号）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Surprise（反直觉）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Salient Idea（突出核心点）&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;👉 本质：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;不是信息多，而是&lt;strong&gt;有记忆钩子&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;七-如何打动人-inspiration&#34;&gt;七、如何打动人（Inspiration）&lt;/h2&gt;
-
-&lt;p&gt;三个来源：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;别人相信你可以（鼓励）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;让人用新角度看问题&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;你对内容有真正的热情（最重要）&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;👉 关键词：&lt;strong&gt;Passion（感染力）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;八-求职演讲-极其重要&#34;&gt;八、求职演讲（极其重要）&lt;/h2&gt;
-
-&lt;p&gt;👉 关键结论：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;你只有 5 分钟决定成败&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;必须做到：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;展示你的&lt;strong&gt;愿景（Vision）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;证明你&lt;strong&gt;做过事（Done something）&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;九-如何结尾-大多数人浪费&#34;&gt;九、如何结尾（大多数人浪费）&lt;/h2&gt;
-
-&lt;p&gt;❌ 错误结尾：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Thank you&lt;/li&gt;
-&lt;li&gt;Q&amp;amp;A&lt;/li&gt;
-&lt;li&gt;合作者名单&lt;/li&gt;
-&lt;li&gt;一堆结论&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;✔ 正确结尾：&lt;/p&gt;
-
-&lt;p&gt;👉 最后一页必须是：
-&lt;strong&gt;“Contributions（你的贡献）”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;👉 本质：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;让听众带走“你做了什么”，而不是“你讲了什么”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;十-终极方法论-总结一句话&#34;&gt;十、终极方法论（总结一句话）&lt;/h2&gt;
-
-&lt;p&gt;👉 好演讲 =
-&lt;strong&gt;清晰结构 + 重复强化 + 低认知负担 + 强记忆点 + 情绪感染&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
 </description>
     </item>
     

@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-06-12T16:40:58&#43;08:00">
+  <meta property="og:updated_time" content="2026-06-16T16:09:49&#43;08:00">
   
 
   
@@ -398,6 +398,132 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2026-06-16 16:09:49 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-06-16 16:09:49 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 16, 2026</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/web-testing-automation-with-playwright-in-cdp-mode/" itemprop="url">Web Testing Automation With Playwright in CDP Mode</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    
+
+<h1 id="cdp">CDP</h1>
+
+<p>在 Playwright 中使用 Browser CDP（Chrome DevTools Protocol）模式，通常是连接到已经
+启动的 Chrome，而不是让 Playwright 自己启动浏览器</p>
+
+<p>这种方式特别适合：</p>
+
+<ul>
+<li>手工登录保存长期登录态</li>
+<li>降低自动化特征</li>
+<li>复用真实 Chrome 用户数据目录</li>
+</ul>
+
+<h2 id="启动-chrome-开启-cdp">启动 Chrome 开启 CDP</h2>
+
+<pre><code>chrome.exe ^
+ --remote-debugging-port=9222 ^
+ --user-data-dir=~\chrome-profile
+</code></pre>
+
+<h2 id="访问验证">访问验证</h2>
+
+<p><a href="http://127.0.0.1:9222/json/version" target="_blank">http://127.0.0.1:9222/json/version</a></p>
+
+<h1 id="开始自动化测试">开始自动化测试</h1>
+
+<pre><code>from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+
+    browser = p.chromium.connect_over_cdp(
+        &quot;http://127.0.0.1:9222&quot;
+    )
+
+    context = browser.contexts[0]
+
+    page = context.new_page()
+
+    page.goto(&quot;https://facebook.com&quot;)
+
+    print(page.title())
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2171,95 +2297,6 @@ pushd penpot
 root@87691e4f990c:/home# sudo -EH -u penpot tmux ls
 penpot: 4 windows (created Sat Apr  8 10:27:39 2023) (attached)
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2023-03-16 17:48:08 &#43;0800 CST" itemprop="datePublished">
-<meta content="2023-03-16 17:48:08 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 16, 2023</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/esp8266-dev-notes/" itemprop="url">ESP8266 DEV NOTES</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="arduino开发板包默认安装位置">Arduino开发板包默认安装位置</h1>
-
-<p><code>C:\Users\bigo\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.1</code></p>
-
-<p>Arduino</p>
 
   </div>
   
