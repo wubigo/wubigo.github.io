@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-06-16T16:09:49&#43;08:00">
+  <meta property="og:updated_time" content="2026-09-04T11:15:34&#43;08:00">
   
 
   
@@ -398,6 +398,101 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 1, 2017</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2017-08-01-deep_learning_with_python/" itemprop="url">Deep Learning with Python</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    On the other hand, convolution is most typically done with 3x3 windows and no stride (stride 1).
+MATPLOTLIB Matplot is a python library that help us to plot data. The easiest and basic plots are line, scatter and histogram plots.
+ Line plot is better when x axis is time. Scatter is better when there is correlation between two variables Histogram is better when we need to see distribution of numerical data.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2166,91 +2261,6 @@ Susan 开始若有所思了。她和大部分年轻人一样，对这个道理�
 Modules record precise dependency requirements and create reproducible builds.
  go.mod  A module is defined by a tree of Go source files with a go.mod file in the tree&rsquo;s root directory. Module source code may be located outside of GOPATH. There are four directives: module, require, replace, exclude.
 显示当前的模块和依赖 go list -m all  显示特定模块的所有版本标签 go list -m -versions github.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="datePublished">
-<meta content="2017-03-18 17:12:39 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 18, 2017</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-helm-setup/" itemprop="url">K8s Helm Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Enable Helm in cluster  Create a Service Account tiller for the Tiller server (in the kube-system namespace). Service Accounts are meant for intra-cluster processes running in Pods.
- Bind the cluster-admin ClusterRole to this Service Account. ClusterRoleBindings to be applicable in all namespaces. Tiller to manage resources in all namespaces.
- Update the existing Tiller deployment (tiller-deploy) to associate its pod with the Service Account tiller.
-kubectl create serviceaccount tiller --namespace kube-system kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'  or
   </div>
   
 

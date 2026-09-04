@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-06-16T16:09:49&#43;08:00">
+  <meta property="og:updated_time" content="2026-09-04T11:15:34&#43;08:00">
   
 
   
@@ -398,6 +398,91 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2026-09-04 11:15:34 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-09-04 11:15:34 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Sep 4, 2026</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/llm-access-via-proxy/" itemprop="url">LLM代理访问入门方案</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    本文介绍通过代理的方式，即使身在目标服务区域之外，提供访问LLM的入门方案。
+在LLM服务区申请vps搭建代理服务器 在美西申请一台龟壳云服务器(Ubuntu 24.04.4 LTS)
+安装代理服务 $sudo apt update &amp;&amp; sudo apt upgrade -y $bash &lt;(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh) install $xray --version Xray 26.3.27 (Xray, Penetrates Everything.) d2758a0 (go1.26.1 linux/amd64)  配置 $xray uuid f1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c $xray x25519 Private key: yLTMMfcsJJ3Fh4t_Pjf777iDhCYx0-PSmksmKBrpRAI Public key: IGoeCjQm24_wA9M0N3WMVV3ze8NKXb_Yv7CEU_HKMwQ $openssl rand -hex 8 0123456789abcdef  /usr/local/etc/xray/config.json
+{ &quot;log&quot;: { &quot;loglevel&quot;: &quot;warning&quot; }, &quot;inbounds&quot;: [ { &quot;port&quot;: 443, &quot;protocol&quot;: &quot;vless&quot;, &quot;settings&quot;: { &quot;clients&quot;: [ { &quot;id&quot;: &quot;你的UUID&quot;, &quot;flow&quot;: &quot;xtls-rprx-vision&quot; } ], &quot;decryption&quot;: &quot;none&quot; }, &quot;streamSettings&quot;: { &quot;network&quot;: &quot;tcp&quot;, &quot;security&quot;: &quot;reality&quot;, &quot;realitySettings&quot;: { &quot;show&quot;: false, &quot;dest&quot;: &quot;www.
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2201,103 +2286,6 @@ nvidia-smi Failed to initialize NVML: Driver/library version mismatch 这个问�
 sudo rmmod nvidia sudo nvidia-smi  分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
 目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
 Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2023-04-08 18:39:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2023-04-08 18:39:31 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 8, 2023</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/penpot-dev-setup/" itemprop="url">Penpot Dev Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="启动开发环境">启动开发环境</h1>
-
-<pre><code>git clone git@github.com:penpot/penpot.git
-pushd penpot
-./manage.sh run-devenv
-</code></pre>
-
-<h2 id="检查进程运行状态">检查进程运行状态</h2>
-
-<pre><code>docker exec -ti penpot-devenv-main bash
-root@87691e4f990c:/home# sudo -EH -u penpot tmux ls
-penpot: 4 windows (created Sat Apr  8 10:27:39 2023) (attached)
-</code></pre>
-
   </div>
   
 

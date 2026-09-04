@@ -140,7 +140,7 @@
   <meta property="og:description" content=""><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2026-06-16T16:09:49&#43;08:00">
+  <meta property="og:updated_time" content="2026-09-04T11:15:34&#43;08:00">
   
 
   
@@ -398,6 +398,109 @@
   
 
   
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-12-04 22:20:38 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 4, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/aws-s3-access-point/" itemprop="url">Aws S3 Access Point</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <pre><code>aws sts get-caller-identity
+
+aws s3control list-access-points --account-id 46569194568
+
+aws s3control create-access-point --name my-access-point --account-id 46569194568 --bucket wubigo
+
+aws s3control get-access-point --account-id &quot;46569194568&quot; --name my-access-point
+{
+    &quot;Name&quot;: &quot;my-access-point&quot;,
+    &quot;PublicAccessBlockConfiguration&quot;: {
+        &quot;IgnorePublicAcls&quot;: true,
+        &quot;BlockPublicPolicy&quot;: true,
+        &quot;BlockPublicAcls&quot;: true,
+        &quot;RestrictPublicBuckets&quot;: true
+    },
+    &quot;CreationDate&quot;: &quot;2019-12-04T14:24:38Z&quot;,
+    &quot;Bucket&quot;: &quot;wubigo&quot;,
+    &quot;NetworkOrigin&quot;: &quot;Internet&quot;
+}
+
+</code></pre>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
   
     
       
@@ -2219,102 +2322,6 @@ sudo mv google-chrome.list.save google-chrome.list
 apt update
 apt install google-chrome-stable
 </code></pre>
-
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-03-24 08:01:56 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Mar 24, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/k8s-app-development-toolbox/">
-      <img src="/post/k8s-app-development-toolbox/featured_hu47d231d63492733826f3a040baad0438_760864_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-app-development-toolbox/" itemprop="url">K8s高效应用开发工具集</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="本地流线型开发">本地流线型开发</h1>
-
-<p><a href="/post/k8s-development-streamline/">本地流线型开发</a></p>
-
-<h1 id="集成开发-测试部署">集成开发，测试部署</h1>
-
-<p><a href="/post/k8s-ide-tool">IDE</a></p>
 
   </div>
   
