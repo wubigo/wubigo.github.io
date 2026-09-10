@@ -102,6 +102,14 @@ sudo systemctl restart xray
 
 ## 安全组允许TCP/UDP:443外部访问(Inbound)
 
+```
+sudo iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+sudo iptables -I INPUT -p udp --dport 443 -j ACCEPT
+sudo netfilter-persistent save
+sudo iptables -L INPUT -n --line-numbers
+
+```
+
 
 # 配置访问客户端
 
