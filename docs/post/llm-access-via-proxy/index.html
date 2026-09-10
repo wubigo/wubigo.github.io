@@ -586,6 +586,13 @@ $openssl rand -hex 8
 
 <h2 id="安全组允许tcp-udp-443外部访问-inbound">安全组允许TCP/UDP:443外部访问(Inbound)</h2>
 
+<pre><code>sudo iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+sudo iptables -I INPUT -p udp --dport 443 -j ACCEPT
+sudo netfilter-persistent save
+sudo iptables -L INPUT -n --line-numbers
+
+</code></pre>
+
 <h1 id="配置访问客户端">配置访问客户端</h1>
 
 <h2 id="验证代理服务443端口可以访问">验证代理服务443端口可以访问</h2>
