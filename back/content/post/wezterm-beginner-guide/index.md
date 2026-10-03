@@ -1,6 +1,6 @@
 +++
 title = "Wezterm Beginner Guide"
-date = 2026-4-03T11:19:58+08:00
+date = 2026-04-03T11:19:58+08:00
 draft = false
 
 # Tags and categories
@@ -137,6 +137,14 @@ Host aws
     HostName 144.12.56.108
     User ubuntu
     IdentityFile C:\Users\bigo\.ssh\ssh-key-09-10.key
+
+
+host *
+    StrictHostKeyChecking no
+    ForwardAgent  yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
+    TCPKeepAlive yes
 ```
 
 ```
