@@ -151,3 +151,13 @@ host *
 ssh aws
 ubuntu@w1:~$opencode
 ```
+
+# 复制和粘贴快捷键
+
+| 操作      | 默认快捷键             |
+| ------- | ----------------- |
+| 复制选中的文本 | Ctrl + Shift + C  |
+| 粘贴系统剪贴板 | Ctrl + Shift + V  |
+| 复制      | Ctrl + Insert     |
+| 粘贴      | Shift + Insert    |
+| 鼠标右键粘贴  | 通常可用，取决于你的鼠标绑定和版本 |
