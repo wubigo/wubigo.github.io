@@ -273,6 +273,142 @@ print(response.choices[0].message.content)
     </item>
     
     <item>
+      <title>Wezterm Beginner Guide</title>
+      <link>https://wubigo.com/post/wezterm-beginner-guide/</link>
+      <pubDate>Fri, 03 Apr 2026 11:19:58 +0800</pubDate>
+      
+      <guid>https://wubigo.com/post/wezterm-beginner-guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/wezterm/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-20240203-110809-5046fc22-setup.exe&#34; target=&#34;_blank&#34;&gt;wezterm&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;初始化配置文件&#34;&gt;初始化配置文件&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;~/.wezterm.lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;local wezterm = require &#39;wezterm&#39;
+local act = wezterm.action
+local config = wezterm.config_builder()
+
+-- Font (install a Nerd Font first)
+config.font = wezterm.font(&amp;quot;JetBrains Mono&amp;quot;)
+config.font_size = 14
+config.line_height = 1.2
+
+-- Window
+config.window_decorations = &amp;quot;RESIZE&amp;quot;
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 10  -- macOS only
+
+-- Scrollback
+config.scrollback_lines = 5000
+
+-- Color scheme (735 built-in options)
+config.color_scheme = &#39;Hardcore&#39;
+
+config.leader = { key = &#39;a&#39;, mods = &#39;CTRL&#39;, timeout_milliseconds = 2000 }
+
+config.keys = {
+  -- Tabs
+  { key = &#39;c&#39;, mods = &#39;LEADER&#39;, action = act.SpawnTab &#39;CurrentPaneDomain&#39; },
+  { key = &#39;n&#39;, mods = &#39;LEADER&#39;, action = act.ActivateTabRelative(1) },
+  { key = &#39;p&#39;, mods = &#39;LEADER&#39;, action = act.ActivateTabRelative(-1) },
+  { key = &#39;&amp;amp;&#39;, mods = &#39;LEADER&#39;, action = act.CloseCurrentTab{ confirm = true } },
+  
+  -- Panes
+  { key = &#39;|&#39;, mods = &#39;LEADER&#39;, action = act.SplitHorizontal{ domain = &#39;CurrentPaneDomain&#39; } },
+  { key = &#39;-&#39;, mods = &#39;LEADER&#39;, action = act.SplitVertical{ domain = &#39;CurrentPaneDomain&#39; } },
+  { key = &#39;z&#39;, mods = &#39;LEADER&#39;, action = act.TogglePaneZoomState },
+  { key = &#39;x&#39;, mods = &#39;LEADER&#39;, action = act.CloseCurrentPane{ confirm = true } },
+  
+  -- Vim-style pane navigation
+  { key = &#39;h&#39;, mods = &#39;CTRL&#39;, action = act.ActivatePaneDirection &#39;Left&#39; },
+  { key = &#39;j&#39;, mods = &#39;CTRL&#39;, action = act.ActivatePaneDirection &#39;Down&#39; },
+  { key = &#39;k&#39;, mods = &#39;CTRL&#39;, action = act.ActivatePaneDirection &#39;Up&#39; },
+  { key = &#39;l&#39;, mods = &#39;CTRL&#39;, action = act.ActivatePaneDirection &#39;Right&#39; },
+  
+  -- Pane resizing
+  { key = &#39;h&#39;, mods = &#39;ALT&#39;, action = act.AdjustPaneSize{ &#39;Left&#39;, 5 } },
+  { key = &#39;j&#39;, mods = &#39;ALT&#39;, action = act.AdjustPaneSize{ &#39;Down&#39;, 5 } },
+  { key = &#39;k&#39;, mods = &#39;ALT&#39;, action = act.AdjustPaneSize{ &#39;Up&#39;, 5 } },
+  { key = &#39;l&#39;, mods = &#39;ALT&#39;, action = act.AdjustPaneSize{ &#39;Right&#39;, 5 } },
+  
+  -- Copy mode
+  { key = &#39;[&#39;, mods = &#39;LEADER&#39;, action = act.ActivateCopyMode },
+  
+  -- Workspace keybindings
+  { key = &#39;s&#39;, mods = &#39;LEADER&#39;, action = act.ShowLauncherArgs{ flags = &#39;FUZZY|WORKSPACES&#39; } },
+  { key = &#39;a&#39;, mods = &#39;LEADER&#39;, action = act.AttachDomain &#39;unix&#39; },
+  { key = &#39;d&#39;, mods = &#39;LEADER&#39;, action = act.DetachDomain{ DomainName = &#39;unix&#39; } },
+}
+
+
+-- GPU frontend (WebGpu, OpenGL, or Software)
+config.front_end = &amp;quot;WebGpu&amp;quot;
+
+-- Reduce animation FPS if GPU issues
+config.animation_fps = 60
+
+-- Dim inactive panes
+config.inactive_pane_hsb = {
+  saturation = 0.8,
+  brightness = 0.7,
+}
+
+
+wezterm.on(&#39;gui-startup&#39;, function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
+config.colors = {
+  foreground = &amp;quot;#CBE0F0&amp;quot;,
+  background = &amp;quot;#011423&amp;quot;,
+  cursor_bg = &amp;quot;#47FF9C&amp;quot;,
+  cursor_border = &amp;quot;#47FF9C&amp;quot;,
+  cursor_fg = &amp;quot;#011423&amp;quot;,
+  selection_bg = &amp;quot;#033259&amp;quot;,
+  selection_fg = &amp;quot;#CBE0F0&amp;quot;,
+  ansi = { &amp;quot;#214969&amp;quot;, &amp;quot;#E52E2E&amp;quot;, &amp;quot;#44FFB1&amp;quot;, &amp;quot;#FFE073&amp;quot;,
+           &amp;quot;#0FC5ED&amp;quot;, &amp;quot;#a277ff&amp;quot;, &amp;quot;#24EAF7&amp;quot;, &amp;quot;#24EAF7&amp;quot; },
+  brights = { &amp;quot;#214969&amp;quot;, &amp;quot;#E52E2E&amp;quot;, &amp;quot;#44FFB1&amp;quot;, &amp;quot;#FFE073&amp;quot;,
+              &amp;quot;#0FC5ED&amp;quot;, &amp;quot;#a277ff&amp;quot;, &amp;quot;#24EAF7&amp;quot;, &amp;quot;#24EAF7&amp;quot; },
+}
+return config
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;ssh&#34;&gt;SSH&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;~~\.ssh\config&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Host aws
+    HostName 144.12.56.108
+    User ubuntu
+    IdentityFile C:\Users\bigo\.ssh\ssh-key-09-10.key
+
+
+host *
+    StrictHostKeyChecking no
+    ForwardAgent  yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
+    TCPKeepAlive yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh aws
+ubuntu@w1:~$opencode
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Claude Code Router Setup With Free Tier Llm</title>
       <link>https://wubigo.com/post/claude-code-router-setup-with-free-tier-llm/</link>
       <pubDate>Fri, 02 Jan 2026 22:52:47 +0800</pubDate>
@@ -1770,26 +1906,6 @@ modbus 是工业现场较为常用的总线协议，是应用层报文传输协�
 - 免费使用、
 - 上手简单、
 - 需改方便三大特点，已经被广泛使用。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>基于TRANSFORMER的生成式通用人工智能(AIGC WITH TRANSFORMER)</title>
-      <link>https://wubigo.com/post/aigc-with-transformer/</link>
-      <pubDate>Fri, 24 Nov 2023 13:55:30 +0800</pubDate>
-      
-      <guid>https://wubigo.com/post/aigc-with-transformer/</guid>
-      <description>
-
-&lt;h1 id=&#34;生成式通用人工智能的主要推动力&#34;&gt;生成式通用人工智能的主要推动力&lt;/h1&gt;
-
-&lt;h2 id=&#34;transformer&#34;&gt;transformer&lt;/h2&gt;
-
-&lt;p&gt;transformer在长序列文本数据模式提取和海量数据处理方面碾压RNN&lt;/p&gt;
-
-&lt;h2 id=&#34;预训练模型&#34;&gt;预训练模型&lt;/h2&gt;
-
-&lt;p&gt;预训练模型成功的应用到NLP领域&lt;/p&gt;
 </description>
     </item>
     

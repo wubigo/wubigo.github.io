@@ -720,6 +720,90 @@ Claude&rsquo;s native Anthropic requests into standard OpenAI API payloads
 
 
 
+<meta content="2026-04-03 11:19:58 &#43;0800 CST" itemprop="datePublished">
+<meta content="2026-04-03 11:19:58 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 3, 2026</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/wezterm-beginner-guide/" itemprop="url">Wezterm Beginner Guide</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    安装 wezterm
+初始化配置文件 ~/.wezterm.lua
+local wezterm = require 'wezterm' local act = wezterm.action local config = wezterm.config_builder() -- Font (install a Nerd Font first) config.font = wezterm.font(&quot;JetBrains Mono&quot;) config.font_size = 14 config.line_height = 1.2 -- Window config.window_decorations = &quot;RESIZE&quot; config.hide_tab_bar_if_only_one_tab = true config.tab_bar_at_bottom = true config.window_background_opacity = 0.9 config.macos_window_background_blur = 10 -- macOS only -- Scrollback config.scrollback_lines = 5000 -- Color scheme (735 built-in options) config.color_scheme = 'Hardcore' config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 } config.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2026-01-02 22:52:47 &#43;0800 CST" itemprop="datePublished">
 <meta content="2026-01-02 22:52:47 &#43;0800 CST" itemprop="dateModified">
 
@@ -2198,94 +2282,6 @@ WebGL基本问题 WebGL has some fundamental issues that needed addressing:
 
 <p>重要的是交付一个可以工作的产品和项目</p>
 
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2023-04-18 11:00:40 &#43;0800 CST" itemprop="datePublished">
-<meta content="2023-04-18 11:00:40 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Apr 18, 2023</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/llm-notes/" itemprop="url">LLM Notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    大模型下载 pip install modelscope from modelscope.hub.snapshot_download import snapshot_download model_dir = snapshot_download('ZhipuAI/chatglm3-6b', cache_dir='./model', revision='master')  下载 https://www.modelscope.cn/models/ZhipuAI/chatglm2-6b
-nvidia-smi Failed to initialize NVML: Driver/library version mismatch 这个问题出现的原因是kernel mod 的 Nvidia driver 的版本没有更新，一般情况下，重启机器就能够解决， 如果因为某些原因不能够重启的话，也有办法reload kernel mod。
-简单来看，就两步
- unload nvidia kernel mod reload nvidia kernel mod  执行起来就是
-sudo rmmod nvidia sudo nvidia-smi  分词器(Tokenizer) tokenization算法大致经历了从word/char到subword的进化.
-目前有三种主流的Subword分词算法，分别是Byte Pair Encoding (BPE), WordPiece和Unigram Language Model
-Back in the ancient times, before 2013, we usually encoded basic unigram tokens using simple 1’s and 0’s in a process called One-Hot encoding.
   </div>
   
 

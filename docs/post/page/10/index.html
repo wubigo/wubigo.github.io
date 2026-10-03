@@ -423,6 +423,95 @@
 
 
 
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 7, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-07-linuxperformancetuning/" itemprop="url">Linux performance</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    putting /tmp on tmpfs https://blog.ubuntu.com/2016/01/20/data-driven-analysis-tmp-on-tmpfs
+Interrupt Coalescence ubuntu 16 default
+Interrupt Coalescence (IC)
+$ethtool -c enp0s25 Coalesce parameters for enp0s25: Adaptive RX: off TX: off  Pause frames
+$ethtool -a enp0s25 Pause parameters for enp0s25: Autonegotiate:	on RX:	on TX:	on  network Tuning the network adapter (NIC)
+use Jumbo frames
+ifconfig eth0 mtu 9000  ip result for a healthy system with no packet drops
+ip -s link show eth0  stop irqbalance for home user
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="datePublished">
 <meta content="2018-11-05 09:33:48 &#43;0800 CST" itemprop="dateModified">
 
@@ -2140,90 +2229,6 @@ Graphite Graphite has no direct data collection support. Carbon listens passivel
   <div class="article-style" itemprop="articleBody">
     Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
 kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-05 06:46:41 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 5, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/netdata-notes/" itemprop="url">Netdata notes</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    INSTALL  docker
-docker run -d --name=netdata \ -p 19999:19999 \ -v /etc/passwd:/host/etc/passwd:ro \ -v /etc/group:/host/etc/group:ro \ -v /proc:/host/proc:ro \ -v /sys:/host/sys:ro \ -v /etc/os-release:/host/etc/os-release:ro \ --cap-add SYS_PTRACE \ --security-opt apparmor=unconfined \ netdata/netdata  script
-bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh) --stable-channel --disable-telemetry Attempting another netdata start using command 'systemctl start netdata' [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# systemctl start netdata OK OK netdata started! Downloading default configuration from netdata... [/tmp/netdata-kickstart-uytL3g/netdata-v1.21.1]# curl -sSL --connect-timeout 10 --retry 3 http://localhost:19999/netdata.
   </div>
   
 
