@@ -146,9 +146,16 @@ Short ld: 38a7c6258acb127a
 
 - 关掉TUN，只开"PAC mode"
 
+PAC自动代理脚本
+
 检查是否可以访问[GPT](http://chatgpt.com)
 
 ```
+cmd:\>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    ProxyEnable    REG_DWORD    0x0
+
 cmd:\>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v AutoConfigURL
 
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
@@ -168,7 +175,25 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
 
 - 打开TUN
 
+TUN 模式通过虚拟网卡接管流量
+
 检查是否可以访问[GPT](http://chatgpt.com)
+
+```
+适配器 singbox_tun:
+
+   连接特定的 DNS 后缀 . . . . . . . :
+   描述. . . . . . . . . . . . . . . : sing-tun Tunnel
+   物理地址. . . . . . . . . . . . . :
+   DHCP 已启用 . . . . . . . . . . . : 否
+   自动配置已启用. . . . . . . . . . : 是
+   本地链接 IPv6 地址. . . . . . . . : fe80::a38b:t060:513b:60(首选)
+   IPv4 地址 . . . . . . . . . . . . : 172.18.0.1(首选)
+   子网掩码  . . . . . . . . . . . . : 255.255.255.252
+   默认网关. . . . . . . . . . . . . : 172.18.0.2
+   DNS 服务器  . . . . . . . . . . . : 172.18.0.2
+   TCPIP 上的 NetBIOS  . . . . . . . : 已启用
+```
 
 
 
