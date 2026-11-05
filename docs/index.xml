@@ -138,8 +138,22 @@ Short ld: 38a7c6258acb127a
 
 &lt;p&gt;检查是否可以访问&lt;a href=&#34;http://chatgpt.com&#34; target=&#34;_blank&#34;&gt;GPT&lt;/a&gt;&lt;/p&gt;
 
+&lt;pre&gt;&lt;code&gt;cmd:\&amp;gt;reg query &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v AutoConfigURL
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    AutoConfigURL    REG_SZ    http://127.0.0.1:10811/pac?t=639295008307939569
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;ul&gt;
-&lt;li&gt;打开TUN&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Set system proxy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cmd:\&amp;gt;reg query &amp;quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&amp;quot; /v ProxyServer
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+ProxyServer    REG_SZ    127.0.0.1:10808
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;打开TUN&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;检查是否可以访问&lt;a href=&#34;http://chatgpt.com&#34; target=&#34;_blank&#34;&gt;GPT&lt;/a&gt;&lt;/p&gt;

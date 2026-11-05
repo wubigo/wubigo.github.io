@@ -424,7 +424,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -629,8 +629,22 @@ Short ld: 38a7c6258acb127a
 
 <p>检查是否可以访问<a href="http://chatgpt.com" target="_blank">GPT</a></p>
 
+<pre><code>cmd:\&gt;reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v AutoConfigURL
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    AutoConfigURL    REG_SZ    http://127.0.0.1:10811/pac?t=639295008307939569
+</code></pre>
+
 <ul>
-<li>打开TUN</li>
+<li><p>Set system proxy</p>
+
+<pre><code>cmd:\&gt;reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot; /v ProxyServer
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+ProxyServer    REG_SZ    127.0.0.1:10808
+</code></pre></li>
+
+<li><p>打开TUN</p></li>
 </ul>
 
 <p>检查是否可以访问<a href="http://chatgpt.com" target="_blank">GPT</a></p>
