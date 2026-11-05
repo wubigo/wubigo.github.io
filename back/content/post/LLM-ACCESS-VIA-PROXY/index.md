@@ -157,6 +157,8 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
 
 - Set system proxy
 
+检查是否可以访问[GPT](http://chatgpt.com)
+
 ```
 cmd:\>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer
 
