@@ -148,6 +148,22 @@ Short ld: 38a7c6258acb127a
 
 检查是否可以访问[GPT](http://chatgpt.com)
 
+```
+cmd:\>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v AutoConfigURL
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    AutoConfigURL    REG_SZ    http://127.0.0.1:10811/pac?t=639295008307939569
+```
+
+- Set system proxy
+
+```
+cmd:\>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    ProxyServer    REG_SZ    127.0.0.1:10808
+```
+
 - 打开TUN
 
 检查是否可以访问[GPT](http://chatgpt.com)
