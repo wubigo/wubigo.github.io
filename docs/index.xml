@@ -347,6 +347,9 @@ print(response.choices[0].message.content)
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+-- work path
+config.default_cwd = &amp;quot;c:\\code&amp;quot;
+
 -- Font (install a Nerd Font first)
 config.font = wezterm.font(&amp;quot;JetBrains Mono&amp;quot;)
 config.font_size = 14
