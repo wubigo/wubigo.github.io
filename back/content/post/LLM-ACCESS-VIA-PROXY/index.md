@@ -46,6 +46,20 @@ $openssl rand -hex 8
 0123456789abcdef
 ```
 
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install neovim -y
+sudo su 
+bash <(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh) install
+xray --version
+xray uuid
+xray x25519
+openssl rand -hex 8
+nvim /usr/local/etc/xray/config.json
+```
+
+
+
 `/usr/local/etc/xray/config.json`
 
 ```
@@ -93,6 +107,10 @@ $openssl rand -hex 8
   ]
 }
 ```
+
+
+
+
 
 ## 重启服务
 
