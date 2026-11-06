@@ -473,8 +473,7 @@
   <div class="article-style" itemprop="articleBody">
     本文介绍通过代理的方式，即使身在目标服务区域之外，提供访问LLM的入门方案。
 在LLM服务区申请vps搭建代理服务器 在美西申请一台龟壳云服务器(Ubuntu 24.04.4 LTS)
-安装代理服务 $sudo apt update &amp;&amp; sudo apt upgrade -y $bash &lt;(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh) install $xray --version Xray 26.3.27 (Xray, Penetrates Everything.) d2758a0 (go1.26.1 linux/amd64)  配置 $xray uuid f1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c $xray x25519 Private key: yLTMMfcsJJ3Fh4t_Pjf777iDhCYx0-PSmksmKBrpRAI Public key: IGoeCjQm24_wA9M0N3WMVV3ze8NKXb_Yv7CEU_HKMwQ $openssl rand -hex 8 0123456789abcdef  /usr/local/etc/xray/config.json
-{ &quot;log&quot;: { &quot;loglevel&quot;: &quot;warning&quot; }, &quot;inbounds&quot;: [ { &quot;port&quot;: 443, &quot;protocol&quot;: &quot;vless&quot;, &quot;settings&quot;: { &quot;clients&quot;: [ { &quot;id&quot;: &quot;你的UUID&quot;, &quot;flow&quot;: &quot;xtls-rprx-vision&quot; } ], &quot;decryption&quot;: &quot;none&quot; }, &quot;streamSettings&quot;: { &quot;network&quot;: &quot;tcp&quot;, &quot;security&quot;: &quot;reality&quot;, &quot;realitySettings&quot;: { &quot;show&quot;: false, &quot;dest&quot;: &quot;www.
+安装代理服务 $sudo apt update &amp;&amp; sudo apt upgrade -y $bash &lt;(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh) install $xray --version Xray 26.3.27 (Xray, Penetrates Everything.) d2758a0 (go1.26.1 linux/amd64)  配置 $xray uuid f1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c $xray x25519 Private key: yLTMMfcsJJ3Fh4t_Pjf777iDhCYx0-PSmksmKBrpRAI Public key: IGoeCjQm24_wA9M0N3WMVV3ze8NKXb_Yv7CEU_HKMwQ $openssl rand -hex 8 0123456789abcdef  sudo apt update &amp;&amp; sudo apt upgrade -y sudo apt install neovim -y sudo su bash &lt;(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh) install xray --version xray uuid xray x25519 openssl rand -hex 8 nvim /usr/local/etc/xray/config.
   </div>
   
 
