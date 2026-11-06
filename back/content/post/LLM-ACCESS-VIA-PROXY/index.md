@@ -46,6 +46,8 @@ $openssl rand -hex 8
 0123456789abcdef
 ```
 
+完整的配置脚本
+
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install neovim -y
