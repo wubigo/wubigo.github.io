@@ -423,6 +423,96 @@
 
 
 
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2018-11-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Nov 8, 2018</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/2018-11-08-buildtensorflow-1-12/">
+      <img src="/post/2018-11-08-buildtensorflow-1-12/featured_hud54c9ec4a911da88f2221e2dd09a79e0_4159_918x517_fill_q90_lanczos_smart1.jpeg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/2018-11-08-buildtensorflow-1-12/" itemprop="url">build tensorflow 1.12</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    Note:
+ Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs Have to build 1.6 or higher from source to run on older CPU
+ Bazel 0.19.0 doesn&rsquo;t read tools/bazel.rc anymore WARNING: The following rc files are no longer being read, please transfer their contents or import their path into one of the standard rc files: tensorflow-1.12.0/tools/bazel.rc
+$bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --cxxopt=&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot; --sandbox_debug &gt; build.
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-11-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
@@ -2146,89 +2236,6 @@ git clone https://github.com/istio/istio.git cd istio git checkout 1.0.6 -b 1.0.
   <div class="article-style" itemprop="articleBody">
     Container When working with cloud native solutions such as Kubernetes, resources are volatile. Services come and go by design, and that’s fine—as long as the whole system operates in a regular way. Classical monitoring solutions aren’t always able to handle this transience gracefully
 Graphite Graphite has no direct data collection support. Carbon listens passively for data, but in order to enable data collection, you should include solutions like fluentd, statd, collectd, or others in your time series data pipeline.
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="datePublished">
-<meta content="2018-05-10 18:32:22 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>May 10, 2018</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/k8s-external-services/" itemprop="url">K8s External Services</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    Headless services Without POD selectors This creates a service, but it doesn’t know where to send the traffic. This allows you to manually create an Endpoints object that will receive traffic from this service.
-kind: Endpoints apiVersion: v1 metadata: name: mongo subsets: - addresses: - ip: 10.240.0.4 ports: - port: 2701  CNAME records for ExternalName This service does a simple CNAME redirection at the kernel level, so there is very minimal impact on performance.
   </div>
   
 

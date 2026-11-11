@@ -423,6 +423,95 @@
 
 
 
+<meta content="2022-02-26 21:55:15 &#43;0800 CST" itemprop="datePublished">
+<meta content="2022-02-26 21:55:15 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Feb 26, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/openapi-vs-asyncapi/" itemprop="url">OpenAPI vs AsyncAPI</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p><img src="/img/post/multi-runtime.jpg" alt="" /></p>
+
+<p><img src="/img/post/openap-vs-asyncapi-1.png" alt="" /></p>
+
+<p><img src="/img/post/openap-vs-asyncapi-2.png" alt="" /></p>
+
+<p>[1] <a href="https://www.asyncapi.com/docs/getting-started/coming-from-openapi" target="_blank">https://www.asyncapi.com/docs/getting-started/coming-from-openapi</a></p>
+
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2022-02-05 11:40:58 &#43;0800 CST" itemprop="datePublished">
 <meta content="2022-02-05 11:40:58 &#43;0800 CST" itemprop="dateModified">
 
@@ -2077,135 +2166,6 @@ S3 Support in Apache Hadoop Apache Hadoop ships with a connector to S3 called &l
   <div class="article-style" itemprop="articleBody">
     升级YARN npm install -g yarn@1.22.11 &gt; yarn@1.22.11 preinstall C:\local\node-v14.17.5-win-x64\node_modules\yarn &gt; :; (node ./preinstall.js &gt; /dev/null 2&gt;&amp;1 || true) C:\local\node-v14.17.5-win-x64\yarn -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js C:\local\node-v14.17.5-win-x64\yarnpkg -&gt; C:\local\node-v14.17.5-win-x64\node_modules\yarn\bin\yarn.js + yarn@1.22.11 updated 1 package in 0.7s  yarn link /home/ubuntu/.config/yarn/link/matrix-js-sdk
 ubuntu@ip-172-31-44-135:~/.config/yarn/link$ ll total 8 drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 19 09:31 ./ drwxrwxr-x 3 ubuntu ubuntu 4096 Aug 19 07:25 ../ lrwxrwxrwx 1 ubuntu ubuntu 22 Aug 19 09:31 matrix-js-sdk -&gt; ../../../matrix-js-sdk/ lrwxrwxrwx 1 ubuntu ubuntu 25 Aug 19 07:25 matrix-react-sdk -&gt; .
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="datePublished">
-<meta content="2021-08-19 14:53:17 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Aug 19, 2021</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/matrix-web-client-dev-setup/" itemprop="url">Matrix Web Client Dev Setup</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<h1 id="准备环境">准备环境</h1>
-
-<pre><code>node -v
-v14.17.5
-npm install -g yarn@1.22.11
-</code></pre>
-
-<h1 id="链接sdk">链接SDK</h1>
-
-<pre><code>git clone https://github.com/matrix-org/matrix-js-sdk.git
-pushd matrix-js-sdk
-yarn link
-yarn install
-popd
-
-
-git clone https://github.com/matrix-org/matrix-react-sdk.git
-pushd matrix-react-sdk
-yarn link
-yarn link matrix-js-sdk
-yarn install
-popd
-
-
-
-git clone https://github.com/vector-im/element-web.git
-cd element-web
-yarn link matrix-js-sdk
-yarn link matrix-react-sdk
-yarn install
-yarn reskindex
-yarn start
-
-</code></pre>
-
-<h1 id="启动">启动</h1>
-
-<pre><code>cp config.sample.json config.json
-
-curl http://127.0.0.1:8080/
-</code></pre>
-
-<h1 id="登录">登录</h1>
-
-<p>homeserver：<a href="http://192.168.43.16:8008/" target="_blank">http://192.168.43.16:8008/</a></p>
-
   </div>
   
 
