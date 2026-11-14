@@ -294,6 +294,16 @@ aircrack-ng lab_capture-01.cap
 
 `/usr/share/wordlists/rockyou.txt.gz`
 
+```
+aircrack-ng -w rockyo.txt -b bc:8o:ba:f8:qa:bd lab_capture-01.cap
+```
+
+或者
+
+```
+cowpatty -r lab_capture-01.cap -f rockyou.txt -s lab-wubigo
+```
+
 - 使用crunch生成自定义字典
 
 生成长度8位，包含数字和小写字母的所有组合
