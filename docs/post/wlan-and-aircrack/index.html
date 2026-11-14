@@ -815,21 +815,8 @@ hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt
 hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
  
 # 暴力破解（8位纯数字）
-hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
+hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 bc:8o:ba:f8:qa:bd
 </code></pre>
-
-<p>Hashcat没有彩虹表</p>
-
-<ul>
-<li>硬件与存储的代差（核心原因）： 彩虹表是用“海量硬盘空间”换取“CPU计算时间”。在现代，显卡（GPU）的并行算力呈指数级增长，直接实时计算（暴力破解/字典+规则）的速度已经远远超过了从硬盘读取庞大彩虹表的 I/O 速度。</li>
-<li>加盐（Salt）机制的克星： 现代密码和 Wi-Fi 加密都引入了“盐值”。在 WPA/WPA2 中，Wi-Fi 名称（SSID）本身就是盐。因为每个 Wi-Fi 的名称不同，同一密码在不同 Wi-Fi 下的哈希值完全不同，导致通用的彩虹表彻底失效。</li>
-<li>内存开销与规则灵活性： 彩虹表只能针对固定长度和字符集预先生成，文件动辄几十上百 GB。而 Hashcat 通过在 GPU 显存中实时应用 规则（Rules） 和 掩码（Masks），无需占用硬盘空间就能瞬间变化出海量密码组合。</li>
-</ul>
-
-<p>在如今显卡算力过剩的时代，实时计算（Hashcat 模式）已经全面取代了
-预计算彩虹表（CoWPAtty/Ophcrack 模式）。彩虹表现在只在一些非常
-古老、不加盐的哈希（如早期的 Windows LM Hash）或完全没有独立显卡的
-纯 CPU 嵌入式设备上还有留存价值</p>
 
 <p>参数说明</p>
 
@@ -868,6 +855,19 @@ hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
 </tr>
 </tbody>
 </table>
+
+<p>Hashcat没有彩虹表</p>
+
+<ul>
+<li>硬件与存储的代差（核心原因）： 彩虹表是用“海量硬盘空间”换取“CPU计算时间”。在现代，显卡（GPU）的并行算力呈指数级增长，直接实时计算（暴力破解/字典+规则）的速度已经远远超过了从硬盘读取庞大彩虹表的 I/O 速度。</li>
+<li>加盐（Salt）机制的克星： 现代密码和 Wi-Fi 加密都引入了“盐值”。在 WPA/WPA2 中，Wi-Fi 名称（SSID）本身就是盐。因为每个 Wi-Fi 的名称不同，同一密码在不同 Wi-Fi 下的哈希值完全不同，导致通用的彩虹表彻底失效。</li>
+<li>内存开销与规则灵活性： 彩虹表只能针对固定长度和字符集预先生成，文件动辄几十上百 GB。而 Hashcat 通过在 GPU 显存中实时应用 规则（Rules） 和 掩码（Masks），无需占用硬盘空间就能瞬间变化出海量密码组合。</li>
+</ul>
+
+<p>在如今显卡算力过剩的时代，实时计算（Hashcat 模式）已经全面取代了
+预计算彩虹表（CoWPAtty/Ophcrack 模式）。彩虹表现在只在一些非常
+古老、不加盐的哈希（如早期的 Windows LM Hash）或完全没有独立显卡的
+纯 CPU 嵌入式设备上还有留存价值</p>
 
 <h1 id="参考">参考</h1>
 
