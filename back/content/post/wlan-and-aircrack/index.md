@@ -85,6 +85,12 @@ Supported interface modes:
 
 ```
 
+扫描AP列表
+
+```
+nmcli device wifi list
+```
+
 再检查是否支持注入
 
 ```
@@ -94,7 +100,7 @@ sudo aireplay-ng --test wlan0
 
 USB 网卡脱离 NetworkManager
 ```
-$sudo nmcli device set wlan1 managed no
+$sudo nmcli device set wlan0 managed no
 
 $nmcli device status
 DEVICE         TYPE      STATE                   CONNECTION
@@ -173,7 +179,7 @@ sudo airmon-ng start wlan0
 ```
 $sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
 
-
+```
 
 
 
@@ -225,14 +231,18 @@ $nmcli device wifi list
 ## 在自己的 AP 上进行抓包验证
 
 ```
-sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd --channel 6 --write lab_capture wlan1mon
+sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd -c 6 -w lab_capture wlan0mon
 ```
 
 参数说明：
 - bssid：只监听你指定的测试 AP
 - channel：固定到测试 AP 所在频道
 - write lab_capture：将结果保存为 lab_capture-*
-- wlan1mon：Monitor Mode 接口
+- wlan0mon：Monitor Mode 接口
+
+```
+sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c YY:YY:YY:YY:YY:YY wlan0mon
+```
 
 检查抓包文件
 
