@@ -655,14 +655,21 @@ sudo airmon-ng start wlan0
 <ul>
 <li>SSID：XC:F8:YB:F8:AF:BC</li>
 <li>BSSID：lab-bigo</li>
-<li>频道：7</li>
+<li>频道：9</li>
 </ul>
 
 <p>扫描目标 AP上连接的客户端MAC地址</p>
 
-<pre><code>$sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
+<pre><code>$sudo airodump-ng --bssid XC:F8:YB:F8:AF:BC -c 9 wlan0mon
 
 </code></pre>
+
+<p>或者</p>
+
+<pre><code>sudo airodump-ng --essid lab-bigo -c 9 wlan0mon
+</code></pre>
+
+<p>显示出目标AP已连接的所有客户MAC地址列表</p>
 
 <pre><code>c:\&gt;netsh wlan show interfaces
 
@@ -718,11 +725,11 @@ sudo airmon-ng start wlan0
 <p>Beacon 帧，主要包括：</p>
 
 <ul>
-<li>• ESSID：Wi-Fi 名称（SSID）。</li>
-<li>• BSSID：AP 的 MAC 地址。</li>
-<li>• PWR（Power）：信号强度。</li>
-<li>• Beacons：在监测期间帧累计数量。数值越大，AP 距离越近、开机时间越长，或者信号越稳定。</li>
-<li>• ENC / CIPHER / AUTH：加密类型（如 WPA2、CCMP、PSK 等）</li>
+<li>ESSID：Wi-Fi 名称（SSID）。</li>
+<li>BSSID：AP 的 MAC 地址。</li>
+<li>PWR（Power）：信号强度。</li>
+<li>Beacons：在监测期间帧累计数量。数值越大，AP 距离越近、开机时间越长，或者信号越稳定。</li>
+<li>ENC / CIPHER / AUTH：加密类型（如 WPA2、CCMP、PSK 等）</li>
 </ul>
 
 <h2 id="在自己的-ap-上进行抓包验证">在自己的 AP 上进行抓包验证</h2>
@@ -736,12 +743,13 @@ sudo airmon-ng start wlan0
 <li>bssid：只监听你指定的测试 AP</li>
 <li>channel：固定到测试 AP 所在频道</li>
 <li>write lab_capture：将结果保存为 lab_capture-*</li>
-
-<li><p>wlan0mon：Monitor Mode 接口</p>
-
-<pre><code>sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c YY:YY:YY:YY:YY:YY wlan0mon
-</code></pre></li>
+<li>wlan0mon：Monitor Mode 接口</li>
 </ul>
+
+<p>主动抓包</p>
+
+<pre><code>sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c ap-connected-client-macAddr wlan0mon
+</code></pre>
 
 <p>检查抓包文件</p>
 
