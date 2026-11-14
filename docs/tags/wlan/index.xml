@@ -19,8 +19,7 @@
       <guid>https://wubigo.com/post/wlan-and-aircrack/</guid>
       <description>准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如： - Atheros AR9271 - MediaTek MT7612U - MediaTek MT7601U
 并将 USB 无线网卡连接到虚拟机
-安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $sudo iw list Supported interface modes: * managed * monitor  再检查是否支持注入
-sudo aireplay-ng --test wlan1  USB 网卡脱离 NetworkManager</description>
+安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7.</description>
     </item>
     
   </channel>
