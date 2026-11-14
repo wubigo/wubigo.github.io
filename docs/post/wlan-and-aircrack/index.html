@@ -28,8 +28,8 @@
   
     
   
-  <meta name="description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如： - Atheros AR9271 - MediaTek MT7612U - MediaTek MT7601U
-并将 USB 无线网卡连接到虚拟机
+  <meta name="description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如：
+ Atheros AR9271 MediaTek MT7612U MediaTek MT7601U  并将 USB 无线网卡连接到虚拟机
 安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7.">
 
   
@@ -139,8 +139,8 @@
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/wlan-and-aircrack/">
   <meta property="og:title" content="Wlan and Aircrack | wubigo">
-  <meta property="og:description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如： - Atheros AR9271 - MediaTek MT7612U - MediaTek MT7601U
-并将 USB 无线网卡连接到虚拟机
+  <meta property="og:description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如：
+ Atheros AR9271 MediaTek MT7612U MediaTek MT7601U  并将 USB 无线网卡连接到虚拟机
 安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -513,10 +513,13 @@
 <li>支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡</li>
 </ul>
 
-<p>建议使用有较成熟 Linux 支持的网卡，例如：
-- Atheros AR9271
-- MediaTek MT7612U
-- MediaTek MT7601U</p>
+<p>建议使用有较成熟 Linux 支持的网卡，例如：</p>
+
+<ul>
+<li>Atheros AR9271</li>
+<li>MediaTek MT7612U</li>
+<li>MediaTek MT7601U</li>
+</ul>
 
 <p>并将 USB 无线网卡连接到虚拟机</p>
 
@@ -647,10 +650,13 @@ sudo airmon-ng start wlan0
 
 </code></pre>
 
-<p>记录：
-- SSID：XC:F8:YB:F8:AF:BC
-- BSSID：lab-bigo
-- 频道：7</p>
+<p>记录：</p>
+
+<ul>
+<li>SSID：XC:F8:YB:F8:AF:BC</li>
+<li>BSSID：lab-bigo</li>
+<li>频道：7</li>
+</ul>
 
 <p>扫描目标 AP上连接的客户端MAC地址</p>
 
