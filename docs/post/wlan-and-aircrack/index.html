@@ -138,7 +138,7 @@
   
   <meta property="og:site_name" content="wubigo">
   <meta property="og:url" content="https://wubigo.com/post/wlan-and-aircrack/">
-  <meta property="og:title" content="Wlan and Aircrack | wubigo">
+  <meta property="og:title" content="WIFI and Aircrack | wubigo">
   <meta property="og:description" content="准备条件  VMware Workstation支持 USB 直通的虚拟机软件 Kali Linux 虚拟机 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡  建议使用有较成熟 Linux 支持的网卡，例如：
  Atheros AR9271 MediaTek MT7612U MediaTek MT7601U  并将 USB 无线网卡连接到虚拟机
 安装 sudo apt update sudo apt install -y aircrack-ng iw rfkill usbutils pciutils  确认网卡支持 Monitor Mode $lsusb Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter  $sudo iw list Supported interface modes: * managed * monitor $sudo ethtool -i wlan0 driver: mt76x2u version: 7."><meta property="og:image" content="https://wubigo.com/img/icon-192.png">
@@ -153,7 +153,7 @@
 
   
 
-  <title>Wlan and Aircrack | wubigo</title>
+  <title>WIFI and Aircrack | wubigo</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -390,7 +390,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Wlan and Aircrack</h1>
+  <h1 itemprop="name">WIFI and Aircrack</h1>
 
   
 
@@ -437,7 +437,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Wlan%20and%20Aircrack&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f"
+         href="https://twitter.com/intent/tweet?text=WIFI%20and%20Aircrack&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -451,21 +451,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f&amp;title=Wlan%20and%20Aircrack"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f&amp;title=WIFI%20and%20Aircrack"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f&amp;title=Wlan%20and%20Aircrack"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f&amp;title=WIFI%20and%20Aircrack"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Wlan%20and%20Aircrack&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f">
+         href="mailto:?subject=WIFI%20and%20Aircrack&amp;body=https%3a%2f%2fwubigo.com%2fpost%2fwlan-and-aircrack%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -671,7 +671,20 @@ sudo airmon-ng start wlan0
 
 <p>显示出目标AP已连接的所有客户MAC地址列表</p>
 
-<pre><code>c:\&gt;netsh wlan show interfaces
+<pre><code>c:\&gt;netsh wlan show networks mode=bssid
+
+SSID 1 : lab-bigo
+    Network type            : 结构
+    身份验证                : WPA2 - 个人
+    加密                    : CCMP
+    BSSID 1               : XC:F8:YB:F8:AF:BC
+         信号               : 67%
+         无线电类型         : 802.11ax
+         频道               : 48
+         基本速率(Mbps)     : 6 12 24
+         其他速率(Mbps)     : 9 18 36 48 54
+
+c:\&gt;netsh wlan show interfaces
 
 系统上有 1 个接口:
 
@@ -880,7 +893,7 @@ hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 bc:8o:ba:f8:qa:bd
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/wlan/">WLAN</a>
+  <a class="badge badge-light" href="/tags/wifi/">WIFI</a>
   
 </div>
 
