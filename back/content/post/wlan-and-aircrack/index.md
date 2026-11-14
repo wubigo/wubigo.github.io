@@ -230,6 +230,28 @@ $nmcli device wifi list
 
 ```
 
+查看AP厂商
+
+```
+$sudo airodump-ng --manufacturer wlan0mon
+```
+
+## Beacon（信标帧）
+
+Beacon 是 Wi-Fi 网络中一种周期性广播的管理帧。AP 会以每秒约 10 次（默认间隔约 100 毫秒）
+的频率向周围主动发送 Beacon 帧，用来宣示自己的存在.
+
+Beacon 帧，主要包括：
+
+- • ESSID：Wi-Fi 名称（SSID）。
+- • BSSID：AP 的 MAC 地址。
+- • PWR（Power）：信号强度。
+- • Beacons：在监测期间帧累计数量。数值越大，AP 距离越近、开机时间越长，或者信号越稳定。
+- • ENC / CIPHER / AUTH：加密类型（如 WPA2、CCMP、PSK 等）
+
+
+
+
 ## 在自己的 AP 上进行抓包验证
 
 ```
@@ -237,6 +259,7 @@ sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd -c 6 -w lab_capture wlan0mon
 ```
 
 参数说明：
+
 - bssid：只监听你指定的测试 AP
 - channel：固定到测试 AP 所在频道
 - write lab_capture：将结果保存为 lab_capture-*
