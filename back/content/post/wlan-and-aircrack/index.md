@@ -45,32 +45,136 @@ sudo apt install -y aircrack-ng iw rfkill usbutils pciutils
 ## 确认网卡支持 Monitor Mode
 
 ```
+$lsusb
+Bus 004 Device 002: ID 0e8d:7612 MediaTek Inc. MT7612U 802.11a/b/g/n/ac Wireless Adapter
+```
+
+```
 $sudo iw list
    Supported interface modes:
         * managed
         * monitor
+
+
+
+
+$sudo ethtool -i wlan0
+driver: mt76x2u
+version: 7.1.5+kali-amd64
+firmware-version: 0.0.00-b1
+expansion-rom-version:
+bus-info: 2-1:1.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: no
+
+
+
+$sudo iw list
+Supported interface modes:
+                 * IBSS
+                 * managed
+                 * AP
+                 * AP/VLAN
+                 * monitor
+                 * mesh point
+                 * P2P-client
+                 * P2P-GO
 
 ```
 
 再检查是否支持注入
 
 ```
-sudo aireplay-ng --test wlan1
+sudo aireplay-ng --test wlan0
 
 ```
 
 USB 网卡脱离 NetworkManager
 ```
-sudo nmcli device set wlan1 managed no
+$sudo nmcli device set wlan1 managed no
+
+$nmcli device status
+DEVICE         TYPE      STATE                   CONNECTION
+eth0           ethernet  connected               Wired connection 1
+lo             loopback  connected (externally)  lo
+p2p-dev-wlan0  wifi-p2p  unavailable             --
+wlan0          wifi      unmanaged               --
 ```
 
 启用 Monitor Mode
 
 ```
-sudo airmon-ng start wlan1
+$sudo airmon-ng start wlan0
+
+PHY     Interface       Driver          Chipset
+
+phy1    wlan0           mt76x2u         MediaTek Inc. MT7612U 802.11a/b/g/n/ac
+                (mac80211 monitor mode vif enabled for [phy1]wlan0 on [phy1]wlan0mon)
+                (mac80211 station mode vif disabled for [phy1]wlan0)
+
+
+
+$iw dev
+phy#1
+        Interface wlan0mon
+                ifindex 5
+                wdev 0x100000002
+                addr 90:de:80:4e:37:d5
+                type monitor
+                channel 10 (2457 MHz), width: 20 MHz (no HT), center1: 2457 MHz
+                txpower 20.00 dBm
+
 ```
 
-## 网卡设置
+手动设置频道：
+```
+sudo iw dev wlan0mon set channel 6
+```
+
+## 扫描AP列表
+
+关闭监控模式
+```
+$sudo airmon-ng stop wlan0mon
+$sudo nmcli device set wlan0 managed yes
+
+
+$nmcli device wifi list
+
+IN-USE  BSSID              SSID           MODE   BAND     CHAN  RATE         SIGNAL  BARS  SECURITY
+        XC:F8:YB:F8:AF:BC  lab-bigo      Infra  2.4 GHz  7    1170 Mbit/s  100     ▂▄▆█  WPA2
+        C0:51:5C:91:F4:9A  lab-wu        Infra  2.4 GHz  8     1170 Mbit/s  69      ▂▄▆_  WPA1 WPA2
+        CY:51:5C:B1:F4:9A  --             Infra  2.4 GHz  8     1170 Mbit/s  67      ▂▄▆_  WPA1 WPA2
+        V0:76:C2:BE:3B:D2  midea_e2_0369  Infra  2.4 GHz  1     54 Mbit/s    65      ▂▄▆_  --
+        PC:DC:02:22:B3:78  CU_NAHt        Infra  2.4 GHz  9     130 Mbit/s   57      ▂▄▆_  WPA1 WPA2
+
+
+```
+
+然后重新启用 Monitor Mode：
+
+```
+sudo nmcli device set wlan0 managed no
+sudo airmon-ng start wlan0
+
+```
+
+记录：
+- SSID：XC:F8:YB:F8:AF:BC
+- BSSID：lab-bigo
+- 频道：7
+
+
+扫描目标 AP上连接的客户端MAC地址
+
+```
+$sudo airodump-ng --bssid PC:DC:02:22:B3:78 -c 9 wlan0mon
+
+
+
 
 
 ```
