@@ -27,6 +27,7 @@ categories = []
 - 支持 Linux 驱动、Monitor Mode 和 Packet Injection 的 USB 无线网卡
 
 建议使用有较成熟 Linux 支持的网卡，例如：
+
 - Atheros AR9271
 - MediaTek MT7612U
 - MediaTek MT7601U
@@ -169,6 +170,7 @@ sudo airmon-ng start wlan0
 ```
 
 记录：
+
 - SSID：XC:F8:YB:F8:AF:BC
 - BSSID：lab-bigo
 - 频道：7
