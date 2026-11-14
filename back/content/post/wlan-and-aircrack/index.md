@@ -1,11 +1,11 @@
 +++
-title = "Wlan and Aircrack"
+title = "WIFI and Aircrack"
 date = 2023-11-11T20:01:49+08:00
 draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["WLAN"]
+tags = ["WIFI"]
 categories = []
 
 # Featured image
@@ -193,6 +193,19 @@ sudo airodump-ng --essid lab-bigo -c 9 wlan0mon
 
 
 ```
+c:\>netsh wlan show networks mode=bssid
+
+SSID 1 : lab-bigo
+    Network type            : 结构
+    身份验证                : WPA2 - 个人
+    加密                    : CCMP
+    BSSID 1               : XC:F8:YB:F8:AF:BC
+         信号               : 67%
+         无线电类型         : 802.11ax
+         频道               : 48
+         基本速率(Mbps)     : 6 12 24
+         其他速率(Mbps)     : 9 18 36 48 54
+
 c:\>netsh wlan show interfaces
 
 系统上有 1 个接口:
