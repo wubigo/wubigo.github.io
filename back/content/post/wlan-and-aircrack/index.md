@@ -341,6 +341,8 @@ $crunch 8 8 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b bc:8o:ba:
 ```
 # 方法1：使用aircrack-ng内置转换
 aircrack-ng wpa2-crack-01.cap -J wpa2-hashcat
+
+apt install hcxtools
  
 # 方法2：使用hccapx工具
 cap2hccapx wpa2-crack-01.cap wpa2-hccapx.hccapx
@@ -359,7 +361,10 @@ hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt
 hashcat -m 22000 -a 0 wpa2-hashcat.hc22000 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
  
 # 暴力破解（8位纯数字）
-hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 bc:8o:ba:f8:qa:bd
+hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?d?d?d?d?d?d?d?d
+
+# 暴力破解（8位纯小写字母）
+hashcat -m 22000 -a 3 wpa2-hashcat.hc22000 ?l?l?l?l?l?l?l?l
 ```
 
 
