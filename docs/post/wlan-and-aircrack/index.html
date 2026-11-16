@@ -660,6 +660,14 @@ sudo airmon-ng start wlan0
 
 <p>扫描目标 AP上连接的客户端MAC地址</p>
 
+<p>在使用 aircrack-ng 套件（如 airodump-ng）抓包时，抓取到的
+iOS 客户端 MAC 地址与手机“关于本机”里显示的不一致，核心原因在于
+iOS 系统的“私有无线局域网地址”（MAC 地址随机化）功能默认开启.
+从 iOS 14 开始，系统在连接 Wi-Fi 时默认启用“私有无线局域网地址”
+（iOS 18 及以上版本提供了“关闭”、“固定”和“轮换”三个选项）。
+该功能会针对当前连接的特定路由器（SSID）生成一个随机的 MAC 地址.
+把“私有无线局域网地址”功能从默认的轮换设置关闭即可。</p>
+
 <pre><code>$sudo airodump-ng --bssid XC:F8:YB:F8:AF:BC -c 9 wlan0mon
 
 </code></pre>
