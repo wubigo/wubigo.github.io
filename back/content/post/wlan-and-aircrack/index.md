@@ -200,6 +200,16 @@ sudo airodump-ng --essid lab-bigo -c 9 wlan0mon
 
 显示出目标AP已连接的所有客户MAC地址列表
 
+在 airodump-ng 的下半部分客户端列表中，Notes（或 Note）列显示为
+EAPOL，表示该客户端正在与目标 AP 进行 WPA/WPA2/WPA3 身份验证交互
+（即捕获到了 EAPOL 握手包帧）。
+
+核心含义解析
+
+- 协议作用。 EAPOL（Extensible Authentication Protocol over LAN）是局域网扩展认证协议，专门用于在客户端与路由器（AP）之间传递无线加密密钥协商数据。
+- 触发时机。 只有当设备刚连接 Wi-Fi、断开重连，或被发送去认证帧（Deauth）强制重连时，才会产生 EAPOL 帧并触发该提示。
+- 实战意义。 这是抓包成功的直接信号，说明嗅探网卡已经截获了用于离线密码审计的关键验证数据。
+
 
 ```
 c:\>netsh wlan show networks mode=bssid
