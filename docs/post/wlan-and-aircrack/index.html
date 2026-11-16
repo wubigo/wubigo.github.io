@@ -679,43 +679,56 @@ iOS 系统的“私有无线局域网地址”（MAC 地址随机化）功能默
 
 <p>显示出目标AP已连接的所有客户MAC地址列表</p>
 
+<p>在 airodump-ng 的下半部分客户端列表中，Notes（或 Note）列显示为
+EAPOL，表示该客户端正在与目标 AP 进行 WPA/WPA2/WPA3 身份验证交互
+（即捕获到了 EAPOL 握手包帧）。</p>
+
+<p>核心含义解析</p>
+
+<ul>
+<li>协议作用。 EAPOL（Extensible Authentication Protocol over LAN）是局域网扩展认证协议，专门用于在客户端与路由器（AP）之间传递无线加密密钥协商数据。</li>
+<li>触发时机。 只有当设备刚连接 Wi-Fi、断开重连，或被发送去认证帧（Deauth）强制重连时，才会产生 EAPOL 帧并触发该提示。</li>
+
+<li><p>实战意义。 这是抓包成功的直接信号，说明嗅探网卡已经截获了用于离线密码审计的关键验证数据。</p>
+
 <pre><code>c:\&gt;netsh wlan show networks mode=bssid
 
 SSID 1 : lab-bigo
-    Network type            : 结构
-    身份验证                : WPA2 - 个人
-    加密                    : CCMP
-    BSSID 1               : XC:F8:YB:F8:AF:BC
-         信号               : 67%
-         无线电类型         : 802.11ax
-         频道               : 48
-         基本速率(Mbps)     : 6 12 24
-         其他速率(Mbps)     : 9 18 36 48 54
+Network type            : 结构
+身份验证                : WPA2 - 个人
+加密                    : CCMP
+BSSID 1               : XC:F8:YB:F8:AF:BC
+     信号               : 67%
+     无线电类型         : 802.11ax
+     频道               : 48
+     基本速率(Mbps)     : 6 12 24
+     其他速率(Mbps)     : 9 18 36 48 54
 
 c:\&gt;netsh wlan show interfaces
 
 系统上有 1 个接口:
 
-    名称                   : WLAN
-    描述                   : Intel(R) Wireless-AC 9260 160MHz
-    GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
-    物理地址               : 7c:2m:7d:4p:87:cc
-    状态                   : 已连接
-    SSID                   : wubigo-5G
-    BSSID                  : bc:8o:ba:f8:qa:bd
-    网络类型               : 结构
-    无线电类型             : 802.11ac
-    身份验证               : WPA2 - 个人
-    密码                   : CCMP
-    连接模式               : 配置文件
-    信道                   : 48
-    接收速率(Mbps)         : 1733.3
-    传输速率 (Mbps)        : 1733.3
-    信号                   : 85%
-    配置文件               : wubigo-5G
+名称                   : WLAN
+描述                   : Intel(R) Wireless-AC 9260 160MHz
+GUID                   : c0d229o0-e3a4-4677-8dfd-1x365b456392
+物理地址               : 7c:2m:7d:4p:87:cc
+状态                   : 已连接
+SSID                   : wubigo-5G
+BSSID                  : bc:8o:ba:f8:qa:bd
+网络类型               : 结构
+无线电类型             : 802.11ac
+身份验证               : WPA2 - 个人
+密码                   : CCMP
+连接模式               : 配置文件
+信道                   : 48
+接收速率(Mbps)         : 1733.3
+传输速率 (Mbps)        : 1733.3
+信号                   : 85%
+配置文件               : wubigo-5G
 
-    承载网络状态  : 不可用
-</code></pre>
+承载网络状态  : 不可用
+</code></pre></li>
+</ul>
 
 <h2 id="建立一个安全的测试-ap">建立一个安全的测试 AP</h2>
 
